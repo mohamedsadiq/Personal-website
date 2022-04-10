@@ -9,7 +9,14 @@ const Header = ({header}) => {
   // Router hook
   const router = useRouter();
   // Router hook
-
+  const header_hex = {
+    initial: {
+      width: "118px"
+    },
+    hover: {
+      width: "650px"
+    }
+  }
   const iconSvg = {
     initial: {
       rotate: "0deg",
@@ -37,9 +44,10 @@ const Header = ({header}) => {
   }
     return (
       <motion.div
-        className="header_animete"
-        animate={{ opacity: 1}}
-        transition={{ duration: 0.5,  delay: 0.7, ease:"easeInOut"  }}
+        // className="header_animete"
+        // animate={{ opacity: 1}}
+        variants={header_hex}
+        // transition={{ duration: 0.5,  delay: 0.7, ease:"easeInOut"  }}
       >
         <header  className={router.pathname == "/" ? "center_header" : "top_fixed"}>
         <div className='inner_header'>
@@ -47,11 +55,14 @@ const Header = ({header}) => {
 
         <motion.div initial="initial" whileHover="hover">
           <div  className={router.pathname == "/" ? "active icon_container" : "icon_container"}  onClick={play}>
-          <div className="icons">
+          <div className="icons" id="home_icon">
           <div className="text" >
             Home
           </div>
-              <motion.div variants={iconSvg} className="glow">
+          <div className='hex center'>
+
+          </div>
+              {/* <motion.div variants={iconSvg} className="glow">
                 <svg id="homeIcon" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3.29442 22.4449C1.75167 19.586 0.980302 18.1566 0.769474 16.6275C0.66278 15.8537 0.66278 15.0688 0.769474 14.295C0.980302 12.7658 1.75167 11.3364 3.29442 8.47761L3.6773 7.7681C4.99519 5.32595 5.65414 4.10488 6.58443 3.19745C7.53987 2.26549 8.70063 1.57198 9.9729 1.17298C11.2117 0.784485 12.5965 0.784485 15.3662 0.784485C18.1359 0.784485 19.5207 0.784485 20.7595 1.17298C22.0318 1.57198 23.1925 2.26549 24.148 3.19745C25.0783 4.10488 25.7372 5.32595 27.0551 7.76811L27.438 8.47762C28.9807 11.3364 29.7521 12.7658 29.9629 14.295C30.0696 15.0688 30.0696 15.8537 29.9629 16.6275C29.7521 18.1566 28.9807 19.586 27.438 22.4449L27.0551 23.1544C25.7372 25.5965 25.0783 26.8176 24.148 27.725C23.1925 28.657 22.0318 29.3505 20.7595 29.7495C19.5207 30.138 18.1359 30.138 15.3662 30.138C12.5965 30.138 11.2117 30.138 9.9729 29.7495C8.70063 29.3505 7.53987 28.657 6.58443 27.725C5.65414 26.8176 4.99519 25.5965 3.6773 23.1544L3.29442 22.4449Z" fill="url(#paint0_linear_231_3060)"/>
                     <defs>
@@ -61,7 +72,7 @@ const Header = ({header}) => {
                     </linearGradient>
                     </defs>
                 </svg>
-                </motion.div>
+                </motion.div> */}
             </div>
             <div className="dot_active"></div>
           </div>
