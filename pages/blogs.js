@@ -14,7 +14,7 @@ const Blogs = () => {
             <div className="inner_container">
                 <h1>Blog</h1>
                 <p>Here where I write what I find interesting and useful.</p>
-                <BlogContent />
+                <BlogContent link1={"blog/blog1"} link2={"blog/blog2"} link3={"blog/blog3"}/>
             </div>
             </div>
         </main>

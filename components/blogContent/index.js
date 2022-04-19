@@ -6,12 +6,44 @@ import img4 from "../../img/blog/4.png"
 import img5 from "../../img/blog/5.png"
 import img6 from "../../img/blog/6.png"
 import img7 from "../../img/blog/7.jpg"
-
-const BlogContent = () =>{
+import Link from 'next/link';
+const BlogContent = ({link1, link2, link3}) =>{
+    const data =[
+        {
+            title:"Title",
+            img:img1,
+            description:"The fun, simple, & secure way to explore Web3, NFTs, & Ethereum.",
+            tags:"tags",
+            link:link1
+        },
+       
+        {
+            title:"Title",
+            img:img3,
+            description:"The fun, simple, & secure way to explore Web3, NFTs, & Ethereum.",
+            tags:"tags",
+            link:link2
+        },
+      
+        // {
+        //     title:"Title",
+        //     img:img7,
+        //     description:"The fun, simple, & secure way to explore Web3, NFTs, & Ethereum.",
+        //     tags:"tags"
+        // },
+        {
+            title:"Title",
+            img:img6,
+            description:"The fun, simple, & secure way to explore Web3, NFTs, & Ethereum.",
+            tags:"tags",
+            link:link3
+        }
+    ]
     return (
         <div className="blog_intro">
             {data.map(item => {
               return (
+                  <Link  href={item.link}>
                   <div className="block">
                         <div className="blog_photo">
                             <div className='overlay_img'></div>
@@ -32,6 +64,7 @@ const BlogContent = () =>{
                       </div> 
                     
                   </div>
+                  </Link>
               )
           })}
          
@@ -40,32 +73,3 @@ const BlogContent = () =>{
 }
 
 export default BlogContent
-
-const data =[
-    {
-        title:"Title",
-        img:img1,
-        description:"The fun, simple, & secure way to explore Web3, NFTs, & Ethereum.",
-        tags:"tags"
-    },
-   
-    {
-        title:"Title",
-        img:img3,
-        description:"The fun, simple, & secure way to explore Web3, NFTs, & Ethereum.",
-        tags:"tags"
-    },
-  
-    {
-        title:"Title",
-        img:img7,
-        description:"The fun, simple, & secure way to explore Web3, NFTs, & Ethereum.",
-        tags:"tags"
-    },
-    {
-        title:"Title",
-        img:img6,
-        description:"The fun, simple, & secure way to explore Web3, NFTs, & Ethereum.",
-        tags:"tags"
-    }
-]

@@ -7,7 +7,7 @@ const Content = () => {
             animate={{ opacity: 1, top:73 }}
             transition={{ 
             duration: 0.5,
-            delay: 1.2,
+            delay:1,
             ease:"easeOut"
             }}
           >
