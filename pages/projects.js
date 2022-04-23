@@ -202,7 +202,7 @@ const data = [
 const playground = [
 
 {
-  name:"Apple Watch",
+  name:"Apple Watch 1",
   img:weatherapp,
   description:"description",
   tags:"Apple Watch",
@@ -213,7 +213,7 @@ const playground = [
 
  
   {
-      name:"Apple Watch",
+      name:"Apple Watch 2",
       img:applewatch,
       description:"description",
       tags:"Apple Watch",
