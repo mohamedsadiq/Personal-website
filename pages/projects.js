@@ -180,14 +180,14 @@ const data = [
     link:"/projects/westworldwatch"
 },
 {
-  name:"One-Yellow",
+  name:"One-Yellow 1",
   img:nasir,
   description:"description",
   tags:"CSS, Js, Atom",
   link:"https://github.com/mohamedsadiq/one-yellow-syntax"
   }, 
   {
-    name:"One-Yellow",
+    name:"One-Yellow 2",
     img:vscode,
     description:"description",
     tags:"CSS, Js, Atom",
