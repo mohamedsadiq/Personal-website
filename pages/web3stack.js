@@ -19,10 +19,10 @@ import Forefront from "../img/daos/Elligbfgbfgpse 4.png"
 import Syndicate from "../img/daos/Ellipse fgsdgs4.png"
 
 // images tools
-import ValueApp from "../img/Tools/bc326de2-ce60-4102-9be1-ba654f4d8ad1.jpeg"
-import Raritysniper from "../img/Tools/favicon.png"
-import Snapshot from "../img/Tools/Group 122.png"
-import Guild from "../img/Tools/L8tmHbzm_400x400.jpg"
+import ValueApp from "../img/tools/value.jpeg"
+import Raritysniper from "../img/tools/favicon.png"
+import Snapshot from "../img/tools/Group 122.png"
+import Guild from "../img/tools/L8tmHbzm_400x400.jpg"
 
 
 export default function web3stack() {
