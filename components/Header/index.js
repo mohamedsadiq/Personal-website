@@ -111,7 +111,7 @@ const Header = () => {
       >
      
         <div className='inner_header'>
-        <Link href="/" activeClassName="active">
+        <Link href="/" activeClassName="active" passHref >
 
         <motion.div onClick={ () => home_content()} className={opacityContent} initial="initial" whileHover="hover">
           <div  className={router.pathname == "/" ? "active icon_container" : "icon_container"}  onClick={play}>
@@ -256,7 +256,7 @@ const Header = () => {
           </div>
           </motion.div>
           </Link>
-          <Link href="/projects" >
+          <Link href="/projects" passHref >
           <motion.div
             className="icon_holder"
             initial="initial"
@@ -282,7 +282,7 @@ const Header = () => {
           </div>
           </motion.div>
           </Link>
-          <Link href="/web3stack">
+          <Link href="/web3stack" passHref >
           <motion.div
            className="icon_holder"
            initial="initial"
@@ -316,7 +316,7 @@ const Header = () => {
           </div>
           </motion.div>
           </Link>
-          <Link href={"/blogs"}>
+          <Link href={"/blogs"} passHref >
           <motion.div 
              className="icon_holder"
              initial="initial"

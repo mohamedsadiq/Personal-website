@@ -43,7 +43,7 @@ const BlogContent = ({link1, link2, link3}) =>{
         <div className="blog_intro">
             {data.map(item => {
               return (
-                  <Link  href={item.link}>
+                  <Link  href={item.link} passHref>
                   <div className="block">
                         <div className="blog_photo">
                             <div className='overlay_img'></div>

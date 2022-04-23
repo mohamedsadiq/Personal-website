@@ -46,7 +46,7 @@ export default function web3stack() {
            
           {wallet.map(item => {
               return (
-                  <div className="block">
+                  <div key={item.name} className="block">
                       <div className="top_block">
                         <div className="logo_stack">
                         <Image

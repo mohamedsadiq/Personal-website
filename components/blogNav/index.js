@@ -4,7 +4,7 @@ import Link from 'next/link';
     return    (
         <>
               <nav className="blog_nav">
-                  <Link href="/">
+                  <Link href="/" passHref>
                   <div className="nav_blog_item nav_item">Home</div>
                   </Link>
                    <span className="nav_blog_item">
@@ -12,7 +12,7 @@ import Link from 'next/link';
                         <path d="M1 0.833008L5 4.49967L1 8.16634" stroke="#848484" strokewidth="1.33333"/>
                         </svg>
                    </span >
-                   <Link href="/blogs">
+                   <Link href="/blogs" passHref>
                         <div className="nav_blog_item nav_item">Blog</div>
                    </Link>
                    <span className="nav_blog_item">
