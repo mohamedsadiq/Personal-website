@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Footer from '../../components/Footer'
-import BlogNav from '../../components/BlogNav/index.js'
+
 import img6 from '../../img/blog/3.png'
  const Blog2  = () => {
     return    (
@@ -13,7 +13,7 @@ import img6 from '../../img/blog/3.png'
         </Head>
         <div className='container'>
           <div className='inner_container'>
-          <BlogNav />
+      
           <div className='blog_photo inner_blog'>
                 <Image
                     src={img6}
