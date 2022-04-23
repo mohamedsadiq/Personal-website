@@ -75,7 +75,7 @@ export default function web3stack() {
           <div className="inner_stack">
           {Daos.map(item => {
               return (
-                  <div  className="block">
+                  <div key={item.name} className="block">
                        <div className="top_block">
                         <div className="logo_stack">
                         <Image
@@ -104,7 +104,7 @@ export default function web3stack() {
           <div className="inner_stack">
           {Tools.map(item => {
               return (
-                  <div  className="block">
+                  <div   key={item.name}className="block">
                        <div className="top_block">
                         <div className="logo_stack">
                         <Image
