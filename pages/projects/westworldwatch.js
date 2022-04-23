@@ -16,7 +16,7 @@ const DeveloperDAO = () => {
         <main>
         <div className="container">
             <div className="inner_container">
-                <BlogNav />
+           
                 <WorkIntro title={"DeveloperDao"} link={"/projects/developerdao"}/>
                 <div className="blog_photo inner_blog work_intro_image">
                 <Image
