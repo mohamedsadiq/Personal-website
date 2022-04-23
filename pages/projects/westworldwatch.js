@@ -2,7 +2,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../../styles/Home.module.css'
-import BlogNav from '../../components/BlogNav/index.js'
 import WorkIntro from '../../components/WorkIntro'
 import imgWork from "../../img/developerdao.png"
 
