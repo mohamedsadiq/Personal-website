@@ -46,7 +46,7 @@ export default function Projects() {
          
           <div className="grid">
          
-                <Link href="">
+                <Link key={"dao"} href="">
                 <div className="blocks" onClick={play}>
                   <div className='ovo developerdao_vid'>
                     <video loop autoPlay muted >
@@ -63,7 +63,7 @@ export default function Projects() {
                 </Link>
             {data.map(item => {
               return (
-                <Link href={item.link}>
+                <Link key={item.name} href={item.link}>
                 <div className="blocks" onClick={play}>
                   <Image
                     src={item.img}
@@ -71,7 +71,6 @@ export default function Projects() {
                     objectFit='cover'
                     layout='fill'
                     objectPosition="center"
-                    // placeholder="blur"
                     quality={100}
                 />
 
@@ -84,7 +83,7 @@ export default function Projects() {
                 </Link>
                )
             })}
-             <Link href="">
+             <Link key={"ovo"} href="">
                 <div className="blocks" onClick={play}>
                   <div className='ovo'>
                   <Image
@@ -93,7 +92,6 @@ export default function Projects() {
                     objectFit='cover'
                     layout='fill'
                     objectPosition="center"
-                    // placeholder="blur"
                     quality={100}
                 />
                 </div>
@@ -112,7 +110,7 @@ export default function Projects() {
           <div className="grid">
             {playground.map(item => {
               return (
-                <Link href={item.link}>
+                <Link key={item.name}  href={item.link}>
                 <div className="blocks" onClick={play}>
                   <Image
                     src={item.img}
