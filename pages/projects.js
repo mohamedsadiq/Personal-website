@@ -9,7 +9,7 @@ import nftweb3 from "../img/nftweb3.png"
 import web3cons from "../img/loginweb3.png"
 import watchcrypto from "../img/watchcrypto.png"
 import applewatch from "../img/applewatch.png"
-import westworldwatch from "../img/westworldwatch.png"
+import westworldwatch from "../img/d218e12214cee039f32a61690163c91d.jpg"
 import weatherapp from "../img/weatherapp.png"
 import vscode from "../img/vscode.png"
 import cryptocon from "../img/cdcs.png"
@@ -42,7 +42,25 @@ export default function Projects() {
         <div className="inner_container">
           <h1>Projects</h1>
           <p>Projects I built using React, Solidity + Smart Contracts, Next.js, and TypeScript, NFT Minting</p>
+         
+         
           <div className="grid">
+         
+                <Link href="">
+                <div className="blocks" onClick={play}>
+                  <div className='ovo developerdao_vid'>
+                    <video loop autoPlay muted >
+                    <source src="/u5RViMdepqRfkMte.mp4" type="video/mp4"/>
+                  </video>
+                </div>
+
+                <div className="overlay"> 
+                  <h2></h2>
+                  <p></p>
+                  <span></span>
+                </div>
+                </div>
+                </Link>
             {data.map(item => {
               return (
                 <Link href={item.link}>
@@ -66,7 +84,29 @@ export default function Projects() {
                 </Link>
                )
             })}
+             <Link href="">
+                <div className="blocks" onClick={play}>
+                  <div className='ovo'>
+                  <Image
+                    src={"/ovovideo-3b3229df04b9ef2c3d47a36c13a5369c_Trim.gif"}
+                    alt="Picture of the author"
+                    objectFit='cover'
+                    layout='fill'
+                    objectPosition="center"
+                    // placeholder="blur"
+                    quality={100}
+                />
+                </div>
+
+                <div className="overlay"> 
+                  <h2></h2>
+                  <p></p>
+                  <span></span>
+                </div>
+                </div>
+                </Link>
           </div>
+
           <h2>Playground</h2>
           
           <div className="grid">
@@ -105,13 +145,6 @@ export default function Projects() {
 
 const data = [
   {
-      name:"DeveloperDAO",
-      img:developerDao,
-      description:"description",
-      tags:"Product Design, Web3",
-      link:"/projects/developerdao"
-  },
-  {
       name:"DeveloperDAO FM",
       img:developerDaoFm,
       description:"description", 
@@ -127,7 +160,13 @@ const data = [
       link:"/projects/web3boy"
   },
 
- 
+  {
+    name:"GM",
+    img:gm,
+    description:"description",
+    tags:"Concepts",
+    link:"/projects/gm"
+  },
   {
       name:"Web 3 Concepts",
       img:web3cons,
@@ -136,19 +175,29 @@ const data = [
       link:"/projects/web3concepts"
   },
   {
+    name:"West World Watch Face",
+    img:westworldwatch,
+    description:"description",
+    tags:"Apple Watch",
+    link:"/projects/westworldwatch"
+},
+{
+  name:"One-Yellow",
+  img:nasir,
+  description:"description",
+  tags:"CSS, Js, Atom",
+  link:"https://github.com/mohamedsadiq/one-yellow-syntax"
+  }, 
+  {
     name:"One-Yellow",
     img:vscode,
     description:"description",
     tags:"CSS, Js, Atom",
     link:"https://github.com/mohamedsadiq/one-yellow-syntax"
     }, 
-    {
-      name:"GM",
-      img:gm,
-      description:"description",
-      tags:"Concepts",
-      link:"/projects/gm"
-    },
+    
+  
+    
 ]
 
 
@@ -162,21 +211,7 @@ const playground = [
   link:"/projects/applewatchface"
 },
 
-  {
-  name:"Trust Wallet App",
-  img:trustWallet,
-  description:"description",
-  tags:"Concepts",
-  link:"https://www.behance.net/gallery/130411983/Redesigning-the-Trust-Wallet-App"
-  },
-
-  {
-    name:"West World Watch Face",
-    img:westworldwatch,
-    description:"description",
-    tags:"Apple Watch",
-    link:"/projects/westworldwatch"
-},
+ 
 
  
   {
@@ -193,14 +228,15 @@ const playground = [
   tags:"Concepts, Web3",
   link:"/projects/cryptoapp"
 },
-
 {
-  name:"Crypto App",
-  img:ovo,
+  name:"Trust Wallet App",
+  img:trustWallet,
   description:"description",
-  tags:"Concepts, Web3",
-  link:"/projects/cryptoapp"
-},
+  tags:"Concepts",
+  link:"https://www.behance.net/gallery/130411983/Redesigning-the-Trust-Wallet-App"
+  },
+
+
 
 
 

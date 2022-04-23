@@ -586,7 +586,21 @@ main .icons svg{
   opacity: 1;
   visibility: visible;
 }
-
+.ovo{
+  position: relative;
+  /* width: 237px; */
+  height: 242px;
+  margin-top: 15px;
+}
+.developerdao_vid{
+  width: 296px;
+  height: 628px;
+  top: -163px;
+}
+.ovo video{
+  width: 100%;
+  height: 100%;
+}
 .contents {
  
   opacity: 0;
