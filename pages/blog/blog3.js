@@ -26,14 +26,9 @@ import img6 from '../../img/blog/3.png'
                 />
             </div>
             <div className='content_blog'>
-            <h1>Moore's Law, are we on the cusp of peaking?</h1>
-            <span>January, 12, 2021</span>
-            <p>Moore's Law is a law invented by one of the founders of Intel Corporation Gordon Moore in 1965. In short, it is a law that predicts the development of our technological capabilities at an exponential rate. The following image shows Moore's law prediction of the rate of increment:
-                A climax is an event that will mean that screens and processors have reached their physical limits, and perhaps one of the indicators that indicate that reaching is the start of our exploration of technologies and virtual worlds that do not require a physical barrier such as screens, for example (Virtual Reality)
-                The following excerpt from As We May Think (1945) by Vannevar Bush, an American inventor, and engineer, has been described as a visionary and influential, as he foresaw many aspects of technology development within the tech community.
-                Take a look at the excerpt:
-                What came to your mind after the quote? Your voice commands for Siri? Or our ability to browse with eye gestures? Terms such as “Zero UI”, “Touchless Tech” and “Machine Learning” are becoming more and more common as we enter the new, emerging stages of technology development to take advantage of the processing processes in isolation from touch screens and computer communication devices.
-                All of this calls for mentioning another law, which is the last ;) called Engelbart's Law, which says that: 'The essential rate of human performance as a whole is exponential to nature.' We set boundaries and continue to cross them over and over again. Perhaps the thing we will all agree on, after all, is that we don't recognize boundaries and that as always we will continue to amaze ourselves.</p>
+            <h1></h1>
+            <span></span>
+            <p></p>
           </div>
             </div>
         </div>
