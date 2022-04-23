@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Footer from '../../components/footer'
+import Footer from '../../components/Footer'
 import BlogNav from '../../components/BlogNav'
 import img6 from '../../img/blog/3.png'
  const Blog2  = () => {
