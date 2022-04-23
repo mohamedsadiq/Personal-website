@@ -21,7 +21,7 @@ const Footer =  ()=> {
     </defs>
     </svg>
     <span id="animation_web3"></span>
-</span>, currently building lightweight Web3 experiences at <a href="https://twitter.com/developer_dao" rel="noreferrer"  className="links" target="_blank">DeveloperDAO</a> and <a href="https://twitter.com/_buildspace" target="_blank" rel="noreferrer" >Bulidspace</a>.</p>
+      </span>, currently building lightweight Web3 experiences at <a href="https://twitter.com/developer_dao" rel="noreferrer"  className="links" target="_blank">DeveloperDAO</a> and <a href="https://twitter.com/_buildspace" target="_blank" rel="noreferrer" >Bulidspace</a>.</p>
             <a href="" className="links" rel="noreferrer">Resume</a>
         </div>
     </div>
