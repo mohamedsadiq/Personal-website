@@ -800,10 +800,11 @@ main .icons svg{
 }
 
 @media only screen and (max-width:425px) {
-  .grid{
+  .inner_stack,.grid{
     grid-template-columns: 1.5fr; 
     gap: 0px 274px; 
   }
+ 
   .developerdao_vid{
     width: 321px;
     height: 680px;
