@@ -3,14 +3,40 @@ import { useRouter } from 'next/router';
 import useSound from 'use-sound';
 import { motion } from "framer-motion"
 import { useState, useEffect } from 'react';
-import { useIsSmall } from '../hooks/utils'
+// import { useIsSmall } from '../hooks/utils'
+
+const useMediaQuery = (query)  =>{
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+    const listener = () => {
+      setMatches(media.matches);
+    };
+    media.addListener(listener);
+    return () => media.removeListener(listener);
+  }, [matches, query]);
+
+  return matches;
+}
+const useIsSmall = () => useMediaQuery("(max-width: 580px)");
+const useIsMedium = () => useMediaQuery("(max-width: 768px)");
 const Header = () => {
   const isSmall = useIsSmall()
+  const isMedium = useIsMedium()
+
+  useEffect(() => {
+    console.log(isSmall)
+  });
+  
   const header_hex = isSmall
 	? {
     initial: {
       border: "none",
-      width: "8rem",
+      // width: "100px",
       opacity:1,
       overflow: "hidden"
     },
@@ -18,21 +44,12 @@ const Header = () => {
       width: "22rem",
       border:"1px solid #101010",
       opacity:1,
-    
-    },
-    hover:{
-     overflow:"visible",
-     transition: {
-      ease: "easeInOut",
-      duration: 0,
-      delay:0
     }
-    }
-	  }
+  }
 	: {
     initial: {
       border: "none",
-      width: "4rem",
+      width: "100px !important",
       opacity:1,
       overflow: "hidden"
     },
@@ -40,17 +57,9 @@ const Header = () => {
       width: "41rem",
       border:"1px solid #101010",
       opacity:1,
-    
-    },
-    hover:{
-     overflow:"visible",
-     transition: {
-      ease: "easeInOut",
-      duration: 0,
-      delay:0
     }
     }
-	  };
+
 
   // Sound hook
   const [play] = useSound("/sound.mp3");

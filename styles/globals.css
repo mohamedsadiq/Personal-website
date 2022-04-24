@@ -2,21 +2,21 @@
   font-family: "Inter";
   src: url("../fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
 }
-header::-webkit-scrollbar {
+.inner_header::-webkit-scrollbar {
   width: 12px;
   width: 1px;
   height: 3px;
   padding: 10px;
 }
 
-header::-webkit-scrollbar-track {
+.inner_header::-webkit-scrollbar-track {
  background-color: #000;
   border-radius: 10px;
   width: 1px;
 
 }
 
-header::-webkit-scrollbar-thumb {
+.inner_header::-webkit-scrollbar-thumb {
   border-radius: 10px;
   width: 1px;
  
@@ -107,7 +107,7 @@ a {
 }
 
 .container {
-  width: 650px;
+  max-width: 650px;
   margin: 0 auto;
 }
 .inner_container{
@@ -763,13 +763,7 @@ main .icons svg{
   animation: hex1 2s ease-in-out ;
 }
 
-
-
-@media only screen and (max-width:425px) {
-  header{
-    overflow-x: auto  !important;
-  }
- 
+@media only screen and (max-width:617px) {
   .content{
     position: relative;
     top: 0;
@@ -781,6 +775,51 @@ main .icons svg{
     display: block;
     
   }
+
+  .content_animete{
+    width: 100%;
+  }.content div:first-child{
+    padding: 0;
+  }
+  .class_body main{
+    bottom: 113px;
+    position: absolute;
+    width: 100%;
+    padding: 0 12px;
+  }
+  .content div p{
+    
+    font-size: 0.8rem;
+    margin-top: 15px;
+  }
+  .inner_header{
+    scroll-behavior: smooth;
+    overflow: auto  !important;
+    padding-bottom: 18px;
+  }
+}
+
+@media only screen and (max-width:425px) {
+  .grid{
+    grid-template-columns: 1.5fr; 
+    gap: 0px 274px; 
+  }
+  .developerdao_vid{
+    width: 321px;
+    height: 680px;
+    top: -163px;
+  }
+.inner_header{
+  scroll-behavior: smooth;
+  overflow: auto hidden !important;
+  padding-bottom: 18px;
+}
+  header{
+    padding:9px 10px;
+    height: 96px;
+   
+  }
+
   .icons {
     min-width: 49px;
     height: 49px;
@@ -792,27 +831,10 @@ main .icons svg{
 .icons svg {
   width: 25px;
 }
-header{
-  padding:7px 10px;
-  height: 96px;
-  scroll-behavior: smooth;
+
+
 }
-.content_animete{
-  width: 100%;
-}.content div:first-child{
-  padding: 0;
-}
-.class_body main{
-  bottom: 113px;
-  position: absolute;
-  width: 100%;
-  padding: 0 12px;
-}
-.content div p{
-  
-  font-size: 0.8rem;
-  margin-top: 15px;
-}
-}
+
+
 
 
