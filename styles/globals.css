@@ -2,6 +2,29 @@
   font-family: "Inter";
   src: url("../fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
 }
+header::-webkit-scrollbar {
+  width: 12px;
+  width: 1px;
+  height: 3px;
+  padding: 10px;
+}
+
+header::-webkit-scrollbar-track {
+ background-color: #000;
+  border-radius: 10px;
+  width: 1px;
+
+}
+
+header::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  width: 1px;
+ 
+}
+body, #__next,.class_body{
+  height: 100vh;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -68,6 +91,7 @@ header{
   transition: all 0.6s 0s ease-in-out;
 }
 .contents{
+ 
   -webkit-transition: all 0.1s 0s ease-in-out;
   -moz-transition: all 0.1s 0s ease-in-out;
   -o-transition: all 0.1s 0s ease-in-out;
@@ -196,7 +220,7 @@ header{
   line-height: 29px;
   font-family: "Inter";
   position: absolute;
-  width: 650px;
+  width: 41rem;
   top: 83%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -268,7 +292,7 @@ header{
   line-height: 29px;
     font-family: "Inter";
     position: absolute;
-    width: 650px;
+    /* width: 41rem; */
     top: 73%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -738,4 +762,57 @@ main .icons svg{
   background-image: url("../img/hex/Hex5.png");
   animation: hex1 2s ease-in-out ;
 }
+
+
+
+@media only screen and (max-width:425px) {
+  header{
+    overflow-x: auto  !important;
+  }
+ 
+  .content{
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0);
+    display: block;
+  }
+  .content_animete{
+    display: block;
+    
+  }
+  .icons {
+    min-width: 49px;
+    height: 49px;
+    border-radius: 9px;
+}
+.inner_header {
+  gap: 15px;
+}
+.icons svg {
+  width: 25px;
+}
+header{
+  padding:7px 10px;
+  height: 96px;
+  scroll-behavior: smooth;
+}
+.content_animete{
+  width: 100%;
+}.content div:first-child{
+  padding: 0;
+}
+.class_body main{
+  bottom: 113px;
+  position: absolute;
+  width: 100%;
+  padding: 0 12px;
+}
+.content div p{
+  
+  font-size: 0.8rem;
+  margin-top: 15px;
+}
+}
+
 

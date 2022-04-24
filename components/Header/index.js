@@ -2,9 +2,56 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import useSound from 'use-sound';
 import { motion } from "framer-motion"
-import { useState } from 'react';
-
+import { useState, useEffect } from 'react';
+import { useIsSmall } from '../hooks/utils'
 const Header = () => {
+  const isSmall = useIsSmall()
+  const header_hex = isSmall
+	? {
+    initial: {
+      border: "none",
+      width: "8rem",
+      opacity:1,
+      overflow: "hidden"
+    },
+    animate: {
+      width: "18rem",
+      border:"1px solid #101010",
+      opacity:1,
+    
+    },
+    hover:{
+     overflow:"visible",
+     transition: {
+      ease: "easeInOut",
+      duration: 0,
+      delay:0
+    }
+    }
+	  }
+	: {
+    initial: {
+      border: "none",
+      width: "6rem",
+      opacity:1,
+      overflow: "hidden"
+    },
+    animate: {
+      width: "41rem",
+      border:"1px solid #101010",
+      opacity:1,
+    
+    },
+    hover:{
+     overflow:"visible",
+     transition: {
+      ease: "easeInOut",
+      duration: 0,
+      delay:0
+    }
+    }
+	  };
+
   // Sound hook
   const [play] = useSound("/sound.mp3");
   const [opacityContent, setOpacityContent] = useState("")
@@ -42,15 +89,16 @@ const Header = () => {
       zIndex: 100
     }
   }
-  const header_hex = {
+
+  const header_hexdd = {
     initial: {
       border: "none",
-      width: "118px",
+      width: "8rem",
       opacity:1,
       overflow: "hidden"
     },
     animate: {
-      width: "650px",
+      width: "41rem",
       border:"1px solid #101010",
       opacity:1,
     
