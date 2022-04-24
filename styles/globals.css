@@ -10,7 +10,7 @@
 }
 
 .inner_header::-webkit-scrollbar-track {
- background-color: #000;
+  background-color: #070707;
   border-radius: 10px;
   width: 1px;
 
@@ -19,7 +19,7 @@
 .inner_header::-webkit-scrollbar-thumb {
   border-radius: 10px;
   width: 1px;
- 
+  background-color: #181818;
 }
 body, #__next,.class_body{
   height: 100vh;
