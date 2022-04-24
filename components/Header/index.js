@@ -44,6 +44,15 @@ const Header = () => {
       width: "22rem",
       border:"1px solid #101010",
       opacity:1,
+      boxShadow:" inset 0px 1px 1px #161616"
+    },
+    hover:{
+      overflow:"visible",
+      transition: {
+      ease: "easeInOut",
+      duration: 0,
+      delay:0
+      }
     }
   }
 	: {
@@ -57,6 +66,16 @@ const Header = () => {
       width: "41rem",
       border:"1px solid #101010",
       opacity:1,
+      boxShadow:" inset 0px 1px 1px #161616"
+    },
+    
+    hover:{
+     overflow:"visible",
+     transition: {
+     ease: "easeInOut",
+     duration: 0,
+     delay:0
+      }
     }
     }
 
