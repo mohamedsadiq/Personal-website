@@ -15,7 +15,7 @@ const Header = () => {
       overflow: "hidden"
     },
     animate: {
-      width: "18rem",
+      width: "22rem",
       border:"1px solid #101010",
       opacity:1,
     
@@ -32,7 +32,7 @@ const Header = () => {
 	: {
     initial: {
       border: "none",
-      width: "6rem",
+      width: "4rem",
       opacity:1,
       overflow: "hidden"
     },
