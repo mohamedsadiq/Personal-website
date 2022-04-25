@@ -440,6 +440,10 @@ main .icons svg{
   left:-9px;
   top: 9px;
 }
+.arrow svg{
+  position:absolute;
+  right: 0;
+}
 
 .block:hover .arrow{ 
   visibility:visible;
