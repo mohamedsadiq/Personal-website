@@ -408,6 +408,9 @@ header{
 .icon_container:active {
  transform: scale(1.3);
 }
+.icon_container:active .text{
+  opacity: 1;
+}
 main .icons svg{
   animation-name: icon;
   animation-duration: 0.1s;
@@ -806,9 +809,12 @@ main .icons svg{
   }
  
   .developerdao_vid{
-    width: 321px;
+    width: 399px;
     height: 680px;
     top: -163px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 .inner_header{
   scroll-behavior: smooth;
