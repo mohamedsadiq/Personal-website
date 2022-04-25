@@ -3,13 +3,13 @@ import Image from 'next/image'
 import Link from 'next/link';
 import useSound from 'use-sound';
 // images
-import developerDao from "../img/ezgif.com-gif-maker.gif"
+import developerDao from "../img/dev1.png"
 import developerDaoFm from "../img/developerdaofm.png"
 import nftweb3 from "../img/nftweb3.png"
 import web3cons from "../img/loginweb3.png"
 import watchcrypto from "../img/watchcrypto.png"
 import applewatch from "../img/applewatch.png"
-import westworldwatch from "../img/d218e12214cee039f32a61690163c91d.jpg"
+import westworldwatch from "../img/westworldwatch.png"
 import weatherapp from "../img/weatherapp.png"
 import vscode from "../img/vscode.png"
 import cryptocon from "../img/cdcs.png"
@@ -19,6 +19,8 @@ import lastwebsite from "../img/lastwebsite.jpg"
 import ovo from "../img/ovo.png"
 import folim from "../img/folim.png"
 import gm from "../img/gm.png"
+import gmd from "../img/ddcd.jpg"
+
 import nasir from "../img/bitcoin.png"
 import car from "../img/car.png"
 import csc from "../img/fdsvedf.png"
@@ -46,7 +48,7 @@ export default function Projects() {
          
           <div className="grid">
          
-                <Link key={"dao"} href="" passHref>
+                {/* <Link key={"dao"} href="" passHref>
                 <div className="blocks" onClick={play}>
                   <div className='ovo developerdao_vid'>
                     <video loop autoPlay muted >
@@ -60,7 +62,7 @@ export default function Projects() {
                   <span></span>
                 </div>
                 </div>
-                </Link>
+                </Link> */}
             {data.map(item => {
               return (
                 <Link key={item.name} href={item.link} passHref>
@@ -143,12 +145,26 @@ export default function Projects() {
 
 const data = [
   {
+    name:"DeveloperDAO FM",
+    img:developerDao,
+    description:"description", 
+    tags:"Product Design, JS, Web3",
+    link:"/projects/developerdaofm"
+},
+  {
       name:"DeveloperDAO FM",
       img:developerDaoFm,
       description:"description", 
       tags:"Product Design, JS, Web3",
       link:"/projects/developerdaofm"
-  }
+  },
+  {
+    name:"Apple Watch 2",
+    img:applewatch,
+    description:"description",
+    tags:"Apple Watch",
+    link:"/projects/applewatchface"
+},
   ,
   {
       name:"Web 3 Lover Boy",
@@ -157,7 +173,13 @@ const data = [
       tags:"Product Design, Solidity, Web3",
       link:"/projects/web3boy"
   },
-
+  {
+    name:"Crypto App",
+    img:watchcrypto,
+    description:"description",
+    tags:"Concepts, Web3",
+    link:"/projects/cryptoapp"
+  },
   {
     name:"GM",
     img:gm,
@@ -179,13 +201,13 @@ const data = [
     tags:"Apple Watch",
     link:"/projects/westworldwatch"
 },
-{
-  name:"One-Yellow 1",
-  img:nasir,
-  description:"description",
-  tags:"CSS, Js, Atom",
-  link:"https://github.com/mohamedsadiq/one-yellow-syntax"
-  }, 
+// {
+//   name:"One-Yellow 1",
+//   img:nasir,
+//   description:"description",
+//   tags:"CSS, Js, Atom",
+//   link:"https://github.com/mohamedsadiq/one-yellow-syntax"
+//   }, 
   {
     name:"One-Yellow 2",
     img:vscode,
@@ -212,20 +234,8 @@ const playground = [
  
 
  
-  {
-      name:"Apple Watch 2",
-      img:applewatch,
-      description:"description",
-      tags:"Apple Watch",
-      link:"/projects/applewatchface"
- },
- {
-  name:"Crypto App",
-  img:watchcrypto,
-  description:"description",
-  tags:"Concepts, Web3",
-  link:"/projects/cryptoapp"
-},
+
+
 {
   name:"Trust Wallet App",
   img:trustWallet,
@@ -233,9 +243,36 @@ const playground = [
   tags:"Concepts",
   link:"https://www.behance.net/gallery/130411983/Redesigning-the-Trust-Wallet-App"
   },
+  {
+    name:"Trust Wallet App",
+    img:car,
+    description:"description",
+    tags:"Concepts",
+    link:"https://www.behance.net/gallery/130411983/Redesigning-the-Trust-Wallet-App"
+    },
+    {
+      name:"Trust Wallet App",
+      img:csc,
+      description:"description",
+      tags:"Concepts",
+      link:"https://www.behance.net/gallery/130411983/Redesigning-the-Trust-Wallet-App"
+      },
+      {
+        name:"Trust Wallet App",
+        img:cryptocon,
+        description:"description",
+        tags:"Concepts",
+        link:"https://www.behance.net/gallery/130411983/Redesigning-the-Trust-Wallet-App"
+        },
+        {
+          name:"Trust Wallet App",
+          img:gmd,
+          description:"description",
+          tags:"Concepts",
+          link:"https://www.behance.net/gallery/130411983/Redesigning-the-Trust-Wallet-App"
+          },
 
-
-
+        
 
 
 ]
