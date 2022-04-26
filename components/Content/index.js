@@ -25,9 +25,8 @@ const Content = () => {
             </linearGradient>
             </defs>
             </svg>
-    <span id="animation_web3"></span>
-</span>, currently building lightweight Web3 experiences at <a href="https://twitter.com/developer_dao"  className="links" target="_blank" rel="noreferrer">DeveloperDAO</a> and <a href="https://twitter.com/_buildspace" target="_blank" rel="noreferrer">Bulidspace</a>.</p>
-            <a href="" className="links">Resume</a>
+            <span id="animation_web3"></span>
+            </span>, Open source products <a href="https://twitter.com/developer_dao"  className="links" target="_blank" rel="noreferrer">@DeveloperDAO</a>, member of <a href="https://twitter.com/_buildspace" target="_blank" rel="noreferrer">@Bulidspace</a> and <a href="https://twitter.com/Anticollective_" className="links" target="_blank" rel="noreferrer">@Anti</a></p>
         </div>
         </motion.div>
     </div>
