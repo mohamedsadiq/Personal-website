@@ -29,6 +29,7 @@ const Photo = () =>{
                 {data.map( i => {
                     return (
                         <Image
+                        key={i}
                         className='border_radius'
                         src={i.img}
                         alt="Picture of the author"
@@ -43,6 +44,7 @@ const Photo = () =>{
                 {data2.map( (i) => {
                     return (
                         <Image
+                        key={i}
                         className='border_radius'
                         src={i.img}
                         alt="Picture of the author"
