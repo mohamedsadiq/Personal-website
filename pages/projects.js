@@ -173,19 +173,20 @@ const data = [
       tags:"Product Design, Solidity, Web3",
       link:"/projects/web3boy"
   },
-  {
-    name:"Crypto App",
-    img:watchcrypto,
-    description:"description",
-    tags:"Concepts, Web3",
-    link:"/projects/cryptoapp"
-  },
+  
   {
     name:"GM",
     img:gm,
     description:"description",
     tags:"Concepts",
     link:"/projects/gm"
+  },
+  {
+    name:"Crypto App",
+    img:watchcrypto,
+    description:"description",
+    tags:"Concepts, Web3",
+    link:"/projects/cryptoapp"
   },
   {
       name:"Web 3 Concepts",
@@ -264,14 +265,7 @@ const playground = [
         tags:"Concepts",
         link:"https://www.behance.net/gallery/130411983/Redesigning-the-Trust-Wallet-App"
         },
-        {
-          name:"Trust Wallet App",
-          img:gmd,
-          description:"description",
-          tags:"Concepts",
-          link:"https://www.behance.net/gallery/130411983/Redesigning-the-Trust-Wallet-App"
-          },
-
+     
         
 
 

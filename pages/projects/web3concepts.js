@@ -30,10 +30,13 @@ const DeveloperDAO = () => {
                     quality={100}
                 />
             </div>
-            <h2>{data.projectOverview}</h2>
-            <p>{data.projectOverviewPara}</p>
-            <h2>{data.myContributions}</h2>
-            <p>{data.myContributionsPara}</p>
+            <h2>Project Overview</h2>
+                <p>Developer DAO is a DAO that exists to accelerate the education and impact of a new wave of web3 builders. The website was among the priorities for the DAO, because of its importance in bringing in new partners and sponsors</p>
+                <h2>My Contributions</h2>
+                <p>I was the champion of the project on the design side.The existing website did not represent the DAO, the design was so simple, and it did not deliver what it should have been delivering, first step was to analyze the flow and overall aesthetic appeal of the website and figure out the direction that we should take. After that, my job was to simplify the process as much as possible and make it intuitive for the users, as well as improve the visual appeal of the entire site. </p>
+                <h2>Reflection—</h2>
+                <p>I was the champion of the project on the design side.The existing website did not represent the DAO, the design was so simple, and it did not deliver what it should have been delivering, first step was to analyze the flow and overall aesthetic appeal of the website and figure out the direction that we should take. After that, my job was to simplify the process as much as possible and make it intuitive for the users, as well as improve the visual appeal of the entire site. </p>
+                <a>see the Prototype</a>
             </div> 
         </div>
         </main>
