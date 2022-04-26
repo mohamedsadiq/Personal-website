@@ -74,6 +74,7 @@ export default function Projects() {
                     layout='fill'
                     objectPosition="center"
                     quality={100}
+                    placeholder="blur"
                 />
 
                 <div className="overlay"> 
@@ -95,6 +96,7 @@ export default function Projects() {
                     layout='fill'
                     objectPosition="center"
                     quality={100}
+                    
                 />
                 </div>
 
