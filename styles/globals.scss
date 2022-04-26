@@ -833,6 +833,14 @@ main .icons svg{
 }
 
 @media only screen and (max-width:425px) {
+  .mItv1{
+    --column-gutter: 24px;
+    --columns: 1;
+    grid-column-gap: var(--column-gutter);
+    align-items: start;
+    display: grid;
+    grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  }
   .inner_stack,.grid{
     grid-template-columns: 1.5fr; 
     gap: 0px 274px; 
