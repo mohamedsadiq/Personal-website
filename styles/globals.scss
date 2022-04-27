@@ -840,6 +840,11 @@ main .icons svg{
 }
 
 @media only screen and (max-width:425px) {
+  .web3 svg {
+    width: 36px;
+    position: relative;
+    top: 3px;
+}
   .mItv1{
     --column-gutter: 24px;
     --columns: 1;
