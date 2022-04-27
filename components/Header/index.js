@@ -401,7 +401,7 @@ const Header = () => {
           animate="animate"
           whileHover="hover"
           variants={iconss}
-          transition={{ delay: 2.5 , ease:"easeInOut"}}
+          transition={{ delay: 2.4 , ease:"easeInOut"}}
           >
           <div  className="icon_container"  onClick={play}>
             <a href="https://twitter.com/sadiq_moo" target="_blank" rel="noreferrer">
@@ -427,7 +427,7 @@ const Header = () => {
              animate="animate"
              whileHover="hover"
              variants={iconss}
-             transition={{ delay: 2.4 , ease:"easeInOut"}}
+             transition={{ delay: 2.5 , ease:"easeInOut"}}
           >
           <div  className={router.pathname == "/blogs" ? "active icon_container" : "icon_container"} onClick={play}>
          
