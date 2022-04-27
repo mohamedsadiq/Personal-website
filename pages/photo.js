@@ -30,7 +30,7 @@ const Photo = () =>{
                     return (
                         <a  href={i.link} target="_blink">
                         <Image
-                        key={i}
+                        key={i.key}
                         className='border_radius'
                         src={i.img}
                         loading="lazy"
@@ -48,7 +48,7 @@ const Photo = () =>{
                     return (
                        <a href={i.link} target="_blink">
                          <Image
-                        key={i}
+                        key={i.key}
                         className='border_radius'
                         src={i.img}
                         loading="lazy"
