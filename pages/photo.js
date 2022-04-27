@@ -72,18 +72,19 @@ export default Photo
 
 const data = [
     {
+        key:"1",
         img:img1,
         link:"https://unsplash.com/photos/ypBIeIxfiOo"
     },
-    {
+    { key:"2",
         img:img2,
         link:"https://unsplash.com/photos/FAgF3eTbZ_4"
     },
-    {
+    { key:"3",
         img:img3,
         link:"https://unsplash.com/photos/SYYn1v0WkNI"
     },
-    {
+    { key:"4",
         img:img8,
         link:"https://unsplash.com/photos/EXhpMHDc-Sg"
     },
@@ -91,23 +92,24 @@ const data = [
    
 ]
 const data2 = [
-    {
+    { key:"5",
         img:img4,
         link:"https://unsplash.com/photos/wredO5b0nY8"
     },
-    {
+    { key:"6",
         img:img5,
         link:"https://unsplash.com/photos/xeOF6Xy4z8U"
         
     },
-    {
+    { key:"7",
         img:img6,
         link:"https://unsplash.com/photos/YnzWKAQ6pSg"
     },
-    {
+    { key:"8",
         img:img7,
         link:"https://unsplash.com/photos/-yyYxR9bZRg"
     } ,{
+        key:"9",
         img:img9,
         link:"https://unsplash.com/photos/-lNTFZ9SzAc"
     },
