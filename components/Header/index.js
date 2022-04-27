@@ -470,6 +470,7 @@ const Header = () => {
           </a>
           </div>
           </motion.div>
+          <a href ="mailto:mohamed.sadiq@outlook.sa">
           <motion.div 
           className="icon_holder"
           initial="initial"
@@ -495,7 +496,7 @@ const Header = () => {
              <div className="dot_active"></div>
           </div>
           </motion.div>
-          
+          </a>
         </div>
      
         </motion.header>
