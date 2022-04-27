@@ -454,7 +454,7 @@ const Header = () => {
           transition={{ delay:2.6 , ease:"easeInOut"}}
           >
           <div className="icon_container"  onClick={play}>
-          <a href="https://github.com/mohamedsadiq" target="_blank" rel="noreferrer">
+          <a href="https://twitter.com/sadiq_moo" target="_blank" rel="noreferrer">
         
                <div className='icons'>
           <div className="text">
