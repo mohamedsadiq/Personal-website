@@ -86,7 +86,7 @@ export default function Projects() {
                 </a>
                )
             })}
-             <a key={"ovo"} href="https://www.behance.net/gallery/108322809/OVO-Website-Redesign" passHref target="_blink">
+             <a href="https://www.behance.net/gallery/108322809/OVO-Website-Redesign" passHref target="_blink">
                 <div className="blocks" onClick={play}>
                   <div className='ovo'>
                   <Image
