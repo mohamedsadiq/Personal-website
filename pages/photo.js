@@ -28,14 +28,17 @@ const Photo = () =>{
               
                 {data.map( i => {
                     return (
+                        <a key={ i } href={i.link} target="_blink">
                         <Image
                         key={i}
                         className='border_radius'
                         src={i.img}
+                        loading="lazy"
                         alt="Picture of the author"
-                        quality={100}
+                        quality={75}
                         placeholder="blur"
                     />
+                    </a>
                     )
                 })}  
              
@@ -43,14 +46,17 @@ const Photo = () =>{
                 <div className='ripi6'>
                 {data2.map( (i) => {
                     return (
-                        <Image
+                       <a key={ i } href={i.link} target="_blink">
+                         <Image
                         key={i}
                         className='border_radius'
                         src={i.img}
+                        loading="lazy"
                         alt="Picture of the author"
-                        quality={100}
+                        quality={75}
                         placeholder="blur"
                     />
+                       </a>
                     )
                 })}    
                 </div>
@@ -66,33 +72,43 @@ export default Photo
 
 const data = [
     {
-        img:img1
+        img:img1,
+        link:"https://unsplash.com/photos/ypBIeIxfiOo"
     },
     {
-        img:img2
+        img:img2,
+        link:"https://unsplash.com/photos/FAgF3eTbZ_4"
     },
     {
-        img:img3
+        img:img3,
+        link:"https://unsplash.com/photos/SYYn1v0WkNI"
     },
     {
-        img:img8
+        img:img8,
+        link:"https://unsplash.com/photos/EXhpMHDc-Sg"
     },
   
    
 ]
 const data2 = [
     {
-        img:img4
+        img:img4,
+        link:"https://unsplash.com/photos/wredO5b0nY8"
     },
     {
-        img:img5
+        img:img5,
+        link:"https://unsplash.com/photos/xeOF6Xy4z8U"
+        
     },
     {
-        img:img6
+        img:img6,
+        link:"https://unsplash.com/photos/YnzWKAQ6pSg"
     },
     {
-        img:img7
+        img:img7,
+        link:"https://unsplash.com/photos/-yyYxR9bZRg"
     } ,{
-        img:img9
+        img:img9,
+        link:"https://unsplash.com/photos/-lNTFZ9SzAc"
     },
 ]

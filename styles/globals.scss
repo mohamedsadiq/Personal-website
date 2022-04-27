@@ -175,7 +175,8 @@ a {
   font-size: 0.8rem;
 }
 .overlay h2, .overlay p{
-  color:#818181
+  color:#818181;
+  font-size: 0.8rem;
 }
 .blocks:hover .overlay{
   visibility: visible;
@@ -402,6 +403,12 @@ header{
   display: grid;
   grid-template-columns: minmax(0,1fr);
   row-gap: 24px;
+}
+.ripi6 a{
+  transition: all 0.3s ease-in-out;
+}
+.ripi6 a:hover{
+  opacity: 0.7;
 }
 .mItv1{
   --column-gutter: 24px;

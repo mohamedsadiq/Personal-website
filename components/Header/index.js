@@ -392,31 +392,7 @@ const Header = () => {
           </div>
           </motion.div>
           </Link>
-          <Link href={"/blogs"} passHref >
-          <motion.div 
-             className="icon_holder"
-             initial="initial"
-             animate="animate"
-             whileHover="hover"
-             variants={iconss}
-             transition={{ delay: 2.4 , ease:"easeInOut"}}
-          >
-          <div  className={router.pathname == "/blogs" ? "active icon_container" : "icon_container"} onClick={play}>
-         
-         <div className='icons'>
-          <div className="text">
-            Blog
-          </div>
-          <motion.div variants={iconSvg} className="glow">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" >
-              <path d="M26.3426 6.3659L23.8752 8.83325L19.1162 4.22002L21.6564 1.67976C22.2779 1.05834 23.1207 0.709229 23.9995 0.709229C24.8783 0.709229 25.7212 1.05834 26.3426 1.67976C26.964 2.30118 27.3131 3.14401 27.3131 4.02283C27.3131 4.90165 26.964 5.74448 26.3426 6.3659ZM22.4303 10.2765L7.25997 25.4469L0.800781 27.2464L2.57217 20.7624L17.6861 5.6484L22.4303 10.2765Z" fill="white"/>
-              </svg>
-              </motion.div>
-              </div>
-            <div className="dot_active"></div>
-          </div>
-          </motion.div>
-          </Link>
+          
       
          <Link href={"/photo"} passHref>
           <motion.div 
@@ -444,6 +420,31 @@ const Header = () => {
           </div>
           </motion.div>
           </Link>
+          <a href="https://msadiq.substack.com/p/coming-soon?utm_source=%2Fprofile%2F13973284-mohamed-sadiq&utm_medium=reader2" target="_blink" passHref >
+          <motion.div 
+             className="icon_holder"
+             initial="initial"
+             animate="animate"
+             whileHover="hover"
+             variants={iconss}
+             transition={{ delay: 2.4 , ease:"easeInOut"}}
+          >
+          <div  className={router.pathname == "/blogs" ? "active icon_container" : "icon_container"} onClick={play}>
+         
+         <div className='icons'>
+          <div className="text">
+            Blog
+          </div>
+          <motion.div variants={iconSvg} className="glow">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" >
+              <path d="M26.3426 6.3659L23.8752 8.83325L19.1162 4.22002L21.6564 1.67976C22.2779 1.05834 23.1207 0.709229 23.9995 0.709229C24.8783 0.709229 25.7212 1.05834 26.3426 1.67976C26.964 2.30118 27.3131 3.14401 27.3131 4.02283C27.3131 4.90165 26.964 5.74448 26.3426 6.3659ZM22.4303 10.2765L7.25997 25.4469L0.800781 27.2464L2.57217 20.7624L17.6861 5.6484L22.4303 10.2765Z" fill="white"/>
+              </svg>
+              </motion.div>
+              </div>
+            <div className="dot_active"></div>
+          </div>
+          </motion.div>
+          </a>
           <motion.div 
           className="icon_holder"
           initial="initial"

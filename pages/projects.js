@@ -25,7 +25,7 @@ import nasir from "../img/bitcoin.png"
 import car from "../img/car.png"
 import csc from "../img/fdsvedf.png"
 import delta from "../img/delta.png"
-import indoor from "../img/indoor.png"
+import drakec from "../img/Instagram post - 4.png"
 
 export default function Projects() {
  // Sound hook
@@ -43,7 +43,7 @@ export default function Projects() {
        <div className="container">
         <div className="inner_container">
           <h1>Projects</h1>
-          <p>Projects I built using React, Solidity + Smart Contracts, Next.js, and TypeScript, NFT Minting</p>
+          <p>Projects I built using React, Figma, Solidity + Smart Contracts, Next.js</p>
          
          
           <div className="grid">
@@ -65,7 +65,7 @@ export default function Projects() {
                 </Link> */}
             {data.map(item => {
               return (
-                <Link key={item.name} href={item.link} passHref>
+                <a key={item.name} href={item.link} target={item.target} passHref>
                 <div className="blocks" onClick={play}>
                   <Image
                     src={item.img}
@@ -83,10 +83,10 @@ export default function Projects() {
                   <span>{item.tags}</span>
                 </div>
                 </div>
-                </Link>
+                </a>
                )
             })}
-             <Link key={"ovo"} href="" passHref>
+             <a key={"ovo"} href="https://www.behance.net/gallery/108322809/OVO-Website-Redesign" passHref target="_blink">
                 <div className="blocks" onClick={play}>
                   <div className='ovo'>
                   <Image
@@ -101,12 +101,12 @@ export default function Projects() {
                 </div>
 
                 <div className="overlay"> 
-                  <h2></h2>
-                  <p></p>
-                  <span></span>
+                  <h2>OVO Website Redesign</h2>
+                  <p>The “October’s Very Own” clothing..</p>
+                  <span>e-commerce</span>
                 </div>
                 </div>
-                </Link>
+                </a>
           </div>
 
           <h2>Playground</h2>
@@ -114,7 +114,7 @@ export default function Projects() {
           <div className="grid">
             {playground.map(item => {
               return (
-                <Link key={item.name}  href={item.link} passHref>
+                <a key={item.name}  href={item.link} passHref target={item.target}>
                 <div className="blocks" onClick={play}>
                   <Image
                     src={item.img}
@@ -132,7 +132,7 @@ export default function Projects() {
                   <span>{item.tags}</span>
                 </div>
                 </div>
-                </Link>
+                </a>
                )
             })}
           </div>
@@ -147,33 +147,37 @@ export default function Projects() {
 
 const data = [
   {
-    name:"DeveloperDAO FM",
+    name:"DeveloperDAO Website Coming Soon",
     img:developerDao,
-    description:"description", 
-    tags:"Product Design, JS, Web3",
-    link:"/projects/developerdaofm"
+    description:"", 
+    tags:"Product Design, Web3",
+    target:"_blink",
+    link:"https://twitter.com/sadiq_moo/status/1503879512471261193"
 },
   {
       name:"DeveloperDAO FM",
       img:developerDaoFm,
-      description:"description", 
+      description:"A place where you listin to muisc ...", 
       tags:"Product Design, JS, Web3",
-      link:"/projects/developerdaofm"
+      target:"_blink",
+      link:"http://developerdaofm.com/"
   },
   {
-    name:"Apple Watch 2",
+    name:"Apple Watch Sport FACE",
     img:applewatch,
-    description:"description",
-    tags:"Apple Watch",
-    link:"/projects/applewatchface"
+    description:"Minimalist apple watch face",
+    target:"_blink",
+    tags:"Apple Watch, Product Design",
+    link:"https://www.behance.net/gallery/130411669/Simple-Watch-Face-3"
 },
   ,
   {
       name:"Web 3 Lover Boy",
       img:nftweb3,
-      description:"description",  
+      description:"CWB is a project inspired by Dever..",  
       tags:"Product Design, Solidity, Web3",
-      link:"/projects/web3boy"
+      target:"_blink",
+      link:"https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs"
   },
   
   {
@@ -181,45 +185,45 @@ const data = [
     img:gm,
     description:"description",
     tags:"Concepts",
-    link:"/projects/gm"
+    target:"_blink",
+    link:"https://waveportal-starter-project.mohamedsadiq.repl.co"
   },
   {
     name:"Crypto App",
     img:watchcrypto,
-    description:"description",
+    description:"A concepts for crypto App..",
+    target:"_blink",
     tags:"Concepts, Web3",
-    link:"/projects/cryptoapp"
+    link:"https://www.behance.net/gallery/126685831/Crypto-Watch-App"
   },
   {
       name:"Web 3 Concepts",
       img:web3cons,
-      description:"description",
+      description:"Attempts to create a new perspective",
+      target:"_blink",
       tags:"Concepts, Web3",
-      link:"/projects/web3concepts"
+      link:"https://www.behance.net/gallery/142532281/Web3-Concepts"
   },
-  {
-    name:"West World Watch Face",
-    img:westworldwatch,
-    description:"description",
-    tags:"Apple Watch",
-    link:"/projects/westworldwatch"
-},
-// {
-//   name:"One-Yellow 1",
-//   img:nasir,
-//   description:"description",
-//   tags:"CSS, Js, Atom",
-//   link:"https://github.com/mohamedsadiq/one-yellow-syntax"
-//   }, 
+
+
   {
     name:"One-Yellow 2",
     img:vscode,
-    description:"description",
+    description:"theme",
+    target:"_blink",
     tags:"CSS, Js, Atom",
-    link:"https://github.com/mohamedsadiq/one-yellow-syntax"
+    link:"https://twitter.com/sadiq_moo/status/1297206769580679168"
     }, 
     
-  
+    {
+      name:"Concepts inspired by Drake ",
+      img:drakec,
+      description:"Concepts",
+      target:"_blink",
+      tags:"Drake, songs",
+      link:"https://www.behance.net/gallery/142533193/Concepts-inspired-by-Drake?"
+      }, 
+      
     
 ]
 
@@ -227,48 +231,54 @@ const data = [
 const playground = [
 
 {
-  name:"Apple Watch 1",
+  name:"Weather app",
   img:weatherapp,
-  description:"description",
+  description:"a concept for weather app",
   tags:"Apple Watch",
-  link:"/projects/applewatchface"
+  link:"https://www.behance.net/gallery/142532877/Weather-app",
+  target:"_blink"
 },
-
- 
-
- 
-
 
 {
   name:"Trust Wallet App",
   img:trustWallet,
-  description:"description",
+  description:"a concept for Trust Wallet",
   tags:"Concepts",
+  target:"_blink",
   link:"https://www.behance.net/gallery/130411983/Redesigning-the-Trust-Wallet-App"
   },
   {
-    name:"Trust Wallet App",
+    name:"Aston Martin - Dark Mode",
     img:car,
-    description:"description",
+    description:"UI",
     tags:"Concepts",
-    link:"https://www.behance.net/gallery/130411983/Redesigning-the-Trust-Wallet-App"
+    target:"_blink",
+    link:"https://dribbble.com/shots/16177318-Aston-Martin-Dark-Mode"
     },
     {
-      name:"Trust Wallet App",
+      target:"_blink",
+      name:"Minimalist designe",
       img:csc,
-      description:"description",
+      description:"UI",
       tags:"Concepts",
-      link:"https://www.behance.net/gallery/130411983/Redesigning-the-Trust-Wallet-App"
+      link:"https://www.instagram.com/p/CSLDGdTDy-u/"
       },
       {
-        name:"Trust Wallet App",
+        name:"Crypto App",
         img:cryptocon,
         description:"description",
         tags:"Concepts",
-        link:"https://www.behance.net/gallery/130411983/Redesigning-the-Trust-Wallet-App"
+        link:"https://dribbble.com/shots/16455889-Crypto-app"
         },
      
         
-
+        {
+          name:"West World Watch Face",
+          img:westworldwatch,
+          description:"Watch Face inspired by West World",
+          tags:"Apple Watch",
+          target:"_blink",
+          link:"https://dribbble.com/shots/11275865-Westword-apple-watch-customization-2"
+      },
 
 ]

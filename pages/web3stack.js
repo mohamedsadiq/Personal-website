@@ -46,7 +46,8 @@ export default function web3stack() {
            
           {wallet.map(item => {
               return (
-                  <div key={item.name} className="block">
+                  <a href={item.link} target="_blink">
+                      <div key={item.name} className="block">
                       <div className="top_block">
                         <div className="logo_stack">
                         <Image
@@ -68,6 +69,7 @@ export default function web3stack() {
                       <h1>{item.name}</h1>
                       <p>{item.description}</p>
                   </div>
+                  </a>
               )
           })}
           </div>
@@ -75,6 +77,7 @@ export default function web3stack() {
           <div className="inner_stack">
           {Daos.map(item => {
               return (
+                  <a href={item.link} target="_blink">
                   <div key={item.name} className="block">
                        <div className="top_block">
                         <div className="logo_stack">
@@ -97,6 +100,7 @@ export default function web3stack() {
                       <h1>{item.name}</h1>
                       <p>{item.description}</p>
                   </div>
+                  </a>
               )
           })}
           </div>
@@ -104,6 +108,7 @@ export default function web3stack() {
           <div className="inner_stack">
           {Tools.map(item => {
               return (
+                <a href={item.link} target="_blink">
                   <div   key={item.name}className="block">
                        <div className="top_block">
                         <div className="logo_stack">
@@ -126,6 +131,7 @@ export default function web3stack() {
                       <h1>{item.name}</h1>
                       <p>{item.description}</p>
                   </div>
+                  </a>
               )
           })}
           </div>
@@ -141,32 +147,38 @@ const wallet = [
     {
         name:"Rainbow",
         img:Rainbow,
-        description:"The fun, simple, & secure way to explore Web3, NFTs, & Ethereum."
+        description:"The fun, simple, & secure way to explore Web3, NFTs, & Ethereum.",
+        link:"https://rainbow.me/"
     },
     {
         name:"Coinbase",
         img:Coinbase,
-        description:"Self-custody, mobile crypto wallet and Web3 dapp browser."
+        description:"Self-custody, mobile crypto wallet and Web3 dapp browser.",
+        link:"https://www.coinbase.com/wallet"
     },
     {
         name:"Metamask",
         img:Metamask,
-        description:"A crypto wallet & gateway to blockchain apps."
+        description:"A crypto wallet & gateway to blockchain apps.",
+        link:"https://metamask.io/"
     },
     {
         name:"Ledger",
         img:Ledger,
-        description:"The smartest way to secure, buy and exchange crypto."
+        description:"The smartest way to secure, buy and exchange crypto.",
+        link:"https://www.ledger.com/"
     },
     {
         name:"Trustwallet",
         img:Trustwallet,
-        description:"Buy, store, collect NFTs, exchange & earn crypto."
+        description:"Buy, store, collect NFTs, exchange & earn crypto.",
+        link:"https://trustwallet.com/"
     },
     {
         name:"Gnosis Safe",
         img:Gnosis_Safe,
-        description:"The most trusted platform to manage digital assets."
+        description:"The most trusted platform to manage digital assets.",
+        link:"https://gnosis-safe.io/"
     }
 ]
 
@@ -174,32 +186,38 @@ const Daos = [
     {
         name:"DeveloperDao",
         img:DeveloperDao,
-        description:"Accelerate the education of a new wave of web3 builders."
+        description:"Accelerate the education of a new wave of web3 builders.",
+        link:"https://www.developerdao.com/"
     },
     {
         name:"VectorDAO",
         img:VectorDAO,
-        description:"A collective of designers making Internet money easier to use."
+        description:"A collective of designers making Internet money easier to use.",
+        link:"https://vectordao.com/"
     },
     {
         name:"FRIENDS with BENEFITS",
         img:Fwb,
-        description:"A digital cornerstone between technology and culture."
+        description:"A digital cornerstone between technology and culture.",
+        link:"https://www.fwb.help/"
     },
     {
         name:"Citydao",
         img:Citydao,
-        description:"Experiment in decentralized land ownership."
+        description:"Experiment in decentralized land ownership.",
+        link:"https://citydao.io/"
     },
     {
         name:"Forefront",
         img:Forefront,
-        description:"The port of entry to social clubs and digital cities."
+        description:"The port of entry to social clubs and digital cities.",
+        link:"https://rainbow.me/"
     },
     {
         name:"Syndicate",
         img:Syndicate,
-        description:"Decentralized investing protocol + social network."
+        description:"Decentralized investing protocol + social network.",
+        link:"https://syndicate.io/"
     }
 ]
 
@@ -208,22 +226,26 @@ const Tools = [
     {
         name:"Value App",
         img:ValueApp,
-        description:"A simple way to track the value of any NFT portfolio in real time."
+        description:"A simple way to track the value of any NFT portfolio in real time.",
+        link:"https://value.app/"
     },
     {
         name:"Rarity Sniper",
         img:Raritysniper,
-        description:"The #1 source for NFT rarity."
+        description:"The #1 source for NFT rarity.",
+        link:"https://raritysniper.com/"
     },
     {
         name:"Snapshot",
         img:Snapshot,
-        description:"Where decisions get made."
+        description:"Where decisions get made.",
+        link:"https://snapshot.org/"
     },
     {
         name:"Guild",
         img:Guild,
-        description:"Manage roles in your community based on tokens."
+        description:"Manage roles in your community based on tokens.",
+        link:"https://guild.xyz/"
     },
    
 ]
