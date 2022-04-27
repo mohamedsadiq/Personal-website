@@ -147,12 +147,12 @@ export default function Projects() {
 
 const data = [
   {
-    name:"DeveloperDAO Website Coming Soon",
+    name:"DeveloperDAO Website",
     img:developerDao,
-    description:"", 
+    description:"The main website of DeveloperDAO", 
     tags:"Product Design, Web3",
     target:"_blink",
-    link:"https://twitter.com/sadiq_moo/status/1503879512471261193"
+    link:"https://www.figma.com/proto/W2MGe36aUKYzaE3EaWQIm5/Developer-DAO-website-2022?page-id=0%3A1&node-id=2%3A396&viewport=0%2C48%2C0.13&scaling=contain"
 },
   {
       name:"DeveloperDAO FM",
@@ -183,7 +183,7 @@ const data = [
   {
     name:"GM",
     img:gm,
-    description:"description",
+    description:"Wave portal",
     tags:"Concepts",
     target:"_blink",
     link:"https://waveportal-starter-project.mohamedsadiq.repl.co"
