@@ -28,7 +28,7 @@ const Photo = () =>{
               
                 {data.map( i => {
                     return (
-                        <a key={ i } href={i.link} target="_blink">
+                        <a key={i}  href={i.link} target="_blink">
                         <Image
                         key={i}
                         className='border_radius'
@@ -44,9 +44,9 @@ const Photo = () =>{
              
                 </div>
                 <div className='ripi6'>
-                {data2.map( (i) => {
+                {data2.map( i => {
                     return (
-                       <a key={ i } href={i.link} target="_blink">
+                       <a key={i} href={i.link} target="_blink">
                          <Image
                         key={i}
                         className='border_radius'

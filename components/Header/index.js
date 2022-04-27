@@ -420,7 +420,7 @@ const Header = () => {
           </div>
           </motion.div>
           </Link>
-          <a href="https://msadiq.substack.com/p/coming-soon?utm_source=%2Fprofile%2F13973284-mohamed-sadiq&utm_medium=reader2" target="_blink" passHref >
+          <a href="https://msadiq.substack.com/p/coming-soon?utm_source=%2Fprofile%2F13973284-mohamed-sadiq&utm_medium=reader2" target="_blink"  >
           <motion.div 
              className="icon_holder"
              initial="initial"
