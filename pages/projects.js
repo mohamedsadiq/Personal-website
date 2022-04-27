@@ -209,7 +209,7 @@ const data = [
   {
     name:"One-Yellow 2",
     img:vscode,
-    description:"theme",
+    description:"Theme for Atom Editor",
     target:"_blink",
     tags:"CSS, Js, Atom",
     link:"https://twitter.com/sadiq_moo/status/1297206769580679168"
@@ -218,7 +218,7 @@ const data = [
     {
       name:"Concepts inspired by Drake ",
       img:drakec,
-      description:"Concepts",
+      description:"Concepts Chicago Freestyle",
       target:"_blink",
       tags:"Drake, songs",
       link:"https://www.behance.net/gallery/142533193/Concepts-inspired-by-Drake?"

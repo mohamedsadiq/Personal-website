@@ -23,6 +23,7 @@ const Photo = () =>{
 <main>
     <div className="container">
         <div className=' inner_container'>
+            
             <div className='mItv1'>
                 <div className='ripi6'>
               
