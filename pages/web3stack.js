@@ -46,7 +46,7 @@ export default function web3stack() {
            
           {wallet.map(item => {
               return (
-                  <a href={item.link} target="_blink">
+                  <a  key={item} href={item.link} target="_blink">
                       <div key={item.name} className="block">
                       <div className="top_block">
                         <div className="logo_stack">
@@ -77,8 +77,8 @@ export default function web3stack() {
           <div className="inner_stack">
           {Daos.map(item => {
               return (
-                  <a href={item.link} target="_blink">
-                  <div key={item.name} className="block">
+                  <a  key={item} href={item.link} target="_blink">
+                  <div className="block">
                        <div className="top_block">
                         <div className="logo_stack">
                         <Image
@@ -108,8 +108,8 @@ export default function web3stack() {
           <div className="inner_stack">
           {Tools.map(item => {
               return (
-                <a href={item.link} target="_blink">
-                  <div   key={item.name}className="block">
+                <a key={item} href={item.link} target="_blink">
+                  <div   className="block">
                        <div className="top_block">
                         <div className="logo_stack">
                         <Image
