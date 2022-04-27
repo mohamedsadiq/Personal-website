@@ -122,7 +122,7 @@ export default function Projects() {
                     objectFit='cover'
                     layout='fill'
                     objectPosition="center"
-                    // placeholder="blur"
+                     placeholder="blur"
                     quality={100}
                 />
 
