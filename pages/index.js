@@ -24,7 +24,7 @@ export default function Home() {
         src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW"
         strategy="afterInteractive"
       />
-      <Script id="G-H699TZ29QW" strategy="afterInteractive">
+      <Script id="google-analytics" strategy="afterInteractive">
         {`
          window.dataLayer = window.dataLayer || [];
          function gtag(){dataLayer.push(arguments);}
