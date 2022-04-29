@@ -15,12 +15,16 @@ export default function Home() {
         <meta name="twitter:title" content="Mohamed Sadiq" />
         <meta name="twitter:description" content="A product designer" />
         <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW"></script>
-        <Script
+        
+      </Head>
+      <main>
+       <Content />
+      </main>
+      <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW"
         strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="G-H699TZ29QW" strategy="afterInteractive">
         {`
          window.dataLayer = window.dataLayer || [];
          function gtag(){dataLayer.push(arguments);}
@@ -29,16 +33,6 @@ export default function Home() {
          gtag('config', 'G-H699TZ29QW');
         `}
       </Script>
-     
-      
-      <script>
-       
-      </script>
-      </Head>
-      <main>
-       <Content />
-      </main>
-      
       </div>
   )
 }
