@@ -2,6 +2,7 @@
 
 import Head from 'next/head'
 import Image from 'next/image'
+import Script from 'next/script'
 
 import img1 from "../img/photos/1.jpg"
 import img2 from "../img/photos/2.jpg"
@@ -63,6 +64,19 @@ const Photo = () =>{
             </div>
         </div>
         </div>
+        <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+ 
+         gtag('config', 'G-H699TZ29QW');
+        `}
+      </Script>
 </main>
 </>
 }
