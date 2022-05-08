@@ -21,6 +21,7 @@ import ovo from "../img/ovo.png"
 import folim from "../img/folim.png"
 import gm from "../img/gm.png"
 import gmd from "../img/ddcd.jpg"
+import daos from "../img/daos.png"
 
 import nasir from "../img/bitcoin.png"
 import car from "../img/car.png"
@@ -160,6 +161,14 @@ export default function Projects() {
 
 
 const data = [
+  {
+    name:"DAOs Spot",
+    img:daos,
+    description:"Project for DAOs", 
+    tags:"Product Design, Web3",
+    target:"_blink",
+    link:"https://www.figma.com/proto/W2MGe36aUKYzaE3EaWQIm5/Developer-DAO-website-2022?page-id=0%3A1&node-id=2%3A396&viewport=0%2C48%2C0.13&scaling=contain"
+},
   {
     name:"DeveloperDAO Website",
     img:developerDao,
