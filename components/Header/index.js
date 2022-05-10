@@ -450,7 +450,7 @@ const Header = () => {
    
 <svg width="206" height="206" viewBox="0 0 206 206" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="206" height="206" rx="58" fill="white"/>
-<circle cx="103" cy="103" r="44" stroke="black" stroke-width="20"/>
+<circle cx="103" cy="103" r="44" stroke="black" strokeWidth="20"/>
 <circle cx="160" cy="45" r="13" fill="black"/>
 </svg>
 
