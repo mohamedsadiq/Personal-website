@@ -442,7 +442,7 @@ const Header = () => {
          
          <div className='icons'>
           <div className="text">
-            Instagram
+            Github
           </div>
           <motion.div variants={insta} className="glow">      
        
