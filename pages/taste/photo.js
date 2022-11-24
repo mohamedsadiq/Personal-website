@@ -4,15 +4,15 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Script from 'next/script'
 
-import img1 from "../img/photos/1.jpg"
-import img2 from "../img/photos/2.jpg"
-import img3 from "../img/photos/3.jpg"
-import img4 from "../img/photos/4.jpg"
-import img5 from "../img/photos/5.jpg"
-import img6 from "../img/photos/6.jpg"
-import img7 from "../img/photos/7.jpg"
-import img8 from "../img/photos/8.jpg"
-import img9 from "../img/photos/9.jpg"
+import img1 from "../../img/photos/1.jpg"
+import img2 from "../../img/photos/2.jpg"
+import img3 from "../../img/photos/3.jpg"
+import img4 from "../../img/photos/4.jpg"
+import img5 from "../../img/photos/5.jpg"
+import img6 from "../../img/photos/6.jpg"
+import img7 from "../../img/photos/7.jpg"
+import img8 from "../../img/photos/8.jpg"
+import img9 from "../../img/photos/9.jpg"
 
 const Photo = () =>{
     return   <>

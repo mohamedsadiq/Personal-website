@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react"
 import Header from "../Header"
-
+import KeyNav from "../keyNav"
 
 const Layout =  ({ children })=> {
     // const children = props.children;
@@ -31,7 +31,7 @@ const Layout =  ({ children })=> {
       >
       {displayChildren}
       </div>
-    
+    <KeyNav />
     </div>
   )
 }
