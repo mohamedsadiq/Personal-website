@@ -6,25 +6,48 @@ import bag from "../../img/bag.png"
 import Link from 'next/link';
 
 const Books = () =>{
-    const [wallets, setWallet] = useState(true);
-    const [dao, setDao] = useState(false);
-    const [tools, setTools] = useState(false);
+   const [table1 , setTable1] = useState(true);
+   const [table2 , setTable2] = useState(false);
+   const [table3 , setTable3] = useState(false);
+   const [table4 , setTable4] = useState(false);
+   const [table5 , setTable5] = useState(false);
 
-    const switchWallet = () => {
-        setWallet(true);
-        setDao(false);
-        setTools(false);
-       }
-       const switchDao = () => {
-        setDao(true);
-        setWallet(false);
-        setTools(false)
-       }
-       const switchTools = () => {
-        setTools(true)
-        setDao(false);
-        setWallet(false);
-       }
+   const switch1 = () => {
+    setTable1(true);
+    setTable2(false);
+    setTable3(false);
+    setTable4(false);
+    setTable5(false);
+   }
+   const switch2 = () => {
+    setTable1(false);
+    setTable2(true);
+    setTable3(false);
+    setTable4(false);
+    setTable5(false);
+   }
+   const switch3 = () => {
+    setTable1(false);
+    setTable2(false);
+    setTable3(true);
+    setTable4(false);
+    setTable5(false);
+   }
+   const switch4 = () => {
+    setTable1(false);
+    setTable2(false);
+    setTable3(false);
+    setTable4(true);
+    setTable5(false);
+   }
+   const switch5 = () => {
+    setTable1(false);
+    setTable2(false);
+    setTable3(false);
+    setTable4(false);
+    setTable5(true);
+   }
+    
     return (
         <>
         <Head>

@@ -27,25 +27,47 @@ import Guild from "../../img/tools/L8tmHbzm_400x400.jpg"
 
 export default function web3stack() {
 //    const [all, setAll] = useState(true);
-   const [wallets, setWallet] = useState(true);
-   const [dao, setDao] = useState(false);
-   const [tools, setTools] = useState(false);
 
+   const [table1 , setTable1] = useState(true);
+   const [table2 , setTable2] = useState(false);
+   const [table3 , setTable3] = useState(false);
+   const [table4 , setTable4] = useState(false);
+   const [table5 , setTable5] = useState(false);
 
-   const switchWallet = () => {
-    setWallet(true);
-    setDao(false);
-    setTools(false);
+   const switch1 = () => {
+    setTable1(true);
+    setTable2(false);
+    setTable3(false);
+    setTable4(false);
+    setTable5(false);
    }
-   const switchDao = () => {
-    setDao(true);
-    setWallet(false);
-    setTools(false)
+   const switch2 = () => {
+    setTable1(false);
+    setTable2(true);
+    setTable3(false);
+    setTable4(false);
+    setTable5(false);
    }
-   const switchTools = () => {
-    setTools(true)
-    setDao(false);
-    setWallet(false);
+   const switch3 = () => {
+    setTable1(false);
+    setTable2(false);
+    setTable3(true);
+    setTable4(false);
+    setTable5(false);
+   }
+   const switch4 = () => {
+    setTable1(false);
+    setTable2(false);
+    setTable3(false);
+    setTable4(true);
+    setTable5(false);
+   }
+   const switch5 = () => {
+    setTable1(false);
+    setTable2(false);
+    setTable3(false);
+    setTable4(false);
+    setTable5(true);
    }
     
   
@@ -72,11 +94,11 @@ export default function web3stack() {
           <div className="filtter">
             <ul>
               
-                <li onClick={ () => switchWallet()} className={wallets ?  "bottom_line  ": " "}>Wallets</li>
-                <li onClick={ () => switchDao()} className={dao ?  "bottom_line  ": " "}>Daos</li>
-                <li onClick={ () => switchTools()} className={tools ?  "bottom_line " : " "}>Productive</li>
-                <li onClick={ () => switchTools()} className={tools ?  "bottom_line " : " "}>Design</li>
-                <li onClick={ () => switchTools()} className={tools ?  "bottom_line " : " "}>Coding </li>
+                <li onClick={ () => switch1()} className={table1 ?  "bottom_line  ": " "}>Wallets</li>
+                <li onClick={ () => switch2()} className={table2 ?  "bottom_line  ": " "}>Daos</li>
+                <li onClick={ () => switch3()} className={table3 ?  "bottom_line " : " "}>Productive</li>
+                <li onClick={ () => switch4()} className={table4 ?  "bottom_line " : " "}>Design</li>
+                <li onClick={ () => switch5()} className={table5 ?  "bottom_line " : " "}>Coding </li>
               
                 <div className="fil">
                 <svg width="17" height="17" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -86,7 +108,7 @@ export default function web3stack() {
             </ul>
             
         </div>
-        <div className={wallets ?  "trans statesOn" : "trans statesOff "}>
+        <div className={table1 ?  "trans statesOn" : "trans statesOff "}>
           <div className="inner_stack">
            
           {wallet.map(item => {
@@ -119,7 +141,7 @@ export default function web3stack() {
           })}
           </div>
           </div>
-          <div className={dao ?  "statesOn" : "statesOff "}>
+          <div className={table2 ?  "statesOn" : "statesOff "}>
     
           <div className="inner_stack">
           {Daos.map(item => {
@@ -152,7 +174,7 @@ export default function web3stack() {
           })}
           </div>
           </div>
-          <div className={tools ?  "statesOn " : "statesOff "}>
+          <div className={table3 ?  "statesOn " : "statesOff "}>
          
           <div className="inner_stack">
           {Tools.map(item => {

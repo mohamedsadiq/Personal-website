@@ -6,26 +6,47 @@ import Link from 'next/link';
 import bag from "../../img/bag.png"
 
 const Aesthetic = () =>{
-    const [wallets, setWallet] = useState(true);
-    const [dao, setDao] = useState(false);
-    const [tools, setTools] = useState(false);
-
-    const switchWallet = () => {
-        setWallet(true);
-        setDao(false);
-        setTools(false);
-       }
-       const switchDao = () => {
-        setDao(true);
-        setWallet(false);
-        setTools(false)
-       }
-       const switchTools = () => {
-        setTools(true)
-        setDao(false);
-        setWallet(false);
-       }
-        
+    const [table1 , setTable1] = useState(true);
+    const [table2 , setTable2] = useState(false);
+    const [table3 , setTable3] = useState(false);
+    const [table4 , setTable4] = useState(false);
+    const [table5 , setTable5] = useState(false);
+ 
+    const switch1 = () => {
+     setTable1(true);
+     setTable2(false);
+     setTable3(false);
+     setTable4(false);
+     setTable5(false);
+    }
+    const switch2 = () => {
+     setTable1(false);
+     setTable2(true);
+     setTable3(false);
+     setTable4(false);
+     setTable5(false);
+    }
+    const switch3 = () => {
+     setTable1(false);
+     setTable2(false);
+     setTable3(true);
+     setTable4(false);
+     setTable5(false);
+    }
+    const switch4 = () => {
+     setTable1(false);
+     setTable2(false);
+     setTable3(false);
+     setTable4(true);
+     setTable5(false);
+    }
+    const switch5 = () => {
+     setTable1(false);
+     setTable2(false);
+     setTable3(false);
+     setTable4(false);
+     setTable5(true);
+    }
     return (
         <>
         <Head>
@@ -45,9 +66,9 @@ const Aesthetic = () =>{
                     <p>Here is a list of web3 tools, DAOs and Wallets.</p>
                     <div className="filtter">
                         <ul>
-                            <li onClick={ () => switchWallet()} className={wallets ?  "bottom_line  ": " "}>Fashion</li>
-                            <li onClick={ () => switchDao()} className={dao ?  "bottom_line  ": " "}>Productive</li>
-                            <li onClick={ () => switchTools()} className={tools ?  "bottom_line " : " "}>Watches</li>
+                            <li onClick={ () => switch1()} className={table1 ?  "bottom_line  ": " "}>Fashion</li>
+                            <li onClick={ () => switch2()} className={table2 ?  "bottom_line  ": " "}>Productive</li>
+                            <li onClick={ () => switch3()} className={table3 ?  "bottom_line " : " "}>Watches</li>
                             <div className="fil">
                                 <svg width="17" height="17" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M0.0593468 0.237069C-0.0276426 0.386095 -0.015166 0.559994 0.0717367 0.709091L0.0841265 0.721481L3.09002 4.93221V9.68947C3.09002 9.81372 3.16453 9.92549 3.26391 9.97513C3.30116 10 3.3509 10 3.40054 10C3.47506 10 3.53718 9.97513 3.5993 9.92549L5.12707 8.64612C5.20158 8.584 5.23884 8.4971 5.23884 8.4101V4.93221L8.24473 0.721474L8.25712 0.709084C8.34411 0.560059 8.35649 0.38616 8.26951 0.237063C8.18252 0.0880369 8.03348 0.0010409 7.85961 0.0010409H0.456895C0.295395 -0.0113489 0.133903 0.0880303 0.059377 0.237063L0.0593468 0.237069Z" fill="#383838"/>
@@ -55,7 +76,7 @@ const Aesthetic = () =>{
                             </div>
                         </ul>
                     </div>
-                    <div className={wallets ?  "trans statesOn" : "trans statesOff "}>
+                    <div className={table1 ?  "trans statesOn" : "trans statesOff "}>
          
           <div className="inner_stack">
           {wallet.map(item => {
@@ -91,7 +112,7 @@ const Aesthetic = () =>{
           })}
           </div>
           </div>
-          <div className={wallets ?  "trans statesOn" : "trans statesOff "}>
+          <div className={table2 ?  "trans statesOn" : "trans statesOff "}>
    
           <div className="inner_stack">
           {wallet.map(item => {
@@ -127,42 +148,7 @@ const Aesthetic = () =>{
           })}
           </div>
           </div>
-          <div className={wallets ?  "trans statesOn" : "trans statesOff "}>
-       
-          <div className="inner_aes">
-          {wallet.map(item => {
-              return (
-                  <a  key={item} href={item.link} target="_blink">
-                      <div key={item.name} className="blocks_aes">
-                      <div className="">
-                        <div className="img_aes">
-                        <Image
-                            src={item.img}
-                            alt="Picture of the author"
-                            objectFit='cover'
-                            layout='fill'
-                            objectPosition="center"
-                            placeholder="blur"
-                            quality={100}
-                            />
-                        </div>
-                      </div>
-                     <div className="dec_aes"> 
-                        <h1>{item.name}</h1>
-                        <span>
-                            <svg width="25" height="25" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9.10675 7.13995C9.3289 7.3621 9.3215 7.71279 9.08751 7.91649L6.75277 9.95844C6.51879 10.1621 6.14788 10.1493 5.92573 9.92717C5.70358 9.70502 5.69077 9.33412 5.89447 9.10013L7.93641 6.7654C8.14011 6.53141 8.4908 6.52401 8.71295 6.74616L9.10675 7.13995Z" fill="white"/>
-                            <path d="M6.91471 6.16017C6.69638 5.94183 6.76614 5.7629 7.08412 5.76253L9.52835 5.75962C9.83634 5.75925 10.0894 6.01234 10.0891 6.32034L10.0862 8.7745C10.0858 9.0825 9.90685 9.16225 9.68851 8.94391L6.90968 6.16508L6.91471 6.16017Z" fill="white"/>
-                            <circle cx="8" cy="8" r="7.5" stroke="white"/>
-                            </svg>
-                        </span>
-                     </div>
-                  </div>
-                  </a>
-              )
-          })}
-          </div>
-          </div>
+          
           <div className="inner_container inner_teste">
                 <h2>More</h2>
                 <div className="grid-teste grid">

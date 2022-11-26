@@ -118,8 +118,8 @@ a {
 .inner_container p{
   line-height: 27px;
   color: #9B9B9B;
-  font-size: 0.7rem;
-  line-height: 20px;
+  font-size: 0.9rem;
+  line-height: 23px;
   margin-bottom: 24px;
 }
 .grid{
@@ -920,19 +920,25 @@ main .icons svg{
  } */
 
 
- .inner_teste{    margin-top: 34%}
+ /* .inner_teste{    margin-top: 34%} */
  
 
 
  .teste_box {
    min-height: 413px;
     margin: 24px 0px;
-    position: relative;
     border-radius: 48.12px;
     border: 1px solid rgb(16, 16, 16);;
     width: 100%;
     height: 393.63px;
     box-shadow: rgb(22 22 22) 0px 1px 1px inset;
+    position: relative;
+    top: 0;
+    transition: all 0.2s ease-in-out;
+ }
+ .teste_box:hover{
+  top:-10px;
+  cursor: pointer;
  }
  .teste_box{
   background: rgb(0,0,0);
@@ -970,14 +976,14 @@ main .icons svg{
   margin: 0;
   width: 110px;
   padding: 9px;
- 
-
   display: grid; 
   grid-template-columns: 1.1fr 0.9fr; 
   gap: 0px 0px; 
-
   padding-right: 17px;
   padding-left: 17px;
+ }
+ .teste_box button:hover{
+  cursor: pointer;
  }
  .teste_box button p{
   color: #000;
