@@ -189,7 +189,7 @@ const data = [
     description:"The main website of DeveloperDAO", 
     tags:"Product Design, Web3",
     target:"_blink",
-    link:"https://www.figma.com/proto/W2MGe36aUKYzaE3EaWQIm5/Developer-DAO-website-2022?page-id=0%3A1&node-id=2%3A396&viewport=0%2C48%2C0.13&scaling=contain"
+    link:"https://www.developerdao.com/"
 },
   {
       name:"DeveloperDAO FM",
