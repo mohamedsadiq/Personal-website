@@ -2273,11 +2273,15 @@ position: relative;
 
 @media only screen and (max-width:617px) {
   .content{
-    position: relative;
-    top: 386px;
-    left: 0;
-    transform: translate(0);
+    position: absolute;
+    left: 50%;
+    top: 61%;
     display: block;
+    transform: translate(-50%, -50%);
+    width: 87%;
+    height: auto;
+    /* padding: 18px; */
+    padding: 0 24px;
   }
   .content_animete{
     display: block;
@@ -2350,7 +2354,7 @@ position: relative;
     flex-direction: column;
   }
   .content{
-  top: 361px;
+  top: 60%;
 }
   .lamar{
     opacity: 1;
@@ -2466,7 +2470,7 @@ cursor: pointer;
 @media only screen and (max-width:414px) {
   .content{
   
-    top: 361px;
+    top: 60%;
    
   }
 }
@@ -2476,7 +2480,7 @@ cursor: pointer;
 @media only screen and (max-width:375px) {
   .content{
   
-    top: 361px;
+    top: 60%;
    
   }
   .blog_overlay h1{

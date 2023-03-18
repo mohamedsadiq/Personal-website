@@ -47,7 +47,7 @@ const Layout =  ({ children })=> {
     <KeyNav />
     <div className="nextjs">
       <span className="star">*</span>
-    <span className="crafted">Crafted by hand using <a>NextJs</a></span>
+    <span className="crafted">2050 Crafted by hand using <a>NextJs</a></span>
      </div>
     </div>
   )
