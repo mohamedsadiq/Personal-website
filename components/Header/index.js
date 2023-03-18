@@ -30,8 +30,8 @@ const useMediaQuery = (query) => {
   return matches;
 };
 
-const useIsSmall = () => useMediaQuery("(max-width: 580px)");
-const useIsMedium = () => useMediaQuery("(max-width: 768px)");
+const useIsSmall = () => useMediaQuery("(max-width:580px)");
+const useIsMedium = () => useMediaQuery("(max-width:768px)");
 
 const Header = (props) => {
   const isSmall = useIsSmall()
