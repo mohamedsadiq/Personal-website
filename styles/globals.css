@@ -2319,6 +2319,10 @@ position: relative;
   height: 0;
 }
 @media only screen and (max-width:425px) {
+  .inner_container p {
+    line-height: 21px;
+    font-size: 0.9rem;
+}
   .blog_overlay h1{
     font-size: 0.9rem;
   }
