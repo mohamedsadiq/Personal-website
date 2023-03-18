@@ -2499,6 +2499,13 @@ cursor: pointer;
   .container_podcast .block_books {
     height: auto;
 }
+.data_des h2{
+  width: auto;
+}
+
+.data_des{
+  padding-left: 16px
+}
   .block_books{
     height: auto;
   }
