@@ -256,7 +256,7 @@ const Header = (props) => {
       variants={header_hex}
     >
       <div className='inner_header'>
-        <Link href="/" activeClassName="active" passhref >
+        <Link href="/" activeClassName="active" passHref >
           <div>
             <motion.div
               onClick={() => home_content()}
@@ -290,7 +290,7 @@ const Header = (props) => {
             </motion.div>
           </div>
         </Link>
-        <Link href="/projects" passhref >
+        <Link href="/projects" passHref >
           <motion.div
             whileTap={{ scale: 0.9 }}
             className="icon_holder"
@@ -318,7 +318,7 @@ const Header = (props) => {
           </motion.div>
         </Link>
 
-        <Link href="/blogs" passhref >
+        <Link href="/blogs" passHref >
           <motion.div
             className="icon_holder"
             initial="initial"
@@ -352,7 +352,7 @@ const Header = (props) => {
 
 
         </Link>
-        <Link href={"/oasis"} passhref>
+        <Link href={"/oasis"} passHref>
           <motion.div
             className="icon_holder"
             initial="initial"
@@ -383,7 +383,7 @@ const Header = (props) => {
             </div>
           </motion.div>
         </Link>
-        <Link href={"/store"} target="_blink" passhref >
+        <Link href={"/store"} target="_blink" passHref >
           <motion.div
             className="icon_holder"
             initial="initial"
@@ -411,7 +411,7 @@ const Header = (props) => {
             </div>
           </motion.div>
         </Link>
-        <Link href="/about" passhref >
+        <Link href="/about" passHref >
           <motion.div
             className="icon_holder"
             initial="initial"

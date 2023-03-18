@@ -45,10 +45,10 @@ const KeyNav = () => {
   useKey('6', page6);
   useKey('7', page7);
 
-  const [show, useShow] = useState(false);
+  const [show, useeShow] = useState(false);
 
   const keyNavFun = () => {
-    useShow(!show);
+    useeShow(!show);
   }
   const parentFun = () => {
     keyNavFun();
