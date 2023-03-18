@@ -23,7 +23,7 @@ export default function About() {
         <div className="container">
           <div className="inner_container about_me">
             <h1>Product designer building internet software.</h1>
-            <p>Since 2017, I have been working as a product designer with expertise in designing and building digital products, including websites, mobile apps, and internet software. My focus is on creating user-centered designs that solve business problems while providing a seamless user experience. Additionally, I'm passionate about the possibilities presented by the emerging field of Web3 and how it can provide more autonomy and security to users.</p>
+            <p>Since 2017, I have been working as a product designer with expertise in designing and building digital products, including websites, mobile apps, and internet software. My focus is on creating user-centered designs that solve business problems while providing a seamless user experience. Additionally, I&rsquo;m passionate about the possibilities presented by the emerging field of Web3 and how it can provide more autonomy and security to users.</p>
             <a
                 className="links"
                 href="/cv.pdf"
