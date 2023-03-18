@@ -2318,6 +2318,9 @@ position: relative;
   width: 0;
   height: 0;
 }
+
+
+
 @media only screen and (max-width:425px) {
   .inner_container p {
     line-height: 21px;
@@ -2395,7 +2398,7 @@ position: relative;
   left: 61px;
 }
   .item1{
-    margin-bottom: 200px;
+    margin-bottom: 66px;
   }
   .web3 svg {
     width: 36px;
@@ -2510,3 +2513,8 @@ cursor: pointer;
   width: 1px;
 }
 
+@media only screen and (max-width:320px) {
+  .item1{
+    margin-bottom: 8px;
+  }
+  }
