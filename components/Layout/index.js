@@ -11,13 +11,26 @@ const Layout =  ({ children })=> {
     setTransitionStage("fadeIn");
   }, []);
 
+
+  
   useEffect(() => {
     if (children !== displayChildren) setTransitionStage("fadeOut");
   }, [children, setDisplayChildren, displayChildren]);
-
+    
+  const [mode, setMode] = useState(() => {
+    // Retrieve mode value from localStorage, default to "light"
+    return typeof window !== 'undefined' && localStorage.getItem("mode") || "light";
+  });
+    
+  useEffect(() => {
+    // Store mode value in localStorage
+    if (typeof window !== 'undefined') {
+      localStorage.setItem("mode", mode);
+    }
+  }, [mode]);
   return (
-    <div >
-      <Header />
+    <div className={mode + " theBody"}>
+      <Header modeValue={mode} setMode={setMode}/>
       <div   
        onTransitionEnd={() => {
         if (transitionStage === "fadeOut") {
@@ -27,11 +40,15 @@ const Layout =  ({ children })=> {
         }
       }}
       className={ `${contents} ${transitionStage}`  }
-      
+      // #a8a8a8
       >
       {displayChildren}
       </div>
     <KeyNav />
+    <div className="nextjs">
+      <span className="star">*</span>
+    <span className="crafted">Crafted by hand using <a>NextJs</a></span>
+     </div>
     </div>
   )
 }

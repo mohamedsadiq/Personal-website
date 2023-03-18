@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "framer-motion": "^6.2.9",
+    "keen-slider": "^6.8.5",
     "next": "12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0",

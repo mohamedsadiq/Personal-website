@@ -4,25 +4,19 @@ import img2 from "../../img/blog/2.png"
 import img3 from "../../img/blog/3.png"
 import img4 from "../../img/blog/4.png"
 import img5 from "../../img/blog/5.png"
-import img6 from "../../img/blog/6.png"
+import img6 from "../../img/dsd.jpg"
 import img7 from "../../img/blog/7.jpg"
 import Link from 'next/link';
 const BlogContent = ({link1, link2, link3}) =>{
     const data =[
-        {
-            title:"Title",
-            img:img1,
-            description:"The fun, simple, & secure way to explore Web3, NFTs, & Ethereum.",
-            tags:"tags",
-            link:link1
-        },
+      
        
         {
-            title:"Title",
+            title:"Moore's Law, Virtual Reality, and the Future of Human-Computer Interaction",
             img:img3,
-            description:"The fun, simple, & secure way to explore Web3, NFTs, & Ethereum.",
-            tags:"tags",
-            link:link2
+            description:"The Intersection of Moore's Law and Engelbart's..",
+           
+            link:"https://open.substack.com/pub/msadiq/p/moores-law-virtual-reality-and-the?r=8bhus&utm_campaign=post&utm_medium=web"
         },
       
         // {
@@ -32,18 +26,18 @@ const BlogContent = ({link1, link2, link3}) =>{
         //     tags:"tags"
         // },
         {
-            title:"Title",
+            title:"Exploring the Potential of Virtual Reality and the Blending of Worlds",
             img:img6,
-            description:"The fun, simple, & secure way to explore Web3, NFTs, & Ethereum.",
-            tags:"tags",
-            link:link3
+            description:"Exploring the Possibilities and Consequences of Merging Virtual Reality and Real Life.",
+           
+            link:"https://open.substack.com/pub/msadiq/p/the-adventure-and-ingenuity-of-assassins?r=8bhus&utm_campaign=post&utm_medium=web"
         }
     ]
     return (
         <div className="blog_intro">
             {data.map(item => {
               return (
-                  <Link  key={item.name} href={item.link} passHref>
+                  <a  key={item.name} href={item.link} passHref target="_blink">
                   <div className="block">
                         <div className="blog_photo">
                             <div className='overlay_img'></div>
@@ -60,11 +54,11 @@ const BlogContent = ({link1, link2, link3}) =>{
                       <div className="blog_overlay">
                       <h1>{item.title}</h1>
                       <p>{item.description}</p>
-                      <span>{item.tags}</span>
+                   
                       </div> 
                     
                   </div>
-                  </Link>
+                  </a>
               )
           })}
          

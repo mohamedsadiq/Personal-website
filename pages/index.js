@@ -5,7 +5,7 @@ export default function Home() {
   return (
      <div className="class_body">
       <Head>
-        <title>Home | Mohamed Sadiq</title>
+        <title>Home - Mohamed Sadiq</title>
         <meta name="description" content="A product designer who can code, focusing on Web 3, Open source products @DeveloperDAO, member of @Bulidspace and @Anti" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="keywords" content="HTML, CSS, JavaScript, product design, web3, nft" />

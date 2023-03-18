@@ -3,7 +3,14 @@ import {useState} from "react"
 import Image from 'next/image'
 import Link from 'next/link';
 // images Wallets
-import bag from "../../img/bag.png"
+import bag1 from "../../img/558273.jpg"
+import bag2 from "../../img/6ZRenz84rh5f9p5a9lD1QA.jpeg"
+import bag3 from "../../img/1CYuIeP2bfxgjbdq8NNKgp.jpeg"
+import bag4 from "../../img/2IUtBE3GKRrbBraF5UOH5H.jpeg"
+import bag5 from "../../img/bdlkh36BmMSbfM49pAvbWZ.jpeg"
+import bag6 from "../../img/g7GYDEyvtkjcKMxWp1W04F.jpeg"
+import bag7 from "../../img/0016477_xiaomi-mi-computer-monitor-light-bar_511.png"
+import bag8 from "../../img/MK2E3_AV1.jpeg"
 
 const Aesthetic = () =>{
     const [table1 , setTable1] = useState(true);
@@ -58,28 +65,29 @@ const Aesthetic = () =>{
             <div className="container">
                 <div className="inner_container">
                 <div className="inner_nav">
-                    <span>Home  > </span>
-                    <span>Taste > </span>
-                    <span>Aesthetic</span>
+                    <span><Link href="/">Home</Link>   > </span>
+                    <span><Link href="/oasis">Oasis</Link>  > </span>
+                    <span><Link href="/taste/aesthetic">Aesthetic</Link></span>
                 </div>
                 <h1>Aesthetic</h1>
-                    <p>Here is a list of web3 tools, DAOs and Wallets.</p>
+                    <p>Explore my stylish and practical collection of fashion, accessories, and tech gadgets that will enhance your daily routines and elevate your personal style.</p>
                     <div className="filtter">
                         <ul>
-                            <li onClick={ () => switch1()} className={table1 ?  "bottom_line  ": " "}>Fashion</li>
-                            <li onClick={ () => switch2()} className={table2 ?  "bottom_line  ": " "}>Productive</li>
-                            <li onClick={ () => switch3()} className={table3 ?  "bottom_line " : " "}>Watches</li>
+                            <li onClick={ () => switch1()} className={table1 ?  "bottom_line  ": " "}>All</li>
+                            <li onClick={ () => switch2()} className={table2 ?  "bottom_line  ": " "}>Fashion</li>
+                            <li onClick={ () => switch3()} className={table3 ?  "bottom_line  ": " "}>Tech</li>
                             <div className="fil">
-                                <svg width="17" height="17" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                {/* <svg width="17" height="17" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M0.0593468 0.237069C-0.0276426 0.386095 -0.015166 0.559994 0.0717367 0.709091L0.0841265 0.721481L3.09002 4.93221V9.68947C3.09002 9.81372 3.16453 9.92549 3.26391 9.97513C3.30116 10 3.3509 10 3.40054 10C3.47506 10 3.53718 9.97513 3.5993 9.92549L5.12707 8.64612C5.20158 8.584 5.23884 8.4971 5.23884 8.4101V4.93221L8.24473 0.721474L8.25712 0.709084C8.34411 0.560059 8.35649 0.38616 8.26951 0.237063C8.18252 0.0880369 8.03348 0.0010409 7.85961 0.0010409H0.456895C0.295395 -0.0113489 0.133903 0.0880303 0.059377 0.237063L0.0593468 0.237069Z" fill="#383838"/>
-                                </svg>
+                                </svg> */}
                             </div>
                         </ul>
                     </div>
+                    <div className="trasition_counter">
                     <div className={table1 ?  "trans statesOn" : "trans statesOff "}>
-         
-          <div className="inner_stack">
-          {wallet.map(item => {
+                    <div className='mItv1'>
+                        <div className='ripi6'>
+                        {all_grid1.map(item => {
               return (
                   <a  key={item} href={item.link} target="_blink">
                       <div key={item.name} className="blocks_aes">
@@ -94,28 +102,23 @@ const Aesthetic = () =>{
                             placeholder="blur"
                             quality={100}
                             />
+               
                         </div>
                       </div>
                      <div className="dec_aes"> 
                         <h1>{item.name}</h1>
-                        <span>
-                            <svg width="25" height="25" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9.10675 7.13995C9.3289 7.3621 9.3215 7.71279 9.08751 7.91649L6.75277 9.95844C6.51879 10.1621 6.14788 10.1493 5.92573 9.92717C5.70358 9.70502 5.69077 9.33412 5.89447 9.10013L7.93641 6.7654C8.14011 6.53141 8.4908 6.52401 8.71295 6.74616L9.10675 7.13995Z" fill="white"/>
-                            <path d="M6.91471 6.16017C6.69638 5.94183 6.76614 5.7629 7.08412 5.76253L9.52835 5.75962C9.83634 5.75925 10.0894 6.01234 10.0891 6.32034L10.0862 8.7745C10.0858 9.0825 9.90685 9.16225 9.68851 8.94391L6.90968 6.16508L6.91471 6.16017Z" fill="white"/>
-                            <circle cx="8" cy="8" r="7.5" stroke="white"/>
-                            </svg>
-                        </span>
+                        
+                        <p>{item.description}</p>
+                        <button> See</button>
+                       
                      </div>
                   </div>
                   </a>
               )
           })}
-          </div>
-          </div>
-          <div className={table2 ?  "trans statesOn" : "trans statesOff "}>
-   
-          <div className="inner_stack">
-          {wallet.map(item => {
+                        </div>
+                        <div className='ripi6'>
+                        {all_grid2.map(item => {
               return (
                   <a  key={item} href={item.link} target="_blink">
                       <div key={item.name} className="blocks_aes">
@@ -130,100 +133,166 @@ const Aesthetic = () =>{
                             placeholder="blur"
                             quality={100}
                             />
+               
                         </div>
                       </div>
                      <div className="dec_aes"> 
                         <h1>{item.name}</h1>
-                        <span>
-                            <svg width="25" height="25" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9.10675 7.13995C9.3289 7.3621 9.3215 7.71279 9.08751 7.91649L6.75277 9.95844C6.51879 10.1621 6.14788 10.1493 5.92573 9.92717C5.70358 9.70502 5.69077 9.33412 5.89447 9.10013L7.93641 6.7654C8.14011 6.53141 8.4908 6.52401 8.71295 6.74616L9.10675 7.13995Z" fill="white"/>
-                            <path d="M6.91471 6.16017C6.69638 5.94183 6.76614 5.7629 7.08412 5.76253L9.52835 5.75962C9.83634 5.75925 10.0894 6.01234 10.0891 6.32034L10.0862 8.7745C10.0858 9.0825 9.90685 9.16225 9.68851 8.94391L6.90968 6.16508L6.91471 6.16017Z" fill="white"/>
-                            <circle cx="8" cy="8" r="7.5" stroke="white"/>
-                            </svg>
-                        </span>
+                        
+                        <p>{item.description}</p>
+                        <button> See </button>
+                       
                      </div>
                   </div>
                   </a>
               )
           })}
-          </div>
-          </div>
-          
-          <div className="inner_container inner_teste">
-                <h2>More</h2>
-                <div className="grid-teste grid">
-                <Link href="/taste/web3stack">
-                    <div className="teste_box">
-                 
-                      <div className="inner_taste_box">
-                      <svg  viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0.846149 4.40155L8.32757 8.46715C8.39243 8.50175 8.4648 8.51984 8.53831 8.51984C8.61182 8.51984 8.6842 8.50175 8.74905 8.46715L16.2305 4.40155C16.2987 4.36784 16.3555 4.31472 16.3937 4.24885C16.4319 4.18298 16.4497 4.1073 16.445 4.03132C16.4403 3.95533 16.4133 3.88243 16.3673 3.82175C16.3213 3.76108 16.2585 3.71534 16.1866 3.69029L8.70515 0.634497C8.59826 0.590584 8.47836 0.590584 8.37147 0.634497L0.890054 3.69029C0.818167 3.71534 0.755284 3.76108 0.709301 3.82175C0.663318 3.88243 0.636284 3.95533 0.631594 4.03132C0.626903 4.1073 0.644765 4.18298 0.682937 4.24885C0.721109 4.31472 0.777889 4.36784 0.846149 4.40155Z" fill="white"/>
-                        <path d="M16.1842 7.35972L14.5773 6.6748L8.74669 9.84475C8.68183 9.87934 8.60945 9.89743 8.53595 9.89743C8.46244 9.89743 8.39006 9.87934 8.3252 9.84475L2.49461 6.6748L0.887691 7.35972C0.819637 7.39545 0.762647 7.4491 0.722887 7.51488C0.683126 7.58066 0.662109 7.65605 0.662109 7.73292C0.662109 7.80978 0.683126 7.88517 0.722887 7.95095C0.762647 8.01673 0.819637 8.07038 0.887691 8.10611L8.36911 12.4088C8.43255 12.4476 8.50548 12.4681 8.57985 12.4681C8.65422 12.4681 8.72715 12.4476 8.7906 12.4088L16.272 8.10611C16.3368 8.063 16.3884 8.00279 16.421 7.93217C16.4537 7.86154 16.4662 7.78326 16.4571 7.70598C16.448 7.6287 16.4177 7.55544 16.3695 7.49433C16.3214 7.43321 16.2572 7.38662 16.1842 7.35972Z" fill="white"/>
-                        <path d="M16.185 11.2592L14.8151 10.6621L8.74746 13.9638C8.6826 13.9984 8.61022 14.0165 8.53672 14.0165C8.46321 14.0165 8.39083 13.9984 8.32597 13.9638L2.2583 10.6621L0.888459 11.2592C0.818476 11.2955 0.759807 11.3503 0.718857 11.4177C0.677907 11.485 0.65625 11.5624 0.65625 11.6412C0.65625 11.72 0.677907 11.7973 0.718857 11.8647C0.759807 11.9321 0.818476 11.9869 0.888459 12.0232L8.36988 16.4137C8.43474 16.4483 8.50711 16.4664 8.58062 16.4664C8.65413 16.4664 8.7265 16.4483 8.79136 16.4137L16.2728 12.0232C16.3395 11.9795 16.3928 11.9181 16.4266 11.8458C16.4605 11.7736 16.4736 11.6934 16.4645 11.6141C16.4554 11.5349 16.4244 11.4597 16.375 11.397C16.3257 11.3344 16.2599 11.2867 16.185 11.2592Z" fill="white"/>
-                      </svg>
-                         <h2>Stack</h2>
-                         <p>From essays to videos and tweets, this page is a collection of learning materials that.</p>
-                         <button>
-                            <p>Enter</p>
-                            <span>
-                            <svg width="25" height="25" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9.10675 7.13995C9.3289 7.3621 9.3215 7.71279 9.08751 7.91649L6.75277 9.95844C6.51879 10.1621 6.14788 10.1493 5.92573 9.92717C5.70358 9.70502 5.69077 9.33412 5.89447 9.10013L7.93641 6.7654C8.14011 6.53141 8.4908 6.52401 8.71295 6.74616L9.10675 7.13995Z" fill="black"/>
-                                <path d="M6.91471 6.16017C6.69638 5.94183 6.76614 5.7629 7.08412 5.76253L9.52835 5.75962C9.83634 5.75925 10.0894 6.01234 10.0891 6.32034L10.0862 8.7745C10.0858 9.0825 9.90685 9.16225 9.68851 8.94391L6.90968 6.16508L6.91471 6.16017Z" fill="black"/>
-                                <circle cx="8" cy="8" r="7.5" stroke="black"/>
-                                </svg>
-                            </span>
-                         </button>
-                      </div>
-                    
+                        </div>
                     </div>
-                    </Link>
-                   
-                    <Link href="/taste/books">
-                        <div className="teste_box">
-                        <div className="inner_taste_box">
-                            <svg  version="1.1" fill="#fff" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
-                            <path d="m602.61 328.55v66.418l-286.49 165.03-251.72-162.8c-49.215-31.832-62.906-95.777-12.223-124.98l51.43-29.625c-12.75-29.633-6.6875-62.562 25.762-81.258l280.07-161.33 270.38 172.47v111.61l-77.191 44.469zm-285.23 162.73-251.45-162.03c-28.297-18.238-23.609 22.883 4.2734 40.664l247 157.56 259.17-148.44v-35.371l-259 147.62zm77.809-136.82 258.38-141.25v54.941l-259.17 148.44-247.01-157.56c-27.879-17.785-26.141-80.469 2.7461-63.125l245.05 158.56z" fill-rule="evenodd"/>
-                            </svg>
-                        <h2>Books</h2>
-                    
-                         <p>From essays to videos and tweets, this page is a collection of learning materials that.</p>
-                         <button>
-                            <p>Enter</p>
-                            <span>
-                            <svg width="25" height="25" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9.10675 7.13995C9.3289 7.3621 9.3215 7.71279 9.08751 7.91649L6.75277 9.95844C6.51879 10.1621 6.14788 10.1493 5.92573 9.92717C5.70358 9.70502 5.69077 9.33412 5.89447 9.10013L7.93641 6.7654C8.14011 6.53141 8.4908 6.52401 8.71295 6.74616L9.10675 7.13995Z" fill="black"/>
-                                <path d="M6.91471 6.16017C6.69638 5.94183 6.76614 5.7629 7.08412 5.76253L9.52835 5.75962C9.83634 5.75925 10.0894 6.01234 10.0891 6.32034L10.0862 8.7745C10.0858 9.0825 9.90685 9.16225 9.68851 8.94391L6.90968 6.16508L6.91471 6.16017Z" fill="black"/>
-                                <circle cx="8" cy="8" r="7.5" stroke="black"/>
-                                </svg>
-                            </span>
-                         </button>
-                        </div>
-                        </div>
-                    </Link>
-                    <Link href="/taste/podcast">
-                        <div className="teste_box">
-                        <div className="inner_taste_box">
-                        <svg viewBox="0 0 261 346" fill="#fff" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M130.488 228.375C148.495 228.375 165.765 221.222 178.498 208.489C191.231 195.756 198.384 178.487 198.384 160.479V67.8945C198.384 43.6375 185.444 21.2245 164.436 9.09502C143.428 -3.03168 117.548 -3.03168 96.5406 9.09502C75.5328 21.2245 62.5928 43.6382 62.5928 67.8945V160.479C62.5928 178.486 69.7463 195.756 82.479 208.489C95.2123 221.222 112.481 228.375 130.488 228.375V228.375ZM93.4544 54.7456C93.4544 46.5593 96.706 38.7117 102.492 32.9217C108.281 27.1351 116.132 23.8839 124.316 23.8839C127.725 23.8839 130.488 26.6477 130.488 30.0563C130.488 33.4648 127.725 36.2286 124.316 36.2286C119.406 36.2286 114.694 38.1795 111.222 41.6515C107.751 45.1234 105.799 49.8356 105.799 54.7453V172.824C105.799 176.232 103.036 178.996 99.6271 178.996C96.2186 178.996 93.4548 176.232 93.4548 172.824L93.4544 54.7456ZM235.418 148.135C235.465 174.926 225.262 200.721 206.898 220.235C188.536 239.744 163.406 251.491 136.661 253.067V333.307H173.695C177.103 333.307 179.867 336.071 179.867 339.479C179.867 342.888 177.103 345.652 173.695 345.652H87.2821C83.8736 345.652 81.1098 342.888 81.1098 339.479C81.1098 336.071 83.8736 333.307 87.2821 333.307H124.625L124.316 253.067C97.6844 251.813 72.5627 240.342 54.1698 221.042C35.777 201.74 25.5288 176.094 25.5591 149.429V148.134C25.5591 144.726 28.3229 141.962 31.7314 141.962C35.14 141.962 37.9038 144.726 37.9038 148.134V149.429C37.9203 173.636 47.5425 196.846 64.66 213.963C81.7774 231.08 104.987 240.702 129.194 240.719H130.489C155.043 240.719 178.594 230.965 195.957 213.603C213.319 196.24 223.074 172.689 223.074 148.134C223.074 144.726 225.838 141.962 229.246 141.962C232.655 141.962 235.418 144.726 235.418 148.134L235.418 148.135ZM260.108 86.4115C260.116 103.733 256.652 120.88 249.923 136.84C248.956 139.119 246.721 140.601 244.244 140.604C242.163 140.623 240.215 139.593 239.058 137.865C237.901 136.134 237.694 133.941 238.504 132.026C245.15 116.3 248.275 99.3098 247.655 82.2508C247.038 65.1884 242.693 48.4709 234.925 33.2686C234.093 31.7806 233.911 30.0143 234.426 28.3913C234.941 26.7655 236.104 25.4264 237.639 24.6879C240.675 23.1641 244.371 24.3765 245.911 27.4049C255.33 45.6411 260.201 65.8857 260.108 86.411L260.108 86.4115ZM22.723 132.58C23.376 134.101 23.3898 135.82 22.7643 137.352C22.1361 138.884 20.9209 140.1 19.3888 140.728C18.6228 141.039 17.8071 141.207 16.9805 141.221C14.506 141.218 12.2685 139.736 11.3041 137.457C4.36576 121.335 0.813945 103.961 0.871789 86.4116C0.882811 65.657 5.87858 45.2086 15.4371 26.7882C16.1177 25.212 17.4211 23.9914 19.0358 23.4182C20.6506 22.8423 22.4306 22.9663 23.9517 23.7544C25.4727 24.5452 26.597 25.934 27.0543 27.5846C27.5118 29.2379 27.261 31.0042 26.3627 32.4646C17.7405 49.1412 13.2329 67.6385 13.216 86.4122C13.1912 102.29 16.4262 118.004 22.7228 132.581L22.723 132.58ZM25.5611 86.4115C25.5336 70.4981 29.1433 54.7922 36.1148 40.4879C37.6165 37.421 41.3199 36.1507 44.3871 37.6497C47.4543 39.1487 48.727 42.8521 47.2253 45.9221C41.0612 58.5256 37.8729 72.3806 37.9061 86.4112C37.8923 98.3206 40.1767 110.119 44.6351 121.161C45.9054 124.316 44.3871 127.901 41.2403 129.185C38.0852 130.458 34.4975 128.94 33.2162 125.79C28.1544 113.278 25.5562 99.9082 25.5611 86.4115V86.4115ZM224.868 40.4879C237.876 67.2271 238.932 98.2292 227.766 125.793C226.485 128.943 222.897 130.461 219.742 129.188C216.596 127.904 215.077 124.319 216.348 121.164C220.806 110.123 223.09 98.3234 223.077 86.4139C223.11 72.3826 219.922 58.5284 213.757 45.9248C212.256 42.8552 213.529 39.1518 216.596 37.6525C219.662 36.1532 223.366 37.4238 224.868 40.4906L224.868 40.4879Z" fill="white"/>
-                        </svg>
+          <div className="inner_stack">
+          
+          </div>
+          </div>
 
-                        <h2>Podcast</h2>
-                        <p>From essays to videos and tweets, this page is a collection of learning materials that.</p>
-                         <button>
-                            <p>Enter</p>
-                            <span>
-                            <svg width="25" height="25" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9.10675 7.13995C9.3289 7.3621 9.3215 7.71279 9.08751 7.91649L6.75277 9.95844C6.51879 10.1621 6.14788 10.1493 5.92573 9.92717C5.70358 9.70502 5.69077 9.33412 5.89447 9.10013L7.93641 6.7654C8.14011 6.53141 8.4908 6.52401 8.71295 6.74616L9.10675 7.13995Z" fill="black"/>
-                                <path d="M6.91471 6.16017C6.69638 5.94183 6.76614 5.7629 7.08412 5.76253L9.52835 5.75962C9.83634 5.75925 10.0894 6.01234 10.0891 6.32034L10.0862 8.7745C10.0858 9.0825 9.90685 9.16225 9.68851 8.94391L6.90968 6.16508L6.91471 6.16017Z" fill="black"/>
-                                <circle cx="8" cy="8" r="7.5" stroke="black"/>
-                                </svg>
-                            </span>
-                         </button>
+          <div className={table2 ?  "trans statesOn" : "trans statesOff "}>
+                    <div className='mItv1'>
+                        <div className='ripi6'>
+                        {fashion.map(item => {
+              return (
+                  <a  key={item} href={item.link} target="_blink">
+                      <div key={item.name} className="blocks_aes">
+                      <div className="">
+                        <div className="img_aes">
+                        <Image
+                            src={item.img}
+                            alt="Picture of the author"
+                            objectFit='cover'
+                            layout='fill'
+                            objectPosition="center"
+                            placeholder="blur"
+                            quality={100}
+                            />
+               
                         </div>
+                      </div>
+                     <div className="dec_aes"> 
+                        <h1>{item.name}</h1>
+                        
+                        <p>{item.description}</p>
+                        <button> See</button>
+                       
+                     </div>
+                  </div>
+                  </a>
+              )
+          })}
                         </div>
-                    </Link>
-                </div>
-            </div>
+                        <div className='ripi6'>
+                        {fashion2.map(item => {
+              return (
+                  <a  key={item} href={item.link} target="_blink">
+                      <div key={item.name} className="blocks_aes">
+                      <div className="">
+                        <div className="img_aes">
+                        <Image
+                            src={item.img}
+                            alt="Picture of the author"
+                            objectFit='cover'
+                            layout='fill'
+                            objectPosition="center"
+                            placeholder="blur"
+                            quality={100}
+                            />
+               
+                        </div>
+                      </div>
+                     <div className="dec_aes"> 
+                        <h1>{item.name}</h1>
+                        
+                        <p>{item.description}</p>
+                        <button> See </button>
+                       
+                     </div>
+                  </div>
+                  </a>
+              )
+          })}
+                        </div>
+                    </div>
+          <div className="inner_stack">
+          
+          </div>
+          </div>
+          <div className={table3 ?  "trans statesOn" : "trans statesOff "}>
+                    <div className='mItv1'>
+                        <div className='ripi6'>
+                        {tech1.map(item => {
+              return (
+                  <a  key={item} href={item.link} target="_blink">
+                      <div key={item.name} className="blocks_aes">
+                      <div className="">
+                        <div className="img_aes">
+                        <Image
+                            src={item.img}
+                            alt="Picture of the author"
+                            objectFit='cover'
+                            layout='fill'
+                            objectPosition="center"
+                            placeholder="blur"
+                            quality={100}
+                            />
+               
+                        </div>
+                      </div>
+                     <div className="dec_aes"> 
+                        <h1>{item.name}</h1>
+                        
+                        <p>{item.description}</p>
+                        <button> See</button>
+                       
+                     </div>
+                  </div>
+                  </a>
+              )
+          })}
+                        </div>
+                        <div className='ripi6'>
+                        {tech2.map(item => {
+              return (
+                  <a  key={item} href={item.link} target="_blink">
+                      <div key={item.name} className="blocks_aes">
+                      <div className="">
+                        <div className="img_aes">
+                        <Image
+                            src={item.img}
+                            alt="Picture of the author"
+                            objectFit='cover'
+                            layout='fill'
+                            objectPosition="center"
+                            placeholder="blur"
+                            quality={100}
+                            />
+               
+                        </div>
+                      </div>
+                     <div className="dec_aes"> 
+                        <h1>{item.name}</h1>
+                        
+                        <p>{item.description}</p>
+                        <button> See </button>
+                       
+                     </div>
+                  </div>
+                  </a>
+              )
+          })}
+                        </div>
+                   
+                    </div>
+          
+          </div>
+          </div>
+      
                 </div>
             </div>
       </main>
@@ -233,41 +302,124 @@ const Aesthetic = () =>{
 }
 
 export default Aesthetic
-const wallet = [
+const all_grid1 = [
+    
     {
-        name:"Rainbow",
-        img:bag,
-        description:"The fun, simple, & secure way to explore Web3, NFTs, & Ethereum.",
-        link:"https://rainbow.me/"
+        name:"REPRESENT OWNERS CLUB HOODIE - FLAT WHITE",
+        img:bag5,
+        description:"Flat White slightly oversized fit hoodie in a heavy weight jersey cotton.",
+        link:"https://representclo.com/products/represent-owners-club-hoodie-flat-white"
     },
     {
-        name:"Coinbase",
-        img:bag,
-        description:"Self-custody, mobile crypto wallet and Web3 dapp browser.",
-        link:"https://www.coinbase.com/wallet"
-    },
-    {
-        name:"Metamask",
-        img:bag,
-        description:"A crypto wallet & gateway to blockchain apps.",
-        link:"https://metamask.io/"
-    },
-    {
-        name:"Ledger",
-        img:bag,
-        description:"The smartest way to secure, buy and exchange crypto.",
-        link:"https://www.ledger.com/"
-    },
-    {
-        name:"Trustwallet",
-        img:bag,
-        description:"Buy, store, collect NFTs, exchange & earn crypto.",
-        link:"https://trustwallet.com/"
-    },
+        name:"Hands-on mobile stand",
+        img:bag6,
+        description:"This mobile holder for your desk grants uninterrupted multitasking with full-screen access to soothe a busy day.",
+        link:"https://www.nooe.co/collections/all/products/hands-on-mobile-stand?variant=39408637870273"
+    }
+    ,
     {
         name:"Gnosis Safe",
-        img:bag,
-        description:"The most trusted platform to manage digital assets.",
-        link:"https://gnosis-safe.io/"
+        img:bag7,
+        description:"Extra Computer Lighting w/o Taking Desktop Space.",
+        link:"https://www.mi.com/global/product/mi-computer-monitor-light-bar/"
+    },
+    {
+        name:"Magic Mouse - White Multi-Touch Surface",
+        img:bag8,
+        description:"Magic Mouse with an optimized foot design that lets it glide smoothly across your desk. ",
+        link:"https://www.apple.com/shop/product/MK2E3AM/A/magic-mouse-white-multi-touch-surface"
+    }
+]
+
+const all_grid2 = [
+    {
+        name:"Yezzy 500",
+        img:bag1,
+        description:"The adidas Yeezy 500 was first released in 2018, following the clunky shoe trend....",
+        link:"https://news.adidas.com/yeezy-500"
+    },
+    {
+        name:"Blank Sweater - Slate",
+        img:bag2,
+        description:"Slate sweater with an oversized fit in a heavy weight jersey cotton",
+        link:"https://representclo.com/products/blank-sweater-slate"
+    },
+    {
+        name:"Anywhere laptop stand.",
+        img:bag3,
+        description:"AA perfectly balanced, true to the name- anywhere laptop stand.",
+        link:"https://www.nooe.co/collections/all/products/hands-on-mobile-stand?variant=39408637870273"
+    },
+    {
+        name:"SUEDE DESK RUG",
+        img:bag4,
+        description:"A suede desk mat. Why didn’t anyone else think of that before?",
+        link:"https://www.nooe.co/collections/all/products/suede-desk-rug?variant=39409010376897"
+    },
+  
+]
+
+const fashion =  [
+    {
+        name:"Yezzy 500",
+        img:bag1,
+        description:"The adidas Yeezy 500 was first released in 2018, following the clunky shoe trend....",
+        link:"https://news.adidas.com/yeezy-500"
+    },
+    {
+        name:"Blank Sweater - Slate",
+        img:bag2,
+        description:"Slate sweater with an oversized fit in a heavy weight jersey cotton",
+        link:"https://representclo.com/products/blank-sweater-slate"
+    },
+   
+   
+]
+const fashion2 =  [
+   
+    {
+        name:"REPRESENT OWNERS CLUB HOODIE - FLAT WHITE",
+        img:bag5,
+        description:"Flat White slightly oversized fit hoodie in a heavy weight jersey cotton.",
+        link:"https://representclo.com/products/represent-owners-club-hoodie-flat-white"
+    },
+   
+]
+  
+const tech1 =  [
+    {
+        name:"Anywhere laptop stand.",
+        img:bag3,
+        description:"AA perfectly balanced, true to the name- anywhere laptop stand.",
+        link:"https://www.nooe.co/collections/all/products/hands-on-mobile-stand?variant=39408637870273"
+    },
+    {
+        name:"SUEDE DESK RUG",
+        img:bag4,
+        description:"A suede desk mat. Why didn’t anyone else think of that before?",
+        link:"https://www.nooe.co/collections/all/products/suede-desk-rug?variant=39409010376897"
+    },
+    {
+        name:"Hands-on mobile stand",
+        img:bag6,
+        description:"This mobile holder for your desk grants uninterrupted multitasking with full-screen access to soothe a busy day.",
+        link:"https://www.nooe.co/collections/all/products/hands-on-mobile-stand?variant=39408637870273"
+    }
+    
+]
+const tech2 =  [
+    
+    
+    {
+        name:"Gnosis Safe",
+        img:bag7,
+        description:"Extra Computer Lighting w/o Taking Desktop Space.",
+        link:"https://www.mi.com/global/product/mi-computer-monitor-light-bar/"
+    },
+    {
+        name:"Magic Mouse - White Multi-Touch Surface",
+        img:bag8,
+        description:"Magic Mouse with an optimized foot design that lets it glide smoothly across your desk. ",
+        link:"https://www.apple.com/shop/product/MK2E3AM/A/magic-mouse-white-multi-touch-surface"
     }
 ]
