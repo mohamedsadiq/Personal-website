@@ -75,7 +75,7 @@ const Podcast = () => {
                                                             src={item.img}
                                                             alt="Picture of the author"
                                                             objectFit='cover'
-                                                            // layout='fill'
+                                                            layout='fill'
                                                             objectPosition="center"
                                                             placeholder="blur"
                                                             quality={100}

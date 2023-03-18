@@ -81,7 +81,7 @@ const Books = () => {
                                                             src={item.img}
                                                             alt="Picture of the author"
                                                             objectFit='cover'
-                                                            // layout='fill'
+                                                            layout='fill'
                                                             objectPosition="center"
                                                             placeholder="blur"
                                                             quality={100}
@@ -194,33 +194,33 @@ const wallet = [
     {
         name: "Well-Designed.",
         img: book2,
-        description: "A guide to empathizing with users in product design, including real-world examples and practical tips.",
+        description: "A guide to empathizing with users in product design, including ...",
         link: "https://www.amazon.com/gp/product/1625274793?camp=1789&creative=9325&linkCode=as2&creativeASIN=1625274793&linkId=e2233ffbd31600b878f02a43974ff6f2"
     },
     {
         name: "Designing Products People Love.",
         img: book3,
-        description: "A compilation of interviews with top product designers discussing their creative process and insights on successful product design.",
+        description: "A compilation of interviews with top product designers discussing their creative process and insights...",
         link: "https://www.amazon.com/Designing-Products-People-Love-Successful/dp/1491923679"
     },
 
     {
         name: "Hooked: how to build habit-forming products.",
         img: book6,
-        description: "a guide to building habit-forming products. The book presents a framework for designing products that keep users coming back...",
+        description: "a guide to building habit-forming products. The book presents a framework for designing products that...",
         link: "https://www.amazon.com/Hooked-How-Build-Habit-Forming-Products/dp/1591847788"
     },
    
     {
         name: " User Friendly: How the Hidden Rules of Design Are Changing the Way We Live, Work, and Play.",
         img: book9,
-        description: "An engrossing history of how the design of commercial products and technological innovations came to be singularly focused on the user experience ",
+        description: "An engrossing history of how the design of commercial products and technological innovations came to ...",
         link: "https://www.amazon.com/User-Friendly-Hidden-Design-Changing/dp/0374279756"
     },
     {
         name: "The Best Interface Is No Interface: The Simple Path to Brilliant Technology (Voices That Matter) ",
         img: book10,
-        description: "In this book, innovator Golden Krishna challenges our world of nagging, screen-based bondage, and shows how we can build a technologically advanced world without digital interfaces. ",
+        description: "In this book, innovator Golden Krishna challenges our world of nagging, screen-based bondage...",
         link: "https://www.amazon.com/Best-Interface-No-brilliant-technology/dp/0133890333"
     },
 ]
@@ -229,19 +229,19 @@ const philosophy = [
     {
         name: "The Wisdom of Life.",
         img: book4,
-        description: "A leading German metaphysician of the 19th century, Arthur Schopenhauer (1788–1860) exerted an influence far beyond the hermetic world of philosophy",
+        description: "A leading German metaphysician of the 19th century, Arthur Schopenhauer (1788–1860) exerted ...",
         link: "https://www.amazon.com/Wisdom-Life-Arthur-Schopenhauer/dp/0486435504"
     },
     {
         name: "THUS SPAKE ZARATHUSTRA.",
         img: book11,
-        description: " The work is regarded as a forerunner of modern existentialist thought, a book that has provoked and stimulated students of philosophy and literature for more than 100 years.",
+        description: " The work is regarded as a forerunner of modern existentialist thought, a book that has provoked and ...",
         link: "https://www.amazon.com/Spake-Zarathustra-Dover-Thrift-Editions/dp/0486406636"
     },
     {
         name: "When Nietzsche Wept.",
         img: book5,
-        description: " A historical fiction novel exploring the relationship between philosopher Friedrich Nietzsche and psychoanalyst Josef Breuer",
+        description: " A historical fiction novel exploring the relationship between philosopher Friedrich..",
         link: "https://www.amazon.com/When-Nietzsche-Wept-Novel-Obsession/dp/0062009303"
     },
     {
