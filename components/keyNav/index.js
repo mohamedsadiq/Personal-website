@@ -5,36 +5,43 @@ import { useRouter } from 'next/router';
 import useSound from 'use-sound';
 
 const KeyNav = () => {
-  const [play] = useSound("/sound.mp3");
+  const [play] = useSound("../button.mp3");
   const router = useRouter()
   //const [count, set] = useState(0);
   const page1 = () => {
-    router.push('/');
     play()
+    router.push('/');
+  
   }
   const page2 = () => {
-    router.push('/projects');
     play()
+    router.push('/projects');
+   
   }
   const page3 = () => {
-    router.push('/blogs');
     play()
+    router.push('/blogs');
+    
   }
   const page4 = () => {
-    router.push('/oasis');
     play()
+    router.push('/oasis');
+  
   }
   const page5 = () => {
-    router.push('/store');
     play()
+    router.push('/store');
+   
   }
   const page6 = () => {
-    router.push('/about');
     play()
+    router.push('/about');
+   
   }
   const page7 = () => {
-    router.push('/mail');
     play()
+    router.push('/mail');
+    
   }
 
   useKey('1', page1);
@@ -56,7 +63,7 @@ const KeyNav = () => {
   }
   return (
 
-    <div className="key_nav">
+    <div className="key_nav" >
       <div className="key_nav_button" onClick={() => parentFun()}>?</div>
       <div className={show ? "key_nav_content show_ele" : "key_nav_content hide_ele"}>
         
