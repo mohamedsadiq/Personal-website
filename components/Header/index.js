@@ -5,22 +5,31 @@ import { motion } from "framer-motion"
 import { useState, useEffect } from 'react';
 // import { useIsSmall } from '../hooks/utils'
 
+
 const useMediaQuery = (query) => {
   const [matches, setMatches] = useState(false);
+  
   useEffect(() => {
     const media = window.matchMedia(query);
+    
     if (media.matches !== matches) {
       setMatches(media.matches);
     }
+    
     const listener = () => {
       setMatches(media.matches);
     };
-    media.addListener(listener);
-    return () => media.removeListener(listener);
+    
+    media.addEventListener("change", listener);
+    
+    return () => {
+      media.removeEventListener("change", listener);
+    };
   }, [matches, query]);
 
   return matches;
-}
+};
+
 const useIsSmall = () => useMediaQuery("(max-width: 580px)");
 const useIsMedium = () => useMediaQuery("(max-width: 768px)");
 
