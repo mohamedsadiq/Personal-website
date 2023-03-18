@@ -65,8 +65,8 @@ const Aesthetic = () =>{
             <div className="container">
                 <div className="inner_container">
                 <div className="inner_nav">
-                    <span><Link href="/">Home</Link>   > </span>
-                    <span><Link href="/oasis">Oasis</Link>  > </span>
+                    <span><Link href="/">Home</Link>   &gt; </span>
+                    <span><Link href="/oasis">Oasis</Link>  &gt; </span>
                     <span><Link href="/taste/aesthetic">Aesthetic</Link></span>
                 </div>
                 <h1>Aesthetic</h1>

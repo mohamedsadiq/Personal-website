@@ -46,8 +46,8 @@ const Podcast = () => {
                 <div className="container container_podcast">
                     <div className="inner_container">
                         <div className="inner_nav">
-                            <span><Link href="/">Home</Link>  > </span>
-                            <span><Link href="/oasis">Oasis</Link> > </span>
+                            <span><Link href="/">Home</Link> &gt; </span>
+                            <span><Link href="/oasis">Oasis</Link> &gt; </span>
                             <span><Link href="/taste/books">Podcast</Link> </span>
                         </div>
                         <h1>Podcast</h1>
