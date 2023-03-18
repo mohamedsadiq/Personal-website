@@ -624,6 +624,7 @@ header{
   margin-top: 8px;
   /* text-decoration: underline; */
   color: #b3b3b3;
+  display: inline-block;
 }
 .web3{
   position: relative;
