@@ -5,9 +5,8 @@ import { motion } from "framer-motion"
 import { useState, useEffect } from 'react';
 // import { useIsSmall } from '../hooks/utils'
 
-const useMediaQuery = (query)  =>{
+const useMediaQuery = (query) => {
   const [matches, setMatches] = useState(false);
-
   useEffect(() => {
     const media = window.matchMedia(query);
     if (media.matches !== matches) {
@@ -24,96 +23,158 @@ const useMediaQuery = (query)  =>{
 }
 const useIsSmall = () => useMediaQuery("(max-width: 580px)");
 const useIsMedium = () => useMediaQuery("(max-width: 768px)");
-const Header = () => {
+
+const Header = (props) => {
   const isSmall = useIsSmall()
   const isMedium = useIsMedium()
+  const isItDarkOrLight = props.modeValue;
+  const changeTheValueOfMode = props.setMode;
 
-  useEffect(() => {
-    console.log(isSmall)
-  });
-  
-  const header_hex = isSmall
-	? {
-    initial: {
-      border: "none",
-      // width: "100px",
-      opacity:1,
-      overflow: "hidden"
-    },
-    animate: {
-      width: "22rem",
-      border:"1px solid #101010",
-      opacity:1,
-      boxShadow:" inset 0px 1px 1px #161616"
-    },
-    hover:{
-      overflow:"visible",
-      transition: {
-      ease: "easeInOut",
-      duration: 0,
-      delay:0
-      }
+  // light mode or dark mode
+  const switchMode = () => {
+    if (isItDarkOrLight == "light") {
+      changeTheValueOfMode("dark");
+      setIconsColor("#eee")
     }
+
+    if (isItDarkOrLight == "dark") {
+      changeTheValueOfMode("light")
+      setIconsColor("#858585")
+    }
+    // console.log("modeValue:" + isItDarkOrLight);
+    // console.log("colorValue:" + iconsColor);
   }
-	: {
-    initial: {
-      border: "none",
-      width: "100px !important",
-      opacity:1,
-      overflow: "hidden"
-    },
-    animate: {
-      width: "41rem",
-      border:"1px solid #101010",
-      opacity:1,
-      boxShadow:" inset 0px 1px 1px #161616"
-    },
-    
-    hover:{
-     overflow:"visible",
-     transition: {
-     ease: "easeInOut",
-     duration: 0,
-     delay:0
+
+  // useEffect(() => {
+  //   console.log(isSmall)
+  // });
+
+  const header_hex = isSmall
+    ? {
+      initial: {
+        border: "none",
+        // width: "100px",
+        opacity: 1,
+        overflow: "hidden"
+      },
+      animate: {
+        width: "22rem",
+        border: "1px solid #101010",
+        opacity: 1,
+        boxShadow: " inset 0px 1px 1px #161616"
+      },
+      hover: {
+        overflow: "visible",
+        transition: {
+          ease: "easeInOut",
+          duration: 0,
+          delay: 0
+        }
       }
     }
+    : {
+      initial: {
+        border: "none",
+        width: "38.7rem",
+        opacity: 1,
+        overflow: "hidden"
+      },
+      animate: {
+        width: "38.7rem",
+        border: "1px solid #101010",
+        opacity: 1,
+        boxShadow: " inset 0px 1px 1px #161616"
+      },
+
+      hover: {
+        overflow: "visible",
+        transition: {
+          ease: "easeInOut",
+          duration: 0,
+          delay: 0
+        }
+      }
     }
+
+
 
 
   // Sound hook
   const [play] = useSound("/sound.mp3");
-  const [opacityContent, setOpacityContent] = useState("")
+  const [opacityContent, setOpacityContent] = useState("");
+  const [iconsColor, setIconsColor] = useState("#858585");
+
   const home_content = () => {
     setOpacityContent("opacity")
   }
+
+
   // Router hook
   const router = useRouter();
   // Router hook
   const hex_animaiton = {
-    initial:{
-      opacity:1
+    initial: {
+      opacity: 1
     },
-    animate:{
-      opacity:0
+    animate: {
+      opacity: 0
     }
+  }
+  // Dtop Menu
+
+  const [globalMenuState, setGlobalMenuState] = useState(false)
+  const dropMediaStyle = {
+    styleContentShow: {
+      opacity: "1",
+      visibility: "visible",
+      right: "-22px",
+      top: "95px"
+    },
+    styleContentHide: {
+      opacity: "0",
+      visibility: "hidden",
+      right: "-22px",
+      top: "90px"
+    }
+  }
+  const [op, setOp] = useState(dropMediaStyle.styleContentHide);
+
+  const styleVar = {
+    opacity: op
+  }
+  const onClickShow = () => {
+    // play();
+    // console.log(op);
+    if (globalMenuState === false) {
+      setOp(dropMediaStyle.styleContentShow)
+    } else {
+      setOp(dropMediaStyle.styleContentHide)
+    }
+
+  }
+  const changeOpOn = () => {
+    setOp(dropMediaStyle.styleContentShow)
+  }
+  const changeOpOff = () => {
+    setOp(dropMediaStyle.styleContentHide)
   }
 
 
   const iconHome = {
-    initial:{
-      opacity:1,
+    initial: {
+      opacity: 1,
       scale: 1,
       left: "50%",
       top: "50%",
-      position:"absolute",
+      position: "absolute",
       zIndex: 100
     },
-    animate:{
-      opacity:0,
+    animate: {
+      opacity: 0,
       scale: 0.5,
       left: "50%",
       top: "50%",
-      position:"absolute",
+      position: "absolute",
       zIndex: 100
     }
   }
@@ -122,33 +183,33 @@ const Header = () => {
     initial: {
       border: "none",
       width: "8rem",
-      opacity:1,
+      opacity: 1,
       overflow: "hidden"
     },
     animate: {
-      width: "41rem",
-      border:"1px solid #101010",
-      opacity:1,
-    
+      width: "39rem",
+      border: "1px solid #101010",
+      opacity: 1,
+
     },
-    hover:{
-     overflow:"visible",
-     transition: {
-      ease: "easeInOut",
-      duration: 0,
-      delay:0
-    }
+    hover: {
+      overflow: "visible",
+      transition: {
+        ease: "easeInOut",
+        duration: 0,
+        delay: 0
+      }
     }
   }
   const iconss = {
     initial: {
-     opacity:0,
-     top:"10px"
+      opacity: 0,
+      top: "10px"
     },
-   
+
     animate: {
-      opacity:1,
-      top:"0"
+      opacity: 1,
+      top: "0"
     }
   }
   const iconSvg = {
@@ -156,362 +217,458 @@ const Header = () => {
       rotate: "0deg",
     },
     hover: {
-      rotate:"180deg",
+      rotate: "180deg",
     }
   }
   const stack = {
     initial: {
-      scale:1,
+      scale: 1,
     },
     hover: {
-      scale:1.2,
+      scale: 1.2,
     }
   }
   const twittter = {
     initial: {
-      rotate:"0",
+      rotate: "0",
     },
     hover: {
-      rotate:"-20deg",
-      duration:3
+      rotate: "-20deg",
+      duration: 3
     }
   }
   const insta = {
     initial: {
-      rotate:"0",
+      rotate: "0",
     },
     hover: {
-      rotate:"20deg",
-      duration:3
+      rotate: "20deg",
+      duration: 3
     }
   }
-    return (
-      <motion.header
-        className={router.pathname == "/" ? "center_header" : "top_fixed"}
-        whileHover={header_hex.hover}
-        initial="initial"
-        animate="animate"
-        variants={header_hex}
-        transition={{ type: "spring" , delay: 1.2  ,ease:"easeInOut", }}
-      >
-     
-        <div className='inner_header'>
-        <Link href="/" activeClassName="active" passHref >
-
-        <motion.div onClick={ () => home_content()} className={opacityContent} initial="initial" whileHover="hover">
-          <div  className={router.pathname == "/" ? "active icon_container" : "icon_container"}  onClick={play}>
-          <div className="icons" id="home_icon">
-          <div className="text" >
-            Home
+  return (
+    <motion.header
+      className={router.pathname == "/" ? "center_header" : "top_fixed"}
+      whileHover={header_hex.hover}
+      transition={{ delay: 0 }}
+      initial="initial"
+      animate="animate"
+      variants={header_hex}
+    >
+      <div className='inner_header'>
+        <Link href="/" activeClassName="active" passhref >
+          <div>
+            <motion.div
+              onClick={() => home_content()}
+              whileTap={{ scale: 0.9 }}
+              className="icon_holder"
+              initial="initial"
+              animate="animate"
+              whileHover={{ scale: 1.1 }}
+              variants={iconss}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <div className={router.pathname == "/" ? "active icon_container" : "icon_container"} onClick={play}>
+                <div className="icons" id="home_icon">
+                  <div className="text" >
+                    Home
+                  </div>
+                  <motion.div variants={iconSvg} className="glow" id="home_button">
+                    <svg id="homeIcon" width="18" height="18" viewBox="0 0 31 31" fill={iconsColor} xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3.29442 22.4449C1.75167 19.586 0.980302 18.1566 0.769474 16.6275C0.66278 15.8537 0.66278 15.0688 0.769474 14.295C0.980302 12.7658 1.75167 11.3364 3.29442 8.47761L3.6773 7.7681C4.99519 5.32595 5.65414 4.10488 6.58443 3.19745C7.53987 2.26549 8.70063 1.57198 9.9729 1.17298C11.2117 0.784485 12.5965 0.784485 15.3662 0.784485C18.1359 0.784485 19.5207 0.784485 20.7595 1.17298C22.0318 1.57198 23.1925 2.26549 24.148 3.19745C25.0783 4.10488 25.7372 5.32595 27.0551 7.76811L27.438 8.47762C28.9807 11.3364 29.7521 12.7658 29.9629 14.295C30.0696 15.0688 30.0696 15.8537 29.9629 16.6275C29.7521 18.1566 28.9807 19.586 27.438 22.4449L27.0551 23.1544C25.7372 25.5965 25.0783 26.8176 24.148 27.725C23.1925 28.657 22.0318 29.3505 20.7595 29.7495C19.5207 30.138 18.1359 30.138 15.3662 30.138C12.5965 30.138 11.2117 30.138 9.9729 29.7495C8.70063 29.3505 7.53987 28.657 6.58443 27.725C5.65414 26.8176 4.99519 25.5965 3.6773 23.1544L3.29442 22.4449Z" fill={iconsColor} />
+                      <defs>
+                        <linearGradient id="paint0_linear_231_3060" x1="15.3662" y1="0.784485" x2="15.3662" y2="30.138" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="white" />
+                          <stop offset="1" stopColor="white" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </motion.div>
+                </div>
+                <div className="dot_active"></div>
+              </div>
+            </motion.div>
           </div>
-          <motion.div 
-            className='icon_home_ani'
+        </Link>
+        <Link href="/projects" passhref >
+          <motion.div
+            whileTap={{ scale: 0.9 }}
+            className="icon_holder"
+            initial="initial"
             animate="animate"
-            variants={iconHome}
-            transition={{ duration: 1, type: "spring", delay: 8 , ease:"easeInOut"}}
+            whileHover={{ scale: 1.1 }}
+            variants={iconss}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
+            <div className={router.pathname == "/projects" ? "active icon_container" : "icon_container"} onClick={play}>
 
-           <motion.div className='hex center'>
-           <motion.div 
-               className='hex_img hex3' 
-              //  animate="animate"
-              //  variants={hex_animaiton}
-               transition={{ duration:0.6,  delay: 4 , ease:"easeInOut"}}
-           ></motion.div>
-           <motion.div 
-               className='hex_img hex2' 
-               animate="animate"
-               variants={hex_animaiton}
-               transition={{ duration:0.6,  delay: 3.1 , ease:"easeInOut"}}
-           ></motion.div>
-           <motion.div 
-               className='hex_img hex1' 
-               animate="animate"
-               variants={hex_animaiton}
-               transition={{ duration:0.6,  delay: 3 , ease:"easeInOut"}}
-           ></motion.div>
-           <motion.div 
-               className='hex_img hex5' 
-               animate="animate"
-               variants={hex_animaiton}
-               transition={{ duration:0.6,  delay: 2.9 , ease:"easeInOut"}}
-           ></motion.div>
-           <motion.div 
-               className='hex_img hex4' 
-               animate="animate"
-               variants={hex_animaiton}
-               transition={{ duration:0.6,  delay: 2.8 , ease:"easeInOut"}}
-           ></motion.div>
-           <motion.div 
-               className='hex_img hex3' 
-               animate="animate"
-               variants={hex_animaiton}
-               transition={{ duration:0.6,  delay: 2.7 , ease:"easeInOut"}}
-           ></motion.div>
-           <motion.div 
-               className='hex_img hex2' 
-               animate="animate"
-               variants={hex_animaiton}
-               transition={{ duration:0.6,  delay: 2.6 , ease:"easeInOut"}}
-           ></motion.div>
-           <motion.div 
-               className='hex_img hex1' 
-               animate="animate"
-               variants={hex_animaiton}
-               transition={{ duration:0.6,  delay: 2.5 , ease:"easeInOut"}}
-           ></motion.div>
-           <motion.div 
-               className='hex_img hex5' 
-               animate="animate"
-               variants={hex_animaiton}
-               transition={{ duration:0.6,  delay: 2.4 , ease:"easeInOut"}}
-           ></motion.div>
-           <motion.div 
-               className='hex_img hex4' 
-               animate="animate"
-               variants={hex_animaiton}
-               transition={{ duration:0.6,  delay: 2.2 , ease:"easeInOut"}}
-           ></motion.div>
-           <motion.div 
-               className='hex_img hex3' 
-               animate="animate"
-               variants={hex_animaiton}
-               transition={{ duration:0.6,  delay: 2 , ease:"easeInOut"}}
-           ></motion.div>
-           <motion.div 
-               className='hex_img hex2' 
-               animate="animate"
-               variants={hex_animaiton}
-               transition={{ duration: 0.6,  delay: 1.8 , ease:"easeInOut"}}
-              ></motion.div>
-           <motion.div 
-               className='hex_img hex1' 
-               animate="animate"
-               variants={hex_animaiton}
-               transition={{ duration: 0.6,  delay: 1.6 , ease:"easeInOut"}}
-              ></motion.div>
-           <motion.div 
-               className='hex_img hex5' 
-               animate="animate"
-               variants={hex_animaiton}
-               transition={{ duration: 0.6,  delay: 1.4 , ease:"easeInOut"}}
-              ></motion.div>
-           <motion.div 
-               className='hex_img hex4' 
-               animate="animate"
-               variants={hex_animaiton}
-               transition={{ duration: 0.6,  delay: 1.2 , ease:"easeInOut"}}
-              ></motion.div>
-           <motion.div 
-               className='hex_img hex3' 
-               animate="animate"
-               variants={hex_animaiton}
-               transition={{ duration: 0.6,  delay: 0.8 , ease:"easeInOut"}}
-              ></motion.div>
-              <motion.div 
-               className='hex_img hex1' 
-               animate="animate"
-               variants={hex_animaiton}
-               transition={{ duration: 0.6,  delay: 0.6 , ease:"easeInOut"}}
-              ></motion.div>
-
-              <motion.div 
-               className='hex_img hex2' 
-               animate="animate"
-               variants={hex_animaiton}
-               transition={{ duration: 0.6,  delay: 0.4 , ease:"easeInOut"}}
-              ></motion.div>
-           </motion.div>
-
-          </motion.div>
-        
-              <motion.div variants={iconSvg} className="glow" id="home_button">
-                <svg id="homeIcon" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.29442 22.4449C1.75167 19.586 0.980302 18.1566 0.769474 16.6275C0.66278 15.8537 0.66278 15.0688 0.769474 14.295C0.980302 12.7658 1.75167 11.3364 3.29442 8.47761L3.6773 7.7681C4.99519 5.32595 5.65414 4.10488 6.58443 3.19745C7.53987 2.26549 8.70063 1.57198 9.9729 1.17298C11.2117 0.784485 12.5965 0.784485 15.3662 0.784485C18.1359 0.784485 19.5207 0.784485 20.7595 1.17298C22.0318 1.57198 23.1925 2.26549 24.148 3.19745C25.0783 4.10488 25.7372 5.32595 27.0551 7.76811L27.438 8.47762C28.9807 11.3364 29.7521 12.7658 29.9629 14.295C30.0696 15.0688 30.0696 15.8537 29.9629 16.6275C29.7521 18.1566 28.9807 19.586 27.438 22.4449L27.0551 23.1544C25.7372 25.5965 25.0783 26.8176 24.148 27.725C23.1925 28.657 22.0318 29.3505 20.7595 29.7495C19.5207 30.138 18.1359 30.138 15.3662 30.138C12.5965 30.138 11.2117 30.138 9.9729 29.7495C8.70063 29.3505 7.53987 28.657 6.58443 27.725C5.65414 26.8176 4.99519 25.5965 3.6773 23.1544L3.29442 22.4449Z" fill="url(#paint0_linear_231_3060)"/>
-                    <defs>
-                    <linearGradient id="paint0_linear_231_3060" x1="15.3662" y1="0.784485" x2="15.3662" y2="30.138" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="white"/>
-                    <stop offset="1" stopColor="white"/>
-                    </linearGradient>
-                    </defs>
-                </svg>
+              <div className='icons'>
+                <div className="text">
+                  Projects
+                </div>
+                <motion.div variants={iconSvg} className="glow">
+                  <svg id="projectsIcon" width="40" height="38" viewBox="0 0 40 38" fill={iconsColor} xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" clipRule="evenodd" d="M19.4767 37.9031H19.4906C19.7686 27.4251 28.3497 19.0165 38.8948 19.0165C39.0704 19.0165 39.2455 19.0189 39.42 19.0235V19.0096C39.2455 19.0142 39.0704 19.0165 38.8948 19.0165C28.3497 19.0165 19.7686 10.608 19.4906 0.130005H19.4767C19.2033 10.4335 10.901 18.7359 0.597656 19.0096V19.0235C10.901 19.2972 19.2033 27.5996 19.4767 37.9031Z" fill={iconsColor} />
+                  </svg>
                 </motion.div>
+              </div>
+
+              <div className="dot_active"></div>
             </div>
-            <div className="dot_active"></div>
-          </div>
           </motion.div>
-          </Link>
-          <Link href="/projects" passHref >
+        </Link>
+
+        <Link href="/blogs" passhref >
           <motion.div
             className="icon_holder"
             initial="initial"
             animate="animate"
-            whileHover="hover"
+            whileTap={{ scale: 0.9 }}
             variants={iconss}
-            transition={{ delay: 2.2 , ease:"easeInOut"}}
+
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-          <div  className={router.pathname == "/projects" ? "active icon_container" : "icon_container"}  onClick={play}>
-       
-          <div className='icons'>
-          <div className="text">
-            Projects
-          </div>
-          <motion.div variants={iconSvg} className="glow">
-                <svg id="projectsIcon"width="40" height="38" viewBox="0 0 40 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" clipRule="evenodd" d="M19.4767 37.9031H19.4906C19.7686 27.4251 28.3497 19.0165 38.8948 19.0165C39.0704 19.0165 39.2455 19.0189 39.42 19.0235V19.0096C39.2455 19.0142 39.0704 19.0165 38.8948 19.0165C28.3497 19.0165 19.7686 10.608 19.4906 0.130005H19.4767C19.2033 10.4335 10.901 18.7359 0.597656 19.0096V19.0235C10.901 19.2972 19.2033 27.5996 19.4767 37.9031Z" fill="white"/>
-                </svg>
-          </motion.div>
-           </div>
-         
-            <div className="dot_active"></div>
-          </div>
-          </motion.div>
-          </Link>
-          <Link href="/web3stack" passHref >
-          <motion.div
-           className="icon_holder"
-           initial="initial"
-           animate="animate"
-           whileHover="hover"
-           variants={iconss}
-           transition={{ delay:2.3 , ease:"easeInOut"}}
-          >
-          <div  className={router.pathname == "/web3stack" ? "active icon_container" : "icon_container"}  onClick={play}>
-          
-          <div className='icons'>
-          <div className="text">
-            Web3 Stack
-          </div>
-          <motion.div variants={stack} className="glow">
-                <svg width="39" height="38" viewBox="0 0 39 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clipPath="url(#clip0_231_3053)">
-                    <path d="M5.75411 11.5302L19.1999 18.8371C19.3165 18.8992 19.4466 18.9317 19.5787 18.9317C19.7108 18.9317 19.8408 18.8992 19.9574 18.8371L33.4032 11.5302C33.5259 11.4697 33.6279 11.3742 33.6965 11.2558C33.7651 11.1374 33.7972 11.0014 33.7888 10.8649C33.7804 10.7283 33.7318 10.5973 33.6492 10.4882C33.5665 10.3792 33.4535 10.297 33.3243 10.2519L19.8785 4.76C19.6864 4.68108 19.4709 4.68108 19.2788 4.76L5.83302 10.2519C5.70382 10.297 5.59081 10.3792 5.50816 10.4882C5.42552 10.5973 5.37694 10.7283 5.36851 10.8649C5.36008 11.0014 5.39218 11.1374 5.46078 11.2558C5.52939 11.3742 5.63143 11.4697 5.75411 11.5302Z" fill="white"/>
-                    <path d="M33.3244 16.8486L30.4364 15.6176L19.9576 21.3147C19.841 21.3769 19.7109 21.4094 19.5788 21.4094C19.4467 21.4094 19.3166 21.3769 19.2 21.3147L8.72116 15.6176L5.83315 16.8486C5.71085 16.9128 5.60842 17.0092 5.53696 17.1274C5.46551 17.2456 5.42773 17.3811 5.42773 17.5193C5.42773 17.6574 5.46551 17.7929 5.53696 17.9111C5.60842 18.0294 5.71085 18.1258 5.83315 18.19L19.279 25.9229C19.393 25.9926 19.524 26.0295 19.6577 26.0295C19.7914 26.0295 19.9224 25.9926 20.0365 25.9229L33.4823 18.19C33.5987 18.1125 33.6914 18.0043 33.7501 17.8774C33.8088 17.7505 33.8312 17.6098 33.8149 17.4709C33.7985 17.332 33.7441 17.2003 33.6575 17.0905C33.5709 16.9806 33.4557 16.8969 33.3244 16.8486Z" fill="white"/>
-                    <path d="M33.3227 23.8556L30.8608 22.7825L19.9558 28.7163C19.8392 28.7785 19.7091 28.811 19.577 28.811C19.4449 28.811 19.3148 28.7785 19.1983 28.7163L8.2933 22.7825L5.8314 23.8556C5.70562 23.9208 5.60018 24.0193 5.52658 24.1404C5.45299 24.2615 5.41406 24.4004 5.41406 24.5421C5.41406 24.6838 5.45299 24.8227 5.52658 24.9438C5.60018 25.0649 5.70562 25.1634 5.8314 25.2286L19.2772 33.1193C19.3938 33.1815 19.5238 33.214 19.6559 33.214C19.7881 33.214 19.9181 33.1815 20.0347 33.1193L33.4805 25.2286C33.6004 25.15 33.6961 25.0397 33.757 24.9099C33.8178 24.78 33.8414 24.6359 33.825 24.4934C33.8086 24.351 33.753 24.2159 33.6643 24.1033C33.5756 23.9907 33.4573 23.9049 33.3227 23.8556Z" fill="white"/>
-                    </g>
-                    <defs>
-                    <clipPath id="clip0_231_3053">
-                    <rect width="37.8755" height="37.8755" fill="white" transform="translate(0.638672 0.0256348)"/>
-                    </clipPath>
-                    </defs>
-                </svg>
-                </motion.div>
+
+            <div className={router.pathname == "/blogs" ? "active icon_container" : "icon_container"} onClick={play}>
+
+              <div className='icons'>
+                <div className="text">
+                  Blog
                 </div>
-             <div className="dot_active"></div>
-          </div>
+                <motion.div variants={stack} className="glow">
+
+                  <svg width="22" height="19" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.66512 2.1316L8.73448 3.06137L6.93945 1.32297L7.89759 0.365724C8.13198 0.131555 8.44988 0 8.78136 0C9.11284 0 9.43073 0.131555 9.66512 0.365724C9.89951 0.599894 10.0312 0.917496 10.0312 1.24866C10.0312 1.57983 9.89951 1.89743 9.66512 2.1316Z" fill="#C7C7C7" />
+                    <path d="M8.15826 3.60535L2.43629 9.32196L0 10.0001L0.668136 7.55671L6.36886 1.86133L8.15826 3.60535Z" fill="#858585" />
+                  </svg>
+
+
+                </motion.div>
+              </div>
+              <div className="dot_active"></div>
+            </div>
           </motion.div>
-          </Link>
-          
-      
-         <Link href={"/photo"} passHref>
-          <motion.div 
-          className="icon_holder"
+
+
+        </Link>
+        <Link href={"/oasis"} passhref>
+          <motion.div
+            className="icon_holder"
+            initial="initial"
+            animate="animate"
+            whileTap={{ scale: 0.9 }}
+            variants={iconss}
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            <div className={router.pathname == "/oasis" ? "active icon_container" : "icon_container"} onClick={play}>
+              <a href="https://twitter.com/sadiq_moo" target="_blank" rel="noreferrer">
+                <div className='icons'>
+                  <div className="text">
+                    Oasis
+                  </div>
+                  <motion.div variants={twittter} className="glow">
+                    <svg width="30" height="19" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="4.88889" height="4.88889" rx="1.22222" fill="#858585" />
+                      <rect y="6.11133" width="4.88889" height="4.88889" rx="1.22222" fill="#858585" />
+                      <rect x="6.11133" width="4.88889" height="4.88889" rx="1.22222" fill="#858585" />
+                      <rect x="6.11133" y="6.11133" width="4.88889" height="4.88889" rx="2.44444" fill="#D8D8D8" />
+                    </svg>
+
+                  </motion.div>
+                </div>
+                <div className="dot_active"></div>
+              </a>
+            </div>
+          </motion.div>
+        </Link>
+        <Link href={"/store"} target="_blink" passhref >
+          <motion.div
+            className="icon_holder"
+            initial="initial"
+            animate="animate"
+            whileTap={{ scale: 0.9 }}
+            variants={iconss}
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            <div className={router.pathname == "/store" ? "active icon_container" : "icon_container"} onClick={play}>
+
+              <div className='icons'>
+                <div className="text">
+                  Store
+                </div>
+                <motion.div variants={insta} className="glow">
+                  <svg width="15" height="20" viewBox="0 0 61 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M60.8493 52.0444L54.2141 17.1589H47.777V10.1705C47.777 4.56247 43.212 0 37.6006 0H23.3989C17.7877 0 13.2226 4.56235 13.2226 10.1705V17.1589H6.78547L0.150257 52.0444C-0.832712 57.2132 3.13192 62 8.39664 62H52.6038C57.8681 62 61.8327 57.2132 60.8497 52.0444H60.8493ZM41.988 17.1589H19.0116V10.1705C19.0116 7.75278 20.9798 5.78569 23.3989 5.78569H37.6006C40.0197 5.78569 41.988 7.75278 41.988 10.1705V17.1589Z" fill="#858585" />
+                  </svg>
+
+
+                </motion.div>
+              </div>
+              <div className="dot_active"></div>
+            </div>
+          </motion.div>
+        </Link>
+        <Link href="/about" passhref >
+          <motion.div
+            className="icon_holder"
+            initial="initial"
+            animate="animate"
+            whileTap={{ scale: 0.9 }}
+            variants={iconss}
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            <div className={router.pathname == "/about" ? "active icon_container" : "icon_container"} onClick={play}>
+
+              <div className='icons'>
+                <div className="text">
+                  About
+                </div>
+                <motion.div variants={stack} className="glow">
+                  <svg width="10" height="20" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.00075 0C3.60019 0 2.46094 1.13925 2.46094 2.53981C2.46094 3.94022 3.60019 5.07951 5.00075 5.07951C6.4013 5.07951 7.54056 3.94026 7.54056 2.5397C7.54056 1.13915 6.4013 0 5.00075 0Z" fill="#858585" />
+                    <path d="M0 11.0138H10V10.6191C10 7.7045 7.80369 5.42188 5.00018 5.42188C2.19628 5.42188 0.000352254 7.70468 0.000352254 10.6191L0.000214579 11.0138H0Z" fill="#C7C7C7" />
+                  </svg>
+
+                </motion.div>
+              </div>
+
+              <div className="dot_active"></div>
+            </div>
+          </motion.div>
+        </Link>
+        <a className="twitIcon" href='https://twitter.com/sadiq_moo' target="_blank" rel="noreferrer">
+              <motion.div
+                className="icon_holder drop_icons "
+                initial="initial"
+                animate="animate"
+                whileTap={{ scale: 0.9 }}
+                variants={iconss}
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <div onClick={play}>
+
+                  <div className='icons' >
+                    <div className="text">
+                      Twitter
+                    </div>
+                    <motion.div variants={insta} className="glow">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="15" viewBox="0 0 18 15" fill="none">
+                        <path d="M17.7887 1.95309C17.1468 2.2316 16.4678 2.41571 15.7731 2.4997C16.506 2.06183 17.0553 1.37298 17.319 0.560929C16.6302 0.970944 15.8762 1.25982 15.0898 1.41501C14.5642 0.844974 13.8642 0.465525 13.0996 0.336178C12.3351 0.206831 11.5493 0.334903 10.8653 0.700307C10.1814 1.06571 9.63814 1.64778 9.32069 2.35522C9.00323 3.06267 8.92956 3.85547 9.11123 4.60929C7.71858 4.53885 6.35633 4.17623 5.11296 3.54498C3.8696 2.91374 2.77293 2.02799 1.89421 0.945267C1.586 1.48349 1.42405 2.09301 1.42446 2.71322C1.42337 3.2892 1.56472 3.85652 1.83592 4.36465C2.10713 4.87279 2.49977 5.30598 2.9789 5.62565C2.42202 5.6105 1.87703 5.46107 1.3903 5.19007V5.23278C1.39447 6.03979 1.67727 6.8206 2.19085 7.44312C2.70443 8.06564 3.41726 8.49166 4.20878 8.64912C3.90409 8.74184 3.58775 8.79073 3.26929 8.79431C3.04884 8.79174 2.82894 8.77174 2.61164 8.73452C2.83704 9.42874 3.27324 10.0354 3.85952 10.4702C4.44581 10.9049 5.15304 11.1461 5.88279 11.1601C4.65052 12.1297 3.12912 12.6589 1.56112 12.6633C1.27563 12.6643 0.990362 12.6471 0.707031 12.6121C2.30795 13.6457 4.1736 14.1945 6.07923 14.1921C7.39426 14.2058 8.69882 13.9573 9.91673 13.4611C11.1346 12.9649 12.2415 12.2311 13.1726 11.3023C14.1037 10.3736 14.8404 9.26866 15.3397 8.05203C15.839 6.8354 16.0908 5.53147 16.0806 4.21641C16.0806 4.07122 16.0806 3.91748 16.0806 3.76375C16.7508 3.26395 17.3288 2.65124 17.7887 1.95309Z" fill={iconsColor} />
+                      </svg>
+                    </motion.div>
+                  </div>
+                  <div className="dot_active"></div>
+                </div>
+              </motion.div>
+            </a>
+        <motion.div
+
+          onMouseOut={() => changeOpOff()}
+          onMouseOver={() => changeOpOn()}
+          className="icon_holder "
           initial="initial"
           animate="animate"
-          whileHover="hover"
+          whileTap={{ scale: 0.9 }}
           variants={iconss}
-          transition={{ delay: 2.4 , ease:"easeInOut"}}
-          >
-          <div  className="icon_container"  onClick={play}>
-            <a href="https://twitter.com/sadiq_moo" target="_blank" rel="noreferrer">
-              <div className='icons'>
-            <div className="text">
-              Photos
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        >
+          <div className="dropMedia" style={op}>
+            <div className='arrow_drop'>
+              <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.03846 5.99977L0.5 3.46131V2.19208V1.76901V0.922852L3.03846 3.46131L6 0.922852V1.76901V3.46131L3.03846 5.99977Z" fill={iconsColor} />
+                <path d="M0.5 1.76901V2.19208M0.5 2.19208V3.46131L3.03846 5.99977L6 3.46131V1.76901V0.922852L3.03846 3.46131L0.5 0.922852V2.19208Z" stroke={iconsColor} strokeWidth="0.846154" strokeLinejoin="round" />
+                <path d="M3.03846 11.0769L0.5 8.53846V7.26923V6.84615V6L3.03846 8.96154L6 6V6.84615V8.53846L3.03846 11.0769Z" fill={iconsColor} />
+                <path d="M0.5 6.84615V7.26923M0.5 7.26923V8.53846L3.03846 11.0769L6 8.53846V6.84615V6L3.03846 8.96154L0.5 6V7.26923Z" stroke={iconsColor} strokeWidth="0.846154" strokeLinejoin="round" />
+              </svg>
             </div>
-            <motion.div variants={twittter} className="glow">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="#fff">
-              <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
-            </svg>
-             </motion.div>
-             </div>
+            <a href='https://twitter.com/sadiq_moo' target="_blank" rel="noreferrer">
+              <motion.div
+                className="icon_holder drop_icons"
+                initial="initial"
+                animate="animate"
+                whileTap={{ scale: 0.9 }}
+                variants={iconss}
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <div onClick={play}>
+
+                  <div className='icons' >
+                    <div className="text">
+                      Twitter
+                    </div>
+                    <motion.div variants={insta} className="glow">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="15" viewBox="0 0 18 15" fill="none">
+                        <path d="M17.7887 1.95309C17.1468 2.2316 16.4678 2.41571 15.7731 2.4997C16.506 2.06183 17.0553 1.37298 17.319 0.560929C16.6302 0.970944 15.8762 1.25982 15.0898 1.41501C14.5642 0.844974 13.8642 0.465525 13.0996 0.336178C12.3351 0.206831 11.5493 0.334903 10.8653 0.700307C10.1814 1.06571 9.63814 1.64778 9.32069 2.35522C9.00323 3.06267 8.92956 3.85547 9.11123 4.60929C7.71858 4.53885 6.35633 4.17623 5.11296 3.54498C3.8696 2.91374 2.77293 2.02799 1.89421 0.945267C1.586 1.48349 1.42405 2.09301 1.42446 2.71322C1.42337 3.2892 1.56472 3.85652 1.83592 4.36465C2.10713 4.87279 2.49977 5.30598 2.9789 5.62565C2.42202 5.6105 1.87703 5.46107 1.3903 5.19007V5.23278C1.39447 6.03979 1.67727 6.8206 2.19085 7.44312C2.70443 8.06564 3.41726 8.49166 4.20878 8.64912C3.90409 8.74184 3.58775 8.79073 3.26929 8.79431C3.04884 8.79174 2.82894 8.77174 2.61164 8.73452C2.83704 9.42874 3.27324 10.0354 3.85952 10.4702C4.44581 10.9049 5.15304 11.1461 5.88279 11.1601C4.65052 12.1297 3.12912 12.6589 1.56112 12.6633C1.27563 12.6643 0.990362 12.6471 0.707031 12.6121C2.30795 13.6457 4.1736 14.1945 6.07923 14.1921C7.39426 14.2058 8.69882 13.9573 9.91673 13.4611C11.1346 12.9649 12.2415 12.2311 13.1726 11.3023C14.1037 10.3736 14.8404 9.26866 15.3397 8.05203C15.839 6.8354 16.0908 5.53147 16.0806 4.21641C16.0806 4.07122 16.0806 3.91748 16.0806 3.76375C16.7508 3.26395 17.3288 2.65124 17.7887 1.95309Z" fill={iconsColor} />
+                      </svg>
+                    </motion.div>
+                  </div>
+                  <div className="dot_active"></div>
+                </div>
+              </motion.div>
+            </a>
+            <a href='https://www.instagram.com/_mohamedsadiq/' target="_blank" rel="noreferrer">
+              <motion.div
+                className="icon_holder drop_icons"
+                initial="initial"
+                animate="animate"
+                whileTap={{ scale: 0.9 }}
+                variants={iconss}
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <div onClick={play}>
+
+                  <div className='icons'>
+                    <div className="text">
+                      Instagram
+                    </div>
+                    <motion.div variants={insta} className="glow">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                        <path d="M5.09072 0.732422C2.46612 0.732422 0.332031 2.86651 0.332031 5.49111V12.0801C0.332031 14.7047 2.46612 16.8388 5.09072 16.8388H11.6797C14.3043 16.8388 16.4384 14.7047 16.4384 12.0801V5.49111C16.4384 2.86651 14.3043 0.732422 11.6797 0.732422H5.09072ZM12.7778 3.66085C13.1805 3.66085 13.5099 3.99029 13.5099 4.39295C13.5099 4.79561 13.1805 5.12506 12.7778 5.12506C12.3752 5.12506 12.0457 4.79561 12.0457 4.39295C12.0457 3.99029 12.3752 3.66085 12.7778 3.66085ZM8.3852 4.75901C10.6071 4.75901 12.4118 6.56365 12.4118 8.78559C12.4118 11.0075 10.6071 12.8122 8.3852 12.8122C6.16326 12.8122 4.35861 11.0075 4.35861 8.78559C4.35861 6.56365 6.16326 4.75901 8.3852 4.75901ZM8.3852 5.49111C6.56957 5.49111 5.09072 6.96997 5.09072 8.78559C5.09072 10.6012 6.56957 12.0801 8.3852 12.0801C10.2008 12.0801 11.6797 10.6012 11.6797 8.78559C11.6797 6.96997 10.2008 5.49111 8.3852 5.49111Z" fill={iconsColor} />
+                      </svg>
+                    </motion.div>
+                  </div>
+                  <div className="dot_active"></div>
+                </div>
+              </motion.div>
+            </a>
+            <a href='https://dribbble.com/Mohamed-Sadiq' target="_blank" rel="noreferrer">
+              <motion.div
+                className="icon_holder drop_icons"
+                initial="initial"
+                animate="animate"
+                whileTap={{ scale: 0.9 }}
+                variants={iconss}
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <div onClick={play}>
+
+                  <div className='icons'>
+                    <div className="text">
+                      Dribbble
+                    </div>
+                    <motion.div variants={insta} className="glow">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <g clipPath="url(#clip0_748_3415)">
+                          <path d="M7.99961 15.3996C3.91921 15.3996 0.599609 12.08 0.599609 7.99961C0.599609 3.91921 3.91921 0.599609 7.99961 0.599609C12.08 0.599609 15.3996 3.91921 15.3996 7.99961C15.3996 12.08 12.08 15.3996 7.99961 15.3996Z" fill={iconsColor} />
+                          <path d="M8.00039 0.800391C11.9704 0.800391 15.2004 4.03039 15.2004 8.00039C15.2004 11.9704 11.9704 15.2004 8.00039 15.2004C4.03039 15.2004 0.800391 11.9704 0.800391 8.00039C0.800391 4.03039 4.03039 0.800391 8.00039 0.800391ZM8.00039 0.400391C3.80319 0.400391 0.400391 3.80319 0.400391 8.00039C0.400391 12.1976 3.80319 15.6004 8.00039 15.6004C12.1976 15.6004 15.6004 12.1976 15.6004 8.00039C15.6004 3.80319 12.1976 0.400391 8.00039 0.400391Z" fill="black" />
+                          <path d="M11.341 14.7656C11.341 14.7656 10.1282 6.33083 5.08901 1.04883M0.507812 7.13923C0.507812 7.13923 10.1878 7.98603 13.3378 2.69843M3.12181 13.6608C3.12181 13.6608 6.57141 5.73803 15.545 8.78323" stroke="black" strokeWidth="0.4" strokeMiterlimit="10" />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_748_3415">
+                            <rect width="16" height="16" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </motion.div>
+
+                  </div>
+                  <div className="dot_active"></div>
+                </div>
+              </motion.div>
+            </a>
+          </div>
+          <div className="icon_container mediaIcons" onClick={() => onClickShow()}>
+            <a  >
+
+              <div className='icons'>
+                <div className="text">
+                  Media
+                </div>
+
+                <motion.div variants={twittter} className="glow">
+                  <svg width="44" height="22" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.953053 10.0338L2.97691 6.63549C3.02868 6.54857 3.13632 6.51271 3.22987 6.55123L6.59453 7.93654C6.76601 8.00715 6.76197 8.25141 6.58825 8.31631L1.19973 10.3293C1.01921 10.3968 0.854448 10.1994 0.953053 10.0338Z" fill="#D9D9D9" />
+                    <path fillRule="evenodd" clipRule="evenodd" d="M6.24574 9.50711C8.87106 9.50711 10.9993 7.37887 10.9993 4.75355C10.9993 2.12824 8.87106 0 6.24574 0C3.62043 0 1.49219 2.12824 1.49219 4.75355C1.49219 7.37887 3.62043 9.50711 6.24574 9.50711ZM4.79674 4.4068C4.68406 4.4068 4.59272 4.49814 4.59272 4.61082V4.93724C4.59272 5.04992 4.68406 5.14126 4.79674 5.14126H7.79576C7.90843 5.14126 7.99977 5.04992 7.99977 4.93724V4.61082C7.99977 4.49814 7.90843 4.4068 7.79576 4.4068H4.79674Z" fill="#D9D9D9" />
+                    <path d="M2.41259 7.58945L7.32935 0.102099L7.72717 0.204106L8.12499 0.306114C6.92131 -0.135919 4.09367 -0.428341 2.41259 1.93823C0.731504 4.30481 1.71214 6.69179 2.41259 7.58945Z" fill="#858585" />
+                  </svg>
+
+                </motion.div>
+              </div>
               <div className="dot_active"></div>
             </a>
           </div>
-          </motion.div>
-          </Link>
-          <a href="https://github.com/mohamedsadiq" target="_blink"  >
-          <motion.div 
-             className="icon_holder"
-             initial="initial"
-             animate="animate"
-             whileHover="hover"
-             variants={iconss}
-             transition={{ delay: 2.5 , ease:"easeInOut"}}
+        </motion.div>
+        <a >
+          <motion.div
+            className="icon_holder sepereate"
+            initial="initial"
+            animate="animate"
+            whileTap={{ scale: 0.9 }}
+            variants={iconss}
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-          <div  className={router.pathname == "/blogs" ? "active icon_container" : "icon_container"} onClick={play}>
-         
-         <div className='icons'>
-          <div className="text">
-            Github
-          </div>
-          <motion.div variants={insta} className="glow">      
-       
-<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M13.3355 22.5154C13.3355 23.0171 13.2571 23.5314 13.1003 24.0582C12.9435 24.585 12.6738 25.0617 12.2912 25.4881C11.9087 25.9146 11.454 26.1278 10.9272 26.1278C10.4003 26.1278 9.94564 25.9146 9.56308 25.4881C9.18051 25.0617 8.91083 24.585 8.75404 24.0582C8.59725 23.5314 8.51885 23.0171 8.51885 22.5154C8.51885 22.0137 8.59725 21.4994 8.75404 20.9726C8.91083 20.4458 9.18051 19.9691 9.56308 19.5426C9.94564 19.1162 10.4003 18.9029 10.9272 18.9029C11.454 18.9029 11.9087 19.1162 12.2912 19.5426C12.6738 19.9691 12.9435 20.4458 13.1003 20.9726C13.2571 21.4994 13.3355 22.0137 13.3355 22.5154ZM25.377 22.5154C25.377 23.0171 25.2986 23.5314 25.1418 24.0582C24.985 24.585 24.7153 25.0617 24.3327 25.4881C23.9502 25.9146 23.4955 26.1278 22.9687 26.1278C22.4418 26.1278 21.9872 25.9146 21.6046 25.4881C21.222 25.0617 20.9523 24.585 20.7955 24.0582C20.6388 23.5314 20.5604 23.0171 20.5604 22.5154C20.5604 22.0137 20.6388 21.4994 20.7955 20.9726C20.9523 20.4458 21.222 19.9691 21.6046 19.5426C21.9872 19.1162 22.4418 18.9029 22.9687 18.9029C23.4955 18.9029 23.9502 19.1162 24.3327 19.5426C24.7153 19.9691 24.985 20.4458 25.1418 20.9726C25.2986 21.4994 25.377 22.0137 25.377 22.5154ZM28.3873 22.5154C28.3873 21.0102 27.9546 19.7308 27.0891 18.6772C26.2236 17.6235 25.0508 17.0967 23.5707 17.0967C23.0565 17.0967 21.8335 17.2284 19.9018 17.4918C19.0113 17.6298 18.0266 17.6988 16.9479 17.6988C15.8692 17.6988 14.8845 17.6298 13.994 17.4918C12.0874 17.2284 10.8644 17.0967 10.3251 17.0967C8.84498 17.0967 7.67218 17.6235 6.8067 18.6772C5.94122 19.7308 5.50847 21.0102 5.50847 22.5154C5.50847 23.6192 5.70917 24.5819 6.11055 25.4035C6.51193 26.225 7.01993 26.871 7.63455 27.3414C8.24917 27.8118 9.01431 28.1881 9.92997 28.4703C10.8456 28.7525 11.7236 28.9375 12.564 29.0253C13.4044 29.1131 14.3389 29.157 15.3675 29.157H18.5284C19.5569 29.157 20.4914 29.1131 21.3318 29.0253C22.1722 28.9375 23.0502 28.7525 23.9658 28.4703C24.8815 28.1881 25.6466 27.8118 26.2613 27.3414C26.8759 26.871 27.3839 26.225 27.7853 25.4035C28.1866 24.5819 28.3873 23.6192 28.3873 22.5154ZM32.6019 19.204C32.6019 21.8004 32.2193 23.8763 31.4542 25.4317C30.9775 26.3975 30.3159 27.2316 29.4692 27.9341C28.6225 28.6365 27.7382 29.1758 26.8163 29.5521C25.8944 29.9284 24.8282 30.2263 23.6178 30.4458C22.4074 30.6654 21.3318 30.8033 20.391 30.8598C19.4503 30.9162 18.4029 30.9444 17.2489 30.9444C16.2706 30.9444 15.38 30.9256 14.5772 30.888C13.7745 30.8504 12.8494 30.772 11.802 30.6528C10.7547 30.5337 9.79826 30.3455 8.93278 30.0884C8.06729 29.8312 7.20808 29.5082 6.35514 29.1194C5.5022 28.7306 4.74334 28.2226 4.07854 27.5954C3.41375 26.9682 2.87439 26.247 2.46047 25.4317C1.68279 23.8889 1.29395 21.813 1.29395 19.204C1.29395 16.2312 2.14689 13.7477 3.85277 11.7533C3.5141 10.7247 3.34476 9.65857 3.34476 8.55476C3.34476 7.09975 3.66462 5.73254 4.30432 4.45312C5.65899 4.45312 6.8506 4.70085 7.87915 5.19631C8.90769 5.69177 10.093 6.46631 11.4352 7.51995C13.279 7.08093 15.2169 6.86143 17.2489 6.86143C19.1053 6.86143 20.8614 7.06212 22.5171 7.4635C23.8341 6.43496 25.0069 5.67609 26.0355 5.1869C27.064 4.69772 28.2494 4.45312 29.5915 4.45312C30.2312 5.73254 30.551 7.09975 30.551 8.55476C30.551 9.64603 30.3817 10.6997 30.043 11.7157C31.7489 13.7226 32.6019 16.2187 32.6019 19.204Z" fill="white"/>
-</svg>
+            <div className="icon_container" onClick={() => {
+              play()
+              switchMode()
+            }}>
 
-              </motion.div>
+              <div className='icons'>
+                <div className="text">
+                  Switch Mode
+                </div>
+                <motion.div variants={stack} className="glow">
+                  {
+                    isItDarkOrLight == "light"
+                      ? (<svg width="20" height="18" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 5.45045C9.91242 6.39813 9.55676 7.30127 8.97463 8.05419C8.3925 8.80711 7.60798 9.37867 6.71286 9.70199C5.81775 10.0253 4.84906 10.087 3.92016 9.8799C2.99125 9.67277 2.14055 9.20539 1.46758 8.53242C0.794615 7.85945 0.327225 7.00875 0.120101 6.07984C-0.087023 5.15094 -0.025314 4.18225 0.298007 3.28714C0.621329 2.39202 1.19289 1.6075 1.94581 1.02537C2.69873 0.44324 3.60187 0.0875777 4.54955 0C3.99471 0.75063 3.72772 1.67547 3.79714 2.60631C3.86655 3.53716 4.26776 4.41217 4.9278 5.0722C5.58783 5.73224 6.46284 6.13345 7.39369 6.20286C8.32453 6.27228 9.24937 6.00529 10 5.45045Z" fill={iconsColor} />
+                      </svg>
+                      )
+                      : (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 18C13.5913 18 15.1174 17.3679 16.2426 16.2426C17.3679 15.1174 18 13.5913 18 12C18 10.4087 17.3679 8.88258 16.2426 7.75736C15.1174 6.63214 13.5913 6 12 6C10.4087 6 8.88258 6.63214 7.75736 7.75736C6.63214 8.88258 6 10.4087 6 12C6 13.5913 6.63214 15.1174 7.75736 16.2426C8.88258 17.3679 10.4087 18 12 18ZM22 12H23ZM12 2V1ZM12 23V22ZM20 20L19 19ZM20 4L19 5ZM4 20L5 19ZM4 4L5 5ZM1 12H2Z" fill={iconsColor} />
+                        <path d="M22 12H23M12 2V1M12 23V22M20 20L19 19M20 4L19 5M4 20L5 19M4 4L5 5M1 12H2M12 18C13.5913 18 15.1174 17.3679 16.2426 16.2426C17.3679 15.1174 18 13.5913 18 12C18 10.4087 17.3679 8.88258 16.2426 7.75736C15.1174 6.63214 13.5913 6 12 6C10.4087 6 8.88258 6.63214 7.75736 7.75736C6.63214 8.88258 6 10.4087 6 12C6 13.5913 6.63214 15.1174 7.75736 16.2426C8.88258 17.3679 10.4087 18 12 18Z" stroke={iconsColor} strokeWidth="1.5" strokeLinecap="round" strokeLinecap="round" />
+                      </svg>
+                      )
+                  }
+                </motion.div>
               </div>
-            <div className="dot_active"></div>
-          </div>
+
+              <div className="dot_active"></div>
+            </div>
           </motion.div>
-          </a>
-          <motion.div 
-          className="icon_holder"
-          initial="initial"
-          animate="animate"
-          whileHover="hover"
-          variants={iconss}
-          transition={{ delay:2.6 , ease:"easeInOut"}}
+        </a>
+        <a href="mailto:mohamed.sadiq@outlook.sa">
+          <motion.div
+            className="icon_holder lastIcon"
+            initial="initial"
+            animate="animate"
+            whileTap={{ scale: 0.9 }}
+
+            variants={iconss}
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-          <div className="icon_container"  onClick={play}>
-          <a href="https://twitter.com/sadiq_moo" target="_blank" rel="noreferrer">
-        
-               <div className='icons'>
-          <div className="text">
-          Twitter
-          </div>
-          <motion.div variants={twittter} className="glow">
-                <svg width="44" height="43" viewBox="0 0 44 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M39.5425 11.0318C38.2251 11.6033 36.8318 11.9811 35.4061 12.1535C36.9102 11.2549 38.0374 9.84128 38.5785 8.17483C37.1651 9.01625 35.6178 9.60907 34.0039 9.92755C32.9252 8.75774 31.4887 7.97905 29.9198 7.71361C28.3508 7.44817 26.7382 7.71099 25.3347 8.46086C23.9312 9.21072 22.8163 10.4052 22.1648 11.857C21.5133 13.3088 21.3621 14.9357 21.735 16.4827C18.877 16.3381 16.0815 15.594 13.5299 14.2986C10.9783 13.0032 8.72782 11.1855 6.92455 8.96355C6.29206 10.0681 5.95972 11.3189 5.96056 12.5917C5.95832 13.7737 6.24838 14.9379 6.80494 15.9806C7.36149 17.0234 8.16725 17.9124 9.15049 18.5684C8.00769 18.5373 6.8893 18.2307 5.89045 17.6745V17.7622C5.89902 19.4183 6.47935 21.0206 7.53329 22.2981C8.58723 23.5756 10.0501 24.4499 11.6744 24.773C11.0491 24.9633 10.4 25.0636 9.74642 25.071C9.29402 25.0657 8.84276 25.0247 8.39683 24.9483C8.85939 26.3729 9.75452 27.6179 10.9577 28.5101C12.1608 29.4022 13.6122 29.8972 15.1097 29.926C12.5809 31.9158 9.45877 33.0017 6.24099 33.0108C5.65512 33.0127 5.06972 32.9776 4.48828 32.9056C7.77361 35.0268 11.6022 36.1529 15.5128 36.1481C18.2115 36.1761 20.8886 35.6661 23.388 34.6479C25.8873 33.6297 28.1587 32.1237 30.0695 30.2178C31.9802 28.3119 33.4921 26.0444 34.5167 23.5477C35.5413 21.051 36.0582 18.3751 36.0371 15.6764C36.0371 15.3785 36.0371 15.063 36.0371 14.7475C37.4124 13.7218 38.5986 12.4645 39.5425 11.0318Z" fill="white"/>
-                </svg>
-             </motion.div>
-               </div>
-             <div className="dot_active"></div>
-          </a>
-          </div>
+            <div className="icon_container" onClick={play}>
+
+              <div className='icons'>
+                <div className="text">
+                  Mail
+                </div>
+                <motion.div variants={stack} className="glow">
+                  <svg id="mail_icon" width="40" height="30" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.93164 10.012V28.9841L12.4177 19.498L2.93164 10.012ZM4.81653 8.11102L16.826 20.1205C18.3428 21.6373 20.9881 21.6373 22.5048 20.1205L34.5143 8.11102H4.81653Z" fill="white" />
+                    <path d="M24.3972 22.0134C23.1348 23.2771 21.4534 23.9746 19.6649 23.9746C17.8763 23.9746 16.1949 23.2771 14.9325 22.0134L14.31 21.3909L4.83203 30.8689H34.4977L25.0197 21.3909L24.3972 22.0134ZM26.9126 19.4979L36.3986 28.984V10.0119L26.9126 19.4979Z" fill={iconsColor} />
+                  </svg>
+                </motion.div>
+              </div>
+
+              <div className="dot_active"></div>
+            </div>
           </motion.div>
-          <a href ="mailto:mohamed.sadiq@outlook.sa">
-          <motion.div 
-          className="icon_holder"
-          initial="initial"
-          animate="animate"
-          whileHover="hover"
-          variants={iconss}
-          transition={{ delay: 2.7 , ease:"easeInOut"}}
-          >
-          <div className="icon_container"  onClick={play}>
-          
-          <div className='icons'>
-          <div className="text">
-          Mail
-          </div>
-          <motion.div variants={stack} className="glow">
-               <svg width="40" height="39" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-                 <path d="M2.93164 10.012V28.9841L12.4177 19.498L2.93164 10.012ZM4.81653 8.11102L16.826 20.1205C18.3428 21.6373 20.9881 21.6373 22.5048 20.1205L34.5143 8.11102H4.81653Z" fill="white"/>
-                 <path d="M24.3972 22.0134C23.1348 23.2771 21.4534 23.9746 19.6649 23.9746C17.8763 23.9746 16.1949 23.2771 14.9325 22.0134L14.31 21.3909L4.83203 30.8689H34.4977L25.0197 21.3909L24.3972 22.0134ZM26.9126 19.4979L36.3986 28.984V10.0119L26.9126 19.4979Z" fill="white"/>
-               </svg>
-               </motion.div>
-               </div>
-         
-             <div className="dot_active"></div>
-          </div>
-          </motion.div>
-          </a>
-        </div>
-     
-        </motion.header>
-    )
+        </a>
+      </div>
+
+    </motion.header>
+  )
 }
 
 export default Header
