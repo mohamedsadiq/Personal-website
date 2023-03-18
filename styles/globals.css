@@ -2448,9 +2448,14 @@ position: relative;
 .ripi6{
   margin-top: 21px;
 }
-.blog_overlay{
+/* .blog_overlay{
   opacity: 1;
   visibility: visible
+} */
+.blog_photo {
+ 
+  height: 144px;
+ 
 }
 }
 
