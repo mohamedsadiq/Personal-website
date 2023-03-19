@@ -129,15 +129,18 @@ const Header = (props) => {
       opacity: 0
     }
   }
-  // Dtop Menu
 
+
+
+
+  // Dtop Menu
   const [globalMenuState, setGlobalMenuState] = useState(false)
   const dropMediaStyle = {
     styleContentShow: {
       opacity: "1",
       visibility: "visible",
       right: "-22px",
-      top: "95px"
+      top: "74px"
     },
     styleContentHide: {
       opacity: "0",
@@ -146,6 +149,7 @@ const Header = (props) => {
       top: "90px"
     }
   }
+
   const [op, setOp] = useState(dropMediaStyle.styleContentHide);
 
   const styleVar = {
