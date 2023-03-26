@@ -5,11 +5,17 @@ import img3 from "../../img/blog/3.png"
 import img4 from "../../img/blog/4.png"
 import img5 from "../../img/blog/5.png"
 import img6 from "../../img/dsd.jpg"
-import img7 from "../../img/blog/7.jpg"
+import img7 from "../../img/blog/72.webp"
 import Link from 'next/link';
 const BlogContent = ({link1, link2, link3}) =>{
     const data =[
-      
+        {
+            title:"Intentional Development of Technology: A Path to a Better Future for All.",
+            img:img7,
+            description:"The fun, simple, & secure way to explore Web3, NFTs, & Ethereum.",
+            // tags:"tags",
+            links:"https://open.substack.com/pub/msadiq/p/intentional-development-of-technology?r=8bhus&utm_campaign=post&utm_medium=web"
+        },
        
         {
             title:"Moore's Law, Virtual Reality, and the Future of Human-Computer Interaction",
@@ -19,12 +25,7 @@ const BlogContent = ({link1, link2, link3}) =>{
             link:"https://open.substack.com/pub/msadiq/p/moores-law-virtual-reality-and-the?r=8bhus&utm_campaign=post&utm_medium=web"
         },
       
-        // {
-        //     title:"Title",
-        //     img:img7,
-        //     description:"The fun, simple, & secure way to explore Web3, NFTs, & Ethereum.",
-        //     tags:"tags"
-        // },
+        
         {
             title:"Exploring the Potential of Virtual Reality and the Blending of Worlds",
             img:img6,
