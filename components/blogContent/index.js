@@ -12,16 +12,18 @@ const BlogContent = ({link1, link2, link3}) =>{
         {
             title:"Intentional Development of Technology: A Path to a Better Future for All.",
             img:img7,
-            description:"The fun, simple, & secure way to explore Web3, NFTs, & Ethereum.",
-            // tags:"tags",
-            links:"https://open.substack.com/pub/msadiq/p/intentional-development-of-technology?r=8bhus&utm_campaign=post&utm_medium=web"
+            description:"Reffections on the role of intentionality and ethical considerations in shaping the relationship...",
+            tags:"Ethical Tech",
+            color:"#145733",
+            link:"https://open.substack.com/pub/msadiq/p/intentional-development-of-technology?r=8bhus&utm_campaign=post&utm_medium=web"
         },
        
         {
             title:"Moore's Law, Virtual Reality, and the Future of Human-Computer Interaction",
             img:img3,
             description:"The Intersection of Moore's Law and Engelbart's..",
-           
+            tags:"Virtual Reality",
+            color:"#153f57",
             link:"https://open.substack.com/pub/msadiq/p/moores-law-virtual-reality-and-the?r=8bhus&utm_campaign=post&utm_medium=web"
         },
       
@@ -30,7 +32,8 @@ const BlogContent = ({link1, link2, link3}) =>{
             title:"Exploring the Potential of Virtual Reality and the Blending of Worlds",
             img:img6,
             description:"Exploring the Possibilities and Consequences of Merging Virtual Reality and Real Life.",
-           
+            tags:"Games",
+            color:"#5b1e60",
             link:"https://open.substack.com/pub/msadiq/p/the-adventure-and-ingenuity-of-assassins?r=8bhus&utm_campaign=post&utm_medium=web"
         }
     ]
@@ -41,7 +44,7 @@ const BlogContent = ({link1, link2, link3}) =>{
                   <a  key={item.name} href={item.link} passHref target="_blink">
                   <div className="block">
                         <div className="blog_photo">
-                            <div className='overlay_img'></div>
+                        <div className='overlay_img'></div>
                         <Image
                             src={item.img}
                             alt="Picture of the author"
@@ -52,18 +55,21 @@ const BlogContent = ({link1, link2, link3}) =>{
                             quality={100}
                             />
                       </div>
-                      <div className="blog_overlay">
-                      <h1>{item.title}</h1>
+                      <div className="text_blog">
+                      <h4>{item.title}</h4>
                       <p>{item.description}</p>
-                   
-                      </div> 
+                      <span style={{background:item.color}}>{item.tags}</span>
+
+                      </div>
                     
                   </div>
+                    <div className='clearfix'></div>
                   </a>
               )
           })}
-         
+        
         </div>
+       
     )
 }
 

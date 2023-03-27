@@ -1145,10 +1145,37 @@ color: rgb(250, 200, 17);
 .blog_photo{
   position: relative;
   display: inline-block;
-  width: 100%;
+  width: 51%;
   height: 189px;
   overflow: hidden;
   border-radius: 27px;
+  float: left;
+  /* margin-bottom: 40px; */
+}
+.text_blog{
+  padding-left: 21px;
+  width: 49%;
+  float: left;
+ 
+}
+.text_blog span{
+  background-color: #1f1f1f;
+  padding: 3px 14px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+.clearfix {
+  clear: both;
+}
+.blog_intro .block{
+  transition: all 0.3s ease-in-out;
+}
+.blog_intro .block:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
+.text_blog h4{
+  margin-top: 0;
 }
 .work_intro_image{
   height: 513px;
@@ -2603,4 +2630,20 @@ cursor: pointer;
   .item1{
     margin-bottom: 8px;
   }
+  }
+
+  
+  @media only screen and (max-width:475px) {
+    .text_blog {
+      padding-left: 0;
+      width: 100%;
+      float: none;
+  }
+  .blog_photo {
+    
+    width: 100%;
+  
+    float: none;
+    margin-bottom: 40px;
+}
   }
