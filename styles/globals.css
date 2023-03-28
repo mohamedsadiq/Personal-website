@@ -1146,7 +1146,7 @@ color: rgb(250, 200, 17);
   position: relative;
   display: inline-block;
   width: 51%;
-  height: 189px;
+  height: 212px;
   overflow: hidden;
   border-radius: 27px;
   float: left;
@@ -1180,6 +1180,14 @@ color: rgb(250, 200, 17);
 }
 .text_blog h4{
   margin-top: 0;
+  margin-bottom: 12px;
+}
+.text_blog .datespan{
+  padding: 0;
+  color: #fff;
+}
+.light .datespan{
+  color: rgb(0, 0, 0);
 }
 .work_intro_image{
   height: 513px;

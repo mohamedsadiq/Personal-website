@@ -13,7 +13,7 @@ const Blogs = () => {
             <div className="container">
             <div className="inner_container">
                 <h1>Blog</h1>
-                <p>Here where I write what I find interesting and useful.</p>
+                <p>Step into my virtual world, where I share my insights on a range of topics, from science to self-improvement. </p>
                 <BlogContent link1={"blog/blog1"} link2={"blog/blog2"} link3={"blog/blog3"}/>
              
             </div>
