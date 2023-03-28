@@ -14,7 +14,7 @@ const BlogContent = ({link1, link2, link3}) =>{
             img:img7,
             description:"Reffections on the role of intentionality and ethical considerations in shaping the relationship...",
             tags:"Ethical Tech",
-            color:"#145733",
+            color:"#dbece9",
             link:"https://open.substack.com/pub/msadiq/p/intentional-development-of-technology?r=8bhus&utm_campaign=post&utm_medium=web"
         },
        
@@ -23,7 +23,7 @@ const BlogContent = ({link1, link2, link3}) =>{
             img:img3,
             description:"The Intersection of Moore's Law and Engelbart's..",
             tags:"Virtual Reality",
-            color:"#153f57",
+            color:"#ecdbdb",
             link:"https://open.substack.com/pub/msadiq/p/moores-law-virtual-reality-and-the?r=8bhus&utm_campaign=post&utm_medium=web"
         },
       
@@ -33,7 +33,7 @@ const BlogContent = ({link1, link2, link3}) =>{
             img:img6,
             description:"Exploring the Possibilities and Consequences of Merging Virtual Reality and Real Life.",
             tags:"Games",
-            color:"#5b1e60",
+            color:"#dbdeec",
             link:"https://open.substack.com/pub/msadiq/p/the-adventure-and-ingenuity-of-assassins?r=8bhus&utm_campaign=post&utm_medium=web"
         }
     ]

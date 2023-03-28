@@ -1158,10 +1158,14 @@ color: rgb(250, 200, 17);
   float: left;
  
 }
+.light .text_blog h4{
+  color: #000;
+}
 .text_blog span{
-  background-color: #1f1f1f;
-  padding: 3px 14px;
-  border-radius: 12px;
+  /* background-color: #1f1f1f; */
+  padding:5px 14px;
+  border-radius: 5px;
+  color: #000;
   font-size: 0.8rem;
 }
 .clearfix {
