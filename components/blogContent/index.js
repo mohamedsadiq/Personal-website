@@ -15,6 +15,7 @@ const BlogContent = ({link1, link2, link3}) =>{
             description:"Reffections on the role of intentionality and ethical considerations in shaping the relationship...",
             tags:"Ethical Tech",
             color:"#dbece9",
+            date:"Mar 27, 2023",
             link:"https://open.substack.com/pub/msadiq/p/intentional-development-of-technology?r=8bhus&utm_campaign=post&utm_medium=web"
         },
        
@@ -24,6 +25,7 @@ const BlogContent = ({link1, link2, link3}) =>{
             description:"The Intersection of Moore's Law and Engelbart's..",
             tags:"Virtual Reality",
             color:"#ecdbdb",
+            date:"Nov 5, 2021",
             link:"https://open.substack.com/pub/msadiq/p/moores-law-virtual-reality-and-the?r=8bhus&utm_campaign=post&utm_medium=web"
         },
       
@@ -34,6 +36,7 @@ const BlogContent = ({link1, link2, link3}) =>{
             description:"Exploring the Possibilities and Consequences of Merging Virtual Reality and Real Life.",
             tags:"Games",
             color:"#dbdeec",
+            date:"Nov 5, 2021",
             link:"https://open.substack.com/pub/msadiq/p/the-adventure-and-ingenuity-of-assassins?r=8bhus&utm_campaign=post&utm_medium=web"
         }
     ]
@@ -57,6 +60,7 @@ const BlogContent = ({link1, link2, link3}) =>{
                       </div>
                       <div className="text_blog">
                       <h4>{item.title}</h4>
+                      <span className="datespan">{item.date}</span>
                       <p>{item.description}</p>
                       <span style={{background:item.color}}>{item.tags}</span>
 
