@@ -25,7 +25,7 @@ export default function Post({ post }) {
                       </div>
                       <div className="text_blog">
                       <h4>{post.frontmatter.title}</h4>
-                      <span className="datespan">{`${date.getMonth() + 1} - ${date.getDate()} - ${date.getFullYear()}`}</span>
+                      <span className="datespan">Date: {`${date.getMonth() + 1} - ${date.getDate()} - ${date.getFullYear()}`}</span>
                       {/* <p>{post.frontmatter.summary}</p> */}
                      
                              {/* <a className='btn'>Read More</a> */}
