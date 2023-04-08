@@ -1132,7 +1132,7 @@ color: rgb(250, 200, 17);
 }
 .blog_intro .block{
   /* height: 236px; */
-  margin-bottom: 60px;
+  margin-bottom: 24px;
   position: relative;
 }
 
@@ -1145,28 +1145,25 @@ color: rgb(250, 200, 17);
 .blog_photo{
   position: relative;
   display: inline-block;
-  width: 51%;
-  height: 212px;
+  width: 100%;
+  height: 279px;
   overflow: hidden;
   border-radius: 27px;
-  float: left;
-  /* margin-bottom: 40px; */
+  border: 1px solid #1c1c1c;
+  
 }
 .text_blog{
-  padding-left: 21px;
-  width: 49%;
-  float: left;
- 
+  margin-top: 21px;
 }
 .light .text_blog h4{
   color: #000;
 }
-.text_blog span{
-  /* background-color: #1f1f1f; */
-  padding:5px 14px;
-  border-radius: 5px;
-  color: #000;
-  font-size: 0.8rem;
+.light .text_blog h4
+
+
+
+.light .inner_container .blog_sub{
+  color: #616161;
 }
 .clearfix {
   clear: both;
@@ -1180,15 +1177,18 @@ color: rgb(250, 200, 17);
 }
 .text_blog h4{
   margin-top: 0;
+  font-size: 1.2rem;
   margin-bottom: 12px;
+  font-weight: 500;
 }
 .text_blog .datespan{
-  padding: 0;
-  color: #fff;
+  font-size: 0.8rem;
+  color: #7b7b7b;
 }
-.light .datespan{
+/* .light .datespan{
   color: rgb(0, 0, 0);
-}
+} */
+
 .work_intro_image{
   height: 513px;
 }
@@ -1202,6 +1202,31 @@ color: rgb(250, 200, 17);
     grid-gap: 0px 0px;
     gap: 0px 0px;
  
+}
+.post-body {
+  margin-top: 36px;
+}
+.post-body img{
+  border: 1px solid #222
+}
+.inner_blog_body h6{
+  color: #a3a3a3;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.inner_blog_body img{
+  width: 100%;
+  border-radius: 21px;
+}
+.inner_blog_body  p{
+  font-family: sans-serif;
+    color: #eeeeee;
+    font-size: 1.2rem;
+    line-height: 32px;
+    font-weight: 400;
+}
+.light p{
+  color: #000000;
 }
 .blog_overlay h1{
   margin: 0;
@@ -2659,3 +2684,20 @@ cursor: pointer;
     margin-bottom: 40px;
 }
   }
+
+
+
+
+  .inner_blog_body .tags, .inner_container .tags{
+    background: rgb(219, 236, 233);
+    padding:5px 14px;
+    border-radius: 5px;
+    color: #000;
+    font-size: 0.8rem;
+    margin: 0 7px;
+  }
+  .inner_blog_body .tags:nth-child(1),  .inner_container .tags:nth-child(1){
+    margin-left: 0;
+  }
+
+  

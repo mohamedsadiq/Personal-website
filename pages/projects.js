@@ -165,15 +165,6 @@ export default function Projects() {
 
 
 const data = [
-  {
-    name:"Icons II",
-    img:iconsII,
-    description:"A unique set of icons I've created...", 
-    tags:"Icon Design,",
-    target:"_blink",
-    link:"https://www.daosspot.xyz/"
-},
-
 
   {
     name:"DAOs Spot",
