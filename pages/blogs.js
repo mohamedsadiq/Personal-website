@@ -63,8 +63,10 @@ export default function Blogs({ posts, frontmatter }) {
     })}
   </div>
 ))}
+
+
           </div>
-        
+      
         </div>
       </div>
       {/* <From/> */}

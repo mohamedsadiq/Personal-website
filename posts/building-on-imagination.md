@@ -1,6 +1,6 @@
 ---
 author : "Mohamed Sadiq"
-categories : ["Announcement", "Tech"," Building on public"]
+categories : ["Announcement"," Building on public"]
 date : "2023-04-05T13:09:24Z"
 description : ""
 image : "/blog_img/boi.png"
@@ -12,7 +12,7 @@ title : "Building On Imagination."
 draft : false
 ---
 
-![Example Image](../blog_img/boi.png)
+![Building On Imagination Image](../blog_img/boi.png)
 
 Introduction:   
 Welcome to "Building On Imagination," a project dedicated to the exhilarating process of transforming my ideas into reality. I'm eager to embark on this journey of bringing my ideas to life and sharing my experiences with you, particularly in the evolving realm of Web3 and other emerging technologies.

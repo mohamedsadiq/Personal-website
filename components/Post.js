@@ -35,7 +35,7 @@ export default function Post({ post }) {
                       </div>
                       {/* <div className='clearfix'></div> */}
                   </div>
-                   
+                 
                    </Link>
                  
                    </div>
