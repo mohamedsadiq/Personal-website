@@ -24,33 +24,10 @@ export default function About() {
           <div className="inner_container about_me">
             <h1>Product designer building internet software.</h1>
             <p>Since 2017, I have been working as a product designer with expertise in designing and building digital products, including websites, mobile apps, and internet software. My focus is on creating user-centered designs that solve business problems while providing a seamless user experience. Additionally, I&rsquo;m passionate about the possibilities presented by the emerging field of Web3 and how it can provide more autonomy and security to users.</p>
-            <a
-                className="links"
-                href="/cv.pdf"
-                alt="alt text"
-                target="_blank"
-                rel="noopener noreferrer"
-            >Resume</a>
+            
             <div className="image_conta">
             <div className="about_me_images about1">
-              <Image
-                src={setup}
-                alt="Picture of the author"
-                quality={100}
-                placeholder="blur"
-              />
-              <h5>My Setup</h5>
-              <p>This photo showcases my setup - a snapshot of the tools and personal items that make up my workspace for work or relaxation.</p>
-              </div>
-              <div className="about_me_images about2">
-               <Image
-                src={me}
-                alt="Picture of the author"
-                quality={100}
-                placeholder="blur"
-              />
-               <h5>Just Me</h5>
-              <p>A self-portrait photograph of me</p>
+              
             </div>
             </div>
           </div>

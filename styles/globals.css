@@ -1149,7 +1149,7 @@ color: rgb(250, 200, 17);
   height: 279px;
   overflow: hidden;
   border-radius: 27px;
-  border: 1px solid #1c1c1c;
+  border: 1px solid #b8b8b8;
   
 }
 .text_blog{
@@ -1226,7 +1226,7 @@ color: rgb(250, 200, 17);
     font-weight: 400;
 }
 .light p{
-  color: #000000;
+  color: #515151;
 }
 .blog_overlay h1{
   margin: 0;
@@ -2510,7 +2510,8 @@ position: relative;
     border-radius: 9px;
 }
 .inner_header {
-  gap: 15px;
+  grid-gap: 10px;
+  gap: 9px;
 }
 .icons svg {
   width: 25px;
@@ -2524,11 +2525,12 @@ position: relative;
 } */
 .blog_photo {
  
-  height: 144px;
- 
-}
+  height: 184px;
+
 }
 
+}
+/* @media only screen and (max-width:425px) { */
 
  .icon_stack:hover{
 cursor: pointer;
@@ -2610,9 +2612,7 @@ cursor: pointer;
   .block_books{
     height: auto;
   }
-  .block_books{
-
-  }
+ 
   .block_book_f{
     display: grid; 
 
@@ -2654,11 +2654,11 @@ cursor: pointer;
 .light .inner_header::-webkit-scrollbar-thumb {
   border-radius: 10px;
   width: 1px;
-  background-color: #a2a2a2;
+  background-color: #e3e3e3;
 }
 
 .light .inner_header::-webkit-scrollbar-track {
-  background-color: #dddddd;
+  background-color: #f4f4f4;
   border-radius: 10px;
   width: 1px;
 }
@@ -2681,7 +2681,7 @@ cursor: pointer;
     width: 100%;
   
     float: none;
-    margin-bottom: 40px;
+    margin-bottom: 0;
 }
   }
 

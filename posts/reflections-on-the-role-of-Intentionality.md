@@ -11,7 +11,7 @@ summary : "Reflections on the Role of Intentionality and Ethical Considerations 
 title : "Intentional Development of Technology: A Path to a Better Future for All."
 draft : false
 ---
-![Example Image](../blog_img/72.webp)
+![Martin Heidegger](../blog_img/72.webp)
 
 My view on the relationship between technology and humanity is not one of opposition, but rather of potentiality. I believe that technology has the capacity to be a powerful force for good in the world, but that this potential must be realized through intentional and thoughtful development.
 

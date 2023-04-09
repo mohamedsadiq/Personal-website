@@ -5,7 +5,7 @@ import { marked } from 'marked'
 import Link from 'next/link'
 import { slugify, ImageUrl } from '../../utils'
 import { NextSeo } from 'next-seo';
-
+      
 export default function PostPage({ content, frontmatter }) {
   const colors = ["#dbece9", "#efe1e2", "#e2e5ef"];
   const date = new Date(frontmatter.date)
@@ -88,9 +88,9 @@ export default function PostPage({ content, frontmatter }) {
 
               </div>
 
-              <div className='post-body p-5 m-auto' dangerouslySetInnerHTML={{ __html: marked.parse(content) }}>
+              <div className='post-body p-5 m-auto' dangerouslySetInnerHTML={{ __html: marked.parse(content) }}></div>
+              
 
-              </div>
             </div>
           </div>
         </div>
