@@ -13,10 +13,10 @@ const Content = () => {
           >
         <div id="name">Mohamed Sadiq</div>
         <div>
-            <p>A product designer, focusing on <span className="web3">
+            <p> A product designer, Interested on <span className="web3">
             web3
             <span id="animation_web3"></span>
-            </span>, Open source products <a href="https://twitter.com/developer_dao"  className="links" target="_blank" rel="noreferrer">@DeveloperDAO</a>, member of <a href="https://twitter.com/_buildspace" target="_blank" rel="noreferrer">@Bulidspace</a> and <a href="https://twitter.com/Anticollective_" className="links" target="_blank" rel="noreferrer">@Anti</a></p>
+            </span>, Open source products <a href="https://twitter.com/developer_dao"  className="links" target="_blank" rel="noreferrer">@DeveloperDAO</a>, member of <a href="https://twitter.com/_buildspace" target="_blank" rel="noreferrer">@Bulidspace</a> and <a href="https://twitter.com/Anticollective_" className="links" target="_blank" rel="noreferrer">@Anti.</a> you can find me on  <a href="https://twitter.com/sadiq_moo">Twitter.</a> </p>
             <a
                 className="links"
                 href="/cv.pdf"
