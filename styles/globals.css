@@ -2119,7 +2119,7 @@ position: relative;
   padding: 30px;
 }
 .books_goods div:nth-child(1) {
-  top: 129px;
+  bottom: 18px;
   z-index: 100;
 }
 
@@ -2148,7 +2148,7 @@ position: relative;
 .book_container_taste:nth-child(2){
   right: 94px;
   
-  top: 74px;
+  top: 47px;
   z-index: 99;
  
   background-repeat: no-repeat;
