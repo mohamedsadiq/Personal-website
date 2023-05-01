@@ -375,7 +375,7 @@ a {
 
 }
 .logo_stack_icon_inner{
-  width: 100px !important;
+  /* width: 100px !important; */
   object-fit: contain  !important;
 }
 .logo_stack_icon{
@@ -1079,6 +1079,21 @@ color: rgb(250, 200, 17);
   background: #101010;
  
 }
+.obslogo img{
+  width: 19px;
+    margin: 0 auto;
+    position: absolute;
+    left: 16px;
+    top: 13px;
+}
+.linImg img{
+  color: transparent;
+    width: 29px;
+    margin: 0 auto;
+    position: absolute;
+    left: 13px;
+    top: 4px;
+}
 .about_me_images{
   width: 400px;
 }
@@ -1088,6 +1103,11 @@ color: rgb(250, 200, 17);
 }
 .block_books_img {
   float: left;
+  width: 229px;
+}
+
+.block_books_img img {
+  width: 100%;
 }
 .data_des span{
     position: absolute;
