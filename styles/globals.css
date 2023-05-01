@@ -375,7 +375,7 @@ a {
 
 }
 .logo_stack_icon_inner{
-  width: 100px !important;
+  /* width: 100px !important; */
   object-fit: contain  !important;
 }
 .logo_stack_icon{
@@ -516,7 +516,7 @@ header{
 }
 .top_fixed{
   position: fixed;
-  top:154px;
+  top:106px;
   left: 50%;
   transform: translate(-50%,-50%);
 }
@@ -1079,6 +1079,21 @@ color: rgb(250, 200, 17);
   background: #101010;
  
 }
+.obslogo img{
+  width: 19px;
+    margin: 0 auto;
+    position: absolute;
+    left: 16px;
+    top: 13px;
+}
+.linImg img{
+  color: transparent;
+    width: 29px;
+    margin: 0 auto;
+    position: absolute;
+    left: 13px;
+    top: 4px;
+}
 .about_me_images{
   width: 400px;
 }
@@ -1088,6 +1103,11 @@ color: rgb(250, 200, 17);
 }
 .block_books_img {
   float: left;
+  width: 229px;
+}
+
+.block_books_img img {
+  width: 100%;
 }
 .data_des span{
     position: absolute;
@@ -2119,7 +2139,7 @@ position: relative;
   padding: 30px;
 }
 .books_goods div:nth-child(1) {
-  top: 129px;
+  bottom: 18px;
   z-index: 100;
 }
 
@@ -2148,7 +2168,7 @@ position: relative;
 .book_container_taste:nth-child(2){
   right: 94px;
   
-  top: 74px;
+  top: 47px;
   z-index: 99;
  
   background-repeat: no-repeat;

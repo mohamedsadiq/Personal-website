@@ -217,7 +217,7 @@ const Taste = () => {
                                                 </defs>
                                             </svg>
                                         </div>
-                                        <div className="icon_stack">
+                                        <div className="icon_stack obslogo">
                                             <Image
                                                 src={obs}
                                                 alt="Picture of the author"
@@ -228,7 +228,7 @@ const Taste = () => {
                                     </div>
                                     <div className='icon_level2'>
                                         <div className="icon_stack"></div>
-                                        <div className="icon_stack">
+                                        <div className="icon_stack linImg">
                                                 <Image
                                                 className="lin"
                                                     src={lin}
