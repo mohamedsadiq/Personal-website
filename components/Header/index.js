@@ -376,7 +376,7 @@ const Header = (props) => {
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
             <div className={router.pathname == "/oasis" ? "active icon_container" : "icon_container"} onClick={play}>
-              <a href="https://twitter.com/sadiq_moo" target="_blank" rel="noreferrer">
+              <a  target="_blank" rel="noreferrer">
                 <div className='icons'>
                   <div className="text">
                     Oasis
@@ -396,7 +396,7 @@ const Header = (props) => {
             </div>
           </motion.div>
         </Link>
-        <Link href={"/store"} target="_blink" passHref >
+        <Link href={"/store"}  passHref >
           <motion.div
             className="icon_holder"
             initial="initial"

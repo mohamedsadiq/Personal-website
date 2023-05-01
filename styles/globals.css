@@ -516,7 +516,7 @@ header{
 }
 .top_fixed{
   position: fixed;
-  top:154px;
+  top:106px;
   left: 50%;
   transform: translate(-50%,-50%);
 }
