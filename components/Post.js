@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { slugify } from '../utils'
+// import { slugify } from '../../utils'
 import Image from 'next/image'
 
 export default function Post({ post }) {
@@ -26,7 +26,7 @@ export default function Post({ post }) {
                       <div className="text_blog">
                       <h4>{post.frontmatter.title}</h4>
                       <span className="datespan">Date: {`${date.getMonth() + 1} - ${date.getDate()} - ${date.getFullYear()}`}</span>
-                      {/* <p>{post.frontmatter.summary}</p> */}
+                      <p>{post.frontmatter.summary}</p>
                      
                              {/* <a className='btn'>Read More</a> */}
                       

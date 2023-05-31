@@ -25,6 +25,31 @@ const Content = () => {
                 rel="noopener noreferrer"
             >Resume</a>
         </div>
+        {/* <div>
+            <h1>Recent activity</h1>
+            <div className="recent_activity">
+                <div className="time">
+                    <span>2023 May / 2</span>
+                    <span>2023 May / 2</span>
+                    <span>2023 May  / 2</span>
+                </div>
+                <div className="time_icon"></div>
+                <div className="project_home">
+                    <div className="">
+                        <h2>DAOs Spot</h2>
+                        <p>A product designer who can code, focusing on web3 Currently building lightweight Web3 experiences at DeveloperDAO and Bulidspace </p>
+                    </div>
+                    <div className="">
+                        <h2>DAOs Spot</h2>
+                        <p>A product designer who can code, focusing on web3 Currently building lightweight Web3 experiences at DeveloperDAO and Bulidspace </p>
+                    </div>
+                    <div className="">
+                        <h2>DAOs Spot</h2>
+                        <p>A product designer who can code, focusing on web3 Currently building lightweight Web3 experiences at DeveloperDAO and Bulidspace </p>
+                    </div>
+                </div>
+            </div>
+        </div> */}
         </motion.div>
     </div>
  
