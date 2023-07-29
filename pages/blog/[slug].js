@@ -55,13 +55,17 @@ export default function PostPage({ content, frontmatter }) {
 
         <div className="inner_container inner_blog_body">
           <div className="col-lg-10 m-auto">
+          <Link href={"/blogs"}>
+          <div className="go_back"> ↰ Go Back</div>
+          </Link>
+          {/* <div className="go_back copy_link"> Copy Link</div> */}
             <div className='card card-page'>
               <a href={`/blog/${frontmatter.slug}`} ></a>
 
               <h1 className='post-title mt-2 p-2'>{frontmatter.title}</h1>
               <div className='post-date m-1 p-2'>
 
-                <div><h6>Date: {`${date.getMonth() + 1} - ${date.getDate()} - ${date.getFullYear()}`} </h6>  </div>
+               
                 {/* <p>{frontmatter.summary} </p> */}
                 <div> {
                   frontmatter.categories.map((category, index) => {
@@ -84,7 +88,7 @@ export default function PostPage({ content, frontmatter }) {
                   })
                 }
                 </div>
-                
+                <div><h6> {`${date.getMonth() + 1} / ${date.getDate()} / ${date.getFullYear()}`} </h6>  </div>
 
               </div>
 
