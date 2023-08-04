@@ -365,6 +365,35 @@ const Header = (props) => {
 
 
         </Link>
+        <Link href="/about" passHref >
+          <motion.div
+            className="icon_holder"
+            initial="initial"
+            animate="animate"
+            whileTap={{ scale: 0.9 }}
+            variants={iconss}
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            <div className={router.pathname == "/about" ? "active icon_container" : "icon_container"} onClick={play}>
+
+              <div className='icons'>
+                <div className="text">
+                  About
+                </div>
+                <motion.div variants={stack} className="glow">
+                  <svg width="10" height="20" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.00075 0C3.60019 0 2.46094 1.13925 2.46094 2.53981C2.46094 3.94022 3.60019 5.07951 5.00075 5.07951C6.4013 5.07951 7.54056 3.94026 7.54056 2.5397C7.54056 1.13915 6.4013 0 5.00075 0Z" fill="#858585" />
+                    <path d="M0 11.0138H10V10.6191C10 7.7045 7.80369 5.42188 5.00018 5.42188C2.19628 5.42188 0.000352254 7.70468 0.000352254 10.6191L0.000214579 11.0138H0Z" fill="#C7C7C7" />
+                  </svg>
+
+                </motion.div>
+              </div>
+
+              <div className="dot_active"></div>
+            </div>
+          </motion.div>
+        </Link>
         <Link href={"/oasis"} passHref>
           <motion.div
             className="icon_holder"
@@ -396,6 +425,8 @@ const Header = (props) => {
             </div>
           </motion.div>
         </Link>
+       
+        
         <Link href={"/store"}  passHref >
           <motion.div
             className="icon_holder"
@@ -420,35 +451,6 @@ const Header = (props) => {
 
                 </motion.div>
               </div>
-              <div className="dot_active"></div>
-            </div>
-          </motion.div>
-        </Link>
-        <Link href="/about" passHref >
-          <motion.div
-            className="icon_holder"
-            initial="initial"
-            animate="animate"
-            whileTap={{ scale: 0.9 }}
-            variants={iconss}
-            whileHover={{ scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <div className={router.pathname == "/about" ? "active icon_container" : "icon_container"} onClick={play}>
-
-              <div className='icons'>
-                <div className="text">
-                  About
-                </div>
-                <motion.div variants={stack} className="glow">
-                  <svg width="10" height="20" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.00075 0C3.60019 0 2.46094 1.13925 2.46094 2.53981C2.46094 3.94022 3.60019 5.07951 5.00075 5.07951C6.4013 5.07951 7.54056 3.94026 7.54056 2.5397C7.54056 1.13915 6.4013 0 5.00075 0Z" fill="#858585" />
-                    <path d="M0 11.0138H10V10.6191C10 7.7045 7.80369 5.42188 5.00018 5.42188C2.19628 5.42188 0.000352254 7.70468 0.000352254 10.6191L0.000214579 11.0138H0Z" fill="#C7C7C7" />
-                  </svg>
-
-                </motion.div>
-              </div>
-
               <div className="dot_active"></div>
             </div>
           </motion.div>

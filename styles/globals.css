@@ -144,21 +144,30 @@
 }
 .image_conta{
   position: relative;
-  margin-bottom: 375px;
-  margin-top: 50px;
+  /* margin-bottom: 375px;
+  margin-top: 50px; */
 }
 .about_me .image_conta p{
   line-height: 19px;
 }
 .about_me_images{
-  width: 400px;
-  position: relative;
+  /* width: 400px; */
+  /* position: relative;
   height: 401px;
-  border-radius: 10px;
+  border-radius: 10px; */
  
 }
-.about1{
 
+.personal_photo{
+  width: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 33px;
+  height: 250px;
+}
+.personal_photo img{
+  width: 100%;
+  height: 100%;
 }
 .about2{
   position: absolute;
@@ -166,6 +175,16 @@
   top: 42%;
   /* height: 500px; */
   width: 267px !important;
+}
+.light .about_me ul li{
+  color: #5e5e5e;
+ 
+}
+ .about_me ul li{
+  color: #e9e9e9;
+  line-height: 29px;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
 }
 
 /* {
@@ -178,6 +197,15 @@
   font-weight: 500;
   margin-top: 11px;
   
+}
+.about_me .toolsSetup{
+  font-size: 0.9rem;
+  color: #aeaeae;
+  margin-top: 5px;
+  font-style: italic;
+}
+.light .toolsSetup{
+  color: #cecece;
 }
 .about_me_images p{
   width: 330px;
@@ -369,9 +397,9 @@ a {
  margin-bottom: 100px;
 }
 .inner_container p{
-      line-height: 27px;
-    color: #9B9B9B;
-    font-size: 1rem;
+  line-height: 29px;
+  color: #9B9B9B;
+  font-size: 1.1rem;
 
 }
 .logo_stack_icon_inner{
@@ -1294,9 +1322,32 @@ color: rgb(250, 200, 17);
     opacity: 0;
 
 }
+.about_me a{
+  text-decoration: underline;
+}
+.about_me .aboutmelink{
+ 
+}
+.about_me .aboutmelink{
+ 
 
-.light .about_me a{
-  color: rgb(0, 0, 0);
+}
+@keyframes background_ani {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.light .about_me .aboutmelink{
+  transition: all 0.3s ease-in-out;
+  
+  -webkit-text-decoration: revert;
+  /* background: #000;
+
+  color: #fff; */
   }
 .light .about_me p{
   color: #5e5e5e;
@@ -1305,15 +1356,46 @@ color: rgb(250, 200, 17);
   color: #d3d3d3;
   font-weight: 400;
 }
-.about_me a{
-transition: all 0.3s ease-in-out ;
+.light .about_me a.aboutmelink{
+  background: #000;
+color: #fff;
+}
+.about_me a.aboutmelink{
+  transition: all 0.3s ease-in-out;
   margin-top: 18px;
-  text-decoration: revert;
+  padding: 12px 23px;
+  margin-top: 0px;
+  display: inline-block;
+  /* background: #fff;
+  color: #000; */
+  border-radius: 10px;
+  background: #ffffff;
+  color: #000;
+}
+.about_me a.aboutmelink{
+  text-decoration: none;
+  border: 1px solid #000;
+}
+.light .about_me a.aboutmelink:hover{
+  background: #fff;
+  border: 1px solid #000;
+  color: #000;
+}
+.about_me a.aboutmelink:hover{
+  background: #000000;
+  border: 1px solid #ffffff;
+  color: #ffffff;
 }
 
 .about_me a:hover{
-  opacity: 0.8;
+  color: #818181;
 }
+.about_me a{
+  transition: all 0.3s ease-in-out;
+}
+/* .about_me a:hover{
+  opacity: 0.8;
+} */
 .block:hover .blog_overlay{
   opacity: 1;
   visibility:visible
@@ -1330,6 +1412,14 @@ transition: all 0.3s ease-in-out ;
   top: 0;
   display: block;
   z-index: 1;
+}
+
+.about_me .freetime p {
+  text-align: center;
+  margin-top: 21px;
+}
+.about_me .freetimep{
+  margin: 0;
 }
 .inner_blog{
   font-family: "inter";
@@ -1762,6 +1852,7 @@ backdrop-filter: blur(41.6033px);
   color: #000;
    
 }
+
 .light .blocks_aes{
   
   border: 0.1px solid #ebebeb;
@@ -2772,4 +2863,47 @@ cursor: pointer;
   .ripi6 a img{
     width: 100%;
     height: 100%;
+  }
+
+  .about_me_img {
+    /* display: grid; 
+
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    
+    gap: 0px;
+    height: 100%; */
+  }
+  .about_me h1{
+    margin-top: 0;
+  }
+
+  .about_me_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* Optionally, set a height for the container to vertically center the element */
+    /* height: 100vh; */
+  }
+  .about_me{
+    /* text-align: center; */
+  }
+  .about_me h1{
+    font-size: 1.7rem;
+  }
+  .about_me .mt1{
+    margin-top: 57px;
+    font-size: 1.4rem;
+  }
+  .aboutmelink{
+    font-size: 0.9rem;
+  }
+  .img_about {
+    width: 100%;
+    padding: 32px;
+  }
+  .img_about img {
+width: 100%;
+height: 100%;
   }
