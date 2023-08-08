@@ -16,7 +16,7 @@ const Content = () => {
             <p> A product designer, Founder of <a target="_blank" href="https://www.daosspot.xyz/">DAOs Spot</a> Focusing on <span className="web3">
             web3
             <span id="animation_web3"></span>
-            </span>, Open source products <a href="https://twitter.com/developer_dao"  className="links" target="_blank" rel="noreferrer">@DeveloperDAO</a>, member of <a href="https://twitter.com/Anticollective_" className="links" target="_blank" rel="noreferrer">@Anti.</a> you can find me on  <a href="https://twitter.com/sadiq_moo">Twitter.</a> </p>
+            </span>, Open source products <a href="https://twitter.com/developer_dao"  className="links" target="_blank" rel="noreferrer">@DeveloperDAO</a>, member of <a href="https://twitter.com/Anticollective_" className="links" target="_blank" rel="noreferrer">@Anti.</a> you can find me on  <a href="https://x.com/sadiq_moo">X.</a> </p>
             <a
                 className="links"
                 href="/cv.pdf"
