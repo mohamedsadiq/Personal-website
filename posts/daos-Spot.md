@@ -1,4 +1,4 @@
----
+<!-- ---
 author : "Mohamed Sadiq"
 categories : ["Tech", "Product Design", "Building"]
 date : "2023-05-20T13:09:24Z"
@@ -27,4 +27,4 @@ Building DAOs Spot has been a challenging yet rewarding experience. Overcoming t
 
 DAOsSpot website: https://www.daosspot.xyz/
 
-Reach out on https://twitter.com/sadiq_moo
+Reach out on https://twitter.com/sadiq_moo -->
