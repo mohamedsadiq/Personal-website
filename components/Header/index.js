@@ -473,7 +473,7 @@ const Header = (props) => {
                     </div>
                     <motion.div variants={insta} className="glow">
 
-                    <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="10" height="10" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path  fillRule="evenodd" clipRule="evenodd" d="M8.02344 0L13.6602 8.00977L20.5 0H23L14.7891 9.61328L24.9141 24H16.9785L10.4375 14.707L2.5 24H0L9.30859 13.1035L0.0859385 0H8.02344ZM3.91406 2L18.0215 22H21.0859L6.97852 2H3.91406Z" fill={iconsColor}/>
 </svg>
 
