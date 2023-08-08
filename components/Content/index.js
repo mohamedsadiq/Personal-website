@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import Link from "next/link"
 const Content = () => {
    
     return  <div className="content">
@@ -17,13 +18,7 @@ const Content = () => {
             web3
             <span id="animation_web3"></span>
             </span>, Open source products <a href="https://twitter.com/developer_dao"  className="links" target="_blank" rel="noreferrer">@DeveloperDAO</a>, member of <a href="https://twitter.com/Anticollective_" className="links" target="_blank" rel="noreferrer">@Anti.</a> you can find me on  <a href="https://x.com/sadiq_moo">X.</a> </p>
-            <a
-                className="links"
-                href="/cv.pdf"
-                alt="alt text"
-                target="_blank"
-                rel="noopener noreferrer"
-            >Resume</a>
+            <Link className="aboutme" href={"/about"}>About me</Link>
         </div>
         {/* <div>
             <h1>Recent activity</h1>

@@ -618,6 +618,13 @@ header{
 .homeIcon{
   display: block;
 }
+.aboutme{
+  transition: all 0.3s ease-in-out;
+  text-decoration: underline;
+}
+.aboutme:hover{
+  opacity: 0.8;
+}
 .icons svg{
   width: 21px;
   position: absolute;
