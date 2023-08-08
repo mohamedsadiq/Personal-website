@@ -6,7 +6,7 @@ import styles from '../../styles/Home.module.css'
 import WorkIntro from '../../components/WorkIntro'
 import imgWork from "../../img/developerdao.png"
 
-const DeveloperDAO = () => {
+const Applewatchface = () => {
     return (
         <div className={styles.container}>
             <Head>
@@ -16,8 +16,9 @@ const DeveloperDAO = () => {
             </Head>
         <main>
         <div className="container">
+       
             <div className="inner_container">
-               
+           
                 <WorkIntro title={"DeveloperDao"} link={"/projects/developerdao"}/>
                 <div className="blog_photo inner_blog work_intro_image">
                 <Image
@@ -40,7 +41,7 @@ const DeveloperDAO = () => {
         </div>
     )
 }
-export default DeveloperDAO
+export default Applewatchface
 
 const data = {
     projectOverview:"Project Overview",

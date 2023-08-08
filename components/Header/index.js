@@ -481,7 +481,7 @@ const Header = (props) => {
                 </div>
               </motion.div>
             </a>
-        <motion.div
+        {/* <motion.div
 
           onMouseOut={() => changeOpOff()}
           onMouseOver={() => changeOpOn()}
@@ -590,8 +590,8 @@ const Header = (props) => {
                 </div>
               </motion.div>
             </a>
-          </div>
-          <div className="icon_container mediaIcons" onClick={() => onClickShow()}>
+          </div> */}
+          {/* <div className="icon_container mediaIcons" onClick={() => onClickShow()}>
             <a  >
 
               <div className='icons'>
@@ -610,8 +610,8 @@ const Header = (props) => {
               </div>
               <div className="dot_active"></div>
             </a>
-          </div>
-        </motion.div>
+          </div> */}
+        {/* </motion.div> */}
         <a >
           <motion.div
             className="icon_holder sepereate"

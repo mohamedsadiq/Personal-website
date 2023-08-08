@@ -4,7 +4,14 @@ import Image from 'next/image'
 import styles from '../../styles/Home.module.css'
 
 import WorkIntro from '../../components/WorkIntro'
-import imgWork from "../../img/developerdao.png"
+// import imgWork from "../../img/developerdao.png"
+import imgWork from "../../img/fasdfasd.jpeg"
+
+import imgWork2 from "../../img/44.png"
+import imgWork3 from "../../img/42f3.png"
+import imgWork4 from "../../img/4343.png"
+import imgWork5 from "../../img/Body  2 Dark (After launching).png"
+import imgWork6 from "../../img/develight.png"
 
 const DeveloperDAO = () => {
     return (
@@ -19,6 +26,7 @@ const DeveloperDAO = () => {
             <div className="inner_container">
              
                 <WorkIntro title={"DeveloperDao"} link={"/projects/developerdao"}/>
+                <h1>Developer DAO website</h1>
                 <div className="blog_photo inner_blog work_intro_image">
                 <Image
                     src={imgWork}
@@ -30,13 +38,49 @@ const DeveloperDAO = () => {
                     quality={100}
                 />
             </div>
-                <h2>Project Overview</h2>
+          
+           <div className='content_work'>
+           {/* <h2>Role</h2>
+            <p>UI/UX - Product Design</p> */}
+
+           <h2>Project Overview</h2>
+            <p>Developer DAO is a DAO that exists to accelerate the education and impact of a new wave of web3 builders. The website was among the priorities for the DAO, because of its importance in bringing in new partners and sponsors</p>
+           <div className='work_deatil'>
+            <div className='flex-items'>
+                <h2>Task</h2>
                 <p>Developer DAO is a DAO that exists to accelerate the education and impact of a new wave of web3 builders. The website was among the priorities for the DAO, because of its importance in bringing in new partners and sponsors</p>
-                <h2>My Contributions</h2>
-                <p>I was the champion of the project on the design side.The existing website did not represent the DAO, the design was so simple, and it did not deliver what it should have been delivering, first step was to analyze the flow and overall aesthetic appeal of the website and figure out the direction that we should take. After that, my job was to simplify the process as much as possible and make it intuitive for the users, as well as improve the visual appeal of the entire site. </p>
-                <h2>Reflection—</h2>
-                <p>I was the champion of the project on the design side.The existing website did not represent the DAO, the design was so simple, and it did not deliver what it should have been delivering, first step was to analyze the flow and overall aesthetic appeal of the website and figure out the direction that we should take. After that, my job was to simplify the process as much as possible and make it intuitive for the users, as well as improve the visual appeal of the entire site. </p>
-                <a>see the Prototype</a>
+            </div>
+            <div className='flex-items'>
+            <h2>Role</h2>
+                <p>UI/UX</p>
+                <p>Product Design</p>
+            </div>
+           </div>
+           </div>
+            <div className="blog_photo inner_blog work_intro_image">
+                <Image
+                    src={imgWork2}
+                    alt="Picture of the author"
+                    objectFit='cover'
+                    layout='fill'
+                    objectPosition="center"
+                    placeholder="blur"
+                    quality={100}
+                />
+            </div>
+            <div className="blog_photo inner_blog work_intro_image">
+                <Image
+                    src={imgWork6}
+                    alt="Picture of the author"
+                    objectFit='cover'
+                    layout='fill'
+                    objectPosition="center"
+                    placeholder="blur"
+                    quality={100}
+                />
+            </div>
+            
+            
             </div> 
         </div>
         </main>

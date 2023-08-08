@@ -4,7 +4,10 @@ const WorkIntro = ({title, link}) =>{
     return(
         <div className="nav_work">
             <div>
-                <h1>{title ? title: "Title"}</h1>
+                {/* <h1>{title ? title: "Title"}</h1> */}
+            <Link href={"/projects"}>
+                <div className="go_back"> ↰ Go Back</div>
+            </Link>
             </div>
             <div className="rel_parent pointer" >
                 <Link href={link ? link: "Title"} passHref>

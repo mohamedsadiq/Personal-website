@@ -397,11 +397,40 @@ a {
  margin-bottom: 100px;
 }
 .inner_container p{
-  line-height: 29px;
-  color: #9B9B9B;
-  font-size: 1.1rem;
+  line-height: 26px;
+    color: #9B9B9B;
+    font-size: 1rem;
 
 }
+.work_deatil{
+  display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1.4fr 1fr;
+    grid-gap: 0px;
+    gap: 32px;
+    height: 100%;
+    margin-top: 63px;
+}
+.light .inner_container h2{
+  color:#000
+}
+/* .flex-items:nth-child(1) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+
+.flex-items:nth-child(2) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+} */
 .logo_stack_icon_inner{
   /* width: 100px !important; */
   object-fit: contain  !important;
@@ -849,8 +878,8 @@ color: rgb(250, 200, 17);
 .inner_container h2{
   font-size: 1.7rem;
   color: #fff;
-  margin-bottom: 28px;
-  font-weight: 100;
+  margin-bottom: 16px;
+  /* font-weight: 100; */
   margin-top: 10px;
 }
 .inner_container h1{
@@ -1197,7 +1226,7 @@ color: rgb(250, 200, 17);
   height: 279px;
   overflow: hidden;
   border-radius: 27px;
-  border: 1px solid #2e2e2e;
+  /* border: 1px solid #535353; */
   
 }
 .text_blog{
@@ -1249,7 +1278,22 @@ color: rgb(250, 200, 17);
     grid-gap: 0px 0px;
     grid-gap: 0px 0px;
     gap: 0px 0px;
- 
+    margin-bottom: 40px;
+}
+.nav_work .pointer svg path{
+  fill: #949494
+}
+.nav_work .pointer svg circle {
+  stroke: #949494
+}
+
+
+
+.light .nav_work .pointer svg path{
+  fill: #828282
+}
+.light .nav_work .pointer svg circle {
+  stroke: #828282
 }
 .post-body {
   margin-top: 36px;
@@ -1413,7 +1457,9 @@ color: #fff;
   display: block;
   z-index: 1;
 }
-
+.light .blog_photo {
+  border: 1px solid #f1f1f1;
+}
 .about_me .freetime p {
   text-align: center;
   margin-top: 21px;
@@ -1754,12 +1800,16 @@ opacity: 1;
   opacity: 1
   } */
  .key_nav{
- 
+  border-radius: 50%;
   position: fixed;
     right: 5%;
     bottom: 5%;
     -webkit-backdrop-filter: blur(41.6033px);
 backdrop-filter: blur(41.6033px);
+ }
+ .content_work{
+  margin-top: 39px;
+    margin-bottom: 46px;
  }
 
  .key_nav_button{
@@ -1964,8 +2014,11 @@ position: relative;
   /* padding: 10px; */
   font-size: 0.8rem;
   padding: 7px 10px;
-  color: #717171;
+  color: #b8b8b8;
   transition: all 0.3s ease-in-out;
+}
+.light .go_back  {
+  color :#828282
 }
 .go_back{
  background:#2b2b2b  
@@ -2536,12 +2589,12 @@ position: relative;
     overflow-y: hidden;
   }
 }
-.twitIcon{
+/* .twitIcon{
   display: none ;
   visibility: hidden;
   width: 0;
   height: 0;
-}
+} */
 
 
 
