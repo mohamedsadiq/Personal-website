@@ -21,10 +21,10 @@ import ovo from "../img/ovo.png"
 import folim from "../img/folim.png"
 import gm from "../img/gm.png"
 import gmd from "../img/ddcd.jpg"
-import daos from "../img/daos.png"
+import daos from "../img/45.png"
 import iconsII from "../img/icons22.png"
 import rainBow from "../img/ezgif.com-video-to-gif (3).gif"
-
+import Building_On_Imagination from "../img/fdasfas.png"
 import nasir from "../img/bitcoin.png"
 import car from "../img/car.png"
 import csc from "../img/fdsvedf.png"
@@ -165,6 +165,7 @@ export default function Projects() {
 
 
 const data = [
+
 
   {
     name:"DAOs Spot",
