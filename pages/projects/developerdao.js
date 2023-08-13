@@ -45,19 +45,21 @@ const DeveloperDAO = () => {
 
            <h2>Project Overview</h2>
             <p>Developer DAO is a DAO that exists to accelerate the education and impact of a new wave of web3 builders. The website was among the priorities for the DAO, because of its importance in bringing in new partners and sponsors</p>
-           <div className='work_deatil'>
-            <div className='flex-items'>
-                <h2>Task</h2>
-                <p>Developer DAO is a DAO that exists to accelerate the education and impact of a new wave of web3 builders. The website was among the priorities for the DAO, because of its importance in bringing in new partners and sponsors</p>
+           <div className=''>
+            <div className=''>
+                <h2>My Contributions</h2>
+                <p>I was the champion of the project on the design side.The existing website did not represent the DAO, the design was so simple, and it did not deliver what it should have been delivering, first step was to analyze the flow and overall aesthetic appeal of the website and figure out the direction that we should take. After that, my job was to simplify the process as much as possible and make it intuitive for the users, as well as improve the visual appeal of the entire site.</p>
             </div>
-            <div className='flex-items'>
-            <h2>Role</h2>
-                <p>UI/UX</p>
-                <p>Product Design</p>
+            <div className=''>
+            {/* <h2>My Role</h2>
+                <ul>
+                    <li>UI/UX</li>
+                <li>Product Design</li>
+                </ul> */}
             </div>
            </div>
            </div>
-            <div className="blog_photo inner_blog work_intro_image">
+            {/* <div className="blog_photo inner_blog work_intro_image">
                 <Image
                     src={imgWork2}
                     alt="Picture of the author"
@@ -78,9 +80,12 @@ const DeveloperDAO = () => {
                     placeholder="blur"
                     quality={100}
                 />
-            </div>
+            </div> */}
             
-            
+             <h2>Reflection —</h2>
+            <p>I was the champion of the project on the design side.The existing website did not represent the DAO, the design was so simple, and it did not deliver what it should have been delivering, first step was to analyze the flow and overall aesthetic appeal of the website and figure out the direction that we should take. After that, my job was to simplify the process as much as possible and make it intuitive for the users, as well as improve the visual appeal of the entire site.</p>
+
+            <a href=''>Check out the website</a>
             </div> 
         </div>
         </main>

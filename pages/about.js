@@ -68,6 +68,25 @@ export default function About() {
               <li><strong><a href=' https://www.producthunt.com/products/developer-dao-fm'>Top Product on Product Hunt</a></strong>: <a href='https://www.developerdaofm.com/' target='blink'>'DeveloperDAO FM'</a> is a project I initiated as an Early Contributor at DeveloperDao, combines coding and music. I designed and coded the entire website, providing a unique coding experience. It also increased brand awareness for DeveloperDAO. Check it out here</li>
               <li><a href='https://www.producthunt.com/products/daos-spot'><strong>4th product of the week in the web3 category</strong></a> As an enthusiastic member of the DAO community, I initiated <a href='https://www.daosspot.xyz/' target='blink'>'DAOs Spot'</a> to offer a comprehensive hub for exploring the world of Decentralized Autonomous Organizations (DAOs). I curated and developed the entire platform to provide users with an immersive experience into the realm of decentralized governance.</li>
             </ul>
+
+            {/* <div>
+              <h1 className="mt1" style={{margin: "0px"}}>Cerifications:</h1>
+                <ul>
+                  <a href='https://www.freecodecamp.org/certification/fcc334b10e9-d685-4930-933e-b630b269e07d/javascript-algorithms-and-data-structures'>
+                    <li>JavaScript Algorithms and Data Structures</li>
+                  </a>
+                  <a href='https://www.freecodecamp.org/certification/fcc334b10e9-d685-4930-933e-b630b269e07d/front-end-libraries'>
+                    <li>Front End Libraries</li>
+                  </a>
+                  <a href='https://certificates.uxcel.com/8S9QXG2AG8D5'>
+                    <li>UX Design Foundations</li>
+                  </a>
+                  <a href='https://certificates.uxcel.com/WRM9V4P4LYTP'>
+                    <li>Design Terminology</li>
+                  </a>
+                </ul>
+            </div> */}
+
             <h1 className="mt1">In my free time</h1>
             <div className='img_about freetime'>
             <Image src={pic} alt="setup" quality={100}/>
