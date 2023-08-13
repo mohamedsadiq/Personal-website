@@ -660,6 +660,7 @@ header{
     position: absolute;
     /* width: 41rem; */
     top: 75%;
+    /* flex: auto; */
     left: 50%;
     transform: translate(-50%, -50%);
     height: 100px;
@@ -1569,7 +1570,7 @@ color: #fff;
   height: 100%;
 }
 .contents {
- 
+  flex: auto;
   opacity: 0;
   transition: 0.3s;
   /* height: calc(100vh - 4em); */
