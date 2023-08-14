@@ -410,7 +410,7 @@ a {
 }
 .inner_container p{
   line-height: 26px;
-    color: #9B9B9B;
+    color: #b1b1b1;
     font-size: 1rem;
 
 }
@@ -899,7 +899,19 @@ color: rgb(250, 200, 17);
   color: #fff;
   margin-bottom: 16px;
   /* font-weight: 100; */
-  margin-top: 10px;
+  /* margin-top: 10px; */
+}
+.light .projects_link a{
+  color: #323232;
+}
+.projects_link a{
+  text-decoration:underline;
+  color: #b1b1b1;
+  display: block;
+  line-height: 27px;
+}
+.projects_link a:hover{
+  opacity: 0.8;
 }
 .inner_container h1{
   margin-top: 50px;

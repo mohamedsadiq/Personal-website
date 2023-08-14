@@ -71,7 +71,7 @@ export default function Projects() {
               return (
                
                 <div key={item.name} className="blocks" onClick={play}>
-                   <a  href={item.link} target={item.target} passhref>
+                   <Link  href={item.link}  passhref>
                   <Image
                     src={item.img}
                     alt="Picture of the author"
@@ -87,7 +87,7 @@ export default function Projects() {
                   <p>{item.description}</p>
                   <span>{item.tags}</span>
                 </div>
-                </a>
+                </Link>
                 </div>
               
                )
@@ -189,7 +189,7 @@ const data = [
       description:"A place where you listin to muisc ...", 
       tags:"Product Design, JS, Web3",
       target:"_blink",
-      link:"http://developerdaofm.com/"
+      link:"projects/developerdaofm"
   },
   {
     name:"Apple Watch Sport FACE",
