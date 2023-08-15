@@ -904,12 +904,19 @@ color: rgb(250, 200, 17);
 .light .projects_link a{
   color: #323232;
 }
+.light .projects_link h3 {
+  color: #000;
+}
+.projects_link h3 {
+  color: #fff;
+}
 .projects_link a{
   text-decoration:underline;
   color: #b1b1b1;
   display: block;
   line-height: 27px;
 }
+
 .projects_link a:hover{
   opacity: 0.8;
 }

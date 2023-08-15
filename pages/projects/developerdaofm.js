@@ -129,7 +129,7 @@ With this reflection, <br/> <br/>I've come to appreciate how a single project ca
                 />
             </div>
             <div className='projects_link'>
-                <h2>Links</h2>
+                <h3>Links</h3>
                 <ul>
                 <a href='https://www.developerdaofm.com/'>
                     <li>DeveloperDAO FM Website</li>
@@ -141,8 +141,16 @@ With this reflection, <br/> <br/>I've come to appreciate how a single project ca
                     <li>DeveloperDAO website</li>
                     </a>
                 </ul>
-                
-               
+                <h3>Tech I Used</h3>
+                <ul>
+                <a href=''>
+                <li> Next.js</li>
+                    </a>
+                    <a href=''>
+                    <li>Framer Motion</li>
+                    </a>
+                 
+                </ul>
             </div>
             </div> 
         </div>
