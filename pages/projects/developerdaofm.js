@@ -28,6 +28,7 @@ const DeveloperDAO = () => {
               title={"DeveloperDAO FM"}
               link={"https://www.developerdaofm.com/"}
             />
+            <h1>DeveloperDAO FM</h1>
             <div className="blog_photo inner_blog work_intro_image">
               <Image
                 src={imgWork}
