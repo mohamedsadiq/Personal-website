@@ -181,7 +181,7 @@ const data = [
     description:"The main website of DeveloperDAO", 
     tags:"Product Design, Web3",
     target:"_blink",
-    link:"https://www.developerdao.com/"
+    link:"projects/developerdao"
 },
   {
       name:"DeveloperDAO FM",
