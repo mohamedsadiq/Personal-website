@@ -46,6 +46,7 @@ export default function Projects() {
      
        <div className="container">
         <div className="inner_container">
+          
           <h1>Projects</h1>
           <p>Projects I built using React, Figma, Solidity + Smart Contracts, Next.js</p>
          

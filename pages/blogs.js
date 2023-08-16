@@ -38,8 +38,9 @@ export default function Blogs({ posts, frontmatter }) {
       <div className="container">
      
         <div className="inner_container">
-        {/* <h1>Blog</h1>
-        <p className='blog_sub'>Step into my virtual world, where I share my insights on a range of topics, from science to self-improvement.</p> */}
+       
+        <h1>Blog</h1>
+        <p className='blog_sub'>Here where I share my insights on a range of topics, from product design to Philosophy.</p>
           <div className="col-lg-8">
 
           {posts.map((post, index) => (

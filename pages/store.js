@@ -19,11 +19,12 @@ const Store = () =>{
 
       <div className="container store">
                 <div className="inner_container">
-                <div className="inner_nav">
+                {/* <div className="inner_nav">
                             <span><Link href="/">Home</Link>  &gt; </span>
                             <span> </span>
                             <span><Link href="/store">Store</Link> </span>
-                </div>
+                </div> */}
+                <h1>Store</h1>
                 <a href="https://mohamedsadiq.gumroad.com/l/iconsii" target="_blink">
                 <div  className="blocks_aes">
                       <div className="">

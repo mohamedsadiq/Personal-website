@@ -160,7 +160,7 @@
 
 .personal_photo{
   width: 250px;
-  border-radius: 50%;
+  border-radius: 31%;
   overflow: hidden;
   margin-bottom: 33px;
   height: 250px;
@@ -276,6 +276,8 @@
 
 
 header{
+  /* scale: 0.7; */
+  /* bottom:0; */
   transition: all 0.3s ease-in-out !important ;
 }
 .inner_header::-webkit-scrollbar {
@@ -317,6 +319,7 @@ main{
   position: absolute;
   left: 50%;
   top: 50%;
+  bottom:0;
   transform: translate(-50%, -50%);
 }
 .center_right{
@@ -404,7 +407,7 @@ a {
   height: 400px;
 }
 .inner_container{
- margin-top:267px;
+ margin-top:100px;
  font-family: "Inter";
  margin-bottom: 100px;
 }
@@ -578,13 +581,18 @@ header{
 }
 
 .center_header{
-  top: 50%;
+  bottom: 44%;
   position: fixed;
   /* left: 50%; */
 }
+header{
+  scale: 1;
+ 
+}
 .top_fixed{
   position: fixed;
-  top:106px;
+  bottom:8px;
+  scale: 0.7;
   /* left: 50%; */
   /* transform: translate(-50%,-50%); */
 }
