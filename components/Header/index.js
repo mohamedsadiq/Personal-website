@@ -286,7 +286,8 @@ const Header = (props) => {
                   <div className="text" >
                     Home
                   </div>
-                  <motion.div variants={iconSvg} className="glow" id="home_button">
+                  <motion.div variants={iconSvg} className="glow" id="home_button"  initial="initial"
+              animate="animate"  whileHover={{ rotate: "360deg" }}>
                     <svg id="homeIcon" width="18" height="18" viewBox="0 0 31 31" fill={iconsColor} xmlns="http://www.w3.org/2000/svg">
                       <path d="M3.29442 22.4449C1.75167 19.586 0.980302 18.1566 0.769474 16.6275C0.66278 15.8537 0.66278 15.0688 0.769474 14.295C0.980302 12.7658 1.75167 11.3364 3.29442 8.47761L3.6773 7.7681C4.99519 5.32595 5.65414 4.10488 6.58443 3.19745C7.53987 2.26549 8.70063 1.57198 9.9729 1.17298C11.2117 0.784485 12.5965 0.784485 15.3662 0.784485C18.1359 0.784485 19.5207 0.784485 20.7595 1.17298C22.0318 1.57198 23.1925 2.26549 24.148 3.19745C25.0783 4.10488 25.7372 5.32595 27.0551 7.76811L27.438 8.47762C28.9807 11.3364 29.7521 12.7658 29.9629 14.295C30.0696 15.0688 30.0696 15.8537 29.9629 16.6275C29.7521 18.1566 28.9807 19.586 27.438 22.4449L27.0551 23.1544C25.7372 25.5965 25.0783 26.8176 24.148 27.725C23.1925 28.657 22.0318 29.3505 20.7595 29.7495C19.5207 30.138 18.1359 30.138 15.3662 30.138C12.5965 30.138 11.2117 30.138 9.9729 29.7495C8.70063 29.3505 7.53987 28.657 6.58443 27.725C5.65414 26.8176 4.99519 25.5965 3.6773 23.1544L3.29442 22.4449Z" fill={iconsColor} />
                       <defs>
@@ -319,7 +320,7 @@ const Header = (props) => {
                 <div className="text">
                   Projects
                 </div>
-                <motion.div variants={iconSvg} className="glow">
+                <motion.div variants={iconSvg} className="glow" animate="animate"  whileHover={{ rotate: "360deg" }}>
                   <svg id="projectsIcon" width="40" height="38" viewBox="0 0 40 38" fill={iconsColor} xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M19.4767 37.9031H19.4906C19.7686 27.4251 28.3497 19.0165 38.8948 19.0165C39.0704 19.0165 39.2455 19.0189 39.42 19.0235V19.0096C39.2455 19.0142 39.0704 19.0165 38.8948 19.0165C28.3497 19.0165 19.7686 10.608 19.4906 0.130005H19.4767C19.2033 10.4335 10.901 18.7359 0.597656 19.0096V19.0235C10.901 19.2972 19.2033 27.5996 19.4767 37.9031Z" fill={iconsColor} />
                   </svg>
@@ -333,6 +334,7 @@ const Header = (props) => {
 
         <Link href="/blogs" passHref >
           <motion.div
+          
             className="icon_holder"
             initial="initial"
             animate="animate"
@@ -349,7 +351,7 @@ const Header = (props) => {
                 <div className="text">
                   Blog
                 </div>
-                <motion.div variants={stack} className="glow">
+                <motion.div variants={stack} className="glow"  animate="animate"  whileHover={{ rotate: "160deg" }}>
 
                   <svg width="22" height="19" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9.66512 2.1316L8.73448 3.06137L6.93945 1.32297L7.89759 0.365724C8.13198 0.131555 8.44988 0 8.78136 0C9.11284 0 9.43073 0.131555 9.66512 0.365724C9.89951 0.599894 10.0312 0.917496 10.0312 1.24866C10.0312 1.57983 9.89951 1.89743 9.66512 2.1316Z" fill="#C7C7C7" />
@@ -410,7 +412,7 @@ const Header = (props) => {
                   <div className="text">
                     Oasis
                   </div>
-                  <motion.div variants={twittter} className="glow">
+                  <motion.div animate="animate"  whileHover={{ rotate: "160deg" }} variants={twittter} className="glow">
                     <svg width="30" height="19" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="4.88889" height="4.88889" rx="1.22222" fill="#858585" />
                       <rect y="6.11133" width="4.88889" height="4.88889" rx="1.22222" fill="#858585" />
@@ -443,7 +445,7 @@ const Header = (props) => {
                 <div className="text">
                   Store
                 </div>
-                <motion.div variants={insta} className="glow">
+                <motion.div variants={insta} className="glow"  animate="animate"  whileHover={{ rotate: "20deg" }}>
                   <svg width="15" height="20" viewBox="0 0 61 62" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M60.8493 52.0444L54.2141 17.1589H47.777V10.1705C47.777 4.56247 43.212 0 37.6006 0H23.3989C17.7877 0 13.2226 4.56235 13.2226 10.1705V17.1589H6.78547L0.150257 52.0444C-0.832712 57.2132 3.13192 62 8.39664 62H52.6038C57.8681 62 61.8327 57.2132 60.8497 52.0444H60.8493ZM41.988 17.1589H19.0116V10.1705C19.0116 7.75278 20.9798 5.78569 23.3989 5.78569H37.6006C40.0197 5.78569 41.988 7.75278 41.988 10.1705V17.1589Z" fill="#858585" />
                   </svg>
@@ -469,9 +471,9 @@ const Header = (props) => {
 
                   <div className='icons' >
                     <div className="text">
-                      Twitter
+                      X
                     </div>
-                    <motion.div variants={insta} className="glow">
+                    <motion.div variants={insta} className="glow"  animate="animate"  whileHover={{ rotate: "10deg" }}>
 
                     <svg width="10" height="10" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path  fillRule="evenodd" clipRule="evenodd" d="M8.02344 0L13.6602 8.00977L20.5 0H23L14.7891 9.61328L24.9141 24H16.9785L10.4375 14.707L2.5 24H0L9.30859 13.1035L0.0859385 0H8.02344ZM3.91406 2L18.0215 22H21.0859L6.97852 2H3.91406Z" fill={iconsColor}/>
@@ -639,7 +641,7 @@ const Header = (props) => {
                 <div className="text">
                   Switch Mode
                 </div>
-                <motion.div variants={stack} className="glow">
+                <motion.div variants={stack} className="glow"  animate="animate"  whileHover={{ rotate: "360deg" }}>
                   {
                     isItDarkOrLight == "light"
                       ? (<svg width="20" height="18" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
