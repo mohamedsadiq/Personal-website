@@ -93,7 +93,7 @@ export default function Projects() {
               
                )
             })}
-             <a href="https://www.behance.net/gallery/108322809/OVO-Website-Redesign" passhref target="_blink">
+             {/* <a href="https://www.behance.net/gallery/108322809/OVO-Website-Redesign" passhref target="_blink">
                 <div className="blocks" onClick={play}>
                   <div className='ovo'>
                   <Image
@@ -113,7 +113,7 @@ export default function Projects() {
                   <span>e-commerce</span>
                 </div>
                 </div>
-                </a>
+                </a> */}
           </div>
 
           <h2>Playground</h2>
@@ -210,14 +210,14 @@ const data = [
       link:"https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs"
   },
   
-  {
-    name:"GM",
-    img:gm,
-    description:"Wave portal",
-    tags:"Concepts",
-    target:"_blink",
-    link:"https://waveportal-starter-project.mohamedsadiq.repl.co"
-  },
+  // {
+  //   name:"GM",
+  //   img:gm,
+  //   description:"Wave portal",
+  //   tags:"Concepts",
+  //   target:"_blink",
+  //   link:"https://waveportal-starter-project.mohamedsadiq.repl.co"
+  // },
   {
     name:"Crypto App",
     img:watchcrypto,
@@ -245,14 +245,14 @@ const data = [
     link:"https://twitter.com/sadiq_moo/status/1297206769580679168"
     }, 
     
-    {
-      name:"Concepts inspired by Drake ",
-      img:drakec,
-      description:"Concepts Chicago Freestyle",
-      target:"_blink",
-      tags:"Drake, songs",
-      link:"https://www.behance.net/gallery/142533193/Concepts-inspired-by-Drake?"
-      }, 
+    // {
+    //   name:"Concepts inspired by Drake ",
+    //   img:drakec,
+    //   description:"Concepts Chicago Freestyle",
+    //   target:"_blink",
+    //   tags:"Drake, songs",
+    //   link:"https://www.behance.net/gallery/142533193/Concepts-inspired-by-Drake?"
+    //   }, 
       
     
 ]
