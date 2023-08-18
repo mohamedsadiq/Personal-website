@@ -269,7 +269,7 @@ const Header = (props) => {
       variants={header_hex}
     >
       <div className='inner_header'>
-        <Link href="/" activeClassName="active" passHref >
+        <Link href="/" activeclassname="active" passHref >
           <div>
             <motion.div
               onClick={() => home_content()}
