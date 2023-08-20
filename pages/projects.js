@@ -3,8 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link';
 import Script from 'next/script'
 import useSound from 'use-sound';
+import { useRouter } from 'next/router';
+
+
 // images
-import developerDao from "../img/dev1.png"
+import developerDao from "../img/Instagram story - 1.png"
 import developerDaoFm from "../img/developerdaofm.png"
 import nftweb3 from "../img/nftweb3.png"
 import web3cons from "../img/loginweb3.png"
@@ -21,7 +24,7 @@ import ovo from "../img/ovo.png"
 import folim from "../img/folim.png"
 import gm from "../img/gm.png"
 import gmd from "../img/ddcd.jpg"
-import daos from "../img/45.png"
+import daos from "../img/1111111.png"
 import iconsII from "../img/icons22.png"
 import rainBow from "../img/ezgif.com-video-to-gif (3).gif"
 import Building_On_Imagination from "../img/fdasfas.png"
@@ -30,11 +33,15 @@ import car from "../img/car.png"
 import csc from "../img/fdsvedf.png"
 import delta from "../img/delta.png"
 import drakec from "../img/Instagram post - 4.png"
+import budget1 from "../img/ph11.png"
+
 
 export default function Projects() {
+
+ 
  // Sound hook
  const [play] = useSound("/sound.mp3");
-
+const router = useRouter();
   return (
     <>
       <Head>
@@ -46,9 +53,9 @@ export default function Projects() {
      
        <div className="container">
         <div className="inner_container">
-          
+     
           <h1>Projects</h1>
-          <p>Projects I built using React, Figma, Solidity + Smart Contracts, Next.js</p>
+          <p>Projects I designed and built using Figma, React, Solidity, and more.</p>
          
          
           <div className="grid">
@@ -72,10 +79,22 @@ export default function Projects() {
               return (
                
                 <div key={item.name} className="blocks" onClick={play}>
+              
+              {/* <div>  <Image
+                    src={item.productHunt}
+                    alt="Picture of the author"
+                    // objectFit='cover'
+                    // layout='fill'
+                    objectPosition="center"
+                    quality={100}
+                    // placeholder="blur"
+                /></div> */}
+                
+                 
                    <Link  href={item.link}  passhref>
                   <Image
                     src={item.img}
-                    alt="Picture of the author"
+                    alt={item.name}
                     objectFit='cover'
                     layout='fill'
                     objectPosition="center"
@@ -86,9 +105,11 @@ export default function Projects() {
                 <div className="overlay"> 
                   <h2>{item.name}</h2>
                   <p>{item.description}</p>
-                  <span>{item.tags}</span>
+                  {/* <span>{item.tags}</span> */}
                 </div>
+                
                 </Link>
+                
                 </div>
               
                )
@@ -132,7 +153,7 @@ export default function Projects() {
                      placeholder="blur"
                     quality={100}
                 />
-
+             
                 <div className="overlay"> 
                   <h2>{item.name}</h2>
                   <p>{item.description}</p>
@@ -171,10 +192,11 @@ const data = [
   {
     name:"DAOs Spot",
     img:daos,
-    description:"Project for DAOs", 
+    description:"Everything about DAOs, 2023", 
     tags:"Product Design, Web3",
     target:"_blink",
-    link:"https://www.daosspot.xyz/"
+    link:"https://www.daosspot.xyz/",
+    productHunt:budget1
 },
   {
     name:"DeveloperDAO Website",
@@ -182,7 +204,9 @@ const data = [
     description:"The main website of DeveloperDAO", 
     tags:"Product Design, Web3",
     target:"_blink",
-    link:"projects/developerdao"
+    link:"projects/developerdao",
+    productHunt:""
+    
 },
   {
       name:"DeveloperDAO FM",
@@ -190,16 +214,9 @@ const data = [
       description:"A place where you listin to muisc ...", 
       tags:"Product Design, JS, Web3",
       target:"_blink",
-      link:"projects/developerdaofm"
-  },
-  {
-    name:"Apple Watch Sport FACE",
-    img:applewatch,
-    description:"Minimalist apple watch face",
-    target:"_blink",
-    tags:"Apple Watch, Product Design",
-    link:"https://www.behance.net/gallery/130411669/Simple-Watch-Face-3"
-},
+      link:"projects/developerdaofm",
+      productHunt:""
+  }
   ,
   {
       name:"Web 3 Lover Boy",
@@ -207,7 +224,8 @@ const data = [
       description:"CWB is a project inspired by Dever..",  
       tags:"Product Design, Solidity, Web3",
       target:"_blink",
-      link:"https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs"
+      link:"https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs",
+      productHunt:""
   },
   
   // {
@@ -224,15 +242,26 @@ const data = [
     description:"A concepts for crypto App..",
     target:"_blink",
     tags:"Concepts, Web3",
-    link:"https://www.behance.net/gallery/126685831/Crypto-Watch-App"
+    link:"https://www.behance.net/gallery/126685831/Crypto-Watch-App",
+    productHunt:""
   },
+  {
+    name:"Apple Watch Sport FACE",
+    img:applewatch,
+    description:"Minimalist apple watch face",
+    target:"_blink",
+    tags:"Apple Watch, Product Design",
+    link:"https://www.behance.net/gallery/130411669/Simple-Watch-Face-3",
+    productHunt:""
+},
   {
       name:"Web 3 Concepts",
       img:web3cons,
       description:"Attempts to create a new perspective",
       target:"_blink",
       tags:"Concepts, Web3",
-      link:"https://www.behance.net/gallery/142532281/Web3-Concepts"
+      link:"https://www.behance.net/gallery/142532281/Web3-Concepts",
+      productHunt:""
   },
 
 
@@ -242,7 +271,8 @@ const data = [
     description:"Theme for Atom Editor",
     target:"_blink",
     tags:"CSS, Js, Atom",
-    link:"https://twitter.com/sadiq_moo/status/1297206769580679168"
+    link:"https://twitter.com/sadiq_moo/status/1297206769580679168",
+    productHunt:""
     }, 
     
     // {
@@ -285,30 +315,13 @@ const playground = [
     target:"_blink",
     link:"https://dribbble.com/shots/16177318-Aston-Martin-Dark-Mode"
     },
-    {
-      target:"_blink",
-      name:"Minimalist designe",
-      img:csc,
-      description:"UI",
-      tags:"Concepts",
-      link:"https://www.instagram.com/p/CSLDGdTDy-u/"
-      },
+   
       {
         name:"Crypto App",
         img:cryptocon,
         description:"description",
         tags:"Concepts",
         link:"https://dribbble.com/shots/16455889-Crypto-app"
-        },
-     
-        
-        {
-          name:"West World Watch Face",
-          img:westworldwatch,
-          description:"Watch Face inspired by West World",
-          tags:"Apple Watch",
-          target:"_blink",
-          link:"https://dribbble.com/shots/11275865-Westword-apple-watch-customization-2"
-      },
+        }
 
 ]
