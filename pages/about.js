@@ -113,6 +113,9 @@ export default function About() {
                 <li>  <a target="_blink" href='https://www.behance.net/mohamed_sadiq'>Behance.net</a></li>
               </ul>
               </div>
+              <div className='open_to_work'>
+                <h2></h2>
+              </div>
           </div>
         </div>
         <Script
