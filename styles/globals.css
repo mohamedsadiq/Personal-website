@@ -159,11 +159,11 @@
 }
 
 .personal_photo{
-  width: 250px;
+  width: 172px;
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 33px;
-  height: 250px;
+  height: 172px;
 }
 .personal_photo img{
   width: 100%;
@@ -470,13 +470,14 @@ a {
   width: 100%;
   height: 300px;
   border-radius: 12px;
-  margin-top: 60px;
+  margin-top: 33px;
   overflow: hidden;
   border: 1px solid #141414;
   background: #000;
 }
 .light .blocks{
   border: none;
+  border: 1px solid #eee;
   background: none;
 }
 .blocks:hover img{
@@ -489,7 +490,7 @@ a {
   border-radius: 12px;
   display: inline-block;
   width: 95%;
-  height: 144px;
+  height: 78px;
   position: absolute;
   visibility: hidden;
   opacity: 0;
@@ -499,15 +500,33 @@ a {
   background: #000000e6;
   box-sizing: border-box;
   -webkit-backdrop-filter: blur(45.8901px);
-  backdrop-filter: blur(2.8901px);
+  backdrop-filter: blur(1.8901px);
   transform: matrix(1, 0, 0, -1, 0, 0);
   transform: translate(-50%);
 }
+.light .overlay{
+  background: #ffffffcc;
+}
+.light .inner_container .overlay h2{
+  color: #000;
+}
+.light .overlay span {
+ 
+  background-color: #ffffff;
+ 
+  color: #808080;
+ 
+}
+.overlay p{
+  margin-top: 2px;
+}
 .inner_container .overlay h2{
-  font-size: 1.1rem;
-    color: #fff;
-    font-weight: 300;
-    margin-top: 4px;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 400;
+  margin-top: 4px;
+  font-family: "Inter";
+  margin-bottom: 0;
 }
 .overlay span{
   display: inline-block;
@@ -520,6 +539,22 @@ a {
 .overlay h2, .overlay p{
   color:#818181;
   font-size: 0.8rem;
+  font-family: "Inter";
+}
+strong{
+  font-weight: 600;
+  color: #fff;
+}
+.about_links ul li{
+  line-height: 16px;
+}
+.light strong {
+  color: #000;
+}
+.tool_name{
+  border: 1px solid #000;
+  padding: 4px 12px;
+  border-radius: 25px
 }
 .blocks:hover .overlay{
   visibility: visible;
@@ -1469,7 +1504,12 @@ color: rgb(250, 200, 17);
 }
 .about_me p{
   color: #d3d3d3;
-  font-weight: 400;
+    font-weight: 400;
+    font-size: 1.1rem;
+    LINE-HEIGHT: 29PX;
+}
+.awards_logo{
+  
 }
 .light .about_me a.aboutmelink{
   background: #000;
@@ -3001,11 +3041,18 @@ cursor: pointer;
   .about_me h1{
     margin-top: 0;
   }
-
+ .light .morearrow{
+  fill:#6f6f6f
+ }
+.morearrow{
+  fill:#fff;
+  position: relative;
+  top: 7px;
+ }
   .about_me_img {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     height: 100%;
     /* Optionally, set a height for the container to vertically center the element */
     /* height: 100vh; */
