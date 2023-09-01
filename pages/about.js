@@ -106,7 +106,7 @@ export default function About() {
           <div className='about_links'>
                 <h2> Links</h2>
               <ul>
-                <li>  <a target="_blink" href='twitter.com/sadiq_moo/'>Twitter</a></li>
+                <li>  <a target="_blink" href='https://www.twitter.com/sadiq_moo/'>Twitter or X</a></li>
                 <li>  <a target="_blink" href='https://www.instagram.com/_mohamedsadiq/'>Instagram</a></li>
                 <li>  <a target="_blink" href='https://dribbble.com/Mohamed-Sadiq'>Dribbble</a></li>
                 <li>  <a target="_blink" href='https://www.producthunt.com/@m_bronz0'>Product Hunt</a></li>

@@ -51,7 +51,7 @@ const router = useRouter();
       </Head>
       <main>
      
-       <div className="container">
+       <div className="container container_work">
         <div className="inner_container">
      
           <h1>Projects</h1>
