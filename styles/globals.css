@@ -14,6 +14,9 @@
 #name{
   color: #fff;
 }
+.content p.callToAction{
+  margin-top: 14px;
+}
 /* .icons{
   transition: all 0.3s ease-in-out ;
 } */
@@ -464,6 +467,7 @@ a {
   gap: 1px  35px;
   margin-bottom: 100px;
 }
+
 .blocks{
   position: relative;
   background-color: #eee; 
