@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 
 // images
 import developerDao from "../img/Instagram story - 1.png"
-import developerDaoFm from "../img/developerdaofm.png"
+import developerDaoFm from "../img/daofm.png"
 import nftweb3 from "../img/nftweb3.png"
 import web3cons from "../img/loginweb3.png"
 import watchcrypto from "../img/watchcrypto.png"
@@ -18,13 +18,14 @@ import weatherapp from "../img/weatherapp.png"
 import vscode from "../img/vscode.png"
 import cryptocon from "../img/cdcs.png"
 import libyatells from "../img/libyatells.png"
+import boi from "../img/boi.png"
 import trustWallet from "../img/trustwallet.jpg"
 import lastwebsite from "../img/lastwebsite.jpg"
 import ovo from "../img/ovo.png"
 import folim from "../img/folim.png"
 import gm from "../img/gm.png"
 import gmd from "../img/ddcd.jpg"
-import daos from "../img/1111111.png"
+import daos from "../img/daosspot1.png"
 import iconsII from "../img/icons22.png"
 import rainBow from "../img/ezgif.com-video-to-gif (3).gif"
 import Building_On_Imagination from "../img/fdasfas.png"
@@ -57,7 +58,28 @@ const router = useRouter();
           <h1>Projects</h1>
           <p>Projects I designed and built using Figma, React, Solidity, and more.</p>
          
-         
+         {/* <div className='navigation'> 
+         <div>
+            <h2>Ventures</h2>
+            <li>DAOs Spot</li>
+            <li>Libya Tells</li>
+         </div>
+         <div>
+            <h2>Projects</h2>
+            <li>Building on Imagination</li>
+            <li>DeveloperDAO</li>
+            <li>DeveloperDAO FM</li>
+            <li>CWB NFT</li>
+         </div>
+         <div>
+            <h2>Concepts</h2>
+            <li>Trust Wallet </li>
+            <li>Weather app </li>
+            <li>Apple Watch face</li>
+            <li>ATOM theme</li>
+            <li>Aston Martin</li>
+         </div>
+         </div> */}
           <div className="grid">
          
                 {/* <Link key={"dao"} href="" passhref>
@@ -136,8 +158,8 @@ const router = useRouter();
                 </div>
                 </a> */}
           </div>
-
-          <h2>Playground</h2>
+          
+          {/* <h2>Playground</h2> */}
           
           <div className="grid">
             {playground.map(item => {
@@ -216,7 +238,16 @@ const data = [
       target:"_blink",
       link:"projects/developerdaofm",
       productHunt:""
-  }
+  },
+  {
+    name:"Building On Imagination",
+    img:boi,
+    description:" transforming my ideas into reality.",  
+    tags:"Product Design, Solidity, Web3",
+    target:"_blink",
+    link:"https://www.boimagination.com/",
+    productHunt:""
+},
   ,
   {
       name:"Web 3 Lover Boy",
@@ -236,44 +267,44 @@ const data = [
   //   target:"_blink",
   //   link:"https://waveportal-starter-project.mohamedsadiq.repl.co"
   // },
-  {
-    name:"Crypto App",
-    img:watchcrypto,
-    description:"A concepts for crypto App..",
-    target:"_blink",
-    tags:"Concepts, Web3",
-    link:"https://www.behance.net/gallery/126685831/Crypto-Watch-App",
-    productHunt:""
-  },
-  {
-    name:"Apple Watch Sport FACE",
-    img:applewatch,
-    description:"Minimalist apple watch face",
-    target:"_blink",
-    tags:"Apple Watch, Product Design",
-    link:"https://www.behance.net/gallery/130411669/Simple-Watch-Face-3",
-    productHunt:""
-},
-  {
-      name:"Web 3 Concepts",
-      img:web3cons,
-      description:"Attempts to create a new perspective",
-      target:"_blink",
-      tags:"Concepts, Web3",
-      link:"https://www.behance.net/gallery/142532281/Web3-Concepts",
-      productHunt:""
-  },
+  // {
+  //   name:"Crypto App",
+  //   img:watchcrypto,
+  //   description:"A concepts for crypto App..",
+  //   target:"_blink",
+  //   tags:"Concepts, Web3",
+  //   link:"https://www.behance.net/gallery/126685831/Crypto-Watch-App",
+  //   productHunt:""
+  // },
+//   {
+//     name:"Apple Watch Sport FACE",
+//     img:applewatch,
+//     description:"Minimalist apple watch face",
+//     target:"_blink",
+//     tags:"Apple Watch, Product Design",
+//     link:"https://www.behance.net/gallery/130411669/Simple-Watch-Face-3",
+//     productHunt:""
+// },
+  // {
+  //     name:"Web 3 Concepts",
+  //     img:web3cons,
+  //     description:"Attempts to create a new perspective",
+  //     target:"_blink",
+  //     tags:"Concepts, Web3",
+  //     link:"https://www.behance.net/gallery/142532281/Web3-Concepts",
+  //     productHunt:""
+  // },
 
 
-  {
-    name:"One-Yellow 2",
-    img:vscode,
-    description:"Theme for Atom Editor",
-    target:"_blink",
-    tags:"CSS, Js, Atom",
-    link:"https://twitter.com/sadiq_moo/status/1297206769580679168",
-    productHunt:""
-    }, 
+  // {
+  //   name:"One-Yellow 2",
+  //   img:vscode,
+  //   description:"Theme for Atom Editor",
+  //   target:"_blink",
+  //   tags:"CSS, Js, Atom",
+  //   link:"https://twitter.com/sadiq_moo/status/1297206769580679168",
+  //   productHunt:""
+  //   }, 
     
     // {
     //   name:"Concepts inspired by Drake ",
@@ -290,38 +321,38 @@ const data = [
 
 const playground = [
 
-{
-  name:"Weather app",
-  img:weatherapp,
-  description:"a concept for weather app",
-  tags:"Apple Watch",
-  link:"https://www.behance.net/gallery/142532877/Weather-app",
-  target:"_blink"
-},
+// {
+//   name:"Weather app",
+//   img:weatherapp,
+//   description:"a concept for weather app",
+//   tags:"Apple Watch",
+//   link:"https://www.behance.net/gallery/142532877/Weather-app",
+//   target:"_blink"
+// },
 
-{
-  name:"Trust Wallet App",
-  img:trustWallet,
-  description:"a concept for Trust Wallet",
-  tags:"Concepts",
-  target:"_blink",
-  link:"https://www.behance.net/gallery/130411983/Redesigning-the-Trust-Wallet-App"
-  },
-  {
-    name:"Aston Martin - Dark Mode",
-    img:car,
-    description:"UI",
-    tags:"Concepts",
-    target:"_blink",
-    link:"https://dribbble.com/shots/16177318-Aston-Martin-Dark-Mode"
-    },
+// {
+//   name:"Trust Wallet App",
+//   img:trustWallet,
+//   description:"a concept for Trust Wallet",
+//   tags:"Concepts",
+//   target:"_blink",
+//   link:"https://www.behance.net/gallery/130411983/Redesigning-the-Trust-Wallet-App"
+//   },
+//   {
+//     name:"Aston Martin - Dark Mode",
+//     img:car,
+//     description:"UI",
+//     tags:"Concepts",
+//     target:"_blink",
+//     link:"https://dribbble.com/shots/16177318-Aston-Martin-Dark-Mode"
+//     },
    
-      {
-        name:"Crypto App",
-        img:cryptocon,
-        description:"description",
-        tags:"Concepts",
-        link:"https://dribbble.com/shots/16455889-Crypto-app"
-        }
+//       {
+//         name:"Crypto App",
+//         img:cryptocon,
+//         description:"description",
+//         tags:"Concepts",
+//         link:"https://dribbble.com/shots/16455889-Crypto-app"
+//         }
 
 ]
