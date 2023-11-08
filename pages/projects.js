@@ -35,6 +35,7 @@ import csc from "../img/fdsvedf.png"
 import delta from "../img/delta.png"
 import drakec from "../img/Instagram post - 4.png"
 import budget1 from "../img/ph11.png"
+import portfolio from "../img/Scene.png"
 
 
 export default function Projects() {
@@ -258,6 +259,16 @@ const data = [
       link:"https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs",
       productHunt:""
   },
+  ,
+  {
+      name:"My Portfolio",
+      img:portfolio,
+      description:"This is the website that you browsing right now :)",  
+      tags:"Product Design, Solidity, Web3",
+      target:"_blink",
+      link:"https://github.com/mohamedsadiq/website",
+      productHunt:""
+  }
   
   // {
   //   name:"GM",
