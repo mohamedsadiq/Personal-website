@@ -21,7 +21,7 @@ const DeveloperDAO = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className="container">
+        <div className="container container_work_inner">
           <div className="inner_container">
             <WorkIntro
               title={"DeveloperDAO FM"}

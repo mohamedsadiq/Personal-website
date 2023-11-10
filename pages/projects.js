@@ -37,7 +37,6 @@ import drakec from "../img/Instagram post - 4.png"
 import budget1 from "../img/ph11.png"
 import portfolio from "../img/Scene.png"
 
-
 export default function Projects() {
 
  
@@ -52,7 +51,13 @@ const router = useRouter();
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-     
+      <div className="custom-scroll-container">
+      <div className="custom-scroll-content">
+        {/* Your scrollable content goes here */}
+        {/* Example: */}
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+      </div>
+    </div>
        <div className="container container_work">
         <div className="inner_container">
      
@@ -218,7 +223,7 @@ const data = [
     description:"Everything about DAOs, 2023", 
     tags:"Product Design, Web3",
     target:"_blink",
-    link:"https://www.daosspot.xyz/",
+    link:"projects/daosspot",
     productHunt:budget1
 },
   {
