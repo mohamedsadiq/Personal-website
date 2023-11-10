@@ -51,13 +51,7 @@ const router = useRouter();
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-      <div className="custom-scroll-container">
-      <div className="custom-scroll-content">
-        {/* Your scrollable content goes here */}
-        {/* Example: */}
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-      </div>
-    </div>
+    
        <div className="container container_work">
         <div className="inner_container">
      

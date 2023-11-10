@@ -13,7 +13,7 @@ import imgWork6 from "../../img/develight.png";
 
 
 
-import daosspotProductHunt from "../../public/search.mp4";
+
 import img1 from "../../img/daosspot1.png";
 import img2 from "../../img/DAOs Spot/1.png";
 import img3 from "../../img/DAOs Spot/2.png";
