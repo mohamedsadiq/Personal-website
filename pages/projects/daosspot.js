@@ -14,7 +14,7 @@ import imgWork6 from "../../img/develight.png";
 
 
 
-import img1 from "../../img/daosspot1.png";
+import img1 from "../../img/11111111.png";
 import img2 from "../../img/DAOs Spot/1.png";
 import img3 from "../../img/DAOs Spot/2.png";
 import img4 from "../../img/DAOs Spot/3.png";
@@ -43,6 +43,10 @@ const DeveloperDAO = () => {
               title={"DeveloperDao"}
               link={"https://www.daosspot.xyz/"}
             />
+             <div className="project_title">
+             <h1>DAOs Spot</h1>
+             <p>Your gateway to decentralized communities.  <span className="dateProject">-  Jun 2023 </span></p>
+             </div>
             <div className="blog_photo inner_blog work_intro_image">
               <Image
                 src={img1}
@@ -59,7 +63,7 @@ const DeveloperDAO = () => {
             
             <h2>Project Overview</h2>
             <div className="project_info">
-              <span className="dateProject"> 2023 -</span>
+             
               <a
                 className="projectLink"
                 target="_blink"
@@ -161,19 +165,19 @@ const DeveloperDAO = () => {
             <p>Get in touch to schedule a presentation</p>
             <ul>
               <li>
-                <a href="">Email ↗</a>
+                <a href="mailto:mohamed.sadiq@outlook.sa" target="_blink">Email ↗</a>
               </li>
               <li>
-                <a href="">X.com ↗</a>
+                <a href="https://twitter.com/sadiq_moo" target="_blink">X.com ↗</a>
               </li>
               <li>
-                <a href="">Dribble ↗</a>
+                <a href="https://dribbble.com/Mohamed-Sadiq" target="_blink">Dribble ↗</a>
               </li>
               <li>
-                <a href="">Behance ↗</a>
+                <a href="https://www.behance.net/mohamed_sadiq" target="_blink">Behance ↗</a>
               </li>
               <li>
-                <a href="">GitHub ↗</a>
+                <a href="https://github.com/mohamedsadiq" target="_blink">GitHub ↗</a>
               </li>
             </ul>
           </div>
