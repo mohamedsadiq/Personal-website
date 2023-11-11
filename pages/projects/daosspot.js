@@ -24,7 +24,7 @@ const DeveloperDAO = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>DAOs Spot</title>
+        <title>DAOs Spot | Mohamed Sadiq</title>
         <meta name="description" content="DAOs Spot case study" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="keywords" content="HTML, CSS, JavaScript, product design, web3, nft" />
@@ -37,7 +37,7 @@ const DeveloperDAO = () => {
         
       </Head>
       <main>
-        <div className="container ">
+        <div className="container">
           <div className="inner_container inner_container_mobile">
             <WorkIntro
               title={"DeveloperDao"}
