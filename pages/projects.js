@@ -161,7 +161,7 @@ const router = useRouter();
           
           {/* <h2>Playground</h2> */}
           
-          <div className="grid">
+          {/* <div className="grid">
             {playground.map(item => {
               return (
                 <a key={item.name}  href={item.link} passhref target={item.target}>
@@ -185,7 +185,32 @@ const router = useRouter();
                 </a>
                )
             })}
+          </div> */}
+          <div className="container ">
+          <div className="footer_projects"></div>
+          <div className="footer_projects_content">
+            <h2> Want a deeper dive?</h2>
+            <p>Get in touch to schedule a presentation</p>
+            <ul>
+              <li>
+                <a href="mailto:mohamed.sadiq@outlook.sa" target="_blink">Email ↗</a>
+              </li>
+              <li>
+                <a href="https://twitter.com/sadiq_moo" target="_blink">X.com ↗</a>
+              </li>
+              <li>
+                <a href="https://dribbble.com/Mohamed-Sadiq" target="_blink">Dribble ↗</a>
+              </li>
+              <li>
+                <a href="https://www.behance.net/mohamed_sadiq" target="_blink">Behance ↗</a>
+              </li>
+              <li>
+                <a href="https://github.com/mohamedsadiq" target="_blink">GitHub ↗</a>
+              </li>
+            </ul>
           </div>
+          
+        </div>
         </div>
        </div>
        <Script
