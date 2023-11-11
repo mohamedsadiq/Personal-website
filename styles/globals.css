@@ -2892,8 +2892,8 @@ position: relative;
   
 
   .inner_container p {
-    line-height: 21px;
-    font-size: 0.9rem;
+    line-height: 246x;
+    font-size: 1rem;
 }
   .blog_overlay h1{
     font-size: 0.9rem;
@@ -3170,6 +3170,41 @@ cursor: pointer;
   width: 1px;
 }
 
+
+@media only screen and (min-width:320px) {
+  .inner_container_mobile {
+    margin-top: 33px;
+    font-family: "Inter";
+    margin-bottom: 100px;
+    position: relative;
+}
+
+.linkInfoProject{
+  display: none;
+}
+.project_info {
+  margin-bottom: 37px;
+  margin-top: 7px;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+.projects_tags {
+ 
+  margin-bottom: 0;
+}
+.projects_tags span {
+  background-color: #202020;
+  padding: 7px;
+  /* margin-left: 10px; */
+  border-radius: 10px;
+  padding-right: 6px;
+  /* border: 1px solid #393939; */
+  padding-left: 6px;
+  margin-left: 0;
+  margin-right: 7px;
+  /* margin-top: 25px; */
+}
+}
 @media only screen and (max-width:320px) {
   .item1{
     margin-bottom: 8px;
@@ -3199,8 +3234,14 @@ cursor: pointer;
   }
 
   
+  @media only screen and (min-width:541px) {
+    .projects_tags {
+      display: inline;
+      position: absolute;
+      right: 0;
+  }
+  }
   
-
   @media only screen and (max-width:475px) {
     .text_blog {
       padding-left: 0;
