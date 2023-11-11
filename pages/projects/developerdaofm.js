@@ -21,13 +21,15 @@ const DeveloperDAO = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className="container container_work_inner">
-          <div className="inner_container">
+        <div className="container ">
+          <div className="inner_container inner_container_mobile">
             <WorkIntro
               title={"DeveloperDAO FM"}
               link={"https://www.developerdaofm.com/"}
             />
             <h1>DeveloperDAO FM</h1>
+            <p>A place where you listen to music while building cool stuff. <span className="dateProject">-  Jul 2022 </span></p>
+            
             <div className="blog_photo inner_blog work_intro_image">
               <Image
                 src={imgWork}
@@ -41,6 +43,22 @@ const DeveloperDAO = () => {
             </div>
             
             <h2>Project Overview</h2>
+            <div className="project_info">
+             
+              <a
+                className="projectLink"
+                target="_blink"
+                href="https://www.developerdaofm.com/"
+              >
+                {" "}
+                Visit Live ↗
+              </a>
+              <div className="projects_tags">
+                <span>DeveloperDAO</span>
+                <span>Music</span>
+                <span>Web3</span>
+              </div>
+            </div>
             <p>
               When I initially joined DeveloperDAO, my excitement to contribute
               to the DAO's projects was palpable. One standout project that
