@@ -63,10 +63,10 @@ const Layout =  ({ children })=> {
       {displayChildren}
       </div>
     <KeyNav />
-    <div className="nextjs">
-      <span className="star">*</span>
+    {/* <div className="nextjs">
+     <span className="star">*</span>
     <span className="crafted">Crafted by hand using <a>NextJs</a></span>
-     </div>
+     </div> */}
     </div>
   )
 }
