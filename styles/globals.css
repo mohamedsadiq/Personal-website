@@ -2888,6 +2888,31 @@ position: relative;
 }
 
 
+
+@media only screen and (min-width:320px) {
+
+  .blocks {
+    position: relative;
+    background-color: #eee;
+    width: 100%;
+    height: 350px;
+  }
+
+}
+
+@media only screen and (min-width:728px) {
+
+  .blocks {
+    position: relative;
+    background-color: #eee;
+    width: 100%;
+    height: 500px;
+  }
+
+}
+
+
+
 @media only screen and (max-width:425px) {
   
 
