@@ -239,15 +239,15 @@ const data = [
       link:"projects/developerdaofm",
       productHunt:""
   },
-  {
-    name:"Building On Imagination",
-    img:boi,
-    description:" transforming my ideas into reality.",  
-    tags:"Product Design, Solidity, Web3",
-    target:"_blink",
-    link:"https://www.boimagination.com/",
-    productHunt:""
-},
+//   {
+//     name:"Building On Imagination",
+//     img:boi,
+//     description:" transforming my ideas into reality.",  
+//     tags:"Product Design, Solidity, Web3",
+//     target:"_blink",
+//     link:"https://www.boimagination.com/",
+//     productHunt:""
+// },
   ,
   {
       name:"Web 3 Lover Boy",
@@ -259,15 +259,15 @@ const data = [
       productHunt:""
   },
   ,
-  {
-      name:"My Portfolio",
-      img:portfolio,
-      description:"This is the website that you browsing right now :)",  
-      tags:"Product Design, Solidity, Web3",
-      target:"_blink",
-      link:"https://github.com/mohamedsadiq/website",
-      productHunt:""
-  }
+  // {
+  //     name:"My Portfolio",
+  //     img:portfolio,
+  //     description:"This is the website that you browsing right now :)",  
+  //     tags:"Product Design, Solidity, Web3",
+  //     target:"_blink",
+  //     link:"https://github.com/mohamedsadiq/website",
+  //     productHunt:""
+  // }
   
   // {
   //   name:"GM",

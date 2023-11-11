@@ -38,7 +38,7 @@ const DeveloperDAO = () => {
       </Head>
       <main>
         <div className="container ">
-          <div className="inner_container">
+          <div className="inner_container inner_container_mobile">
             <WorkIntro
               title={"DeveloperDao"}
               link={"https://www.daosspot.xyz/"}
