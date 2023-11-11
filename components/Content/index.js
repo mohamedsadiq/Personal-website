@@ -44,9 +44,8 @@ const MyComponent = () => {
         <div id="name">Mohamed Sadiq</div>
         <div>
           <p>
-            Driven Product Designer, dedicated to turning ideas into
-            well-crafted products. specializing in interaction design and
-            creating seamless interfaces that blend style with functionality.
+            Driven Product Designer & engineer, dedicated to turning ideas into
+            well-crafted products. Focusing on creating seamless interfaces that blend style with functionality.
             Focused on{" "}
             <span className="web3">
               web3.<span id="animation_web3"></span>
