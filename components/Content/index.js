@@ -56,7 +56,7 @@ const MyComponent = () => {
                 web3
                 span id="animation_web3"></span>
                 <</span>, Open source products <a href="https://twitter.com/developer_dao"  className="links" target="_blank" rel="noreferrer">@DeveloperDAO</a>, member of <a href="https://twitter.com/Anticollective_" className="links" target="_blank" rel="noreferrer">@Anti.</a> you can find me on  <a href="https://x.com/sadiq_moo">X.</a> </p> */}
-          <p className="callToAction"> <Link  className="aboutme" href={"/about"}>Read about me</Link> or <Link  className="aboutme" href={"/projects"}>Inspect my work.</Link></p>
+          <p className="callToAction"> <Link  className="aboutme" href={"/projects"}>Inspect my work.</Link> or <Link  className="aboutme" href={"/about"}> More about me</Link> </p>
           
         </div>
         {/* ... */}
