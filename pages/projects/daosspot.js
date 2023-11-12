@@ -79,20 +79,17 @@ const DeveloperDAO = () => {
               </div>
             </div>
             <p>
-              DAOs Spot is my second venture that I bootstrapped with almost
-              zero budget. Taking on the responsibility for product design and
-              development, my aim was to address a critical challenge: How can I
-              actively engage with DAOs, contribute effectively, stay informed
-              about their news, and identify tools to streamline these
-              processes? This challenge became apparent as I joined various
-              DAOs. Notably, the project has captured the attention of an
-              original DAO, aligning with their mission. Additionally, a leading
-              international investment firm focused on Web3 has reached out. I
-              am Enthusiastic about the future of DAOs Spot, And I look forward to the exciting opportunities that the future holds.
+            Initiating the journey of DAOs Spot marked my second venture, a bootstrap endeavor fueled by minimal resources. Taking charge of both product design and development, my primary goal centered around tackling a crucial challenge: How could I actively immerse myself in DAOs, contribute meaningfully, stay abreast of their updates, and discover tools to streamline these processes? This challenge materialized as I became a part of various DAOs. Significantly, the project has garnered the attention of an original DAO, aligning seamlessly with their mission. Moreover, a prominent international investment firm focused on Web3 has expressed interest. The prospect of DAOs Spot excites me, and I eagerly anticipate the promising opportunities that lie ahead.
+
+
               
             </p>
             <h2>Awards and recognition</h2>
-            <p>DAOs Spot pleasantly surprised me by securing the 4th position for Product of the Week in the Web3 category on Product Hunt. It's a humble nod that what I've done worthwhile. <a className="linkProductHunt" href="https://www.producthunt.com/products/daos-spot">DAOsSpot on Product Hunt</a> </p>
+            <p>DAOs Spot pleasantly surprised me by clinching the 4th position for Product of the Week in the Web3 category on Product Hunt. It serves as a modest acknowledgment that the efforts invested have proven worthwhile. DAOsSpot on Product Hunt has been an encouraging experience. </p>
+            <h2>Embracing Minimalism in Design</h2>
+            <p>My approach to design for DAOs Spot was rooted in a desire to evoke a premium feel through minimalism, a departure from the often cluttered landscape of Web3 interfaces. I aimed to bring forth a user experience that exuded simplicity, yet sophistication, ensuring that engagement with the platform was both intuitive and aesthetically pleasing. This emphasis on minimalism sought to address a gap in the Web3 space, where the user experience can sometimes be overwhelming and complex.</p>
+            <h2>Challenges Hindering Financial Progress</h2>
+            <p>Unfortunately, despite my efforts to position DAOs Spot for profitability, navigating payment challenges emerged as a significant obstacle. The lack of access to mainstream payment services in my location posed a formidable barrier to achieving financial success for the project. This hurdle not only hindered revenue generation but also underscored the importance of addressing infrastructural limitations in entrepreneurial ventures.</p>
             {/* <div className="blog_photo inner_blog work_intro_image">
               <Image
                 src={daosspotProductHunt}
@@ -144,7 +141,7 @@ const DeveloperDAO = () => {
             />
           </div>
 
-        
+         
         
 
           <div className="blog_photo inner_blog ">
