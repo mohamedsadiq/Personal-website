@@ -186,31 +186,7 @@ const router = useRouter();
                )
             })}
           </div> */}
-          <div className="container ">
-          <div className="footer_projects"></div>
-          <div className="footer_projects_content">
-            <h2> Want a deeper dive?</h2>
-            <p>Get in touch to schedule a presentation</p>
-            <ul>
-              <li>
-                <a href="mailto:mohamed.sadiq@outlook.sa" target="_blink">Email ↗</a>
-              </li>
-              <li>
-                <a href="https://twitter.com/sadiq_moo" target="_blink">X.com ↗</a>
-              </li>
-              <li>
-                <a href="https://dribbble.com/Mohamed-Sadiq" target="_blink">Dribble ↗</a>
-              </li>
-              <li>
-                <a href="https://www.behance.net/mohamed_sadiq" target="_blink">Behance ↗</a>
-              </li>
-              <li>
-                <a href="https://github.com/mohamedsadiq" target="_blink">GitHub ↗</a>
-              </li>
-            </ul>
-          </div>
-          
-        </div>
+      
         </div>
        </div>
        <Script
@@ -237,16 +213,16 @@ const data = [
 
 
   {
-    name:"DAOs Spot",
+    name:"DAOs Spot - 2023",
     img:daos,
-    description:"Everything about DAOs, 2023", 
+    description:"Your gateway to decentralized communities.", 
     tags:"Product Design, Web3",
     target:"_blink",
     link:"projects/daosspot",
     productHunt:budget1
 },
   {
-    name:"DeveloperDAO Website",
+    name:"DeveloperDAO Website - Aug  2022",
     img:developerDao,
     description:"The main website of DeveloperDAO", 
     tags:"Product Design, Web3",
@@ -256,7 +232,7 @@ const data = [
     
 },
   {
-      name:"DeveloperDAO FM",
+      name:"DeveloperDAO FM - Jul 2022",
       img:developerDaoFm,
       description:"A place where you listin to muisc ...", 
       tags:"Product Design, JS, Web3",
@@ -274,8 +250,9 @@ const data = [
 //     productHunt:""
 // },
   ,
-  {
-      name:"Web 3 Lover Boy",
+  { 
+
+      name:"Web 3 Lover Boy - Jan 2022",
       img:nftweb3,
       description:"CWB is a project inspired by Dever..",  
       tags:"Product Design, Solidity, Web3",

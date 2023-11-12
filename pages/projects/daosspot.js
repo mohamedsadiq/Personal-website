@@ -19,7 +19,7 @@ import img2 from "../../img/DAOs Spot/1.png";
 import img3 from "../../img/DAOs Spot/2.png";
 import img4 from "../../img/DAOs Spot/3.png";
 import img5 from "../../img/DAOs Spot/4.png";
-
+import img6 from "../../img/DAOs Spot/5.png";
 const DeveloperDAO = () => {
   return (
     <div className={styles.container}>
@@ -132,10 +132,9 @@ const DeveloperDAO = () => {
               quality={100}
             />
           </div>
-
           <div className="blog_photo inner_blog ">
             <Image
-              src={img4}
+              src={img6}
               alt="Picture of the author"
               objectFit="cover"
               layout="fill"
@@ -144,6 +143,9 @@ const DeveloperDAO = () => {
               quality={100}
             />
           </div>
+
+        
+        
 
           <div className="blog_photo inner_blog ">
             <Image
