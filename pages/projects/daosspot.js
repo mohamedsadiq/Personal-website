@@ -88,8 +88,7 @@ const DeveloperDAO = () => {
             <p>DAOs Spot pleasantly surprised me by clinching the 4th position for Product of the Week in the Web3 category on Product Hunt. It serves as a modest acknowledgment that the efforts invested have proven worthwhile. DAOsSpot on Product Hunt has been an encouraging experience. </p>
             <h2>Embracing Minimalism in Design</h2>
             <p>My approach to design for DAOs Spot was rooted in a desire to evoke a premium feel through minimalism, a departure from the often cluttered landscape of Web3 interfaces. I aimed to bring forth a user experience that exuded simplicity, yet sophistication, ensuring that engagement with the platform was both intuitive and aesthetically pleasing. This emphasis on minimalism sought to address a gap in the Web3 space, where the user experience can sometimes be overwhelming and complex.</p>
-            <h2>Challenges Hindering Financial Progress</h2>
-            <p>Unfortunately, despite my efforts to position DAOs Spot for profitability, navigating payment challenges emerged as a significant obstacle. The lack of access to mainstream payment services in my location posed a formidable barrier to achieving financial success for the project. This hurdle not only hindered revenue generation but also underscored the importance of addressing infrastructural limitations in entrepreneurial ventures.</p>
+           
             {/* <div className="blog_photo inner_blog work_intro_image">
               <Image
                 src={daosspotProductHunt}
