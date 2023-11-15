@@ -35,7 +35,7 @@ export default function About() {
             <h1>Driven Product Designer Committed To Turning Ideas Into Well-Crafted Products. Focused on web3.
                 
                 </h1>
-            <p>I'm Mohamed Sadiq, or Mo if you prefer a shorter version. I'm a passionate product designer who thrives on creating delightful digital experiences. From my early days as a front-end engineer, I discovered my true passion lies in design. Now, I bring ideas to life through intuitive interfaces and captivating experiences.</p>
+            <p>I'm Mohamed Sadiq, or Mo if you prefer a shorter version. I'm a passionate product designer who thrives on creating delightful digital experiences.</p>
            
             {/* <p>Since 2017, I have been working as a product designer with expertise in designing and building digital products, including websites, mobile apps, and internet software. My focus is on creating user-centered designs that solve business problems while providing a seamless user experience. Additionally, I&rsquo;m passionate about the possibilities presented by the emerging field of Web3 and how it can provide more autonomy and security to users.</p> */}
             <a
@@ -47,14 +47,26 @@ export default function About() {
             >
               {/* <span></span> */}
               My Resume</a>
+              <div className='awards'>
+
+              <h1 className="mt1" style={{margin: "0px"}}>Awards and Recognitions:</h1>
             
-           <h1 className="mt1">How can I help?</h1>
+        
+            <ul>
+             
+              <li><strong><a  target='blink' href=' https://www.producthunt.com/products/developer-dao-fm'>Top Product on Product Hunt</a></strong>: <a href='https://www.developerdaofm.com/' target='blink'>'DeveloperDAO FM'</a> is a project I initiated as an Early Contributor at DeveloperDao, combines coding and music. I designed and coded the entire website, providing a unique coding experience. It also increased brand awareness for DeveloperDAO. Check it out here</li>
+             
+              <li><a  target='blink' href='https://www.producthunt.com/products/daos-spot'><strong>4th product of the week in the web3 category</strong></a> As an enthusiastic member of the DAO community, I initiated <a href='https://www.daosspot.xyz/' target='blink'>'DAOs Spot'</a> to offer a comprehensive hub for exploring the world of Decentralized Autonomous Organizations (DAOs). I curated and developed the entire platform to provide users with an immersive experience into the realm of decentralized governance.</li>
+            </ul>
+              </div>
+            
+           {/* <h1 className="mt1">How can I help?</h1> */}
             
           {/* <h3 className='mt1'>Product Design</h3> */}
-          <ul className=''>
+          {/* <ul className=''>
             <li><strong> Product Design: </strong>  I'm all about crafting interactive experiences that go beyond the ordinary. From sketching out wireframes to breathing life into high-fidelity mockups, I'm on a mission to design user-centric solutions that captivate and inspire meaningful interactions, fostering lasting engagement.</li>
             <li><strong> Interaction Design: </strong> I aim to deliver captivating experiences that go beyond what's expected. With seamless interactions, I focus on blending aesthetics and functionality to create exceptional engagement.</li>
-          </ul>
+          </ul> */}
         
           {/* <p> <strong>Product Design:</strong> I excel in crafting interactive experiences that seamlessly guide users through digital products. From wireframes and prototypes to high-fidelity mockups, I use industry-standard tools to convey design concepts effectively.</p> */}
           <div id="#tool">
@@ -68,15 +80,7 @@ export default function About() {
             <Image src={setup} alt="setup" quality={100}/>
             <p className='toolsSetup'> This is my setup - <span>See more of the tools that I'm using from <Link href={"/taste/stack"}>here</Link></span></p>
           </div>
-          <h1 className="mt1" style={{margin: "0px"}}>Awards and Recognitions:</h1>
-            
-        
-            <ul>
-             
-              <li><strong><a  target='blink' href=' https://www.producthunt.com/products/developer-dao-fm'>Top Product on Product Hunt</a></strong>: <a href='https://www.developerdaofm.com/' target='blink'>'DeveloperDAO FM'</a> is a project I initiated as an Early Contributor at DeveloperDao, combines coding and music. I designed and coded the entire website, providing a unique coding experience. It also increased brand awareness for DeveloperDAO. Check it out here</li>
-             
-              <li><a  target='blink' href='https://www.producthunt.com/products/daos-spot'><strong>4th product of the week in the web3 category</strong></a> As an enthusiastic member of the DAO community, I initiated <a href='https://www.daosspot.xyz/' target='blink'>'DAOs Spot'</a> to offer a comprehensive hub for exploring the world of Decentralized Autonomous Organizations (DAOs). I curated and developed the entire platform to provide users with an immersive experience into the realm of decentralized governance.</li>
-            </ul>
+         
 
             {/* <div>
               <h1 className="mt1" style={{margin: "0px"}}>Cerifications:</h1>
