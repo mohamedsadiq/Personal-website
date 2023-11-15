@@ -2924,6 +2924,9 @@ position: relative;
 
 
 @media only screen and (max-width:425px) {
+  .overlay{
+    height: 108px;
+  }
   
 
   .inner_container p {
