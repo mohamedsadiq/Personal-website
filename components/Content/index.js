@@ -44,8 +44,8 @@ const MyComponent = () => {
         <div id="name">Mohamed Sadiq</div>
         <div>
           <p>
-            Driven Product Designer & engineer, dedicated to turning ideas into
-            well-crafted products. Focusing on creating seamless interfaces that blend style with functionality. Founder of <a href={"/projects/daosspot"} target="_blink">DAOs Spot</a>, OSS contributor at <a href="https://www.developerdao.com/" target="_blink">Developer DAO</a>, Focused on{" "}
+            A Product Designer & engineer, dedicated to turning ideas into
+            well-crafted products. Founder of <a href={"/projects/daosspot"} target="_blink">DAOs Spot</a>, OSS contributor at <a href="https://www.developerdao.com/" target="_blink">Developer DAO</a>, Focused on{" "}
             <span className="web3">
               web3<span id="animation_web3"></span>
             </span>
