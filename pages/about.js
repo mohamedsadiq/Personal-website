@@ -82,23 +82,6 @@ export default function About() {
           </div>
          
 
-            {/* <div>
-              <h1 className="mt1" style={{margin: "0px"}}>Cerifications:</h1>
-                <ul>
-                  <a href='https://www.freecodecamp.org/certification/fcc334b10e9-d685-4930-933e-b630b269e07d/javascript-algorithms-and-data-structures'>
-                    <li>JavaScript Algorithms and Data Structures</li>
-                  </a>
-                  <a href='https://www.freecodecamp.org/certification/fcc334b10e9-d685-4930-933e-b630b269e07d/front-end-libraries'>
-                    <li>Front End Libraries</li>
-                  </a>
-                  <a href='https://certificates.uxcel.com/8S9QXG2AG8D5'>
-                    <li>UX Design Foundations</li>
-                  </a>
-                  <a href='https://certificates.uxcel.com/WRM9V4P4LYTP'>
-                    <li>Design Terminology</li>
-                  </a>
-                </ul>
-            </div> */}
 
             <h1 className="mt1">In my free time</h1>
             <div className='img_about freetime'>

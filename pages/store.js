@@ -52,13 +52,13 @@ const Store = () =>{
                             <circle cx="8" cy="8" r="7.5" stroke="white"/>
                             </svg>
                         </span> */}
-                          <a href="https://mohamedsadiq.gumroad.com/l/iconsii" target="_blink">
+                        
                         <button className="store_button">
                         
                             Get it
                         
                         </button>
-                        </a>
+                   
                      </div>
                   </div>
                   </a>
