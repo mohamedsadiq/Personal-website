@@ -1,9 +1,8 @@
-import {useState, useEffect} from "react"
-import Header from "../Header"
-import KeyNav from "../keyNav"
+import { useState, useEffect } from "react";
+import Header from "../Header";
+import KeyNav from "../keyNav";
 
-const Layout =  ({ children })=> {
-    // const children = props.children;
+const Layout = ({ children }) => {
   const [displayChildren, setDisplayChildren] = useState(children);
   const [transitionStage, setTransitionStage] = useState("fadeOut");
   const contents = "contents";
@@ -16,59 +15,41 @@ const Layout =  ({ children })=> {
     if (children !== displayChildren) setTransitionStage("fadeOut");
   }, [children, setDisplayChildren, displayChildren]);
 
+  const prefersDarkMode = () => {
+    if (typeof window !== "undefined" && window.matchMedia) {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+    return false; // default to light mode if matchMedia is not supported or if window is not defined
+  };
+
   const [mode, setMode] = useState(() => {
-    return typeof window !== 'undefined' && localStorage.getItem("mode") || "light";
+    return typeof window !== "undefined" && localStorage.getItem("mode") || (prefersDarkMode() ? "dark" : "light");
   });
 
-  // Browser theme detection logic
   useEffect(() => {
-    const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    const handleDarkModeChange = (event) => {
-      if (event.matches) {
-        setMode("dark");
-      } else {
-        setMode("light");
-      }
-    };
-
-    darkModeQuery.addListener(handleDarkModeChange);
-    handleDarkModeChange(darkModeQuery);
-
-    return () => {
-      darkModeQuery.removeListener(handleDarkModeChange);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       localStorage.setItem("mode", mode);
     }
   }, [mode]);
 
   return (
     <div className={mode + " theBody"}>
-      <Header modeValue={mode} setMode={setMode}/>
-      <div   
-       onTransitionEnd={() => {
-        if (transitionStage === "fadeOut") {
-          console.log("fading out");
-          setDisplayChildren(children);
-          setTransitionStage("fadeIn");
-        }
-      }}
-      className={ `${contents} ${transitionStage}`  }
-      // #a8a8a8
+      <Header modeValue={mode} setMode={setMode} />
+      <div
+        onTransitionEnd={() => {
+          if (transitionStage === "fadeOut") {
+            console.log("fading out");
+            setDisplayChildren(children);
+            setTransitionStage("fadeIn");
+          }
+        }}
+        className={`${contents} ${transitionStage}`}
       >
-      {displayChildren}
+        {displayChildren}
       </div>
-    <KeyNav />
-    {/* <div className="nextjs">
-     <span className="star">*</span>
-    <span className="crafted">Crafted by hand using <a>NextJs</a></span>
-     </div> */}
+      <KeyNav />
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
