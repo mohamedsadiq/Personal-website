@@ -429,7 +429,7 @@ const Header = (props) => {
         </Link>
        
         
-        <Link href={"/store"}  passHref >
+        <Link href={"/spark"}  passHref >
           <motion.div
             className="icon_holder"
             initial="initial"
@@ -439,7 +439,7 @@ const Header = (props) => {
             whileHover={{ scale: 1.1 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <div className={router.pathname == "/store" ? "active icon_container" : "icon_container"} onClick={play}>
+            <div className={router.pathname == "/spark" ? "active icon_container" : "icon_container"} onClick={play}>
 
               <div className='icons'>
                 <div className="text">
