@@ -112,9 +112,9 @@ export default function Family_transactions() {
       <main>
         <div className="container">
           <div className="inner_container ">
-            <h2>Family Wallet Transactions</h2>
+            {/* <h2>Family Wallet Transactions</h2>
             <p> I really like how smooth the animations are in Family Wallet Transactions, so I tried making something similar using GSAP.
-</p>
+</p> */}
 
             <div className="exp">
               <div className="transactions_box">
@@ -144,18 +144,9 @@ export default function Family_transactions() {
               </div>
             </div>
             <div className="controll_button">
-            <button className="button_play" onClick={() => {
-                playAnimation();
-                play();
-              }}>Play</button>
-            <button   className="button_pause" onClick={() => {
-                playAnimation();
-                play();
-              }}>Pause</button>
-            <button  className="button_restart" onClick={() => {
-                playAnimation();
-                playref();
-              }}>Restart</button>
+            <button className="button_play" onClick={playAnimation}>Play</button>
+            <button   className="button_pause" onClick={pauseAnimation}>Pause</button>
+            <button  className="button_restart" onClick={restartAnimation}>Restart</button>
             </div>
           </div>
         </div>
