@@ -8,6 +8,11 @@
   src: url("../fonts/Graphik Regular.otf") format("truetype");
 }
 
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik-Regular.ttf") format("truetype");
+}
+
 
 .center_any_thing{
   position: absolute;
@@ -2782,6 +2787,14 @@ position: relative;
 .awards{
   margin-top: 41px;
 }
+.exp{
+  margin-top: 23px;
+  width: 100%;
+    min-height: 293px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    position: relative;
+}
  .hex {
   width: 43px;
   height: 43px;
@@ -3401,3 +3414,192 @@ height: 100%;
   }
   }
   
+
+  .transactions_box{
+    width:200px;
+    background:#d4f5e5;
+    overflow: hidden;
+    width: 200px;
+    height: 50px;
+    /* border: 1px solid #eee; */
+    left: 50%;
+    top: 50%;
+    border-radius: 34px;
+    position: absolute;
+    
+    transform: translate(-50%, -50%);
+  }
+  .transactions_container{
+    /* transition: all 0.3s ease-in-out; */
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 18px;
+    padding-right: 18px;
+    display: grid; 
+  grid-template-columns:0.1fr 1.2fr; 
+  grid-template-rows: 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". ."; 
+  }
+  /* .safe{
+    background-color: #d4f5e5;
+  } */
+  .transactions_icon,.safe_icon{
+    position: absolute;
+  }
+  .text_transactions{
+    margin-top: 4px;
+   /* position: relative;
+width: 174px;
+   top: -0.3px;
+   right: -110px; */
+   width: 213px;
+   overflow: hidden;
+   
+   text-align: center;
+  }
+  .transactions_parent{
+   
+    position: relative;
+    left: 6px;
+    overflow: hidden;
+  }
+  .transactions_parent span{
+    font-family: Rubik !important;
+    font-weight: 600;
+  }
+.main_text{
+  position: relative;
+  right: 0px;
+  display: inline-block;
+}
+.analyzing{
+  /* display: inline-block; */
+  /* position: relative;
+  top: 0;
+  right: -0px; */
+}
+  .last_text{
+    display: inline-block;
+    position: relative;
+    /* top: 50%; */
+    /* transform: translate(-17%,-47%); */
+    /* right: 0; */
+    /* right: -8px; */
+    /* opacity: 1; */
+    /* margin-right: -20px; */
+    /* margin-left: 0; */
+    top: -19.3px;
+    right: -110px;
+  }
+
+  .safe_icon{
+    position: absolute;
+    top: 10px;;
+    left: 16px;
+  }
+  /* -9px to 10px  */
+
+  .transactions_icon{
+    -webkit-animation: rotation 5s normal linear infinite;
+    animation: rotation 0.5s normal linear infinite;
+    position: absolute;
+    top: -24px;
+    left: 16px;
+  }
+
+  .text_transactions span{
+    color: #00c78e;
+  }
+
+  @keyframes rotation {
+    from {
+       transform: rotate(0deg);
+    }
+    to {
+       transform: rotate(360deg);
+    }
+ }
+.safe_icons{
+  opacity: 0;
+}
+ .safe_icons,.transactions_icons{
+  top: 15px;
+  
+  position: absolute;
+ }
+
+.transactions_icons {
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: rotate 0.3s linear infinite; /* Adjust the duration as needed */
+    transform-origin: center center;
+ }
+
+ @keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.spark {
+  margin-top: 53px;
+}
+.spark  h3 {
+text-decoration: underline;
+}
+
+.light .exp{
+  border:1px solid #ddd
+}
+
+.controll_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+margin-top: 23px;
+}
+
+.button_play{
+  background-color: #d4f5e5;
+  color:#008e49;
+ 
+}
+.button_pause{
+  background-color: #f5d4d4;
+  color:#a95757;
+}
+
+.button_restart{
+  background-color: #f5eed4;
+  color:#a3914f;
+}
+
+.button_play:hover{
+  background-color: #c6e2d4;
+}
+.button_pause:hover{
+  background-color: #f1c1c1;
+}
+.button_restart:hover{
+  background-color: #e6dcb5;
+}
+.controll_button button{
+  transition: all 0.2s ease-in-out;
+  font-weight: 600;
+  font-family: Rubik !important;
+    margin: 0 11px;
+    /* background-color: #efefef; */
+    border-radius: 12px;
+    padding: 10px 20px;
+    /* color: #616161; */
+    border:0
+}
+.controll_button button:hover{
+  cursor: pointer;
+}
