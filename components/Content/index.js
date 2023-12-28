@@ -47,28 +47,29 @@ const MyComponent = () => {
         <div>
           <p>
             A Product Designer & engineer, Dedicated to turning ideas into
-            well-crafted products. Founder of
+            well-crafted products. Founder of{" "} 
             <a href={"/projects/daosspot"} target="_blink">
               DAOs Spot
             </a>
-            OSS contributor at
+            OSS contributor at {""}
             <a href="https://www.developerdao.com/" target="_blink">
-              Developer DAO
+               Developer DAO
             </a>
-            , Creator of
+            , Creator of {" "}
             <a href="https://www.boimagination.com/" target="_blink">
+              
               BOI
             </a>
-            , Focused on
+            , Focused on {" "}
             <span className="web3">
               web3<span id="animation_web3"></span>
             </span>
           </p>
           <p className="callToAction">
             <Link className="aboutme" href={"/projects"}>
-              Inspect my work.
+              Inspect my work
             </Link>
-            or
+            {" "} or {" "}
             <Link className="aboutme" href={"/blogs"}>
               My thoughts
             </Link>
