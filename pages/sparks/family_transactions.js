@@ -3,14 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import useSound from "use-sound";
-import { motion } from "framer-motion";
-// Heavy Colors
-// green : #00c78e
-// blue : #00b2ff
 
-// light color
-// green : #d4f5e5
-// blue : #e0f4ff
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
@@ -84,8 +77,6 @@ export default function Family_transactions() {
   }, {})
   
   
-
-  
   const playAnimation = () => {
     animationRef.current.play();
   };
@@ -113,9 +104,7 @@ export default function Family_transactions() {
         <div className="container">
           <div className="inner_container ">
             <h2>Family Wallet Transactions</h2>
-            <p> I really like how smooth the animations are in Family Wallet Transactions, so I tried making something similar using GSAP.
-</p>
-
+            <p> I really like how smooth the animations are in Family Wallet Transactions, so I tried making something similar using GSAP.</p>
             <div className="exp">
               <div className="transactions_box">
                 <div className="transactions_container">
@@ -148,6 +137,7 @@ export default function Family_transactions() {
             <button   className="button_pause" onClick={pauseAnimation}>Pause</button>
             <button  className="button_restart" onClick={restartAnimation}>Restart</button>
             </div>
+            
           </div>
         </div>
         <Script

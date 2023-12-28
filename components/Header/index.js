@@ -429,7 +429,7 @@ const Header = (props) => {
         </Link>
        
         
-        <Link href={"/spark"}  passHref >
+        <Link href={"/sparks"}  passHref >
           <motion.div
             className="icon_holder"
             initial="initial"
@@ -439,11 +439,11 @@ const Header = (props) => {
             whileHover={{ scale: 1.1 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <div className={router.pathname == "/spark" ? "active icon_container" : "icon_container"} onClick={play}>
+            <div className={router.pathname == "/sparks" ? "active icon_container" : "icon_container"} onClick={play}>
 
               <div className='icons'>
                 <div className="text">
-                  Spark
+                  Sparks
                 </div>
                 <motion.div variants={insta} className="glow"  animate="animate"  whileHover={{ rotate: "20deg" }}>
                   {/* <svg width="15" height="20" viewBox="0 0 61 62" fill="none" xmlns="http://www.w3.org/2000/svg">
