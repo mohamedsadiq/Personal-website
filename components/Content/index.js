@@ -3,6 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import arrow from "../../img/Group 192.svg";
+
+
+import work1 from '../../img/nftweb3.png'
+import work2 from '../../img/nftweb3.png'
+import work3 from '../../img/nftweb3.png'
+
 const MyComponent = () => {
   const [divTop, setDivTop] = useState("68vh"); // Default value for smaller heights
 
@@ -43,6 +49,8 @@ const MyComponent = () => {
           ease: "easeOut",
         }}
       >
+
+     
         <div id="name">Mohamed Sadiq</div>
         <div>
           <p>
@@ -75,6 +83,74 @@ const MyComponent = () => {
             </Link>
           </p>
         </div>
+        <div className="mainContent">
+        <h1>Latest Activity</h1>
+       </div>
+       <div className="mainContent">
+     
+      <div className="hover_project">
+        <a href="">
+        <h1 className="h_m"> Disliked (An AI project) </h1>
+        <video muted={true} autoPlay={true} loop src={"/aiProject.mp4"} style={{ width: "367px", height: "366px" }} />
+        </a>
+      </div>
+        <h1 className="h_home"> Family Wallet Transactions</h1>
+      <video muted={true} autoPlay={true} loop src={"/familyanimation.mov"} style={{ width: "371px", height: "auto" }} />
+      {/* <h1> Customized (An AI project)</h1>
+      <video muted={true} autoPlay={true} loop src={"/aiproject2.mp4"} style={{ width: "200px", height: "auto" }} /> */}
+       
+        <div>
+          
+        </div>
+       </div>
+       {/* <div className="mainContent">
+        <h1>Future Project</h1>
+       </div> */}
+
+<div className="mainContent">
+        <h1>Future Project</h1>
+       </div>
+       <div className="mainContent main_projects">
+     
+      <div className="hover_project">
+        <a href="">
+        <h1 className="h_m">Building On Imagination<span className="arrowspan">↗</span></h1>
+        {/* <video muted={true} autoPlay={true} loop src={"/aiProject.mp4"} style={{ width: "367px", height: "366px" }} /> */}
+        </a>
+      </div>
+        <h1 className=""> DAOs Spot <span className="arrowspan">↗</span></h1>
+        <h1 className=""> DeeveloperDAO FM <span className="arrowspan">↗</span></h1>
+        <h1 className=""> Certifed Web3 Boy <span className="arrowspan">↗</span></h1>
+      {/* <video muted={true} autoPlay={true} loop src={"/familyanimation.mov"} style={{ width: "371px", height: "auto" }} /> */}
+      {/* <h1> Customized (An AI project)</h1>
+      <video muted={true} autoPlay={true} loop src={"/aiproject2.mp4"} style={{ width: "200px", height: "auto" }} /> */}
+       
+        <div>
+          
+        </div>
+       </div>
+       <div className="mainContent ">
+        <h1> Thoughts</h1>
+       </div>
+       <div className="mainContent thoughts">
+     
+      <div className="hover_project">
+        <a href="">
+        <h1 className="h_m">Building On Imagination  <span className="arrowspan">↗</span></h1>
+        <span>January 13, 2024</span>
+        </a>
+      </div>
+       <div className="hover_project">
+        <a href="">
+        <h1 className=""> Intentional Development of Technology: A Path to a Better Future for All. <span className="arrowspan">↗</span></h1>
+         <span>January 13, 2024</span>
+        </a>
+      </div>
+       
+        <div>
+          
+        </div>
+       </div>
       </motion.div>
     </div>
   );

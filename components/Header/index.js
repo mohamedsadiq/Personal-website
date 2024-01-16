@@ -5,7 +5,6 @@ import { motion } from "framer-motion"
 import { useState, useEffect } from 'react';
 // import { useIsSmall } from '../hooks/utils'
 
-
 const useMediaQuery = (query) => {
   const [matches, setMatches] = useState(false);
   
@@ -34,6 +33,30 @@ const useIsSmall = () => useMediaQuery("(max-width:580px)");
 const useIsMedium = () => useMediaQuery("(max-width:768px)");
 
 const Header = (props) => {
+  const router = useRouter();
+
+  const [scrolling, setScrolling] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 0 && !scrolling) {
+      setScrolling(true);
+    } else if (window.scrollY === 0 && scrolling) {
+      setScrolling(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolling]);
+
+  const headerClass =
+    router.pathname === '/' ? (scrolling ? 'scrolled_header' : 'center_header') : 'top_fixed';
+
+
   const isSmall = useIsSmall()
   const isMedium = useIsMedium()
   const isItDarkOrLight = props.modeValue;
@@ -109,7 +132,7 @@ const Header = (props) => {
 
 
   // Sound hook
-  const [play] = useSound("/sound.mp3");
+  const [play] = useSound("");
   const [opacityContent, setOpacityContent] = useState("");
   const [iconsColor, setIconsColor] = useState("#858585");
 
@@ -119,7 +142,7 @@ const Header = (props) => {
 
 
   // Router hook
-  const router = useRouter();
+ 
   // Router hook
   const hex_animaiton = {
     initial: {
@@ -261,7 +284,7 @@ const Header = (props) => {
   }
   return (
     <motion.header
-      className={router.pathname == "/" ? "center_header" : "top_fixed"}
+       className={headerClass}
       whileHover={header_hex.hover}
       transition={{ delay: 0 }}
       initial="initial"
