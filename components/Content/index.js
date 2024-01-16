@@ -86,22 +86,27 @@ const MyComponent = () => {
         <div className="mainContent">
         <h1>Latest Activity</h1>
        </div>
-       <div className="mainContent">
+       <div className="mainContent margin-top">
      
-      <div className="hover_project">
-        <a href="">
-        <h1 className="h_m"> Disliked (An AI project) </h1>
-        <video muted={true} autoPlay={true} loop src={"/aiProject.mp4"} style={{ width: "367px", height: "366px" }} />
+      <div className="hover_project latest_activity_project">
+        <a href="https://twitter.com/sadiq_moo/status/1739593994948989280/video/1" target="_blink">
+        
+        <video muted={true} autoPlay={true} loop src={"/aiProject.mp4"} style={{ width: "376px", height: "376px" }} />
+        <h1 className="h_m"> Disliked </h1>
+        <span>An AI project I am working on</span>
         </a>
       </div>
-        <h1 className="h_home"> Family Wallet Transactions</h1>
-      <video muted={true} autoPlay={true} loop src={"/familyanimation.mov"} style={{ width: "371px", height: "auto" }} />
-      {/* <h1> Customized (An AI project)</h1>
-      <video muted={true} autoPlay={true} loop src={"/aiproject2.mp4"} style={{ width: "200px", height: "auto" }} /> */}
+      <div className="hover_project latest_activity_project">
+      
+      <Link href="/sparks/family_transactions">
+      
+      <video muted={true} autoPlay={true} loop src={"/familyanimation.mov"} style={{ width: "375px", height: "auto" }} />
+      <h1 className="h_home"> Family Wallet Transactions</h1>
+      <span>Made the animation using GASP.js</span>
+      </Link>
+    
+      </div>
        
-        <div>
-          
-        </div>
        </div>
        {/* <div className="mainContent">
         <h1>Future Project</h1>
@@ -112,39 +117,42 @@ const MyComponent = () => {
        </div>
        <div className="mainContent main_projects">
      
-      <div className="hover_project">
-        <a href="">
-        <h1 className="h_m">Building On Imagination<span className="arrowspan">↗</span></h1>
-        {/* <video muted={true} autoPlay={true} loop src={"/aiProject.mp4"} style={{ width: "367px", height: "366px" }} /> */}
+      <div className="hover_project padding-0">
+        <a href="https://www.boimagination.com/" target="_blink">
+          <h1 className="h_m">Building On Imagination<span className="arrowspan">↗</span></h1>
         </a>
       </div>
+
+      <a href="https://daosspot.xyz" target="_blink">
         <h1 className=""> DAOs Spot <span className="arrowspan">↗</span></h1>
+        </a>
+
+        <a href="https://www.developerdaofm.com" target="_blink">
         <h1 className=""> DeeveloperDAO FM <span className="arrowspan">↗</span></h1>
+        </a>
+
+        <a href="https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs" target="_blink">
         <h1 className=""> Certifed Web3 Boy <span className="arrowspan">↗</span></h1>
-      {/* <video muted={true} autoPlay={true} loop src={"/familyanimation.mov"} style={{ width: "371px", height: "auto" }} /> */}
-      {/* <h1> Customized (An AI project)</h1>
-      <video muted={true} autoPlay={true} loop src={"/aiproject2.mp4"} style={{ width: "200px", height: "auto" }} /> */}
-       
-        <div>
-          
-        </div>
+        </a>
+     
+    
        </div>
        <div className="mainContent ">
         <h1> Thoughts</h1>
        </div>
        <div className="mainContent thoughts">
      
-      <div className="hover_project">
-        <a href="">
+      <div className="hover_project  padding-0">
+        <Link href="blog/building-on-imagination">
         <h1 className="h_m">Building On Imagination  <span className="arrowspan">↗</span></h1>
         <span>January 13, 2024</span>
-        </a>
+        </Link>
       </div>
        <div className="hover_project">
-        <a href="">
+        <Link href="blog/reflections-on-the-role-of-Intentionality">
         <h1 className=""> Intentional Development of Technology: A Path to a Better Future for All. <span className="arrowspan">↗</span></h1>
          <span>January 13, 2024</span>
-        </a>
+        </Link>
       </div>
        
         <div>
