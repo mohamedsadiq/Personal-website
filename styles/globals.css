@@ -284,14 +284,7 @@ body p, body h1, body h2, body h3, body h4, body h5, body h6, body span{
   transition: all 0.3s ease-in-out ;
 }
 
-.latest_activity_project{
- 
-  background-color: #0d0d0d;
-  margin-bottom: 17px;
-  border-radius: 14px;
-  padding: 22px !important;
-  border: 1px solid #1f1f1f;
-}
+
 .theBody{
   display: flex;
     justify-content: center;
@@ -3624,7 +3617,13 @@ width: 174px;
 }
 .spark  h3 {
 text-decoration: underline;
+color: #eee;
 }
+
+.light .spark  h3 {
+  /* text-decoration: underline; */
+  color: #000;
+  }
 
 .light .exp{
   border:1px solid #ddd
@@ -3773,10 +3772,20 @@ color: #000;
   width: 100%;
   height: 100%;
 }
-
-
+.latest_activity_project{
+ 
+  background-color: #0d0d0d;
+  margin-bottom: 17px;
+  border-radius: 14px;
+  padding: 22px !important;
+  border: 1px solid #1f1f1f;
+  transition: all 0.3s ease-in-out ;
+}
+a, span{
+  transition: all 0.3s ease-in-out ;
+}
 .light .latest_activity_project{
   background-color: #fafafa;
     border: 1px solid #eee;
-    transition: all 0.3s ease-in-out ;
+    
 }
