@@ -18,7 +18,9 @@ export default function Home() {
         
       </Head>
       <main>
+        
        <Content />
+      
       </main>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW"
