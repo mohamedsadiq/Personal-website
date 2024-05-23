@@ -3789,3 +3789,28 @@ a, span{
     border: 1px solid #eee;
     
 }
+.iconImageProject{
+  width: 45px;
+    position: relative;
+    left: 0;
+    top: 13px;
+}
+.links_home{
+  color:#000
+}
+.links_home{
+  margin: 0;
+}
+.links_home li:first-child{
+  margin-top: 0;
+}
+.links_home li a:hover{
+  opacity: 0.6;
+}
+.links_home li a{
+  margin-top: 4px;
+}
+ul li{
+  display: inline-block;
+  margin-right: 16px;
+}

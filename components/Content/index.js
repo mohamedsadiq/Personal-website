@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 import arrow from "../../img/Group 192.svg";
 
 
-import work1 from '../../img/nftweb3.png'
-import work2 from '../../img/nftweb3.png'
-import work3 from '../../img/nftweb3.png'
+import work1 from '../../img/boidddd.svg'
+import work2 from '../../img/daosspoticon.svg'
+import work3 from '../../img/developerdaofm.svg'
 
 const MyComponent = () => {
   const [divTop, setDivTop] = useState("68vh"); // Default value for smaller heights
@@ -57,14 +57,14 @@ const MyComponent = () => {
             A Product Designer & engineer, Dedicated to turning ideas into
             well-crafted products. Founder of{" "} 
             <a href={"/projects/daosspot"} target="_blink">
-              DAOs Spot
-            </a>
+               DAOs Spot
+            </a>  {" "}
             OSS contributor at {""}
             <a href="https://www.developerdao.com/" target="_blink">
                Developer DAO
             </a>
             , Creator of {" "}
-            <a href="https://www.boimagination.com/" target="_blink">
+            <a href="https://www.boimaginations.com/" target="_blink">
               
               BOI
             </a>
@@ -83,6 +83,17 @@ const MyComponent = () => {
             </Link>
           </p>
         </div>
+        <div className="mainContent">
+        <h1>Social media</h1>
+       </div>
+       <div className="mainContent margin-top">
+        <ul className="links_home">
+          <li> <a href="https://dribbble.com/Mohamed-Sadiq" target="_blink">Dribbble</a> </li>
+          <li> <a href="https://layers.to/mohamed.sadiq" target="_blink">Layers</a> </li>
+          <li> <a href="https://github.com/mohamedsadiq" target="_blink">Github</a> </li>
+          <li> <a href="https://x.com/sadiq_moo" target="_blink">X (Twitter)</a> </li>
+        </ul>
+       </div>
         <div className="mainContent">
         <h1>Latest Activity</h1>
        </div>
@@ -112,28 +123,30 @@ const MyComponent = () => {
         <h1>Future Project</h1>
        </div> */}
 
+
 <div className="mainContent">
         <h1>Future Project</h1>
        </div>
        <div className="mainContent main_projects">
      
       <div className="hover_project padding-0">
-        <a href="https://www.boimagination.com/" target="_blink">
-          <h1 className="h_m">Building On Imagination<span className="arrowspan">↗</span></h1>
+        <a href="https://www.boimaginations.com/" target="_blink">
+          <h1 className="h_m">Building On Imagination <span className="arrowspan">↗</span></h1>
         </a>
       </div>
-
-      <a href="https://daosspot.xyz" target="_blink">
+      <div className="hover_project padding-0">
+      <a href="https://daospot.xyz" target="_blink">
         <h1 className=""> DAOs Spot <span className="arrowspan">↗</span></h1>
         </a>
-
-        <a href="https://www.developerdaofm.com" target="_blink">
+        </div>
+        <div className="hover_project padding-0">
+        <a href="https://www.developerdaofm.xyz" target="_blink">
         <h1 className=""> DeeveloperDAO FM <span className="arrowspan">↗</span></h1>
         </a>
-
-        <a href="https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs" target="_blink">
+        </div>
+        {/* <a href="https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs" target="_blink">
         <h1 className=""> Certifed Web3 Boy <span className="arrowspan">↗</span></h1>
-        </a>
+        </a> */}
      
     
        </div>
@@ -159,6 +172,7 @@ const MyComponent = () => {
           
         </div>
        </div>
+      
       </motion.div>
     </div>
   );
