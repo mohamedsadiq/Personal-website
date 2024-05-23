@@ -161,12 +161,12 @@ const MyComponent = () => {
         <span>January 13, 2024</span>
         </Link>
       </div>
-       <div className="hover_project">
+       {/* <div className="hover_project">
         <Link href="blog/reflections-on-the-role-of-Intentionality">
         <h1 className=""> Intentional Development of Technology: A Path to a Better Future for All. <span className="arrowspan">↗</span></h1>
          <span>January 13, 2024</span>
         </Link>
-      </div>
+      </div> */}
        
         <div>
           
