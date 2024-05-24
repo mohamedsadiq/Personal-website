@@ -3252,8 +3252,11 @@ cursor: pointer;
   .blog_overlay h1{
     font-size: 0.8rem;
   }
+  
   .mainContent video{
-    width: 307px !important;
+    width: 281px !important;
+    border: 0;
+    border: none !important;
   }
   .class_body {
     height: 2404px !important;
@@ -3813,8 +3816,12 @@ a, span{
 .links_home{
   color:#000
 }
+#links_home{
+  padding:0;
+}
 .links_home{
   margin: 0;
+  padding:0;
 }
 .links_home li:first-child{
   margin-top: 0;
