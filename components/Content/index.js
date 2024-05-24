@@ -86,7 +86,7 @@ const MyComponent = () => {
         <div className="mainContent">
         <h1>Social media</h1>
        </div>
-       <div className="mainContent margin-top">
+       <div className="mainContent margin-top " id="links_home">
         <ul className="links_home">
           <li> <a href="https://dribbble.com/Mohamed-Sadiq" target="_blink">Dribbble</a> </li>
           <li> <a href="https://layers.to/mohamed.sadiq" target="_blink">Layers</a> </li>
@@ -107,7 +107,7 @@ const MyComponent = () => {
         <span>An AI project I am working on</span>
         </a>
       </div>
-      <div className="hover_project latest_activity_project">
+      {/* <div className="hover_project latest_activity_project">
       
       <Link href="/sparks/family_transactions">
       
@@ -116,7 +116,7 @@ const MyComponent = () => {
       <span>Made the animation using GASP.js</span>
       </Link>
     
-      </div>
+      </div> */}
        
        </div>
        {/* <div className="mainContent">
