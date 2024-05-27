@@ -249,6 +249,18 @@ body p, body h1, body h2, body h3, body h4, body h5, body h6, body span{
   background-color: #efefef;
   color: #a8a8a8;
 }
+.dark .key_nav_button{
+  color: #fff;
+}
+.dark .key_nav_button {
+  color: #fff;
+}
+.dark .key_nav h3,.dark  .key_nav_content .elements .element{
+  color:#fff
+}
+.dark .text_blog h4{
+  color: #fff;
+}
 .number_element span{
   background: #a8a8a8;
 }
