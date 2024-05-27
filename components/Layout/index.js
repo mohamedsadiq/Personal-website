@@ -36,6 +36,14 @@ const Layout = ({ children }) => {
   const clonedChildren = React.Children.map(displayChildren, child =>
     React.cloneElement(child, { mode })
   );
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("mode", mode);
+      document.body.style.backgroundColor = mode === "dark" ? "#000" : "#fff"; // Update body background color
+      document.body.style.color = mode === "dark" ? "#000" : "#fff"; // Update body text color
+    }
+  }, [mode]);
   // console.log(clonedChildren[1].props.mode)
   return (
     <div className={mode + " theBody"}>

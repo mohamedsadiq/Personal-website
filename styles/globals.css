@@ -23,7 +23,10 @@ html{
   transform: translate(-50%, -50%);
 }
 .light{
-  background-color: #FDFDFD !important;
+  background-color: #fff !important;
+}
+.dark{
+  background-color: #000;
 }
 body p, body h1, body h2, body h3, body h4, body h5, body h6, body span{
   font-family: 'Graphik' !important;
@@ -3872,6 +3875,7 @@ a, span{
 .light .links_home svg{
   color: #000;
 }
+
 .light .links_home svg{
   color: #fff;
 }
