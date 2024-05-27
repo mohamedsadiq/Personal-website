@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+
 import Header from "../Header";
 import KeyNav from "../keyNav";
 
@@ -32,6 +33,10 @@ const Layout = ({ children }) => {
     }
   }, [mode]);
 
+  const clonedChildren = React.Children.map(displayChildren, child =>
+    React.cloneElement(child, { mode })
+  );
+  // console.log(clonedChildren[1].props.mode)
   return (
     <div className={mode + " theBody"}>
       <Header modeValue={mode} setMode={setMode} />
@@ -45,7 +50,7 @@ const Layout = ({ children }) => {
         }}
         className={`${contents} ${transitionStage}`}
       >
-        {displayChildren}
+        {clonedChildren}
       </div>
       <KeyNav />
     </div>

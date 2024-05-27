@@ -656,7 +656,11 @@ header{
   width: 100%;
   height: 100%;
   position: absolute;
+  /* transition: all 0.3s ease-in-out ; */
 }
+/* .glow:hover{
+  height: 120%;
+} */
 
 
 .content_animete{
@@ -693,8 +697,11 @@ header{
   scale: 1;
  
 }
+.req{
+  color:#989898
+}
 .class_body{
-  height: 2518px;
+  height: 2300px;
 }
 .main_projects h1{
   margin-bottom: 4px;
@@ -857,6 +864,39 @@ backface-visibility: hidden;
   animation-iteration-count: infinite;
 }
 
+.workbutton{
+  background-color: #fff;
+  color:#000;
+
+    border: 0;
+    padding: 10px;
+    border-radius: 23px;
+    padding:14px 34px;
+    border: 1px solid #818181;
+    box-shadow: inset 0px 7px 16px 3px #9c9c9c;
+    font-family: 'Graphik' !important;
+    font-weight: 900;
+    transition: all 0.3s ease-in-out;
+}
+a.calltoation{
+  margin: 0;
+}
+.workbutton:hover{
+  /* background: #4e4e4e; */
+  cursor: pointer;
+  border: 1px solid #818181;
+  box-shadow: inset 0px 0px 10px 0px #9c9c9c;
+}
+.light .workbutton{
+ 
+  background: #000;
+    color: #fff;
+}
+#workbutton{
+  /* width: 10px;
+  height: 10px;
+  background-color: green; */
+}
 
 .dot_active{
   /* display: block; */
@@ -3342,7 +3382,7 @@ cursor: pointer;
   @media only screen and (max-width:1424px) {
   
   .class_body{
-    height: 2100px;
+    height: 1777px;
   }
   }
 
@@ -3749,16 +3789,15 @@ color: #000;
 }
 .mainContent .padding-0{
   /* padding: 0  !important; */
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
   /* background-color: #000; */
   padding: 10px; line-height: 25px;border-radius: 13px;    padding-top: 6px;
 }
-.light .mainContent .padding-0:hover{
+/* .light .mainContent .padding-0:hover{
   background-color: #eee;
-}
-.mainContent .padding-0:hover{
-  background-color: #1e1e1e;
-  cursor: pointer;
+} */
+.mainContent .padding-0:hover a{
+  opacity: 0.5;
 }
 .mainContent .padding-0 a:hover{
 
@@ -3813,15 +3852,28 @@ a, span{
     left: 0;
     top: 13px;
 }
-.links_home{
-  color:#000
+.links_home svg{
+  margin-right: 25px;
+  transition: all 0.1s ease-in-out;;
+  /* padding: 10px; */
+  
+}.links_home svg:hover{
+  opacity: 0.5;
 }
-#links_home{
-  padding:0;
+.mainContent .links_home a{
+  display: inline-block !important
 }
+
 .links_home{
   margin: 0;
   padding:0;
+  margin-top: 5px;
+}
+.light .links_home svg{
+  color: #000;
+}
+.light .links_home svg{
+  color: #fff;
 }
 .links_home li:first-child{
   margin-top: 0;
@@ -3835,4 +3887,11 @@ a, span{
 ul li{
   display: inline-block;
   margin-right: 16px;
+}
+
+
+@media only screen and (min-width:375) {
+    .class_body {
+      height: 2239px !important;
+  }
 }
