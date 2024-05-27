@@ -3892,7 +3892,10 @@ a, span{
 .links_home{
   margin: 0;
   padding:0;
-  margin-top: 5px;
+  /* margin-top: 5px; */
+}
+.light .goods_inner h2{
+  color:#fff
 }
 .light .links_home svg{
   color: #000;

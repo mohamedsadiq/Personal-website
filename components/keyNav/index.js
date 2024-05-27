@@ -30,7 +30,7 @@ const KeyNav = () => {
   }
   const page5 = () => {
     play()
-    router.push('/store');
+    router.push('/sparks');
    
   }
   const page6 = () => {
@@ -122,7 +122,7 @@ const KeyNav = () => {
                 <path d="M60.8493 52.0444L54.2141 17.1589H47.777V10.1705C47.777 4.56247 43.212 0 37.6006 0H23.3989C17.7877 0 13.2226 4.56235 13.2226 10.1705V17.1589H6.78547L0.150257 52.0444C-0.832712 57.2132 3.13192 62 8.39664 62H52.6038C57.8681 62 61.8327 57.2132 60.8497 52.0444H60.8493ZM41.988 17.1589H19.0116V10.1705C19.0116 7.75278 20.9798 5.78569 23.3989 5.78569H37.6006C40.0197 5.78569 41.988 7.75278 41.988 10.1705V17.1589Z" fill="#858585" />
               </svg>
             </div>
-            <div className="title_element">Store</div>
+            <div className="title_element">Sparks</div>
             <div className="number_element">
               <span>5</span>
             </div>
