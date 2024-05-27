@@ -54,9 +54,9 @@ export default function About() {
         
             <ul>
              
-              <li><strong><a  target='blink' href=' https://www.producthunt.com/products/developer-dao-fm'>Top Product on Product Hunt</a></strong>: <a href='https://www.developerdaofm.com/' target='blink'>'DeveloperDAO FM'</a> is a project I initiated as an Early Contributor at DeveloperDao, combines coding and music. I designed and coded the entire website, providing a unique coding experience. It also increased brand awareness for DeveloperDAO. <a href='https://www.developerdaofm.com/' target="_blink">Check it out here</a></li>
+              <li><strong><a  target='blink' href=' https://www.producthunt.com/products/developer-dao-fm'>Top Product on Product Hunt</a></strong>: <a href='https://www.developerdaofm.xyz/' target='blink'>'DeveloperDAO FM'</a> is a project I initiated as an Early Contributor at DeveloperDao, combines coding and music. I designed and coded the entire website, providing a unique coding experience. It also increased brand awareness for DeveloperDAO. <a href='https://www.developerdaofm.com/' target="_blink">Check it out here</a></li>
              
-              <li><a  target='blink' href='https://www.producthunt.com/products/daos-spot'><strong>4th product of the week in the web3 category</strong></a> As an enthusiastic member of the DAO community, I initiated <a href='https://www.daosspot.xyz/' target='blink'>'DAOs Spot'</a> to offer a comprehensive hub for exploring the world of Decentralized Autonomous Organizations (DAOs). I curated and developed the entire platform to provide users with an immersive experience into the realm of decentralized governance.</li>
+              <li><a  target='blink' href='https://www.producthunt.com/products/daos-spot'><strong>4th product of the week in the web3 category</strong></a> As an enthusiastic member of the DAO community, I initiated <a href='https://www.daospot.xyz/' target='blink'>'DAOs Spot'</a> to offer a comprehensive hub for exploring the world of Decentralized Autonomous Organizations (DAOs). I curated and developed the entire platform to provide users with an immersive experience into the realm of decentralized governance.</li>
             </ul>
               </div>
             
@@ -97,7 +97,7 @@ export default function About() {
               
                 <li>  <a target="_blink" href='https://dribbble.com/Mohamed-Sadiq'>Dribbble</a></li>
                 <li>  <a target="_blink" href='https://www.producthunt.com/@m_bronz0'>Product Hunt</a></li>
-                <li>  <a target="_blink" href='https://www.behance.net/mohamed_sadiq'>Behance.net</a></li>
+                <li>  <a target="_blink" href='https://www.behance.net/mohamed_sadiq'>Behance</a></li>
               </ul>
               </div>
               <div className='open_to_work'>
