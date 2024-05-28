@@ -484,7 +484,7 @@ a {
  position: relative;
 }
 .inner_container p{
-  line-height: 18px;
+  line-height: 28px;
     color: #b1b1b1;
     font-size: 1rem;
 
@@ -2167,6 +2167,9 @@ backdrop-filter: blur(41.6033px);
   margin-top: 27px;
   font-size: 0.9rem;
 }
+.dark .projects_tags span{
+  background-color: #fff;
+}
 .projects_tags span{
   background-color: #202020;
   padding: 7px;
@@ -2184,7 +2187,7 @@ backdrop-filter: blur(41.6033px);
 .light .projects_tags span{
   background-color: #eee;
   color: #000;
-  border: 1px solid #eeeeee;
+  /* border: 1px solid #eeeeee; */
 }
 .light .footer_projects_content h2{
   color: #000;
