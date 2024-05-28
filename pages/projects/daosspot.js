@@ -41,7 +41,7 @@ const DeveloperDAO = () => {
           <div className="inner_container inner_container_mobile">
             <WorkIntro
               title={"DeveloperDao"}
-              link={"https://www.daosspot.xyz/"}
+              link={"https://www.daospot.xyz/"}
             />
              <div className="project_title">
              <h1>DAOs Spot</h1>
@@ -67,7 +67,7 @@ const DeveloperDAO = () => {
               <a
                 className="projectLink"
                 target="_blink"
-                href="https://www.daosspot.xyz/"
+                href="https://www.daospot.xyz/"
               >
                 {" "}
                 Visit Live ↗
@@ -181,7 +181,7 @@ const DeveloperDAO = () => {
           </div>
           <WorkIntro
             title={"DeveloperDao"}
-            link={"https://www.daosspot.xyz/"}
+            link={"https://www.daospot.xyz/"}
           />
         </div>
       </main>

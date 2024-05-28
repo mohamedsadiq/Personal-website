@@ -25,7 +25,7 @@ const DeveloperDAO = () => {
           <div className="inner_container inner_container_mobile">
             <WorkIntro
               title={"DeveloperDAO FM"}
-              link={"https://www.developerdaofm.com/"}
+              link={"https://www.developerdaofm.xyz/"}
             />
             <h1>DeveloperDAO FM</h1>
             <p>A place where you listen to music while building cool stuff. <span className="dateProject">-  Jul 2022 </span></p>
@@ -48,7 +48,7 @@ const DeveloperDAO = () => {
               <a
                 className="projectLink"
                 target="_blink"
-                href="https://www.developerdaofm.com/"
+                href="https://www.developerdaofm.xyz/"
               >
                 {" "}
                 Visit Live ↗
@@ -202,7 +202,7 @@ const DeveloperDAO = () => {
             <div className="projects_link">
               <h3>Links</h3>
               <ul>
-                <a href="https://www.developerdaofm.com/">
+                <a href="https://www.developerdaofm.xyz/">
                   <li>DeveloperDAO FM Website</li>
                 </a>
                 <a href="https://www.producthunt.com/products/developer-dao-fm">
