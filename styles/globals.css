@@ -889,19 +889,20 @@ backface-visibility: hidden;
 .workbutton{
   background-color: #fff;
   color:#000;
-
+  margin-top: -2px;
     border: 0;
     padding: 10px;
     border-radius: 23px;
-    padding:14px 34px;
+    padding:11px 25px;
     border: 1px solid #818181;
     box-shadow: inset 0px 7px 16px 3px #9c9c9c;
     font-family: 'Graphik' !important;
     font-weight: 900;
     transition: all 0.3s ease-in-out;
 }
-a.calltoation{
+.mainContent a.calltoation{
   margin: 0;
+  display: inline-block !important;
 }
 .workbutton:hover{
   /* background: #4e4e4e; */
@@ -2753,7 +2754,9 @@ position: relative;
   background-size: cover;
 
 }
-
+.mainContent .padding-0{
+  padding-left: 0 !important;
+}
 
 .lgith .item2,
 .light .item3,
@@ -2965,6 +2968,9 @@ position: relative;
    
     padding-left: 10px !important;
    
+}
+.home_text_front{
+  padding-left:12px
 }
 .margin-top{
   margin-top: 20px !important;
@@ -3429,7 +3435,7 @@ cursor: pointer;
   @media only screen and (max-width:1424px) {
   
   .class_body{
-    height: 1777px;
+    height: 1847px;
   }
   }
 

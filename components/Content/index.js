@@ -64,7 +64,7 @@ const svgColorsFun = () => {
         }}
       >
         <div id="name">Mohamed Sadiq</div>
-        <div>
+        <div className="home_text_front">
           <p>
             A Product Designer & engineer, Dedicated to turning ideas into
             well-crafted products. Founder of{" "} 
