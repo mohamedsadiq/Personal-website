@@ -900,6 +900,9 @@ backface-visibility: hidden;
     font-weight: 900;
     transition: all 0.3s ease-in-out;
 }
+.home_text_front{
+  padding-left: 12px;
+}
 .mainContent a.calltoation{
   margin: 0;
   display: inline-block !important;
