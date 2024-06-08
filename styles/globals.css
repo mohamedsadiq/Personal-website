@@ -1227,6 +1227,9 @@ color: rgb(250, 200, 17);
   margin-bottom: 25px;
   transition: all 0.3s ease-in-out;
 }
+.inner_container .overlay p{
+  line-height: 19px;
+}
 .inner_stack .block:hover{
   background: linear-gradient(rgb(255, 255, 255),#ffffff) padding-box, linear-gradient(to bottom, #282828, #191919) border-box;
  
@@ -3087,6 +3090,7 @@ position: relative;
     line-height: 246x;
     font-size: 1rem;
 }
+
   .blog_overlay h1{
     font-size: 0.9rem;
   }
@@ -3850,7 +3854,10 @@ color: #000;
   /* padding: 0  !important; */
   transition: all 0.1s ease-in-out;
   /* background-color: #000; */
-  padding: 10px; line-height: 25px;border-radius: 13px;    padding-top: 6px;
+  padding: 10px; line-height: 25px;border-radius: 13px;    padding-top: 0;
+}
+.mainContent .padding-0:first-child{
+  padding-top: 6px;
 }
 /* .light .mainContent .padding-0:hover{
   background-color: #eee;
