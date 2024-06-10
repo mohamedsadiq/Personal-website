@@ -485,9 +485,15 @@ a {
 }
 .inner_container p{
   line-height: 28px;
-    color: #b1b1b1;
+    color: #6f6f6f;
     font-size: 1rem;
+}
 
+.dark .inner_container p{
+  color: #cbcbcb;
+}
+.light .inner_container p{ 
+    color: #6f6f6f;
 }
 .work_deatil{
   display: grid;
@@ -1599,9 +1605,7 @@ color: rgb(250, 200, 17);
     line-height: 28px;
     font-weight: 400;
 }
-.light p{
-  color: #515151;
-}
+
 .blog_overlay h1{
   margin: 0;
   font-size: 1.2rem;
@@ -3826,18 +3830,13 @@ color: #000;
   margin-left: 2px;
   /* width: 10px; */
 }
-.h_home{
-  /* margin-top: 36px; */
-}
+
 .mainContent .padding-0 a:hover{
   opacity: 1;
 }
-/* .hover_project .h_m{
-  margin-top: 0;
- 
-} */
+
 .hover_project h1{
-  /* margin-top: 13px !important; */
+ 
   margin-bottom: 0;
 }
 .margin-top{
