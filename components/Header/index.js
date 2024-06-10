@@ -286,8 +286,8 @@ const Header = (props) => {
        className={headerClass}
       whileHover={header_hex.hover}
       transition={{ delay: 0 }}
-      initial="initial"
-      animate="animate"
+      initial={{ filter: "blur(10px)" }}
+      animate={{filter: "blur(0px)" }}
       variants={header_hex}
     >
       <div className='inner_header'>
