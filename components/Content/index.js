@@ -56,7 +56,8 @@ const svgColorsFun = () => {
       style={{top:divTop}}>
       <motion.div
         className="content_animete"
-        animate={{ opacity: 1, top: 73 }}
+        animate={{ opacity: 1, top: 73,filter: "blur(0px)" }}
+        initial={{ filter: "blur(10px)" }}
         transition={{
           duration: 0.5,
           delay: 1,
