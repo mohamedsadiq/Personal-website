@@ -44,7 +44,7 @@ const Layout = ({ children }) => {
       document.body.style.color = mode === "dark" ? "#000" : "#fff"; // Update body text color
     }
   }, [mode]);
-  // console.log(clonedChildren[1].props.mode)
+  
   return (
     <div className={mode + " theBody"}>
       <Header modeValue={mode} setMode={setMode} />

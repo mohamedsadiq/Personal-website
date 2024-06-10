@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import useSound from 'use-sound';
 import { motion } from "framer-motion"
 import { useState, useEffect } from 'react';
-// import { useIsSmall } from '../hooks/utils'
 
 const useMediaQuery = (query) => {
   const [matches, setMatches] = useState(false);
