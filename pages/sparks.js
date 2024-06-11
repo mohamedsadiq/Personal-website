@@ -26,12 +26,12 @@ const Sparks = () =>{
                 </div> */}
                 <h1>Sparks</h1>
                 <div>
-                  {/* <Link href="sparks/family_transactions" passHref>
+                  <Link href="sparks/family_transactions" passHref>
                     <div className="spark">
                       <h3>Family Wallet Transactions</h3>
                       <p>I really like how smooth the animations are in Family Wallet Transactions, so I tried making something similar using GSAP.</p>
                     </div>
-                  </Link> */}
+                  </Link>
                 </div>
                 {/* <a href="https://mohamedsadiq.gumroad.com/l/iconsii" target="_blink">
                 <div  className="blocks_aes">

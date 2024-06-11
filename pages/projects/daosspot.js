@@ -156,7 +156,7 @@ const DeveloperDAO = () => {
           </div>
         </div>
 
-        <div className="container ">
+        {/* <div className="container ">
           <div className="footer_projects"></div>
           <div className="footer_projects_content">
             <h2> Want a deeper dive?</h2>
@@ -183,7 +183,7 @@ const DeveloperDAO = () => {
             title={"DeveloperDao"}
             link={"https://www.daospot.xyz/"}
           />
-        </div>
+        </div> */}
       </main>
     </div>
   );
