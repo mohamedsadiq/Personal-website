@@ -15,6 +15,34 @@
 html{
   background-color: #fff;
 }
+.contents {
+  transition: opacity 0.9s ease-in-out, filter 0.9s ease-in-out;
+  opacity: 1;
+  filter: blur(0px);
+}
+
+.contents.fadeOut {
+  opacity: 0;
+  filter: blur(5px); /* Adjust blur amount as needed */
+}
+
+.contents.fadeIn {
+  opacity: 1;
+  filter: blur(0px);
+}
+.inner_container_sparks{
+  margin-top: 0 !important;
+}
+
+ .inner_container_sparks h2{
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+.container .inner_container_sparks p{
+  font-size: 0.9rem;
+  line-height: 25px;
+}
 
 .center_any_thing{
   position: absolute;
@@ -1100,12 +1128,14 @@ color: rgb(250, 200, 17);
   
 }
 .inner_container h2{
-  font-size: 1.7rem;
+  /* font-size: 1.7rem; */
   color: #fff;
   margin-bottom: 16px;
   /* font-weight: 100; */
   /* margin-top: 10px; */
 }
+
+
 .project_img_des{
   display: block;
   text-align: center;
@@ -2908,7 +2938,7 @@ position: relative;
   margin-top: 23px;
   width: 100%;
     min-height: 293px;
-    border-radius: 10px;
+    border-radius: 4px;
     border: 1px solid #333;
     position: relative;
 }

@@ -86,7 +86,7 @@ const svgColorsFun = () => {
               web3<span id="animation_web3"></span>
             </span>
           </p>
-          <p className="callToAction">
+          {/* <p className="callToAction">
             <Link className="aboutme" href={"/projects"}>
               Inspect my work
             </Link>
@@ -94,7 +94,7 @@ const svgColorsFun = () => {
             <Link className="aboutme" href={"/blogs"}>
               My thoughts
             </Link>
-          </p>
+          </p> */}
         </div>
        
        <div className="mainContent">
