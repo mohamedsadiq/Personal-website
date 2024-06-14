@@ -150,13 +150,21 @@ const svgColorsFun = () => {
        <div className="mainContent margin-top">
      
       <div className="hover_project latest_activity_project">
-        <a href="https://twitter.com/sadiq_moo/status/1739593994948989280/video/1" target="_blink">
+        <a href="https://x.com/sadiq_moo/status/1739593994948989280/video/1" target="_blink">
         
         <video muted={true} autoPlay={true} loop src={"/aiProject.mp4"} style={{ width: "376px", height: "376px" }} />
         <h1 className="h_m"> Disliked </h1>
         <span>An AI project I am working on</span>
         </a>
       </div>
+      {/* <div className="hover_project latest_activity_project">
+        <a href="https://x.com/sadiq_moo/status/1801041351796019592" target="_blink">
+        
+        <video muted={true} autoPlay={true} loop src={"/scroll.mov"} style={{ width: "376px", height: "376px" }} />
+        <h1 className="h_m"> Scrolling </h1>
+        <span>Widget Scrolling</span>
+        </a>
+      </div> */}
       
       {/* <div className="hover_project latest_activity_project">
       
@@ -204,7 +212,7 @@ const svgColorsFun = () => {
        <div className="mainContent margin-top " id="links_home">
        <a  className="calltoation" href="mailto:mohamed.sadiq@outlook.sa"><button className="workbutton"> <span id="workbutton"></span> Reach To Me</button></a>
        </div>
-      
+     
       </motion.div>
     </div>
     
