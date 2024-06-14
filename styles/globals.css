@@ -4106,11 +4106,12 @@ ul li{
 }
 
 .dotsForScrolling {
-  position: absolute;
-  right: 32%;
-  z-index: 1000;
-  top: 49%;
-  transform: translate(-50%, -26%);
+  position: relative;
+    right: -402px;
+    z-index: 1000;
+    top: 49%;
+    transform: translate(-50%, -26%);
+    display: inline-block;
 }
 
 .dotsForScrolling .dot {
@@ -4131,21 +4132,46 @@ ul li{
 }
 
 
-@media only screen and (max-width:499px) {
+@media only screen and (max-width:619px) {
   .dotsForScrolling {
     
-    right: 27%;
+    right:-70%;
    
 }
 
+} 
+
+@media only screen and (max-width:494px) {
+  .dotsForScrolling {
+    
+    right:-74%;
+   
 }
 
+} 
 
-@media only screen and (max-width:375px) {
+@media only screen and (max-width:431px) {
+  .dotsForScrolling {
+    
+    right:-74%;
+   
+}
+
+} 
+@media only screen and (max-width:425px) {
+  .dotsForScrolling {
+    
+    right:-83%;
+   
+}
+
+} 
+
+/* @media only screen and (max-width:375px) {
   .dotsForScrolling {
     
     right: 17% !important;
    
 }
 
-}
+} */
