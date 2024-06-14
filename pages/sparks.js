@@ -25,11 +25,12 @@ const Sparks = () =>{
                             <span><Link href="/store">Store</Link> </span>
                 </div> */}
                 <h1>Sparks</h1>
+                {/* <p>soon</p> */}
                 <div>
-                  <Link href="sparks/family_transactions" passHref>
+                  <Link href="sparks/scroll" passHref>
                     <div className="spark">
-                      <h3>Family Wallet Transactions</h3>
-                      <p>I really like how smooth the animations are in Family Wallet Transactions, so I tried making something similar using GSAP.</p>
+                      <h3>Scrolling</h3>
+                      <p>Widget Scrolling.</p>
                     </div>
                   </Link>
                 </div>

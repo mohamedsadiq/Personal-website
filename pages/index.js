@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Script from 'next/script'
 import { useState, useEffect,useRef } from "react";
-
+import Footer from '../components/Footer'
 import Content from '../components/Content'
 export default function Home(props) {
   const modeOfThePc = props.mode;
@@ -31,7 +31,7 @@ export default function Home(props) {
       <main>
         
        <Content valueOfMode={props.mode} />
-      
+     
       </main>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW"
