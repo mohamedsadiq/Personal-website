@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import useSound from "use-sound";
-import BackButton from "../../components/BackButton";
+import BackButton from "../../components/backButton";
 
 export default function FamilyTransactions() {
   const widgetRef = useRef(null);
