@@ -238,6 +238,7 @@ body p, body h1, body h2, body h3, body h4, body h5, body h6, body span{
   backdrop-filter: blur(5px);
   width: 100%;
   height: clamp(80px, 10vh, 200px);
+  transition: all 0.3s ease-in-out ;
 }
 .top_blur{
   position: fixed;
@@ -2254,6 +2255,13 @@ backdrop-filter: blur(41.6033px);
    font-size: 0.9rem;
 
 }
+.video-loader{
+  width: 290%;
+  height: 287px;
+  background-color: #000;
+  filter: blur(26px);
+  transition: all 0.3s ease-in-out;
+}
 .footer_projects_content ul li a{
   text-decoration: underline;
 }
@@ -3774,6 +3782,42 @@ width: 174px;
 text-decoration: underline;
 color: #eee;
 }
+.spark_block{
+  overflow: hidden;
+    border-radius: 32px;
+    transition: all 0.2s ease-in-out;
+}
+.spark_block:hover{
+  opacity: 0.8;
+}
+.spark {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px; /* Adjust the gap between each block */
+}
+.spark_info{
+  position: absolute;
+    bottom: 0;
+    padding: 22px;
+}
+.inner_container_spark{
+  margin-top: 0;
+}
+
+.spark_title{
+  color: #000000;
+}
+
+.spark_dec{
+  font-size: 0.9rem;
+  margin-top: 9px;
+  color: #868686;
+}
+.spark_block {
+  width: 100%;
+  height: 99%;
+}
+
 
 .light .spark  h3 {
   /* text-decoration: underline; */
