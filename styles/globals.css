@@ -229,7 +229,30 @@ body p, body h1, body h2, body h3, body h4, body h5, body h6, body span{
 }
 .light .about_me ul li{
   color: #5e5e5e;
- 
+}
+.blur{
+  position: fixed;
+  bottom: 0px;
+  pointer-events: none;
+  mask-image: linear-gradient(to top, rgb(0, 0, 0) 25%, transparent);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  height: clamp(80px, 10vh, 200px);
+}
+.top_blur{
+  position: fixed;
+  top: 0px;
+  pointer-events: none;
+  mask-image: linear-gradient(to top, rgb(0, 0, 0) 25%, transparent);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  height: clamp(80px, 10vh, 200px);
+}
+.dark .blur{
+  background: #000;
+}
+.light .blur{
+  background: #fff;
 }
  .about_me ul li{
   color: #e9e9e9;
@@ -754,7 +777,7 @@ header{
   color:#989898
 }
 .class_body{
-  height: 2745px;
+  height: 2245px;
 }
 .main_projects h1{
   margin-bottom: 4px;
@@ -1619,6 +1642,9 @@ color: rgb(250, 200, 17);
 .post-body img{
   border: 1px solid #222
 }
+.inner_blog_body{
+  margin-top: 50px;
+}
 .inner_blog_body h6{
   color: #a3a3a3;
   font-size: 0.8rem;
@@ -2083,6 +2109,9 @@ color: #fff;
     list-style: none;
     top: -30px;
     position: relative;
+ }
+ .dark .filtter ul{
+  color : #fff
  }
  .fil{
   float: right;
