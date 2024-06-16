@@ -253,22 +253,14 @@ const data = [
       productHunt:""
   },
   ,
-  {
-      name:"My Portfolio",
-      img:portfolio,
-      description:"This is the website that you browsing right now :)",  
-      tags:"Product Design, Solidity, Web3",
-      target:"_blink",
-      link:"https://github.com/mohamedsadiq/website",
-      productHunt:""
-  },
+
   {
     name:"Building On Imagination",
     img:boi,
-    description:" transforming my ideas into reality.",  
+    description:" Transforming my ideas into reality.",  
     tags:"Product Design, Solidity, Web3",
     target:"_blink",
-    link:"https://www.boimagination.com/",
+    link:"https://www.boimaginations.com/",
     productHunt:""
 },
   
