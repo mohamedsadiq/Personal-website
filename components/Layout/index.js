@@ -47,6 +47,7 @@ const Layout = ({ children }) => {
   
   return (
     <div className={mode + " theBody"}>
+      
       <Header modeValue={mode} setMode={setMode} />
       <div
         onTransitionEnd={() => {
@@ -61,6 +62,10 @@ const Layout = ({ children }) => {
         {clonedChildren}
       </div>
       <KeyNav />
+     
+      <div className="blur"></div>
+    
+      
     </div>
   );
 };

@@ -14,7 +14,7 @@ draft : false
 
 ![Building On Imagination Image](../blog_img/boi.png)
 
-Introduction:   
+
 Welcome to "Building On Imagination," a project dedicated to the exhilarating process of transforming my ideas into reality. I'm eager to embark on this journey of bringing my ideas to life and sharing my experiences with you, particularly in the evolving realm of Web3 and other emerging technologies.
 
 The Purpose of the Project:

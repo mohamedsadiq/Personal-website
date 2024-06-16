@@ -86,12 +86,14 @@ const Header = (props) => {
         border: "none",
         // width: "100px",
         opacity: 1,
-        overflow: "hidden"
+        overflow: "hidden",
+        filter: "blur(10px)"
       },
       animate: {
         width: "22rem",
         border: "1px solid #101010",
         opacity: 1,
+        filter: "blur(0px)",
         boxShadow: " inset 0px 1px 1px #161616"
       },
       hover: {
@@ -286,8 +288,8 @@ const Header = (props) => {
        className={headerClass}
       whileHover={header_hex.hover}
       transition={{ delay: 0 }}
-      initial={{ filter: "blur(10px)" }}
-      animate={{filter: "blur(0px)" }}
+      initial={header_hex.initial}
+      animate={header_hex.animate}
       variants={header_hex}
     >
       <div className='inner_header'>
