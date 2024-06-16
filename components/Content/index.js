@@ -112,16 +112,8 @@ const svgColorsFun = () => {
         </a>
         </div>
         
-        <div className="hover_project padding-0">
-        <a href="https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs" target="_blink">
-        <h1 className="">Certified Web3 Boy <span className="arrowspan">↗</span></h1>
-        </a>
-        </div>
-        <div className="hover_project padding-0">
-        <a href="https://www.boimaginations.com/" target="_blink">
-          <h1 className="h_m">Building On Imagination <span className="arrowspan">↗</span></h1>
-        </a>
-      </div>
+       
+        
        </div>
        <div className="mainContent">
         <h1>Social media</h1>
