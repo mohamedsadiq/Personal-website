@@ -254,15 +254,15 @@ const data = [
   },
   ,
 
-  {
-    name:"Building On Imagination",
-    img:boi,
-    description:" Transforming my ideas into reality.",  
-    tags:"Product Design, Solidity, Web3",
-    target:"_blink",
-    link:"https://www.boimaginations.com/",
-    productHunt:""
-},
+//   {
+//     name:"Building On Imagination",
+//     img:boi,
+//     description:" Transforming my ideas into reality.",  
+//     tags:"Product Design, Solidity, Web3",
+//     target:"_blink",
+//     link:"https://www.boimaginations.com/",
+//     productHunt:""
+// },
   
   // {
   //   name:"GM",
