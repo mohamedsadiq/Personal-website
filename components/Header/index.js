@@ -87,13 +87,13 @@ const Header = (props) => {
         // width: "100px",
         opacity: 1,
         overflow: "hidden",
-         filter: "blur(10px)"
+        filter: "blur(10px)"
       },
       animate: {
         width: "22rem",
         border: "1px solid #101010",
         opacity: 1,
-        filter: "blur(0px)" ,
+        filter: "blur(0px)",
         boxShadow: " inset 0px 1px 1px #161616"
       },
       hover: {
