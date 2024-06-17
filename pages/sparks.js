@@ -14,6 +14,7 @@ const Sparks = () => {
         <div className="container store">
           <div className="inner_container inner_container_spark">
             <h1>Sparks</h1>
+            <p>An engineering snippets</p>
 
             <div className="spark">
               <Link href="sparks/scroll" passHref>
@@ -27,8 +28,11 @@ const Sparks = () => {
                     </div>
                     <div className="spark_dec">Widget Scrolling.</div>
                   </div>
+                  <div className="spark_date">June - 2024</div>
                 </div>
               </Link>
+              
+              
             </div>
           </div>
         </div>
