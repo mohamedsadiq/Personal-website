@@ -102,14 +102,18 @@ const svgColorsFun = () => {
        </div>
        <div className="mainContent main_projects">
       <div className="hover_project padding-0">
-      <a href="https://daospot.xyz" target="_blink">
+      <Link href="projects/daosspot" passHref>
+     
         <h1 className=""> DAOs Spot  <span className="arrowspan"> <span className="req">4th product of the week on PH</span> ↗</span></h1>
-        </a>
+        
+        </Link>
         </div>
         <div className="hover_project padding-0">
-        <a href="https://www.developerdaofm.xyz" target="_blink">
+        <Link href="projects/developerdaofm" passHref>
+     
         <h1 className=""> DeeveloperDAO FM<span className="arrowspan"> <span className="req">Top product PH </span>↗</span></h1>
-        </a>
+       
+        </Link>
         </div>
         
        

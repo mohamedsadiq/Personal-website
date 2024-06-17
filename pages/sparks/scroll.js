@@ -47,8 +47,10 @@ export default function FamilyTransactions() {
         <div className="container">
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
-            <h2>Scrolling</h2>
-            <p> Widget Scrolling.</p>
+            <h2>Scrolling.</h2>
+           
+            <p>It's a scroll, but with a twist. Instead of the typical scroll bar, I integrated circular indicators to signify the moving content, elevating the overall user experience.</p>
+           
             <div className="exp">
             <div className="dotsForScrolling">
                   <div className="dot activeDot"></div>
