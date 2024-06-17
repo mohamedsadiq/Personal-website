@@ -38,10 +38,11 @@ html{
 }
 .spark_date{
   color: #818181;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   position: absolute;
-  right: 0;
-  top: 3px;
+  /* left: 0; */
+  bottom: 22px;
+  right: 20px;
 }
 
  .inner_container_sparks h2{
@@ -3807,6 +3808,10 @@ color: #eee;
   overflow: hidden;
     border-radius: 32px;
     transition: all 0.2s ease-in-out;
+    /* border: 1px solid #c3c3c3; */
+}
+.spark_block video{
+  border-radius: 23px;
 }
 .spark_block:hover{
   opacity: 0.8;
@@ -3818,8 +3823,10 @@ color: #eee;
 }
 .spark_info{
   position: absolute;
-    bottom: 0;
+    top: -6px;
     padding: 22px;
+    left: 0;
+    padding-left: 19px;
 }
 .inner_container_spark{
   margin-top: 0;
@@ -3835,8 +3842,13 @@ color: #eee;
   color: #868686;
 }
 .spark_block {
+  position: relative;
   width: 100%;
+  padding: 7px;
   height: 99%;
+  padding-top: 78px;
+  background: #fafafa;
+  border: 1px solid #eaeaea;
 }
 
 
@@ -4261,11 +4273,48 @@ ul li{
 
 } 
 
-/* @media only screen and (max-width:375px) {
-  .dotsForScrolling {
-    
-    right: 17% !important;
-   
+.progress-tracker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px; /* Adjust width as needed */
+  height: 150px; /* Adjust height as needed */
+  background-color: #f0f0f0; /* Light gray background */
+  border-radius: 10px; /* Rounded corners */
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-} */
+.progress-container {
+  width: 100%;
+  height: 20px; /* Adjust height as needed for progress bar */
+  background-color: #e0e0e0; /* Light gray background for progress bar */
+  border-radius: 5px; /* Rounded corners for progress bar */
+  overflow: hidden; /* Needed for progress fill to work */
+}
+
+.progress-complete {
+  width: 65%; /* Adjust width based on your completion percentage */
+  height: 100%; /* Match height of progress container */
+  background-color: green; /* Progress bar fill color */
+  border-radius: 5px; /* Rounded corners for progress bar fill */
+  transition: width 1s ease-in-out; /* Animation for filling progress bar */
+}
+
+.text-container {
+  text-align: center;
+}
+
+.days-completed,
+.activity {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.activity {
+  font-weight: bold;
+}
+.family_trans{
+  background-color: #fcfcfc;
+}
