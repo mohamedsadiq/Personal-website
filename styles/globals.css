@@ -36,6 +36,14 @@ html{
 .inner_container_sparks h2{
   margin-top: 49px;
 }
+.inner_container_sparks p{
+  margin-top: 8px;
+  margin-bottom: 47px;
+}
+
+.inner_container_sparks h1{
+  margin-bottom: 0;
+}
 .spark_date{
   color: #818181;
   font-size: 0.8rem;
@@ -3804,6 +3812,18 @@ width: 174px;
 text-decoration: underline;
 color: #eee;
 }
+.dark .spark_title{
+  color: #fff;
+}
+.dark .spark_block{
+  position: relative;
+  width: 100%;
+  padding: 7px;
+  height: 99%;
+  padding-top: 78px;
+  background: #191919;
+  border: 1px solid #333333;
+}
 .spark_block{
   overflow: hidden;
     border-radius: 32px;
@@ -4161,7 +4181,7 @@ ul li{
   height: 250px;
   border-radius: 20px;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 6px;
   position: relative;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -4215,7 +4235,7 @@ ul li{
   position: relative;
     right: -402px;
     z-index: 1000;
-    top: 49%;
+    top: 47%;
     transform: translate(-50%, -26%);
     display: inline-block;
 }
