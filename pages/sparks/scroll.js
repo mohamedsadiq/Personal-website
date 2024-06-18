@@ -44,7 +44,7 @@ export default function FamilyTransactions() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className="container">
+        <div className="container inner_container_sparks_width">
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
             <h2>Scrolling.</h2>
