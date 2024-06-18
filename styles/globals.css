@@ -389,7 +389,7 @@ header{
   /* bottom:0; */
   backface-visibility: hidden;
   -webkit-font-smoothing: subpixel-antialiased;
-  transition: all 0.3s ease-in-out !important ;
+  transition: all 0.5s ease-in-out !important ;
 }
 .inner_header::-webkit-scrollbar {
   width: 12px;
@@ -978,6 +978,9 @@ backface-visibility: hidden;
     font-family: 'Graphik' !important;
     font-weight: 900;
     transition: all 0.3s ease-in-out;
+}
+.inner_container_sparks_width{
+  max-width: 854px;
 }
 .home_text_front{
   padding-left: 12px;
@@ -4123,7 +4126,7 @@ ul li{
 
 /* exp */
 .exp{
-  height: 400px;
+  height: 700px;
 }
 /* .widget{
   border: 1px solid #000;
@@ -4176,17 +4179,17 @@ ul li{
 
 
  .widget {
-  /* border: 1px solid #000; */
   width: 250px;
-  height: 250px;
-  border-radius: 20px;
-  margin: 0 auto;
-  margin-top: 6px;
-  position: relative;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  position: relative;
+    height: 250px;
+    border-radius: 20px;
+    margin: 0 auto;
+    margin-top: 159px;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    position: relative;
+    padding-right: 0;
 }
 .widget-content{
  top: 0;
@@ -4233,11 +4236,11 @@ ul li{
 
 .dotsForScrolling {
   position: relative;
-    right: -402px;
-    z-index: 1000;
-    top: 47%;
-    transform: translate(-50%, -26%);
-    display: inline-block;
+  right: -529px;
+  z-index: 1000;
+  top: 47%;
+  transform: translate(-50%, -26%);
+  display: inline-block;
 }
 
 .dotsForScrolling .dot {
