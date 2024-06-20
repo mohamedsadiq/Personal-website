@@ -210,8 +210,6 @@ const router = useRouter();
 
 
 const data = [
-
-
   {
     name:"DAOs Spot - 2023",
     img:daos,
