@@ -30,8 +30,11 @@
     "use-sound": "^4.0.1"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.19",
     "eslint": "8.12.0",
     "eslint-config-next": "^13.3.0",
-    "file-loader": "^6.2.0"
+    "file-loader": "^6.2.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4"
   }
 }
