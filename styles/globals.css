@@ -1788,10 +1788,11 @@ color: rgb(250, 200, 17);
   color: #5e5e5e;
 }
 .about_me p{
-  color: #d3d3d3;
-    font-weight: 400;
-    font-size: 1.1rem;
-    LINE-HEIGHT: 29PX;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 26px;
+  margin-bottom: 27px;
+  margin-top: 21px;
 }
 .project_title h1{
   margin-bottom: 9px;
@@ -1810,32 +1811,33 @@ color: rgb(250, 200, 17);
 color: #fff;
 }
 .about_me a.aboutmelink{
-  transition: all 0.3s ease-in-out;
-  margin-top: 18px;
-  padding: 12px 23px;
-  margin-top: 0px;
-  display: inline-block;
-  /* background: #fff;
-  color: #000; */
-  border-radius: 10px;
-  background: #ffffff;
-  color: #000;
+  line-height: 19px;
+    background-color: #fff;
+    color: #000;
+    margin-top: -2px;
+    border-radius: 23px;
+    padding: 11px 25px;
+    /* border: 1px solid #818181; */
+    box-shadow: inset 0 7px 16px 3px #9c9c9c;
+    font-family: Graphik !important;
+    font-weight: 900;
+    transition: all .3s ease-in-out;
 }
 .about_me a.aboutmelink{
   text-decoration: none;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
 }
 .light .about_me a.aboutmelink:hover{
   background: #fff;
-  border: 1px solid #000;
   color: #000;
 }
 .about_me a.aboutmelink:hover{
   background: #000000;
-  border: 1px solid #ffffff;
   color: #ffffff;
 }
-
+.light .about_me a.aboutmelink{
+  background-color: #000;
+}
 .about_me a:hover{
   color: #818181;
 }

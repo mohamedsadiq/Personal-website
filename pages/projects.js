@@ -222,7 +222,7 @@ const data = [
   {
     name:"DeveloperDAO Website - Aug  2022",
     img:developerDao,
-    description:"The main website of DeveloperDAO", 
+    description:"DeveloperDAO's website", 
     tags:"Product Design, Web3",
     target:"_blink",
     link:"https://www.developerdao.com/",
