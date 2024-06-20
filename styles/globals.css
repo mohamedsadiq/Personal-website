@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.contents{
+  display: block;
+}
 @font-face {
   font-family: "Inter";
   src: url("../fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
@@ -27,13 +29,13 @@ html{
 }
 
 .contents.fadeOut {
-  opacity: 0;
-  filter: blur(5px); /* Adjust blur amount as needed */
+  opacity: 0 !important;
+  filter: blur(5px) !important; /* Adjust blur amount as needed */
 }
 
 .contents.fadeIn {
   opacity: 1;
-  filter: blur(0px);
+  filter: blur(0px) !important;
 }
 .inner_container_sparks_parent{
   margin-top: 0 !important;
@@ -262,7 +264,7 @@ body p, body h1, body h2, body h3, body h4, body h5, body h6, body span{
 }
 .blur{
   position: fixed;
-  bottom: -7px;
+  bottom: -14px;
   pointer-events: none;
   mask-image: linear-gradient(to top, rgb(0, 0, 0) 25%, transparent);
   backdrop-filter: blur(5px);
@@ -1304,9 +1306,9 @@ color: rgb(250, 200, 17);
   opacity: 1;
   transition: all 0.3s ease-in-out;
 }
-.goods:hover .represent{
+/* .goods:hover .represent{
   opacity: 0;
-}
+} */
 .goods:hover .lamar{
   opacity: 1;
 }
@@ -1992,7 +1994,7 @@ color: #fff;
 
 }
 .fadeIn {
-  opacity: 1;
+  opacity: 1 !important;
 }
 .blog_nav .nav_blog_item{
   display: inline-block;
@@ -2177,7 +2179,7 @@ color: #fff;
   margin: 0 17px;
   opacity: 0.7;
   transition: all 0.3s ease-in-out;
-  padding-bottom: 11px;
+  padding-bottom: 6px;
  }
  .statesOn{
   display: grid;
@@ -2232,7 +2234,7 @@ backdrop-filter: blur(41.6033px);
   height: 26px;
   background-color: #1d1d1d;
   text-align: center;
-  padding: 4px;
+  padding: 1px;
   font-weight: 300;
  }
 
@@ -3178,7 +3180,7 @@ position: relative;
     position: relative;
     background-color: #eee;
     width: 100%;
-    height: 263px;
+    height: 309px;
   }
 
 }
