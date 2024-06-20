@@ -100,7 +100,7 @@ const router = useRouter();
             {data.map(item => {
               return (
                
-                <div key={item.name} className="blocks" onClick={play}>
+                <div key={item.name} className="blocks" >
               
               {/* <div>  <Image
                     src={item.productHunt}

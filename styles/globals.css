@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 @font-face {
   font-family: "Inter";
   src: url("../fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
@@ -30,8 +35,13 @@ html{
   opacity: 1;
   filter: blur(0px);
 }
-.inner_container_sparks{
+.inner_container_sparks_parent{
   margin-top: 0 !important;
+  max-width: 750px !important;
+  padding:  0 20px;
+}
+.button_container{
+  position: absolute;
 }
 .inner_container_sparks h2{
   margin-top: 49px;
@@ -481,6 +491,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+.letter_rotation{
+  transform-origin: left;
+}
 html{
   background-color: transparent !important;
 }
@@ -611,7 +624,7 @@ a {
   display: grid; 
   grid-template-columns: 1fr 1fr; 
   gap: 1px  35px;
-  margin-bottom: 100px;
+  /* margin-bottom: 100px; */
 }
 .navigation div h2{
   font-size: 0.8rem;
@@ -649,7 +662,7 @@ a {
   border-radius: 12px;
   display: inline-block;
   width: 95%;
-  height: 92px;
+  height: 130px;
   position: absolute;
   visibility: hidden;
   opacity: 0;
@@ -662,9 +675,14 @@ a {
   backdrop-filter: blur(1.8901px);
   transform: matrix(1, 0, 0, -1, 0, 0);
   transform: translate(-50%);
+
 }
 .light .overlay{
   background: #ffffffcc;
+  box-shadow: 1px 0px 15px -1px #fff;
+}
+.dark .overlay{
+  box-shadow: 1px 0px 15px -1px #000;
 }
 .light .inner_container .overlay h2{
   color: #000;
@@ -3148,7 +3166,7 @@ position: relative;
     position: relative;
     background-color: #eee;
     width: 100%;
-    height: 305px;
+    height: 263px;
   }
 
 }
@@ -3835,6 +3853,7 @@ color: #eee;
 }
 .spark_block video{
   border-radius: 23px;
+  min-height: 212px;
 }
 .spark_block:hover{
   opacity: 0.8;
@@ -3854,8 +3873,17 @@ color: #eee;
 .inner_container_spark{
   margin-top: 0;
 }
+.inner_container_spark h1{
+  margin-bottom: 0;
+}
+
+.inner_container_spark p{
+  margin-top: 9px;
+  margin-bottom: 24px;
+}
 
 .spark_title{
+  transition: all 0.3s ease-in-out;
   color: #000000;
 }
 
@@ -3868,7 +3896,7 @@ color: #eee;
   position: relative;
   width: 100%;
   padding: 7px;
-  height: 99%;
+  height: 100%;
   padding-top: 78px;
   background: #fafafa;
   border: 1px solid #eaeaea;
@@ -3989,7 +4017,7 @@ color: #000;
 }
  
 .hover_project a{
-  transition: all 0.3s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 .hover_project a:hover{
   opacity: 0.5;
@@ -4001,7 +4029,7 @@ color: #000;
   padding: 10px; line-height: 25px;border-radius: 13px;    padding-top: 0;
 }
 .mainContent .padding-0:first-child{
-  padding-top: 6px;
+  padding-top: 0;
 }
 /* .light .mainContent .padding-0:hover{
   background-color: #eee;
@@ -4236,11 +4264,14 @@ ul li{
 
 .dotsForScrolling {
   position: relative;
-  right: -529px;
+  right: -474px;
   z-index: 1000;
   top: 47%;
   transform: translate(-50%, -26%);
   display: inline-block;
+}
+.buttoninter{
+  background-color: #f3f3f3;
 }
 
 .dotsForScrolling .dot {
@@ -4340,4 +4371,76 @@ ul li{
 }
 .family_trans{
   background-color: #fcfcfc;
+}
+
+
+.words_button div{
+  color : #000;
+  position: absolute;
+}
+.mainButtonAnimation{
+  display: inline-block;
+  position: relative;
+}
+
+.words_button{
+  position: absolute;
+    left: -9px;
+    top: -11px;
+    /* transform: rotate(-90deg); */
+    font-size: 0.7rem;
+    transform-origin: center;
+    width: 100px;
+    height: 100px;
+   border-radius: 50%;
+   border: 1px solid #000;
+
+   width: 200px;
+  height: 200px;
+  position: relative;
+  background-color: lightblue;
+  margin: 100px auto;
+  border-radius: 50%;
+}
+
+.words_button div:nth-child(1){
+ 
+    /* transform: translateX(-50%); */
+}
+.words_button div:nth-child(2){
+ 
+  /* transform: translate(-50%, -50%); */
+}
+.words_button div:nth-child(3){
+  
+  /* transform: translateX(-50%); */
+}
+.words_button div:nth-child(4){
+ 
+  /* transform: translate(-50%, -50%); */
+}
+
+
+
+
+
+.child {
+  width: 30px;
+  height: 30px;
+  /* background-color: lightcoral; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  transform-origin: 0 100px;
+  animation: orbit 10s linear infinite;
+}
+
+@keyframes orbit {
+  from {
+      transform: translate(-50%, -100%) rotate(0deg);
+  }
+  to {
+      transform: translate(-50%, -100%) rotate(360deg);
+  }
 }
