@@ -128,7 +128,7 @@ body p, body h1, body h2, body h3, body h4, body h5, body h6, body span{
   margin-top: 18px;
 }
 .dribbble svg{
-  margin-top: 13px;
+  margin: 15px auto;
 }
 .flex-container-level2{
   margin: 24px 0; 
@@ -3854,16 +3854,18 @@ color: #eee;
   position: relative;
   width: 100%;
   padding: 7px;
-  height: 99%;
+  height: 100%;
   padding-top: 78px;
-  background: #191919;
+  /* background: #191919; */
   border: 1px solid #333333;
+  background: linear-gradient(133deg, #242424 0%, #000000 100%);
 }
 .spark_block{
   overflow: hidden;
     border-radius: 32px;
     transition: all 0.2s ease-in-out;
     /* border: 1px solid #c3c3c3; */
+    
 }
 .spark_block video{
   border-radius: 23px;
@@ -3903,8 +3905,9 @@ color: #eee;
 
 .spark_dec{
   font-size: 0.9rem;
-  margin-top: 9px;
+  margin-top: 3px;
   color: #868686;
+  margin-bottom: 12px;
 }
 .spark_block {
   position: relative;
@@ -3914,6 +3917,9 @@ color: #eee;
   padding-top: 78px;
   background: #fafafa;
   border: 1px solid #eaeaea;
+}
+.light .spark_block{
+  background: linear-gradient(133deg, #ededed 0%, #ffffff 100%)
 }
 
 
