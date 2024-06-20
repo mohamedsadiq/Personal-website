@@ -155,23 +155,12 @@ const Taste = () => {
                                     quality={100}
                                     placeholder="blur"
                                 />
-                                 <Image
-                                    src={lamar}
-                                    className="lamar"
-                                    alt="Picture of the author"
-                                    objectFit='cover'
-                                    layout='fill'
-                                   
-                                    quality={100}
-                                    
-                                />
                                 
                                 <div className="goods_inner">
                                     <h2>Aesthetic</h2>
                                 </div>
                                 <Link href="/taste/aesthetic" passHref>
                                     <div className="arrow_taste">
-
                                         <svg width="20" height="19" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M14.2212 8.36184C14.8828 9.02338 14.8607 10.0677 14.1639 10.6743L7.21132 16.755C6.51453 17.3616 5.41001 17.3234 4.74846 16.6619C4.08692 16.0004 4.04877 14.8958 4.65536 14.199L10.7361 7.24645C11.3427 6.54966 12.387 6.52761 13.0485 7.18915L14.2212 8.36184Z" fill="black" />
                                             <path d="M7.68967 5.44415C7.03948 4.79396 7.24723 4.26113 8.19415 4.26L15.4728 4.25135C16.39 4.25026 17.1437 5.00394 17.1426 5.92112L17.1339 13.2294C17.1328 14.1465 16.5999 14.384 15.9497 13.7338L7.67467 5.45878L7.68967 5.44415Z" fill="black" />
