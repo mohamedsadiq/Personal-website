@@ -24,7 +24,7 @@ const DeveloperDAO = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>DAOs Spot | Mohamed Sadiq</title>
+        <title>DAOs Spot</title>
         <meta name="description" content="DAOs Spot case study" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="keywords" content="HTML, CSS, JavaScript, product design, web3, nft" />
@@ -32,13 +32,13 @@ const DeveloperDAO = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@mohamedsadiq.me" />
         <meta name="twitter:title" content="Mohamed Sadiq" />
-        <meta name="twitter:description" content="DAOs sPOT" />
+        <meta name="twitter:description" content="DAOs Spot" />
         <meta name="twitter:image" content="https://i.ibb.co/xsRLjwQ/daosspot1.png" />
         
       </Head>
       <main>
         <div className="container">
-          <div className="inner_container inner_container_mobile">
+          <div className="inner_container_project_parent inner_container inner_container_mobile">
             <WorkIntro
               title={"DeveloperDao"}
               link={"https://www.daospot.xyz/"}

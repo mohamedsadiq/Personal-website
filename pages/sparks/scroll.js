@@ -1,9 +1,6 @@
 import { useEffect, useRef } from "react";
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import Script from "next/script";
-import useSound from "use-sound";
 import BackButton from "../../components/backButton";
 
 export default function FamilyTransactions() {
@@ -20,12 +17,16 @@ export default function FamilyTransactions() {
         widget.classList.add("storm-visible");
         widget.classList.remove("rainy-visible");
         document.querySelector(".dot:nth-child(2)").classList.add("activeDot");
-        document.querySelector(".dot:nth-child(1)").classList.remove("activeDot");
+        document
+          .querySelector(".dot:nth-child(1)")
+          .classList.remove("activeDot");
       } else {
         widget.classList.add("rainy-visible");
         widget.classList.remove("storm-visible");
         document.querySelector(".dot:nth-child(1)").classList.add("activeDot");
-        document.querySelector(".dot:nth-child(2)").classList.remove("activeDot");
+        document
+          .querySelector(".dot:nth-child(2)")
+          .classList.remove("activeDot");
       }
     };
 
@@ -48,30 +49,25 @@ export default function FamilyTransactions() {
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
             <h2>Scrolling.</h2>
-           
-            <p>It's a scroll, but with a twist. Instead of the typical scroll bar, I integrated circular indicators to signify the moving content, elevating the overall user experience.</p>
-           
+
+            <p>
+              It's a scroll, but with a twist. Instead of the typical scroll
+              bar, I integrated circular indicators to signify the moving
+              content, elevating the overall user experience.
+            </p>
+
             <div className="exp">
-            <div className="dotsForScrolling">
-                  <div className="dot activeDot"></div>
-                  <div className="dot"></div>
-                </div>
+            <div className="rainy"></div>
+              <div className="dotsForScrolling">
+                <div className="dot activeDot"></div>
+                <div className="dot"></div>
+              </div>
               <div className="widget" ref={widgetRef}>
-               
-               
            
-               <div className="rainy">
-                  {/* Dummy content to enable scrolling */}
-                  {/* <div style={{ height: "400px" }}></div> */}
-                </div>
-                <div className="storm">
-                  {/* Dummy content to enable scrolling */}
-                
-                </div>
-             
+                <div className="storm"></div>
+                <div className="rainy"></div>
                 <div style={{ height: "400px" }}></div>
-                </div>
-               
+              </div>
             </div>
           </div>
         </div>
@@ -87,7 +83,7 @@ export default function FamilyTransactions() {
             gtag('config', 'G-H699TZ29QW');
           `}
         </Script>
-      </main>
+      </main> 
     </>
   );
 }
