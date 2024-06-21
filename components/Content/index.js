@@ -148,7 +148,7 @@ const svgColorsFun = () => {
       <div className="hover_project latest_activity_project">
         <a href="https://x.com/sadiq_moo/status/1739593994948989280/video/1" target="_blink">
         
-        <video muted={true} autoPlay={true} loop src={"/aiProject.mp4"} style={{ width: "376px", height: "376px" }} />
+        <video muted={true} autoPlay={true} loop src={"/aiProject.mp4"} style={{ width: "376px", height: "315pxs" }} />
         <h1 className="h_m"> Disliked </h1>
         <span>An AI project I am working on</span>
         </a>

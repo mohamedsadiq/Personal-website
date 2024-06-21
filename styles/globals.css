@@ -1688,8 +1688,14 @@ color: rgb(250, 200, 17);
   stroke: #828282
 }
 .post-body {
-  margin-top: 36px;
+  margin-top: 26px;
  
+}
+.post-body p:nth-child(1){
+  margin-bottom: 50px;
+}
+.post-body h1{
+  margin-top: 49px;
 }
 .post-body p{
   font-size: 1rem;
@@ -1705,6 +1711,7 @@ color: rgb(250, 200, 17);
   color: #a3a3a3;
   font-size: 0.8rem;
   font-weight: 400;
+  margin-top: 18px;
 }
 .inner_blog_body img{
   width: 100%;
