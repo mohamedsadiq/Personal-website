@@ -3,40 +3,54 @@ import Head from "next/head";
 import Script from "next/script";
 import BackButton from "../../components/backButton";
 import { motion, AnimatePresence } from "framer-motion";
+import Highlight from 'react-code-blocks';
 
 export default function FamilyTransactions() {
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [buttonColor, setButtonColor] = useState("#f4f4f5");
-  const [rotation, setRotation] = useState(0);
-  const [titles] = useState(["Watch", "Mac", "iPad", "iPhone"]);
-  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
-  const [opacityIcon, setOpacityIcon] = useState(1);
-  const texts = ["iPad", "Watch", "Mac", "iPhone"];
+  const [state, setState] = useState({
+    isAnimating: false,
+    buttonColor: "#f4f4f5",
+    rotation: 0,
+    currentTitleIndex: 0,
+    opacityIcon: 1,
+  });
+
+  const titles = ["Watch", "Mac", "iPad", "iPhone"];
+  const codeBlock = `function add(x, y) {
+    return x + y;
+}
+
+console.log(add(5, 3)); // Output: 8
+`;
 
   const handleClick = () => {
-    setIsAnimating(true);
-    setButtonColor("#fff");
-    setOpacityIcon(0.1);
+    setState((prevState) => ({
+      ...prevState,
+      isAnimating: true,
+      buttonColor: "#fff",
+      opacityIcon: 0.1,
+      currentTitleIndex: (prevState.currentTitleIndex + 1) % titles.length,
+    }));
 
-    // Cycle through the titles
-    setCurrentTitleIndex((prevIndex) => (prevIndex + 1) % titles.length);
-
-    setTimeout(() => setIsAnimating(false), 200);
-    setTimeout(() => setButtonColor("#f4f4f5"), 250);
-    setTimeout(() => setOpacityIcon(1), 250);
+    setTimeout(() => {
+      setState((prevState) => ({
+        ...prevState,
+        isAnimating: false,
+        buttonColor: "#f4f4f5",
+        opacityIcon: 1,
+      }));
+    }, 250);
   };
 
   const textVariants = {
     initial: {
       opacity: 0,
-      filter:" blur(0px)",
+      filter: "blur(0px)",
     },
     animate: {
       opacity: 1,
-     
       transition: {
         duration: 1,
-        filter:" blur(10px)"
+        filter: "blur(10px)",
       },
     },
     exit: {
@@ -44,9 +58,9 @@ export default function FamilyTransactions() {
       transition: {
         duration: 0.3,
       },
-      top:"-4px",
-      rotate:"-40deg",
-     filter:" blur(4px)"
+      top: "-4px",
+      rotate: "-40deg",
+      filter: "blur(4px)",
     },
   };
 
@@ -63,15 +77,14 @@ export default function FamilyTransactions() {
           <div className="inner_container inner_container_sparks">
             <h2> Quick Button</h2>
             <p>
-            The Quick Button is an interactive UI component designed to enhance user engagement through dynamic animations. Built using <span className="spark_tools">React</span>, <span className="spark_tools">Framer Motion</span> and <span className="spark_tools">Tailwind CSS</span> , this button offers a visually appealing experience by incorporating smooth transitions and state changes upon user interaction.
+              The Quick Button is an interactive UI component designed to enhance user engagement through dynamic animations. Built using <span className="spark_tools">React</span>, <span className="spark_tools">Framer Motion</span> and <span className="spark_tools">Tailwind CSS</span>, this button offers a visually appealing experience by incorporating smooth transitions and state changes upon user interaction.
             </p>
-            <div className="exp " style={{ height:"400px"}}>
-              
+            <div className="exp" style={{ height: "400px" }}>
               <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-32 h-32 flex justify-center items-center">
                 <motion.div
                   onClick={handleClick}
                   animate={{
-                    rotate: isAnimating ? 15 : 0,
+                    rotate: state.isAnimating ? 15 : 0,
                   }}
                   transition={{ type: "spring", stiffness: 300, damping: 10 }}
                   style={{
@@ -82,14 +95,14 @@ export default function FamilyTransactions() {
                   <div
                     className="w-24 h-10 rounded-full bg-zinc-100 grid gap-0 m-b-0 relative border-neutral-50 border-2"
                     style={{
-                      background: buttonColor,
+                      background: state.buttonColor,
                       transition: "all 0.4s ease-in-out",
                     }}
                   >
                     <motion.div
                       initial={{ rotate: 0 }}
                       animate={{
-                        rotate: rotation,
+                        rotate: state.rotation,
                       }}
                       className="letter_rotation"
                       transition={{
@@ -106,7 +119,7 @@ export default function FamilyTransactions() {
                       >
                         <AnimatePresence>
                           <motion.div
-                            key={titles[currentTitleIndex]}
+                            key={titles[state.currentTitleIndex]}
                             variants={textVariants}
                             initial="initial"
                             animate="animate"
@@ -115,10 +128,9 @@ export default function FamilyTransactions() {
                               type: "spring",
                               stiffness: 400,
                               damping: 16,
-                             
                             }}
                           >
-                            {titles[currentTitleIndex]}
+                            {titles[state.currentTitleIndex]}
                           </motion.div>
                         </AnimatePresence>
                       </div>
@@ -126,7 +138,7 @@ export default function FamilyTransactions() {
                     <div className="arrow_button absolute right-2 top-2.5">
                       <svg
                         style={{
-                          opacity: opacityIcon,
+                          opacity: state.opacityIcon,
                           transition: "all 0.4s ease-in-out",
                         }}
                         fill="none"
@@ -146,6 +158,7 @@ export default function FamilyTransactions() {
                 </motion.div>
               </div>
             </div>
+           
           </div>
         </div>
         <Script
