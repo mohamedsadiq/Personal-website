@@ -27,6 +27,12 @@ html{
   opacity: 1;
   filter: blur(0px);
 }
+.spark_block img{
+  color: transparent;
+  width: 100%;
+  /* height: 87%; */
+  border-radius: 14px;
+}
 
 .contents.fadeOut {
   opacity: 0 !important;

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 
+import Image from 'next/image'
 
 const Sparks = () => {
   return (
@@ -33,10 +34,7 @@ const Sparks = () => {
               </Link>
               <Link href="sparks/button" passHref>
                 <div className="spark_block">
-                  <video  className="buttoninter" width="100%" height="100%" autoPlay loop muted playsInline>
-                    <source src="/fffsfs.gif" type="video/gif" />
-                    Your browser does not support the video tag.
-                  </video>
+                  <Image alt="" src="/fffsfs.gif" className="buttoninter" width="100" height="100"  />
                   <div className="spark_info">
                     <div className="spark_title">Button
                     </div>
