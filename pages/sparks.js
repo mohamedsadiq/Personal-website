@@ -31,10 +31,10 @@ const Sparks = () => {
                   <div className="spark_date">June - 2024</div>
                 </div>
               </Link>
-              {/* <Link href="sparks/button" passHref>
+              <Link href="sparks/button" passHref>
                 <div className="spark_block">
                   <video  className="buttoninter" width="100%" height="100%" autoPlay loop muted playsInline>
-                    <source src="/buttongifButton.mp4" type="video/mp4" />
+                    <source src="/fffsfs.gif" type="video/gif" />
                     Your browser does not support the video tag.
                   </video>
                   <div className="spark_info">
@@ -44,7 +44,7 @@ const Sparks = () => {
                   </div>
                   <div className="spark_date">June - 2024</div>
                 </div>
-              </Link> */}
+              </Link>
               
             </div>
           </div>

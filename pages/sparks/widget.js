@@ -1,9 +1,40 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Script from "next/script";
 import BackButton from "../../components/backButton";
+import { motion } from "framer-motion";
+import HalfDot from "../../components/dots/half";
+import FullDot from "../../components/dots/full";
 
 export default function Widget() {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const widgetVariants = {
+    initial: {
+      filter: "blur(0)",
+    },
+    animate: {
+      filter: "blur(0px)",
+      width: "700px",
+    },
+  };
+
+  const dotVariants = {
+    initial: {
+      scale: 1,
+      opacity: 1,
+      filter: "blur(0px)",
+    },
+    animate: {
+      opacity: 0,
+      filter: "blur(1px)"
+    },
+  };
+
+  const transitionDuration = {
+    initial: 0.1,
+    animate: 0.5, // Adjust duration as per your requirement
+  };
   return (
     <>
       <Head>
@@ -12,7 +43,7 @@ export default function Widget() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className="container inner_container_sparks">
+        <div className="container inner_container_sparks_parent">
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
             <h2>Widget</h2>
@@ -22,13 +53,37 @@ export default function Widget() {
               content, elevating the overall user experience.
             </p>
             <div className="exp flex justify-center items-center">
-              <div className="w-44 h-44 rounded-3xl bg-gray-400">
-                <div className="daysExercises">daysExercises</div>
-                <div>
-                    <span>18/28 days</span>
-                    <h4>doing morning exercises</h4>
+              <motion.div
+                className="h-80 bg-slate-950 p-9 exercises_widget w-80 overflow-hidden"
+                initial={widgetVariants.initial}
+                animate={isClicked ? widgetVariants.animate : widgetVariants.initial}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 13,
+                 
+                }}
+                onClick={() => setIsClicked(!isClicked)}
+                transitionEnd={{
+                  filter: "blur(0px)", // Ensure blur is set to 0 at the end of the animation
+                }}
+              >
+                <div className="daysExercises mb-9 flex flex-row flex-wrap h-3.5 ">
+                <div className="exercises_container flex order-10 flex-wrap gap-y-0 gap-x-0" style={{ rowGap: isClicked ? '22px' : '0px' }}>
+                    {[...Array(30)].map((_, index) => (
+                      <motion.div
+                        key={index}
+                        className="exercises_dot_block"
+                        animate={isClicked ? dotVariants.animate : dotVariants.initial}
+                        transition={{ duration: isClicked ? transitionDuration.animate : transitionDuration.initial }}
+                      >
+                        {index % 2 === 0 ? <HalfDot /> : <FullDot />}
+                        <span className="text-xs" >tesst</span>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
