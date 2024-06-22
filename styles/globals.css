@@ -45,7 +45,7 @@ html{
 }
 .inner_container_sparks_parent{
   margin-top: 0 !important;
-  max-width: 900px !important;
+  max-width: 700px !important;
   padding:  0 20px;
 }
 .button_container{
@@ -56,7 +56,7 @@ html{
 }
 .inner_container_sparks p{
   margin-top: 8px;
-  margin-bottom: 47px;
+  margin-bottom: 17px;
 }
 
 .inner_container_sparks h1{
@@ -3046,11 +3046,12 @@ position: relative;
 .exp{
   margin-top: 23px;
   width: 100%;
-    min-height: 293px;
-    border-radius: 13px;
-    border: 1px solid #333;
-    position: relative;
-    transition: all 0.3s ease-in-out;
+  min-height: 293px;
+  border-radius: 13px;
+  border: 1px solid #333;
+  position: relative;
+  margin-bottom: 23px;
+  transition: all 0.3s ease-in-out;
 }
  .hex {
   width: 43px;
@@ -3067,7 +3068,20 @@ position: relative;
    position: absolute;
  
  }
+.spark_tools{
+  padding: 5px 8px;
+  border-radius: 10px;
 
+  transition: all 0.1s ease-in-out;
+}
+.light .spark_tools{
+  border: 1px solid #eee;
+  background-color: #fbfbfb;
+} 
+.dark .spark_tools{
+  border: 1px solid #3e3e3e;
+  background-color: #313131;
+}
 .hex1{
   background-image: url("../img/hex/Hex1.png");
  
@@ -4204,6 +4218,9 @@ ul li{
 /* exp */
 .exp{
   height: 700px;
+}
+.dark .exp{
+  background: #efefef;
 }
 /* .widget{
   border: 1px solid #000;
