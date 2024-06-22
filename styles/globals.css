@@ -34,6 +34,23 @@ html{
   border-radius: 14px;
 }
 
+.hover_project .future_project_video {
+   opacity: 0;
+   visibility: hidden; 
+   position: fixed;
+    border: 0;
+    width: 300px;
+    /* z-index: -1; */
+    top: 100px;
+    right: -181px;
+    filter: blur(100);
+    transition: all 0.1s ease-in-out;
+}
+.hover_project:hover .future_project_video{
+  opacity: 1;
+ visibility: visible;
+ filter: blur(0);
+}
 .contents.fadeOut {
   opacity: 0 !important;
   filter: blur(5px) !important; /* Adjust blur amount as needed */

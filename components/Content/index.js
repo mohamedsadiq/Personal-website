@@ -104,8 +104,11 @@ const svgColorsFun = () => {
       <div className="hover_project padding-0">
       <Link href="projects/daosspot" passHref>
      
-        <h1 className=""> DAOs Spot  <span className="arrowspan"> <span className="req">4th product of the week on PH</span> ↗</span></h1>
-        
+        <h1 className="daos_spot_home"> DAOs Spot  <span className="arrowspan"> <span className="req">4th product of the week on PH</span> ↗</span></h1>
+        {/* <video className="future_project_video" width="100%" height="100%" autoPlay loop muted playsInline>
+                    <source src="/daosspotvideo.mov" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video> */}
         </Link>
         </div>
         <div className="hover_project padding-0">
