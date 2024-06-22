@@ -3,7 +3,6 @@ import Head from "next/head";
 import Script from "next/script";
 import BackButton from "../../components/backButton";
 import { motion, AnimatePresence } from "framer-motion";
-import Highlight from 'react-code-blocks';
 
 export default function FamilyTransactions() {
   const [state, setState] = useState({
@@ -15,12 +14,7 @@ export default function FamilyTransactions() {
   });
 
   const titles = ["Watch", "Mac", "iPad", "iPhone"];
-  const codeBlock = `function add(x, y) {
-    return x + y;
-}
-
-console.log(add(5, 3)); // Output: 8
-`;
+ 
 
   const handleClick = () => {
     setState((prevState) => ({
@@ -161,19 +155,21 @@ console.log(add(5, 3)); // Output: 8
            
           </div>
         </div>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-H699TZ29QW');
-          `}
-        </Script>
       </main>
     </>
   );
 }
+
+
+{/* <Script
+src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW"
+strategy="afterInteractive"
+/>
+<Script id="google-analytics" strategy="afterInteractive">
+{`
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H699TZ29QW');
+`}
+</Script> */}
