@@ -2,47 +2,53 @@ import { useState } from "react";
 import Head from "next/head";
 import Script from "next/script";
 import BackButton from "../../components/backButton";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function FamilyTransactions() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [buttonColor, setButtonColor] = useState("#f4f4f5");
   const [rotation, setRotation] = useState(0);
   const [titles] = useState(["Watch", "Mac", "iPad", "iPhone"]);
-  const [opacityValues, setOpacityValues] = useState([1, 1, 1, 1]);
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [opacityIcon, setOpacityIcon] = useState(1);
-  const texts = [
-    "iPad",
-    "Watch",
-    "Mac",
-    "iPhone"
-  ];
-  
+  const texts = ["iPad", "Watch", "Mac", "iPhone"];
+
   const handleClick = () => {
     setIsAnimating(true);
     // setRotation((prevRotation) => prevRotation + 90);
     setButtonColor("#fff");
     setOpacityIcon(0.1);
 
-    // Update the opacity values
+    // Cycle through the titles
+    setCurrentTitleIndex((prevIndex) => (prevIndex + 1) % titles.length);
 
     setTimeout(() => setIsAnimating(false), 200);
     setTimeout(() => setButtonColor("#f4f4f5"), 250);
-    setTimeout(() => setOpacityIcon(1), 230);
+    setTimeout(() => setOpacityIcon(1), 250);
   };
 
   const textVariants = {
     initial: {
       opacity: 0,
-      y: -50,
+      filter:" blur(0px)",
     },
-    animate: (i) => ({
+    animate: {
       opacity: 1,
-      y: 0,
+     
       transition: {
-        delay: i * 0.1,
+        duration: 1,
+        filter:" blur(10px)"
       },
-    }),
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 0.3,
+      },
+      top:"-4px",
+      rotate:"-40deg",
+     filter:" blur(4px)"
+    },
   };
 
   return (
@@ -56,34 +62,31 @@ export default function FamilyTransactions() {
         <div className="container inner_container_sparks_parent">
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
-            <h2>Button</h2>
+            <h2> Quick Button</h2>
             <p>
-              It's a scroll, but with a twist. Instead of the typical scroll
-              bar, I integrated circular indicators to signify the moving
-              content, elevating the overall user experience.
+            The Quick Button is an interactive UI component designed to enhance user engagement through dynamic animations. Built using React and Framer Motion, this button offers a visually appealing experience by incorporating smooth transitions and state changes upon user interaction.
             </p>
             <div className="exp">
-              <div className="circle">
+              {/* <div className="circle">
                 {texts.map((item, index) => (
                   <motion.div
                     key={index}
                     className="text_cir"
-                    style={{ transform: `rotate(${item.rotation}deg)` }}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    {item.text}
+                    {item}
                   </motion.div>
                 ))}
-              </div>
+              </div> */}
               <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-32 h-32 flex justify-center items-center">
                 <motion.div
                   onClick={handleClick}
                   animate={{
                     rotate: isAnimating ? 15 : 0,
                   }}
-                  transition={{ type: "spring", stiffness: 100, damping: 10 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
                   style={{
                     cursor: "pointer",
                   }}
@@ -104,25 +107,34 @@ export default function FamilyTransactions() {
                       className="letter_rotation"
                       transition={{
                         type: "spring",
-                        stiffness: 300,
+                        stiffness: 400,
                         damping: 16,
                       }}
                     >
                       <div
-                        className="words_button"
+                        className="ml-3 mt-1 words_button"
                         style={{
                           transition: "all 0.4s ease-in-out",
                         }}
                       >
-                         {titles.map((title, index) => (
-                          <div className="child" key={index} style={{ opacity: opacityValues[index] }}>
-                            {title}
-                          </div>
-                        ))} 
+                        <AnimatePresence>
+                          <motion.div
+                            key={titles[currentTitleIndex]}
+                            variants={textVariants}
+                            initial="initial"
+                            animate="animate"
+                            exit="exit"
+                            transition={{
+                              type: "spring",
+                              stiffness: 400,
+                              damping: 16,
+                             
+                            }}
+                          >
+                            {titles[currentTitleIndex]}
+                          </motion.div>
+                        </AnimatePresence>
                       </div>
-                      {/* <div class="parent">
-        <div class="child"></div>
-    </div> */}
                     </motion.div>
                     <div className="arrow_button absolute right-2 top-2.5">
                       <svg

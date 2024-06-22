@@ -62,8 +62,8 @@ export default function PostPage({ content, frontmatter }) {
             <div className='card card-page'>
               <a href={`/blog/${frontmatter.slug}`} ></a>
 
-              <h1 className='post-title mt-2 p-2'>{frontmatter.title}</h1>
-              <div className='post-date m-1 p-2'>
+              <h1 className='post-title mt-10 mb-10'>{frontmatter.title}</h1>
+              <div className='post-date mt-2 mb-2'>
 
                
                 {/* <p>{frontmatter.summary} </p> */}
@@ -92,7 +92,7 @@ export default function PostPage({ content, frontmatter }) {
 
               </div>
 
-              <div className='post-body p-5 m-auto' dangerouslySetInnerHTML={{ __html: marked.parse(content) }}></div>
+              <div className='post-body  m-auto' dangerouslySetInnerHTML={{ __html: marked.parse(content) }}></div>
               
 
             </div>

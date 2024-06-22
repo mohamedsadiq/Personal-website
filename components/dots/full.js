@@ -1,0 +1,11 @@
+
+export default function Full() {
+  
+
+  return (
+    <>
+    <svg width="31" height="29" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#a)"><path d="M18.286 9H22v11.143h-3.714" stroke="#3EE386" stroke-width="1.857"/></g><g filter="url(#b)"><path d="M12.714 9H9v11.143h3.714" stroke="#3EE386" stroke-width="1.857"/></g><g filter="url(#c)"><circle cx="15.5" cy="14.571" r="2.786" fill="#3EE386"/></g><defs><filter id="a" x="10.857" y=".643" width="19.5" height="27.857" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="3.714"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix values="0 0 0 0 0.243137 0 0 0 0 0.890196 0 0 0 0 0.52549 0 0 0 1 0"/><feBlend in2="BackgroundImageFix" result="effect1_dropShadow_5_26"/><feBlend in="SourceGraphic" in2="effect1_dropShadow_5_26" result="shape"/></filter><filter id="b" x=".643" y=".643" width="19.5" height="27.857" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="3.714"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix values="0 0 0 0 0.243137 0 0 0 0 0.890196 0 0 0 0 0.52549 0 0 0 1 0"/><feBlend in2="BackgroundImageFix" result="effect1_dropShadow_5_26"/><feBlend in="SourceGraphic" in2="effect1_dropShadow_5_26" result="shape"/></filter><filter id="c" x="5.286" y="4.357" width="20.429" height="20.429" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="3.714"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix values="0 0 0 0 0.243137 0 0 0 0 0.890196 0 0 0 0 0.52549 0 0 0 1 0"/><feBlend in2="BackgroundImageFix" result="effect1_dropShadow_5_26"/><feBlend in="SourceGraphic" in2="effect1_dropShadow_5_26" result="shape"/></filter></defs></svg>
+    </>
+
+  )
+}

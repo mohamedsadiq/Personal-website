@@ -39,7 +39,7 @@ html{
 }
 .inner_container_sparks_parent{
   margin-top: 0 !important;
-  max-width: 750px !important;
+  max-width: 900px !important;
   padding:  0 20px;
 }
 .button_container{
@@ -1688,8 +1688,23 @@ color: rgb(250, 200, 17);
   stroke: #828282
 }
 .post-body {
-  margin-top: 36px;
+  margin-top: 26px;
  
+}
+.exercises_widget{
+  border-radius: 60px;
+  filter: blur(5px);
+  cursor: pointer;
+  scale: 0.8;
+}
+.widget_text h4, .widget_text span{
+  text-shadow: 0px 1px 14px #3de386;
+}
+.post-body p:nth-child(1){
+  margin-bottom: 50px;
+}
+.post-body h1{
+  margin-top: 49px;
 }
 .post-body p{
   font-size: 1rem;
@@ -1705,6 +1720,7 @@ color: rgb(250, 200, 17);
   color: #a3a3a3;
   font-size: 0.8rem;
   font-weight: 400;
+  margin-top: 18px;
 }
 .inner_blog_body img{
   width: 100%;
@@ -4404,8 +4420,10 @@ ul li{
 
 
 .words_button div{
-  color : #000;
-  position: absolute;
+  color: #000;
+    position: absolute;
+    font-size: 11px;
+    margin-top: 7px;
 }
 .mainButtonAnimation{
   display: inline-block;
