@@ -43,7 +43,7 @@ const Sparks = () => {
                   <div className="spark_date">June - 2024</div>
                 </div>
               </Link>
-              <Link href="sparks/scroll" passHref>
+              <Link href="sparks/widget" passHref>
                 <div className="spark_block">
                   <video width="100%" height="100%" autoPlay loop muted playsInline>
                     <source src="/dots.mov" type="video/mp4" />
