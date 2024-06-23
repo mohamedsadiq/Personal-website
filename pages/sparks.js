@@ -43,6 +43,20 @@ const Sparks = () => {
                   <div className="spark_date">June - 2024</div>
                 </div>
               </Link>
+              <Link href="sparks/scroll" passHref>
+                <div className="spark_block">
+                  <video width="100%" height="100%" autoPlay loop muted playsInline>
+                    <source src="/dots.mov" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <div className="spark_info">
+                    <div className="spark_title">Widget
+                    </div>
+                    <div className="spark_dec">An interactive widget.</div>
+                  </div>
+                  <div className="spark_date">June - 2024</div>
+                </div>
+              </Link>
               
             </div>
           </div>
