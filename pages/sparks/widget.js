@@ -246,7 +246,7 @@ export default function Widget() {
                   }}
                 >
                   <span>
-                    {`${fullDotCount}/30`}{" "}
+                    {`${fullDotCount}/30 days`}{" "}
                     {/* {fullDotCount >= 20 ? "🔥" :  "😢"} */}
                   </span>
                   <h4>Doing morning exercises</h4>
