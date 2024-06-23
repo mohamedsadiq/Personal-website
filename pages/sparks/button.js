@@ -4,7 +4,7 @@ import Script from "next/script";
 import BackButton from "../../components/backButton";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function FamilyTransactions() {
+export default function QuickButton() {
   const [state, setState] = useState({
     isAnimating: false,
     buttonColor: "#f4f4f5",
