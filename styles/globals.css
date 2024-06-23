@@ -27,6 +27,68 @@ html{
   opacity: 1;
   filter: blur(0px);
 }
+.icon_ex{
+  scale: 0.9;
+}
+.icon_ex svg {
+  margin-top: 15px;
+}
+.exercises_container{
+  row-gap: 0 !important;
+  
+}
+
+/* Animation for the non-working effect */
+@keyframes nonWorkingAnimation {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 1;
+  }
+  10%, 20% {
+    opacity: 0.6;
+  }
+  20%, 22% {
+    opacity: 1;
+  }
+  22%, 25% {
+    opacity: 0.6;
+  }
+  25%, 32% {
+    opacity: 1;
+  }
+  32%, 35% {
+    opacity: 0.6;
+  }
+  35%, 40% {
+    opacity: 1;
+  }
+  40%, 80% {
+    opacity: 0.7;
+  }
+  80%, 100% {
+    opacity: 1;
+  }
+
+}
+.widget_text_mobile{
+  position: absolute;
+  color: #000;
+}
+
+/* Apply animation to the lamp */
+.lampnotworking{
+  animation: nonWorkingAnimation 1s ease-in-out infinite;
+}
+.exercises_container_test{
+  margin-top: -93px;
+  padding: 0 24px;
+}
+.exercises_dot_block{
+  /* display: none.exercises_widget; */
+  cursor: pointer;
+}
 .spark_block img{
   color: transparent;
   width: 100%;
@@ -64,6 +126,11 @@ html{
   margin-top: 0 !important;
   max-width: 700px !important;
   padding:  0 20px;
+}
+.inner_container_sparks p a{
+  text-decoration: underline;
+  color: #00c78e;
+  font-weight: 500;
 }
 .button_container{
   position: absolute;
@@ -1715,13 +1782,42 @@ color: rgb(250, 200, 17);
  
 }
 .exercises_widget{
-  border-radius: 60px;
+  border-radius: 22px;
   filter: blur(5px);
   cursor: pointer;
   scale: 0.8;
 }
+.buttonWidget{
+  position: relative;
+  width: 80px;
+  height: 80px;
+  
+  /* box-shadow: 1px 1px 12px 8px #d6d6d6 */
+}
+
+.widget_text{
+  position: relative;
+  top: 99px;
+}
 .widget_text h4, .widget_text span{
   text-shadow: 0px 1px 14px #3de386;
+  color: #00c78e;
+}
+
+.widget_text h4, .widget_text span{
+  color:#3fe38d
+}
+
+
+.widget_text h4{
+  display: inline-block;
+  font-size: 1.6rem;
+  line-height: 33px;
+}
+.widget_text span{
+  display: block;
+  margin-bottom: 4px;
+
 }
 .post-body p:nth-child(1){
   margin-bottom: 50px;
