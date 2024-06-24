@@ -18,16 +18,17 @@ const Sparks = () => {
             <p>An engineering snippets</p>
 
             <div className="spark">
-              <Link href="sparks/scroll" passHref>
+             
+              <Link href="sparks/widget" passHref>
                 <div className="spark_block">
                   <video width="100%" height="100%" autoPlay loop muted playsInline>
-                    <source src="https://video.twimg.com/ext_tw_video/1801041108274757632/pu/vid/avc1/480x480/qbJ7cC1MrzCqk444.mp4?tag=12" type="video/mp4" />
+                    <source src="/dots.mov" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                   <div className="spark_info">
-                    <div className="spark_title">Scrolling
+                    <div className="spark_title">Widget
                     </div>
-                    <div className="spark_dec">Widget Scrolling.</div>
+                    <div className="spark_dec">An interactive widget.</div>
                   </div>
                   <div className="spark_date">June - 2024</div>
                 </div>
@@ -43,16 +44,16 @@ const Sparks = () => {
                   <div className="spark_date">June - 2024</div>
                 </div>
               </Link>
-              <Link href="sparks/widget" passHref>
+              <Link href="sparks/scroll" passHref>
                 <div className="spark_block">
                   <video width="100%" height="100%" autoPlay loop muted playsInline>
-                    <source src="/dots.mov" type="video/mp4" />
+                    <source src="https://video.twimg.com/ext_tw_video/1801041108274757632/pu/vid/avc1/480x480/qbJ7cC1MrzCqk444.mp4?tag=12" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                   <div className="spark_info">
-                    <div className="spark_title">Widget
+                    <div className="spark_title">Scrolling
                     </div>
-                    <div className="spark_dec">An interactive widget.</div>
+                    <div className="spark_dec">Widget Scrolling.</div>
                   </div>
                   <div className="spark_date">June - 2024</div>
                 </div>
