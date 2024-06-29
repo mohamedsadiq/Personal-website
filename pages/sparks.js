@@ -12,8 +12,8 @@ const Sparks = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className="container store">
-          <div className="inner_container inner_container_spark">
+        <div className="container container_sparks_home">
+          <div className="inner_container inner_container_spark ">
             <h1>Sparks</h1>
             <p>An engineering snippets</p>
 

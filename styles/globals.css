@@ -638,7 +638,9 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
+.container_sparks_home{
+  max-width: 800px !important;
+}
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -4037,7 +4039,7 @@ color: #eee;
     padding-left: 19px;
 }
 .inner_container_spark{
-  margin-top: 0;
+  margin-top: 67px;
 }
 .inner_container_spark h1{
   margin-bottom: 0;
