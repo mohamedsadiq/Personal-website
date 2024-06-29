@@ -1813,6 +1813,7 @@ color: rgb(250, 200, 17);
   display: inline-block;
   font-size: 1.6rem;
   line-height: 33px;
+  width: 183px;
 }
 .widget_text span{
   display: block;

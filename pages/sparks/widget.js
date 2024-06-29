@@ -114,9 +114,9 @@ export default function Widget() {
       filter: "blur(0px)", 
     },
     exit: {
-      x: 4,
+      x: 0,
       opacity: 0,
-      transition: { duration: 0.5, ease: "easeInOut" },
+      // transition: { duration: 0.5, ease: "easeInOut" },
     }
   }
   const IconEX = () => {
@@ -238,7 +238,7 @@ export default function Widget() {
                   className="widget_text"
                   initial={widget_text.initial}
                   animate={isClicked ? widget_text.animate : widget_text.initial}
-                  exit={widget_text.exit}
+                  // exit={widget_text.exit}
                   transition={{
                     type: "spring",
                     stiffness: 100,
