@@ -49,23 +49,26 @@ export default function PostPage({ content, frontmatter }) {
           images: imageMeta,
           site_name: 'Mohamed Sadiq',
         }}
+        twitter={{
+          cardType: 'summary_large_image',
+          site: '@sadiq_moo', 
+          title: frontmatter.title,
+          description: frontmatter.summary,
+          images: imageMeta.map(img => img.url),
+        }}
       />
 
       <div className="container">
-
         <div className="inner_container inner_blog_body">
           <div className="col-lg-10 m-auto">
-          <Link href={"/blogs"}>
-          <div className="go_back"> ↰ Go Back</div>
-          </Link>
-          {/* <div className="go_back copy_link"> Copy Link</div> */}
+            <Link href={"/blogs"}>
+              <div className="go_back"> ↰ Go Back</div>
+            </Link>
+            {/* <div className="go_back copy_link"> Copy Link</div> */}
             <div className='card card-page'>
               <a href={`/blog/${frontmatter.slug}`} ></a>
-
               <h1 className='post-title mt-10 mb-10'>{frontmatter.title}</h1>
               <div className='post-date mt-2 mb-2'>
-
-               
                 {/* <p>{frontmatter.summary} </p> */}
                 <div> {
                   frontmatter.categories.map((category, index) => {
@@ -74,27 +77,21 @@ export default function PostPage({ content, frontmatter }) {
                     const backgroundColor = colors[colorIndex];
 
                     return (
-                      <Link key={category} href={`/category/${slug}`}>
-
+                      <Link className="tag" key={category} href={`/category/${slug}`}>
                         <span
                           style={{ background: backgroundColor }}
                           className="tags"
                         >
                           {category}
                         </span>
-
                       </Link>
                     );
                   })
                 }
                 </div>
                 <div><h6> {`${date.getMonth() + 1} / ${date.getDate()} / ${date.getFullYear()}`} </h6>  </div>
-
               </div>
-
-              <div className='post-body  m-auto' dangerouslySetInnerHTML={{ __html: marked.parse(content) }}></div>
-              
-
+              <div className='post-body m-auto' dangerouslySetInnerHTML={{ __html: marked.parse(content) }}></div>
             </div>
           </div>
         </div>
@@ -103,14 +100,12 @@ export default function PostPage({ content, frontmatter }) {
   )
 }
 
-
 export async function getStaticPaths() {
   //  Get files from the posts dir
   const files = fs.readdirSync(path.join('posts'))
 
   // Get slug and frontmatter from posts
   const temppaths = files.map((filename) => {
-
     // Get frontmatter
     const markdownWithMeta = fs.readFileSync(
       path.join('posts', filename),
@@ -128,8 +123,6 @@ export async function getStaticPaths() {
     } else {
       return null
     }
-
-
   })
   //   remove null in tempPosts 
   const paths = temppaths.filter(
@@ -142,12 +135,9 @@ export async function getStaticPaths() {
     paths,
     fallback: false,
   }
-
 }
 
-
 export async function getStaticProps({ params: { slug } }) {
-
   const markdownWithMeta = fs.readFileSync(
     path.join('posts', slug + '.md'),
     'utf-8'
