@@ -8,7 +8,7 @@ images : ["../blog_img/NPCs.png"]
 # slug : "how-is-npm-install-command"
 summary : ""
 # tags : ["npm", "npm-cli", "npm install command"]
-title : "A Look at NPCs"
+title : "The Unsung Chorus: A Look at NPCs"
 draft : false
 ---
 
