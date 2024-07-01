@@ -123,6 +123,34 @@ const svgColorsFun = () => {
         
        </div>
        <div className="mainContent">
+        <h1>An  Engineering Snippets</h1>
+       </div>
+       <div className="mainContent main_projects">
+      <div className="hover_project padding-0">
+      <Link  href="sparks/widget" passHref>
+     
+        <h1 className="daos_spot_home">A Dynamic Widget  <span className="arrowspan"> <span className="req">An interactive widget</span> ↗</span></h1>
+       
+        </Link>
+        </div>
+        <div className="hover_project padding-0">
+        <Link  href="sparks/button" passHref>
+     
+        <h1 className=""> Button<span className="arrowspan"> <span className="req">An interactive button. </span>↗</span></h1>
+       
+        </Link>
+        </div>
+        <div className="hover_project padding-0">
+        <Link  href="sparks/scroll" passHref>
+     
+        <h1 className=""> Scrolling<span className="arrowspan"> <span className="req">Widget Scrolling </span>↗</span></h1>
+       
+        </Link>
+        </div>
+       
+        
+       </div>
+       <div className="mainContent">
         <h1>Social media</h1>
        </div>
        <div className="mainContent margin-top " id="links_home">
@@ -149,6 +177,7 @@ const svgColorsFun = () => {
        <div className="mainContent margin-top">
      
       <div className="hover_project latest_activity_project">
+        
         <a href="https://x.com/sadiq_moo/status/1739593994948989280/video/1" target="_blink">
         
         {/* <Image className="border-rounded " src={"/fffsfs.gif"} alt="" width={100} height={100} style={{ width: "376px", height: "315pxs",borderRadius:"20px", marginBottom:"20px" }} /> */}

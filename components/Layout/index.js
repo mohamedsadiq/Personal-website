@@ -63,7 +63,7 @@ const Layout = ({ children }) => {
       </div>
       <KeyNav />
      
-      {/* <div className="blur"></div> */}
+      <div className="blur"></div>
     
       
     </div>
