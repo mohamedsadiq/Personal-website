@@ -1,6 +1,6 @@
 ---
 author : "Mohamed Sadiq"
-categories : ["Human behavior","Gaming","NPCs"]
+categories : ["analytics","Human behavior","Gaming","NPCs"]
 date : "2024-07-02T13:09:24Z"
 description : ""
 image : "/blog_img/NPCs.png"
@@ -8,7 +8,7 @@ images : ["../blog_img/NPCs.png"]
 # slug : "how-is-npm-install-command"
 summary : ""
 # tags : ["npm", "npm-cli", "npm install command"]
-title : "The Unsung Chorus: A Look at NPCs"
+title : "A Look at NPCs"
 draft : false
 ---
 
