@@ -156,20 +156,20 @@ export default function QuickButton() {
           </div>
         </div>
       </main>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW"
+        strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-H699TZ29QW');
+        `}
+        </Script> 
     </>
   );
 }
 
 
-{/* <Script
-src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW"
-strategy="afterInteractive"
-/>
-<Script id="google-analytics" strategy="afterInteractive">
-{`
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-H699TZ29QW');
-`}
-</Script> */}
