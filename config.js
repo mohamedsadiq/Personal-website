@@ -1,3 +1,3 @@
-const SITE_URL= 'https://mohamedsadiq.me/'
+const SITE_URL= 'https://mosadiq.com/'
 
 export default SITE_URL
