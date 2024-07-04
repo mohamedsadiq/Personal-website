@@ -22,6 +22,9 @@
 html{
   background-color: #fff;
 }
+.contenttttt{
+  display: contents !important;
+}
 .contents {
   transition: opacity 0.9s ease-in-out, filter 0.9s ease-in-out;
   opacity: 1;
@@ -3728,7 +3731,7 @@ cursor: pointer;
   @media only screen and (max-width:1424px) {
   
   .class_body{
-    height: 1684px;
+    height: 1797px;
   }
   }
 
