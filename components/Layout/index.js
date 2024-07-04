@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-
+import { useRouter } from "next/router";
 import Header from "../Header";
 import KeyNav from "../keyNav";
 
 const Layout = ({ children }) => {
+  const router = useRouter();
   const [displayChildren, setDisplayChildren] = useState(children);
   const [transitionStage, setTransitionStage] = useState("fadeOut");
   const contents = "contents";
@@ -44,10 +45,12 @@ const Layout = ({ children }) => {
       document.body.style.color = mode === "dark" ? "#000" : "#fff"; // Update body text color
     }
   }, [mode]);
-  
+
+  // Determine if the current route includes "blog/"
+  const isBlogPage = router.pathname.includes("blog");
+
   return (
     <div className={mode + " theBody"}>
-      
       <Header modeValue={mode} setMode={setMode} />
       <div
         onTransitionEnd={() => {
@@ -57,15 +60,12 @@ const Layout = ({ children }) => {
             setTransitionStage("fadeIn");
           }
         }}
-        className={`${contents} ${transitionStage}`}
+        className={`${contents} ${transitionStage} ${isBlogPage ? "contenttttt" : ""}`}
       >
         {clonedChildren}
       </div>
       <KeyNav />
-     
       <div className="blur"></div>
-    
-      
     </div>
   );
 };
