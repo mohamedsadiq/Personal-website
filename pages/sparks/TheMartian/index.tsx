@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import Head from "next/head";
 import Script from "next/script";
 import BackButton from "../../../components/backButton";
-import { KeyDisplay } from "../../../utils";
+import { KeyDisplay } from "../../../utilsSpark";
 import { CharacterControls } from "../../../characterControls";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
