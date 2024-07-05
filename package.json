@@ -1,5 +1,5 @@
 {
-  "name": "mysite",
+  "name": "Mohamed Sadiq",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,6 +13,7 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@gsap/react": "^2.0.2",
+    "@types/three": "^0.166.0",
     "framer-motion": "^6.5.1",
     "gray-matter": "^4.0.3",
     "gsap": "^3.12.5",
