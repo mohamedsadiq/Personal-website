@@ -1,6 +1,6 @@
 ---
 author : "Mohamed Sadiq"
-categories : ["analytics","Human behavior","Gaming","NPCs"]
+categories : ["Gaming","NPCs"]
 date : "2024-07-02T13:09:24Z"
 description : ""
 image : "/blog_img/NPCs.png"
