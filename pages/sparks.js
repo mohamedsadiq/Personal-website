@@ -18,7 +18,7 @@ const Sparks = () => {
             <p>An engineering snippets</p>
 
             <div className="spark">
-             
+            
               <Link href="sparks/widget" passHref>
                 <div className="spark_block">
                   <video width="100%" height="100%" autoPlay loop muted playsInline>
@@ -58,7 +58,20 @@ const Sparks = () => {
                   <div className="spark_date">June - 2024</div>
                 </div>
               </Link>
-              
+              <Link href="sparks/TheMartian" passHref>
+                <div className="spark_block">
+                  <video width="100%" height="100%" autoPlay loop muted playsInline>
+                    <source src="/martin.mov" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <div className="spark_info">
+                    <div className="spark_title">The Martian
+                    </div>
+                    <div className="spark_dec">A character on Mars.</div>
+                  </div>
+                  <div className="spark_date">Jul - 2024</div>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

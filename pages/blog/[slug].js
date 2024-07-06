@@ -79,7 +79,7 @@ export default function PostPage({ content, frontmatter }) {
         }}
       />
 
-      <div className="container">
+      <div className="container container_blog_parent">
         <div className="inner_container inner_blog_body">
           <div className="col-lg-10 m-auto">
             <Link href={"/blogs"}>
