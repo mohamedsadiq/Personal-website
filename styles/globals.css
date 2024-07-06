@@ -168,6 +168,9 @@ a.tag{
 .button_container{
   position: absolute;
 }
+.container_blog_parent{
+  max-width: 750px !important;
+}
 .inner_container_sparks h2{
   margin-top: 0;
 }
@@ -1889,8 +1892,8 @@ color: rgb(250, 200, 17);
 .inner_blog_body  p{
   font-family: sans-serif;
     color: #eeeeee;
-    font-size: 1rem;
-    line-height: 32px;
+    font-size: 1.2rem;
+    line-height: 40px;
     font-weight: 400;
 }
 
