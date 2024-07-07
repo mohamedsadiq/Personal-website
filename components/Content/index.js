@@ -98,7 +98,7 @@ const svgColorsFun = () => {
         </div>
        
        <div className="mainContent">
-        <h1>Future Project</h1>
+        <h1>Things I’ve built</h1>
        </div>
        <div className="mainContent main_projects">
       <div className="hover_project padding-0">
