@@ -1,4 +1,4 @@
----
+<!-- ---
 author : "Mohamed Sadiq"
 categories : ["Philosophy", "Tech", "AI"]
 date : "2023-03-20T13:09:24Z"
@@ -30,4 +30,4 @@ In this way, technology becomes not just a tool for progress, but a reflection o
 
 
 
-
+ -->

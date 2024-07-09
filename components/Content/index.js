@@ -178,7 +178,7 @@ const svgColorsFun = () => {
      
       <div className="hover_project latest_activity_project">
         
-        <a href="https://x.com/sadiq_moo/status/1739593994948989280/video/1" target="_blink">
+        <a href="https://x.com/sadiq_moo/status/1805008800971424021/video/1" target="_blink">
         
         {/* <Image className="border-rounded " src={"/fffsfs.gif"} alt="" width={100} height={100} style={{ width: "376px", height: "315pxs",borderRadius:"20px", marginBottom:"20px" }} /> */}
         <video width="100%" height="100%" autoPlay loop muted playsInline>
