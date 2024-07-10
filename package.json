@@ -13,6 +13,7 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@gsap/react": "^2.0.2",
+    "@react-three/drei": "^9.108.3",
     "@types/three": "^0.166.0",
     "framer-motion": "^6.5.1",
     "gray-matter": "^4.0.3",
@@ -25,13 +26,14 @@
     "react": "^18.2.0",
     "react-code-blocks": "^0.1.6",
     "react-dom": "^18.2.0",
+    "react-three-fiber": "^6.0.13",
     "react-use": "^17.4.0",
     "remark": "^14.0.2",
     "remark-html": "^15.0.2",
     "remark-react": "^9.0.1",
     "stats-js": "^1.0.1",
     "stats.js": "^0.17.0",
-    "three": "^0.166.0",
+    "three": "^0.166.1",
     "use-sound": "^4.0.1"
   },
   "devDependencies": {

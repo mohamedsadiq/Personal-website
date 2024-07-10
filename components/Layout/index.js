@@ -15,7 +15,13 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     if (children !== displayChildren) setTransitionStage("fadeOut");
-  }, [children, setDisplayChildren, displayChildren]);
+  }, [children, displayChildren]);
+
+  useEffect(() => {
+    if (transitionStage === "fadeOut") {
+      window.scrollTo(0, 0);
+    }
+  }, [transitionStage]);
 
   const prefersDarkMode = () => {
     if (typeof window !== "undefined" && window.matchMedia) {
@@ -25,7 +31,7 @@ const Layout = ({ children }) => {
   };
 
   const [mode, setMode] = useState(() => {
-    return typeof window !== "undefined" && localStorage.getItem("mode") || (prefersDarkMode() ? "dark" : "light");
+    return (typeof window !== "undefined" && localStorage.getItem("mode")) || (prefersDarkMode() ? "dark" : "light");
   });
 
   useEffect(() => {
@@ -34,7 +40,7 @@ const Layout = ({ children }) => {
     }
   }, [mode]);
 
-  const clonedChildren = React.Children.map(displayChildren, child =>
+  const clonedChildren = React.Children.map(displayChildren, (child) =>
     React.cloneElement(child, { mode })
   );
 
@@ -46,6 +52,18 @@ const Layout = ({ children }) => {
     }
   }, [mode]);
 
+  useEffect(() => {
+    const handleRouteChangeComplete = () => {
+      window.scrollTo(0, 0);
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChangeComplete);
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChangeComplete);
+    };
+  }, [router]);
+
   // Determine if the current route includes "blog/"
   const isBlogPage = router.pathname.includes("blog");
 
@@ -55,7 +73,6 @@ const Layout = ({ children }) => {
       <div
         onTransitionEnd={() => {
           if (transitionStage === "fadeOut") {
-            console.log("fading out");
             setDisplayChildren(children);
             setTransitionStage("fadeIn");
           }
