@@ -156,6 +156,13 @@ a.tag{
   opacity: 1;
   filter: blur(0px) !important;
 }
+.light .expButton button{
+  margin: 0 10px;
+  color: #000 !important;
+}
+.dark .expButton button{
+  color: #fff !important;
+}
 .inner_container_sparks_parent{
   margin-top: 0 !important;
   max-width: 700px !important;
@@ -4660,3 +4667,11 @@ ul li{
   }
 } */
 
+
+.exp {
+  cursor:grab /* Default cursor */
+}
+
+.exp:active {
+  cursor: grabbing; /* Cursor when dragging */
+}
