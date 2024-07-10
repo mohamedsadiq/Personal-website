@@ -156,12 +156,19 @@ a.tag{
   opacity: 1;
   filter: blur(0px) !important;
 }
-.light .expButton button{
+
+.expButton button{
   margin: 0 10px;
+}
+.light .expButton button{
+ 
   color: #000 !important;
 }
 .dark .expButton button{
   color: #fff !important;
+}
+.expButton {
+  text-align: center;
 }
 .inner_container_sparks_parent{
   margin-top: 0 !important;
@@ -4675,3 +4682,16 @@ ul li{
 .exp:active {
   cursor: grabbing; /* Cursor when dragging */
 }
+/* .nav3dmodel{
+  width: 300px;
+  height: 20px;
+  position: fixed;
+  z-index: 1000;
+  background: #ffffff54;
+  bottom: 50%;
+}
+.nav3dmodel div{
+  display: inline-block;
+    scale: 1.6;
+    margin: 0 5px;
+} */

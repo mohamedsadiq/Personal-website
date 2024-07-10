@@ -10,9 +10,9 @@ import { OrbitControls } from "@react-three/drei";
 
 // Define models
 const models = [
-  { url: "/Spartan helmet44.glb", name: "Aguilar de Nerha posed", cameraPosition: [0, 0.1, 0.5], lightIntensity: 5 },
+  { url: "/Spartan helmet44.glb", name: "Spartan helmet", cameraPosition: [0, 0.1, 0.5], lightIntensity: 5 },
   { url: "/Crane Sword 3D model.glb", name: "Crane Sword", cameraPosition: [0, 1, 1], lightIntensity: 5 },
-  { url: "/Samurai Oni Mask.glb", name: "Samurai", cameraPosition: [300, 1, 1], lightIntensity: 5 },
+  { url: "/Samurai Oni Mask.glb", name: "Samurai Oni Mask", cameraPosition: [300, 1, 1], lightIntensity: 5 },
 ];
 
 function Model({ url, isVisible, cameraPosition, lightIntensity }) {
@@ -52,6 +52,7 @@ function Model({ url, isVisible, cameraPosition, lightIntensity }) {
 
 export default function GameUi() {
   const [modelIndex, setModelIndex] = useState(0); // State for the current model index
+  const [hoveredIndex, setHoveredIndex] = useState(null); // State to track hovered button
   const [cursorStyle, setCursorStyle] = useState("grab"); // State for cursor style
 
   // Function to handle drag end
@@ -75,13 +76,6 @@ export default function GameUi() {
               The Quick Button is an interactive UI component designed to enhance user engagement through dynamic animations. Built using{" "}
               <span className="spark_tools">React</span>, <span className="spark_tools">Framer Motion</span>, and <span className="spark_tools">Tailwind CSS</span>, this button offers a visually appealing experience by incorporating smooth transitions and state changes upon user interaction.
             </p>
-            <div className="expButton">
-              {models.map((model, index) => (
-                <button key={model.name} onClick={() => setModelIndex(index)}>
-                  Load {model.name}
-                </button>
-              ))}
-            </div>
             <div className="exp" style={{ display: "flex", justifyContent: "space-around", alignItems: "center", height: "400px", background: "#000" }}>
               <AnimatePresence exitBeforeEnter>
                 <motion.div
@@ -158,6 +152,27 @@ export default function GameUi() {
                   </Canvas>
                 </motion.div>
               </AnimatePresence>
+            </div>
+            <div className="expButton">
+              {models.map((model, index) => (
+                <motion.button
+                  key={model.name}
+                  onClick={() => setModelIndex(index)}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: index === modelIndex ? 1 : 0.6,
+                    filter: hoveredIndex !== null && hoveredIndex !== index ? "blur(4px)" : "blur(0px)"
+                  }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {model.name}
+                </motion.button>
+              ))}
             </div>
           </div>
         </div>
