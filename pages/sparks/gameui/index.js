@@ -166,7 +166,7 @@ export default function GameUi() {
                 </motion.div>
               </AnimatePresence>
             </div>
-            <div className="expButton">
+            <div className="expButton  mt-10">
   {models.map((model, index) => (
     <motion.button
       key={model.name}
