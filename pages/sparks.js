@@ -98,7 +98,7 @@ const Sparks = () => {
               <Link href="sparks/gameui" passHref>
                 <div className="spark_block">
                   <video width="100%" height="100%" autoPlay loop muted playsInline>
-                    <source src="/Screen Recording July 10.mov" type="video/mp4" />
+                    <source src="/July 10 Screen Recording.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                   <div className="spark_info">
