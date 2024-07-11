@@ -2,7 +2,7 @@ Hey there! My name is Mohamed Sadiq, a product designer on a mission, Focusing o
 
 Fork it, tweak it, and create your own magic!
 
-For more open-source projects, follow me on [Twitter](https://twitter.com/sadiq_moo). Oops! it's [X](https://x.com/sadiq_moo) now!
+For more open-source projects, follow me on it's [X](https://x.com/sadiq_moo) now!
 
 
 
