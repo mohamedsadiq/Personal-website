@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import Image from 'next/image'
 
+
 const Sparks = () => {
   return (
     <>
@@ -68,6 +69,34 @@ const Sparks = () => {
                     <div className="spark_title">The Martian
                     </div>
                     <div className="spark_dec">A character on Mars.</div>
+                  </div>
+                  <div className="spark_date">Jul - 2024</div>
+                </div>
+              </Link>
+              <Link href="sparks/onhover" passHref>
+                <div className="spark_block">
+                  <video width="100%" height="100%" autoPlay loop muted playsInline>
+                    <source src="/Screen Recording 2024-07-11 at 12.33.23 AM.mov" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <div className="spark_info">
+                    <div className="spark_title">On Hover
+                    </div>
+                    <div className="spark_dec">On hover interaction.</div>
+                  </div>
+                  <div className="spark_date">Jul - 2024</div>
+                </div>
+              </Link>
+              <Link href="sparks/TheMartian" passHref>
+                <div className="spark_block">
+                  <video width="100%" height="100%" autoPlay loop muted playsInline>
+                    <source src="/Screen Recording 2024-07-10 at 11.00.53 PM.mov" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <div className="spark_info">
+                    <div className="spark_title"> 3D interactive demo
+                    </div>
+                    <div className="spark_dec">Smooth transitions.</div>
                   </div>
                   <div className="spark_date">Jul - 2024</div>
                 </div>
