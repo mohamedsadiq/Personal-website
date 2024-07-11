@@ -167,11 +167,15 @@ a.tag{
   background-color: #fbfbfb; */
   color: #000 !important;
 }
+.dark button.buttonOnHover {
+  color : #000 !important
+}
 .dark .expButton button{
-  color: #fff !important;
+  color: #fff ;
   /* border: 1px solid #3e3e3e;
     background-color: #313131; */
 }
+
 .expButton {
   text-align: center;
 }
@@ -3251,6 +3255,7 @@ position: relative;
   padding: 5px 8px;
   border-radius: 10px;
   transition: all 0.1s ease-in-out;
+  display: ruby;
 }
 .light .spark_tools{
   border: 1px solid #eee;
@@ -4084,7 +4089,7 @@ color: #eee;
 }
 .spark_block video{
   border-radius: 23px;
-  min-height: 212px;
+  min-height: 120px;
 }
 .spark_block:hover{
   opacity: 0.8;
@@ -4680,11 +4685,11 @@ ul li{
 } */
 
 
-.exp {
+.exp3d {
   cursor:grab /* Default cursor */
 }
 
-.exp:active {
+.exp3d:active {
   cursor: grabbing; /* Cursor when dragging */
 }
 /* .nav3dmodel{

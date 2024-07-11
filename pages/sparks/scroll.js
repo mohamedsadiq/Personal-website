@@ -48,7 +48,7 @@ export default function FamilyTransactions() {
         <div className="container inner_container_sparks">
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
-            <h2>Scrolling.</h2>
+            <h2>Scrolling</h2>
 
             <p>
               It's a scroll, but with a twist. Instead of the typical scroll
