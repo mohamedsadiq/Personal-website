@@ -76,7 +76,7 @@ const Sparks = () => {
               <Link href="sparks/onhover" passHref>
                 <div className="spark_block">
                   <video width="100%" height="100%" autoPlay loop muted playsInline>
-                    <source src="/Screen Recording 2024-07-11 at 12.33.23 AM.mov" type="video/mp4" />
+                    <source src="/Screen Recording July 11.mov" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                   <div className="spark_info">
@@ -90,7 +90,7 @@ const Sparks = () => {
               <Link href="sparks/TheMartian" passHref>
                 <div className="spark_block">
                   <video width="100%" height="100%" autoPlay loop muted playsInline>
-                    <source src="/Screen Recording 2024-07-10 at 11.00.53 PM.mov" type="video/mp4" />
+                    <source src="/Screen Recording July 10.mov" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                   <div className="spark_info">
