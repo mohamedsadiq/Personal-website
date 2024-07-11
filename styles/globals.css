@@ -4230,7 +4230,7 @@ color: #000;
   width: 100%;
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid #eee;
+  /* border: 1px solid #eee; */
 }
 .hover_project h1{
   padding: 0 !important
