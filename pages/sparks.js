@@ -95,7 +95,7 @@ const Sparks = () => {
                   <div className="spark_date">Jul - 2024</div>
                 </div>
               </Link>
-              <a href="https://x.com/sadiq_moo/status/1811148917783875695"  target="_blink">
+              <Link href="sparks/gameui" passHref>
                 <div className="spark_block">
                   <video width="100%" height="100%" autoPlay loop muted playsInline>
                     <source src="/Screen Recording July 10.mov" type="video/mp4" />
@@ -108,7 +108,7 @@ const Sparks = () => {
                   </div>
                   <div className="spark_date">Jul - 2024</div>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
