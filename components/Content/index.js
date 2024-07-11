@@ -182,7 +182,7 @@ const svgColorsFun = () => {
         
         {/* <Image className="border-rounded " src={"/fffsfs.gif"} alt="" width={100} height={100} style={{ width: "376px", height: "315pxs",borderRadius:"20px", marginBottom:"20px" }} /> */}
         <video width="100%" height="100%" autoPlay loop muted playsInline>
-                    <source src="/dots.mov" type="video/mp4" />
+                    <source src="/Screen Recording July 10.mov" type="video/mp4" />
                     Your browser does not support the video tag.
           </video>
         <h1 className="h_m"> Widget</h1>
