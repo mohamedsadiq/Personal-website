@@ -3,7 +3,7 @@ import Head from "next/head";
 import Script from "next/script";
 import { motion, AnimatePresence } from "framer-motion";
 import BackButton from "../../../components/backButton";
-
+import style from "./3d.module.css"
 // R3F
 import { Canvas, useThree, useFrame } from "react-three-fiber";
 
@@ -61,6 +61,7 @@ export default function GameUi() {
   const [modelIndex, setModelIndex] = useState(0); // State for the current model index
   const [hoveredIndex, setHoveredIndex] = useState(null); // State to track hovered button
   const [cursorStyle, setCursorStyle] = useState("grab"); // State for cursor style
+  const [isSpinning, setIsSpinning] = useState(true); // State to control spinning
 
   // Function to handle drag end
   const handleDragEnd = () => {
@@ -87,7 +88,7 @@ export default function GameUi() {
           <div className="inner_container inner_container_sparks">
             <h2>3D Models </h2>
             <p>
-            This interactive demo showcases a collection of 3D models brought to life using React, Three.js, React Three Fiber. Framer Motion, the interface provides a seamless experience through smooth animations and state transitions.
+              This interactive demo showcases a collection of 3D models brought to life using React, Three.js, React Three Fiber. Framer Motion, the interface provides a seamless experience through smooth animations and state transitions.
             </p>
             <div className="exp exp3d" style={{ display: "flex", justifyContent: "space-around", alignItems: "center", height: "400px", background: "#000" }}>
               <AnimatePresence exitBeforeEnter>
@@ -161,33 +162,54 @@ export default function GameUi() {
                     <OrbitControls />
 
                     {/* Rotation Animation */}
-                    <ModelRotationAnimation modelIndex={modelIndex} />
+                    <ModelRotationAnimation modelIndex={modelIndex} isSpinning={isSpinning} />
                   </Canvas>
                 </motion.div>
               </AnimatePresence>
             </div>
-            <div className="expButton  mt-10">
-  {models.map((model, index) => (
-    <motion.button
-      key={model.name}
-      onClick={() => setModelIndex(index)}
-      onMouseEnter={() => setHoveredIndex(index)}
-      onMouseLeave={() => setHoveredIndex(null)}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: index === modelIndex ? 1 : 0.6,
-        filter: hoveredIndex !== null && hoveredIndex !== index ? "blur(4px)" : "blur(0px)"
-      }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-    >
-       {model.name}
-    </motion.button>
-  ))}
-</div>
-
+            <div className="flex justify-start flex-row flex-wrap gap-x-36">
+            <div className="expButton mt-10">
+              {models.map((model, index) => (
+                <motion.button
+                  key={model.name}
+                  onClick={() => setModelIndex(index)}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: index === modelIndex ? 1 : 0.6,
+                    filter: hoveredIndex !== null && hoveredIndex !== index ? "blur(4px)" : "blur(0px)"
+                  }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {model.name}
+                </motion.button>
+              ))}
+            </div>
+            <div className="mt-8">
+      <motion.button
+        onClick={() => setIsSpinning((prev) => !prev)}
+        whileHover={{ opacity: 0.8 }}
+        whileTap={{ scale: 0.9 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        className={`pl-3 pr-3 pt-1 pb-1 text-base bg-white rounded-2xl rotate3d`}
+      >
+        <motion.span
+          key={isSpinning ? "Freeze" : "Rotate"} // Ensure key changes to force re-render
+          initial={{ filter: "blur(10px)", opacity: 1 }}
+          animate={{ filter: "blur(0)", opacity: 1, transitionEnd: { filter: "blur(0)", opacity: 1 } }}
+          transition={{ duration: 0.01 }}
+        >
+          {isSpinning ? "Freeze" : "Rotate"}
+        </motion.span>
+      </motion.button>
+    </div>
+            </div>
           </div>
         </div>
       </main>
@@ -205,11 +227,13 @@ export default function GameUi() {
 }
 
 // Component for Model Rotation Animation
-function ModelRotationAnimation({ modelIndex }) {
+function ModelRotationAnimation({ modelIndex, isSpinning }) {
   const { scene } = useThree();
 
   // Rotate the model
   useFrame(() => {
+    if (!isSpinning) return;
+
     scene.traverse((object) => {
       if (object.isMesh) {
         if (modelIndex === 2) {

@@ -34,6 +34,7 @@ const {
       // Add the file loader rule for video files
       config.module.rules.push({
         test: /\.(mov|mp4|avi|wmv|flv|webm)$/,
+        
         use: {
           loader: 'file-loader',
           options: {
@@ -43,7 +44,18 @@ const {
           },
         },
       });
-  
+      config.module.rules.push({
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+        ],
+      });
       return config;
     },
     appRootSelector: "main",
