@@ -30,27 +30,36 @@ const Layout = ({ children }) => {
     return false; // default to light mode if matchMedia is not supported or if window is not defined
   };
 
-  const [mode, setMode] = useState(() => {
-    return (typeof window !== "undefined" && localStorage.getItem("mode")) || (prefersDarkMode() ? "dark" : "light");
-  });
+  const getInitialMode = () => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("mode") || (prefersDarkMode() ? "dark" : "light");
+    }
+    return "light"; // default mode for server-side rendering
+  };
+
+  // Set initial mode statically for server render, update after mount
+  const [mode, setMode] = useState("light");
+
+  useEffect(() => {
+    const savedMode = localStorage.getItem("mode");
+    const initialMode = savedMode || (prefersDarkMode() ? "dark" : "light");
+    setMode(initialMode);
+
+    document.body.style.backgroundColor = initialMode === "dark" ? "#000" : "#fff";
+    document.body.style.color = initialMode === "dark" ? "#fff" : "#000";
+  }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       localStorage.setItem("mode", mode);
+      document.body.style.backgroundColor = mode === "dark" ? "#000" : "#fff";
+      document.body.style.color = mode === "dark" ? "#fff" : "#000";
     }
   }, [mode]);
 
   const clonedChildren = React.Children.map(displayChildren, (child) =>
     React.cloneElement(child, { mode })
   );
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("mode", mode);
-      document.body.style.backgroundColor = mode === "dark" ? "#000" : "#fff"; // Update body background color
-      document.body.style.color = mode === "dark" ? "#000" : "#fff"; // Update body text color
-    }
-  }, [mode]);
 
   useEffect(() => {
     const handleRouteChangeComplete = () => {
