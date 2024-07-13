@@ -94,7 +94,7 @@ const Header = (props) => {
         },
         animate: {
           width: "22rem",
-          border: "1px solid #101010",
+          // border: "1px solid #101010",
           opacity: 1,
           filter: "blur(0px)",
           boxShadow: " inset 0px 1px 1px #161616",
@@ -117,7 +117,7 @@ const Header = (props) => {
         },
         animate: {
           width: "38.7rem",
-          border: "1px solid #101010",
+          // border: "1px solid #101010",
           opacity: 1,
           boxShadow: " inset 0px 1px 1px #161616",
         },
@@ -219,7 +219,7 @@ const Header = (props) => {
     },
     animate: {
       width: "39rem",
-      border: "1px solid #101010",
+      // border: "1px solid #101010",
       opacity: 1,
     },
     hover: {
