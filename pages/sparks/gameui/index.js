@@ -80,7 +80,7 @@ export default function GameUi() {
         <meta name="twitter:site" content="@mosadiq.com" />
         <meta name="twitter:title" content="Mohamed Sadiq" />
         <meta name="twitter:description" content="Product designer & Engineer." />
-        <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />  
+        <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />
       </Head>
       <main>
         <div className="container inner_container_sparks_parent">
@@ -90,7 +90,7 @@ export default function GameUi() {
             <p>
               This interactive demo showcases a collection of 3D models brought to life using React, Three.js, React Three Fiber. Framer Motion, the interface provides a seamless experience through smooth animations and state transitions.
             </p>
-            <div className="exp exp3d" style={{ display: "flex", justifyContent: "space-around", alignItems: "center", height: "400px", background: "#000" }}>
+            <div className="exp exp3d remove-buttom-borders" style={{ display: "flex", justifyContent: "space-around", alignItems: "center", height: "400px", background: "#000" }}>
               <AnimatePresence exitBeforeEnter>
                 <motion.div
                   drag
@@ -167,48 +167,48 @@ export default function GameUi() {
                 </motion.div>
               </AnimatePresence>
             </div>
-            <div className="flex justify-start flex-row flex-wrap gap-x-36">
-            <div className="expButton mt-10">
-              {models.map((model, index) => (
+            <div className="flex justify-start flex-row flex-wrap gap-x-28 expControllSection">
+              <div className="expButton">
+                {models.map((model, index) => (
+                  <motion.button
+                    key={model.name}
+                    onClick={() => setModelIndex(index)}
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.9 }}
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: index === modelIndex ? 1 : 0.6,
+                      filter: hoveredIndex !== null && hoveredIndex !== index ? "blur(4px)" : "blur(0px)"
+                    }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {model.name}
+                  </motion.button>
+                ))}
+              </div>
+              <div className="">
                 <motion.button
-                  key={model.name}
-                  onClick={() => setModelIndex(index)}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  whileHover={{ scale: 1.1 }}
+                  onClick={() => setIsSpinning((prev) => !prev)}
+                  whileHover={{ opacity: 0.8 }}
                   whileTap={{ scale: 0.9 }}
                   initial={{ opacity: 0 }}
-                  animate={{
-                    opacity: index === modelIndex ? 1 : 0.6,
-                    filter: hoveredIndex !== null && hoveredIndex !== index ? "blur(4px)" : "blur(0px)"
-                  }}
-                  exit={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
+                  className={`pl-3 pr-3 pt-1 pb-1 text-base bg-white rounded-2xl rotate3d`}
                 >
-                  {model.name}
+                  <motion.span
+                    key={isSpinning ? "Freeze" : "Rotate"} // Ensure key changes to force re-render
+                    initial={{ filter: "blur(10px)", opacity: 1 }}
+                    animate={{ filter: "blur(0)", opacity: 1, transitionEnd: { filter: "blur(0)", opacity: 1 } }}
+                    transition={{ duration: 0.01 }}
+                  >
+                    {isSpinning ? "Freeze" : "Rotate"}
+                  </motion.span>
                 </motion.button>
-              ))}
-            </div>
-            <div className="mt-8">
-      <motion.button
-        onClick={() => setIsSpinning((prev) => !prev)}
-        whileHover={{ opacity: 0.8 }}
-        whileTap={{ scale: 0.9 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
-        className={`pl-3 pr-3 pt-1 pb-1 text-base bg-white rounded-2xl rotate3d`}
-      >
-        <motion.span
-          key={isSpinning ? "Freeze" : "Rotate"} // Ensure key changes to force re-render
-          initial={{ filter: "blur(10px)", opacity: 1 }}
-          animate={{ filter: "blur(0)", opacity: 1, transitionEnd: { filter: "blur(0)", opacity: 1 } }}
-          transition={{ duration: 0.01 }}
-        >
-          {isSpinning ? "Freeze" : "Rotate"}
-        </motion.span>
-      </motion.button>
-    </div>
+              </div>
             </div>
           </div>
         </div>

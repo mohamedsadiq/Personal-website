@@ -177,6 +177,7 @@ a.tag{
 }
 
 .expButton {
+  line-height: 34px;
   text-align: center;
 }
 .inner_container_sparks_parent{
@@ -3230,11 +3231,31 @@ position: relative;
   margin-top: 23px;
   width: 100%;
   min-height: 293px;
-  border-radius: 13px;
+  border-radius: 16px;
   border: 1px solid #333;
   position: relative;
-  margin-bottom: 23px;
+  /* margin-bottom: 23px; */
   transition: all 0.3s ease-in-out;
+}
+.expControllSection{
+  padding: 17px;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+  
+}
+.dark .expControllSection{
+  
+  border: 1px solid #333;
+  background: #222;
+}
+.light .expControllSection{
+  background: #eee;
+  border: 1px solid #ddd;
+}
+.remove-buttom-borders{
+  border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom: none !important;
 }
  .hex {
   width: 43px;
@@ -4709,5 +4730,15 @@ ul li{
   background: #2f2f2f87;
   color: #fff;
   border: 1px solid #434343;
+  padding: 4px 22px;
+}
+.dark .rotate3d{
+  background: #e0e0e0;
+  color: #000;
+  border: 1px solid #bdbdbd;
+}
+.light .rotate3d{
+  background: #3b3b3b;
+  color: #fff;
   padding: 4px 22px;
 }
