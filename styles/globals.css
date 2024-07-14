@@ -4099,7 +4099,7 @@ color: #eee;
   padding-top: 78px;
   /* background: #191919; */
   border: 1px solid #333333;
-  background: linear-gradient(133deg, #242424 0%, #000000 100%);
+  background: #161616;
 }
 .spark_block{
   overflow: hidden;
@@ -4159,9 +4159,9 @@ color: #eee;
   background: #fafafa;
   border: 1px solid #eaeaea;
 }
-.light .spark_block{
+/* .light .spark_block{
   background: linear-gradient(133deg, #ededed 0%, #ffffff 100%)
-}
+} */
 
 
 .light .spark  h3 {
