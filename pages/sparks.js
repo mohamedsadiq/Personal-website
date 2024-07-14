@@ -10,7 +10,7 @@ const sparksData = [
     date: 'June - 2024',
     type: 'image',
     src: '/dots.gif',
-    blurSrc: '/Screenshot 2024-07-14 at 6.15.52 PM 1.png',  
+    blurSrc: '/',  
     width: 100,
     height: 100
     
@@ -22,7 +22,7 @@ const sparksData = [
     date: 'June - 2024',
     type: 'image',
     src: '/fffsfs.gif',
-    blurSrc: '/Screenshot 2024-07-14 at 6.15.52 PM 1.png',  // Placeholder image
+    blurSrc: '/',  // Placeholder image
     width: 100,
     height: 50
   },
@@ -32,7 +32,6 @@ const sparksData = [
     description: 'Widget Scrolling.',
     date: 'June - 2024',
     type: 'video',
-    
     src: 'https://video.twimg.com/ext_tw_video/1801041108274757632/pu/vid/avc1/480x480/qbJ7cC1MrzCqk444.mp4?tag=12',
     mediaType: 'video/mp4'
   },
@@ -42,7 +41,7 @@ const sparksData = [
     description: 'A character on Mars.',
     date: 'Jul - 2024',
     type: 'image',
-    blurSrc: '/Screenshot 2024-07-14 at 6.15.52 PM 1.png',  
+    blurSrc: '/',  
     src: '/martin.gif',
     width: 100,
     height: 100
@@ -53,9 +52,11 @@ const sparksData = [
     title: 'On Hover',
     description: 'On hover interaction.',
     date: 'Jul - 2024',
-    type: 'video',
-    src: '/Screen Recording July 11.mov',
-    mediaType: 'video/mp4'
+    blurSrc: '/',  
+    src: '/July 11 Screen Recording.gif',
+    type: 'image',
+    width: 100,
+    height: 100
   },
   {
     href: 'sparks/gameui',
