@@ -8,10 +8,12 @@ const sparksData = [
     title: 'Widget',
     description: 'An interactive widget.',
     date: 'June - 2024',
-    type: 'video',
-    src: '/dots.mov',
+    type: 'image',
+    src: '/dots.gif',
+    blurSrc: '/Screenshot 2024-07-14 at 6.15.52 PM 1.png',  
+    width: 100,
+    height: 100
     
-    mediaType: 'video/mp4'
   },
   {
     href: 'sparks/button',
@@ -39,9 +41,12 @@ const sparksData = [
     title: 'The Martian',
     description: 'A character on Mars.',
     date: 'Jul - 2024',
-    type: 'video',
-    src: '/martin.mov',
-    mediaType: 'video/mp4'
+    type: 'image',
+    blurSrc: '/Screenshot 2024-07-14 at 6.15.52 PM 1.png',  
+    src: '/martin.gif',
+    width: 100,
+    height: 100
+   
   },
   {
     href: 'sparks/onhover',
