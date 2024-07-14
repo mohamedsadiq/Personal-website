@@ -1,8 +1,6 @@
-Hey there! My name is Mohamed Sadiq, a product designer on a mission, Focusing on crypto. and this is my website [Website](https://mohamedsadiq.me/)
+Hey there! My name is Mohamed Sadiq, a product designer, Focusing on crypto. and this is my website [Website](https://mosadiq.come/)
 
-Fork it, tweak it, and create your own magic!
-
-For more open-source projects, follow me on it's [X](https://x.com/sadiq_moo) 
+For more open-source projects, follow me on  [X](https://x.com/sadiq_moo) 
 
 
 
