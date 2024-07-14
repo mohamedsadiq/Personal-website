@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import LazyLoad from 'react-lazyload';
 
 const sparksData = [
   {
@@ -11,6 +10,7 @@ const sparksData = [
     date: 'June - 2024',
     type: 'video',
     src: '/dots.mov',
+    
     mediaType: 'video/mp4'
   },
   {
@@ -20,8 +20,9 @@ const sparksData = [
     date: 'June - 2024',
     type: 'image',
     src: '/fffsfs.gif',
+    blurSrc: '/Screenshot 2024-07-14 at 6.15.52 PM 1.png',  // Placeholder image
     width: 100,
-    height: 100
+    height: 50
   },
   {
     href: 'sparks/scroll',
@@ -29,6 +30,7 @@ const sparksData = [
     description: 'Widget Scrolling.',
     date: 'June - 2024',
     type: 'video',
+    
     src: 'https://video.twimg.com/ext_tw_video/1801041108274757632/pu/vid/avc1/480x480/qbJ7cC1MrzCqk444.mp4?tag=12',
     mediaType: 'video/mp4'
   },
@@ -84,31 +86,43 @@ const Sparks = () => {
 
             <div className="spark">
               {sparksData.map((spark, index) => (
-                <Link href={spark.href} passHref key={index}>
-                  <div className="spark_block">
-                    <LazyLoad>
-                      {spark.type === 'video' ? (
-                        <video width="100%" height="100%" autoPlay loop muted playsInline>
-                          <source src={spark.src} type={spark.mediaType} />
-                          Your browser does not support the video tag.
-                        </video>
-                      ) : (
-                        <Image alt={spark.title} src={spark.src} className="buttoninter" width={spark.width} height={spark.height} loading="lazy" />
-                      )}
-                    </LazyLoad>
-                    <div className="spark_info">
-                      <div className="spark_title">{spark.title}</div>
-                      <div className="spark_dec">{spark.description}</div>
-                    </div>
-                    <div className="spark_date">{spark.date}</div>
-                  </div>
-                </Link>
+                <SparkItem key={index} {...spark} />
               ))}
             </div>
           </div>
         </div>
       </main>
     </>
+  );
+};
+
+const SparkItem = ({ href, title, description, date, type, src, mediaType, blurSrc, width, height }) => {
+  return (
+    <Link href={href} passHref>
+      <div className="spark_block">
+        {type === 'video' ? (
+          <video width="100%" height="100%" autoPlay loop muted playsInline>
+            <source src={src} type={mediaType} />
+            Your browser does not support the video tag.
+          </video>
+        ) : (
+          <Image
+            alt={title}
+            src={src}
+            placeholder="blur"
+            blurDataURL={blurSrc}
+            width={width}
+            height={height}
+            layout="responsive"
+          />
+        )}
+        <div className="spark_info">
+          <div className="spark_title">{title}</div>
+          <div className="spark_dec">{description}</div>
+        </div>
+        <div className="spark_date">{date}</div>
+      </div>
+    </Link>
   );
 };
 
