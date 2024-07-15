@@ -187,57 +187,16 @@ const svgColorsFun = () => {
                     Your browser does not support the video tag.
           </video>
         <h1 className="h_m"> 3D  demo</h1>
-        <span>3D interactive demo. </span>
+        <span>ThreejsInteractive demo. </span>
         </a>
       </div>
-      {/* <div className="hover_project latest_activity_project">
-        <a href="https://x.com/sadiq_moo/status/1801041351796019592" target="_blink">
-        
-        <video muted={true} autoPlay={true} loop src={"/scroll.mov"} style={{ width: "376px", height: "376px" }} />
-        <h1 className="h_m"> Scrolling </h1>
-        <span>Widget Scrolling</span>
-        </a>
-      </div> */}
-      
-      {/* <div className="hover_project latest_activity_project">
-      
-      <Link href="/sparks/family_transactions">
-      
-      <video muted={true} autoPlay={true} loop src={"/familyanimation.mov"} style={{ width: "375px", height: "auto" }} />
-      <h1 className="h_home"> Family Wallet Transactions</h1>
-      <span>Made the animation using GASP.js</span>
-      </Link>
-    
-      </div> */}
-       
-       </div>
-       
-       {/* <div className="mainContent">
-        <h1>Future Project</h1>
-       </div> */}
-
-
-
-       {/* <div className="mainContent ">
-        <h1> Thoughts</h1>
-       </div>
-       <div className="mainContent thoughts">
      
-      <div className="hover_project  padding-0">
-        <Link href="blog/building-on-imagination">
-        <h1 className="h_m">Building On Imagination  <span className="arrowspan">↗</span></h1>
-        <span>January 13, 2024</span>
-        </Link>
-      </div>
       
+     
        
-       
-        <div>
-          
-          
-        </div>
-        
-       </div> */}
+       </div>
+  
+
       
        <div className="mainContent">
         <h1>Available to work</h1>
