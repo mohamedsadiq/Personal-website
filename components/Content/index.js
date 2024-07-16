@@ -68,7 +68,7 @@ const MyComponent = (mode) => {
         <div id="name">Mohamed Sadiq</div>
         <div className="home_text_front">
           <p>
-            A Product Designer & engineer, Dedicated to turning ideas into
+           A Design Engineer, Dedicated to turning ideas into
             well-crafted products. Founder of{" "}
             <a href={"/projects/daosspot"} target="_blink">
               DAOs Spot
@@ -97,7 +97,22 @@ const MyComponent = (mode) => {
             </Link>
           </p> */}
         </div>
-
+        <div className="mainContent">
+          <h1>Latest Activity</h1>
+        </div>
+        <div className="mainContent margin-top">
+          <div className="hover_project latest_activity_project">
+            <a href="https://x.com/sadiq_moo/status/1811148917783875695" target="_blink">
+              {/* <Image className="border-rounded " src={"/fffsfs.gif"} alt="" width={100} height={100} style={{ width: "376px", height: "315pxs",borderRadius:"20px", marginBottom:"20px" }} /> */}
+              <video width="100%" height="100%" autoPlay loop muted playsInline>
+                <source src="/July 10 Screen Recording.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <h1 className="h_m"> 3D  demo</h1>
+              <span>ThreejsInteractive demo. </span>
+            </a>
+          </div>
+        </div>
         <div className="mainContent">
           <h1>Things I’ve built</h1>
         </div>
@@ -192,22 +207,7 @@ const MyComponent = (mode) => {
             </a>
           </ul>
         </div>
-        <div className="mainContent">
-          <h1>Latest Activity</h1>
-        </div>
-        <div className="mainContent margin-top">
-          <div className="hover_project latest_activity_project">
-            <a href="https://x.com/sadiq_moo/status/1811148917783875695" target="_blink">
-              {/* <Image className="border-rounded " src={"/fffsfs.gif"} alt="" width={100} height={100} style={{ width: "376px", height: "315pxs",borderRadius:"20px", marginBottom:"20px" }} /> */}
-              <video width="100%" height="100%" autoPlay loop muted playsInline>
-                <source src="/July 10 Screen Recording.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <h1 className="h_m"> 3D  demo</h1>
-              <span>ThreejsInteractive demo. </span>
-            </a>
-          </div>
-        </div>
+       
         <div className="mainContent">
           <h1>Available to work</h1>
         </div>

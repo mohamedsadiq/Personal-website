@@ -2485,6 +2485,7 @@ backdrop-filter: blur(41.6033px);
 }
 .dark .projects_tags span{
   background-color: #fff;
+  color: #000;
 }
 .projects_tags span{
   background-color: #202020;
