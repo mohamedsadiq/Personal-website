@@ -118,17 +118,17 @@ const MyComponent = (mode) => {
         </div>
         <div className="mainContent main_projects">
           <div className="hover_project padding-0">
-            <Link href="projects/daosspot" passHref>
+            <Link className="mt-0" href="projects/daosspot" passHref>
               <h1 className="daos_spot_home"> DAOs Spot  <span className="arrowspan"> <span className="req">4th product of the week on PH</span> ↗</span></h1>
             </Link>
           </div>
           <div className="hover_project padding-0">
-            <Link href="projects/developerdaofm" passHref>
+            <Link className="mt-2" href="projects/developerdaofm" passHref>
               <h1 className=""> DeeveloperDAO FM<span className="arrowspan"> <span className="req">Top product PH </span>↗</span></h1>
             </Link>
           </div>
           <div className="hover_project padding-0">
-            <a href="https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs" passHref>
+            <a className="mt-2" href="https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs" passHref>
               <h1 className=""> Web3 lover boy NFTs<span className="arrowspan"> <span className="req">NFTs collection </span>↗</span></h1>
             </a>
           </div>
@@ -138,7 +138,7 @@ const MyComponent = (mode) => {
         </div>
         <div className="mainContent main_projects">
           <div className="hover_project padding-0">
-            <Link  class="sparkLinks" href="sparks/widget" passHref>
+            <Link  class="sparkLinks mt-0" href="sparks/widget" passHref>
               <h1 className="daos_spot_home">A Dynamic Widget  <span className="arrowspan"> <span className="req">An interactive widget</span> ↗</span></h1>
               {/* <div className="spark_home_gif">
                 <Image width="200" height="200" src={"/dots.gif"} alt="" />
@@ -146,7 +146,7 @@ const MyComponent = (mode) => {
             </Link>
           </div>
           <div className="hover_project padding-0">
-            <Link  class="sparkLinks" href="sparks/button" passHref>
+            <Link  className="sparkLinks mt-2" href="sparks/button" passHref>
               <h1 className=""> Button<span className="arrowspan"> <span className="req">An interactive button</span>↗</span></h1>
               {/* <div className="spark_home_gif">
                 <Image width="200" height="200" src={"/fffsfs.gif"} alt="" />
@@ -154,7 +154,7 @@ const MyComponent = (mode) => {
             </Link>
           </div>
           <div className="hover_project padding-0">
-            <Link className="sparkLinks" href="sparks/scroll" passHref>
+            <Link className="sparkLinks mt-2" href="sparks/scroll" passHref>
               <h1 className=""> Scrolling<span className="arrowspan"> <span className="req">Widget Scrolling </span>↗</span></h1>
               {/* <div className="spark_home_gif">
                 <Image width="200" height="200" src={"/fffsfs.gif"} alt="" />
@@ -162,7 +162,7 @@ const MyComponent = (mode) => {
             </Link>
           </div>
           <div className="hover_project padding-0">
-            <Link className="sparkLinks" href="sparks/TheMartian" passHref>
+            <Link className="sparkLinks mt-2" href="sparks/TheMartian" passHref>
               <h1 className=""> The Martian<span className="arrowspan"> <span className="req"> A character on Mars </span>↗</span></h1>
               {/* <div className="spark_home_gif">
                 <Image width="200" height="200" src={"/martin.gif"} alt="" />
@@ -170,7 +170,7 @@ const MyComponent = (mode) => {
             </Link>
           </div>
           <div className="hover_project padding-0">
-            <Link className="sparkLinks" href="sparks/onhover" passHref>
+            <Link className="sparkLinks mt-2" href="sparks/onhover" passHref>
               <h1 className=""> On Hover<span className="arrowspan"> <span className="req">On hover interaction </span>↗</span></h1>
               {/* <div className="spark_home_gif">
                 <Image width="200" height="200" src={"/July 11 Screen Recording.gif"} alt="" />
@@ -179,7 +179,7 @@ const MyComponent = (mode) => {
             </Link>
           </div>
           <div className="hover_project padding-0">
-            <Link className="sparkLinks" href="sparks/gameui" passHref>
+            <Link className="sparkLinks mt-2" href="sparks/gameui" passHref>
               <h1 className=""> Smooth transitions.<span className="arrowspan"> <span className="req">3D interactive demo </span>↗</span></h1>
               {/* <div className="spark_home_gif">
                 <Image width="200" height="200" src={"/Screen Recording July 10.gif"} alt="" />
@@ -208,8 +208,8 @@ const MyComponent = (mode) => {
           </ul>
         </div>
        
-        <div className="mainContent">
-          <h1>Available to work</h1>
+        <div className="mainContent mt-5">
+          <h1 className=" mt-3">Available to work</h1>
         </div>
         <div className="mainContent margin-top " id="links_home">
           <a className="calltoation" href="mailto:mohamed.sadiq@outlook.sa"><button className="workbutton"> <span id="workbutton"></span> Reach To Me</button></a>
