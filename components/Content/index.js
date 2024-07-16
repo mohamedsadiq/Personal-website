@@ -68,7 +68,7 @@ const MyComponent = (mode) => {
         <div id="name">Mohamed Sadiq</div>
         <div className="home_text_front">
           <p>
-           A Design Engineer, Dedicated to turning ideas into
+           A Product Designer & an Engineer, Dedicated to turning ideas into
             well-crafted products. Founder of{" "}
             <a href={"/projects/daosspot"} target="_blink">
               DAOs Spot
@@ -139,7 +139,7 @@ const MyComponent = (mode) => {
         <div className="mainContent main_projects">
           <div className="hover_project padding-0">
             <Link  class="sparkLinks mt-0" href="sparks/widget" passHref>
-              <h1 className="daos_spot_home">A Dynamic Widget  <span className="arrowspan"> <span className="req">An interactive widget</span> ↗</span></h1>
+              <h1 className="daos_spot_home">A Dynamic Widget  <span className="arrowspan"> <span className="req">Jun 2024 </span> ↗</span></h1>
               {/* <div className="spark_home_gif">
                 <Image width="200" height="200" src={"/dots.gif"} alt="" />
               </div> */}
@@ -147,7 +147,7 @@ const MyComponent = (mode) => {
           </div>
           <div className="hover_project padding-0">
             <Link  className="sparkLinks mt-2" href="sparks/button" passHref>
-              <h1 className=""> Button<span className="arrowspan"> <span className="req">An interactive button</span>↗</span></h1>
+              <h1 className=""> Button<span className="arrowspan"> <span className="req">Jun 2024 </span>↗</span></h1>
               {/* <div className="spark_home_gif">
                 <Image width="200" height="200" src={"/fffsfs.gif"} alt="" />
               </div> */}
@@ -155,7 +155,7 @@ const MyComponent = (mode) => {
           </div>
           <div className="hover_project padding-0">
             <Link className="sparkLinks mt-2" href="sparks/scroll" passHref>
-              <h1 className=""> Scrolling<span className="arrowspan"> <span className="req">Widget Scrolling </span>↗</span></h1>
+              <h1 className=""> Scrolling<span className="arrowspan"> <span className="req">Jun 2024 </span>↗</span></h1>
               {/* <div className="spark_home_gif">
                 <Image width="200" height="200" src={"/fffsfs.gif"} alt="" />
               </div> */}
@@ -163,7 +163,7 @@ const MyComponent = (mode) => {
           </div>
           <div className="hover_project padding-0">
             <Link className="sparkLinks mt-2" href="sparks/TheMartian" passHref>
-              <h1 className=""> The Martian<span className="arrowspan"> <span className="req"> A character on Mars </span>↗</span></h1>
+              <h1 className=""> The Martian<span className="arrowspan"> <span className="req">Jul 2024 </span>↗</span></h1>
               {/* <div className="spark_home_gif">
                 <Image width="200" height="200" src={"/martin.gif"} alt="" />
               </div> */}
@@ -171,7 +171,7 @@ const MyComponent = (mode) => {
           </div>
           <div className="hover_project padding-0">
             <Link className="sparkLinks mt-2" href="sparks/onhover" passHref>
-              <h1 className=""> On Hover<span className="arrowspan"> <span className="req">On hover interaction </span>↗</span></h1>
+              <h1 className=""> On Hover<span className="arrowspan"> <span className="req">Jul 2024  </span>↗</span></h1>
               {/* <div className="spark_home_gif">
                 <Image width="200" height="200" src={"/July 11 Screen Recording.gif"} alt="" />
               </div> */}
@@ -180,7 +180,7 @@ const MyComponent = (mode) => {
           </div>
           <div className="hover_project padding-0">
             <Link className="sparkLinks mt-2" href="sparks/gameui" passHref>
-              <h1 className=""> Smooth transitions.<span className="arrowspan"> <span className="req">3D interactive demo </span>↗</span></h1>
+              <h1 className="">3D Smooth transitions<span className="arrowspan"> <span className="req">Jul 2024  </span>↗</span></h1>
               {/* <div className="spark_home_gif">
                 <Image width="200" height="200" src={"/Screen Recording July 10.gif"} alt="" />
               </div> */}
