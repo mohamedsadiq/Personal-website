@@ -666,7 +666,8 @@ body{
 .inner_stack .block,
 .inner_stack h1,
 .blog_overlay,
-.blog_photo img{
+.blog_photo img,
+.spark_home_gif{
   -webkit-transition: all 0.3s 0s ease-in-out;
   -moz-transition: all 0.3s 0s ease-in-out;
   -o-transition: all 0.3s 0s ease-in-out;
@@ -4108,6 +4109,26 @@ color: #eee;
     /* border: 1px solid #c3c3c3; */
     
 }
+.hover_project{
+  position: relative;
+}
+.spark_home_gif {
+
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  z-index: 100;
+  
+}
+.sparkLinks:hover .spark_home_gif{
+  opacity: 1;
+  visibility:visible
+}
+.spark_home_gif img{
+  border-radius: 10px;
+}
 .spark_block video{
   border-radius: 23px;
   min-height: 120px;
@@ -4277,10 +4298,10 @@ color: #000;
   margin-top: 58px;
 }
  
-.hover_project a{
+.hover_project h1{
   transition: all 0.15s ease-in-out;
 }
-.hover_project a:hover{
+.hover_project h1:hover{
   opacity: 0.5;
 }
 .mainContent .padding-0{
@@ -4296,7 +4317,7 @@ color: #000;
   background-color: #eee;
 } */
 .mainContent .padding-0:hover a{
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
 .mainContent .padding-0 a:hover{
 

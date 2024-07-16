@@ -104,61 +104,66 @@ const MyComponent = (mode) => {
         <div className="mainContent main_projects">
           <div className="hover_project padding-0">
             <Link href="projects/daosspot" passHref>
-
               <h1 className="daos_spot_home"> DAOs Spot  <span className="arrowspan"> <span className="req">4th product of the week on PH</span> ↗</span></h1>
-              {/* <video className="future_project_video" width="100%" height="100%" autoPlay loop muted playsInline>
-                    <source src="/daosspotvideo.mov" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video> */}
             </Link>
           </div>
           <div className="hover_project padding-0">
             <Link href="projects/developerdaofm" passHref>
-
               <h1 className=""> DeeveloperDAO FM<span className="arrowspan"> <span className="req">Top product PH </span>↗</span></h1>
-
             </Link>
           </div>
-
-
-
         </div>
         <div className="mainContent">
-          <h1>An  Engineering Snippets</h1>
+          <h1>An Engineering Snippets</h1>
         </div>
         <div className="mainContent main_projects">
           <div className="hover_project padding-0">
-            <Link href="sparks/widget" passHref>
-
+            <Link  class="sparkLinks" href="sparks/widget" passHref>
               <h1 className="daos_spot_home">A Dynamic Widget  <span className="arrowspan"> <span className="req">An interactive widget</span> ↗</span></h1>
-
+              {/* <div className="spark_home_gif">
+                <Image width="200" height="200" src={"/dots.gif"} alt="" />
+              </div> */}
             </Link>
           </div>
           <div className="hover_project padding-0">
-            <Link href="sparks/button" passHref>
-
+            <Link  class="sparkLinks" href="sparks/button" passHref>
               <h1 className=""> Button<span className="arrowspan"> <span className="req">An interactive button</span>↗</span></h1>
-
+              {/* <div className="spark_home_gif">
+                <Image width="200" height="200" src={"/fffsfs.gif"} alt="" />
+              </div> */}
             </Link>
           </div>
           <div className="hover_project padding-0">
-            <Link href="sparks/scroll" passHref>
+            <Link className="sparkLinks" href="sparks/scroll" passHref>
               <h1 className=""> Scrolling<span className="arrowspan"> <span className="req">Widget Scrolling </span>↗</span></h1>
+              {/* <div className="spark_home_gif">
+                <Image width="200" height="200" src={"/fffsfs.gif"} alt="" />
+              </div> */}
             </Link>
           </div>
           <div className="hover_project padding-0">
-            <Link href="sparks/themartian" passHref>
+            <Link className="sparkLinks" href="sparks/TheMartian" passHref>
               <h1 className=""> The Martian<span className="arrowspan"> <span className="req"> A character on Mars </span>↗</span></h1>
+              {/* <div className="spark_home_gif">
+                <Image width="200" height="200" src={"/martin.gif"} alt="" />
+              </div> */}
             </Link>
           </div>
           <div className="hover_project padding-0">
-            <Link href="sparks/onhover" passHref>
+            <Link className="sparkLinks" href="sparks/onhover" passHref>
               <h1 className=""> On Hover<span className="arrowspan"> <span className="req">On hover interaction </span>↗</span></h1>
+              {/* <div className="spark_home_gif">
+                <Image width="200" height="200" src={"/July 11 Screen Recording.gif"} alt="" />
+              </div> */}
+             
             </Link>
           </div>
           <div className="hover_project padding-0">
-            <Link href="sparks/gameui" passHref>
+            <Link className="sparkLinks" href="sparks/gameui" passHref>
               <h1 className=""> Smooth transitions.<span className="arrowspan"> <span className="req">3D interactive demo </span>↗</span></h1>
+              {/* <div className="spark_home_gif">
+                <Image width="200" height="200" src={"/Screen Recording July 10.gif"} alt="" />
+              </div> */}
             </Link>
           </div>
         </div>
