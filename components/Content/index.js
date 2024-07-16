@@ -109,7 +109,7 @@ const MyComponent = (mode) => {
                 Your browser does not support the video tag.
               </video>
               <h1 className="h_m"> 3D  demo</h1>
-              <span>ThreejsInteractive demo. </span>
+              <span>Threejs Interactive demo. </span>
             </a>
           </div>
         </div>
