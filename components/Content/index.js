@@ -112,6 +112,11 @@ const MyComponent = (mode) => {
               <h1 className=""> DeeveloperDAO FM<span className="arrowspan"> <span className="req">Top product PH </span>↗</span></h1>
             </Link>
           </div>
+          <div className="hover_project padding-0">
+            <a href="https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs" passHref>
+              <h1 className=""> Web3 lover boy NFTs<span className="arrowspan"> <span className="req">NFTs collection </span>↗</span></h1>
+            </a>
+          </div>
         </div>
         <div className="mainContent">
           <h1>An Engineering Snippets</h1>
