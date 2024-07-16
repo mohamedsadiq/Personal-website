@@ -114,7 +114,7 @@ const DeveloperDAO = () => {
               quality={100}
             />
           </div>
-          <span className="project_img_des">( The Home page) </span>
+          <span className="project_img_des">(The Home page) </span>
 
 
           <div className="blog_photo inner_blog ">
