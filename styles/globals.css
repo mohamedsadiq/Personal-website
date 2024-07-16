@@ -3441,6 +3441,14 @@ position: relative;
   
 }
 @media only screen and (max-width:425px) {
+  .mainContent .padding-0 {
+    padding-left: 0 !important;
+}
+.mainContent {
+  
+  margin-top: 24px !important;
+  
+}
   .class_body {
     height: 2180px !important;
 }
@@ -3723,7 +3731,7 @@ cursor: pointer;
     border: none !important;
   }
   .class_body {
-    height: 2404px !important;
+    height: 1900px !important;
 }
 }
 @media only screen and (max-width:321px) {
