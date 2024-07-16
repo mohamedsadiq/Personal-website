@@ -259,19 +259,6 @@ export default function Widget() {
                   <h4>Doing morning exercises</h4>
                 </motion.div>
               </motion.div>
-
-              {/* <motion.div 
-              
-                className="widget_text_mobile"
-                initial={widget_text_mobile.initial}
-                animate={isClicked ? widget_text_mobile.animate : widget_text_mobile.initial}
-                transition={{
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 13,
-                }}
-              >
-               <p></p></motion.div> */}
             </div>
           </div>
         </div>
