@@ -90,8 +90,8 @@ const Layout = ({ children }) => {
       >
         {clonedChildren}
       </div>
-      <KeyNav />
-      <div className="blur"></div>
+      {/* <KeyNav /> */}
+      {/* <div className="blur"></div> */}
     </div>
   );
 };
