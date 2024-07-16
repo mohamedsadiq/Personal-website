@@ -84,7 +84,7 @@ const MyComponent = (mode) => {
             </a>
             , Focused on {" "}
             <span className="web3">
-              web3<span id="animation_web3"></span>
+              web3.<span id="animation_web3"></span>
             </span>
           </p>
           {/* <p className="callToAction">
@@ -209,10 +209,10 @@ const MyComponent = (mode) => {
         </div>
        
         <div className="mainContent mt-5">
-          <h1 className=" mt-3">Available to work</h1>
+          <h1 className=" mt-3">Available for July to Aug</h1>
         </div>
         <div className="mainContent margin-top " id="links_home">
-          <a className="calltoation" href="mailto:mohamed.sadiq@outlook.sa"><button className="workbutton"> <span id="workbutton"></span> Reach To Me</button></a>
+          <a className="calltoation" href="mailto:mohamed.sadiq@outlook.sa"><button className="workbutton"> <span id="workbuttongreen"></span>Reach out via mail</button></a>
         </div>
 
       </motion.div>
