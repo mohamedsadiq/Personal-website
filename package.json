@@ -33,6 +33,7 @@
     "remark": "^14.0.2",
     "remark-html": "^15.0.2",
     "remark-react": "^9.0.1",
+    "sass": "^1.77.8",
     "stats-js": "^1.0.1",
     "stats.js": "^0.17.0",
     "three": "^0.166.1",

@@ -6,8 +6,7 @@ import Image from 'next/image'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react' // import from 'keen-slider/react.es' for to get an ES module
 
-// import video1 from "../img/20190722_142740.mp4";
-// import Videos from "../img/20190722_142740.mp4";
+
 import unsplashIcon from "../img/unsplashicon.svg"
 import represent from "../img/represent.png"
 import sea_hands from "../img/mohamed-sadiq-EXhpMHDc-Sg-unsplash.jpg"

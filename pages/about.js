@@ -91,14 +91,6 @@ export default function About() {
           </div>
           <p className='freetimep'> In my free time, you can often find me at the gym. When I'm not there, I indulge in my passion for video games, finding inspiration and enjoyment in their immersive worlds. But beyond that, nothing compares to the tranquil beauty of the sunset by the sea, where I find peace and solace, connecting with nature's breathtaking wonders.</p>
           <div className='about_links'>
-              
-              {/* <ul>
-                <li>  <a target="_blink" href='https://www.twitter.com/sadiq_moo/'>Twitter or X</a></li>
-              
-                <li>  <a target="_blink" href='https://dribbble.com/Mohamed-Sadiq'>Dribbble</a></li>
-                <li>  <a target="_blink" href='https://www.producthunt.com/@m_bronz0'>Product Hunt</a></li>
-                <li>  <a target="_blink" href='https://www.behance.net/mohamed_sadiq'>Behance</a></li>
-              </ul> */}
               </div>
               <div className='open_to_work'>
                 <h2></h2>
