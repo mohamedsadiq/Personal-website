@@ -285,7 +285,7 @@ body p, body h1, body h2, body h3, body h4, body h5, body h6, body span{
 .flex-container-level2{
   margin: 24px 0; 
 }
-.sepereate::after{
+/* .sepereate::after{
   content: "";
   width: 1px;
   height: 47px;
@@ -294,7 +294,7 @@ body p, body h1, body h2, body h3, body h4, body h5, body h6, body span{
   left:-14px;
   top: 3px;
   transition: all 0.3s ease-in-out ;
-}
+} */
 .light .dot_active {
  
   background-color: #a6a6a6;
@@ -4302,13 +4302,13 @@ color: #000;
   width: 100%;
   border-radius: 10px;
   overflow: hidden;
-  /* border: 1px solid #eee; */
+ 
 }
 .hover_project h1{
   padding: 0 !important
 }
 .mainContent  a{
-  display: block !important;
+  display: inline-block !important;
 }
 .arrowspan{
   font-size: 10px;

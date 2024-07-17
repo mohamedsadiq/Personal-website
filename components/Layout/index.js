@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Header from "../Header";
 import KeyNav from "../keyNav";
+import { Analytics } from "@vercel/analytics/react"
 
 const Layout = ({ children }) => {
   const router = useRouter();
@@ -89,6 +90,7 @@ const Layout = ({ children }) => {
         className={`${contents} ${transitionStage} ${isBlogPage ? "contenttttt" : ""}`}
       >
         {clonedChildren}
+        <Analytics />
       </div>
       {/* <KeyNav /> */}
       {/* <div className="blur"></div> */}
