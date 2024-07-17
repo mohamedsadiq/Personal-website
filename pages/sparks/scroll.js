@@ -56,7 +56,7 @@ export default function FamilyTransactions() {
               content, elevating the overall user experience.
             </p>
 
-            <div className="exp">
+            <div className="exp"  style={{ height:"700px"}} >
             <div className="rainy"></div>
               <div className="dotsForScrolling">
                 <div className="dot activeDot"></div>
