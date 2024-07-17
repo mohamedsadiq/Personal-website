@@ -90,7 +90,7 @@ export default function GameUi() {
             <p>
               This interactive demo showcases a collection of 3D models brought to life using React, Three.js, React Three Fiber. Framer Motion, the interface provides a seamless experience through smooth animations and state transitions.
             </p>
-            <div className="exp exp3d remove-buttom-borders" style={{ display: "flex", justifyContent: "space-around", alignItems: "center", height: "400px", background: "#000" }}>
+            <div className="exp exp3d remove-buttom-borders" style={{ display: "flex", justifyContent: "space-around", alignItems: "center", height: "500px", background: "#000" }}>
               <AnimatePresence exitBeforeEnter>
                 <motion.div
                   drag

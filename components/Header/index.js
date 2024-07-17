@@ -111,12 +111,12 @@ const Header = (props) => {
     : {
         initial: {
           border: "none",
-          width: "38.7rem",
+          width: "6rem",
           opacity: 1,
           overflow: "hidden",
         },
         animate: {
-          width: "38.7rem",
+          width: "37.7rem",
           // border: "1px solid #101010",
           opacity: 1,
           boxShadow: " inset 0px 1px 1px #161616",
@@ -654,7 +654,7 @@ const Header = (props) => {
         </a>
         <div>
           <motion.div
-            className="icon_holder sepereate"
+            className="icon_holder "
             initial="initial"
             animate="animate"
             whileTap={{ scale: 0.9 }}
@@ -719,7 +719,7 @@ const Header = (props) => {
         </div>
         <a href="mailto:mohamed.sadiq@outlook.sa">
           <motion.div
-            className="icon_holder lastIcon"
+            className="icon_holder "
             initial="initial"
             animate="animate"
             whileTap={{ scale: 0.9 }}

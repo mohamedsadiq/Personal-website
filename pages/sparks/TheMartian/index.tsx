@@ -182,7 +182,7 @@ const TheMartian: React.FC = () => {
               </ul>
             </p>
 
-            <div className="exp" ref={containerRef}></div>
+            <div className="exp" ref={containerRef} style={{ height:"700px"}} ></div>
           </div>
         </div>
         <Script
