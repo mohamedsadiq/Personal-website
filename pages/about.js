@@ -70,11 +70,11 @@ export default function About() {
         
           {/* <p> <strong>Product Design:</strong> I excel in crafting interactive experiences that seamlessly guide users through digital products. From wireframes and prototypes to high-fidelity mockups, I use industry-standard tools to convey design concepts effectively.</p> */}
           <div id="#tool">
-          <h1 className="mt1">Tools I use?</h1>
+          {/* <h1 className="mt1">Tools I use?</h1>
           <ul className=''>
             <li><strong> Design Tools I Use: </strong>I utilize a diverse set of industry-standard design tools, including <span className=''>Figma</span>, Adobe Illustrator, Adobe Photoshop, Adobe After Effects, and more, to bring my creative ideas to life.</li>
             <li><strong> Coding Tools I Use: </strong>For coding, I rely on an array of powerful tools, including VS Code, Vanilla JavaScript, React.js, Web3.js, Ether.js, Next.js, and Framer Motion. Leveraging this versatile toolkit, I can implement designs effectively.</li>
-          </ul>
+          </ul> */}
           </div>
           <div className='img_about'>
             <Image src={setup} alt="setup" quality={100}/>
@@ -84,12 +84,13 @@ export default function About() {
 
 
             <h1 className="mt1">In my free time</h1>
+            <p className='freetimep'> In my free time, you can often find me at the gym. When I'm not there, I indulge in my passion for video games, finding inspiration and enjoyment in their immersive worlds. But beyond that, nothing compares to the tranquil beauty of the sunset by the sea, where I find peace and solace, connecting with nature's breathtaking wonders.</p>
+
             <div className='img_about freetime'>
             <Image src={pic} alt="setup" quality={100}/>
             
             <p className='toolsSetup'> Some of the photos I've taken - <span> You can see more of them from <Link href={"/taste/photo"}>here</Link></span></p>
           </div>
-          <p className='freetimep'> In my free time, you can often find me at the gym. When I'm not there, I indulge in my passion for video games, finding inspiration and enjoyment in their immersive worlds. But beyond that, nothing compares to the tranquil beauty of the sunset by the sea, where I find peace and solace, connecting with nature's breathtaking wonders.</p>
           <div className='about_links'>
               </div>
               <div className='open_to_work'>
