@@ -1,15 +1,20 @@
-import React, { useState, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useCallback, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
 import Script from 'next/script';
 import BackButton from '../../../components/backButton';
 
-const years = Array.from({ length: 2024 - 1950 + 1 }, (_, i) => 2024 - i);
-
 export default function Line() {
+  const [startYear, setStartYear] = useState(1950);
+  const [endYear, setEndYear] = useState(2024);
+  const [years, setYears] = useState(Array.from({ length: endYear - startYear + 1 }, (_, i) => endYear - i));
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [selected, setSelected] = useState(null);
   const [dragging, setDragging] = useState(false);
+
+  useEffect(() => {
+    setYears(Array.from({ length: endYear - startYear + 1 }, (_, i) => endYear - i));
+  }, [startYear, endYear]);
 
   const handleMouseEnter = useCallback((index) => setHoveredIndex(index), []);
   const handleMouseLeave = useCallback(() => setHoveredIndex(null), []);
@@ -21,7 +26,7 @@ export default function Line() {
 
   const handleIncreaseClick = useCallback(() => {
     setSelected((prevSelected) => (prevSelected === null ? null : Math.min(prevSelected + 1, years.length - 1)));
-  }, []);
+  }, [years.length]);
 
   const handleDragStart = useCallback(() => setDragging(true), []);
   const handleDragEnd = useCallback(() => setDragging(false), []);
@@ -54,24 +59,66 @@ export default function Line() {
             <p>
               In this snippet, I have been working on enhancing the user experience of a dynamic timeline component built with React and Framer Motion. My main focus has been on implementing interactive elements and animations to create a more engaging interface.
             </p>
-            <div className="exp" style={{ height: "400px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-              <div className="flex w-full items-center justify-center">
+            <div className="exp" style={{ height: "400px", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+              <div className="year-inputs flex gap-x-4">
+              <motion.label
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+                >
+                  Start Year:
+                  <motion.input
+                    type="number"
+                    value={startYear}
+                    onChange={(e) => setStartYear(Number(e.target.value))}
+                    min="1900"
+                    max="2100"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                    style={{ padding: '10px', borderRadius: '5px', border: '1px solid #ccc', marginTop: '5px' }}
+                  />
+                </motion.label>
+                <motion.label
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+                >
+                  End Year:
+                  <motion.input
+                    type="number"
+                    value={endYear}
+                    onChange={(e) => setEndYear(Number(e.target.value))}
+                    min="1900"
+                    max="2100"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                    style={{ padding: '10px', borderRadius: '5px', border: '1px solid #ccc', marginTop: '5px' }}
+                  />
+                </motion.label>
+              </div>
+              <div className="flex w-full items-center justify-center mt-4">
                 <ControlButton onClick={handleDecreaseClick} dragging={dragging} text="-" />
                 
                 <div className="flex flex-row gap-x-0.5" style={{ cursor: 'pointer' }}>
-                  {years.map((year, i) => (
-                    <YearButton
-                      key={year}
-                      year={year}
-                      index={i}
-                      isSelected={selected === i}
-                      isHovered={hoveredIndex === i}
-                      handleMouseEnter={handleMouseEnter}
-                      handleMouseLeave={handleMouseLeave}
-                      handleClick={handleClick}
-                      calculateScale={calculateScale}
-                    />
-                  ))}
+                  <AnimatePresence initial={false}>
+                    {years.map((year, i) => (
+                      <YearButton
+                        key={year}
+                        year={year}
+                        index={i}
+                        isSelected={selected === i}
+                        isHovered={hoveredIndex === i}
+                        handleMouseEnter={handleMouseEnter}
+                        handleMouseLeave={handleMouseLeave}
+                        handleClick={handleClick}
+                        calculateScale={calculateScale}
+                      />
+                    ))}
+                  </AnimatePresence>
                 </div>
                 
                 <ControlButton onClick={handleIncreaseClick} dragging={dragging} text="+" />
@@ -125,12 +172,14 @@ const YearButton = ({ year, index, isSelected, isHovered, handleMouseEnter, hand
     style={{ cursor: 'pointer' }}
     initial={{ scale: 0.8 }}
     animate={{ scale: isSelected ? 1.2 : calculateScale(index) }}
+    exit={{ opacity: 0, scale: 0.8 }}
     transition={{ type: 'spring', stiffness: 300, damping: 30 }}
   >
     <motion.div
       className={`w-0.5 h-20 rounded-[4px] ${isSelected ? 'bg-gray-500' : 'bg-black'}`}
       initial={{ scale: 0.4 }}
       animate={{ scale: calculateScale(index) }}
+      exit={{ opacity: 0, scale: 0.4 }}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
     />
     {isHovered && (
@@ -138,6 +187,7 @@ const YearButton = ({ year, index, isSelected, isHovered, handleMouseEnter, hand
         className={`absolute -bottom-5 -left-3 text-[11px] ${isSelected ? 'text-gray-500' : 'text-black'}`}
         initial={{ opacity: 0, filter: 'blur(4px)', scale: 0.4 }}
         animate={{ opacity: 1, filter: 'blur(0px)', scale: 1 }}
+        exit={{ opacity: 0, filter: 'blur(4px)', scale: 0.4 }}
         transition={{ duration: 0, delay: 0.01 }}
       >
         {year}
