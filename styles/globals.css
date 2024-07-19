@@ -993,9 +993,9 @@ header{
 
 .top_fixed{
   position: fixed;
-  bottom: 2% !important;  
+  bottom: 0% !important;  
   /* top: 0; */
-  scale: 0.8;
+  scale: 0.67;
   transform: perspective(1px) translateZ(0);
 backface-visibility: hidden;
   /* will-change: transform; */
@@ -1004,11 +1004,11 @@ backface-visibility: hidden;
 }
 .scrolled_header{
   position: fixed;
-  bottom: 2% !important;  
+  bottom: 0% !important;  
   /* transform: perspective(1px) translateZ(0); */
   backface-visibility: hidden;
   transition: transform 2s ease; 
-  scale: 0.8;
+  scale: 0.67;
   transform: perspective(1px) translateZ(0);
 }
 .inner_header{
