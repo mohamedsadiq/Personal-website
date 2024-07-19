@@ -58,7 +58,7 @@ export default function Timeline() {
           <div className="inner_container inner_container_sparks">
             <h2>Temporal Flow</h2>
             <p>
-            In this snippet, I have been working on enhancing the user experience of a dynamic timeline component built with React and Framer Motion. Our main focus has been on implementing interactive elements and animations to create a more engaging interface
+            In this snippet, I have been working on enhancing the user experience of a dynamic timeline component built with React and Framer Motion. my main focus has been on implementing interactive elements and animations to create a more engaging interface.
             </p>
             <div className="exp" style={{ height: "400px", display: "flex", justifyContent: "center", alignItems: "center" }}>
               <div className="flex w-full items-center justify-center">
