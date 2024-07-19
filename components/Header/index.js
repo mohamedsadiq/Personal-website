@@ -349,55 +349,6 @@ const Header = (props) => {
             </motion.div>
           </div>
         </Link>
-        <Link href="/projects" passHref>
-          <motion.div
-            whileTap={{ scale: 0.9 }}
-            className="icon_holder"
-            initial="initial"
-            animate="animate"
-            whileHover={{ scale: 1.1 }}
-            variants={iconss}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <div
-              className={
-                router.pathname == "/projects"
-                  ? "active icon_container"
-                  : "icon_container"
-              }
-              onClick={play}
-            >
-              <div className="icons">
-                <div className="text">Projects</div>
-                <motion.div
-                  variants={iconSvg}
-                  className="glow"
-                  animate="animate"
-                  whileHover={{ rotate: "360deg" }}
-                >
-                  <svg
-                    id="projectsIcon"
-                    width="40"
-                    height="38"
-                    viewBox="0 0 40 38"
-                    fill={iconsColor}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M19.4767 37.9031H19.4906C19.7686 27.4251 28.3497 19.0165 38.8948 19.0165C39.0704 19.0165 39.2455 19.0189 39.42 19.0235V19.0096C39.2455 19.0142 39.0704 19.0165 38.8948 19.0165C28.3497 19.0165 19.7686 10.608 19.4906 0.130005H19.4767C19.2033 10.4335 10.901 18.7359 0.597656 19.0096V19.0235C10.901 19.2972 19.2033 27.5996 19.4767 37.9031Z"
-                      fill={iconsColor}
-                    />
-                  </svg>
-                </motion.div>
-              </div>
-
-              <div className="dot_active"></div>
-            </div>
-          </motion.div>
-        </Link>
-
         <Link href="/sparks" passHref>
           <motion.div
             className="icon_holder"
@@ -447,6 +398,56 @@ const Header = (props) => {
             </div>
           </motion.div>
         </Link>
+        <Link href="/projects" passHref>
+          <motion.div
+            whileTap={{ scale: 0.9 }}
+            className="icon_holder"
+            initial="initial"
+            animate="animate"
+            whileHover={{ scale: 1.1 }}
+            variants={iconss}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            <div
+              className={
+                router.pathname == "/projects"
+                  ? "active icon_container"
+                  : "icon_container"
+              }
+              onClick={play}
+            >
+              <div className="icons">
+                <div className="text">Projects</div>
+                <motion.div
+                  variants={iconSvg}
+                  className="glow"
+                  animate="animate"
+                  whileHover={{ rotate: "360deg" }}
+                >
+                  <svg
+                    id="projectsIcon"
+                    width="40"
+                    height="38"
+                    viewBox="0 0 40 38"
+                    fill={iconsColor}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M19.4767 37.9031H19.4906C19.7686 27.4251 28.3497 19.0165 38.8948 19.0165C39.0704 19.0165 39.2455 19.0189 39.42 19.0235V19.0096C39.2455 19.0142 39.0704 19.0165 38.8948 19.0165C28.3497 19.0165 19.7686 10.608 19.4906 0.130005H19.4767C19.2033 10.4335 10.901 18.7359 0.597656 19.0096V19.0235C10.901 19.2972 19.2033 27.5996 19.4767 37.9031Z"
+                      fill={iconsColor}
+                    />
+                  </svg>
+                </motion.div>
+              </div>
+
+              <div className="dot_active"></div>
+            </div>
+          </motion.div>
+        </Link>
+
+       
         <Link href="/about" passHref>
           <motion.div
             className="icon_holder"
