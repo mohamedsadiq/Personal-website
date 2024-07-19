@@ -55,8 +55,8 @@ const Header = (props) => {
   const headerClass =
     router.pathname === "/"
       ? scrolling
-        ? "scrolled_header"
-        : "center_header"
+        ? "top_fixed"
+        : "top_fixed"
       : "top_fixed";
 
   const isSmall = useIsSmall();

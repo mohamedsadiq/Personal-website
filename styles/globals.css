@@ -705,7 +705,7 @@ a {
   text-decoration: none;
 }
 .container_sparks_home{
-  max-width: 800px !important;
+  max-width: 86% !important;
 }
 .container {
   max-width: 600px;
@@ -3834,7 +3834,7 @@ cursor: pointer;
   @media only screen and (max-width:1424px) {
   
   .class_body{
-    height: 1797px;
+    height: 1358px;
   }
   }
 
