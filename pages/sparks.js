@@ -72,7 +72,7 @@ const sparksData = [
   {
     href: 'sparks/line',
     title: 'Temporal Flow',
-    description: '',
+    description: 'Enhancing the ux of a timeline',
     date: 'Jul - 2024',
     blurSrc: '/Interactive Chronological Visualizer',  
     src: '/line.gif',
