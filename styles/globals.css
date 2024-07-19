@@ -705,7 +705,7 @@ a {
   text-decoration: none;
 }
 .container_sparks_home{
-  max-width: 86% !important;
+  max-width: 83% !important;
 }
 .container {
   max-width: 600px;
@@ -4124,8 +4124,8 @@ color: #eee;
   height: 100%;
   padding-top: 78px;
   /* background: #191919; */
-  border: 1px solid #333333;
-  background: #161616;
+  border:1px solid #1f1f1f;
+  background: #0f0f0f;
 }
 .spark_block{
   overflow: hidden;
