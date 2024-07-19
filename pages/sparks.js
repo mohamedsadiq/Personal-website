@@ -4,17 +4,15 @@ import Image from 'next/image';
 
 const sparksData = [
   {
-    href: 'sparks/widget',
-    title: 'Widget',
-    description: 'An interactive widget.',
+    href: 'sparks/scroll',
+    title: 'Scrolling',
+    description: 'Widget Scrolling.',
     date: 'June - 2024',
-    type: 'image',
-    src: '/dots.gif',
-    blurSrc: '/',  
-    width: 100,
-    height: 100
-    
+    type: 'video',
+    src: 'https://video.twimg.com/ext_tw_video/1801041108274757632/pu/vid/avc1/480x480/qbJ7cC1MrzCqk444.mp4?tag=12',
+    mediaType: 'video/mp4'
   },
+
   {
     href: 'sparks/button',
     title: 'Button',
@@ -27,14 +25,18 @@ const sparksData = [
     height: 50
   },
   {
-    href: 'sparks/scroll',
-    title: 'Scrolling',
-    description: 'Widget Scrolling.',
+    href: 'sparks/widget',
+    title: 'Widget',
+    description: 'An interactive widget.',
     date: 'June - 2024',
-    type: 'video',
-    src: 'https://video.twimg.com/ext_tw_video/1801041108274757632/pu/vid/avc1/480x480/qbJ7cC1MrzCqk444.mp4?tag=12',
-    mediaType: 'video/mp4'
+    type: 'image',
+    src: '/dots.gif',
+    blurSrc: '/',  
+    width: 100,
+    height: 100
+    
   },
+ 
   {
     href: 'sparks/TheMartian',
     title: 'The Martian',
@@ -104,7 +106,7 @@ const Sparks = () => {
             <div className="spark">
               {sparksData.map((spark, index) => (
                 <SparkItem key={index} {...spark} />
-              ))}
+              )).reverse()}
             </div>
           </div>
         </div>
