@@ -984,7 +984,7 @@ header{
   color:#989898
 }
 .class_body{
-  height: 2245px;
+  height: 1545px;
 }
 .main_projects h1{
   margin-bottom: 4px;
@@ -4107,9 +4107,7 @@ width: 174px;
     transform: rotate(360deg);
   }
 }
-.spark {
-  /* margin-top: 53px; */
-}
+
 .spark  h3 {
 text-decoration: underline;
 color: #eee;
