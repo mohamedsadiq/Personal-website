@@ -60,46 +60,7 @@ export default function Line() {
               In this snippet, I have been working on enhancing the user experience of a dynamic timeline component built with React and Framer Motion. My main focus has been on implementing interactive elements and animations to create a more engaging interface.
             </p>
             <div className="exp" style={{ height: "400px", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-              <div className="year-inputs flex gap-x-4">
-              <motion.label
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
-                >
-                  Start Year:
-                  <motion.input
-                    type="number"
-                    value={startYear}
-                    onChange={(e) => setStartYear(Number(e.target.value))}
-                    min="1900"
-                    max="2100"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                    style={{ padding: '10px', borderRadius: '5px', border: '1px solid #ccc', marginTop: '5px' }}
-                  />
-                </motion.label>
-                <motion.label
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
-                >
-                  End Year:
-                  <motion.input
-                    type="number"
-                    value={endYear}
-                    onChange={(e) => setEndYear(Number(e.target.value))}
-                    min="1900"
-                    max="2100"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                    style={{ padding: '10px', borderRadius: '5px', border: '1px solid #ccc', marginTop: '5px' }}
-                  />
-                </motion.label>
-              </div>
+             
               <div className="flex w-full items-center justify-center mt-4">
                 <ControlButton onClick={handleDecreaseClick} dragging={dragging} text="-" />
                 
@@ -122,6 +83,46 @@ export default function Line() {
                 </div>
                 
                 <ControlButton onClick={handleIncreaseClick} dragging={dragging} text="+" />
+              </div>
+              <div className="year-inputs flex gap-x-4">
+              <motion.label
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+                >
+                  Start Year
+                  <motion.input
+                    type="number"
+                    value={startYear}
+                    onChange={(e) => setStartYear(Number(e.target.value))}
+                    min="1900"
+                    max="2100"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                    style={{ padding: '10px', borderRadius: '20px', border: '1px solid #ccc', marginTop: '5px' }}
+                  />
+                </motion.label>
+                <motion.label
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+                >
+                  End Year
+                  <motion.input
+                    type="number"
+                    value={endYear}
+                    onChange={(e) => setEndYear(Number(e.target.value))}
+                    min="1900"
+                    max="2100"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                    style={{ padding: '10px', borderRadius: '20px', border: '1px solid #ccc', marginTop: '5px' }}
+                  />
+                </motion.label>
               </div>
             </div>
           </div>
