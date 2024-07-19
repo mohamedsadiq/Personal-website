@@ -27,7 +27,7 @@ const MyComponent = (mode) => {
     if (screenHeight > 1200) {
       newDivTop = "68vh";
     } else if (screenHeight <= 795) {
-      newDivTop = "73vh";
+      newDivTop = "18vh";
     } else {
       newDivTop = "18vh";
     }
