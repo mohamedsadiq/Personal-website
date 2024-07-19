@@ -74,7 +74,7 @@ export default function Timeline() {
                   <motion.div
                   
                     className="control-icon"
-                    style={{  cursor: 'pointer', width: '30px', height: '30px', backgroundColor: 'white', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#ddd', border:"1px solid #ddd" }}
+                    style={{  cursor: 'pointer', width: '30px', height: '30px', backgroundColor: 'transparent', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#ddd', border:"1px solid #ddd" }}
                     whileHover={{  color: '#000', border:"1px solid #000" }}
                     animate={{ scale: dragging ? 1.2 : 1 }}
                     transition={{ type: 'spring', stiffness: 300, damping: 30 }}
@@ -135,7 +135,7 @@ export default function Timeline() {
                 >
                   <motion.div
                     className="control-icon"
-                    style={{  cursor: 'pointer', width: '30px', height: '30px', backgroundColor: 'white', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#ddd', border:"1px solid #ddd" }}
+                    style={{  cursor: 'pointer', width: '30px', height: '30px', backgroundColor: 'transparent', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#ddd', border:"1px solid #ddd" }}
                     animate={{ scale: dragging ? 1.2 : 1 }}
                     whileHover={{  color: '#000', border:"1px solid #000" }}
                     transition={{ type: 'spring', stiffness: 300, damping: 30 }}
