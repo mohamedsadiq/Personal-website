@@ -66,7 +66,18 @@ const sparksData = [
     type: 'video',
     src: '/July 10 Screen Recording.mp4',
     mediaType: 'video/mp4'
-  }
+  },
+  {
+    href: 'sparks/line',
+    title: 'Temporal Flow',
+    description: '',
+    date: 'Jul - 2024',
+    blurSrc: '/Interactive Chronological Visualizer',  
+    src: '/line.gif',
+    type: 'image',
+    width: 100,
+    height: 100
+  },
 ];
 
 const Sparks = () => {
