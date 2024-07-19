@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Script from 'next/script';
@@ -6,37 +6,31 @@ import BackButton from '../../../components/backButton';
 
 const years = Array.from({ length: 2024 - 1950 + 1 }, (_, i) => 2024 - i);
 
-export default function Timeline() {
+export default function Line() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [selected, setSelected] = useState(null); // Set default to null
+  const [selected, setSelected] = useState(null);
   const [dragging, setDragging] = useState(false);
 
-  const handleMouseEnter = (index) => setHoveredIndex(index);
-  const handleMouseLeave = () => setHoveredIndex(null);
-  const handleClick = (index) => setSelected(index);
+  const handleMouseEnter = useCallback((index) => setHoveredIndex(index), []);
+  const handleMouseLeave = useCallback(() => setHoveredIndex(null), []);
+  const handleClick = useCallback((index) => setSelected(index), []);
 
-  const handleDecreaseClick = () => {
-    setSelected((prevSelected) => {
-      if (prevSelected === null) return null; // No change if nothing is selected
-      return Math.max(prevSelected - 1, 0);
-    });
-  };
+  const handleDecreaseClick = useCallback(() => {
+    setSelected((prevSelected) => (prevSelected === null ? null : Math.max(prevSelected - 1, 0)));
+  }, []);
 
-  const handleIncreaseClick = () => {
-    setSelected((prevSelected) => {
-      if (prevSelected === null) return null; // No change if nothing is selected
-      return Math.min(prevSelected + 1, years.length - 1);
-    });
-  };
+  const handleIncreaseClick = useCallback(() => {
+    setSelected((prevSelected) => (prevSelected === null ? null : Math.min(prevSelected + 1, years.length - 1)));
+  }, []);
 
-  const handleDragStart = () => setDragging(true);
-  const handleDragEnd = () => setDragging(false);
+  const handleDragStart = useCallback(() => setDragging(true), []);
+  const handleDragEnd = useCallback(() => setDragging(false), []);
 
-  const calculateScale = (index) => {
+  const calculateScale = useCallback((index) => {
     if (hoveredIndex === null) return 0.8;
     const distance = Math.abs(index - hoveredIndex);
     return Math.max(1 - distance * 0.2, 0.4);
-  };
+  }, [hoveredIndex]);
 
   return (
     <>
@@ -58,91 +52,29 @@ export default function Timeline() {
           <div className="inner_container inner_container_sparks">
             <h2>Temporal Flow</h2>
             <p>
-            In this snippet, I have been working on enhancing the user experience of a dynamic timeline component built with React and Framer Motion. my main focus has been on implementing interactive elements and animations to create a more engaging interface.
+              In this snippet, I have been working on enhancing the user experience of a dynamic timeline component built with React and Framer Motion. My main focus has been on implementing interactive elements and animations to create a more engaging interface.
             </p>
             <div className="exp" style={{ height: "400px", display: "flex", justifyContent: "center", alignItems: "center" }}>
               <div className="flex w-full items-center justify-center">
-                {/* Decrease Button */}
-                <motion.div
-                  className="control-button"
-                  style={{ cursor: 'pointer', margin: '10px' }}
-                  onClick={handleDecreaseClick}
-                  whileHover={{ scale: 0.8 }}
-                  whileTap={{ scale: 0.5 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-                >
-                  <motion.div
-                  
-                    className="control-icon"
-                    style={{  cursor: 'pointer', width: '30px', height: '30px', backgroundColor: 'transparent', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#ddd', border:"1px solid #ddd" }}
-                    whileHover={{  color: '#000', border:"1px solid #000" }}
-                    animate={{ scale: dragging ? 1.2 : 1 }}
-                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                  >
-                    -
-                  </motion.div>
-                </motion.div>
+                <ControlButton onClick={handleDecreaseClick} dragging={dragging} text="-" />
                 
-                <div className="flex flex-row gap-x-0.5"  style={{ cursor: 'pointer' }}>
-                  {years.map((year, i) => {
-                    const isSelected = selected === i;
-                    const isHovered = hoveredIndex === i;
-
-                    return (
-                      <motion.button
-                        key={year}
-                        className="relative inline-flex items-end justify-center py-1"
-                        onMouseEnter={() => handleMouseEnter(i)}
-                        onMouseLeave={handleMouseLeave}
-                        onClick={() => handleClick(i)}
-                        onTouchStart={() => handleMouseEnter(i)}
-                        onTouchEnd={handleMouseLeave}
-                        style={{ cursor: 'pointer' }}
-                        initial={{ scale: 0.8 }}
-                        animate={{ scale: isSelected ? 1.2 : calculateScale(i) }}
-                        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                      >
-                        <motion.div
-                          className={`w-0.5 h-20 rounded-[4px] ${isSelected ? 'bg-gray-500' : 'bg-black'}`}
-                          initial={{ scale: 0.4 }}
-                          animate={{ scale: calculateScale(i) }}
-                          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                        />
-                        {isHovered && (
-                          <motion.span
-                            className={`absolute -bottom-5 -left-3 text-[11px] ${isSelected ? 'text-gray-500' : 'text-black'}`}
-                            initial={{ opacity: 0, filter: 'blur(4px)', scale: 0.4 }}
-                            animate={{ opacity: 1, filter: 'blur(0px)', scale: 1 }}
-                            transition={{ duration: 0, delay: 0.01 }}
-                          >
-                            {year}
-                          </motion.span>
-                        )}
-                      </motion.button>
-                    );
-                  })}
-                 </div>
+                <div className="flex flex-row gap-x-0.5" style={{ cursor: 'pointer' }}>
+                  {years.map((year, i) => (
+                    <YearButton
+                      key={year}
+                      year={year}
+                      index={i}
+                      isSelected={selected === i}
+                      isHovered={hoveredIndex === i}
+                      handleMouseEnter={handleMouseEnter}
+                      handleMouseLeave={handleMouseLeave}
+                      handleClick={handleClick}
+                      calculateScale={calculateScale}
+                    />
+                  ))}
+                </div>
                 
-
-                {/* Increase Button */}
-                <motion.div
-                  className="control-button"
-                  style={{ cursor: 'pointer', margin: '10px' }}
-                  onClick={handleIncreaseClick}
-                  whileHover={{ scale: 0.8 }}
-                  whileTap={{ scale: 0.5 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-                >
-                  <motion.div
-                    className="control-icon"
-                    style={{  cursor: 'pointer', width: '30px', height: '30px', backgroundColor: 'transparent', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#ddd', border:"1px solid #ddd" }}
-                    animate={{ scale: dragging ? 1.2 : 1 }}
-                    whileHover={{  color: '#000', border:"1px solid #000" }}
-                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                  >
-                    +
-                  </motion.div>
-                </motion.div>
+                <ControlButton onClick={handleIncreaseClick} dragging={dragging} text="+" />
               </div>
             </div>
           </div>
@@ -160,3 +92,56 @@ export default function Timeline() {
     </>
   );
 }
+
+const ControlButton = ({ onClick, dragging, text }) => (
+  <motion.div
+    className="control-button"
+    style={{ cursor: 'pointer', margin: '10px' }}
+    onClick={onClick}
+    whileHover={{ scale: 0.8 }}
+    whileTap={{ scale: 0.5 }}
+    transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+  >
+    <motion.div
+      className="control-icon"
+      style={{ cursor: 'pointer', width: '30px', height: '30px', backgroundColor: 'transparent', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#ddd', border: "1px solid #ddd" }}
+      animate={{ scale: dragging ? 1.2 : 1 }}
+      whileHover={{ color: '#000', border: "1px solid #000" }}
+      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+    >
+      {text}
+    </motion.div>
+  </motion.div>
+);
+
+const YearButton = ({ year, index, isSelected, isHovered, handleMouseEnter, handleMouseLeave, handleClick, calculateScale }) => (
+  <motion.button
+    className="relative inline-flex items-end justify-center py-1"
+    onMouseEnter={() => handleMouseEnter(index)}
+    onMouseLeave={handleMouseLeave}
+    onClick={() => handleClick(index)}
+    onTouchStart={() => handleMouseEnter(index)}
+    onTouchEnd={handleMouseLeave}
+    style={{ cursor: 'pointer' }}
+    initial={{ scale: 0.8 }}
+    animate={{ scale: isSelected ? 1.2 : calculateScale(index) }}
+    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+  >
+    <motion.div
+      className={`w-0.5 h-20 rounded-[4px] ${isSelected ? 'bg-gray-500' : 'bg-black'}`}
+      initial={{ scale: 0.4 }}
+      animate={{ scale: calculateScale(index) }}
+      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+    />
+    {isHovered && (
+      <motion.span
+        className={`absolute -bottom-5 -left-3 text-[11px] ${isSelected ? 'text-gray-500' : 'text-black'}`}
+        initial={{ opacity: 0, filter: 'blur(4px)', scale: 0.4 }}
+        animate={{ opacity: 1, filter: 'blur(0px)', scale: 1 }}
+        transition={{ duration: 0, delay: 0.01 }}
+      >
+        {year}
+      </motion.span>
+    )}
+  </motion.button>
+);
