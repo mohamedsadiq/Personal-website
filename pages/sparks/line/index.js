@@ -5,7 +5,7 @@ import Script from 'next/script';
 import BackButton from '../../../components/backButton';
 
 export default function Line() {
-  const [startYear, setStartYear] = useState(1950);
+  const [startYear, setStartYear] = useState(1990);
   const [endYear, setEndYear] = useState(2024);
   const [years, setYears] = useState(Array.from({ length: endYear - startYear + 1 }, (_, i) => endYear - i));
   const [hoveredIndex, setHoveredIndex] = useState(null);
