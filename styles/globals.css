@@ -4818,12 +4818,16 @@ ul li{
   backdrop-filter: blur(25px);
 }
 .nav-link {
-  transition: all 0.3s ease;
+  transition: all 0.3s ease !important;
   opacity: 1;
- 
-  /* color:#000 */
+  color: #555;
 }
-
+a {
+  transition: all 0.1s ease !important;
+}
+.blacktext{
+  color: #000;
+}
 .nav-link.blur {
   filter: blur(1px);
   opacity: 0.5;

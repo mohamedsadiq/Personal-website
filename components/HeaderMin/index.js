@@ -10,6 +10,12 @@ const HeaderMin = () => {
       if (link !== e.target) {
         link.classList.add('blur');
       }
+      if (link == e.target) {
+        link.classList.add('blacktext');
+      }
+     
+      
+     
     });
   };
 
@@ -17,6 +23,7 @@ const HeaderMin = () => {
     const links = document.querySelectorAll('.nav-link');
     links.forEach((link) => {
       link.classList.remove('blur');
+      link.classList.remove('blacktext');
     });
   };
 

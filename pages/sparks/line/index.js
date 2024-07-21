@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 import BackButton from '../../../components/backButton';
 
+
 export default function Line() {
   const [startYear, setStartYear] = useState(1990);
   const [endYear, setEndYear] = useState(2024);
