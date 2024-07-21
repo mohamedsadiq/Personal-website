@@ -290,11 +290,11 @@ const Header = (props) => {
           <div>
             <motion.div
               onClick={() => home_content()}
-              whileTap={{ scale: 0.9 }}
+              whileTap={{ scale: 1 }}
               className="icon_holder"
               initial="initial"
               animate="animate"
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1 }}
               variants={iconss}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
