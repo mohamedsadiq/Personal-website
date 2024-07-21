@@ -58,7 +58,7 @@ const HeaderMin = () => {
           onHoverStart={handleMouseEnter}
           onHoverEnd={handleMouseLeave}
         >
-          <Link href="/sparks">Spark</Link>
+          <Link href="/sparks">Sparks</Link>
         </motion.div>
         <motion.div
           className="nav-link font-light text-sm"

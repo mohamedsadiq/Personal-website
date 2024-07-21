@@ -167,7 +167,7 @@ export default function GameUi() {
                 </motion.div>
               </AnimatePresence>
             </div>
-            <div className="flex justify-start flex-row flex-wrap gap-x-36 expControllSection">
+            <div className="flex justify-start flex-row flex-wrap gap-x-1.5 expControllSection">
               <div className="expButton">
                 {models.map((model, index) => (
                   <motion.button
