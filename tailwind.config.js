@@ -10,7 +10,11 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        'custom-hsla': 'hsla(0, 0%, 47%, .1)',
+      },
+    },
   },
   plugins: [],
 }

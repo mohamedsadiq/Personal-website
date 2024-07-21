@@ -15,7 +15,8 @@ export default function Home(props) {
     }
   }, []);
   return (
-     <div className="class_body" >
+    // class_body
+     <div className="" >
       <Head>
         <title>Home - Mohamed Sadiq</title>
         <meta name="description" content="A product designer who can code, focusing on Web 3, Open source products @DeveloperDAO, member of @Bulidspace and @Anti" />
@@ -28,11 +29,11 @@ export default function Home(props) {
         <meta name="twitter:description" content="A product designer" />
         <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />  
       </Head>
-      <main>
+      
         
        <Content valueOfMode={props.mode} />
      
-      </main>
+     
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW"
         strategy="afterInteractive"

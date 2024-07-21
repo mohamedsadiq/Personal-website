@@ -11,9 +11,6 @@ function MyApp({ Component, pageProps }) {
   return (
     // <HydrationOverlay>
     <Layout>
-      <div class="style_scrollbar__4T6N2" >
-        <div class="style_thumb__noCcq"></div>
-      </div>
       <Component {...pageProps} />
     </Layout>
     // </HydrationOverlay>
@@ -21,3 +18,7 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
+
+{/* <div class="style_scrollbar__4T6N2" >
+<div class="style_thumb__noCcq"></div>
+</div> */}

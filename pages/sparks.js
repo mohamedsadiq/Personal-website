@@ -97,7 +97,7 @@ const Sparks = () => {
         <meta name="twitter:description" content="Product designer & Engineer." />
         <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />
       </Head>
-      <main>
+    
         <div className="container container_sparks_home">
           <div className="inner_container inner_container_spark">
             <h1>Sparks</h1>
@@ -110,7 +110,7 @@ const Sparks = () => {
             </div>
           </div>
         </div>
-      </main>
+    
     </>
   );
 };
