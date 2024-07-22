@@ -864,7 +864,7 @@ a {
 }
 
 .inner_container_project_parent h2{
-  margin-top: 100px;
+  margin-top: 60px;
 }
 .inner_container_project_parent h2:nth-of-type(1){
   margin-top: 30px;
@@ -1818,7 +1818,7 @@ color: rgb(250, 200, 17);
 } */
 
 .work_intro_image{
-  height: 634px;
+  height: 500px;
 }
 .container_work_inner{
   max-width: 2000px ;
@@ -1829,7 +1829,7 @@ color: rgb(250, 200, 17);
 }
 
 .container_work_inner .blog_photo{
-  height: 1507px;
+  height: 500px;
 }
 .nav_work{
   margin-top: 38px;
@@ -3349,11 +3349,7 @@ position: relative;
   .content div:first-child{
     padding: 0;
   }
-  .mainContent .padding-0 {
-   
-    padding-left: 10px !important;
-   
-}
+
 .home_text_front{
   padding-left:12px
 }
@@ -3369,7 +3365,7 @@ position: relative;
   .content div p{
     
     font-size: 0.8rem;
-    margin-top: 15px;
+    /* margin-top: 15px; */
   }
   .inner_header{
     scroll-behavior: smooth;
@@ -3475,7 +3471,7 @@ position: relative;
 }
 .mainContent {
   
-  margin-top: 24px !important;
+  /* margin-top: 24px !important; */
   
 }
   .class_body {
@@ -4295,7 +4291,7 @@ margin-top: 23px;
 
 .mainContent{
   font-family: 'Graphik' !important;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   padding-left: 21px
 }
 .mainContent h1{
