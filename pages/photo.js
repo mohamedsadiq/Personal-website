@@ -23,7 +23,7 @@ const Photo = () => {
             <main>
                 <div className="container">
                     <div className='inner_container'>
-                        <h1>Photos</h1>
+                   
                         <div className='mItv1'>
                             <div className='ripi6'>
                                 {data.map(i => (
