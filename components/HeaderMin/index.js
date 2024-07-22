@@ -28,7 +28,13 @@ const HeaderMin = () => {
   };
 
   return (
-    <div className="header flex gap-x-5 text-black fixed left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bottom-px">
+    <motion.div  
+      className="header flex gap-x-5 text-black fixed left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bottom-px"
+      // initial={{scale:0.6}}
+      // animate={{marginBottom:"0"}}
+      // whileHover={{  scale:"1.1"}}
+      transition={{  type: "spring", stiffness: 300, damping: 30 }}
+    >
       <Link href="/">
         <div className="bg-custom-hsla backdrop-blur-custom h-12 w-12 rounded-full ">
          <motion.div 
@@ -59,7 +65,7 @@ const HeaderMin = () => {
          </motion.div>
         </div>
       </Link>
-      <div className="bg-custom-hsla backdrop-blur-custom rounded-xl flex gap-x-6 justify-center items-center pl-8 pr-8">
+      <div className="bg-custom-hsla backdrop-blur-custom rounded-3xl flex gap-x-6 justify-center items-center pl-8 pr-8">
         <motion.div
           className="nav-link font-light text-sm rounded-lg"
           onHoverStart={handleMouseEnter}
@@ -126,7 +132,7 @@ const HeaderMin = () => {
        
       </div>
       
-    </div>
+    </motion.div >
   );
 };
 
