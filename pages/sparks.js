@@ -102,7 +102,6 @@ const Sparks = () => {
           <div className="inner_container inner_container_spark">
             <h1>Sparks</h1>
             <p>An engineering snippets</p>
-
             <div className="spark">
               {sparksData.map((spark, index) => (
                 <SparkItem key={index} {...spark} />
@@ -110,7 +109,6 @@ const Sparks = () => {
             </div>
           </div>
         </div>
-    
     </>
   );
 };
@@ -139,7 +137,7 @@ const SparkItem = ({ href, title, description, date, type, src, mediaType, blurS
           <div className="spark_title">{title}</div>
           <div className="spark_dec">{description}</div>
         </div>
-        <div className="spark_date">{date}</div>
+        {/* <div className="spark_date">{date}</div> */}
       </div>
     </Link>
   );

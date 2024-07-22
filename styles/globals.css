@@ -4836,25 +4836,31 @@ a {
 }
 
 
-
-@media only screen and (max-width:450px) {
+ @media only screen and (max-width:425px) {
   .header{
-    width: 100%;
-    margin: 0 auto;
     scale: 0.8;
-    position: fixed;
-    left: 39%;
-    transform: translate(-50%, -50%);
+    /* left: 50%; */
+    transform-origin: left;
   }
-}
+} 
 
-@media only screen and (max-width:320px) {
+/* @media only screen and (max-width:320px) {
   .header{
     width: 100%;
     margin: 0 auto;
-    scale: 0.7;
+    scale: 0.6;
     position: fixed;
-    left: 21%;
-    transform: translate(-50%, -50%);
+    left: 50%;
+    transform: translate(-106%, -50%);
   }
 }
+@media only screen and (min-width:320px) {
+  .header{
+    width: 100%;
+    margin: 0 auto;
+    scale: 0.6;
+    position: fixed;
+    left: 50%;
+    transform: translate(-106%, -50%);
+  }
+} */
