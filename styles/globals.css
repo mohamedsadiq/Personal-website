@@ -803,7 +803,7 @@ a {
   position: relative;
   background-color: #eee; 
   width: 100%;
-  height: 312px;
+  height: 700px;
   /* height: 323px; */
   border-radius: 12px;
   margin-top: 33px;
@@ -3413,9 +3413,14 @@ position: relative;
 
 
 
-@media only screen and (min-width:320px) {
-
+@media only screen and (max-width:406px) {
   .blocks {
+    
+    height: 300px;
+    
+}
+
+  /* .blocks {
     position: relative;
     background-color: #eee;
     width: 100%;
@@ -3423,18 +3428,18 @@ position: relative;
   }
   .class_body {
     height: 1667px !important;
-}
+} */
 
 }
 
 @media only screen and (min-width:728px) {
 
-  .blocks {
+  /* .blocks {
     position: relative;
     background-color: #eee;
     width: 100%;
     height: 309px;
-  }
+  } */
 
 }
 

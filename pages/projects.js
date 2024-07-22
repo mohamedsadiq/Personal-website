@@ -80,7 +80,7 @@ const router = useRouter();
             <li>Aston Martin</li>
          </div>
          </div> */}
-          <div className="grid">
+          <div className="">
          
                 {/* <Link key={"dao"} href="" passhref>
                 <div className="blocks" onClick={play}>
