@@ -55,6 +55,7 @@ const MyComponent = (mode) => {
           delay: 0.4,
           ease: "easeOut",
         }}
+        className="flex flex-row flex-wrap gap-y-12"
       >
         <div className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0">
           <div id="name" className="p-0 flex h-auto w-full md:w-44 flex-none ">Mohamed Sadiq
@@ -166,7 +167,7 @@ const MyComponent = (mode) => {
         <div className="mainContent flex h-auto w-full md:w-44 flex-none">
           <h1>Social media</h1>
         </div>
-        <div className="mainContent margin-top " id="links_home">
+        <div className="mainContent  " id="links_home">
           <ul className="links_home">
           <a href="https://x.com/sadiq_moo" target="_blink">
               <svg width="20px" height="20px" viewBox="0 0 24 24" strokeWidth="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color={svgColor}><path d="M16.8198 20.7684L3.75317 3.96836C3.44664 3.57425 3.72749 3 4.22678 3H6.70655C6.8917 3 7.06649 3.08548 7.18016 3.23164L20.2468 20.0316C20.5534 20.4258 20.2725 21 19.7732 21H17.2935C17.1083 21 16.9335 20.9145 16.8198 20.7684Z" stroke={svgColor} strokeWidth="1.5"></path><path d="M20 3L4 21" stroke={svgColor} strokeWidth="1.5" strokeLinecap="round"></path></svg>
@@ -188,7 +189,7 @@ const MyComponent = (mode) => {
           <div className="mainContent flex h-auto w-full md:w-44 flex-none">
             <h1>Latest Activity</h1>
           </div>
-          <div className="mainContent margin-top">
+          <div className="mainContent ">
             <div className="hover_project latest_activity_project">
               <a href="https://x.com/sadiq_moo/status/1811148917783875695" target="_blink">
                 <video width="100%" height="100%" autoPlay loop muted playsInline>
@@ -203,10 +204,10 @@ const MyComponent = (mode) => {
         </div>
 
         <div className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0">
-          <div className="mainContent mt-5 flex h-auto w-full md:w-auto flex-none">
-            <h1 className="mt-3">Available for July to Aug</h1>
+          <div className="mainContent  flex h-auto w-full md:w-auto flex-none">
+            <h1 className="">Available for July to Aug</h1>
           </div>
-          <div className="mainContent margin-top" id="links_home">
+          <div className="mainContent " id="links_home">
             <a className="calltoation" href="mailto:mohamed.sadiq@outlook.sa">
               <button className="workbutton"> <span id="workbuttongreen"></span>Reach out via mail</button>
             </a>
