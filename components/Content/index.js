@@ -10,7 +10,7 @@ import dao from "../../public/daosspot.png"
 
 const MyComponent = (mode) => {
   const [svgColor, setSvgColor] = useState("#000");
-  const valueOfMood = mode.mode.valueOfMode;
+  // const valueOfMood = mode.mode.valueOfMode;
 
   const svgColorsFun = () => {
     if (valueOfMood === "dark") {
@@ -20,32 +20,32 @@ const MyComponent = (mode) => {
     }
   };
 
-  const [divTop, setDivTop] = useState("68vh"); // Default value for smaller heights
+  // const [divTop, setDivTop] = useState("68vh"); // Default value for smaller heights
 
-  const updateDivPosition = () => {
-    const screenHeight = window.innerHeight;
-    let newDivTop;
+  // const updateDivPosition = () => {
+  //   const screenHeight = window.innerHeight;
+  //   let newDivTop;
 
-    if (screenHeight > 1200) {
-      newDivTop = "18vh";
-    } else if (screenHeight <= 795) {
-      newDivTop = "18vh";
-    } else {
-      newDivTop = "18vh";
-    }
+  //   if (screenHeight > 1200) {
+  //     newDivTop = "18vh";
+  //   } else if (screenHeight <= 795) {
+  //     newDivTop = "18vh";
+  //   } else {
+  //     newDivTop = "18vh";
+  //   }
 
-    setDivTop(newDivTop);
-  };
+  //   setDivTop(newDivTop);
+  // };
 
-  useEffect(() => {
-    svgColorsFun();
-    updateDivPosition();
-    window.addEventListener("resize", updateDivPosition);
+  // useEffect(() => {
+  //   svgColorsFun();
+  //   updateDivPosition();
+  //   window.addEventListener("resize", updateDivPosition);
 
-    return () => {
-      window.removeEventListener("resize", updateDivPosition);
-    };
-  }, [valueOfMood]);
+  //   return () => {
+  //     window.removeEventListener("resize", updateDivPosition);
+  //   };
+  // }, [valueOfMood]);
 
   return (
     <div className="content pt-36">

@@ -709,9 +709,7 @@ a {
   color: inherit;
   text-decoration: none;
 }
-.container_sparks_home{
-  max-width: 83% !important;
-}
+
 .container {
   max-width: 600px;
   margin: 0 auto;
