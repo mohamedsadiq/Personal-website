@@ -37,6 +37,24 @@ const sparksData = [
     
   },
  
+ 
+  
+];
+
+const sparksData2 = [
+  {
+    href: 'sparks/onhover',
+    title: 'On Hover',
+    description: 'On hover interaction.',
+    date: 'Jul - 2024',
+    blurSrc: '/',  
+    src: '/July 11 Screen Recording.gif',
+    type: 'image',
+    width: 100,
+    height: 100
+  },
+ 
+  
   {
     href: 'sparks/TheMartian',
     title: 'The Martian',
@@ -48,17 +66,6 @@ const sparksData = [
     width: 100,
     height: 100
    
-  },
-  {
-    href: 'sparks/onhover',
-    title: 'On Hover',
-    description: 'On hover interaction.',
-    date: 'Jul - 2024',
-    blurSrc: '/',  
-    src: '/July 11 Screen Recording.gif',
-    type: 'image',
-    width: 100,
-    height: 100
   },
   {
     href: 'sparks/gameui',
@@ -80,7 +87,9 @@ const sparksData = [
     width: 100,
     height: 100
   },
-];
+
+]
+
 
 const Sparks = () => {
   return (
@@ -98,15 +107,25 @@ const Sparks = () => {
         <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />
       </Head>
     
-        <div className="container container_sparks_home">
+        <div className=" container_sparks_home">
           <div className="inner_container inner_container_spark">
             <h1>Sparks</h1>
             <p>An engineering snippets</p>
-            <div className="spark">
-              {sparksData.map((spark, index) => (
+
+            <div className='mItv1'>
+                            <div className='ripi6'>
+                            {sparksData.map((spark, index) => (
                 <SparkItem key={index} {...spark} />
               )).reverse()}
-            </div>
+                            </div>
+                            <div className='ripi6'>
+                            {sparksData2.map((spark, index) => (
+                <SparkItem key={index} {...spark} />
+              )).reverse()}
+                            </div>
+                        </div>
+
+            
           </div>
         </div>
     </>
