@@ -31,10 +31,12 @@ const HeaderMin = () => {
     <motion.nav  
       aria-label="Main Navigation"
       className="header flex gap-x-5 text-black fixed left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bottom-px"
-      // initial={{scale:0.6}}
-      // animate={{marginBottom:"0"}}
+      initial={{scale:0.6, transformOrigin: "center", left:"50%" ,   translateX: "-50%",
+        translateY: "-20%"}}
+      animate={{scale:1, transformOrigin: "center", left:"50%" ,   translateX: "-50%",
+        translateY: "-50%",}}
       // whileHover={{  scale:"1.1"}}
-      transition={{  type: "spring", stiffness: 300, damping: 30 }}
+      transition={{  type: "spring", stiffness: 500, damping: 40 }}
     >
       <Link href="/"  aria-label="Home">
         <div className="bg-custom-hsla backdrop-blur-custom h-12 w-12 rounded-full ">
@@ -43,7 +45,7 @@ const HeaderMin = () => {
           //  initial={{ scale:"0.6"}}
           //  animate={{scale:"1.1"}}
           //  whileHover={{  scale:"1.1"}}
-           transition={{  type: "spring", stiffness: 300, damping: 30 }}
+           transition={{  type: "spring", stiffness: 200, damping: 10 }}
          >
          <svg
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
