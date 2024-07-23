@@ -28,14 +28,15 @@ const HeaderMin = () => {
   };
 
   return (
-    <motion.div  
+    <motion.nav  
+      aria-label="Main Navigation"
       className="header flex gap-x-5 text-black fixed left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bottom-px"
       // initial={{scale:0.6}}
       // animate={{marginBottom:"0"}}
       // whileHover={{  scale:"1.1"}}
       transition={{  type: "spring", stiffness: 300, damping: 30 }}
     >
-      <Link href="/">
+      <Link href="/"  aria-label="Home">
         <div className="bg-custom-hsla backdrop-blur-custom h-12 w-12 rounded-full ">
          <motion.div 
            className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  "
@@ -71,7 +72,7 @@ const HeaderMin = () => {
           onHoverStart={handleMouseEnter}
           onHoverEnd={handleMouseLeave}
         >
-          <Link href="/sparks" className="flex gap-x-2 items-center"> 
+          <Link href="/sparks" className="flex gap-x-2 items-center"  aria-label="Sparks"> 
           
           <svg
                     width="16"
@@ -95,7 +96,7 @@ const HeaderMin = () => {
           onHoverStart={handleMouseEnter}
           onHoverEnd={handleMouseLeave}
         >
-          <Link href="/projects"  className="flex gap-x-2 items-center">
+          <Link href="/projects"  className="flex gap-x-2 items-center"  aria-label="Projects">
           
           <svg
                     id="projectsIcon"
@@ -120,7 +121,7 @@ const HeaderMin = () => {
           onHoverStart={handleMouseEnter}
           onHoverEnd={handleMouseLeave}
         >
-          <Link href="/photo" className="flex gap-x-2 items-center">
+          <Link href="/photo" className="flex gap-x-2 items-center" aria-label="Photos">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="#555" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M0.106405 11.8986C0.134567 12.1579 0.170181 12.3982 0.21522 12.6222C0.340037 13.2431 0.537241 13.7391 0.848812 14.1679C1.12295 14.5452 1.45476 14.877 1.83207 15.1512C3.00036 16 4.6669 16 8 16C11.3331 16 12.9996 16 14.1679 15.1512C14.5452 14.877 14.877 14.5452 15.1512 14.1679C15.4628 13.7391 15.66 13.2431 15.7848 12.6222C15.8268 12.4134 15.8606 12.1905 15.8878 11.9512C16 10.9637 16 9.69815 16 8C16 4.6669 16 3.00036 15.1512 1.83207C14.877 1.45476 14.5452 1.12295 14.1679 0.848812C12.9996 0 11.3331 0 8 0C4.6669 0 3.00036 0 1.83207 0.848812C1.45476 1.12295 1.12295 1.45476 0.848812 1.83207C0 3.00036 0 4.6669 0 8C0 9.66814 0 10.9188 0.106405 11.8986ZM14.9333 8C14.9333 9.1974 14.9317 10.4898 14.8981 11.2474L13.6065 9.86482C13.3435 9.58332 13.1282 9.35282 12.9393 9.17596C12.7439 8.993 12.5502 8.84144 12.3219 8.73493C11.7743 8.47943 11.1484 8.4486 10.5783 8.64905C10.3406 8.7326 10.133 8.86441 9.92053 9.02727C9.71518 9.18473 9.47822 9.39296 9.18882 9.64729L9.17525 9.65922C9.01595 9.7992 8.9162 9.88649 8.83621 9.94772C8.76005 10.006 8.73234 10.0163 8.72637 10.0183C8.63701 10.0491 8.53908 10.0431 8.4542 10.0015C8.44852 9.99876 8.42228 9.98521 8.35385 9.91797C8.28201 9.8474 8.19372 9.7485 8.05284 9.58999L7.86565 9.37943C7.37771 8.83045 6.98165 8.38489 6.62857 8.06736C6.26425 7.7397 5.89061 7.49609 5.43495 7.42116C5.14114 7.37282 4.84075 7.38174 4.55031 7.4474C4.09989 7.54921 3.74137 7.81452 3.3971 8.1632C3.0635 8.50107 2.69459 8.96929 2.24009 9.54614L2.23996 9.54629L1.09236 11.0028C1.06795 10.2903 1.06667 9.07172 1.06667 8C1.06667 6.30969 1.06812 5.12764 1.16656 4.21913C1.26283 3.33058 1.44149 2.83104 1.71177 2.45904C1.92011 2.17228 2.17228 1.92011 2.45904 1.71177C2.83104 1.44149 3.33058 1.26283 4.21913 1.16656C5.12764 1.06812 6.30969 1.06667 8 1.06667C9.69031 1.06667 10.8724 1.06812 11.7809 1.16656C12.6694 1.26283 13.169 1.44149 13.541 1.71177C13.8277 1.92011 14.0799 2.17228 14.2882 2.45904C14.5585 2.83104 14.7372 3.33058 14.8334 4.21913C14.9319 5.12764 14.9333 6.30969 14.9333 8ZM9.95555 4.8C9.95555 5.48729 10.5127 6.04445 11.2 6.04445C11.8873 6.04445 12.4444 5.48729 12.4444 4.8C12.4444 4.11271 11.8873 3.55556 11.2 3.55556C10.5127 3.55556 9.95555 4.11271 9.95555 4.8Z" fill="#555"/>
             </svg>
@@ -132,7 +133,7 @@ const HeaderMin = () => {
        
       </div>
       
-    </motion.div >
+    </motion.nav >
   );
 };
 
