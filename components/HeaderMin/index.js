@@ -31,12 +31,11 @@ const HeaderMin = () => {
     <motion.nav  
       aria-label="Main Navigation"
       className="header flex gap-x-5 text-black fixed left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bottom-px"
-      initial={{scale:0.6, transformOrigin: "center", left:"50%" ,   translateX: "-50%",
-        translateY: "-20%"}}
-      animate={{scale:1, transformOrigin: "center", left:"50%" ,   translateX: "-50%",
-        translateY: "-50%",}}
-      // whileHover={{  scale:"1.1"}}
-      transition={{  type: "spring", stiffness: 500, damping: 40 }}
+      initial={{ bottom:"-20%" }}
+      animate={{bottom:0}}
+     
+      transition={{  duration:5, type: "spring", stiffness: 200, damping: 28 }}
+      
     >
       <Link href="/"  aria-label="Home">
         <div className="bg-custom-hsla backdrop-blur-custom h-12 w-12 rounded-full ">
