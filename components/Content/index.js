@@ -75,7 +75,7 @@ const MyComponent = (mode) => {
 
 
   return (
-    <div className="content pt-36">
+    <div className="content pt-16">
       <motion.div
       //  initial={MohamedSadiq.initial}
       //  animate={MohamedSadiq.animate}
