@@ -48,13 +48,7 @@ export default function FamilyTransactions() {
         <div className="container inner_container_sparks">
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
-            <h2>Scrolling</h2>
-
-            <p>
-              It's a scroll, but with a twist. Instead of the typical scroll
-              bar, I integrated circular indicators to signify the moving
-              content, elevating the overall user experience.
-            </p>
+            
 
             <div className="exp"  style={{ height:"700px"}} >
             <div className="rainy"></div>
@@ -69,6 +63,13 @@ export default function FamilyTransactions() {
                 <div style={{ height: "400px" }}></div>
               </div>
             </div>
+            <h2 className="mt-10">Scrolling</h2>
+
+            <p>
+              It's a scroll, but with a twist. Instead of the typical scroll
+              bar, I integrated circular indicators to signify the moving
+              content, elevating the overall user experience.
+            </p>
           </div>
         </div>
         <Script

@@ -3,6 +3,8 @@ import Script from 'next/script'
 import { useState, useEffect,useRef } from "react";
 import Footer from '../components/Footer'
 import Content from '../components/Content'
+import Info from "../components/info"
+
 export default function Home(props) {
   const modeOfThePc = props.mode;
 // console.log(modeOfThePc);
@@ -31,6 +33,7 @@ export default function Home(props) {
       </Head>
       
       <div className="container">
+      <Info />
          <Content valueOfMode={props.mode} />
       </div>
      
