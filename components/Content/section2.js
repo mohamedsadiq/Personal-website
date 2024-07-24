@@ -29,7 +29,7 @@ const Section2 = () => {
           <div className="hover_project padding-0">
             <Link className="sparkLinks mt-0" href="sparks/widget" passHref>
               <h1 className="daos_spot_home flex gap-x-1.5 justify-center items-center">
-               <span> A Dynamic Widget </span> <span className="h-px w-16 bg-stone-300 block"></span><span className="arrowspan">Jun 2024  </span>
+               <span> A Dynamic Widget </span> <span className="h-px w-16 bg-stone-300 block"></span><span className="arrowspan text-zinc-400">Jun 2024  </span>
               </h1>
             </Link>
           </div>
