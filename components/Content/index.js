@@ -76,6 +76,7 @@ const MyComponent = (mode) => {
 
   return (
     <div className="content pt-16">
+     
       <motion.div
       //  initial={MohamedSadiq.initial}
       //  animate={MohamedSadiq.animate}
@@ -86,6 +87,7 @@ const MyComponent = (mode) => {
       //   }}
         className="flex flex-row flex-wrap gap-y-12"
       >
+       
        <Section1 MohamedSadiq={MohamedSadiq}/>
        <Section4  MohamedSadiq={MohamedSadiq}/>
        <Section2  MohamedSadiq={MohamedSadiq}/>

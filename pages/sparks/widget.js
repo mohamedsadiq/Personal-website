@@ -201,12 +201,7 @@ export default function Widget() {
         <div className="container inner_container_sparks_parent">
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
-            <h2>Widget</h2>
-            <p>
-              A widget inspired by <a href="https://x.com/sovpal/status/1742640211782185261" target="_blink">Arkady's</a> design, Built using <span className="spark_tools">React</span>, <span className="spark_tools">Framer Motion</span> and <span className="spark_tools">Tailwind CSS</span>, 
-              This interactive widget dynamically generates dots representing exercise progress. Each click triggers a visual update, reflecting changes in exercise status with animated transitions and interactive elements.
-              
-            </p>
+          
             <div className="exp flex justify-center items-center">
               <motion.div
                 className="buttonWidget bg-slate-950 exercises_widget overflow-hidden"
@@ -260,6 +255,12 @@ export default function Widget() {
                 </motion.div>
               </motion.div>
             </div>
+            <h2 className="mt-10">Widget</h2>
+            <p>
+              A widget inspired by <a href="https://x.com/sovpal/status/1742640211782185261" target="_blink">Arkady's</a> design, Built using <span className="spark_tools">React</span>, <span className="spark_tools">Framer Motion</span> and <span className="spark_tools">Tailwind CSS</span>, 
+              This interactive widget dynamically generates dots representing exercise progress. Each click triggers a visual update, reflecting changes in exercise status with animated transitions and interactive elements.
+              
+            </p>
           </div>
         </div>
     

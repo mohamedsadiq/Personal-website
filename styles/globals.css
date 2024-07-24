@@ -202,7 +202,7 @@ a.tag{
   max-width: 750px !important;
 }
 .inner_container_sparks h2{
-  margin-top: 0;
+  /* margin-top: 0; */
 }
 .inner_container_sparks p{
   margin-top: 8px;
@@ -210,7 +210,7 @@ a.tag{
 }
 
 .inner_container_sparks h1{
-  margin-bottom: 0;
+  /* margin-bottom: 0; */
 }
 .spark_date{
   color: #818181;
@@ -3305,8 +3305,10 @@ position: relative;
   display: ruby;
 }
 .light .spark_tools{
-  border: 1px solid #eee;
-  background-color: #fbfbfb;
+  border: 1px solid #e5e5e5;
+    background-color: #ececec;
+    color: #000;
+    font-size: 0.8rem;
 } 
 .dark .spark_tools{
   border: 1px solid #3e3e3e;
@@ -4223,7 +4225,7 @@ color: #eee;
   padding: 7px;
   height: 100%;
   padding-top: 78px;
-  background: #fafafa;
+  background: #fff;
   border: 1px solid #eaeaea;
 }
 /* .light .spark_block{

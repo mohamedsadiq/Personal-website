@@ -28,14 +28,9 @@ export default function OnHover() {
         <meta name="twitter:description" content="Product designer & Engineer." />
         <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />  
       </Head>
-    
         <div className="container inner_container_sparks_parent">
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
-            <h2>On Hover</h2>
-            <p>
-            This demo showcases a series of dynamically animated buttons built with <span className="spark_tools">React</span> and <span className="spark_tools"> Framer Motion.</span>
-            </p>
             <div className="exp" style={{ height: "400px", display: "flex", justifyContent: "center", alignItems: "center" }}>
               <div className="expButton">
                 {models.map((model, index) => (
@@ -60,6 +55,10 @@ export default function OnHover() {
                 ))}
               </div>
             </div>
+            <h2 className="mt-10">On Hover</h2>
+            <p>
+            This demo showcases a series of dynamically animated buttons built with <span className="spark_tools">React</span> and <span className="spark_tools"> Framer Motion.</span>
+            </p>
           </div>
         </div>
     

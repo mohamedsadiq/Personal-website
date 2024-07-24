@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import HeaderMin from "../HeaderMin";
 import KeyNav from "../keyNav";
 import { Analytics } from "@vercel/analytics/react";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 const Layout = ({ children }) => {
   const router = useRouter();
   const [displayChildren, setDisplayChildren] = useState(children);
@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
   // Apply the mode to the document body
   const applyMode = (mode) => {
     document.body.style.backgroundColor = mode === "dark" ? "#000" : "#fafafa";
-    document.body.style.color = mode === "dark" ? "#fff" : "#000";
+    document.body.style.color = mode === "dark" ? "#fff" : "#fafafa";
   };
 
   // Set the mode on mount and whenever it changes
@@ -88,6 +88,7 @@ const Layout = ({ children }) => {
       >
         {clonedChildren}
         <Analytics />
+        <SpeedInsights />
       </div>
      
     </div>
