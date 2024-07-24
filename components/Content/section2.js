@@ -28,39 +28,44 @@ const Section2 = () => {
         <div className="mainContent main_projects">
           <div className="hover_project padding-0">
             <Link className="sparkLinks mt-0" href="sparks/widget" passHref>
-              <h1 className="daos_spot_home">
-                A Dynamic Widget <span className="arrowspan"> <span className="req">Jun 2024 </span> ↗</span>
+              <h1 className="daos_spot_home flex gap-x-1.5 justify-center items-center">
+               <span> A Dynamic Widget </span> <span className="h-px w-16 bg-stone-300 block"></span><span className="arrowspan">Jun 2024  </span>
               </h1>
             </Link>
           </div>
           <div className="hover_project padding-0">
             <Link className="sparkLinks mt-2" href="sparks/button" passHref>
-              <h1 className=""> Button<span className="arrowspan"> <span className="req">Jun 2024 </span>↗</span></h1>
+              <h1 className="flex gap-x-1.5 justify-center items-center">
+                
+                <span>Button</span>
+                <span className="h-px w-16 bg-stone-300 block"></span>
+               
+                <span className="arrowspan text-zinc-400">Jun 2024  </span></h1>
             </Link>
           </div>
           <div className="hover_project padding-0">
             <Link className="sparkLinks mt-2" href="sparks/scroll" passHref>
-              <h1 className=""> Scrolling<span className="arrowspan"> <span className="req">Jun 2024 </span>↗</span></h1>
+              <h1 className="flex gap-x-1.5 justify-center items-center"> <span>Scrolling</span><span className="h-px w-16 bg-stone-300 block"></span><span className="arrowspan text-zinc-400">Jun 2024</span></h1>
             </Link>
           </div>
           <div className="hover_project padding-0">
             <Link className="sparkLinks mt-2" href="sparks/TheMartian" passHref>
-              <h1 className=""> The Martian<span className="arrowspan"> <span className="req">Jul 2024 </span>↗</span></h1>
+              <h1 className="flex gap-x-1.5 justify-center items-center"> <span>The Martian</span><span className="h-px w-16 bg-stone-300 block"></span> <span className="arrowspan text-zinc-400"> Jul 2024 </span></h1>
             </Link>
           </div>
           <div className="hover_project padding-0">
             <Link className="sparkLinks mt-2" href="sparks/onhover" passHref>
-              <h1 className=""> On Hover<span className="arrowspan"> <span className="req">Jul 2024  </span>↗</span></h1>
+              <h1 className="flex gap-x-1.5 justify-center items-center"> <span>On Hover</span><span className="h-px w-16 bg-stone-300 block"></span> <span className="arrowspan text-zinc-400 "> Jul 2024 </span></h1>
             </Link>
           </div>
           <div className="hover_project padding-0">
             <Link className="sparkLinks mt-2" href="sparks/gameui" passHref>
-              <h1 className="">3D Smooth transitions<span className="arrowspan"> <span className="req">Jul 2024  </span>↗</span></h1>
+              <h1 className="flex gap-x-1.5 justify-center items-center"><span>3D Smooth transitions</span ><span className="h-px w-11 bg-stone-300 block"></span> <span className="arrowspan text-zinc-400"> Jul 2024  </span></h1>
             </Link>
           </div>
           <div className="hover_project padding-0">
             <Link className="sparkLinks mt-2" href="sparks/line" passHref>
-              <h1 className="">Temporal Flow<span className="arrowspan"> <span className="req">Jul 2024  </span>↗</span></h1>
+              <h1 className="flex gap-x-1.5 justify-center items-center"><span>Temporal Flow</span><span className="h-px w-16 bg-stone-300 block"></span> <span className="arrowspan text-zinc-400">Jul 2024 </span></h1>
             </Link>
           </div>
         </div>

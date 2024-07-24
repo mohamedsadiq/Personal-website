@@ -3827,22 +3827,22 @@ cursor: pointer;
   .mainContent video {
     width: 231px !important;
 }
-  .container_work_inner .blog_photo {
+  /* .container_work_inner .blog_photo {
     height: 497px;
-}
+} */
   }
  
   
 
   @media only screen and (max-width:768px) {
-    .container_work_inner .blog_photo {
+    /* .container_work_inner .blog_photo {
       height: 497px;
-  }
+  } */
   }
   @media only screen and (max-width:1024px) {
-    .container_work_inner .blog_photo {
+    /* .container_work_inner .blog_photo {
       height: 700px;
-  }
+  } */
  
   }
 
@@ -3852,9 +3852,9 @@ cursor: pointer;
   }
 
   @media only screen and (max-width:1606px) {
-    .container_work_inner .blog_photo {
+    /* .container_work_inner .blog_photo {
       height: 500px;
-  }
+  } */
   }
 
   
