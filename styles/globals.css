@@ -3335,9 +3335,7 @@ position: relative;
 
 
 @media only screen and (max-width:617px) {
-  .content{
-    padding: 0 30px;
-  }
+  
   .content_animete{
     display: block;
     
