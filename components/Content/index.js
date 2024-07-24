@@ -83,9 +83,9 @@ const MyComponent = (mode) => {
         className="flex flex-row flex-wrap gap-y-12"
       >
        <Section1 />
+       <Section4 />
        <Section2 />
        <Section3 />
-       <Section4 />
        <Section5 />
        <Section6 />
 
