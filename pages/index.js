@@ -30,9 +30,9 @@ export default function Home(props) {
         <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />  
       </Head>
       
-        
-       <Content valueOfMode={props.mode} />
-     
+      <div className="container">
+         <Content valueOfMode={props.mode} />
+      </div>
      
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW"

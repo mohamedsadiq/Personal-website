@@ -47,6 +47,34 @@ const MyComponent = (mode) => {
   //   };
   // }, [valueOfMood]);
 
+  const MohamedSadiq = {
+    initial: {
+      opacity: 0,
+      top: "20px",
+      position:"relative"
+    },
+    animate:{
+      opacity: 1,
+      top: "0",
+      position:"relative"
+    }
+  }
+
+  const motionProps = {
+    initial: {
+      opacity: 0,
+      top: "20px",
+      position: "relative",
+    },
+    animate: {
+      opacity: 1,
+      top: "0",
+      position: "relative",
+    },
+  };
+ 
+
+
   return (
     <div className="content pt-36">
       <motion.div
@@ -57,7 +85,11 @@ const MyComponent = (mode) => {
         }}
         className="flex flex-row flex-wrap gap-y-12"
       >
-        <div className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0">
+        <motion.div
+           className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
+            initial={MohamedSadiq.initial}
+            animate={MohamedSadiq.animate}
+        >
           <div id="name" className="p-0 flex h-auto w-full md:w-44 flex-none ">Mohamed Sadiq
             <svg 
             className=" mr-0 w-3.5 ml-1 mt-0.5 opacity-75"
@@ -94,9 +126,14 @@ const MyComponent = (mode) => {
               </span>
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0">
+        <motion.div 
+          className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
+          initial={MohamedSadiq.initial}
+          animate={MohamedSadiq.animate}
+          transition={{ delay: 0.1 }}
+        >
           <div className="mainContent flex h-auto w-full md:w-auto flex-none">
             <h1>An Engineering Snippets</h1>
           </div>
@@ -139,9 +176,14 @@ const MyComponent = (mode) => {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0">
+        <motion.div
+          className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
+          initial={MohamedSadiq.initial}
+          animate={MohamedSadiq.animate}
+          transition={{ delay: 0.2 }}
+         >
           <div className="mainContent flex h-auto w-full md:w-44 flex-none">
             <h1>Things I’ve built</h1>
           </div>
@@ -162,8 +204,13 @@ const MyComponent = (mode) => {
               </a>
             </div>
           </div>
-        </div>
-        <div className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0">
+        </motion.div >
+        <motion.div 
+        className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
+        initial={MohamedSadiq.initial}
+        animate={MohamedSadiq.animate}
+        transition={{ delay: 0.3}}
+        >
         <div className="mainContent flex h-auto w-full md:w-44 flex-none">
           <h1>Social media</h1>
         </div>
@@ -184,8 +231,13 @@ const MyComponent = (mode) => {
               </a>
               </ul>
         </div>
-        </div>
-        <div className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0">
+        </motion.div>
+        <motion.div
+          className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
+          initial={MohamedSadiq.initial}
+          animate={MohamedSadiq.animate}
+          transition={{ delay: 0.4}}
+         >
           <div className="mainContent flex h-auto w-full md:w-44 flex-none">
             <h1>Latest Activity</h1>
           </div>
@@ -201,9 +253,14 @@ const MyComponent = (mode) => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0">
+        <motion.div 
+        className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
+        initial={MohamedSadiq.initial}
+        animate={MohamedSadiq.animate}
+        transition={{ delay: 0.5}}
+        >
           <div className="mainContent  flex h-auto w-full md:w-auto flex-none">
             <h1 className="">Available for July to Aug</h1>
           </div>
@@ -212,7 +269,7 @@ const MyComponent = (mode) => {
               <button className="workbutton"> <span id="workbuttongreen"></span>Reach out via mail</button>
             </a>
           </div>
-        </div>
+        </motion.div>
       </motion.div>
     </div>
   );
