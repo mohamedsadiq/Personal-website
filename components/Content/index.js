@@ -60,12 +60,14 @@ const MyComponent = (mode) => {
     initial: {
       opacity: 0,
       top: "20px",
-      position:"relative"
+      position: "relative",
+      filter: "blur(10px)",
     },
-    animate:{
+    animate: {
       opacity: 1,
       top: "0",
-      position:"relative"
+      position: "relative",
+      filter: "blur(0px)",
     }
   }
 
@@ -75,19 +77,21 @@ const MyComponent = (mode) => {
   return (
     <div className="content pt-36">
       <motion.div
-        transition={{
-          duration: 0.5,
-          delay: 0.4,
-          ease: "easeOut",
-        }}
+      //  initial={MohamedSadiq.initial}
+      //  animate={MohamedSadiq.animate}
+      //   transition={{
+      //     duration: 0.5,
+      //     delay: 0.4,
+      //     ease: "easeOut",
+      //   }}
         className="flex flex-row flex-wrap gap-y-12"
       >
-       <Section1 />
-       <Section4 />
-       <Section2 />
-       <Section3 />
-       <Section5 />
-       <Section6 />
+       <Section1 MohamedSadiq={MohamedSadiq}/>
+       <Section4  MohamedSadiq={MohamedSadiq}/>
+       <Section2  MohamedSadiq={MohamedSadiq}/>
+       <Section3  MohamedSadiq={MohamedSadiq}/>
+       <Section5  MohamedSadiq={MohamedSadiq}/>
+       <Section6  MohamedSadiq={MohamedSadiq}/>
 
       </motion.div>
     </div>

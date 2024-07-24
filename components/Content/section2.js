@@ -1,26 +1,15 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const Section2 = () => {
-    const MohamedSadiq = {
-        initial: {
-          opacity: 0,
-          top: "20px",
-          position:"relative"
-        },
-        animate:{
-          opacity: 1,
-          top: "0",
-          position:"relative"
-        }
-      }
+const Section2 = ({MohamedSadiq}) => {
+ 
     
     return (
         <motion.div 
         className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
         initial={MohamedSadiq.initial}
         animate={MohamedSadiq.animate}
-        transition={{ delay: 0.1 }}
+        transition={{ delay: 0.3 }}
       >
         <div className="mainContent flex h-auto w-full md:w-auto flex-none">
           <h1>An Engineering Snippets</h1>

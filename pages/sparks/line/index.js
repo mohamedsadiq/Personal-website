@@ -52,7 +52,7 @@ export default function Line() {
         <meta name="twitter:description" content="Product designer & Engineer." />
         <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />
       </Head>
-      <main>
+     
         <div className="container inner_container_sparks_parent">
           <BackButton title="" />
           <div className="inner_container inner_container_sparks">
@@ -129,7 +129,7 @@ export default function Line() {
               </div>
           </div>
         </div>
-      </main>
+    
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW" strategy="afterInteractive" />
       <Script id="google-analytics" strategy="afterInteractive">
         {`

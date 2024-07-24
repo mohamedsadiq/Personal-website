@@ -1,25 +1,28 @@
 import { motion } from "framer-motion";
 
 
-const Section1 = () => {
-    const MohamedSadiq = {
-        initial: {
-          opacity: 0,
-          top: "20px",
-          position:"relative"
-        },
-        animate:{
-          opacity: 1,
-          top: "0",
-          position:"relative"
-        }
-      }
+const Section1 = ({MohamedSadiq}) => {
+  // const MohamedSadiq = {
+  //   initial: {
+  //     opacity: 0,
+  //     top: "20px",
+  //     position: "relative",
+  //     filter: "blur(10px)",
+  //   },
+  //   animate: {
+  //     opacity: 1,
+  //     top: "0",
+  //     position: "relative",
+  //     filter: "blur(0px)",
+  //   }
+  // }
     
     return (
         <motion.div
         className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
          initial={MohamedSadiq.initial}
          animate={MohamedSadiq.animate}
+         transition={{ delay: 0.1 }}
         >
         <div id="name" className="p-0 flex h-auto w-full md:w-44 flex-none ">Mohamed Sadiq
          <svg 
