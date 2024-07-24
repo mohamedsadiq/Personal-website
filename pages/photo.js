@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Script from 'next/script'
+import { motion } from "framer-motion";
 
 import img1 from "../img/photos/1.jpg"
 import img2 from "../img/photos/2.jpg"
@@ -23,37 +24,51 @@ const Photo = () => {
             <main>
                 <div className="container">
                     <div className='inner_container'>
-                   
-                        <div className='mItv1'>
-                            <div className='ripi6'>
-                                {data.map(i => (
-                                    <a key={i.key} href={i.link} target="_blank">
-                                        <Image
-                                            className='border_radius'
-                                            src={i.img}
-                                            loading="lazy"
-                                            alt="Picture of the author"
-                                            quality={75}
-                                            placeholder="blur"
-                                        />
-                                    </a>
-                                ))}
-                            </div>
-                            <div className='ripi6'>
-                                {data2.map(i => (
-                                    <a key={i.key} href={i.link} target="_blank">
-                                        <Image
-                                            className='border_radius'
-                                            src={i.img}
-                                            loading="lazy"
-                                            alt="Picture of the author"
-                                            quality={75}
-                                            placeholder="blur"
-                                        />
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
+                    <div className='mItv1'>
+      <div className='ripi6'>
+        {data.map((i, index) => (
+          <motion.a
+            key={i.key}
+            href={i.link}
+            target="_blank"
+            initial={{ opacity: 0, top: "20px", position: "relative" }}
+            animate={{ opacity: 1, top: "0", position: "relative" }}
+            transition={{ delay: index * 0.2 }}
+          >
+            <Image
+              className='border_radius'
+              src={i.img}
+              loading="lazy"
+              alt="Picture of the author"
+              quality={75}
+              placeholder="blur"
+            />
+          </motion.a>
+        ))}
+      </div>
+      <div className='ripi6'>
+        {data2.map((i, index) => (
+          <motion.a
+            key={i.key}
+            href={i.link}
+            target="_blank"
+            initial={{ opacity: 0, top: "20px", position: "relative" }}
+            animate={{ opacity: 1, top: "0", position: "relative" }}
+            transition={{ delay: index * 0.2 }}
+          >
+            <Image
+              className='border_radius'
+              src={i.img}
+              loading="lazy"
+              alt="Picture of the author"
+              quality={75}
+              placeholder="blur"
+            />
+          </motion.a>
+        ))}
+      </div>
+    </div>
+                       
                     </div>
                 </div>
                 <Script
