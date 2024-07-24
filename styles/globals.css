@@ -1100,7 +1100,7 @@ backface-visibility: hidden;
   color: #000;
 }
 .light .content div p a{
-  color:#a6a6a6
+  color:#000
 }
 .content div p a{
   margin: 0;
@@ -1110,7 +1110,7 @@ backface-visibility: hidden;
   /* border-bottom: 1px solid #eee */
 }
 .content div p a:hover{
-  color: #eee;
+  color: #808080;
 }
 .content div:first-child{
   padding-left: 12px;
