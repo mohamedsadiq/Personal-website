@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 
-const Section4 = () => {
+const Section4 = ({MohamedSadiq}) => {
     const [svgColor, setSvgColor] = useState("#000");
     // const valueOfMood = mode.mode.valueOfMode;
   
@@ -13,25 +13,14 @@ const Section4 = () => {
         setSvgColor("#000");
       }
     };
-    const MohamedSadiq = {
-        initial: {
-          opacity: 0,
-          top: "20px",
-          position:"relative"
-        },
-        animate:{
-          opacity: 1,
-          top: "0",
-          position:"relative"
-        }
-      }
+
     
     return (
         <motion.div 
         className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
         initial={MohamedSadiq.initial}
         animate={MohamedSadiq.animate}
-        transition={{ delay: 0.3}}
+        transition={{ delay: 0.2}}
         >
         <div className="mainContent flex h-auto w-full md:w-44 flex-none">
           <h1>Social media</h1>

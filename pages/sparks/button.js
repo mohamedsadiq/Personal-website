@@ -72,7 +72,7 @@ export default function QuickButton() {
         <meta name="twitter:description" content="Product designer & Engineer." />
         <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />  
       </Head>
-      <main>
+    
         <div className="container inner_container_sparks_parent">
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
@@ -162,7 +162,7 @@ export default function QuickButton() {
            
           </div>
         </div>
-      </main>
+     
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW"
         strategy="afterInteractive"

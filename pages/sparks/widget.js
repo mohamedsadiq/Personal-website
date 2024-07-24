@@ -197,7 +197,7 @@ export default function Widget() {
         <meta name="twitter:description" content="Product designer & Engineer." />
         <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />  
       </Head>
-      <main>
+  
         <div className="container inner_container_sparks_parent">
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
@@ -262,7 +262,7 @@ export default function Widget() {
             </div>
           </div>
         </div>
-      </main>
+    
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></Script>
       <Script src="/ar.js" />
     </>
