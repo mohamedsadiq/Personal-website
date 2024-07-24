@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Script from 'next/script'
 import useSound from 'use-sound';
 import { useRouter } from 'next/router';
+import { motion } from "framer-motion";
 
 
 // images
@@ -51,142 +52,38 @@ const router = useRouter();
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-    
        <div className="container container_work">
-        <div className="inner_container">
-     
+        <div className="inner_container"> 
           <h1>Projects</h1>
           <p>Projects I designed and built using Figma, React, Solidity, and more.</p>
-         
-         {/* <div className='navigation'> 
-         <div>
-            <h2>Ventures</h2>
-            <li>DAOs Spot</li>
-            <li>Libya Tells</li>
-         </div>
-         <div>
-            <h2>Projects</h2>
-            <li>Building on Imagination</li>
-            <li>DeveloperDAO</li>
-            <li>DeveloperDAO FM</li>
-            <li>CWB NFT</li>
-         </div>
-         <div>
-            <h2>Concepts</h2>
-            <li>Trust Wallet </li>
-            <li>Weather app </li>
-            <li>Apple Watch face</li>
-            <li>ATOM theme</li>
-            <li>Aston Martin</li>
-         </div>
-         </div> */}
           <div className="">
-         
-                {/* <Link key={"dao"} href="" passhref>
-                <div className="blocks" onClick={play}>
-                  <div className='ovo developerdao_vid'>
-                    <video loop autoPlay muted >
-                    <source src="/u5RViMdepqRfkMte.mp4" type="video/mp4"/>
-                  </video>
-                </div>
-
-                <div className="overlay"> 
-                  <h2></h2>
-                  <p></p>
-                  <span></span>
-                </div>
-                </div>
-                </Link> */}
-            {data.map(item => {
-              return (
-               
-                <div key={item.name} className="blocks" >
-              
-              {/* <div>  <Image
-                    src={item.productHunt}
-                    alt="Picture of the author"
-                    // objectFit='cover'
-                    // layout='fill'
-                    objectPosition="center"
-                    quality={100}
-                    // placeholder="blur"
-                /></div> */}
-                
-                 
-                   <Link  href={item.link}  passhref>
-                  <Image
-                    src={item.img}
-                    alt={item.name}
-                    objectFit='cover'
-                    layout='fill'
-                    objectPosition="center"
-                    quality={100}
-                    placeholder="blur"
-                />
-
-                <div className="overlay"> 
-                  <h2>{item.name}</h2>
-                  <p>{item.description}</p>
-                  {/* <span>{item.tags}</span> */}
-                </div>
-                
-                </Link>
-                
-                </div>
-              
-               )
-            })}
-             {/* <a href="https://www.behance.net/gallery/108322809/OVO-Website-Redesign" passhref target="_blink">
-                <div className="blocks" onClick={play}>
-                  <div className='ovo'>
-                  <Image
-                    src={"/ovovideo-3b3229df04b9ef2c3d47a36c13a5369c_Trim.gif"}
-                    alt="Picture of the author"
-                    objectFit='cover'
-                    layout='fill'
-                    objectPosition="center"
-                    quality={100}
-                    // blurDataURL
-                />
-                </div>
-
-                <div className="overlay"> 
-                  <h2>OVO Website Redesign</h2>
-                  <p>The “October’s Very Own” clothing..</p>
-                  <span>e-commerce</span>
-                </div>
-                </div>
-                </a> */}
-          </div>
-          
-          {/* <h2>Playground</h2> */}
-          
-          {/* <div className="grid">
-            {playground.map(item => {
-              return (
-                <a key={item.name}  href={item.link} passhref target={item.target}>
-                <div className="blocks" onClick={play}>
-                  <Image
-                    src={item.img}
-                    alt="Picture of the author"
-                    objectFit='cover'
-                    layout='fill'
-                    objectPosition="center"
-                     placeholder="blur"
-                    quality={100}
-                />
-             
-                <div className="overlay"> 
-                  <h2>{item.name}</h2>
-                  <p>{item.description}</p>
-                  <span>{item.tags}</span>
-                </div>
-                </div>
-                </a>
-               )
-            })}
-          </div> */}
-      
+      {data.map((item, index) => (
+        <motion.div
+          key={item.name}
+          className="blocks"
+          initial={{ opacity: 0, top: "20px", position: "relative" }}
+          animate={{ opacity: 1, top: "0", position: "relative" }}
+          transition={{ delay: index * 0.2 }}
+        >
+          <Link href={item.link} passHref>
+            <Image
+              src={item.img}
+              alt={item.name}
+              objectFit='cover'
+              layout='fill'
+              objectPosition="center"
+              quality={100}
+              placeholder="blur"
+            />
+            <div className="overlay"> 
+              <h2>{item.name}</h2>
+              <p>{item.description}</p>
+              {/* <span>{item.tags}</span> */}
+            </div>  
+          </Link>       
+        </motion.div>      
+      ))}
+    </div>
         </div>
        </div>
        <Script

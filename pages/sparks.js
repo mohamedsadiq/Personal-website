@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from "framer-motion";
 
 const sparksData = [
   {
@@ -24,18 +25,7 @@ const sparksData = [
     width: 100,
     height: 50
   },
-  {
-    href: 'sparks/widget',
-    title: 'Widget',
-    description: 'An interactive widget.',
-    date: 'June - 2024',
-    type: 'image',
-    src: '/dots.gif',
-    blurSrc: '/',  
-    width: 100,
-    height: 100
-    
-  },
+
  
  
   
@@ -76,6 +66,13 @@ const sparksData2 = [
     src: '/July 10 Screen Recording.mp4',
     mediaType: 'video/mp4'
   },
+  
+]
+
+
+
+const sparksData3 = [
+ 
   {
     href: 'sparks/line',
     title: 'Temporal Flow',
@@ -87,10 +84,33 @@ const sparksData2 = [
     width: 100,
     height: 100
   },
+  {
+    href: 'sparks/widget',
+    title: 'Widget',
+    description: 'An interactive widget.',
+    date: 'June - 2024',
+    type: 'image',
+    src: '/dots.gif',
+    blurSrc: '/',  
+    width: 100,
+    height: 100
+    
+  },
 
 ]
 
-
+const motionProps = {
+  initial: {
+    opacity: 0,
+    top: "20px",
+    position: "relative",
+  },
+  animate: {
+    opacity: 1,
+    top: "0",
+    position: "relative",
+  },
+};
 const Sparks = () => {
   return (
     <>
@@ -107,23 +127,49 @@ const Sparks = () => {
         <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />
       </Head>
     
-        <div className=" container_sparks_home">
+        <div className=" container_sparks_home contentsSpark">
           <div className="inner_container inner_container_spark">
             <h1>Sparks</h1>
             <p>An engineering snippets</p>
 
-            <div className='mItv1'>
-                            <div className='ripi6'>
-                            {sparksData.map((spark, index) => (
-                <SparkItem key={index} {...spark} />
-              )).reverse()}
-                            </div>
-                            <div className='ripi6'>
-                            {sparksData2.map((spark, index) => (
-                <SparkItem key={index} {...spark} />
-              )).reverse()}
-                            </div>
-                        </div>
+            <div className='mItv1 mItv2'>
+      <div className='ripi6'>
+        {sparksData.map((spark, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, top: "20px", position: "relative" }}
+            animate={{ opacity: 1, top: "0", position: "relative" }}
+            transition={{ delay: index * 0.1 }}
+          >
+            <SparkItem {...spark} />
+          </motion.div>
+        )).reverse()}
+      </div>
+      <div className='ripi6'>
+        {sparksData2.map((spark, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, top: "20px", position: "relative" }}
+            animate={{ opacity: 1, top: "0", position: "relative" }}
+            transition={{ delay: index * 0.1 }}
+          >
+            <SparkItem {...spark} />
+          </motion.div>
+        )).reverse()}
+      </div>
+      <div className='ripi6'>
+        {sparksData3.map((spark, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, top: "20px", position: "relative" }}
+            animate={{ opacity: 1, top: "0", position: "relative" }}
+            transition={{ delay: index * 0.1 }}
+          >
+            <SparkItem {...spark} />
+          </motion.div>
+        )).reverse()}
+      </div>
+    </div>
 
             
           </div>
