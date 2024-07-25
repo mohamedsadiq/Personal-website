@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import HeaderMin from "../HeaderMin";
 import KeyNav from "../keyNav";
+
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+
 const Layout = ({ children }) => {
   const router = useRouter();
   const [displayChildren, setDisplayChildren] = useState(children);
