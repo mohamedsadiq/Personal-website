@@ -50,7 +50,7 @@ export default function FamilyTransactions() {
           <div className="inner_container inner_container_sparks">
             
 
-            <div className="exp"  style={{ height:"700px"}} >
+            <div className="exp"  style={{ height:"400px"}} >
             <div className="rainy"></div>
               <div className="dotsForScrolling">
                 <div className="dot activeDot"></div>

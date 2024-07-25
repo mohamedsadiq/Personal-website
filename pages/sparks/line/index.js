@@ -87,7 +87,7 @@ export default function Line() {
               </div>
           
             </div>
-            <div className="year-inputs flex gap-x-4 mt-5">
+            {/* <div className="year-inputs flex gap-x-4 mt-5">
               <motion.label
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -126,7 +126,7 @@ export default function Line() {
                     style={{ padding: '10px', borderRadius: '20px', border: '1px solid #ccc', marginTop: '5px' }}
                   />
                 </motion.label>
-              </div>
+              </div> */}
           </div>
         </div>
     

@@ -159,9 +159,7 @@ const TheMartian: React.FC = () => {
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
           <h2 className="mt-10">The Martian</h2>
-            <div className="exp" ref={containerRef} style={{ height:"700px"}} ></div>
-          
-            <p>
+          <p>
               This interactive demo allows you to control and observe the
               behavior of a character in a 3D environment. Using <span className="spark_tools">Three.js.</span>
             </p>
@@ -183,6 +181,9 @@ const TheMartian: React.FC = () => {
                 </li>
               </ul>
             </p>
+            <div className="exp" ref={containerRef} style={{ height:"700px"}} ></div>
+          
+            
 
           </div>
         </div>

@@ -4571,16 +4571,16 @@ ul li{
 .rainy,
 .storm {
   height: 250px;
-    width: 250px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: fixed;
-    top: 51%;
-    left: 50%;
-    transition: opacity 0.5s ease;
-    z-index: -1;
-    border-radius: 36px;
-    transform: translate(-50%, -50%);
+  width: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 44%;
+  left: 50%;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+  border-radius: 36px;
+  transform: translate(-50%, -50%);
 }
 
 .rainy {
@@ -4603,9 +4603,9 @@ ul li{
 
 .dotsForScrolling {
   position: relative;
-  right: -403px;
+  right: -433px;
   z-index: 1000;
-  top: 47%;
+  top: 48%;
   transform: translate(-50%, -26%);
   display: inline-block;
 }
