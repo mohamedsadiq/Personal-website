@@ -255,8 +255,8 @@ export default function Widget() {
                 </motion.div>
               </motion.div>
             </div>
-            <h2 className="mt-10">Widget</h2>
-            <p>
+            <h2 className="mt-10 mb-3">Widget</h2>
+            <p className="mt-0">
               A widget inspired by <a href="https://x.com/sovpal/status/1742640211782185261" target="_blink">Arkady's</a> design, Built using <span className="spark_tools">React</span>, <span className="spark_tools">Framer Motion</span> and <span className="spark_tools">Tailwind CSS</span>, 
               This interactive widget dynamically generates dots representing exercise progress. Each click triggers a visual update, reflecting changes in exercise status with animated transitions and interactive elements.
               
