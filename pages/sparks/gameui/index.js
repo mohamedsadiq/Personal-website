@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
-import Script from "next/script";
 import { motion, AnimatePresence } from "framer-motion";
 import BackButton from "../../../components/backButton";
-import style from "./3d.module.css"
+
 // R3F
 import { Canvas, useThree, useFrame } from "react-three-fiber";
 
@@ -213,15 +212,7 @@ export default function GameUi() {
           </div>
         </div>
       
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW" strategy="afterInteractive" />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-H699TZ29QW');
-        `}
-      </Script>
+     
     </>
   );
 }

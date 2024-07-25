@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Script from 'next/script'
 import { useState, useEffect,useRef } from "react";
-import Footer from '../components/Footer'
 import Content from '../components/Content'
 import Info from "../components/info"
 
