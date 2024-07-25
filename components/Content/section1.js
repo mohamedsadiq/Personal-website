@@ -42,7 +42,7 @@ const Section1 = ({MohamedSadiq}) => {
          </svg></div>
         <div className="home_text_front">
          <p>
-           A Product Designer & Engineer, turning ideas into crafted products. Founder of{" "}
+         A multifaceted creator resisting easy classification, Molding inspirations into finely crafted realities. Founder of{" "}
            <a href={"/projects/daosspot"} target="_blink">
              DAOs Spot
            </a>

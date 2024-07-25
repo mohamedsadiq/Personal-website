@@ -2,10 +2,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 import { useState, useEffect } from "react";
-import arrow from "../../img/Group 192.svg";
-
-import boi from "../../public/boi.png"
-import dao from "../../public/daosspot.png"
 
 
 
@@ -15,11 +11,9 @@ import Section3 from "./section3"
 import Section4 from "./section4"
 import Section5 from "./section5"
 import Section6 from "./section6"
-// import section1dao from "../../public/daosspot.png"
 
 const MyComponent = (mode) => {
   const [svgColor, setSvgColor] = useState("#000");
-  // const valueOfMood = mode.mode.valueOfMode;
 
   const svgColorsFun = () => {
     if (valueOfMood === "dark") {
@@ -28,6 +22,58 @@ const MyComponent = (mode) => {
       setSvgColor("#000");
     }
   };
+
+  const MohamedSadiq = {
+    initial: {
+      opacity: 0,
+      top: "20px",
+      position: "relative",
+      filter: "blur(10px)",
+    },
+    animate: {
+      opacity: 1,
+      top: "0",
+      position: "relative",
+      filter: "blur(0px)",
+    }
+  }
+
+ 
+
+
+  return (
+    <div className="content pt-16">
+     
+      <motion.div
+        className="flex flex-row flex-wrap gap-y-12"
+      >
+       
+       <Section1  MohamedSadiq={MohamedSadiq}/>
+       <Section4  MohamedSadiq={MohamedSadiq}/>
+       <Section2  MohamedSadiq={MohamedSadiq}/>
+       <Section3  MohamedSadiq={MohamedSadiq}/>
+       <Section5  MohamedSadiq={MohamedSadiq}/>
+       <Section6  MohamedSadiq={MohamedSadiq}/>
+
+      </motion.div>
+    </div>
+  );
+};
+
+const Content = (valueOfMode) => {
+  const theValueOFMode = valueOfMode;
+  return (
+    <div className={`p-0 md:p-8 ${theValueOFMode === "dark" ? "dark-mode" : "light-mode"} md:mx-12 sm:mx-10`}>
+      <MyComponent mode={valueOfMode} />
+    </div>
+  );
+};
+
+
+export default Content;
+
+
+  // const valueOfMood = mode.mode.valueOfMode;
 
   // const [divTop, setDivTop] = useState("68vh"); // Default value for smaller heights
 
@@ -55,59 +101,3 @@ const MyComponent = (mode) => {
   //     window.removeEventListener("resize", updateDivPosition);
   //   };
   // }, [valueOfMood]);
-
-  const MohamedSadiq = {
-    initial: {
-      opacity: 0,
-      top: "20px",
-      position: "relative",
-      filter: "blur(10px)",
-    },
-    animate: {
-      opacity: 1,
-      top: "0",
-      position: "relative",
-      filter: "blur(0px)",
-    }
-  }
-
- 
-
-
-  return (
-    <div className="content pt-16">
-     
-      <motion.div
-      //  initial={MohamedSadiq.initial}
-      //  animate={MohamedSadiq.animate}
-      //   transition={{
-      //     duration: 0.5,
-      //     delay: 0.4,
-      //     ease: "easeOut",
-      //   }}
-        className="flex flex-row flex-wrap gap-y-12"
-      >
-       
-       <Section1 MohamedSadiq={MohamedSadiq}/>
-       <Section4  MohamedSadiq={MohamedSadiq}/>
-       <Section2  MohamedSadiq={MohamedSadiq}/>
-       <Section3  MohamedSadiq={MohamedSadiq}/>
-       <Section5  MohamedSadiq={MohamedSadiq}/>
-       <Section6  MohamedSadiq={MohamedSadiq}/>
-
-      </motion.div>
-    </div>
-  );
-};
-
-const Content = (valueOfMode) => {
-  const theValueOFMode = valueOfMode;
-  return (
-    <div className={`p-0 md:p-8 ${theValueOFMode === "dark" ? "dark-mode" : "light-mode"} md:mx-12 sm:mx-10`}>
-      <MyComponent mode={valueOfMode} />
-    </div>
-  );
-};
-
-
-export default Content;
