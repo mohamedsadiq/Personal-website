@@ -89,8 +89,8 @@ const Layout = ({ children }) => {
         className={`contents ${transitionStage} ${isBlogPage ? "contenttttt" : ""}`}
       >
         {clonedChildren}
-        <Analytics />
         <SpeedInsights />
+        <Analytics />
       </div>
      
     </div>
