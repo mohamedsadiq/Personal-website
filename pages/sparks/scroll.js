@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import Head from "next/head";
-import Script from "next/script";
 import BackButton from "../../components/backButton";
 
 export default function FamilyTransactions() {
@@ -57,14 +56,12 @@ export default function FamilyTransactions() {
                 <div className="dot"></div>
               </div>
               <div className="widget" ref={widgetRef}>
-           
                 <div className="storm"></div>
                 <div className="rainy"></div>
                 <div style={{ height: "400px" }}></div>
               </div>
             </div>
             <h2 className="mt-10">Scrolling</h2>
-
             <p>
               It's a scroll, but with a twist. Instead of the typical scroll
               bar, I integrated circular indicators to signify the moving
@@ -72,18 +69,7 @@ export default function FamilyTransactions() {
             </p>
           </div>
         </div>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-H699TZ29QW');
-          `}
-        </Script>
+    
    
     </>
   );

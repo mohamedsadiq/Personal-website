@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import Head from "next/head";
-import Script from "next/script";
 import BackButton from "../../../components/backButton";
 import { KeyDisplay } from "../../../utilsSpark";
 import { CharacterControls } from "../../../characterControls";
@@ -187,18 +186,7 @@ const TheMartian: React.FC = () => {
 
           </div>
         </div>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-H699TZ29QW');
-          `}
-        </Script>
+        
       
     </>
   );

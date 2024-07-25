@@ -1,7 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
-import Script from 'next/script';
 import BackButton from '../../../components/backButton';
 
 
@@ -130,15 +129,7 @@ export default function Line() {
           </div>
         </div>
     
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW" strategy="afterInteractive" />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag() { dataLayer.push(arguments); }
-          gtag('js', new Date());
-          gtag('config', 'G-H699TZ29QW');
-        `}
-      </Script>
+     
     </>
   );
 }
