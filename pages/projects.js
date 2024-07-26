@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link';
-import Script from 'next/script'
+
 import useSound from 'use-sound';
 import { useRouter } from 'next/router';
 import { motion } from "framer-motion";
@@ -86,19 +86,7 @@ const router = useRouter();
     </div>
         </div>
        </div>
-       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
- 
-         gtag('config', 'G-H699TZ29QW');
-        `}
-      </Script>
+     
       </main>
 
       </>
