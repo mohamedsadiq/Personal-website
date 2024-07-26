@@ -31,9 +31,9 @@ const Photo = () => {
             key={i.key}
             href={i.link}
             target="_blank"
-            initial={{ opacity: 0, top: "20px", position: "relative" }}
-            animate={{ opacity: 1, top: "0", position: "relative" }}
-            transition={{ delay: index * 0.2 }}
+            // initial={{ opacity: 0, top: "20px", position: "relative" }}
+            // animate={{ opacity: 1, top: "0", position: "relative" }}
+            // transition={{ delay: index * 0.2 }}
           >
             <Image
               className='border_radius'
@@ -52,9 +52,9 @@ const Photo = () => {
             key={i.key}
             href={i.link}
             target="_blank"
-            initial={{ opacity: 0, top: "20px", position: "relative" }}
-            animate={{ opacity: 1, top: "0", position: "relative" }}
-            transition={{ delay: index * 0.2 }}
+            // initial={{ opacity: 0, top: "20px", position: "relative" }}
+            // animate={{ opacity: 1, top: "0", position: "relative" }}
+            // transition={{ delay: index * 0.2 }}
           >
             <Image
               className='border_radius'
