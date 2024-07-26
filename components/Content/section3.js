@@ -5,13 +5,7 @@ import Image from "next/image";
 
 const Section3 = ({ MohamedSadiq }) => {
     const hoverEffect = {
-      x: 5, // Adjust the movement distance as needed
-      transition: {
-          duration: 0, // Shorter duration for a snappier effect
-          type: "spring",
-          stiffness: 300, // Higher stiffness for faster response
-          damping: 10 // Adjust damping to control overshoot
-      }
+     
     };
 
     return (
