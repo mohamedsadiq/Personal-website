@@ -3422,10 +3422,10 @@ position: relative;
 
 
 
-@media only screen and (max-width:406px) {
+@media only screen and (max-width:450px) {
   .blocks {
     
-    height: 300px;
+    height: 370px;
     
 }
 
