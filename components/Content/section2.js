@@ -14,7 +14,7 @@ const Section2 = ({ MohamedSadiq }) => {
             transition={{ delay: 0.3 }}
         >
             <div className="mainContent flex h-auto w-full md:w-auto flex-none">
-                <h1>An Engineering Snippets</h1>
+                <h1 className="mt-1">An Engineering Snippets</h1>
             </div>
             <div className="mainContent main_projects">
                 {[
