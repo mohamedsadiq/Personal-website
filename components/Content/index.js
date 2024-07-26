@@ -47,7 +47,6 @@ const MyComponent = (mode) => {
       <motion.div
         className="flex flex-row flex-wrap gap-y-12"
       >
-       
        <Section1  MohamedSadiq={MohamedSadiq}/>
        <Section4  MohamedSadiq={MohamedSadiq}/>
        <Section2  MohamedSadiq={MohamedSadiq}/>
@@ -55,7 +54,6 @@ const MyComponent = (mode) => {
        <Section5  MohamedSadiq={MohamedSadiq}/>
        <Section7  MohamedSadiq={MohamedSadiq}/>
        <Section6  MohamedSadiq={MohamedSadiq}/>
-      
       </motion.div>
     </div>
   );
