@@ -116,6 +116,7 @@ export default function Widget() {
     exit: {
       x: 0,
       opacity: 0,
+      
       // transition: { duration: 0.5, ease: "easeInOut" },
     }
   }
@@ -201,7 +202,6 @@ export default function Widget() {
         <div className="container inner_container_sparks_parent">
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
-          
             <div className="exp flex justify-center items-center">
               <motion.div
                 className="buttonWidget bg-slate-950 exercises_widget overflow-hidden"
@@ -220,7 +220,7 @@ export default function Widget() {
                   filter: "blur(0px)", // Ensure blur is set to 0 at the end of the animation
                 }}
               >
-                <div className="daysExercises mb-9 flex flex-row flex-wrap h-3.5 flex justify-center items-center">
+                <div className="daysExercises mb-9 flex-row flex-wrap h-3.5 flex justify-center items-center">
                   <div className="exercises_container flex order-10 flex-wrap gap-y-0 gap-x-0" style={{ rowGap: isClicked ? '22px' : '0px' }}>
                     {isClicked ? dots.map((dot, index) => (
                       <motion.div
@@ -240,7 +240,7 @@ export default function Widget() {
                   className="widget_text"
                   initial={widget_text.initial}
                   animate={isClicked ? widget_text.animate : widget_text.initial}
-                  // exit={widget_text.exit}
+                  exit={widget_text.exit}
                   transition={{
                     type: "spring",
                     stiffness: 100,
