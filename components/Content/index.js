@@ -43,7 +43,6 @@ const MyComponent = (mode) => {
 
   return (
     <div className="content pt-16">
-     
       <motion.div
         className="flex flex-row flex-wrap gap-y-12"
       >
