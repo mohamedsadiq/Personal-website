@@ -11,7 +11,7 @@ import Section3 from "./section3"
 import Section4 from "./section4"
 import Section5 from "./section5"
 import Section6 from "./section6"
-
+import Section7 from "./section7"
 const MyComponent = (mode) => {
   const [svgColor, setSvgColor] = useState("#000");
 
@@ -53,8 +53,9 @@ const MyComponent = (mode) => {
        <Section2  MohamedSadiq={MohamedSadiq}/>
        <Section3  MohamedSadiq={MohamedSadiq}/>
        <Section5  MohamedSadiq={MohamedSadiq}/>
+       <Section7  MohamedSadiq={MohamedSadiq}/>
        <Section6  MohamedSadiq={MohamedSadiq}/>
-
+      
       </motion.div>
     </div>
   );
