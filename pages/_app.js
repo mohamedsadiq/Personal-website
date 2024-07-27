@@ -12,7 +12,7 @@ const inter = Inter({
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   return (
-    <div className={inter.className}>
+    <div className={inter.className} lang="en">
       <Layout>
         <Component {...pageProps} />
       </Layout>
