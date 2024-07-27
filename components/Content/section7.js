@@ -52,23 +52,27 @@ const Section7 = () => {
                 <h1 className="">Additional Works</h1>
             </div>
             <div className="mainContent" id="links_home">
-                <a href="https://dribbble.com/Mohamed-Sadiq" target="_blank">
+                <a href="https://dribbble.com/Mohamed-Sadiq" target="_blank" aria-label="Additional Works">
                     <motion.div
                         className="flex gap-x-2.5 overflow-x-hidden overflow-y-hidden w-80"
                         whileHover="stack"
                         initial="normal"
                     >
                         <motion.div variants={hoverState}>
-                            <Image className="rounded-lg" width={100} height={100} alt="" src={Img} />
+                            <Image quality={100}
+                                placeholder="blur" className="rounded-lg" width={100} height={100} alt="" src={Img} />
                         </motion.div>
                         <motion.div variants={hoverState}>
-                            <Image className="rounded-lg" width={100} height={100} alt="" src={Img2} />
+                            <Image quality={100}
+                                placeholder="blur" className="rounded-lg" width={100} height={100} alt="" src={Img2} />
                         </motion.div>
                         <motion.div variants={hoverState}>
-                            <Image className="rounded-lg" width={115} height={100} alt="" src={Img3} />
+                            <Image quality={100}
+                                placeholder="blur" className="rounded-lg" width={115} height={100} alt="" src={Img3} />
                         </motion.div>
                         <motion.div variants={hoverState}>
-                            <Image className="rounded-lg" width={100} height={100} alt="" src={Img4} />
+                            <Image quality={100}
+                                placeholder="blur" className="rounded-lg" width={100} height={100} alt="" src={Img4} />
                         </motion.div>
                     </motion.div>
                 </a>

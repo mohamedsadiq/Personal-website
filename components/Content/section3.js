@@ -37,7 +37,7 @@ const Section3 = ({ MohamedSadiq }) => {
                         <h1 className="">
                             DeeveloperDAO FM
                             <span className="arrowspan">
-                                <span className="req">Top product PH </span>
+                                <span className="req text-zinc-500">Top product PH </span>
                                 ↗
                             </span>
                         </h1>
@@ -48,7 +48,7 @@ const Section3 = ({ MohamedSadiq }) => {
                         <h1 className="">
                             Web3 lover boy NFTs
                             <span className="arrowspan">
-                                <span className="req">NFTs collection </span>
+                                <span className="req text-zinc-500">NFTs collection </span>
                                 ↗
                             </span>
                         </h1>

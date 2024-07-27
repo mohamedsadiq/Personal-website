@@ -31,7 +31,7 @@ const Section2 = ({ MohamedSadiq }) => {
                             <h1 className="flex gap-x-1.5 justify-center items-center">
                                 <span>{link.title}</span>
                                 <span className="h-px w-16 bg-stone-300 block"></span>
-                                <span className="arrowspan text-zinc-400">{link.date}</span>
+                                <span className="arrowspan text-zinc-500">{link.date}</span>
                             </h1>
                         </Link>
                     </motion.div>
