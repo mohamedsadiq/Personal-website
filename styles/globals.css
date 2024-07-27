@@ -1,3 +1,8 @@
+ /* @font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
+  font-display: swap;
+} */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,18 +10,13 @@
 .contents{
   display: block;
 }
-@font-face {
-  
-  font-family: "Inter";
-  src: url("../fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
-  font-display: swap;
-}
 
-@font-face {
+
+/* @font-face {
   font-family: "Graphik";
   src: url("../fonts/Graphik Regular.otf") format("truetype");
   font-display: swap;
-}
+}  */
 
 /* @font-face {
   font-family: "Rubik";
@@ -249,9 +249,7 @@ a.tag{
 .dark{
   background-color: #000;
 }
-body p, body h1, body h2, body h3, body h4, body h5, body h6, body span{
-  font-family: 'Inter' !important;
-}
+
 #name{
   padding: 0 !important;
   color: #fff;
@@ -653,7 +651,7 @@ body {
   /* background-color: #000; */
   color: #fafafa;
   padding: 0;
-  font-family: "Inter";
+  
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -733,7 +731,7 @@ a {
 .inner_container{
   
  margin-top:65px;
- font-family: "Inter";
+ 
  margin-bottom: 100px;
  position: relative;
 }
@@ -877,7 +875,7 @@ a {
   color: #fff;
   font-weight: 400;
   margin-top: 4px;
-  font-family: "Inter";
+
   margin-bottom: 0;
 }
 .overlay span{
@@ -891,7 +889,7 @@ a {
 .overlay h2, .overlay p{
   color:#818181;
   font-size: 0.8rem;
-  font-family: "Inter";
+
 }
 strong{
   font-weight: 600;
@@ -957,7 +955,7 @@ header{
 .content_animete{
  opacity: 0;
   line-height: 29px;
-  font-family: "Inter";
+
   position: relative;
   width: 41rem;
   top: 83%;
@@ -1092,7 +1090,7 @@ backface-visibility: hidden;
 }
 .content{
   line-height: 29px;
-  font-family: "Inter";
+ 
   font-size: 0.9rem;
   margin-bottom: 120px;
 }
@@ -1172,7 +1170,7 @@ backface-visibility: hidden;
     padding:11px 25px;
     border: 1px solid #818181;
     box-shadow: inset 0px 7px 16px 3px #9c9c9c;
-    font-family: 'Inter' !important;
+ 
     /* font-weight: 900; */
     transition: all 0.3s ease-in-out;
 }
@@ -1243,7 +1241,7 @@ backface-visibility: hidden;
   bottom: -10px;
 }
 .text{
-  font-family: "Inter";
+
   position: absolute;
   top: -68px;
   left: 50%;
@@ -1430,7 +1428,7 @@ color: rgb(250, 200, 17);
   font-weight: 400;
 }
 .dark .inner_container h1{
-  font-family: 'Inter' !important;
+ 
   color:#fff
 }
 .light .inner_container h1{
@@ -1839,7 +1837,7 @@ color: rgb(250, 200, 17);
 }
 .nav_work{
   margin-top: 38px;
-    font-family: "Inter";
+ 
     display: grid;
     grid-template-columns: 8.8fr 1.1fr;
     grid-gap: 0px 0px;
@@ -2044,7 +2042,7 @@ color: #fff;
     padding: 11px 25px;
     /* border: 1px solid #818181; */
     box-shadow: inset 0 7px 16px 3px #9c9c9c;
-    font-family: Inter !important;
+  
     font-weight: 900;
     transition: all .3s ease-in-out;
 }
@@ -2100,7 +2098,7 @@ color: #fff;
   margin: 0;
 }
 .inner_blog{
-  font-family: "inter";
+
   margin-top: 14px;
   border: 1px solid #1e1e1e;
 }
@@ -2221,7 +2219,7 @@ color: #fff;
 .footer{
   border-top: 1px solid #525252;
   line-height: 29px;
-  font-family: "Inter";
+
  
  
   height: 300px;
@@ -3794,7 +3792,7 @@ cursor: pointer;
 @media only screen and (min-width:320px) {
   .inner_container_mobile {
     margin-top: 33px;
-    font-family: "Inter";
+    /* font-family: "Inter"; */
     margin-bottom: 100px;
     position: relative;
 }
@@ -4044,7 +4042,7 @@ width: 174px;
     overflow: hidden;
   }
   .transactions_parent span{
-    font-family: Inter !important;
+    /* font-family: Inter !important; */
     font-weight: 600;
   }
 .main_text{
@@ -4285,7 +4283,7 @@ margin-top: 23px;
 .controll_button button{
   transition: all 0.2s ease-in-out;
   font-weight: 600;
-  font-family: Inter !important;
+  /* font-family: Inter !important; */
     margin: 0 11px;
     /* background-color: #efefef; */
     border-radius: 12px;
@@ -4304,7 +4302,7 @@ margin-top: 23px;
 }
 
 .mainContent{
-  font-family: 'Inter' !important;
+
   /* margin-top: 50px; */
   padding-left: 21px
 }
@@ -4832,7 +4830,7 @@ ul li{
   opacity: 1;
   color: #555;
   font-weight: 350;
-  font-family: Graphik;
+  /* font-family: Inter; */
 }
 a {
   transition: all 0.1s ease !important;
@@ -4884,3 +4882,4 @@ a {
     transform: translate(-106%, -50%);
   }
 } */
+

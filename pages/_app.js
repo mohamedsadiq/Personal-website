@@ -1,24 +1,23 @@
 import "../styles/globals.css";
 import Layout from "../components/Layout";
 import { useRouter } from "next/router";
+import { Inter } from "next/font/google";
 
-
-// import { HydrationOverlay } from "@builder.io/react-hydration-overlay";
-
+const inter = Inter({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   return (
-    // <HydrationOverlay>
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-    // </HydrationOverlay>
+    <div className={inter.className}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </div>
   );
 }
 
 export default MyApp;
-
-{/* <div class="style_scrollbar__4T6N2" >
-<div class="style_thumb__noCcq"></div>
-</div> */}

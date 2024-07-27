@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import HeaderMin from "../HeaderMin";
 import KeyNav from "../keyNav";
+import { Inter } from "next/font/google";
 
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -77,7 +78,7 @@ const Layout = ({ children }) => {
   const isBlogPage = router.pathname.includes("blog");
 
   return (
-    <div className="light">
+    <div className="light" >
       <HeaderMin />
       <div
         onTransitionEnd={() => {
@@ -89,7 +90,7 @@ const Layout = ({ children }) => {
         className={`contents ${transitionStage} ${isBlogPage ? "contenttttt" : ""}`}
       >
         {clonedChildren}
-        <SpeedInsights />
+      
         <Analytics />
       </div>
      
