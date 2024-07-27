@@ -59,16 +59,20 @@ const Section7 = () => {
                         initial="normal"
                     >
                         <motion.div variants={hoverState}>
-                            <Image className="rounded-lg" width={100} height={100} alt="" src={Img} />
+                            <Image quality={100}
+                                placeholder="blur" className="rounded-lg" width={100} height={100} alt="" src={Img} />
                         </motion.div>
                         <motion.div variants={hoverState}>
-                            <Image className="rounded-lg" width={100} height={100} alt="" src={Img2} />
+                            <Image quality={100}
+                                placeholder="blur" className="rounded-lg" width={100} height={100} alt="" src={Img2} />
                         </motion.div>
                         <motion.div variants={hoverState}>
-                            <Image className="rounded-lg" width={115} height={100} alt="" src={Img3} />
+                            <Image quality={100}
+                                placeholder="blur" className="rounded-lg" width={115} height={100} alt="" src={Img3} />
                         </motion.div>
                         <motion.div variants={hoverState}>
-                            <Image className="rounded-lg" width={100} height={100} alt="" src={Img4} />
+                            <Image quality={100}
+                                placeholder="blur" className="rounded-lg" width={100} height={100} alt="" src={Img4} />
                         </motion.div>
                     </motion.div>
                 </a>
