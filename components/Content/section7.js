@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-
+import Link from "next/link";
 import Img from "../../img/trustwallet.png";
 import Img2 from "../../img/web3cons.png";
 import Img3 from "../../img/Cards design.png";
@@ -52,7 +52,7 @@ const Section7 = () => {
                 <h1 className="">Additional Works</h1>
             </div>
             <div className="mainContent" id="links_home">
-                <a href="https://dribbble.com/Mohamed-Sadiq" target="_blank" aria-label="Additional Works" className="flex ml-6">
+                <Link href="/additionalWorks" target="_blank" aria-label="Additional Works" className="flex ml-6">
                     <motion.div
                         className="flex gap-x-2.5 overflow-x-hidden overflow-y-hidden w-80"
                         whileHover="stack"
@@ -71,7 +71,7 @@ const Section7 = () => {
                                 placeholder="blur" className="rounded-lg" width={100} height={100} alt="" src={Img4} />
                         </motion.div>
                     </motion.div>
-                </a>
+                </Link>
             </div>
         </motion.div>
     );
