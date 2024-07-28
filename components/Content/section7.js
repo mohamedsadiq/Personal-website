@@ -52,16 +52,12 @@ const Section7 = () => {
                 <h1 className="">Additional Works</h1>
             </div>
             <div className="mainContent" id="links_home">
-                <a href="https://dribbble.com/Mohamed-Sadiq" target="_blank" aria-label="Additional Works">
+                <a href="https://dribbble.com/Mohamed-Sadiq" target="_blank" aria-label="Additional Works" className="flex ml-6">
                     <motion.div
                         className="flex gap-x-2.5 overflow-x-hidden overflow-y-hidden w-80"
                         whileHover="stack"
                         initial="normal"
-                    >
-                        <motion.div variants={hoverState}>
-                            <Image quality={100}
-                                placeholder="blur" className="rounded-lg" width={100} height={100} alt="" src={Img} />
-                        </motion.div>
+                    >   
                         <motion.div variants={hoverState}>
                             <Image quality={100}
                                 placeholder="blur" className="rounded-lg" width={100} height={100} alt="" src={Img2} />
