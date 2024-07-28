@@ -2212,6 +2212,9 @@ color: #fff;
   max-width: 1000px;
   margin: 0 auto;
 }
+.adwork{
+  max-width: 1300px;
+}
 .footer{
   border-top: 1px solid #525252;
   line-height: 29px;
