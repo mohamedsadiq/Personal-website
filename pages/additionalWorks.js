@@ -3,6 +3,8 @@ import Script from 'next/script'
 import { useState, useEffect, useRef } from "react";
 import Image from 'next/image';
 
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 import img1 from "../img/adw/Aston Martin Dark Mode.png"
 import img2 from "../img/adw/Certified Web3 Boy NFT.png"
@@ -75,36 +77,23 @@ export default function Home(props) {
       </Head>
 
       <div className="adwork">
-        <div className="mt-10 flex gap-x-9 justify-center flex-wrap gap-y-9 overflow-x-hidden overflow-y-hidden">
-
       
+
+      {/* <PhotoProvider > */}
+        <div className="mt-10 flex gap-x-9 justify-center flex-wrap gap-y-9 overflow-x-hidden overflow-y-hidden">
          {imgs.map((i, index) => {
             return (
-              <div key={index} className="w-60">
+              <div key={index} className="w-60" src={i}>
                  <Image cover className="rounded-lg"  src={i} alt="" quality={80} placeholder="blur"/>
               </div>
             )
-
           })}
-       
+          </div>
+      {/* </PhotoProvider> */}
 
-
-        </div>
       </div>
 
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-H699TZ29QW"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
- 
-         gtag('config', 'G-H699TZ29QW');
-        `}
-      </Script>
+      
     </div>
   )
 }
