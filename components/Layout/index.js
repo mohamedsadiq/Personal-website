@@ -94,7 +94,7 @@ const Layout = ({ children }) => {
         <GoogleAnalytics gaId="G-FKTN7K9QJS" />
         <Analytics />
       </div>
-      G-FKTN7K9QJS
+      
       	
     </div>
   );
