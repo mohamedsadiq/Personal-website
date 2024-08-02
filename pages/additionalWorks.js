@@ -47,7 +47,7 @@ import img35 from "../img/5f36bf142533193 62689c440c045.png"
 
 export default function Home(props) {
 
-  const imgs = [
+  const images = [
     img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img30, img31,img32,img34,img35 ,img29, img33
   ]
   const modeOfThePc = props.mode;
@@ -79,18 +79,26 @@ export default function Home(props) {
       <div className="adwork">
       
 
-      {/* <PhotoProvider > */}
-        <div className="mt-10 flex gap-x-9 justify-center flex-wrap gap-y-9 overflow-x-hidden overflow-y-hidden">
-         {imgs.map((i, index) => {
-            return (
-              <div key={index} className="w-60" src={i}>
-                 <Image cover className="rounded-lg"  src={i} alt="" quality={80} placeholder="blur"/>
-              </div>
-            )
-          })}
+      <PhotoProvider>
+          <div className="mt-10 flex gap-x-9 justify-center flex-wrap gap-y-9 overflow-x-hidden overflow-y-hidden">
+            {images.map((image, index) => (
+              <PhotoView src={image} key={index}>
+                <div className="w-60">
+                  <Image
+                    className="rounded-lg"
+                    src={image}
+                    alt={`Image ${index + 1}`}
+                    quality={100}
+                    placeholder="blur"
+                    layout="responsive"
+                    width={240}
+                    height={160}
+                  />
+                </div>
+              </PhotoView>
+            ))}
           </div>
-      {/* </PhotoProvider> */}
-
+        </PhotoProvider>
       </div>
 
       
