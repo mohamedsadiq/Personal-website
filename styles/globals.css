@@ -57,9 +57,11 @@ html{
 
 }
 .light .inner_container_sparks li{
-  color: #2d2d2d;
+  color: #807f7f;
 }
-
+.light .container .inner_container_sparks p{
+  color:#807f7f
+}
 .contents {
   transition: opacity 0.9s ease-in-out, filter 0.9s ease-in-out;
   opacity: 1;
@@ -3308,8 +3310,8 @@ position: relative;
 }
 .light .spark_tools{
   border: 1px solid #e5e5e5;
-    background-color: #ececec;
-    color: #000;
+    background-color: #f7f7f7;
+    color: #5e5e5e;
     font-size: 0.8rem;
 } 
 .dark .spark_tools{
@@ -4551,7 +4553,7 @@ ul li{
     height: 250px;
     border-radius: 20px;
     margin: 0 auto;
-    margin-top: 159px;
+    margin-top: 18px;
     position: relative;
     overflow-y: scroll;
     overflow-x: hidden;
