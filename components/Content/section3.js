@@ -16,12 +16,12 @@ const Section3 = ({ MohamedSadiq }) => {
             transition={{ delay: 0.4 }}
         >
             <div className="mainContent flex h-auto w-full md:w-44 flex-none">
-                <h1>Things I’ve built</h1>
+                <h1 className="text-[#000]">Things I’ve built</h1>
             </div>
             <div className="mainContent main_projects">
                 <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
                     <Link className="mt-0" href="projects/daosspot" passHref>
-                        <h1 className="daos_spot_home">
+                        <h1 className="daos_spot_home text-[#5a5a5a]">
                             DAOs Spot
                             <span className="arrowspan">
                                 <span className="relative w-[68px] top-1 inline-block">
@@ -34,7 +34,7 @@ const Section3 = ({ MohamedSadiq }) => {
                 </motion.div>
                 <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
                     <Link className="mt-2" href="projects/developerdaofm" passHref>
-                        <h1 className="">
+                        <h1 className="text-[#5a5a5a]">
                             DeeveloperDAO FM
                             <span className="arrowspan">
                                 <span className="req text-zinc-500">Top product PH </span>
@@ -45,7 +45,7 @@ const Section3 = ({ MohamedSadiq }) => {
                 </motion.div>
                 <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
                     <a className="mt-2" href="https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs" passHref>
-                        <h1 className="">
+                        <h1 className="text-[#5a5a5a]">
                             Web3 lover boy NFTs
                             <span className="arrowspan">
                                 <span className="req text-zinc-500">NFTs collection </span>

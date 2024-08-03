@@ -23,7 +23,7 @@ const Section4 = ({MohamedSadiq}) => {
         transition={{ delay: 0.2}}
         >
         <div className="mainContent flex h-auto w-full md:w-44 flex-none">
-          <h1>Social media</h1>
+          <h1 className="text-[#000]">Social media</h1>
         </div>
         <div className="mainContent   flex items-center content-center justify-center  " id="links_home">
           <div className="links_home flex">

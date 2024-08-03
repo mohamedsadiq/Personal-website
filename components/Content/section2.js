@@ -14,7 +14,7 @@ const Section2 = ({ MohamedSadiq }) => {
             transition={{ delay: 0.3 }}
         >
             <div className="mainContent flex h-auto w-full md:w-auto flex-none">
-                <h1 className="mt-1">An Engineering Snippets</h1>
+                <h1 className="mt-1 text-[#000]">An Engineering Snippets</h1>
             </div>
             <div className="mainContent main_projects">
                 {[
@@ -29,10 +29,12 @@ const Section2 = ({ MohamedSadiq }) => {
                     <motion.div className="hover_project padding-0" key={index} whileHover={hoverEffect}>
                         <Link className="sparkLinks mt-2" href={link.href} passHref>
                             <h1 className="flex gap-x-1.5 justify-center items-center">
-                                <span>{link.title}</span>
+                                <span className="text-[#5a5a5a]">{link.title}</span>
                                 <span className="h-px w-16 bg-stone-300 block"></span>
                                 <span className="arrowspan text-zinc-500">{link.date}</span>
+                            
                             </h1>
+                            
                         </Link>
                     </motion.div>
                 ))}
