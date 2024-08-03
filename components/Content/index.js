@@ -53,6 +53,7 @@ const MyComponent = (mode) => {
        <Section5  MohamedSadiq={MohamedSadiq}/>
        <Section7  MohamedSadiq={MohamedSadiq}/>
        <Section6  MohamedSadiq={MohamedSadiq}/>
+       
       </motion.div>
     </div>
   );
