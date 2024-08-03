@@ -107,6 +107,7 @@ export default function Widget() {
       filter: "blur(40)",
     },
     animate: {
+      position: "relative",
       top:"100px",
       opacity: 1,
       // y: 0,
@@ -114,6 +115,7 @@ export default function Widget() {
       filter: "blur(0px)", 
     },
     exit: {
+      position: "relative",
       x: 0,
       opacity: 0,
       
@@ -202,6 +204,11 @@ export default function Widget() {
         <div className="container inner_container_sparks_parent">
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
+          <h2 className="mt-10 mb-3">Widget</h2>
+            <p className="mt-0">
+              A widget inspired by <a href="https://x.com/sovpal/status/1742640211782185261" target="_blink">Arkady's</a> design, Built using <span className="spark_tools">React</span>, <span className="spark_tools">Framer Motion</span> and <span className="spark_tools">Tailwind CSS</span>, 
+              This interactive widget dynamically generates dots representing exercise progress. Each click triggers a visual update, reflecting changes in exercise status with animated transitions and interactive elements.       
+            </p>
             <div className="exp flex justify-center items-center">
               <motion.div
                 className="buttonWidget bg-slate-950 exercises_widget overflow-hidden"
@@ -249,17 +256,13 @@ export default function Widget() {
                 >
                   <span>
                     {`${fullDotCount}/30 days`}{" "}
-                    {fullDotCount >= 20 ? "🔥" :  "😢"}
+                    {/* {fullDotCount >= 20 ? "🔥" :  "😢"} */}
                   </span>
                   <h4>Doing morning exercises</h4>
                 </motion.div>
               </motion.div>
             </div>
-            <h2 className="mt-10 mb-3">Widget</h2>
-            <p className="mt-0">
-              A widget inspired by <a href="https://x.com/sovpal/status/1742640211782185261" target="_blink">Arkady's</a> design, Built using <span className="spark_tools">React</span>, <span className="spark_tools">Framer Motion</span> and <span className="spark_tools">Tailwind CSS</span>, 
-              This interactive widget dynamically generates dots representing exercise progress. Each click triggers a visual update, reflecting changes in exercise status with animated transitions and interactive elements.       
-            </p>
+           
           </div>
         </div>
     </>
