@@ -34,8 +34,8 @@ const Layout = ({ children }) => {
 
   // Apply the mode to the document body
   const applyMode = (mode) => {
-    document.body.style.backgroundColor = mode === "dark" ? "#000" : "#fafafa";
-    document.body.style.color = mode === "dark" ? "#fff" : "#fafafa";
+    document.body.style.backgroundColor = mode === "dark" ? "#000" : "#fff";
+    document.body.style.color = mode === "dark" ? "#fff" : "#fff";
   };
 
   // Set the mode on mount and whenever it changes

@@ -99,6 +99,7 @@ const HeaderMin = () => {
         </div>
       </Link>
       <div className="bg-custom-hsla backdrop-blur-custom rounded-3xl flex gap-x-6 justify-center items-center pl-8 pr-8">
+        
         <motion.div
           className="nav-link font-light text-sm rounded-lg"
           onHoverStart={handleMouseEnter}
@@ -126,8 +127,6 @@ const HeaderMin = () => {
                   </svg>
                   </motion.div>
           <span>Sparks</span>
-          
-          
           </Link>
         </motion.div>
         <motion.div

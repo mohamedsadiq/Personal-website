@@ -1096,7 +1096,7 @@ backface-visibility: hidden;
   line-height: 26px;
 }
 .light .content div p{
-  color: #000;
+  color: #5a5a5a;
 }
 .light .content div p a{
   color:#1e5297
@@ -4306,14 +4306,14 @@ margin-top: 23px;
   padding-left: 21px
 }
 .mainContent h1{
-  color: #E2E2E2;
+  
   font-size: 0.9rem;
   
   }
 
 .light .mainContent h1{
 
-color: #000;
+/* color: #000; */
 }
 
 
@@ -4444,6 +4444,7 @@ a, span{
 }
 .light .links_home svg{
   color: #000;
+  opacity: 0.8;
 }
 
 .light .links_home svg{
