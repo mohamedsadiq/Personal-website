@@ -2,6 +2,8 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
 import BackButton from '../../../components/backButton';
+import { useRouter } from 'next/router';
+import Footer from '../../../components/sparksNav';
 
 
 export default function Line() {
@@ -11,6 +13,7 @@ export default function Line() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [selected, setSelected] = useState(null);
   const [dragging, setDragging] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     setYears(Array.from({ length: endYear - startYear + 1 }, (_, i) => endYear - i));
@@ -86,6 +89,7 @@ export default function Line() {
               </div>
           
             </div>
+            <Footer currentPath={router.pathname} />
             {/* <div className="year-inputs flex gap-x-4 mt-5">
               <motion.label
                   initial={{ opacity: 0, y: -10 }}

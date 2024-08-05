@@ -6,9 +6,12 @@ import { CharacterControls } from "../../../characterControls";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { useRouter } from 'next/router';
+import Footer from '../../../components/sparksNav';
 
 const TheMartian: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     let scene: THREE.Scene;
@@ -181,7 +184,7 @@ const TheMartian: React.FC = () => {
               </ul>
             </p>
             <div className="exp" ref={containerRef} style={{ height:"700px"}} ></div>
-          
+            <Footer currentPath={router.pathname} />
             
 
           </div>

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { motion, AnimatePresence } from "framer-motion";
 import BackButton from "../../../components/backButton";
+import { useRouter } from 'next/router';
+import Footer from '../../../components/sparksNav';
 
 // R3F
 import { Canvas, useThree, useFrame } from "react-three-fiber";
@@ -24,6 +26,7 @@ const models = [
 function Model({ url, isVisible, cameraPosition, lightIntensity }) {
   const { scene } = useThree();
   const [model, setModel] = useState(null);
+  
 
   useEffect(() => {
     const loader = new GLTFLoader();
@@ -57,6 +60,7 @@ function Model({ url, isVisible, cameraPosition, lightIntensity }) {
 }
 
 export default function GameUi() {
+  const router = useRouter();
   const [modelIndex, setModelIndex] = useState(0); // State for the current model index
   const [hoveredIndex, setHoveredIndex] = useState(null); // State to track hovered button
   const [cursorStyle, setCursorStyle] = useState("grab"); // State for cursor style
@@ -166,6 +170,7 @@ export default function GameUi() {
                 </motion.div>
               </AnimatePresence>
             </div>
+            
             <div className="flex justify-start flex-row flex-wrap gap-x-1.5 expControllSection">
               <div className="expButton">
                 {models.map((model, index) => (
@@ -209,6 +214,7 @@ export default function GameUi() {
                 </motion.button>
               </div>
             </div>
+            <Footer currentPath={router.pathname} />
           </div>
         </div>
       

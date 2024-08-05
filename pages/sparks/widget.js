@@ -6,12 +6,15 @@ import { motion } from "framer-motion";
 import HalfDot from "../../components/dots/half";
 import FullDot from "../../components/dots/full";
 import classNames from "classnames"; // Import classNames utility
+import { useRouter } from 'next/router';
+import Footer from '../../components/sparksNav';
 
 export default function Widget() {
   const [isClicked, setIsClicked] = useState(false);
   const [dots, setDots] = useState([]);
   const [halfDotCount, setHalfDotCount] = useState(0);
   const [fullDotCount, setFullDotCount] = useState(0); // State for full dot count
+  const router = useRouter();
 
   useEffect(() => {
     if (isClicked) {
@@ -204,7 +207,8 @@ export default function Widget() {
         <div className="container inner_container_sparks_parent">
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
-          <h2 className="mt-10 mb-3">Widget</h2>
+          <h2 className="mt-10 mb-3 ">Widget </h2>
+          {/* <span className="text-xs text-stone-500 ml-1.5 ">Jun 2024</span> */}
             <p className="mt-0">
               A widget inspired by <a href="https://x.com/sovpal/status/1742640211782185261" target="_blink">Arkady's</a> design, Built using <span className="spark_tools">React</span>, <span className="spark_tools">Framer Motion</span> and <span className="spark_tools">Tailwind CSS</span>, 
               This interactive widget dynamically generates dots representing exercise progress. Each click triggers a visual update, reflecting changes in exercise status with animated transitions and interactive elements.       
@@ -262,7 +266,7 @@ export default function Widget() {
                 </motion.div>
               </motion.div>
             </div>
-           
+            <Footer currentPath={router.pathname} />
           </div>
         </div>
     </>

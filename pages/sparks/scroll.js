@@ -1,9 +1,12 @@
 import { useEffect, useRef } from "react";
 import Head from "next/head";
 import BackButton from "../../components/backButton";
+import { useRouter } from 'next/router';
+import Footer from '../../components/sparksNav';
 
 export default function FamilyTransactions() {
   const widgetRef = useRef(null);
+  const router = useRouter();
 
   useEffect(() => {
     const widget = widgetRef.current;
@@ -67,6 +70,7 @@ export default function FamilyTransactions() {
               bar, I integrated circular indicators to signify the moving
               content, elevating the overall user experience.
             </p>
+            <Footer currentPath={router.pathname} />
           </div>
         </div>
     
