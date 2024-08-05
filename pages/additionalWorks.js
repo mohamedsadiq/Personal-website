@@ -76,9 +76,7 @@ export default function Home(props) {
         <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />
       </Head>
 
-      <div className="adwork">
-      
-
+      <div className="adwork inline">
       <PhotoProvider>
           <div className="mt-10 flex gap-x-9 justify-center flex-wrap gap-y-9 overflow-x-hidden overflow-y-hidden">
             {images.map((image, index) => (
