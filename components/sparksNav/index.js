@@ -12,13 +12,12 @@ const SparksNav = ({ currentPath }) => {
     <footer className='flex-row gap-x-0 mt-20'>
       <nav className='flex justify-between mt-5'>
         {prevPage && (
-          <Link href={prevPage.path}>
-            
+          <Link href={prevPage.path} className='flex justify-end flex-row'>
             <p>{"<- " + prevPage.title}</p>
           </Link>
         )}
         {nextPage && (
-          <Link href={nextPage.path}>
+          <Link href={nextPage.path} className='flex justify-start flex-row'>
             <p>{nextPage.title + " ->"} </p>
           </Link>
         )}
