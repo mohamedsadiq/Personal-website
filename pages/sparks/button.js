@@ -2,6 +2,8 @@ import { useState } from "react";
 import Head from "next/head";
 import BackButton from "../../components/backButton";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from 'next/router';
+import Footer from '../../components/sparksNav';
 
 export default function QuickButton() {
   const [state, setState] = useState({
@@ -13,7 +15,8 @@ export default function QuickButton() {
   });
 
   const titles = ["Watch", "Mac", "iPad", "iPhone"];
- 
+  const router = useRouter();
+
 
   const handleClick = () => {
     setState((prevState) => ({
@@ -158,7 +161,7 @@ export default function QuickButton() {
                 </motion.div>
               </div>
             </div>
-           
+            <Footer currentPath={router.pathname} />
           </div>
         </div>
      

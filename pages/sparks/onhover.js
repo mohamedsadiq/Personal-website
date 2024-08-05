@@ -2,6 +2,8 @@ import { useState } from "react";
 import Head from "next/head";
 import BackButton from "../../components/backButton";
 import { motion } from "framer-motion";
+import { useRouter } from 'next/router';
+import Footer from '../../components/sparksNav';
 
 const models = [
   { url: "/Spartan helmet44.glb", name: "Spartan Helmet", cameraPosition: [0, 0.1, 0.5], lightIntensity: 5 },
@@ -12,6 +14,7 @@ const models = [
 export default function OnHover() {
   const [modelIndex, setModelIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const router = useRouter();
 
   return (
     <>
@@ -58,7 +61,7 @@ export default function OnHover() {
                 ))}
               </div>
             </div>
-         
+            <Footer currentPath={router.pathname} />
           </div>
         </div>
     
