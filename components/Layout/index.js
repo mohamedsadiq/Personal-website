@@ -88,7 +88,7 @@ const Layout = ({ children }) => {
         className={`contents ${transitionStage} ${isBlogPage ? "contenttttt" : ""}`}
       >
         {clonedChildren}
-        <GoogleAnalytics gaId="G-FKTN7K9QJS" />
+      
         <Analytics />
       </div>
     </div>
