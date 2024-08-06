@@ -6,6 +6,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html {
+  scroll-behavior: smooth !important;
+}
 
 .contents{
   display: block;
@@ -747,7 +750,7 @@ a {
   color: #e1e1e1;
 }
 .light .inner_container p{ 
-    color: #2d2d2d;
+    color: #676767;
 }
 .work_deatil{
   display: grid;
@@ -4196,7 +4199,7 @@ color: #eee;
 }
 
 .inner_container_spark p{
-  margin-top: 9px;
+  /* margin-top: 9px; */
   margin-bottom: 24px;
 }
 
@@ -4210,7 +4213,7 @@ color: #eee;
 .spark_dec{
  
   margin-top: 3px;
-  color: #4b4b4b;
+  color: #838383;
   margin-bottom: 12px;
   font-size: 0.8rem;
 }
