@@ -3802,7 +3802,7 @@ cursor: pointer;
 }
 
 .linkInfoProject{
-  display: none;
+  /* display: none; */
 }
 .project_info {
   margin-bottom: 37px;
