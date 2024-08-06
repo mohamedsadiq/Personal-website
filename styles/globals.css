@@ -60,10 +60,10 @@ html{
 
 }
 .light .inner_container_sparks li{
-  color: #807f7f;
+  color: #151515;
 }
 .light .container .inner_container_sparks p{
-  color:#807f7f
+  color:#151515
 }
 .contents {
   transition: opacity 0.9s ease-in-out, filter 0.9s ease-in-out;
