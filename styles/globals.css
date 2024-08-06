@@ -60,10 +60,10 @@ html{
 
 }
 .light .inner_container_sparks li{
-  color: #807f7f;
+  color: #151515;
 }
 .light .container .inner_container_sparks p{
-  color:#807f7f
+  color:#151515
 }
 .contents {
   transition: opacity 0.9s ease-in-out, filter 0.9s ease-in-out;
@@ -4234,6 +4234,7 @@ color: #eee;
   padding-top: 78px;
   background: #fff;
   border: 1px solid #eaeaea;
+  transition: all 0.3s ease-in-out;
 }
 /* .light .spark_block{
   background: linear-gradient(133deg, #ededed 0%, #ffffff 100%)

@@ -20,7 +20,7 @@ const Section3 = ({ MohamedSadiq }) => {
             </div>
             <div className="mainContent main_projects">
                 <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
-                    <Link className="mt-0" href="projects/daosspot" passHref>
+                    <Link className="mt-0" href="projects/daosspot" >
                         <h1 className="daos_spot_home text-[#5a5a5a]">
                             DAOs Spot
                             <span className="arrowspan">
@@ -33,7 +33,7 @@ const Section3 = ({ MohamedSadiq }) => {
                     </Link>
                 </motion.div>
                 <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
-                    <Link className="mt-2" href="projects/developerdaofm" passHref>
+                    <Link className="mt-2" href="projects/developerdaofm" >
                         <h1 className="text-[#5a5a5a]">
                             DeeveloperDAO FM
                             <span className="arrowspan">
@@ -44,7 +44,7 @@ const Section3 = ({ MohamedSadiq }) => {
                     </Link>
                 </motion.div>
                 <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
-                    <a className="mt-2" href="https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs" passHref>
+                    <a className="mt-2" href="https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs" >
                         <h1 className="text-[#5a5a5a]">
                             Web3 lover boy NFTs
                             <span className="arrowspan">

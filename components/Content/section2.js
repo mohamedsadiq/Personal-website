@@ -27,7 +27,7 @@ const Section2 = ({ MohamedSadiq }) => {
                     { href: "sparks/line", title: "Temporal Flow", date: "Jul 2024" },
                 ].map((link, index) => (
                     <motion.div className="hover_project padding-0 " key={index} whileHover={hoverEffect}>
-                        <Link className="sparkLinks mt-2" href={link.href} passHref>
+                        <Link className="sparkLinks mt-2" href={link.href} >
                             <h1 className="flex gap-x-1.5 justify-center items-center">
                                 <span className="text-[#5a5a5a]">{link.title}</span>
                                 <span className="h-px w-16 bg-stone-300 block"></span>

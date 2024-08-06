@@ -227,9 +227,7 @@ export default function Widget() {
                   damping: 13,
                 }}
                 onClick={() => setIsClicked(!isClicked)}
-                transitionEnd={{
-                  filter: "blur(0px)", // Ensure blur is set to 0 at the end of the animation
-                }}
+              
               >
                 <div className="daysExercises mb-9 flex-row flex-wrap h-3.5 flex justify-center items-center">
                   <div className="exercises_container flex order-10 flex-wrap gap-y-0 gap-x-0" style={{ rowGap: isClicked ? '22px' : '0px' }}>

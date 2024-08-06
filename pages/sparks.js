@@ -143,7 +143,7 @@ const Sparks = () => {
           >
             <SparkItem {...spark} />
           </motion.div>
-        )).reverse()}
+        ))}
       </div>
       <div className='ripi6'>
         {sparksData2.map((spark, index) => (
@@ -155,7 +155,7 @@ const Sparks = () => {
           >
             <SparkItem {...spark} />
           </motion.div>
-        )).reverse()}
+        ))}
       </div>
       <div className='ripi6'>
         {sparksData3.map((spark, index) => (
@@ -167,7 +167,7 @@ const Sparks = () => {
           >
             <SparkItem {...spark} />
           </motion.div>
-        )).reverse()}
+        ))}
       </div>
     </div>
 
