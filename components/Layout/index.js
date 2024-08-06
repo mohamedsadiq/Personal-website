@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { animateScroll as scroll, scroller } from 'react-scroll';
 import HeaderMin from "../HeaderMin";
-import KeyNav from "../keyNav";
-import { Inter } from "next/font/google";
-import { GoogleAnalytics } from '@next/third-parties/google'
-
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const Layout = ({ children }) => {
   const router = useRouter();
@@ -35,7 +32,7 @@ const Layout = ({ children }) => {
   // Apply the mode to the document body
   const applyMode = (mode) => {
     document.body.style.backgroundColor = mode === "dark" ? "#000" : "#fff";
-    document.body.style.color = mode === "dark" ? "#fff" : "#fff";
+    document.body.style.color = mode === "dark" ? "#fff" : "#000";
   };
 
   // Set the mode on mount and whenever it changes
@@ -55,13 +52,13 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     if (transitionStage === "fadeOut") {
-      window.scrollTo(0, 0);
+      scroll.scrollToTop({ smooth: true, duration: 500 });
     }
   }, [transitionStage]);
 
   useEffect(() => {
     const handleRouteChangeComplete = () => {
-      window.scrollTo(0, 0);
+      scroll.scrollToTop({ smooth: true, duration: 500 });
     };
 
     router.events.on("routeChangeComplete", handleRouteChangeComplete);
@@ -79,7 +76,7 @@ const Layout = ({ children }) => {
   const isBlogPage = router.pathname.includes("blog");
 
   return (
-    <div className="light" >
+    <div className="light">
       <HeaderMin />
       <div
         onTransitionEnd={() => {
@@ -90,21 +87,12 @@ const Layout = ({ children }) => {
         }}
         className={`contents ${transitionStage} ${isBlogPage ? "contenttttt" : ""}`}
       >
-       
         {clonedChildren}
-        
         <GoogleAnalytics gaId="G-FKTN7K9QJS" />
         <Analytics />
       </div>
-      
-      	
     </div>
   );
 };
 
 export default Layout;
-
-
-
-
-
