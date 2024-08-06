@@ -7,7 +7,7 @@ const SparksNav = ({ currentPath }) => {
   const prevPage = pages[currentPageIndex - 1];
   const nextPage = pages[currentPageIndex + 1];
 
-  console.log(currentPath)
+  
   return (
     <footer className='flex-row gap-x-0 mt-20'>
       <nav className='flex justify-between mt-5'>
