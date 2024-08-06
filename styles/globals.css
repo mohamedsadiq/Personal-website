@@ -4234,6 +4234,7 @@ color: #eee;
   padding-top: 78px;
   background: #fff;
   border: 1px solid #eaeaea;
+  transition: all 0.3s ease-in-out;
 }
 /* .light .spark_block{
   background: linear-gradient(133deg, #ededed 0%, #ffffff 100%)

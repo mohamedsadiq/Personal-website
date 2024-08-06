@@ -1,5 +1,6 @@
 // components/Footer.js
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import pages from './data';
 
 const SparksNav = ({ currentPath }) => {
@@ -7,28 +8,50 @@ const SparksNav = ({ currentPath }) => {
   const prevPage = pages[currentPageIndex - 1];
   const nextPage = pages[currentPageIndex + 1];
 
-  
+  const linkVariants = {
+    initial: { opacity: 0, x: -20 },
+    animate: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: 20 },
+  };
+
   return (
     <footer className='flex-row gap-x-0 mt-20'>
       <nav className='flex justify-between mt-5'>
         {prevPage && (
-          <Link href={prevPage.path} className='flex justify-end flex-row'>
-            <p>{"<- " + prevPage.title}</p>
+          <Link href={prevPage.path}>
+            <div className='flex justify-end flex-row'>
+              <motion.p
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={{ delay: 0.4 }}
+                variants={linkVariants}
+              >
+                {"<- " + prevPage.title}
+              </motion.p>
+            </div>
           </Link>
         )}
         {nextPage && (
-          <Link href={nextPage.path} className='flex justify-start flex-row'>
-            <p>{nextPage.title + " ->"} </p>
+          <Link href={nextPage.path}>
+            <div className='flex justify-start flex-row'>
+              <motion.p
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={{ delay: 0.4 }}
+                variants={linkVariants}
+              >
+                {nextPage.title + " ->"}
+              </motion.p>
+            </div>
           </Link>
         )}
       </nav>
       <style jsx>{`
         footer {
-            border-top: 1px solid #d9d9d9;
-        //   display: flex;
-        //   justify-content: space-between;
+          border-top: 1px solid #d9d9d9;
           padding: 1rem;
-        //   background-color: #f0f0f0;
         }
         nav a {
           text-decoration: none;
