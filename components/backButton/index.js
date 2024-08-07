@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-const BackButton = ({ title, link }) => {
+const BackButton = ({ title }) => {
     const [copied, setCopied] = useState(false);
 
-    const handleCopyClick = () => {
-        navigator.clipboard.writeText(link).then(() => {
-            setCopied(true);
-            setTimeout(() => {
-                setCopied(false);
-            }, 1000);
-        });
-    };
+    // const handleCopyClick = () => {
+    //     navigator.clipboard.writeText(link).then(() => {
+    //         setCopied(true);
+    //         setTimeout(() => {
+    //             setCopied(false);
+    //         }, 1000);
+    //     });
+    // };
 
     return (
         <div className="nav_work">
