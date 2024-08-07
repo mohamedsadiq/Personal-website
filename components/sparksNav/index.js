@@ -49,8 +49,9 @@ const SparksNav = ({ currentPath }) => {
               exit="exit"
               transition={{ delay: 0 }}
               variants={linkVariants1}
+              whileHover={{opacity:0.5}}
             >
-              {prevPage ? "<- " + prevPage.title : "No Previous Page"}
+              {prevPage ? "<- " + prevPage.title : ""}
             </motion.p>
           </div>
         </motion.div>
@@ -73,8 +74,9 @@ const SparksNav = ({ currentPath }) => {
               exit="exit"
               transition={{ delay: 0 }}
               variants={linkVariants2}
+              whileHover={{opacity:0.5}}
             >
-              {nextPage ? nextPage.title + " ->" : "..."}
+              {nextPage ? nextPage.title + " ->" : ""}
             </motion.p>
           </div>
         </motion.div>

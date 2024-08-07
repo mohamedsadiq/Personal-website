@@ -47,17 +47,18 @@ const DeveloperDAO = () => {
              <h1>DAOs Spot</h1>
              <p>Your gateway to decentralized communities.  <span className="dateProject">-  Jun 2023 </span></p>
              </div>
-            <div className="blog_photo inner_blog work_intro_image">
+           
               <Image
                 src={img1}
                 alt="Picture of the author"
                 objectFit="cover"
-                layout="fill"
+                // layout="fill"
                 objectPosition="center"
                 placeholder="blur"
                 quality={100}
+                 className="rounded-xl block mt-9"
               />
-            </div>
+         
             
 
             
@@ -103,57 +104,61 @@ const DeveloperDAO = () => {
           </div>
         </div>
         <div className="container_work_inner">
-          <div className="blog_photo inner_blog">
+         
             <Image
               src={img2}
               alt="Picture of the author"
               objectFit="cover"
-              layout="fill"
+              // layout="fill"
               objectPosition="center"
               placeholder="blur"
               quality={100}
+              className="rounded-xl block mt-20"
             />
-          </div>
+          
           <span className="project_img_des">(The Home page) </span>
 
 
-          <div className="blog_photo inner_blog ">
+         
             <Image
               src={img3}
               alt="Picture of the author"
               objectFit="cover"
-              layout="fill"
+              // layout="fill"
               objectPosition="center"
               placeholder="blur"
               quality={100}
+              className="rounded-xl block mt-20"
             />
-          </div>
-          <div className="blog_photo inner_blog ">
+       
+       
             <Image
               src={img6}
               alt="Picture of the author"
               objectFit="cover"
-              layout="fill"
+              // layout="fill"
               objectPosition="center"
               placeholder="blur"
               quality={100}
+              className="rounded-xl block mt-20"
             />
-          </div>
+        
 
          
         
 
-          <div className="blog_photo inner_blog ">
+         
             <Image
               src={img5}
               alt="Picture of the author"
               objectFit="cover"
-              layout="fill"
+              // layout="fill"
               objectPosition="center"
               placeholder="blur"
               quality={100}
+              className="rounded-xl block mt-20"
             />
-          </div>
+         
         </div>
 
         {/* <div className="container ">

@@ -199,38 +199,7 @@ const DeveloperDAO = () => {
               />
             </div>
             <span className="project_img_des">(Product Hunt's email about featuring developerDAO FM in their newsletter.) </span>
-            <div className="projects_link">
-              <h3>Links</h3>
-              <ul>
-                <a href="https://www.developerdaofm.xyz/">
-                  <li>DeveloperDAO FM Website</li>
-                </a>
-                <a href="https://www.producthunt.com/products/developer-dao-fm">
-                  <li>DeveloperDAO FM on ProductHunt</li>
-                </a>
-                <a href="https://developerdao.com">
-                  <li>DeveloperDAO website</li>
-                </a>
-              </ul>
-              <h3>Tools I Used</h3>
-              <ul>
-              <a href="">
-                  <li> Figma</li>
-                </a>
-                <a href="">
-                  <li> Next.js</li>
-                </a>
-                <a href="">
-                  <li>Framer Motion</li>
-                </a>
-                <a href="">
-                  <li>VS Code</li>
-                </a>
-                <a href="">
-                  <li>Arc Browser</li>
-                </a>
-              </ul>
-            </div>
+          
           </div>
         </div>
       </main>
