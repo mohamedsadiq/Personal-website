@@ -30,17 +30,18 @@ const DeveloperDAO = () => {
             <h1>DeveloperDAO FM</h1>
             <p>A place where you listen to music while building cool stuff. <span className="dateProject">-  Jul 2022 </span></p>
             
-            <div className="blog_photo inner_blog work_intro_image">
+            
               <Image
                 src={imgWork}
                 alt="Picture of the author"
                 objectFit="cover"
-                layout="fill"
+                // layout="fill"
                 objectPosition="center"
                 placeholder="blur"
                 quality={100}
+                className="rounded-xl block mt-4"
               />
-            </div>
+          
             
             <h2>Project Overview</h2>
             <div className="project_info">
@@ -77,17 +78,18 @@ const DeveloperDAO = () => {
               functionally profound logo of DeveloperDAO. To infuse an emotional
               incentive.
             </p>
-            <div className="blog_photo inner_blog ">
+          
               <Image
                 src={img0}
                 alt="Picture of the author"
                 objectFit="cover"
-                layout="fill"
+                // layout="fill"
                 objectPosition="center"
                 placeholder="blur"
                 quality={100}
+                 className="rounded-xl block mt-4"
               />
-            </div>
+          
             <span className="project_img_des">(These were the first attempts to discover the logo's potential, I shared this design on <a target="_blink" href="">my X account.</a>) </span>
             <p>
               I strategically designed the logo's interactions. A noteworthy
@@ -97,54 +99,58 @@ const DeveloperDAO = () => {
               away. This nuanced interaction was poised to delight users and
               accentuate their engagement.
             </p>
-            <div className="blog_photo inner_blog work_intro_image">
+         
               <Image
                 src={img6}
                 alt="Picture of the author"
                 objectFit="cover"
-                layout="fill"
+                // layout="fill"
                 objectPosition="center"
                 placeholder="blur"
                 quality={100}
+                 className="rounded-xl block mt-4"
               />
-            </div>
+           
             <span className="project_img_des">(The Play and the Pause modes) </span>
-            <div className="blog_photo inner_blog work_intro_image">
+           
               <Image
                 src={img7}
                 alt="Picture of the author"
                 objectFit="cover"
-                layout="fill"
+                // layout="fill"
                 objectPosition="center"
                 placeholder="blur"
                 quality={100}
+                 className="rounded-xl block mt-4"
               />
-            </div>
+            
             <span className="project_img_des">(Closer look at the Play and the Pause buttons.) </span>
             
-            <div className="blog_photo inner_blog work_intro_image">
+            
               <Image
                 src={img2}
                 alt="Picture of the author"
                 objectFit="cover"
-                layout="fill"
+                // layout="fill"
                 objectPosition="center"
                 placeholder="blur"
                 quality={100}
+                 className="rounded-xl block mt-4"
               />
-            </div>
+            
             <span className="project_img_des">(This is the music icon, This is where you can switch between music channels)</span>
-            <div className="blog_photo inner_blog work_intro_image">
+           
               <Image
                 src={img3}
                 alt="Picture of the author"
                 objectFit="cover"
-                layout="fill"
+                // layout="fill"
                 objectPosition="center"
                 placeholder="blur"
                 quality={100}
+                 className="rounded-xl block mt-4"
               />
-            </div>
+          
             <span className="project_img_des">( An overview of the website.) </span>
 
             {/* <TwitterTweetEmbed tweetId="1482080639159517184" /> */}
