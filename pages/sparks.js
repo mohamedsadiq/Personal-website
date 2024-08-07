@@ -196,11 +196,14 @@ const SparkItem = ({ href, title, description, date, type, src, mediaType, blurS
             width={width}
             height={height}
             layout="responsive"
+            className='border-solid border-[#eaeaea] border'
           />
+          
         )}
         <div className="spark_info">
           <div className="spark_title">{title}</div>
           <div className="spark_dec">{description}</div>
+        
         </div>
         {/* <div className="spark_date">{date}</div> */}
       </div>

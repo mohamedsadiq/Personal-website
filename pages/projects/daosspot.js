@@ -56,7 +56,7 @@ const DeveloperDAO = () => {
                 objectPosition="center"
                 placeholder="blur"
                 quality={100}
-                 className="rounded-xl block mt-9"
+                 className="rounded-xl block mt-4"
               />
          
             
