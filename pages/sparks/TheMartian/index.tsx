@@ -160,7 +160,10 @@ const TheMartian: React.FC = () => {
         <div className="container inner_container_sparks_parent">
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
-          <h2 className="mt-10">The Martian</h2>
+          
+            
+          <h2 className="mt-10 mb-0 text-xl font-semibold inline">The Martian</h2>
+          <span className="text-xs text-stone-500  "> - Jul 2024</span>
           <p>
               This interactive demo allows you to control and observe the
               behavior of a character in a 3D environment. Using <span className="spark_tools">Three.js.</span>

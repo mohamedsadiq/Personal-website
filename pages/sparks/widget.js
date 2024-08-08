@@ -207,8 +207,10 @@ export default function Widget() {
         <div className="container inner_container_sparks_parent">
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
-          <h2 className="mt-10 mb-3 ">Widget </h2>
-          {/* <span className="text-xs text-stone-500 ml-1.5 ">Jun 2024</span> */}
+          <div>
+          <h2 className="mt-10 mb-0 text-xl font-semibold inline">Widget </h2>
+          <span className="text-xs text-stone-500  "> - Jun 2024</span>
+          </div>
             <p className="mt-0">
               A widget inspired by <a href="https://x.com/sovpal/status/1742640211782185261" target="_blink">Arkady's</a> design, Built using <span className="spark_tools">React</span>, <span className="spark_tools">Framer Motion</span> and <span className="spark_tools">Tailwind CSS</span>, 
               This interactive widget dynamically generates dots representing exercise progress. Each click triggers a visual update, reflecting changes in exercise status with animated transitions and interactive elements.       
