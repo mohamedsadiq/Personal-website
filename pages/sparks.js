@@ -208,7 +208,7 @@ const SparkItem = ({ href, title, description, date, type, src, mediaType, blurS
           <div className="spark_dec mt-2.5">{description}</div>
       
         </div>
-        <button className='bg-gray-50 blocl w-full rounded-3xl mb-1 text-zinc-950 border-solid border p-2 text-sm'> Discover</button>
+        <button className='bg-stone-50 blocl w-full rounded-3xl mb-0 text-stone-950 border-solid border p-2 text-sm m-0'> Discover</button>
         {/* <div className="spark_date">{date}</div> */}
       </div>
     </Link>
