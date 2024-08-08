@@ -3306,7 +3306,7 @@ position: relative;
  
  }
 .spark_tools{
-  padding: 5px 8px;
+  padding:3px 8px;
   border-radius: 10px;
   transition: all 0.1s ease-in-out;
   display: ruby;

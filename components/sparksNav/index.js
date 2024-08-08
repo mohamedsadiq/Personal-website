@@ -13,14 +13,14 @@ const SparksNav = ({ currentPath }) => {
   const nextPage = pages[currentPageIndex + 1];
 
   const linkVariants1 = {
-    initial: { opacity: 0, x: 20 },
+    initial: { opacity: 0, x: 0 },
     animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: 20 },
+    exit: { opacity: 0, x: 0 },
   };
   const linkVariants2 = {
-    initial: { opacity: 0, x: 20 },
+    initial: { opacity: 0, x: 0 },
     animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -20 },
+    exit: { opacity: 0, x: 0 },
   };
 
   const handleNavigation = async (path) => {
@@ -51,7 +51,18 @@ const SparksNav = ({ currentPath }) => {
               variants={linkVariants1}
               whileHover={{opacity:0.5}}
             >
-              {prevPage ? "<- " + prevPage.title : ""}
+             
+
+               
+          
+             {prevPage && (
+                <>
+                  <span className="block text-sm text-gray-500">Previous</span>
+                  {"<- " + prevPage.title}
+                </>
+              )}
+          
+              
             </motion.p>
           </div>
         </motion.div>
@@ -76,7 +87,16 @@ const SparksNav = ({ currentPath }) => {
               variants={linkVariants2}
               whileHover={{opacity:0.5}}
             >
-              {nextPage ? nextPage.title + " ->" : ""}
+          
+          
+            
+
+              {nextPage && (
+                <>
+                  <span className="block text-sm text-gray-500 text-right">Next</span>
+                  { nextPage.title + " ->"}
+                </>
+              )}
             </motion.p>
           </div>
         </motion.div>
