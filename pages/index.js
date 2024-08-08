@@ -33,9 +33,7 @@ export default function Home(props) {
       
       <div className="container">
       <Info />
-         <Content valueOfMode={props.mode} />
-
-        
+        <Content valueOfMode={props.mode} />
       </div>
      
     

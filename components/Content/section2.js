@@ -29,7 +29,7 @@ const Section2 = ({ MohamedSadiq }) => {
                     <motion.div className="hover_project padding-0 " key={index} whileHover={hoverEffect}>
                         <Link className="sparkLinks mt-2" href={link.href} >
                             <h1 className="flex gap-x-1.5 justify-center items-center">
-                                <span className="text-[#5a5a5a]">{link.title}</span>
+                                <span className="text-[#000]">{link.title}</span>
                                 <span className="h-px w-16 bg-stone-300 block"></span>
                                 <span className="arrowspan text-zinc-500">{link.date}</span>
                             

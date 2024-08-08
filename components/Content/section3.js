@@ -13,7 +13,7 @@ const Section3 = ({ MohamedSadiq }) => {
             className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
             initial={MohamedSadiq.initial}
             animate={MohamedSadiq.animate}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.3 }}
         >
             <div className="mainContent flex h-auto w-full md:w-44 flex-none">
                 <h1 className="text-[#000]">Things I’ve built</h1>
@@ -21,35 +21,35 @@ const Section3 = ({ MohamedSadiq }) => {
             <div className="mainContent main_projects">
                 <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
                     <Link className="mt-0" href="projects/daosspot" >
-                        <h1 className="daos_spot_home text-[#5a5a5a]">
+                        <h1 className="daos_spot_home text-[#000]">
                             DAOs Spot
                             <span className="arrowspan">
                                 <span className="relative w-[68px] top-1 inline-block">
                                     <Image src={productOfTheWeek} alt="" />
                                 </span>
-                                ↗
+                               
                             </span>
                         </h1>
                     </Link>
                 </motion.div>
                 <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
                     <Link className="mt-2" href="projects/developerdaofm" >
-                        <h1 className="text-[#5a5a5a]">
+                        <h1 className="text-[#000]">
                             DeeveloperDAO FM
                             <span className="arrowspan">
                                 <span className="req text-zinc-500">Top product PH </span>
-                                ↗
+                               
                             </span>
                         </h1>
                     </Link>
                 </motion.div>
                 <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
                     <a className="mt-2" href="https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs" >
-                        <h1 className="text-[#5a5a5a]">
+                        <h1 className="text-[#000]">
                             Web3 lover boy NFTs
                             <span className="arrowspan">
                                 <span className="req text-zinc-500">NFTs collection </span>
-                                ↗
+                              
                             </span>
                         </h1>
                     </a>

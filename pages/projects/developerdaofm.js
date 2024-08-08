@@ -92,7 +92,7 @@ const DeveloperDAO = () => {
           
             <span className="project_img_des">(These were the first attempts to discover the logo's potential, I shared this design on <a target="_blink" href="">my X account.</a>) </span>
             <p>
-              I strategically designed the logo's interactions. A noteworthy
+              I  designed the logo's interactions. A noteworthy
               feature was the logo's dynamic response to user actions – clicking
               the play button prompted the logo's face to break into a cheerful
               smile, while pausing the music led to the logo's smile fading
@@ -155,31 +155,7 @@ const DeveloperDAO = () => {
 
             {/* <TwitterTweetEmbed tweetId="1482080639159517184" /> */}
             {/* <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Three Moods. <a href="https://t.co/jnIEoMJeCD">pic.twitter.com/jnIEoMJeCD</a></p>&mdash; Mohamed Sadiq (@sadiq_moo) <a href="https://twitter.com/sadiq_moo/status/1482080639159517184?ref_src=twsrc%5Etfw">January 14, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> */}
-            <h2>Reflection —</h2>
-            <p>
-              Sharing my creation with the community brought forth an outpouring
-              of positive feedback, especially from fellow DAO members. This
-              enthusiastic reception fostered a sense of unity, akin to
-              belonging to an exclusive club, with the positive energy
-              resonating outward. Emboldened by this initial response, I took a
-              bold step and showcased DeveloperDAO Fm on Product Hunt, a
-              platform known for spotlighting innovative products. <br /> <br />{" "}
-              The outcome was nothing short of remarkable – DeveloperDAO Fm
-              rapidly ascended to secure a position as one of the platform's
-              top-rated products. The pinnacle achievement of this project,
-              however, lay in its profound impact on the DAO's brand awareness.
-              By seamlessly blending practical coding utilities with an
-              immersive musical experience, DeveloperDAO Fm not only
-              accomplished its intended objectives but also reverberated deeply
-              within the coding community. This project illuminated the
-              potential of creativity and innovation in fostering community
-              bonds while concurrently achieving strategic milestones. With this
-              reflection, <br /> <br />
-              I've come to appreciate how a single project can be a catalyst for
-              both personal growth and broader community engagement. The fusion
-              of creative thinking and strategic execution emerged as a powerful
-              force in realizing meaningful goals.
-            </p>
+            
             <h1>Product hunt's comments</h1>
             <div className="blog_photo inner_blog work_intro_image">
               <Image
