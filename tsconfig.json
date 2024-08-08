@@ -5,6 +5,10 @@
       "dom.iterable",
       "esnext"
     ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -19,6 +23,8 @@
     "jsx": "preserve"
   },
   "include": [
+    "video.d.ts",
+    "video.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
