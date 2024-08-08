@@ -59,7 +59,7 @@ const sparksData2 = [
   },
   {
     href: 'sparks/gameui',
-    title: '3D interactive demo',
+    title: '3D interactive ',
     description: 'Smooth transitions.',
     date: 'Jul - 2024',
     type: 'video',
