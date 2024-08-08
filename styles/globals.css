@@ -4185,9 +4185,9 @@ color: #eee;
   gap: 20px; /* Adjust the gap between each block */
 }
 .spark_info{
-  position: absolute;
+  /* position: absolute; */
     top: -6px;
-    padding: 22px;
+    padding: 22px 22px 0px 22px;
     left: 0;
     padding-left: 19px;
 }
@@ -4231,7 +4231,7 @@ color: #eee;
   width: 100%;
   padding: 7px;
   height: 100%;
-  padding-top: 78px;
+  /* padding-top: 78px; */
   background: #fff;
   border: 1px solid #eaeaea;
   transition: all 0.3s ease-in-out;
