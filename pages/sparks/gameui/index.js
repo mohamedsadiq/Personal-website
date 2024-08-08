@@ -89,7 +89,10 @@ export default function GameUi() {
         <div className="container inner_container_sparks_parent">
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
-            <h2>3D Models </h2>
+          
+
+            <h2 className="mt-10 mb-0 text-xl font-semibold inline">3D Models</h2>
+            <span className="text-xs text-stone-500  "> - Jul 2024</span>
             <p>
               This interactive demo showcases a collection of 3D models brought to life using React, Three.js, React Three Fiber. Framer Motion, the interface provides a seamless experience through smooth animations and state transitions.
             </p>

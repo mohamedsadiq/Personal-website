@@ -232,9 +232,9 @@ a.tag{
 }
 
  .inner_container_sparks h2{
-  font-size: 1rem;
+  /* font-size: 1rem;
   margin-bottom: 16px;
-  font-weight: bold;
+  font-weight: bold; */
 }
 .container .inner_container_sparks p{
   margin-top: 13px;
@@ -1377,8 +1377,8 @@ color: rgb(250, 200, 17);
 .inner_container h2{
   /* font-size: 1.7rem; */
   color: #fff;
-  margin-bottom: 16px;
-  font-weight: 500;
+  /* margin-bottom: 16px; */
+  /* font-weight: 500; */
   /* font-weight: 100; */
   /* margin-top: 10px; */
 }

@@ -58,7 +58,10 @@ export default function Line() {
         <div className="container inner_container_sparks_parent">
           <BackButton title="" />
           <div className="inner_container inner_container_sparks">
-            <h2>Temporal Flow</h2>
+            
+               
+          <h2 className="mt-10 mb-0 text-xl font-semibold inline">Temporal Flow</h2>
+          <span className="text-xs text-stone-500  "> - Jul 2024</span>
             <p>
               In this snippet, I have been working on enhancing the user experience of a dynamic timeline component built with React and Framer Motion. My main focus has been on implementing interactive elements and animations to create a more engaging interface.
             </p>
