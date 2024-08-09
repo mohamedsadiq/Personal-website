@@ -49,7 +49,6 @@ const Section3 = ({ MohamedSadiq }) => {
                             Web3 lover boy 
                             <span className="arrowspan">
                                 <span className="req text-zinc-500">NFTs collection </span>
-                              
                             </span>
                         </h1>
                     </Link>

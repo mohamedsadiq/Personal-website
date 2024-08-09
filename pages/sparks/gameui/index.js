@@ -94,7 +94,7 @@ export default function GameUi() {
             <h2 className="mt-10 mb-0 text-xl font-semibold inline">3D Models</h2>
             <span className="text-xs text-stone-500  "> - Jul 2024</span>
             <p>
-              This interactive demo showcases a collection of 3D models brought to life using React, Three.js, React Three Fiber. Framer Motion, the interface provides a seamless experience through smooth animations and state transitions.
+              This interactive demo showcases a collection of 3D models brought to life using <span className="spark_tools">React</span>, <span className="spark_tools">Three.js</span>, <span  className="spark_tools">React Three Fiber</span>. <span className="spark_tools">Framer Motion</span>, the interface provides a seamless experience through smooth animations and state transitions.
             </p>
             <div className="exp exp3d remove-buttom-borders" style={{ display: "flex", justifyContent: "space-around", alignItems: "center", height: "500px", background: "#000" }}>
               <AnimatePresence exitBeforeEnter>
