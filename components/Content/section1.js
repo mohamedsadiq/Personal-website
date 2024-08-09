@@ -46,7 +46,7 @@ const Section1 = ({ MohamedSadiq }) => {
       </div>
       <div className="home_text_front">
         <p>
-         Designer and an Engineer, Molding inspirations into finely crafted realities. Founder of{" "}
+         A determined Designer and an Engineer, Molding inspirations into finely crafted realities. Founder of{" "}
           <a href={"https://www.daospot.xyz/"} target="_blank" rel="noopener noreferrer">
             DAOs Spot 
               <svg className="inline  ml-1" width="14" height="14" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
