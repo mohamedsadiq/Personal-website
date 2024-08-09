@@ -47,7 +47,7 @@ const DeveloperDAO = () => {
              <h1>DAOs Spot</h1>
              <p>Your gateway to decentralized communities.  <span className="dateProject">-  Jun 2023 </span></p>
              </div>
-           
+         
               <Image
                 src={img1}
                 alt="Picture of the author"
