@@ -203,7 +203,7 @@ const SparkItem = ({ href, title, description, date, type, src, mediaType, blurS
         <div className="spark_info">
         <div className='flex justify-between mb-2'>
         <div className="spark_title inline">{title}</div>
-        <span class="text-stone-950 float-none text-xs self-center">{date}</span>
+        <span class="text-stone-500 float-none text-xs self-center p-px bg-stone-100 pl-1.5 pr-1.5 rounded-full">{date}</span>
         </div>
           <div className="spark_dec mt-2.5">{description}</div>
       
