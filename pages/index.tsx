@@ -1,23 +1,27 @@
 import Head from 'next/head'
-import { useEffect,useRef } from "react";
+import { useEffect, useRef } from "react";
 import Content from '../components/Content'
 import Info from "../components/info"
 
+interface HomeProps {
+  mode: string;
+}
 
-export default function Home(props) {
-  const modeOfThePc = props.mode;
-// console.log(modeOfThePc);
-  const parentRef = useRef(null);
-  const childRef = useRef(null);
+export default function Home({ mode }: HomeProps) {
+  const modeOfThePc = mode;
+  // console.log(modeOfThePc);
+  const parentRef = useRef<HTMLDivElement>(null);
+  const childRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (parentRef.current && childRef.current) {
       parentRef.current.style.height = `${childRef.current.offsetHeight}px`;
     }
   }, []);
+
   return (
     // class_body
-     <div className="" >
+    <div className="">
       <Head>
         <title>Home - Mohamed Sadiq</title>
         <meta name="description" content="A product designer who can code, focusing on Web 3, Open source products @DeveloperDAO, member of @Bulidspace and @Anti" />
@@ -32,11 +36,9 @@ export default function Home(props) {
       </Head>
       
       <div className="container">
-      <Info />
-        <Content valueOfMode={props.mode} />
+        <Info />
+        <Content valueOfMode={mode} />
       </div>
-     
-    
-      </div>
+    </div>
   )
 }
