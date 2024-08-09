@@ -3,7 +3,20 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from "framer-motion";
 
-const sparksData = [
+interface SparkData {
+  href: string;
+  title: string;
+  description: string;
+  date: string;
+  type: 'video' | 'image';
+  src: string;
+  mediaType?: string;
+  blurSrc?: string;
+  width?: number;
+  height?: number;
+}
+
+const sparksData: SparkData[] = [
   {
     href: 'sparks/scroll',
     title: 'Scrolling',
@@ -13,7 +26,6 @@ const sparksData = [
     src: 'https://video.twimg.com/ext_tw_video/1801041108274757632/pu/vid/avc1/480x480/qbJ7cC1MrzCqk444.mp4?tag=12',
     mediaType: 'video/mp4'
   },
-
   {
     href: 'sparks/button',
     title: 'Button',
@@ -25,13 +37,9 @@ const sparksData = [
     width: 100,
     height: 50
   },
-
- 
- 
-  
 ];
 
-const sparksData2 = [
+const sparksData2: SparkData[] = [
   {
     href: 'sparks/onhover',
     title: 'On Hover',
@@ -43,8 +51,6 @@ const sparksData2 = [
     width: 100,
     height: 100
   },
- 
-  
   {
     href: 'sparks/TheMartian',
     title: 'The Martian',
@@ -55,7 +61,6 @@ const sparksData2 = [
     src: '/martin.gif',
     width: 100,
     height: 100
-   
   },
   {
     href: 'sparks/gameui',
@@ -66,13 +71,9 @@ const sparksData2 = [
     src: '/July 10 Screen Recording.mp4',
     mediaType: 'video/mp4'
   },
-  
-]
+];
 
-
-
-const sparksData3 = [
- 
+const sparksData3: SparkData[] = [
   {
     href: 'sparks/line',
     title: 'Temporal Flow',
@@ -94,24 +95,23 @@ const sparksData3 = [
     blurSrc: '/',  
     width: 100,
     height: 100
-    
   },
-
-]
+];
 
 const motionProps = {
   initial: {
     opacity: 0,
     top: "20px",
-    position: "relative",
+    position: "relative" as const,
   },
   animate: {
     opacity: 1,
     top: "0",
-    position: "relative",
+    position: "relative" as const,
   },
 };
-const Sparks = () => {
+
+const Sparks: React.FC = () => {
   return (
     <>
       <Head>
@@ -127,58 +127,56 @@ const Sparks = () => {
         <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />
       </Head>
     
-        <div className=" container_sparks_home contentsSpark">
-          <div className="inner_container inner_container_spark">
-            <h1>Sparks</h1>
-            <p>An engineering snippets</p>
+      <div className="container_sparks_home contentsSpark">
+        <div className="inner_container inner_container_spark">
+          <h1>Sparks</h1>
+          <p>An engineering snippets</p>
 
-            <div className='mItv1 mItv2'>
-      <div className='ripi6'>
-        {sparksData.map((spark, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, top: "20px", position: "relative" }}
-            animate={{ opacity: 1, top: "0", position: "relative" }}
-            transition={{ delay: index * 0.1 }}
-          >
-            <SparkItem {...spark} />
-          </motion.div>
-        ))}
-      </div>
-      <div className='ripi6'>
-        {sparksData2.map((spark, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, top: "20px", position: "relative" }}
-            animate={{ opacity: 1, top: "0", position: "relative" }}
-            transition={{ delay: index * 0.1 }}
-          >
-            <SparkItem {...spark} />
-          </motion.div>
-        ))}
-      </div>
-      <div className='ripi6'>
-        {sparksData3.map((spark, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, top: "20px", position: "relative" }}
-            animate={{ opacity: 1, top: "0", position: "relative" }}
-            transition={{ delay: index * 0.1 }}
-          >
-            <SparkItem {...spark} />
-          </motion.div>
-        ))}
-      </div>
-    </div>
-
-            
+          <div className='mItv1 mItv2'>
+            <div className='ripi6'>
+              {sparksData.map((spark, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, top: "20px", position: "relative" }}
+                  animate={{ opacity: 1, top: "0", position: "relative" }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <SparkItem {...spark} />
+                </motion.div>
+              ))}
+            </div>
+            <div className='ripi6'>
+              {sparksData2.map((spark, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, top: "20px", position: "relative" }}
+                  animate={{ opacity: 1, top: "0", position: "relative" }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <SparkItem {...spark} />
+                </motion.div>
+              ))}
+            </div>
+            <div className='ripi6'>
+              {sparksData3.map((spark, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, top: "20px", position: "relative" }}
+                  animate={{ opacity: 1, top: "0", position: "relative" }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <SparkItem {...spark} />
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
+      </div>
     </>
   );
 };
 
-const SparkItem = ({ href, title, description, date, type, src, mediaType, blurSrc, width, height }) => {
+const SparkItem: React.FC<SparkData> = ({ href, title, description, date, type, src, mediaType, blurSrc, width, height }) => {
   return (
     <Link href={href} passHref>
       <div className="spark_block">
@@ -193,23 +191,20 @@ const SparkItem = ({ href, title, description, date, type, src, mediaType, blurS
             src={src}
             placeholder="blur"
             blurDataURL={blurSrc}
-            width={width}
-            height={height}
+            width={width || 0}
+            height={height || 0}
             layout="responsive"
             className='border-solid border-[#eaeaea] border'
           />
-          
         )}
         <div className="spark_info">
-        <div className='flex justify-between mb-2'>
-        <div className="spark_title inline">{title}</div>
-        <span class="text-stone-500 float-none text-xs self-center p-px bg-stone-100 pl-1.5 pr-1.5 rounded-full">{date}</span>
-        </div>
+          <div className='flex justify-between mb-2'>
+            <div className="spark_title inline">{title}</div>
+            <span className="text-stone-500 float-none text-xs self-center p-px bg-stone-100 pl-1.5 pr-1.5 rounded-full">{date}</span>
+          </div>
           <div className="spark_dec mt-2.5">{description}</div>
-      
         </div>
         <button className='bg-stone-50 blocl w-full rounded-3xl mb-0 text-stone-950 border-solid border p-2 text-sm m-0'> Discover</button>
-        {/* <div className="spark_date">{date}</div> */}
       </div>
     </Link>
   );

@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Script from 'next/script'
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Image from 'next/image';
+import { StaticImageData } from 'next/image';
 
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
@@ -33,36 +33,35 @@ import img24 from "../img/libyatells.png"
 import img25 from "../img/lastwebsite.jpg"
 import img26 from "../img/Instagram post - 4.png"
 import img27 from "../img/fdsvedf.png"
-
 import img28 from "../img/daos.png"
 import img29 from "../img/Cards design.png"
 import img30 from "../img/4343.png"
 import img31 from "../img/23323.png"
 import img32 from "../img/ffa.png"
 import img33 from "../img/Crypto watch app.jpg"
-
 import img34 from "../img/038c22142533193.png"
 import img35 from "../img/5f36bf142533193 62689c440c045.png"
 
+interface HomeProps {
+  mode: string;
+}
 
-export default function Home(props) {
+const Home: React.FC<HomeProps> = ({ mode }) => {
+  const images: StaticImageData[] = [
+    img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img30, img31, img32, img34, img35, img29, img33
+  ];
 
-  const images = [
-    img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img30, img31,img32,img34,img35 ,img29, img33
-  ]
-  const modeOfThePc = props.mode;
-  // console.log(modeOfThePc);
-  const parentRef = useRef(null);
-  const childRef = useRef(null);
+  const parentRef = useRef<HTMLDivElement>(null);
+  const childRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (parentRef.current && childRef.current) {
       parentRef.current.style.height = `${childRef.current.offsetHeight}px`;
     }
   }, []);
+
   return (
-    // class_body
-    <div className="" >
+    <div className="">
       <Head>
         <title>Additional Works - Mohamed Sadiq</title>
         <meta name="description" content="A product designer who can code, focusing on Web 3, Open source products @DeveloperDAO, member of @Bulidspace and @Anti" />
@@ -77,10 +76,10 @@ export default function Home(props) {
       </Head>
 
       <div className="adwork inline">
-      <PhotoProvider>
+        <PhotoProvider>
           <div className="mt-10 flex gap-x-9 justify-center flex-wrap gap-y-9 overflow-x-hidden overflow-y-hidden">
             {images.map((image, index) => (
-              <PhotoView src={image} key={index}>
+              <PhotoView src={image.src} key={index}>
                 <div className="w-60">
                   <Image
                     className="rounded-lg"
@@ -98,8 +97,8 @@ export default function Home(props) {
           </div>
         </PhotoProvider>
       </div>
-
-      
     </div>
-  )
-}
+  );
+};
+
+export default Home;
