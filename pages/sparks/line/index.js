@@ -63,7 +63,7 @@ export default function Line() {
           <h2 className="mt-10 mb-0 text-xl font-semibold inline">Temporal Flow</h2>
           <span className="text-xs text-stone-500  "> - Jul 2024</span>
             <p>
-              In this snippet, I have been working on enhancing the user experience of a dynamic timeline component built with React and Framer Motion. My main focus has been on implementing interactive elements and animations to create a more engaging interface.
+              In this snippet, I have been working on enhancing the user experience of a dynamic timeline component built with <span className="spark_tools">React</span> and <div  className="spark_tools">Framer Motion</div>. My main focus has been on implementing interactive elements and animations to create a more engaging interface.
             </p>
             <div className="exp" style={{ height: "400px", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
              

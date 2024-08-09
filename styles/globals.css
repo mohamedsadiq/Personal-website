@@ -600,6 +600,36 @@ html {
 main{
   /* padding-bottom: 100px; */
 }
+.blur_buttom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(80px, 10vh, 200px);
+  pointer-events: none;
+  /* z-index: 10; */
+  
+  -webkit-mask-image: linear-gradient(to top, #000 25%, transparent);
+  mask-image: linear-gradient(to top, #000 25%, transparent);
+  
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+.blur_top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(80px, 10vh, 200px);
+  pointer-events: none;
+  z-index: 100;
+  
+  -webkit-mask-image: linear-gradient(to bottom, #000 25%, transparent);
+  mask-image: linear-gradient(to bottom, #000 25%, transparent);
+  
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
 .pointer:hover{
   cursor: pointer;
 }
@@ -701,6 +731,7 @@ header{
   -moz-transition: all 0.1s 0s ease-in-out;
   -o-transition: all 0.1s 0s ease-in-out;
   transition: all 0.1s 0s ease-in-out;
+  z-index: 100;
 }
 .contents{
  

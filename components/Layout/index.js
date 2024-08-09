@@ -77,6 +77,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className="light">
+      <div className="blur_top"></div>
       <HeaderMin />
       <div
         onTransitionEnd={() => {
@@ -88,9 +89,11 @@ const Layout = ({ children }) => {
         className={`contents ${transitionStage} ${isBlogPage ? "contenttttt" : ""}`}
       >
         {clonedChildren}
+    
       
-        <Analytics />
       </div>
+      <div className="blur_buttom"></div>
+      <Analytics />
     </div>
   );
 };
