@@ -598,7 +598,7 @@ html {
   scroll-behavior: smooth;
 }
 main{
-  padding-bottom: 100px;
+  /* padding-bottom: 100px; */
 }
 .pointer:hover{
   cursor: pointer;
@@ -4234,7 +4234,7 @@ color: #eee;
   /* padding-top: 78px; */
   background: #fff;
   border: 1px solid #eaeaea;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 .spark_block {
   position: relative;
@@ -4456,7 +4456,11 @@ a, span{
 }
 .light .links_home svg{
   color: #000;
-  opacity: 0.8;
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+.light .links_home svg:hover{
+  opacity: 0.7
 }
 
 .light .links_home svg{

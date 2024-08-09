@@ -44,15 +44,15 @@ const Section3 = ({ MohamedSadiq }) => {
                     </Link>
                 </motion.div>
                 <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
-                    <a className="mt-2" href="https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs" >
+                    <Link className="mt-2" href="/projects/certifiedWeb3Boy" >
                         <h1 className="text-[#000]">
-                            Web3 lover boy NFTs
+                            Web3 lover boy 
                             <span className="arrowspan">
                                 <span className="req text-zinc-500">NFTs collection </span>
                               
                             </span>
                         </h1>
-                    </a>
+                    </Link>
                 </motion.div>
             </div>
         </motion.div>

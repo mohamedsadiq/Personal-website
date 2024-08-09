@@ -132,7 +132,7 @@ const data = [
       description:"CWB is a project inspired by Dever..",  
       tags:"Product Design, Solidity, Web3",
       target:"_blink",
-      link:"https://www.behance.net/gallery/134169935/Certified-Web3-Boy-NFTs",
+      link:"/projects/certifiedWeb3Boy",
       productHunt:""
   },
   ,
