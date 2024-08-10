@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Section2 = ({ MohamedSadiq }) => {
     const hoverEffect = {
-     
+
     };
 
     return (
@@ -32,12 +32,16 @@ const Section2 = ({ MohamedSadiq }) => {
                                 <span className="text-[#000]">{link.title}</span>
                                 <span className="h-px w-16 bg-stone-300 block"></span>
                                 <span className="arrowspan text-zinc-500">{link.date}</span>
-                            
                             </h1>
-                            
                         </Link>
                     </motion.div>
                 ))}
+                <div className="relative inline-block">
+                    <Link className="mt-2 text-slate-950 hover:opacity-70 inline-flex items-center" href={"/sparks"}>
+                        Check All of the Sparks
+                        <span>   {"->"}</span>
+                    </Link>
+                </div>
             </div>
         </motion.div>
     );
