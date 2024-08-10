@@ -16,7 +16,7 @@ const Section3 = ({ MohamedSadiq }) => {
             transition={{ delay: 0.3 }}
         >
             <div className="mainContent flex h-auto w-full md:w-44 flex-none">
-                <h1 className="text-[#000]">Things I’ve built</h1>
+                <h1 className="text-zinc-400">Things I’ve built</h1>
             </div>
             <div className="mainContent main_projects">
                 <motion.div className="hover_project padding-0" whileHover={hoverEffect}>

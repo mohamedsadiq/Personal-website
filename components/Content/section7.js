@@ -49,7 +49,7 @@ const Section7 = () => {
             transition={{ delay: 0.6 }}
         >
             <div className="mainContent flex h-auto w-full md:w-auto flex-none">
-                <h1 className="text-[#000]">Additional Works</h1>
+                <h1 className="text-zinc-400">Additional Works</h1>
             </div>
             <div className="mainContent" id="links_home">
                 <Link href="/additionalWorks" target="_blank" aria-label="Additional Works" className="flex ml-6">
