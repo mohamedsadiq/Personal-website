@@ -21,24 +21,24 @@ const Section7 = () => {
     };
 
     const hoverState = {
-        // stack: {
-        //     zIndex: 1,
-        //     scale: 0.97,
-        //     y: -0,
-        //     transition: {
-        //         type: "spring",
-        //         stiffness: 300
-        //     }
-        // },
-        // normal: {
-        //     zIndex: 0,
-        //     scale: 1,
-        //     y: 0,
-        //     transition: {
-        //         type: "spring",
-        //         stiffness: 300
-        //     }
-        // }
+        stack: {
+            zIndex: 1,
+            scale: 0.97,
+            y: -0,
+            transition: {
+                type: "spring",
+                stiffness: 300
+            }
+        },
+        normal: {
+            zIndex: 0,
+            scale: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                stiffness: 300
+            }
+        }
     };
 
     return (
@@ -49,7 +49,7 @@ const Section7 = () => {
             transition={{ delay: 0.6 }}
         >
             <div className="mainContent flex h-auto w-full md:w-auto flex-none">
-                <h1 className="text-zinc-400">Additional Works</h1>
+                <h1 className="text-zinc-400">Years of Curated Works</h1>
             </div>
             <div className="mainContent" id="links_home">
                 <Link href="/additionalWorks" target="_blank" aria-label="Additional Works" className="flex ml-6">
