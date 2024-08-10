@@ -11,7 +11,7 @@ const Section5 = ({MohamedSadiq}) => {
           transition={{ delay: 0.5}}
          >
           <div className="mainContent flex h-auto w-full md:w-44 flex-none">
-            <h1 className="text-[#000]">Latest Activity</h1>
+            <h1 className="text-zinc-400">Latest Activity</h1>
           </div>
           <div className="mainContent ">
             <div className="hover_project latest_activity_project">

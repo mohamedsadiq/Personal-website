@@ -257,7 +257,7 @@ a.tag{
 
 #name{
   padding: 0 !important;
-  color: #fff;
+ 
 }
 .content p.callToAction{
   margin-top: 14px;
@@ -523,9 +523,7 @@ a.tag{
    
     color: #BEBEBE;
 }
-.light #name{
-  color: #000;
-}
+
 .light .text{
   background-color: #efefef;
   color: #a5a5a5;
