@@ -37,8 +37,8 @@ const Section2 = ({ MohamedSadiq }) => {
                     </motion.div>
                 ))}
                 <div className="relative inline-block">
-                    <Link className="mt-2 text-slate-950 hover:opacity-70 inline-flex items-center" href={"/sparks"}>
-                        Check All of the Sparks
+                    <Link className="mt-2 text-slate-950 hover:opacity-70 inline-flex items-center underline" href={"/sparks"}>
+                        Explore All Sparks
                         <span>   {"->"}</span>
                     </Link>
                 </div>
