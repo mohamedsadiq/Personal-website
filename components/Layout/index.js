@@ -77,7 +77,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className="light">
-      <div className="blur_top"></div>
+      {/* <div className="blur_top"></div> */}
       <HeaderMin />
       <div
         onTransitionEnd={() => {
@@ -92,7 +92,7 @@ const Layout = ({ children }) => {
     
       
       </div>
-      <div className="blur_buttom"></div>
+      {/* <div className="blur_buttom"></div> */}
       <Analytics />
     </div>
   );
