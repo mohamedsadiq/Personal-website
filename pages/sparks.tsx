@@ -180,6 +180,7 @@ const SparkItem: React.FC<SparkData> = ({ href, title, description, date, type, 
   return (
     <Link href={href} passHref>
       <div className="spark_block">
+        
         {type === 'video' ? (
           <video width="100%" height="100%" autoPlay loop muted playsInline>
             <source src={src} type={mediaType} />
