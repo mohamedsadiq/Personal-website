@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from 'react';
 
 interface SparkData {
   href: string;
@@ -177,27 +178,76 @@ const Sparks: React.FC = () => {
 };
 
 const SparkItem: React.FC<SparkData> = ({ href, title, description, date, type, src, mediaType, blurSrc, width, height }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [videoKey, setVideoKey] = useState(0);
+
+  useEffect(() => {
+    // Force video reload when src changes
+    setVideoKey(prevKey => prevKey + 1);
+  }, [src]);
+
   return (
     <Link href={href} passHref>
       <div className="spark_block">
-        
-        {type === 'video' ? (
-          <video width="100%" height="100%" autoPlay loop muted playsInline>
-            <source src={src} type={mediaType} />
-            Your browser does not support the video tag.
-          </video>
-        ) : (
-          <Image
-            alt={title}
-            src={src}
-            placeholder="blur"
-            blurDataURL={blurSrc}
-            width={width || 0}
-            height={height || 0}
-            layout="responsive"
-            className='border-solid border-[#eaeaea] border'
-          />
-        )}
+        <div className={`media-container ${isLoaded ? 'loaded' : 'loading'}`}>
+          {type === 'video' ? (
+            <video 
+              key={videoKey}
+              width="100%" 
+              height="100%" 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              onLoadedData={() => setIsLoaded(true)}
+            >
+              <source src={src.startsWith('http') ? src : `${process.env.NEXT_PUBLIC_BASE_PATH || ''}${src}`} type={mediaType} />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <Image
+              alt={title}
+              src={src}
+              placeholder="blur"
+              blurDataURL={blurSrc}
+              width={width || 0}
+              height={height || 0}
+              layout="responsive"
+              className='border-solid border-[#eaeaea] border'
+              onLoadingComplete={() => setIsLoaded(true)}
+            />
+          )}
+          <AnimatePresence>
+            {!isLoaded && (
+              <motion.div
+                className="placeholder-blur"
+                initial={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  backgroundColor: '#f0f0f0',
+                }}
+              >
+                <motion.div
+                  initial={{ filter: 'blur(10px)' }}
+                  animate={{ filter: 'blur(5px)' }}
+                  exit={{ filter: 'blur(0px)' }}
+                  transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: '#e0e0e0',
+                  }}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
         <div className="spark_info">
           <div className='flex justify-between '>
             <div className="spark_title inline">{title}</div>
