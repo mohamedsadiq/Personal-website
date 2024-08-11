@@ -52,7 +52,7 @@ const Section7 = () => {
                 <h1 className="text-zinc-400">Years of Curated Works</h1>
             </div>
             <div className="mainContent" id="links_home">
-                <Link href="/additionalWorks" target="_blank" aria-label="Additional Works" className="flex">
+                <Link href="/additionalWorks"  aria-label="Additional Works" className="flex">
                     <motion.div
                         className="flex gap-x-2.5 overflow-x-hidden overflow-y-hidden w-80 padding-0"
                         whileHover="stack"
