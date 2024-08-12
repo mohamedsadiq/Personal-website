@@ -4449,7 +4449,7 @@ margin-top: 23px;
   border: 1px solid #1f1f1f;
   transition: all 0.3s ease-in-out ;
 }
-a, span{
+a{
   transition: all 0.3s ease-in-out ;
 }
 .light .latest_activity_project{
@@ -4457,6 +4457,7 @@ a, span{
     border: 1px solid #eee;
     
 }
+
 .iconImageProject{
   width: 45px;
     position: relative;
