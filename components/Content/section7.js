@@ -57,9 +57,16 @@ const Section7 = () => {
             <div className="mainContent" id="links_home">
                 <Link href="/additionalWorks" aria-label="Additional Works" className="flex">
                     <motion.div
-                        className="flex gap-x-2.5  w-80 padding-0"
+                        className="flex gap-x-2.5 w-80 padding-0 relative"
                         whileHover="stack"
                         initial="normal"
+                        onMouseMove={(e) => {
+                            const rect = e.currentTarget.getBoundingClientRect();
+                            const x = e.clientX - rect.left;
+                            const y = e.clientY - rect.top;
+                            e.currentTarget.style.setProperty('--mouse-x', `${x}px`);
+                            e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
+                        }}
                     >
                         <motion.div
                             initial={{
@@ -86,6 +93,19 @@ const Section7 = () => {
                             variants={hoverState}>
                             <Image quality={100}
                                 placeholder="blur" className="rounded-lg" width={100} height={100} alt="" src={Img4} />
+                        </motion.div>
+                        <motion.div
+                            className="absolute pointer-events-none text-white text-sm"
+                            initial={{ opacity: 0 }}
+                            whileHover={{ opacity: 1 }}
+                            style={{
+                                left: 'var(--mouse-x)',
+                                top: 'var(--mouse-y)',
+                                transform: 'translate(-50%, -50%)',
+                                color: 'black'
+                            }}
+                        >
+                            Explore
                         </motion.div>
                     </motion.div>
                 </Link>
