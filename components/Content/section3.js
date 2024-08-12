@@ -8,6 +8,24 @@ const Section3 = ({ MohamedSadiq }) => {
      
     };
 
+    const IconAnimation = {
+        initial: {
+          scale: 0.8,
+          transformOrigin: "50% 50%",
+          filter: "blur(40px)",
+        },
+        animate: {
+          scale: 1,
+          transformOrigin: "50% 50%",
+          filter: "blur(0px)",
+        },
+        hover: {
+          x:2,
+          scale: 1.2,
+          transformOrigin: "50% 50%",
+        },
+      };
+
     return (
         <motion.div
             className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
@@ -20,7 +38,10 @@ const Section3 = ({ MohamedSadiq }) => {
             </div>
             <div className="mainContent main_projects">
                 <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
-                    <Link className="mt-0" href="projects/daosspot" >
+                    <Link 
+                    
+                    className="mt-0" href="projects/daosspot" >
+                        
                         <h1 className="daos_spot_home text-[#000]">
                             DAOs Spot
                             <span className="arrowspan">
