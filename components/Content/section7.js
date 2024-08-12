@@ -22,22 +22,25 @@ const Section7 = () => {
 
     const hoverState = {
         stack: {
-            zIndex: 1,
-            scale: 0.97,
-            y: -0,
             transition: {
                 type: "spring",
-                stiffness: 300
-            }
+                stiffness: 500,
+                damping: 50 
+            },
+            rotate: 0,
+            x: 0,
+            y: 0
         },
         normal: {
-            zIndex: 0,
-            scale: 1,
-            y: 0,
+            
             transition: {
                 type: "spring",
-                stiffness: 300
-            }
+                stiffness: 500,
+                damping: 50 
+            },
+            x: 0,
+            y: 0,
+            rotate: 0
         }
     };
 
@@ -52,21 +55,35 @@ const Section7 = () => {
                 <h1 className="text-zinc-400">Years of Curated Works</h1>
             </div>
             <div className="mainContent" id="links_home">
-                <Link href="/additionalWorks"  aria-label="Additional Works" className="flex">
+                <Link href="/additionalWorks" aria-label="Additional Works" className="flex">
                     <motion.div
-                        className="flex gap-x-2.5 overflow-x-hidden overflow-y-hidden w-80 padding-0"
+                        className="flex gap-x-2.5  w-80 padding-0"
                         whileHover="stack"
                         initial="normal"
-                    >   
-                        <motion.div variants={hoverState} className="padding-0">
+                    >
+                        <motion.div
+                            initial={{
+                                x: 30,
+                                rotate: -10
+                            }}
+                            variants={hoverState}
+                        >
                             <Image quality={100}
                                 placeholder="blur" className="rounded-lg" width={100} height={100} alt="" src={Img2} />
                         </motion.div>
-                        <motion.div variants={hoverState}>
+                        <motion.div initial={{
+                            y: -10,
+                            zIndex: 11,
+                        }} variants={hoverState}>
                             <Image quality={100}
                                 placeholder="blur" className="rounded-lg" width={115} height={100} alt="" src={Img3} />
                         </motion.div>
-                        <motion.div variants={hoverState}>
+                        <motion.div
+                            initial={{
+                                x: -30,
+                                rotate: 10
+                            }}
+                            variants={hoverState}>
                             <Image quality={100}
                                 placeholder="blur" className="rounded-lg" width={100} height={100} alt="" src={Img4} />
                         </motion.div>
