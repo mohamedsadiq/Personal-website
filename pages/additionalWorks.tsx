@@ -86,6 +86,23 @@ import img61 from "../img/image_processing20220304-7042-19o4z5c.png"
 import img62 from "../img/developerdaofmfolder/Instagram post - 14.png"
 import img63 from "../img/developerdaofmfolder/Instagram post - 17.png"
 import img64 from "../img/developerdaofmfolder/Instagram post - 11.png"
+import img65 from "../img/developerdaofolder/fasdfasd.jpeg"
+
+import img66 from "../img/web3boy/1ff132134169935.png"
+import img67 from "../img/web3boy/6cd4ee134169935 61d5ee3a8bf65.png"
+import img68 from "../img/web3boy/Behance Image 1920x1440.png"
+
+
+import img69 from "../img/DAOs Spot/1.png"
+import img70 from "../img/DAOs Spot/4.png"
+
+
+import img71 from "../img/DAOs Spot/3.png"
+import img72 from "../img/DAOs Spot/2.png"
+
+import img73 from "../img/Original Portfolio.png"
+
+
 
 
 
@@ -100,7 +117,7 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ mode }) => {
   const images: StaticImageData[] = [
     img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img30, img31, img32, img34, img35, img29, img33,
-    img36, img37, img38, img39, img40, img41, img42, img43, img44, img45, img46, img47, img48, img49, img50, img51, img52, img53, img54, img55, img56, img57, img58, img59, img60, img61,img62,img63,img64
+    img36, img37, img38, img39, img40, img41, img42, img43, img44, img45, img46, img47, img48, img49, img50, img51, img52, img53, img54, img55, img56, img57, img58, img59, img60, img61,img62,img63,img64,img65, img66, img67, img68, img69, img70, img71, img72, img73
   ];
 
   const parentRef = useRef<HTMLDivElement>(null);
@@ -130,21 +147,23 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
       <div className="adwork inline">
         <PhotoProvider>
           <div className="mt-10 flex gap-x-9 justify-center flex-wrap gap-y-9 overflow-x-hidden overflow-y-hidden">
-            {images.map((image, index) => (
-              <PhotoView key={index} src={image.src}>
-                <div className="w-60 h-60 relative cursor-pointer">
-                  <Image
-                    className="rounded-lg object-cover"
-                    src={image}
-                    alt={`Image ${index + 1}`}
-                    quality={100}
-                    placeholder="blur"
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                </div>
-              </PhotoView>
-            ))}
+            {images
+              .sort(() => Math.random() - 0.5)
+              .map((image, index) => (
+                <PhotoView key={index} src={image.src}>
+                  <div className="w-60 h-60 relative cursor-pointer">
+                    <Image
+                      className="rounded-lg object-cover"
+                      src={image}
+                      alt={`Image ${index + 1}`}
+                      quality={100}
+                      placeholder="blur"
+                      layout="fill"
+                      objectFit="cover"
+                    />
+                  </div>
+                </PhotoView>
+              ))}
           </div>
         </PhotoProvider>
       </div>
