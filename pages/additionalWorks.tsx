@@ -80,7 +80,15 @@ import img57 from "../img/adw/new/Mohamed Sadiq media.jpeg"
 import img58 from "../img/adw/new/Mohamed Sadiq Twitter Media.jpeg"
 import img59 from "../img/adw/new/Original 1200x1200.png"
 
-// import img60 from "../img/adw/new/dsdsa.mp4"
+import img60 from "../img/42f3.png"
+import img61 from "../img/image_processing20220304-7042-19o4z5c.png"
+
+import img62 from "../img/developerdaofmfolder/Instagram post - 14.png"
+import img63 from "../img/developerdaofmfolder/Instagram post - 17.png"
+import img64 from "../img/developerdaofmfolder/Instagram post - 11.png"
+
+
+
 // import video1 from "../videos/example_video.mp4"
 // import img61 from "../img/new/Original.png"
 
@@ -92,7 +100,7 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ mode }) => {
   const images: StaticImageData[] = [
     img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img30, img31, img32, img34, img35, img29, img33,
-    img36, img37, img38, img39, img40, img41, img42, img43, img44, img45, img46, img47, img48, img49, img50, img51, img52, img53, img54, img55, img56, img57, img58, img59
+    img36, img37, img38, img39, img40, img41, img42, img43, img44, img45, img46, img47, img48, img49, img50, img51, img52, img53, img54, img55, img56, img57, img58, img59, img60, img61,img62,img63,img64
   ];
 
   const parentRef = useRef<HTMLDivElement>(null);
