@@ -52,7 +52,7 @@ export default function FamilyTransactions() {
           <div className="inner_container inner_container_sparks">
             
         
-          <h2 className="mt-10 mb-0 text-xl font-semibold inline">Scrolling </h2>
+          <h2 className="mt-10 mb-0 text-xl font-semibold inline text-black">Scrolling </h2>
           <span className="text-xs text-stone-500  "> - Jun 2024</span>
             <p>
               It's a scroll, but with a twist. Instead of the typical scroll

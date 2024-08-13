@@ -788,7 +788,7 @@ a {
     margin-top: 63px;
 }
 .light .inner_container h2{
-  color:#000
+  /* color:#000 */
 }
 /* .flex-items:nth-child(1) {
   display: block;
@@ -1405,7 +1405,7 @@ color: rgb(250, 200, 17);
 }
 .inner_container h2{
   /* font-size: 1.7rem; */
-  color: #fff;
+  /* color: #fff; */
   /* margin-bottom: 16px; */
   /* font-weight: 500; */
   /* font-weight: 100; */
