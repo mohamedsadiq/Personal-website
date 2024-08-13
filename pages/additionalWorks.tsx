@@ -147,21 +147,23 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
       <div className="adwork inline">
         <PhotoProvider>
           <div className="mt-10 flex gap-x-9 justify-center flex-wrap gap-y-9 overflow-x-hidden overflow-y-hidden">
-            {images.map((image, index) => (
-              <PhotoView key={index} src={image.src}>
-                <div className="w-60 h-60 relative cursor-pointer">
-                  <Image
-                    className="rounded-lg object-cover"
-                    src={image}
-                    alt={`Image ${index + 1}`}
-                    quality={100}
-                    placeholder="blur"
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                </div>
-              </PhotoView>
-            ))}
+            {images
+              .sort(() => Math.random() - 0.5)
+              .map((image, index) => (
+                <PhotoView key={index} src={image.src}>
+                  <div className="w-60 h-60 relative cursor-pointer">
+                    <Image
+                      className="rounded-lg object-cover"
+                      src={image}
+                      alt={`Image ${index + 1}`}
+                      quality={100}
+                      placeholder="blur"
+                      layout="fill"
+                      objectFit="cover"
+                    />
+                  </div>
+                </PhotoView>
+              ))}
           </div>
         </PhotoProvider>
       </div>
