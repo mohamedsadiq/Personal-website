@@ -104,12 +104,6 @@ import img73 from "../img/Original Portfolio.png"
 
 
 
-
-
-// import video1 from "../videos/example_video.mp4"
-// import img61 from "../img/new/Original.png"
-
-
 interface HomeProps {
   mode: string;
 }
@@ -120,6 +114,7 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
     img36, img37, img38, img39, img40, img41, img42, img43, img44, img45, img46, img47, img48, img49, img50, img51, img52, img53, img54, img55, img56, img57, img58, img59, img60, img61,img62,img63,img64,img65, img66, img67, img68, img69, img70, img71, img72, img73
   ];
 
+ 
   const parentRef = useRef<HTMLDivElement>(null);
   const childRef = useRef<HTMLDivElement>(null);
 
@@ -166,6 +161,7 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
               ))}
           </div>
         </PhotoProvider>
+       
       </div>
     </div>
   );
