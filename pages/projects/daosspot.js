@@ -62,7 +62,7 @@ const DeveloperDAO = () => {
             
 
             
-            <h2>Project Overview</h2>
+            <h2 className="text-slate-950">Project Overview</h2>
             <div className="project_info">
              
               <a

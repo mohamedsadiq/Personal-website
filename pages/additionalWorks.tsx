@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from 'next/image';
 import { StaticImageData } from 'next/image';
 
@@ -109,6 +109,8 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ mode }) => {
+  const [isGridView, setIsGridView] = useState(true);
+
   const images: StaticImageData[] = [
     img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img30, img31, img32, img34, img35, img29, img33,
     img36, img37, img38, img39, img40, img41, img42, img43, img44, img45, img46, img47, img48, img49, img50, img51, img52, img53, img54, img55, img56, img57, img58, img59, img60, img61,img62,img63,img64,img65, img66, img67, img68, img69, img70, img71, img72, img73
@@ -140,13 +142,16 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
       </Head>
 
       <div className="adwork inline">
+        {/* <button onClick={() => setIsGridView(!isGridView)} className="mb-4 p-2 bg-blue-500 text-white rounded">
+          Switch to {isGridView ? "Vertical" : "Grid"} View
+        </button> */}
         <PhotoProvider>
-          <div className="mt-10 flex gap-x-9 justify-center flex-wrap gap-y-9 overflow-x-hidden overflow-y-hidden">
+          <div className={`mt-10 flex ${isGridView ? 'gap-x-9 justify-center flex-wrap gap-y-9' : 'flex-col items-center'} overflow-x-hidden overflow-y-hidden`}>
             {images
               .sort(() => Math.random() - 0.5)
               .map((image, index) => (
                 <PhotoView key={index} src={image.src}>
-                  <div className="w-60 h-60 relative cursor-pointer">
+                  <div className="w-60 h-60 relative cursor-pointer mb-4">
                     <Image
                       className="rounded-lg object-cover"
                       src={image}

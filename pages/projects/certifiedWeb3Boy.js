@@ -44,7 +44,7 @@ const DeveloperDAO = () => {
                                 quality={100}
                             />
                         </div>
-                        <h2 className='mt-4'>Project Overview</h2>
+                        <h2 className='mt-4 text-slate-950'>Project Overview</h2>
             <div className="project_info">
              
               <a
