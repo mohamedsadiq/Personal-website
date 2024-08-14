@@ -133,7 +133,7 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
                 >
                   <Image
                     className="rounded-lg object-cover"
-                    src={image.default}
+                    src={image}
                     alt={`Image ${index + 1}`}
                     quality={100}
                     placeholder="blur"
