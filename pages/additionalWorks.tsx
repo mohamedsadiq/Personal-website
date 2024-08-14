@@ -123,7 +123,7 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
         <PhotoProvider>
           <div className={`pt-5 mt-10 flex ${isGridView ? 'gap-x-9 justify-center flex-wrap gap-y-9' : 'flex-col items-center'} overflow-x-hidden overflow-y-hidden`}>
             {memoizedImages.map((image, index) => (
-              <PhotoView key={index} src={image.default.src}>
+              <PhotoView key={index} src={image.src}>
                 <motion.div
                   className={`w-60 h-60 relative cursor-pointer mb-4 transition-transform transition-opacity duration-300 ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-20' : ''}`} style={{ borderRadius: "10px" }}
                   onMouseEnter={() => setHoveredIndex(index)}
@@ -133,7 +133,7 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
                 >
                   <Image
                     className="rounded-lg object-cover"
-                    src={image.default}
+                    src={image}
                     alt={`Image ${index + 1}`}
                     quality={100}
                     placeholder="blur"
