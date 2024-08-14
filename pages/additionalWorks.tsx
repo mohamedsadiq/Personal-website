@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useEffect, useRef, useState } from "react";
 import Image from 'next/image';
 import { StaticImageData } from 'next/image';
+import { motion } from 'framer-motion';
 
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
@@ -152,10 +153,12 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
               // .sort(() => Math.random() - 0.5)
               .map((image, index) => (
                 <PhotoView key={index} src={image.src}>
-                  <div
+                  <motion.div
                     className={`w-60 h-60 relative cursor-pointer mb-4 transition-transform transition-opacity duration-300 ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-20' : ''}`}
                     onMouseEnter={() => setHoveredIndex(index)}
                     onMouseLeave={() => setHoveredIndex(null)}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
                   >
                     <Image
                       className="rounded-lg object-cover"
@@ -166,7 +169,7 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
                       layout="fill"
                       objectFit="cover"
                     />
-                  </div>
+                  </motion.div>
                 </PhotoView>
               ))}
           </div>
