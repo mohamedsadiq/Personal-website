@@ -27,7 +27,7 @@ const DeveloperDAO = () => {
               title={"DeveloperDAO FM"}
               link={"https://www.developerdaofm.xyz/"}
             />
-            <h1>DeveloperDAO FM</h1>
+            <h1 >DeveloperDAO FM</h1>
             <p>A place where you listen to music while building cool stuff. <span className="dateProject">-  Jul 2022 </span></p>
             
             
@@ -43,7 +43,7 @@ const DeveloperDAO = () => {
               />
           
             
-            <h2>Project Overview</h2>
+            <h2 className="text-slate-950">Project Overview</h2>
             <div className="project_info">
              
               <a
