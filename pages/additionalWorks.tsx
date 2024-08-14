@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import { log } from 'console';
 
 const Image = dynamic(() => import('next/image'), { ssr: false });
 
@@ -122,32 +123,37 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
       <div className="adwork inline">
         <PhotoProvider>
           <div className={`pt-5 mt-10 flex ${isGridView ? 'gap-x-9 justify-center flex-wrap gap-y-9' : 'flex-col items-center'} overflow-x-hidden overflow-y-hidden`}>
-            {memoizedImages.map((image, index) => (
-              <PhotoView key={index} src={image.src}>
-                <motion.div
-                  className={`w-60 h-60 relative cursor-pointer mb-4  transition-opacity duration-300 ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-20' : ''}`} style={{ borderRadius: "10px" }}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 100,
-                    damping: 13,
-                  }}
-                >
-                  <Image
-                    className="rounded-lg object-cover"
-                    src={image}
-                    alt={`Image ${index + 1}`}
-                    quality={100}
-                    placeholder="blur"
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                </motion.div>
-              </PhotoView>
-            ))}
+          {memoizedImages.map((image, index) => {
+  const imageSrc = image.default.src;
+  console.log("Image source:", imageSrc);
+  return (
+    <PhotoView key={index} src={imageSrc}>
+      <motion.div
+        className={`w-60 h-60 relative cursor-pointer mb-4 transition-opacity duration-300 ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-20' : ''}`}
+        style={{ borderRadius: "10px" }}
+        onMouseEnter={() => setHoveredIndex(index)}
+        onMouseLeave={() => setHoveredIndex(null)}
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.9 }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 13,
+        }}
+      >
+        <Image
+          className="rounded-lg object-cover"
+          src={image.default}
+          alt={`Image ${index + 1}`}
+          quality={100}
+          placeholder="blur"
+          layout="fill"
+          objectFit="cover"
+        />
+      </motion.div>
+    </PhotoView>
+  );
+})}
           </div>
         </PhotoProvider>
       </div>
