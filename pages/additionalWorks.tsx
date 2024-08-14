@@ -1,109 +1,89 @@
 import Head from 'next/head'
-import { useEffect, useRef, useState } from "react";
-import Image from 'next/image';
+import { useEffect, useRef, useState, useMemo } from "react";
+import dynamic from 'next/dynamic';
 import { StaticImageData } from 'next/image';
 import { motion } from 'framer-motion';
 
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 
-import img1 from "../img/adw/Aston Martin Dark Mode.png"
-import img2 from "../img/adw/Certified Web3 Boy NFT.png"
-import img3 from "../img/adw/Certified Web3 Boy NFTs Loading.png"
-import img4 from "../img/adw/Connected by Mohamed Sadiq.png"
-import img5 from "../img/adw/Crypto app by Mohamed Sadiq.png"
-import img6 from "../img/adw/DAOs Spot by Mohamed Sadiq.png"
-import img7 from "../img/adw/DAOs Spot Tools Cards.png"
-import img8 from "../img/adw/DAOs Spot website.png"
-import img9 from "../img/adw/Minting flow Apple Watch.png"
-import img10 from "../img/adw/Simple Watch Face 3.png"
-import img11 from "../img/adw/Simple Watch Face.png"
-import img12 from "../img/adw/Trust Wallet Redesign.png"
-import img13 from "../img/adw/Trust Wallet Redesign (1).png"
-import img14 from "../img/adw/Trust Wallet Redesign.jpg"
-import img15 from "../img/adw/Weather App design.jpg"
-import img16 from "../img/adw/Weather App by Mohamed Sadiq.jpg"
-import img17 from "../img/adw/Weather App by Mohamed Sadiq.png"
-import img18 from "../img/adw/Zenon Trading App.png"
-import img19 from "../img/adw/OVO Redesign.png"
-import img20 from "../img/adw/OVO Redesign (1).png"
-import img21 from "../img/44.png"
-import img22 from "../img/adw/AI project by Mohamed Sadiq.png"
-import img23 from "../img/adw/Disliked by Mohamed Sadiq.png"
-import img24 from "../img/libyatells.png"
-import img25 from "../img/lastwebsite.jpg"
-import img26 from "../img/Instagram post - 4.png"
-import img27 from "../img/fdsvedf.png"
-import img28 from "../img/daos.png"
-import img29 from "../img/Cards design.png"
-import img30 from "../img/4343.png"
-import img31 from "../img/23323.png"
-import img32 from "../img/ffa.png"
-import img33 from "../img/Crypto watch app.jpg"
-import img34 from "../img/038c22142533193.png"
-import img35 from "../img/5f36bf142533193 62689c440c045.png"
+const Image = dynamic(() => import('next/image'), { ssr: false });
 
-
-
-import img36 from "../img/adw/new/Dribbble Image 1600x1200.jpg"
-import img37 from "../img/adw/new/Original 9b4df9a6.png"
-
-import img38 from "../img/adw/new/Mohamed Sadiq media (1).jpeg"
-import img39 from "../img/adw/new/Mohamed Sadiq media (4).jpeg"
-
-import img40 from "../img/adw/new/Mohamed Sadiq media (3).jpeg"
-import img41 from "../img/adw/new/Mohamed Sadiq media (2).jpeg"
-
-import img42 from "../img/adw/new/Mohamed Sadiq media post (1).jpeg"
-import img43 from "../img/adw/new/0f9c180f4a50cf64b63ccb2a9cc93ff5 1600x1200.png"
-
-import img44 from "../img/adw/new/C42243af411ab0ea37212c684cd7fcfd (1).png"
-import img45 from "../img/adw/new/Mohamed Sadiq media post (2).jpeg"
-
-import img46 from "../img/adw/new/Dribbble Image.png"
-import img47 from "../img/adw/new/Dribbble Image 1600x1200.png"
-
-import img48 from "../img/adw/new/Mohamed Sadiq media post (4).jpeg"
-import img49 from "../img/adw/new/Mohamed Sadiq media (7).jpeg"
-
-import img50 from "../img/adw/new/Mohamed Sadiq Twitter.jpeg"
-import img51 from "../img/adw/new/Mohamed Sadiq media post (5).jpeg"
-
-import img52 from "../img/adw/new/Mohamed Sadiq media post (6).jpeg"
-import img53 from "../img/adw/new/Mohamed Sadiq media post (7).jpeg"
-
-import img54 from "../img/adw/new/Mohamed Sadiq media post (8).jpeg"
-import img55 from "../img/adw/new/Mohamed Sadiq media post (9).jpeg"
-
-import img56 from "../img/adw/new/Mohamed Sadiq media post.jpeg"
-import img57 from "../img/adw/new/Mohamed Sadiq media.jpeg"
-
-import img58 from "../img/adw/new/Mohamed Sadiq Twitter Media.jpeg"
-import img59 from "../img/adw/new/Original 1200x1200.png"
-
-import img60 from "../img/42f3.png"
-import img61 from "../img/image_processing20220304-7042-19o4z5c.png"
-
-import img62 from "../img/developerdaofmfolder/Instagram post - 14.png"
-import img63 from "../img/developerdaofmfolder/Instagram post - 17.png"
-import img64 from "../img/developerdaofmfolder/Instagram post - 11.png"
-import img65 from "../img/developerdaofolder/fasdfasd.jpeg"
-
-import img66 from "../img/web3boy/1ff132134169935.png"
-import img67 from "../img/web3boy/6cd4ee134169935 61d5ee3a8bf65.png"
-import img68 from "../img/web3boy/Behance Image 1920x1440.png"
-
-
-import img69 from "../img/DAOs Spot/1.png"
-import img70 from "../img/DAOs Spot/4.png"
-
-
-import img71 from "../img/DAOs Spot/3.png"
-import img72 from "../img/DAOs Spot/2.png"
-
-import img73 from "../img/Original Portfolio.png"
-
-
+const images: StaticImageData[] = [
+  require("../img/adw/Aston Martin Dark Mode.png"),
+  require("../img/adw/Certified Web3 Boy NFT.png"),
+  require("../img/adw/Certified Web3 Boy NFTs Loading.png"),
+  require("../img/adw/Connected by Mohamed Sadiq.png"),
+  require("../img/adw/Crypto app by Mohamed Sadiq.png"),
+  require("../img/adw/DAOs Spot by Mohamed Sadiq.png"),
+  require("../img/adw/DAOs Spot Tools Cards.png"),
+  require("../img/adw/DAOs Spot website.png"),
+  require("../img/adw/Minting flow Apple Watch.png"),
+  require("../img/adw/Simple Watch Face 3.png"),
+  require("../img/adw/Simple Watch Face.png"),
+  require("../img/adw/Trust Wallet Redesign.png"),
+  require("../img/adw/Trust Wallet Redesign (1).png"),
+  require("../img/adw/Trust Wallet Redesign.jpg"),
+  require("../img/adw/Weather App design.jpg"),
+  require("../img/adw/Weather App by Mohamed Sadiq.jpg"),
+  require("../img/adw/Weather App by Mohamed Sadiq.png"),
+  require("../img/adw/Zenon Trading App.png"),
+  require("../img/adw/OVO Redesign.png"),
+  require("../img/adw/OVO Redesign (1).png"),
+  require("../img/44.png"),
+  require("../img/adw/AI project by Mohamed Sadiq.png"),
+  require("../img/adw/Disliked by Mohamed Sadiq.png"),
+  require("../img/libyatells.png"),
+  require("../img/lastwebsite.jpg"),
+  require("../img/Instagram post - 4.png"),
+  require("../img/fdsvedf.png"),
+  require("../img/daos.png"),
+  require("../img/Cards design.png"),
+  require("../img/4343.png"),
+  require("../img/23323.png"),
+  require("../img/ffa.png"),
+  require("../img/Crypto watch app.jpg"),
+  require("../img/038c22142533193.png"),
+  require("../img/5f36bf142533193 62689c440c045.png"),
+  require("../img/adw/new/Dribbble Image 1600x1200.jpg"),
+  require("../img/adw/new/Original 9b4df9a6.png"),
+  require("../img/adw/new/Mohamed Sadiq media (1).jpeg"),
+  require("../img/adw/new/Mohamed Sadiq media (4).jpeg"),
+  require("../img/adw/new/Mohamed Sadiq media (3).jpeg"),
+  require("../img/adw/new/Mohamed Sadiq media (2).jpeg"),
+  require("../img/adw/new/Mohamed Sadiq media post (1).jpeg"),
+  require("../img/adw/new/0f9c180f4a50cf64b63ccb2a9cc93ff5 1600x1200.png"),
+  require("../img/adw/new/C42243af411ab0ea37212c684cd7fcfd (1).png"),
+  require("../img/adw/new/Mohamed Sadiq media post (2).jpeg"),
+  require("../img/adw/new/Dribbble Image.png"),
+  require("../img/adw/new/Dribbble Image 1600x1200.png"),
+  require("../img/adw/new/Mohamed Sadiq media post (4).jpeg"),
+  require("../img/adw/new/Mohamed Sadiq media (7).jpeg"),
+  require("../img/adw/new/Mohamed Sadiq Twitter.jpeg"),
+  require("../img/adw/new/Mohamed Sadiq media post (5).jpeg"),
+  require("../img/adw/new/Mohamed Sadiq media post (6).jpeg"),
+  require("../img/adw/new/Mohamed Sadiq media post (7).jpeg"),
+  require("../img/adw/new/Mohamed Sadiq media post (8).jpeg"),
+  require("../img/adw/new/Mohamed Sadiq media post (9).jpeg"),
+  require("../img/adw/new/Mohamed Sadiq media post.jpeg"),
+  require("../img/adw/new/Mohamed Sadiq media.jpeg"),
+  require("../img/adw/new/Mohamed Sadiq Twitter Media.jpeg"),
+  require("../img/adw/new/Original 1200x1200.png"),
+  require("../img/42f3.png"),
+  require("../img/image_processing20220304-7042-19o4z5c.png"),
+  require("../img/developerdaofmfolder/Instagram post - 14.png"),
+  require("../img/developerdaofmfolder/Instagram post - 17.png"),
+  require("../img/developerdaofmfolder/Instagram post - 11.png"),
+  require("../img/developerdaofolder/fasdfasd.jpeg"),
+  require("../img/web3boy/1ff132134169935.png"),
+  require("../img/web3boy/6cd4ee134169935 61d5ee3a8bf65.png"),
+  require("../img/web3boy/Behance Image 1920x1440.png"),
+  require("../img/DAOs Spot/1.png"),
+  require("../img/DAOs Spot/4.png"),
+  require("../img/DAOs Spot/3.png"),
+  require("../img/DAOs Spot/2.png"),
+  require("../img/Original Portfolio.png")
+];
 
 interface HomeProps {
   mode: string;
@@ -113,12 +93,8 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
   const [isGridView, setIsGridView] = useState(true);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const images: StaticImageData[] = [
-    img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img30, img31, img32, img34, img35, img29, img33,
-    img36, img37, img38, img39, img40, img41, img42, img43, img44, img45, img46, img47, img48, img49, img50, img51, img52, img53, img54, img55, img56, img57, img58, img59, img60, img61,img62,img63,img64,img65, img66, img67, img68, img69, img70, img71, img72, img73
-  ];
+  const memoizedImages = useMemo(() => images, []);
 
- 
   const parentRef = useRef<HTMLDivElement>(null);
   const childRef = useRef<HTMLDivElement>(null);
 
@@ -144,37 +120,31 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
       </Head>
 
       <div className="adwork inline">
-        {/* <button onClick={() => setIsGridView(!isGridView)} className="mb-4 p-2 bg-blue-500 text-white rounded">
-          Switch to {isGridView ? "Vertical" : "Grid"} View
-        </button> */}
         <PhotoProvider>
-          <div className={`mt-10 flex ${isGridView ? 'gap-x-9 justify-center flex-wrap gap-y-9' : 'flex-col items-center'} overflow-x-hidden overflow-y-hidden`}>
-            {images
-              // .sort(() => Math.random() - 0.5)
-              .map((image, index) => (
-                <PhotoView key={index} src={image.src}>
-                  <motion.div
-                    className={`w-60 h-60 relative cursor-pointer mb-4 transition-transform transition-opacity duration-300 ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-20' : ''}`}
-                    onMouseEnter={() => setHoveredIndex(index)}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <Image
-                      className="rounded-lg object-cover"
-                      src={image}
-                      alt={`Image ${index + 1}`}
-                      quality={100}
-                      placeholder="blur"
-                      layout="fill"
-                      objectFit="cover"
-                    />
-                  </motion.div>
-                </PhotoView>
-              ))}
+          <div className={`pt-5 mt-10 flex ${isGridView ? 'gap-x-9 justify-center flex-wrap gap-y-9' : 'flex-col items-center'} overflow-x-hidden overflow-y-hidden`}>
+            {memoizedImages.map((image, index) => (
+              <PhotoView key={index} src={image.default.src}>
+                <motion.div
+                  className={`w-60 h-60 relative cursor-pointer mb-4 transition-transform transition-opacity duration-300 ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-20' : ''}`} style={{ borderRadius: "10px" }}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Image
+                    className="rounded-lg object-cover"
+                    src={image.default}
+                    alt={`Image ${index + 1}`}
+                    quality={100}
+                    placeholder="blur"
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </motion.div>
+              </PhotoView>
+            ))}
           </div>
         </PhotoProvider>
-       
       </div>
     </div>
   );
