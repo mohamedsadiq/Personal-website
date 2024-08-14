@@ -110,6 +110,7 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ mode }) => {
   const [isGridView, setIsGridView] = useState(true);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const images: StaticImageData[] = [
     img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img30, img31, img32, img34, img35, img29, img33,
@@ -148,10 +149,14 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
         <PhotoProvider>
           <div className={`mt-10 flex ${isGridView ? 'gap-x-9 justify-center flex-wrap gap-y-9' : 'flex-col items-center'} overflow-x-hidden overflow-y-hidden`}>
             {images
-              .sort(() => Math.random() - 0.5)
+              // .sort(() => Math.random() - 0.5)
               .map((image, index) => (
                 <PhotoView key={index} src={image.src}>
-                  <div className="w-60 h-60 relative cursor-pointer mb-4">
+                  <div
+                    className={`w-60 h-60 relative cursor-pointer mb-4 transition-transform transition-opacity duration-300 ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-20' : ''}`}
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                  >
                     <Image
                       className="rounded-lg object-cover"
                       src={image}
