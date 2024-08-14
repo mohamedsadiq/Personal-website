@@ -156,8 +156,8 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
                     whileTap={{ scale: 0.9 }}
                     transition={{
                       type: "spring",
-                      stiffness: 100,
-                      damping: 13,
+                      stiffness: 400,
+                      damping: 10,
                     }}
                   >
                     <Image
