@@ -125,11 +125,16 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
             {memoizedImages.map((image, index) => (
               <PhotoView key={index} src={image.src}>
                 <motion.div
-                  className={`w-60 h-60 relative cursor-pointer mb-4 transition-transform transition-opacity duration-300 ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-20' : ''}`} style={{ borderRadius: "10px" }}
+                  className={`w-60 h-60 relative cursor-pointer mb-4  transition-opacity duration-300 ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-20' : ''}`} style={{ borderRadius: "10px" }}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.9 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 13,
+                  }}
                 >
                   <Image
                     className="rounded-lg object-cover"
