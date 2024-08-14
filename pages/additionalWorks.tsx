@@ -1,14 +1,14 @@
-import Head from 'next/head'
+import Head from "next/head";
 import { useEffect, useRef, useState, useMemo } from "react";
-import dynamic from 'next/dynamic';
-import { StaticImageData } from 'next/image';
-import { motion } from 'framer-motion';
+import dynamic from "next/dynamic";
+import { StaticImageData } from "next/image";
+import { motion } from "framer-motion";
 
-import { PhotoProvider, PhotoView } from 'react-photo-view';
-import 'react-photo-view/dist/react-photo-view.css';
-import { log } from 'console';
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
+import { log } from "console";
 
-const Image = dynamic(() => import('next/image'), { ssr: false });
+const Image = dynamic(() => import("next/image"), { ssr: false });
 
 const images: StaticImageData[] = [
   require("../img/adw/Aston Martin Dark Mode.png"),
@@ -83,7 +83,7 @@ const images: StaticImageData[] = [
   require("../img/DAOs Spot/4.png"),
   require("../img/DAOs Spot/3.png"),
   require("../img/DAOs Spot/2.png"),
-  require("../img/Original Portfolio.png")
+  require("../img/Original Portfolio.png"),
 ];
 
 interface HomeProps {
@@ -109,51 +109,70 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
     <div className="">
       <Head>
         <title>Additional Works - Mohamed Sadiq</title>
-        <meta name="description" content="A product designer who can code, focusing on Web 3, Open source products @DeveloperDAO, member of @Bulidspace and @Anti" />
+        <meta
+          name="description"
+          content="A product designer who can code, focusing on Web 3, Open source products @DeveloperDAO, member of @Bulidspace and @Anti"
+        />
         <link rel="icon" href="/favicon.ico" />
-        <meta name="keywords" content="HTML, CSS, JavaScript, product design, web3, nft" />
+        <meta
+          name="keywords"
+          content="HTML, CSS, JavaScript, product design, web3, nft"
+        />
         <meta name="author" content="Mohamed Sadiq" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@mohamedsadiq.me" />
         <meta name="twitter:title" content="Mohamed Sadiq" />
         <meta name="twitter:description" content="A product designer" />
-        <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />
+        <meta
+          name="twitter:image"
+          content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png"
+        />
       </Head>
 
       <div className="adwork inline">
         <PhotoProvider>
-          <div className={`pt-5 mt-10 flex ${isGridView ? 'gap-x-9 justify-center flex-wrap gap-y-9' : 'flex-col items-center'} overflow-x-hidden overflow-y-hidden`}>
-          {memoizedImages.map((image, index) => {
-  const imageSrc = image.default.src;
-  console.log("Image source:", imageSrc);
-  return (
-    <PhotoView key={index} src={imageSrc}>
-      <motion.div
-        className={`w-60 h-60 relative cursor-pointer mb-4 transition-opacity duration-300 ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-20' : ''}`}
-        style={{ borderRadius: "10px" }}
-        onMouseEnter={() => setHoveredIndex(index)}
-        onMouseLeave={() => setHoveredIndex(null)}
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.9 }}
-        transition={{
-          type: "spring",
-          stiffness: 100,
-          damping: 13,
-        }}
-      >
-        <Image
-          className="rounded-lg object-cover"
-          src={image.default}
-          alt={`Image ${index + 1}`}
-          quality={100}
-          placeholder="blur"
-          layout="fill"
-          objectFit="cover"
-        />
-      </motion.div>
-    </PhotoView>
-  );
-})}
+          <div
+            className={`pt-5 mt-10 flex ${
+              isGridView
+                ? "gap-x-9 justify-center flex-wrap gap-y-9"
+                : "flex-col items-center"
+            } overflow-x-hidden overflow-y-hidden`}
+          >
+            {memoizedImages.map((image, index) => {
+              const imageSrc = image.default.src;
+              console.log("Image source:", imageSrc);
+              return (
+                <PhotoView key={index} src={imageSrc}>
+                  <motion.div
+                    className={`w-60 h-60 relative cursor-pointer mb-4 transition-opacity duration-300 ${
+                      hoveredIndex !== null && hoveredIndex !== index
+                        ? "opacity-20"
+                        : ""
+                    }`}
+                    style={{ borderRadius: "10px" }}
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 100,
+                      damping: 13,
+                    }}
+                  >
+                    <Image
+                      className="rounded-lg object-cover"
+                      src={image.default}
+                      alt={`Image ${index + 1}`}
+                      quality={100}
+                      placeholder="blur"
+                      layout="fill"
+                      objectFit="cover"
+                    />
+                  </motion.div>
+                </PhotoView>
+              );
+            })}
           </div>
         </PhotoProvider>
       </div>
