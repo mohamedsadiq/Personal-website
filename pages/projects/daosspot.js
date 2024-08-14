@@ -80,7 +80,7 @@ const DeveloperDAO = () => {
               </div>
             </div>
             <p>
-            Initiating the journey of DAOs Spot marked my second venture, a bootstrap endeavor fueled by minimal resources. Taking charge of both product design and development, my primary goal centered around tackling a crucial challenge: How could I actively immerse myself in DAOs, contribute meaningfully, stay abreast of their updates, and discover tools to streamline these processes? This challenge materialized as I became a part of various DAOs. Significantly, the project has garnered the attention of an original DAO, aligning seamlessly with their mission. Moreover, a prominent international investment firm focused on Web3 has expressed interest. The prospect of DAOs Spot excites me, and I eagerly anticipate the promising opportunities that lie ahead.
+            Initiating the journey of DAOs Spot marked my first venture, a bootstrap endeavor fueled by minimal resources. Taking charge of both product design and development, my primary goal centered around tackling a crucial challenge: How could I actively immerse myself in DAOs, contribute meaningfully, stay abreast of their updates, and discover tools to streamline these processes? This challenge materialized as I became a part of various DAOs. Significantly, the project has garnered the attention of an original DAO, aligning seamlessly with their mission. Moreover, a prominent international investment firm focused on Web3 has expressed interest. The prospect of DAOs Spot excites me, and I eagerly anticipate the promising opportunities that lie ahead.
 
 
               
