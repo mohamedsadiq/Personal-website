@@ -10,7 +10,7 @@ import { log } from "console";
 
 const Image = dynamic(() => import("next/image"), { ssr: false });
 
-const images: StaticImageData[] = [
+const images: { default: StaticImageData }[] = [
   require("../img/adw/Aston Martin Dark Mode.png"),
   require("../img/adw/Certified Web3 Boy NFT.png"),
   require("../img/adw/Certified Web3 Boy NFTs Loading.png"),
