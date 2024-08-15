@@ -5,6 +5,7 @@ import { StaticImageData } from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import type { AnimatePresenceProps } from 'framer-motion'
 
 const Image = dynamic(() => import("next/image"), { ssr: false });
 
@@ -235,9 +236,9 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
         Switch to {viewMode === 'circle' ? 'Grid' : 'Circle'} View
       </button>
 
-      <AnimatePresence mode="wait">
-        {viewMode === 'circle' ? renderCircleView() : renderGridView()}
-      </AnimatePresence>
+      <AnimatePresence {...({mode: "wait"} as AnimatePresenceProps)}>
+  {viewMode === 'circle' ? renderCircleView() : renderGridView()}
+</AnimatePresence>
 
       <div className="text-center mt-8">
         <h2 className="text-2xl font-bold mb-2">Additional Works</h2>
