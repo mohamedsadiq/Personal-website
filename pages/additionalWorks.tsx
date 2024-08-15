@@ -206,7 +206,7 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
   );
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
+    <div className="min-h-screen flex flex-col items-center justify-center mb-44">
       <Head>
         <title>Additional Works - Mohamed Sadiq</title>
         <meta
@@ -240,10 +240,10 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
   {viewMode === 'circle' ? renderCircleView() : renderGridView()}
 </AnimatePresence>
 
-      <div className="text-center mt-8">
+      {/* <div className="text-center mt-8">
         <h2 className="text-2xl font-bold mb-2">Additional Works</h2>
         <p className="text-lg">A collection of my design projects</p>
-      </div>
+      </div> */}
     </div>
   );
 };
