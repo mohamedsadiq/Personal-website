@@ -2,11 +2,9 @@ import Head from "next/head";
 import { useEffect, useRef, useState, useMemo } from "react";
 import dynamic from "next/dynamic";
 import { StaticImageData } from "next/image";
-import { motion } from "framer-motion";
-
+import { motion, AnimatePresence } from "framer-motion";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
-import { log } from "console";
 
 const Image = dynamic(() => import("next/image"), { ssr: false });
 
@@ -91,22 +89,123 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ mode }) => {
-  const [isGridView, setIsGridView] = useState(true);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   const memoizedImages = useMemo(() => images, []);
+  const [viewMode, setViewMode] = useState<'circle' | 'grid'>('circle');
 
-  const parentRef = useRef<HTMLDivElement>(null);
-  const childRef = useRef<HTMLDivElement>(null);
+  const toggleViewMode = () => {
+    setViewMode(prevMode => prevMode === 'circle' ? 'grid' : 'circle');
+  };
 
-  useEffect(() => {
-    if (parentRef.current && childRef.current) {
-      parentRef.current.style.height = `${childRef.current.offsetHeight}px`;
-    }
-  }, []);
+  const renderCircleView = () => (
+    <motion.div
+      className="relative w-[80vw] h-[80vw] max-w-[800px] max-h-[800px]"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.8 }}
+      transition={{ duration: 0.5 }}
+    >
+      <PhotoProvider>
+        {memoizedImages.map((image, index) => {
+          const isInnerCircle = index < memoizedImages.length / 2;
+          const circleImages = isInnerCircle ? memoizedImages.length / 2 : memoizedImages.length;
+          const startIndex = isInnerCircle ? 0 : memoizedImages.length / 2;
+          const circleIndex = index - startIndex;
+          
+          const angle = (circleIndex / circleImages) * 2 * Math.PI;
+          const radius = isInnerCircle ? 30 : 55;
+          const x = 46 + radius * Math.cos(angle);
+          const y = 46 + radius * Math.sin(angle);
+
+          return (
+            <PhotoView key={index} src={image.default.src}>
+              <motion.div
+                className="absolute w-14 h-14 cursor-pointer"
+                style={{
+                  left: `${x}%`,
+                  top: `${y}%`,
+                  transform: 'translate(0)'
+                }}
+                whileHover={{ scale: 1.8, zIndex: 10 }}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                transition={{
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 13,
+                }}
+              >
+                <AnimatePresence>
+                  {hoveredIndex === index && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute inset-0 bg-opacity-50 rounded flex items-center justify-center"
+                    >
+                      <p className="text-white text-xs">View</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+                <Image
+                  className="rounded-lg object-cover"
+                  src={image.default}
+                  alt={`Image ${index + 1}`}
+                  layout="fill"
+                  objectFit="cover"
+                  placeholder="blur"
+                  blurDataURL={image.default.blurDataURL}
+                />
+              </motion.div>
+            </PhotoView>
+          );
+        })}
+      </PhotoProvider>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-4">
+        <h3 className="text-xl font-bold text-black sm:text-2xl hidden sm:block">Years of Curated Works</h3>
+      </div>
+    </motion.div>
+  );
+
+  const renderGridView = () => (
+    <motion.div
+      className="flex flex-wrap justify-center gap-4 p-4"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.8 }}
+      transition={{ duration: 0.5 }}
+    >
+      <PhotoProvider>
+        {memoizedImages.map((image, index) => (
+          <PhotoView key={index} src={image.default.src}>
+            <motion.div
+              className="relative w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.667rem)] md:w-[calc(25%-0.75rem)] lg:w-[calc(20%-0.8rem)] aspect-square cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 13,
+              }}
+            >
+              <Image
+                className="rounded-lg object-cover"
+                src={image.default}
+                alt={`Image ${index + 1}`}
+                layout="fill"
+                objectFit="cover"
+                placeholder="blur"
+                blurDataURL={image.default.blurDataURL}
+              />
+            </motion.div>
+          </PhotoView>
+        ))}
+      </PhotoProvider>
+    </motion.div>
+  );
 
   return (
-    <div className="">
+    <div className="min-h-screen flex flex-col items-center justify-center">
       <Head>
         <title>Additional Works - Mohamed Sadiq</title>
         <meta
@@ -129,52 +228,20 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
         />
       </Head>
 
-      <div className="adwork inline">
-        <PhotoProvider>
-          <div
-            className={`pt-5 mt-10 flex ${
-              isGridView
-                ? "gap-x-9 justify-center flex-wrap gap-y-9"
-                : "flex-col items-center"
-            } overflow-x-hidden overflow-y-hidden`}
-          >
-            {memoizedImages.map((image, index) => {
-              const imageSrc = image.default.src;
-              console.log("Image source:", imageSrc);
-              return (
-                <PhotoView key={index} src={imageSrc}>
-                  <motion.div
-                    className={`w-60 h-60 relative cursor-pointer mb-4 transition-opacity duration-300 ${
-                      hoveredIndex !== null && hoveredIndex !== index
-                        ? "opacity-20"
-                        : ""
-                    }`}
-                    style={{ borderRadius: "10px" }}
-                    onMouseEnter={() => setHoveredIndex(index)}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.9 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 400,
-                      damping: 10,
-                    }}
-                  >
-                    <Image
-                      className="rounded-lg object-cover"
-                      src={image.default}
-                      alt={`Image ${index + 1}`}
-                      quality={100}
-                      placeholder="blur"
-                      layout="fill"
-                      objectFit="cover"
-                    />
-                  </motion.div>
-                </PhotoView>
-              );
-            })}
-          </div>
-        </PhotoProvider>
+      <button
+        onClick={toggleViewMode}
+        className="mb-4 px-4 py-2 bg-white text-stone-950 rounded-full hover:bg-zinc-100 transition-colors duration-300 border-zinc-100 border border-solid shadow-lg"
+      >
+        Switch to {viewMode === 'circle' ? 'Grid' : 'Circle'} View
+      </button>
+
+      <AnimatePresence mode="wait">
+        {viewMode === 'circle' ? renderCircleView() : renderGridView()}
+      </AnimatePresence>
+
+      <div className="text-center mt-8">
+        <h2 className="text-2xl font-bold mb-2">Additional Works</h2>
+        <p className="text-lg">A collection of my design projects</p>
       </div>
     </div>
   );
