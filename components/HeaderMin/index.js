@@ -83,6 +83,7 @@ const HeaderMin = () => {
           //  whileHover={{  scale:"1.1"}}
            transition={{  type: "spring", stiffness: 200, damping: 10 }}
          >
+          {/* <span>Home</span> */}
          <svg
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             width="21"
