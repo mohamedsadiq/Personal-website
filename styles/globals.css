@@ -4403,9 +4403,9 @@ margin-top: 23px;
 .hover_project h1{
   transition: all 0.15s ease-in-out;
 }
-.hover_project h1:hover{
+/* .hover_project h1:hover{
   opacity: 0.5;
-}
+} */
 .mainContent .padding-0{
   /* padding: 0  !important; */
   transition: all 0.1s ease-in-out;
@@ -4881,6 +4881,7 @@ ul li{
 
 .backdrop-blur-custom{
   backdrop-filter: blur(25px);
+  background: #eaeaeaa1;
 }
 .nav-link {
   transition: all 0.3s ease !important;
