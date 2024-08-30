@@ -38,17 +38,14 @@ const Section3 = ({ MohamedSadiq }) => {
             </div>
             <div className="mainContent main_projects">
                 <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
-                    <Link 
-                    
-                    className="mt-0" href="projects/daosspot" >
-                        
+                    <Link  
+                    className="mt-0" href="projects/daosspot" >                  
                         <h1 className="daos_spot_home text-[#000]">
                             DAOs Spot
                             <span className="arrowspan">
                                 <span className="relative w-[68px] top-1 inline-block">
                                     <Image src={productOfTheWeek} alt="" />
-                                </span>
-                               
+                                </span>  
                             </span>
                         </h1>
                     </Link>
