@@ -103,7 +103,7 @@ const DeveloperDAO = () => {
             </div> */}
           </div>
         </div>
-        <div className="container_work_inner">
+        <div className="p-0">
          
             <Image
               src={img2}
@@ -113,7 +113,7 @@ const DeveloperDAO = () => {
               objectPosition="center"
               placeholder="blur"
               quality={100}
-              className="rounded-xl block mt-20"
+                className='rounded-xl block mt-20'
             />
           
           <span className="project_img_des">(The Home page) </span>
