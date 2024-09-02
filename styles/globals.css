@@ -4376,6 +4376,9 @@ margin-top: 23px;
   overflow: hidden;
  
 }
+body a:hover{
+  opacity: 0.5 !important;
+}
 .hover_project h1{
   padding: 0 !important
 }
