@@ -48,7 +48,9 @@ const Section3 = ({ MohamedSadiq }) => {
                                 </span>  
                             </span>
                         </h1>
+                        
                     </Link>
+                    {/* <span className="text-black float-right">arrow</span> */}
                 </motion.div>
                 <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
                     <Link className="mt-2" href="projects/developerdaofm" >
