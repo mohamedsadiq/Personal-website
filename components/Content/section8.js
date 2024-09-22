@@ -30,6 +30,7 @@ const Section8 = () => {
              <li className="text-black block">Today in Design<span className="arrowspan text-zinc-400"> - Newsletter </span></li>
              <li className="text-black block">Product Hunt<span className="arrowspan text-zinc-400"> - Newsletter</span></li>
              <li className="text-black block">DeveloperDAO<span className="arrowspan text-zinc-400"> - Newsletter</span></li>
+             <li className="text-black block">DSS Dead Simple Sites<span className="arrowspan text-zinc-400"> </span></li>
            </ul>
           </div>
         </motion.div>
