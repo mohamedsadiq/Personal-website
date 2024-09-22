@@ -5028,3 +5028,7 @@ a {
 body video{
   object-fit: cover !important;
 }
+
+body .header a:hover{
+  opacity: 1 !important;
+}
