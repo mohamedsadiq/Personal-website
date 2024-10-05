@@ -83,6 +83,7 @@ const images: { default: StaticImageData }[] = [
   require("../img/DAOs Spot/3.png"),
   require("../img/DAOs Spot/2.png"),
   require("../img/Original Portfolio.png"),
+  require("../img/101010101.png")
 ];
 
 interface HomeProps {
