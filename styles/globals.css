@@ -5032,3 +5032,39 @@ body video{
 body .header a:hover{
   opacity: 1 !important;
 }
+
+
+.hexagon-container {
+  width: 200px;
+  height: 230px;
+  margin: 0 auto;
+}
+
+.hexagon {
+  width: 100%;
+  height: 100%;
+  background: white;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  transition: transform 0.3s ease;
+}
+
+.hexagon:hover {
+  transform: scale(1.05);
+}
+
+.hexagon-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hexagon-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: white;
+}

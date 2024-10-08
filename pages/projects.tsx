@@ -67,9 +67,7 @@ const Projects: React.FC = () => {
                     </div>
                   </Link>
                 </motion.div>
-                {index < data.length - 1 && (
-                  <div className="w-1 h-16 bg-gray-300 absolute left-1/2 -bottom-16 transform -translate-x-1/2"></div>
-                )}
+               
               </div>
             ))}
           </div>
