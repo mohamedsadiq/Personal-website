@@ -15,7 +15,7 @@ const Section5 = ({MohamedSadiq}) => {
           </div>
           <div className="mainContent ">
             <div className="hover_project latest_activity_project">
-              <a href="https://x.com/sadiq_moo/status/1811148917783875695" target="_blink">
+              <a href="https://x.com/colderoshay/status/1824092686405820431" target="_blink">
                 <video width="100%" height="100%" autoPlay loop muted playsInline>
                   <source src="/ssssad.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
