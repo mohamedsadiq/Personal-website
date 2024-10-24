@@ -14,6 +14,9 @@ module.exports = {
       backgroundColor: {
         'custom-hsla': 'hsla(0, 0%, 47%, .1)',
       },
+      colors: {
+        'japanese-blue': '#7FD1FF',
+      },
     },
   },
   plugins: [],

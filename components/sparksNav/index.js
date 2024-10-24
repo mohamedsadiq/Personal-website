@@ -58,7 +58,7 @@ const SparksNav = ({ currentPath }) => {
              {prevPage && (
                 <>
                   <span className="block text-sm text-gray-500">Previous</span>
-                  {"<- " + prevPage.title}
+                  { prevPage.title}
                 </>
               )}
           
@@ -94,7 +94,7 @@ const SparksNav = ({ currentPath }) => {
               {nextPage && (
                 <>
                   <span className="block text-sm text-gray-500 text-right">Next</span>
-                  { nextPage.title + " ->"}
+                  { nextPage.title }
                 </>
               )}
             </motion.p>
