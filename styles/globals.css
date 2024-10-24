@@ -73,7 +73,7 @@ html{
   color: #151515;
 }
 .light .container .inner_container_sparks p{
-  color:#151515
+  color:#555555
 }
 .contents {
   transition: opacity 0.9s ease-in-out, filter 0.9s ease-in-out;
@@ -248,8 +248,8 @@ a.tag{
 }
 .container .inner_container_sparks p{
   margin-top: 13px;
-  font-size: 0.9rem;
-  line-height: 25px;
+  /* font-size: 0.9rem; */
+  line-height: 23px;
 }
 
 .center_any_thing{
@@ -780,7 +780,7 @@ a {
 .inner_container p{
   line-height: 28px;
     color: #6f6f6f;
-    font-size: 1rem;
+    /* font-size: 1rem; */
 }
 
 .dark .inner_container p{
@@ -1464,8 +1464,8 @@ color: rgb(250, 200, 17);
   opacity: 0.8;
 }
 .inner_container h1{
-  font-size: 1.3rem;
-  margin-bottom: 8px;
+  /* font-size: 1.3rem; */
+  /* margin-bottom: 8px; */
   font-weight: 400;
 }
 .dark .inner_container h1{

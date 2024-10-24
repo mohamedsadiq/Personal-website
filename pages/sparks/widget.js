@@ -8,12 +8,14 @@ import FullDot from "../../components/dots/full";
 import classNames from "classnames";
 import { useRouter } from 'next/router';
 import Footer from '../../components/sparksNav';
+import FormattedDate from '../../components/FormattedDate'; // Ensure this is a default import
 
 export default function Widget() {
   const [isClicked, setIsClicked] = useState(false);
   const [dots, setDots] = useState([]);
   const [halfDotCount, setHalfDotCount] = useState(0);
   const [fullDotCount, setFullDotCount] = useState(0);
+  const [isExpanded, setIsExpanded] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -187,6 +189,35 @@ export default function Widget() {
     return randomIndices.includes(index) ? 'lampnotworking' : '';
   };
 
+  const containerVariants = {
+    expanded: {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100vw",
+      height: "100vh",
+      backgroundColor: "white",
+      zIndex: 50,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 13,
+      },
+    },
+    collapsed: {
+      position: "relative",
+      width: "auto",
+      height: "auto",
+      backgroundColor: "transparent",
+      zIndex: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 13,
+      },
+    },
+  };
+
   return (
     <>
       <Head>
@@ -230,13 +261,15 @@ export default function Widget() {
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
           <div>
-          <h1 className="mt-10 mb-0 text-xl font-semibold inline text-black">Interactive Exercise Progress Widget</h1>
-          <span className="text-xs text-stone-500"> - Jun 2024</span>
+          <h1 className=" mt-10 mb-0 text-lg font-semibold  text-black">Interactive Exercise Progress Widget</h1>
+         
+             <span className="text-xs text-stone-500"> Published Jun 2024</span>
           </div>
-            <p className="mt-0">
+            <p className="mt-0 text-sm">
               A dynamic widget inspired by <a href="https://x.com/sovpal/status/1742640211782185261" target="_blank" rel="noopener noreferrer">Arkady's</a> design. Built using <span className="spark_tools">React</span>, <span className="spark_tools">Framer Motion</span>, and <span className="spark_tools">Tailwind CSS</span>. 
               This interactive widget dynamically generates dots representing exercise progress. Each click triggers a visual update, reflecting changes in exercise status with animated transitions and interactive elements.       
             </p>
+             {/* Use the new component here */}
             <div className="exp flex justify-center items-center">
               <motion.div
                 className="buttonWidget bg-slate-950 exercises_widget overflow-hidden"

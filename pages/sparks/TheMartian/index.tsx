@@ -169,14 +169,14 @@ const TheMartian: React.FC = () => {
           <div className="inner_container inner_container_sparks">
           
             
-          <h1 className="mt-10 mb-0 text-xl font-semibold inline">The Martian - Interactive 3D Character Demo</h1>
-          <span className="text-xs text-stone-500  "> - Jul 2024</span>
-          <p>
+          <h1 className="mt-10 mb-0 text-lg font-semibold  text-black">The Martian - Interactive 3D Character Demo</h1>
+          <span className="text-xs text-stone-500  "> Published Jul 2024</span>
+          <p  className="mt-0 text-sm">
               This interactive demo allows you to control and observe the
               behavior of a character in a 3D environment using <span className="spark_tools">Three.js</span>.
             </p>
-            <h2>Navigation Controls:</h2>
-            <ul>
+            <h2 className="text-black mb-4">Navigation Controls:</h2>
+            <ul className="mt-0 text-sm">
                 <li>
                   1 - Use <span className="spark_tools">W</span> ,{" "}
                   <span className="spark_tools">A</span> ,{" "}

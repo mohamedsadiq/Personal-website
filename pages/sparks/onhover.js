@@ -39,9 +39,9 @@ export default function OnHover() {
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
          
-          <h2 className="mt-10 mb-0 text-xl font-semibold inline text-black">On Hover - Interactive 3D Models Showcase</h2>
-          <span className="text-xs text-stone-500  "> - Jul 2024</span>
-            <p>
+          <h2 className="mt-10 mb-0 text-lg font-semibold  text-black">On Hover - Interactive 3D Models Showcase</h2>
+          <span className="text-xs text-stone-500  "> Published Jul 2024</span>
+            <p  className="mt-0 text-sm">
             This demo showcases a series of dynamically animated buttons built with <span className="spark_tools">React</span> and <span className="spark_tools"> Framer Motion.</span>
             </p>
             <div className="exp" style={{ height: "400px", display: "flex", justifyContent: "center", alignItems: "center" }}>
