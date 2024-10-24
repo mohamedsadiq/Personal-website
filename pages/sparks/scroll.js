@@ -52,9 +52,9 @@ export default function FamilyTransactions() {
           <div className="inner_container inner_container_sparks">
             
         
-          <h2 className="mt-10 mb-0 text-xl font-semibold inline text-black">Scrolling </h2>
-          <span className="text-xs text-stone-500  "> - Jun 2024</span>
-            <p>
+          <h2 className=" mt-10 mb-0 text-lg font-semibold  text-black">Scrolling </h2>
+          <span className="text-xs text-stone-500  ">Published Jun 2024</span>
+            <p className="mt-0 text-sm">
               It's a scroll, but with a twist. Instead of the typical scroll
               bar, I integrated circular indicators to signify the moving
               content, elevating the overall user experience.

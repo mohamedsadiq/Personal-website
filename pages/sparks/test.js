@@ -7,6 +7,7 @@ import * as THREE from 'three';
 
 export default function Test() {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [hoveredObject, setHoveredObject] = useState(null);
   const containerRef = useRef(null);
 
   const handleScroll = (event) => {
@@ -49,13 +50,15 @@ export default function Test() {
                 return (
                   <div 
                     key={i} 
-                    className="object" 
+                    className={`object ${hoveredObject === i ? '' : 'blurred'}`}
                     style={{ 
                       top: `${y}px`, 
                       left: `${x}px`,
                       transform: `scale(${1 + Math.sin(angle) * 0.2})`,
-                      transition: 'transform 0.3s ease-out'
+                      transition: 'transform 0.3s ease-out, filter 0.3s ease-out'
                     }}
+                    onMouseEnter={() => setHoveredObject(i)}
+                    onMouseLeave={() => setHoveredObject(null)}
                   />
                 );
               })}
@@ -76,6 +79,9 @@ export default function Test() {
         .object:hover {
           background-color: #aaa;
           transform: scale(1.1);
+        }
+        .blurred {
+          filter: blur(3px);
         }
         @keyframes pulse {
           0% { transform: scale(1); }

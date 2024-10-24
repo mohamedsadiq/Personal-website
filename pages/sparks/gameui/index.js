@@ -96,9 +96,9 @@ export default function GameUi() {
           <div className="inner_container inner_container_sparks">
           
 
-            <h2 className="mt-10 mb-0 text-xl font-semibold inline text-black">3D Models Interactive Demo</h2>
-            <span className="text-xs text-stone-500  "> - Jul 2024</span>
-            <p>
+            <h2 className="mt-10 mb-0 text-lg font-semibold  text-black">3D Models Interactive Demo</h2>
+            <span className="text-xs text-stone-500  "> Published Jul 2024</span>
+            <p  className="mt-0 text-sm">
               This interactive demo showcases a collection of 3D models brought to life using <span className="spark_tools">React</span>, <span className="spark_tools">Three.js</span>, <span  className="spark_tools">React Three Fiber</span>. <span className="spark_tools">Framer Motion</span>, the interface provides a seamless experience through smooth animations and state transitions.
             </p>
             <div className="exp exp3d remove-buttom-borders" style={{ display: "flex", justifyContent: "space-around", alignItems: "center", height: "500px", background: "#000" }}>
