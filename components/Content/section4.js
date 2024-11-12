@@ -32,6 +32,7 @@ const Section4 = ({MohamedSadiq}) => {
     },
   };
     
+
     return (
         <motion.div 
           className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
@@ -45,6 +46,19 @@ const Section4 = ({MohamedSadiq}) => {
         </div>
         <div className="mainContent   flex items-center content-center justify-center  " id="links_home">
           <div className="links_home flex " style={{padding:0}}>
+          <motion.a 
+           initial={IconAnimation.initial}
+           animate={IconAnimation.animate}
+           whileHover={IconAnimation.hover}
+           transition={{
+             type: "spring",
+             stiffness: 600,
+             damping: 10,
+           }}
+          href="https://read.cv/mohamedsadiq" target="_blink"  aria-label="read.cv">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 256 256"><path fill="#000" d="m210.78 39.25l-130.25-23A16 16 0 0 0 62 29.23l-29.75 169a16 16 0 0 0 13 18.53l130.25 23a16 16 0 0 0 18.54-13l29.75-169a16 16 0 0 0-13.01-18.51M178.26 224L48 201L77.75 32L208 55ZM89.34 58.42a8 8 0 0 1 9.27-6.48l83 14.65a8 8 0 0 1-1.39 15.88a8.4 8.4 0 0 1-1.4-.12l-83-14.66a8 8 0 0 1-6.48-9.27M83.8 89.94a8 8 0 0 1 9.27-6.49l83 14.66a8 8 0 0 1-1.4 15.89a7.6 7.6 0 0 1-1.41-.13l-83-14.65a8 8 0 0 1-6.46-9.28m-5.55 31.51a8 8 0 0 1 9.27-6.45l41.48 7.29a8 8 0 0 1-1.38 15.88a8.3 8.3 0 0 1-1.4-.12l-41.5-7.33a8 8 0 0 1-6.47-9.27"/></svg>
+
+            </motion.a>
            
           <motion.a 
            initial={IconAnimation.initial}
