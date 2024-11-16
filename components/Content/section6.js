@@ -26,7 +26,7 @@ const Section6 = () => {
             <h1 className="text-zinc-400">Available form Oct to Dec</h1>
           </div>
           <div className="mainContent " id="links_home">
-            <a className="calltoation" href="mailto:mohamed.sadiq@outlook.sa">
+            <a className="calltoation" href="mailto:hey@mosadiq.com">
               <button className="workbutton"> <span id="workbuttongreen"></span>Reach out via mail</button>
             </a>
           </div>
