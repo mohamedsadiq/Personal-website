@@ -540,7 +540,7 @@ a.tag{
   color: #a5a5a5;
 }
 .light #animation_web3{
-  background-color: #fdfdfd
+  background-color: #ffffff
 }
 .light header{
   background-color: #fefefe;
@@ -1189,7 +1189,7 @@ backface-visibility: hidden;
 #animation_web3{
   display: inline-block;
   background-color: #000000;
-  width: 10px;
+  width: 20px;
   height: 29px;
   filter: blur(5px);
   position: absolute;
@@ -2178,8 +2178,8 @@ color: #fff;
   100% {top:2px}
 }
 @keyframes web3 {
-  0%   {left: -13px}
-  100%{left:53px}
+  0%   {left: -25px}
+  100%{left:73px}
 
 }
 
