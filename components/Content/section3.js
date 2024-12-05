@@ -39,7 +39,7 @@ const Section3 = ({ MohamedSadiq }) => {
             <div className="mainContent main_projects">
             <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
                     <a  
-                    className="mt-0" href="https://boimaginations.substack.com/p/introducing-lightup" target="_blank" rel="noopener noreferrer" >                  
+                    className="mt-0 mb-2" href="https://boimaginations.substack.com/p/introducing-lightup" target="_blank" rel="noopener noreferrer" >                  
                         <h1 className="daos_spot_home text-[#000]">
                             LightUp
                             <span className="arrowspan">
