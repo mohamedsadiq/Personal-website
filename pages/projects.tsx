@@ -17,7 +17,8 @@ import budget1 from "../img/ph11.png"
 
 interface ProjectData {
   name: string;
-  img: string | StaticImageData;
+  img?: string | StaticImageData;
+  video?: string;
   description: string;
   tags: string;
   target: string;
@@ -50,12 +51,25 @@ const Projects: React.FC = () => {
                 >
                   <Link href={item.link} passHref>
                     <div className="relative h-[36rem]">
-                      <Image
-                        src={item.img}
-                        alt={item.name}
-                        layout="fill"
-                        objectFit="cover"
-                      />
+                      {item.video ? (
+                        <video 
+                          className="w-full h-full object-cover"
+                          autoPlay 
+                          loop 
+                          muted 
+                          playsInline
+                        >
+                          <source src={item.video} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      ) : item.img && (
+                        <Image
+                          src={item.img}
+                          alt={item.name}
+                          layout="fill"
+                          objectFit="cover"
+                        />
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70" />
                       <div className="absolute bottom-0 left-0 p-4 sm:p-6 text-white">
                         <h2 className="text-xl sm:text-2xl font-bold mb-2">{item.name}</h2>
@@ -67,7 +81,6 @@ const Projects: React.FC = () => {
                     </div>
                   </Link>
                 </motion.div>
-               
               </div>
             ))}
           </div>
@@ -78,6 +91,15 @@ const Projects: React.FC = () => {
 }
 
 const data: ProjectData[] = [
+  {
+    name: "LightUp - 2024",
+    video: "/lightup.mp4",
+    description: "AI-Powered Annotations", 
+    tags: "Product Design, AI",
+    target: "_blink",
+    link: "https://boimaginations.substack.com/p/introducing-lightup",
+    productHunt: budget1
+  },
   {
     name: "DAOs Spot - 2023",
     img: daos,
