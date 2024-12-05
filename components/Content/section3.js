@@ -37,6 +37,20 @@ const Section3 = ({ MohamedSadiq }) => {
                 <h1 className="text-zinc-400">Things I’ve built</h1>
             </div>
             <div className="mainContent main_projects">
+            <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
+                    <a  
+                    className="mt-0" href="https://boimaginations.substack.com/p/introducing-lightup" target="_blank" rel="noopener noreferrer" >                  
+                        <h1 className="daos_spot_home text-[#000]">
+                            LightUp
+                            <span className="arrowspan">
+                                <span className="req text-zinc-500">AI-Powered Annotations</span>
+                               
+                            </span>
+                        </h1>
+                        
+                    </a>
+                    {/* <span className="text-black float-right">arrow</span> */}
+                </motion.div>
                 <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
                     <Link  
                     className="mt-0" href="projects/daosspot" >                  
