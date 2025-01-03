@@ -73,7 +73,19 @@ const Section4 = ({MohamedSadiq}) => {
           href="https://x.com/sadiq_moo" target="_blink"  aria-label="X.com">
               <svg width="20px" height="20px" viewBox="0 0 24 24" strokeWidth="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color={svgColor}><path d="M16.8198 20.7684L3.75317 3.96836C3.44664 3.57425 3.72749 3 4.22678 3H6.70655C6.8917 3 7.06649 3.08548 7.18016 3.23164L20.2468 20.0316C20.5534 20.4258 20.2725 21 19.7732 21H17.2935C17.1083 21 16.9335 20.9145 16.8198 20.7684Z" stroke={svgColor} strokeWidth="1.5"></path><path d="M20 3L4 21" stroke={svgColor} strokeWidth="1.5" strokeLinecap="round"></path></svg>
             </motion.a>
+            <motion.a 
+           initial={IconAnimation.initial}
+           animate={IconAnimation.animate}
+           whileHover={IconAnimation.hover}
+           transition={{
+             type: "spring",
+             stiffness: 600,
+             damping: 10,
+           }}
+          href="https://substack.com/@msadiq" target="_blink"  aria-label="read.cv">
+             <svg  style={{marginTop:"2px"}}width="18px" height="18px" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" imageRendering="optimizeQuality" fillRule="evenodd" clipRule="evenodd" viewBox="0 0 448 511.471"><path fill="#191919" d="M0 0h448v62.804H0V0zm0 229.083h448v282.388L223.954 385.808 0 511.471V229.083zm0-114.542h448v62.804H0v-62.804z"/></svg>
 
+            </motion.a>
             <motion.a 
              initial={IconAnimation.initial}
              animate={IconAnimation.animate}
