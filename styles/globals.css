@@ -5068,3 +5068,14 @@ body .header a:hover{
   background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
   color: white;
 }
+
+
+
+
+
+@media only screen and (max-width:413px) {
+ .web3{
+  display: block;
+ }
+
+} 
