@@ -70,7 +70,7 @@ const Section4 = ({MohamedSadiq}) => {
              stiffness: 600,
              damping: 10,
            }}
-          href="https://substack.com/@msadiq" target="_blink"  aria-label="read.cv">
+          href="https://boimaginations.substack.com/" target="_blink"  aria-label="read.cv">
              <svg  style={{marginTop:"2px"}}width="18px" height="18px" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" imageRendering="optimizeQuality" fillRule="evenodd" clipRule="evenodd" viewBox="0 0 448 511.471"><path fill="#191919" d="M0 0h448v62.804H0V0zm0 229.083h448v282.388L223.954 385.808 0 511.471V229.083zm0-114.542h448v62.804H0v-62.804z"/></svg>
 
             </motion.a>
