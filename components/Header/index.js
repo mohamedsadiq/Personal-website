@@ -398,6 +398,7 @@ const Header = (props) => {
             </div>
           </motion.div>
         </Link>
+        
         <Link href="/projects" passHref>
           <motion.div
             whileTap={{ scale: 0.9 }}
