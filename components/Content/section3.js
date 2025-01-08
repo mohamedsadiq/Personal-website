@@ -44,7 +44,6 @@ const Section3 = ({ MohamedSadiq }) => {
                             LightUp
                             <span className="arrowspan">
                                 <span className="req text-zinc-500">AI-Powered Annotations</span>
-                               
                             </span>
                         </h1>
                         
