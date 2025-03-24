@@ -13,6 +13,7 @@ import Section5 from "./section5"
 import Section6 from "./section6"
 import Section7 from "./section7"
 import Section8 from "./section8"
+import Section9 from "./section9"
 const MyComponent = (mode) => {
   const [svgColor, setSvgColor] = useState("#000");
 
@@ -49,6 +50,7 @@ const MyComponent = (mode) => {
       >
        <Section1  MohamedSadiq={MohamedSadiq}/>
        <Section4  MohamedSadiq={MohamedSadiq}/>
+       <Section9  MohamedSadiq={MohamedSadiq}/>
        <Section3  MohamedSadiq={MohamedSadiq}/>
        <Section2  MohamedSadiq={MohamedSadiq}/>
        <Section5  MohamedSadiq={MohamedSadiq}/>

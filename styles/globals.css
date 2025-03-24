@@ -249,7 +249,7 @@ a.tag{
 .container .inner_container_sparks p{
   margin-top: 13px;
   /* font-size: 0.9rem; */
-  line-height: 19px;
+  line-height: 24px;
 }
 
 .center_any_thing{
@@ -3539,8 +3539,8 @@ position: relative;
   
 
   .inner_container p {
-    line-height: 246x;
-    font-size: 1rem;
+    line-height: 27px !important;
+    font-size: 0.9rem;
 }
 
   .blog_overlay h1{
