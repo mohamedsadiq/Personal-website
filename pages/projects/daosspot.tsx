@@ -59,7 +59,7 @@ const DeveloperDAO: React.FC = () => {
               <a
                 className="projectLink"
                 target="_blank"
-                href="https://www.daospot.xyz/"
+                href="https://daospot-git-main-mohamedsadiq-s-team.vercel.app/"
               >
                 {" "}
                 Visit Live ↗

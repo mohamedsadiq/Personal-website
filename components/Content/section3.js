@@ -31,7 +31,7 @@ const Section3 = ({ MohamedSadiq }) => {
             className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
             initial={MohamedSadiq.initial}
             animate={MohamedSadiq.animate}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.4 }}
         >
             <div className="mainContent flex h-auto w-full md:w-44 flex-none">
                 <h1 className="text-zinc-400">Things I’ve built</h1>

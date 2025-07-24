@@ -49,7 +49,7 @@ const Section7 = () => {
             className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
             initial={MohamedSadiq.initial}
             animate={MohamedSadiq.animate}
-            transition={{ delay: 0.6 }}
+            transition={{ delay: 0.7 }}
         >
             <div className="mainContent flex h-auto w-full md:w-auto flex-none">
                 <h1 className="text-zinc-400">Years of Curated Works</h1>
