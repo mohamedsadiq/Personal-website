@@ -23,7 +23,7 @@ const Section6 = () => {
         transition={{ delay: 0.9}}
         >
           <div className="mainContent  flex h-auto w-full md:w-auto flex-none">
-            <h1 className="text-zinc-400">Available from June to August </h1>
+            <h1 className="text-zinc-400">Available from Jun to Aug </h1>
           </div>
           <div className="mainContent " id="links_home">
             <a className="calltoation" href="mailto:hey@mosadiq.com">
