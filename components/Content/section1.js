@@ -9,7 +9,7 @@ const Section1 = ({ MohamedSadiq }) => {
       transition={{ delay: 0.1 }}
     >
       <div id="name" className="p-0 flex h-auto w-full md:w-44 flex-none text-zinc-400">
-        Mohamed Sadiq
+        Moe Sadiq
        
       </div>
       <div className="home_text_front">
