@@ -72,7 +72,7 @@ const Projects: React.FC = () => {
                       )}
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70" />
                       <div className="absolute bottom-0 left-0 p-4 sm:p-6 text-white">
-                        <h2 className="text-xl sm:text-2xl font-bold mb-2">{item.name}</h2>
+                        <h2 className="text-xl sm:text-2xl font-bold mb-2 text-[#fff]">{item.name}</h2>
                         <p className="text-xs sm:text-sm mb-4">{item.description}</p>
                         <span className="text-xs bg-white bg-opacity-20 px-2 py-1 rounded-full">
                           {item.tags}
@@ -108,15 +108,6 @@ const data: ProjectData[] = [
     target: "_blink",
     link: "projects/daosspot",
     productHunt: budget1
-  },
-  {
-    name: "DeveloperDAO Website - Aug  2022",
-    img: developerDao,
-    description: "DeveloperDAO's website", 
-    tags: "Product Design, Web3",
-    target: "_blink",
-    link: "https://www.developerdao.com/",
-    productHunt: ""
   },
   {
     name: "DeveloperDAO FM - Jul 2022",
