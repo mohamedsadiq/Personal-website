@@ -3,7 +3,10 @@
   src: url("../fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
   font-display: swap;
 } */
-
+h2{
+  color : #000;
+  margin-bottom: 9px;
+}
 body, html {
   margin: 0;
   padding: 0;
@@ -1415,6 +1418,7 @@ color: rgb(250, 200, 17);
   
 }
 .inner_container h2{
+  margin-bottom: 6px;
   /* font-size: 1.7rem; */
   /* color: #fff; */
   /* margin-bottom: 16px; */

@@ -11,14 +11,14 @@ const Section9 = ({ MohamedSadiq }) => {
             className="flex flex-col md:flex-row gap-x-32 gap-y-6 md:gap-y-0"
             initial={MohamedSadiq.initial}
             animate={MohamedSadiq.animate}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.3 }}
         >
             <div className="mainContent flex h-auto w-full md:w-auto flex-none">
                 <h1 className="mt-1 text-zinc-400">Thoughts</h1>
             </div>
             <div className="mainContent main_projects">
                 {[
-                    { href: "https://moosadiq.substack.com/p/does-this-feel-indispensable?r=8bhus&triedRedirect=true", title: "Does this feel indispensable?", date: "Jun 2024" },
+                    { href: "https://moosadiq.substack.com/p/does-this-feel-indispensable?r=8bhus&triedRedirect=true", title: "Does this feel indispensable?", date: "Jan 2025" },
                    
                    
                 ].map((link, index) => (
