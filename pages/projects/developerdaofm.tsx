@@ -26,7 +26,7 @@ const DeveloperDAO: React.FC = () => {
           <div className="inner_container_project_parent inner_container inner_container_mobile">
             <WorkIntro
               title={"DeveloperDAO FM"}
-              link={"https://www.developerdaofm.xyz/"}
+              link={"https://developer-dao-k6lc0ianf-mohamedsadiq.vercel.app/"}
             />
             <h1>DeveloperDAO FM</h1>
             <p>
