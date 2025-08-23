@@ -1,4 +1,10 @@
- /* @font-face {
+ @import url('https://fonts.googleapis.com/css2?family=K2D:wght@300;400;500;600;700&display=swap');
+
+.font-k2d {
+  font-family: 'K2D', sans-serif;
+}
+
+/* @font-face {
   font-family: "Inter";
   src: url("../fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
   font-display: swap;
@@ -777,7 +783,7 @@ a {
   
  margin-top:40px;
  
- margin-bottom: 100px;
+ margin-bottom: 50px;
  position: relative;
 }
 .inner_container p{

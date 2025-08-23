@@ -39,14 +39,13 @@ const Section3 = ({ MohamedSadiq }) => {
             <div className="mainContent main_projects">
             <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
                     <a  
-                    className="mt-0 mb-2" href="https://boimaginations.substack.com/p/introducing-lightup" target="_blank" rel="noopener noreferrer" >                  
+                    className="mt-0 mb-2" href="projects/lightup" target="_blank" rel="noopener noreferrer" >                  
                         <h1 className="daos_spot_home text-[#000]">
                             LightUp
                             <span className="arrowspan">
                                 <span className="req text-zinc-500">AI-Powered Annotations</span>
                             </span>
-                        </h1>
-                        
+                        </h1>               
                     </a>
                     {/* <span className="text-black float-right">arrow</span> */}
                 </motion.div>
@@ -60,8 +59,7 @@ const Section3 = ({ MohamedSadiq }) => {
                                     <Image src={productOfTheWeek} alt="" />
                                 </span>  
                             </span>
-                        </h1>
-                        
+                        </h1>        
                     </Link>
                     {/* <span className="text-black float-right">arrow</span> */}
                 </motion.div>
@@ -71,9 +69,9 @@ const Section3 = ({ MohamedSadiq }) => {
                             DeeveloperDAO FM
                             <span className="arrowspan">
                                 <span className="req text-zinc-500">Top product PH </span>
-                               
                             </span>
                         </h1>
+                       
                     </Link>
                 </motion.div>
                 <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
