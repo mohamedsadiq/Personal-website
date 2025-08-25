@@ -13,7 +13,7 @@ const Section1 = ({ MohamedSadiq }) => {
       </div>
       <div className="home_text_front">
         <p>
-         A designer and engineer, Molding inspirations into finely crafted realities. i live to the 0 to 1 journey, Creator of LightUp preveicly, founded Doasspot Early OSS contributor at{" "}
+         A designer and engineer, Molding inspirations into finely crafted realities. Early OSS contributor at{" "}
           <a href="https://www.developerdao.com/" target="_blank" rel="noopener noreferrer">
             DeveloperDAO
             <svg className="inline  ml-1" width="14" height="14" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
