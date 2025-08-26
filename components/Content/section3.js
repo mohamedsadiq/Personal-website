@@ -39,7 +39,7 @@ const Section3 = ({ MohamedSadiq }) => {
             <div className="mainContent main_projects">
             <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
                     <a  
-                    className="mt-0 mb-2" href="projects/lightup" target="_blank" rel="noopener noreferrer" >                  
+                    className="mt-0 mb-2" href="projects/lightup"  rel="noopener noreferrer" >                  
                         <h1 className="daos_spot_home text-[#000]">
                             LightUp
                             <span className="arrowspan">
@@ -75,7 +75,7 @@ const Section3 = ({ MohamedSadiq }) => {
                     </Link>
                 </motion.div>
                 <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
-                    <Link className="mt-2" href="/projects/certifiedWeb3Boy" >
+                    <Link className="mt-2" href="/projects/web3boy" >
                         <h1 className="text-[#000]">
                             Web3 lover boy 
                             <span className="arrowspan">

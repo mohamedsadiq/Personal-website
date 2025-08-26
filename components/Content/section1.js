@@ -10,7 +10,6 @@ const Section1 = ({ MohamedSadiq }) => {
     >
       <div id="name" className="p-0 flex h-auto w-full md:w-44 flex-none text-zinc-400">
         Moe Sadiq
-       
       </div>
       <div className="home_text_front">
         <p>
