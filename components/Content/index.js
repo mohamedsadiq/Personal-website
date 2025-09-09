@@ -67,7 +67,7 @@ const MyComponent = (mode) => {
 const Content = (valueOfMode) => {
   const theValueOFMode = valueOfMode;
   return (
-    <div className={`p-0 md:p-8 ${theValueOFMode === "dark" ? "dark-mode" : "light-mode"} md:mx-12 sm:mx-10`}>
+    <div className={`p-0  ${theValueOFMode === "dark" ? "dark-mode" : "light-mode"} md:mx-12 sm:mx-10`}>
       <MyComponent mode={valueOfMode} />
     </div>
   );

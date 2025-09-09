@@ -137,7 +137,7 @@ const LightUp: FC = () => {
                                 className=""
                             />
                         </div>
-                          <h2>Project Overview</h2>
+                          <h2 className='mt-6'>Project Overview</h2>
                         <div className="project_info">
                             <a
                                 className="projectLink"

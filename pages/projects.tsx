@@ -97,7 +97,7 @@ const data: ProjectData[] = [
     description: "AI-Powered Annotations", 
     tags: "Product Design, AI",
     target: "_blink",
-    link: "https://boimaginations.substack.com/p/introducing-lightup",
+    link: "/projects/lightup",
     productHunt: budget1
   },
   {
@@ -124,7 +124,7 @@ const data: ProjectData[] = [
     description: "CWB is a project inspired by Dever..",  
     tags: "Product Design, Solidity, Web3",
     target: "_blink",
-    link: "/projects/certifiedWeb3Boy",
+    link: "/projects/web3boy",
     productHunt: ""
   },
 ];
