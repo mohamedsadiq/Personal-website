@@ -1,9 +1,4 @@
 import { motion } from "framer-motion";
-import Link from "next/link";
-
-import { useState, useEffect } from "react";
-
-
 
 import Section1 from "./section1"
 import Section2 from "./section2"
@@ -14,17 +9,8 @@ import Section6 from "./section6"
 import Section7 from "./section7"
 import Section8 from "./section8"
 import Section9 from "./section9"
-const MyComponent = (mode) => {
-  const [svgColor, setSvgColor] = useState("#000");
 
-  const svgColorsFun = () => {
-    if (valueOfMood === "dark") {
-      setSvgColor("#fff");
-    } else if (valueOfMood === "light") {
-      setSvgColor("#000");
-    }
-  };
-
+const MyComponent = () => {
   const MohamedSadiq = {
     initial: {
       opacity: 0,
@@ -40,38 +26,31 @@ const MyComponent = (mode) => {
     }
   }
 
- 
-
-
   return (
     <div className="content pt-16">
       <motion.div
         className="flex flex-row flex-wrap gap-y-12"
       >
-       <Section1  MohamedSadiq={MohamedSadiq}/>
-       <Section4  MohamedSadiq={MohamedSadiq}/>
-      
-       <Section3  MohamedSadiq={MohamedSadiq}/>
-       <Section2  MohamedSadiq={MohamedSadiq}/>
-       <Section9  MohamedSadiq={MohamedSadiq}/>
-       <Section5  MohamedSadiq={MohamedSadiq}/>
-       <Section7  MohamedSadiq={MohamedSadiq}/>
-       <Section8  MohamedSadiq={MohamedSadiq}/>
-       <Section6  MohamedSadiq={MohamedSadiq}/>
-     
+        <Section1 MohamedSadiq={MohamedSadiq}/>
+        <Section4 MohamedSadiq={MohamedSadiq}/>
+        <Section3 MohamedSadiq={MohamedSadiq}/>
+        <Section2 MohamedSadiq={MohamedSadiq}/>
+        <Section9 MohamedSadiq={MohamedSadiq}/>
+        <Section5 MohamedSadiq={MohamedSadiq}/>
+        <Section7 MohamedSadiq={MohamedSadiq}/>
+        <Section8 MohamedSadiq={MohamedSadiq}/>
+        <Section6 MohamedSadiq={MohamedSadiq}/>
       </motion.div>
     </div>
   );
 };
 
-const Content = (valueOfMode) => {
-  const theValueOFMode = valueOfMode;
+const Content = () => {
   return (
-    <div className={`p-0  ${theValueOFMode === "dark" ? "dark-mode" : "light-mode"} md:mx-12 sm:mx-10`}>
-      <MyComponent mode={valueOfMode} />
+    <div className={"p-0 md:mx-12 sm:mx-10"}>
+      <MyComponent />
     </div>
   );
 };
-
 
 export default Content;
