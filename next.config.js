@@ -1,56 +1,40 @@
 /** @type {import('next').NextConfig} */
 const { withNextVideo } = require('next-video/process');
- 
-const MillionLint = require('@million/lint');
-
-
-
 const withTM = require('next-transpile-modules')(['gsap']);
-module.exports = withTM();
-const {
-  withHydrationOverlay
-} = require("@builder.io/react-hydration-overlay/next");
+const { withHydrationOverlay } = require("@builder.io/react-hydration-overlay/next");
 
+// Note: Keep MillionLint import if used by tooling, but do not export it.
+// const MillionLint = require('@million/lint');
+
+// Base Next.js config
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /** your config here */
-};
-module.exports = withNextVideo(nextConfig);
+  // Add shared webpack modifications here so they persist across wrappers
+  webpack: (config) => {
+    // Preserve existing custom rules
 
-module.exports = withHydrationOverlay({
-  
-  /**
-   * Optional: `appRootSelector` is the selector for the root element of your app. By default, it is `#__next` which works
-   * for Next.js apps with pages directory. If you are using the app directory, you should change this to `main`.
-   */
-  webpack: (config, {
-    
-    isServer
-  }) => {
-    // Add the file loader rule for video files
-    config.module.rules.push({
-      
-      test: /\.(mov|mp4|avi|wmv|flv|webm)$/,
-      use: {
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-          outputPath: 'static/videos/',
-          publicPath: '/_next/static/videos/'
-        }
-      }
-    });
     config.module.rules.push({
       test: /\.css$/,
       use: ['style-loader', {
         loader: 'css-loader',
-        options: {
-          modules: true
-        }
+        options: { modules: true }
       }]
     });
-    
+
     return config;
-  },
-  appRootSelector: "main"
-})(nextConfig);
+  }
+};
+
+// Configure hydration overlay options
+const withHydration = withHydrationOverlay({
+  // If using the app directory, set to 'main'. Pages dir default is '#__next'.
+  appRootSelector: 'main'
+});
+
+// Compose plugins: next-video -> hydration overlay -> transpile modules
+// Order matters: inner-most applies first.
+module.exports = withTM(
+  withHydration(
+    withNextVideo(nextConfig)
+  )
+);
