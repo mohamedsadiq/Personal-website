@@ -32,14 +32,16 @@ const MyComponent = () => {
         className="flex flex-row flex-wrap gap-y-12"
       >
         <Section1 MohamedSadiq={MohamedSadiq}/>
+        <Section6 MohamedSadiq={MohamedSadiq}/>
         <Section4 MohamedSadiq={MohamedSadiq}/>
+
         <Section3 MohamedSadiq={MohamedSadiq}/>
         <Section2 MohamedSadiq={MohamedSadiq}/>
         <Section9 MohamedSadiq={MohamedSadiq}/>
         <Section5 MohamedSadiq={MohamedSadiq}/>
         <Section7 MohamedSadiq={MohamedSadiq}/>
         <Section8 MohamedSadiq={MohamedSadiq}/>
-        <Section6 MohamedSadiq={MohamedSadiq}/>
+   
       </motion.div>
     </div>
   );
