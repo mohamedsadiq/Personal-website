@@ -6,7 +6,7 @@ draft: false
 categories:
   - 'Thoughts'
 images:
-  - '/blog_img/NPCs.png'
+  - '/blog_img/stone.jpg'
 ---
 
 From the first stone tools to today’s AI, humanity’s relationship with technology has always blended utility and experience. Early hand axes weren’t just functional—they were shaped for grip, hinting at a primal urge for tools to feel right. Fast-forward and here we are in the AI era: while raw functionality (e.g., code generation, data analysis) remains critical, it’s increasingly commoditized. AI models and their infrastructure let competitors replicate features easily. A startup could clone 60% of ChatGPT’s functionality in weeks.
