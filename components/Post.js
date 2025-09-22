@@ -5,7 +5,10 @@ import Image from 'next/image'
 export default function Post({ post }) {
 
   const date = new Date(post.frontmatter?.date)
-  const imagePath = post.frontmatter.image.startsWith('/') ? post.frontmatter.image : '/' + post.frontmatter.image;
+  // Support both `image` (string) and `images` (array) in frontmatter
+  const frontmatter = post.frontmatter || {}
+  const firstImage = frontmatter.image || (Array.isArray(frontmatter.images) && frontmatter.images.length > 0 ? frontmatter.images[0] : null)
+  const imagePath = firstImage ? (firstImage.startsWith('/') ? firstImage : '/' + firstImage) : null
 
   return (
     <div className="blog_intro">
@@ -15,16 +18,18 @@ export default function Post({ post }) {
                   <div className="block">
                         <div className="blog_photo">
                         <div className='overlay_img'></div>
-                        <Image
+                        {imagePath && (
+                          <Image
                             src={imagePath}
-                            alt="Picture of the author"
+                            alt={frontmatter.title || 'Blog cover image'}
                             objectFit='cover'
                             layout='fill'
                             quality={100}
-                            />
+                          />
+                        )}
                       </div>
-                      <div className="text_blog">
-                      <h4>{post.frontmatter.title}</h4>
+                      <div className="text_blog" style={{marginBottom:0}}>
+                      <h4 style={{marginBottom:0}}>{post.frontmatter.title}</h4>
                       <span className="datespan">Date: {`${date.getMonth() + 1} - ${date.getDate()} - ${date.getFullYear()}`}</span>
                       <p>{post.frontmatter.summary}</p>
                      

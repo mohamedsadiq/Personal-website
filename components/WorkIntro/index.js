@@ -1,11 +1,13 @@
 import Link from 'next/link';
 
-const WorkIntro = ({title, link}) =>{
+// Extended to accept optional `backHref` for flexible back navigation.
+// Backward compatible: defaults to '/projects'.
+const WorkIntro = ({title, link, backHref}) =>{
     return(
         <div className="nav_work">
             <div>
                 {/* <h1>{title ? title: "Title"}</h1> */}
-            <Link href={"/projects"}>
+            <Link href={backHref || "/projects"}>
                 <div className="go_back"> ↰ Go Back</div>
             </Link>
             </div>

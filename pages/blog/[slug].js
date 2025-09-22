@@ -6,11 +6,54 @@ import Link from 'next/link'
 import { slugify, ImageUrl } from '../../utils'
 import { NextSeo } from 'next-seo';
 import { useEffect, useState } from 'react';
+import Image from 'next/image'
+import WorkIntro from '../../components/WorkIntro'
 
 export default function PostPage({ content, frontmatter }) {
   const colors = ["#dbece9", "#efe1e2", "#e2e5ef"];
   const date = new Date(frontmatter.date);
   const [headings, setHeadings] = useState([]);
+  // Determine featured image from frontmatter
+  const firstImage = frontmatter.image || (Array.isArray(frontmatter.images) && frontmatter.images.length > 0 ? frontmatter.images[0] : null);
+  // For next/image, use a local/public path (leading slash). Do NOT use ImageUrl here.
+  const featuredImagePath = firstImage ? (firstImage.startsWith('/') ? firstImage : '/' + firstImage) : null;
+
+  // Customize markdown rendering to match LightUp project page
+  marked.use({
+    renderer: {
+      paragraph(text) {
+        return `<p class="text-gray-500 leading-relaxed mb-6">${text}</p>`;
+      },
+      heading(text, level) {
+        if (level === 1) {
+          return `<h1 class="text-4xl font-semibold text-slate-950 mb-6">${text}</h1>`;
+        } else if (level === 2) {
+          return `<h2 class="text-2xl font-medium text-slate-950 mt-12 mb-4">${text}</h2>`;
+        } else if (level === 3) {
+          return `<h3 class="text-xl font-medium text-gray-500 mt-10 mb-3">${text}</h3>`;
+        }
+        return `<h${level} class="text-lg font-medium text-gray-700 mt-8 mb-3">${text}</h${level}>`;
+      },
+      list(body, ordered) {
+        const tag = ordered ? 'ol' : 'ul';
+        const listClass = ordered ? 'list-decimal' : 'list-disc';
+        return `<${tag} class="${listClass} pl-6 mb-6 text-gray-500 space-y-2">${body}</${tag}>`;
+      },
+      listitem(text) {
+        return `<li class="pl-2">${text}</li>`;
+      },
+      link(href, title, text) {
+        const t = title ? ` title="${title}"` : '';
+        return `<a href="${href}"${t} class="text-blue-600 hover:text-blue-800 transition-colors">${text}</a>`;
+      },
+      strong(text) {
+        return `<strong class="font-semibold">${text}</strong>`;
+      },
+      em(text) {
+        return `<em class="italic">${text}</em>`;
+      }
+    }
+  });
 
   useEffect(() => {
     const htmlContent = marked.parse(content);
@@ -79,48 +122,82 @@ export default function PostPage({ content, frontmatter }) {
         }}
       />
 
-      <div className="container container_blog_parent">
-        <div className="inner_container inner_blog_body">
-          <div className="col-lg-10 m-auto">
-            <Link href={"/blogs"}>
-              <div className="go_back"> ↰ Go Back</div>
-            </Link>
-            <div className='card card-page'>
-              <a href={`/blog/${frontmatter.slug}`} ></a>
-              <h1 className='post-title mt-10 mb-10'>{frontmatter.title}</h1>
-              <div className='post-date mt-2 mb-2'>
-                <div> {
-                  frontmatter.categories.map((category, index) => {
-                    const slug = slugify(category);
-                    const colorIndex = index % colors.length;
-                    const backgroundColor = colors[colorIndex];
+      <div className="bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="max-w-3xl mx-auto">
+            <WorkIntro title={frontmatter.title} link={'/blogs'} backHref={'/blogs'} />
+            
+            <div className="mb-10">
+            <h1 className="text-4xl  font-semibold text-slate-950 mb-4">
+                {frontmatter.title }
+              </h1>
+              <p className="text-md text-[#676767] mb-6 ">
+                {/* {frontmatter.summary} {" "} */}
 
-                    return (
-                      <Link className="tag" key={category} href={`/category/${slug}`}>
-                        <span style={{ background: backgroundColor }} className="tags">
-                          {category}
-                        </span>
-                      </Link>
-                    );
-                  })
-                }
+                <span className=" text-gray-400 text-sm mt-2">
+                   {new Date(frontmatter.date).toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })}
+                </span>
+              </p>
+              
+              {featuredImagePath && (
+                <div className="relative w-full h-96 rounded-xl overflow-hidden mb-10 bg-gray-100">
+                  <Image
+                    src={featuredImagePath}
+                    alt={frontmatter.title || 'Blog cover image'}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-xl"
+                    priority
+                  />
                 </div>
-                <div><h6> {`${date.getMonth() + 1} / ${date.getDate()} / ${date.getFullYear()}`} </h6></div>
-              </div>
-              <div className='post-body m-auto' dangerouslySetInnerHTML={{ __html: marked.parse(content) }}></div>
+              )}
+              
+              {/* <div className="flex flex-wrap gap-2 mb-8">
+                {frontmatter.categories?.map((category, index) => {
+                  const slug = slugify(category);
+                  const colorIndex = index % colors.length;
+                  const backgroundColor = colors[colorIndex];
+
+                  return (
+                    <Link 
+                      key={category} 
+                      href={`/category/${slug}`}
+                      className="inline-block px-3 py-1 rounded-full text-sm font-medium"
+                      style={{ backgroundColor: `${backgroundColor}80` }}
+                    >
+                      {category}
+                    </Link>
+                  );
+                })}
+              </div> */}
             </div>
+            
+            <div className="prose prose-lg max-w-none text-[#676767]">
+              <div dangerouslySetInnerHTML={{ __html: marked.parse(content) }} />
+            </div>
+            
+            {headings.length > 0 && (
+              <nav className="mt-12 border-t border-gray-200 pt-8">
+                <h3 className="text-sm font-medium text-gray-500 mb-4">Table of Contents</h3>
+                <ul className="space-y-2">
+                  {headings.map((heading, index) => (
+                    <li key={index} style={{ marginLeft: `${(heading.level - 1) * 0.5}rem` }}>
+                      <button 
+                        onClick={() => handleScrollToHeading(heading.id)}
+                        className="text-sm text-gray-500 hover:text-gray-900 transition-colors text-left"
+                      >
+                        {heading.text}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
           </div>
-          <nav className="side-nav">
-            <ul>
-              {headings.map((heading, index) => (
-                <li key={index} style={{ marginLeft: `${(heading.level - 1) * 20}px` }}>
-                  <button onClick={() => handleScrollToHeading(heading.id)}>
-                    {heading.text}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </nav>
         </div>
       </div>
       <style jsx>{`
@@ -129,7 +206,7 @@ export default function PostPage({ content, frontmatter }) {
           top: 100px;
           right: 20px;
           width: 200px;
-          display:none
+          display: none;
         }
         .side-nav ul {
           list-style: none;

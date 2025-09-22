@@ -29,7 +29,7 @@ const Section9 = ({ MohamedSadiq, motionCtl, order }) => {
             </div>
             <div className="mainContent main_projects">
                 {[
-                    { href: "https://moosadiq.substack.com/p/does-this-feel-indispensable?r=8bhus&triedRedirect=true", title: "Does this feel indispensable?", date: "Jan 2025" },
+                    { href: "/blog/does-this-feel-indispensable", title: "Does this feel indispensable?", date: "Jan 2025" },
                    
                    
                 ].map((link, index) => (
@@ -50,3 +50,4 @@ const Section9 = ({ MohamedSadiq, motionCtl, order }) => {
 };
 
 export default Section9;
+
