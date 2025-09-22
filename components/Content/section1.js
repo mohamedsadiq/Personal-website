@@ -1,12 +1,24 @@
 import { motion } from "framer-motion";
 
-const Section1 = ({ MohamedSadiq }) => {
+const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
+  // Use centralized motion control if available, otherwise fallback to legacy props
+  const motionProps = motionCtl
+    ? {
+        variants: motionCtl.variants,
+        initial: "hidden",
+        animate: "visible",
+        transition: motionCtl.getTransition(order),
+      }
+    : {
+        initial: MohamedSadiq.initial,
+        animate: MohamedSadiq.animate,
+        transition: { delay: 0.1 },
+      };
+
   return (
     <motion.div
       className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
-      initial={MohamedSadiq.initial}
-      animate={MohamedSadiq.animate}
-      transition={{ delay: 0.1 }}
+      {...motionProps}
     >
       <div id="name" className="p-0 flex h-auto w-full md:w-44 flex-none text-zinc-400">
         Moe Sadiq

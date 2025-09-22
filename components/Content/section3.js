@@ -3,7 +3,7 @@ import Link from "next/link";
 import productOfTheWeek from "../../public/Optimized SVG.svg";
 import Image from "next/image";
 
-const Section3 = ({ MohamedSadiq }) => {
+const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
     const hoverEffect = {
      
     };
@@ -26,12 +26,23 @@ const Section3 = ({ MohamedSadiq }) => {
         },
       };
 
+    const motionProps = motionCtl
+    ? {
+        variants: motionCtl.variants,
+        initial: "hidden",
+        animate: "visible",
+        transition: motionCtl.getTransition(order),
+      }
+    : {
+        initial: MohamedSadiq.initial,
+        animate: MohamedSadiq.animate,
+        transition: { delay: 0.4 },
+      };
+
     return (
         <motion.div
             className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
-            initial={MohamedSadiq.initial}
-            animate={MohamedSadiq.animate}
-            transition={{ delay: 0.4 }}
+            {...motionProps}
         >
             <div className="mainContent flex h-auto w-full md:w-44 flex-none">
                 <h1 className="text-zinc-400">Things I’ve built</h1>

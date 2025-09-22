@@ -26,22 +26,36 @@ const MyComponent = () => {
     }
   }
 
+  // High-level motion controller: centralize variants and transition rules
+  const motionCtl = {
+    variants: {
+      hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+      visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+    },
+    getTransition: (order = 0) => ({
+      type: "spring",
+      stiffness: 120,
+      damping: 20,
+      mass: 0.6,
+      delay: 0.1 + order * 0.1,
+    }),
+  }
+
   return (
     <div className="content pt-16">
       <motion.div
         className="flex flex-row flex-wrap gap-y-12"
       >
-        <Section1 MohamedSadiq={MohamedSadiq}/>
-        <Section6 MohamedSadiq={MohamedSadiq}/>
-        <Section4 MohamedSadiq={MohamedSadiq}/>
+        <Section1 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={0}/>
+        <Section6 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={1}/>
+        <Section4 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={2}/>
+        <Section3 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={3}/>
+        <Section2 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={4}/>
+        <Section9 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={5}/>
+        <Section5 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={6}/>
+        <Section7 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={6}/>
+        <Section8 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={7}/>
 
-        <Section3 MohamedSadiq={MohamedSadiq}/>
-        <Section2 MohamedSadiq={MohamedSadiq}/>
-        <Section9 MohamedSadiq={MohamedSadiq}/>
-        <Section5 MohamedSadiq={MohamedSadiq}/>
-        <Section7 MohamedSadiq={MohamedSadiq}/>
-        <Section8 MohamedSadiq={MohamedSadiq}/>
-   
       </motion.div>
     </div>
   );
