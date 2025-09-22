@@ -27,7 +27,7 @@ const web3= () => {
             <main>
                 <div className="container">
                     <div className="inner_container">
-                        <WorkIntro title={"Web 3 Concepts"} link={"/projects/developerdao"} />
+                        <WorkIntro title={"Web 3 Concepts"} link={"/projects/developerdao"}  backHref={"/projects"} />
                         <h1>Certified Web3 Boy</h1>
                         <p>21 NTFs inspired by the web3 culture.  <span className="dateProject">-  Jun 2021 </span></p>
                         <div className="blog_photo inner_blog work_intro_image">

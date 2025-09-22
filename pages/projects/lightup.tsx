@@ -122,7 +122,7 @@ const LightUp: FC = () => {
             <main>
                 <div className="container">
                     <div className="inner_container">
-                        <WorkIntro title={"Web 3 Concepts"} link={"/projects/developerdao"} />
+                        <WorkIntro title={"Web 3 Concepts"} link={"/projects/developerdao"} backHref={"/projects"} />
                         <div className="project_title">
                           <h1>{projectContent.title}</h1>
                           <p>{projectContent.description} <span className="dateProject"> {projectContent.date} </span></p>

@@ -39,6 +39,7 @@ const DeveloperDAO: React.FC = () => {
             <WorkIntro
               title={"DeveloperDao"}
               link={"https://www.daospot.xyz/"}
+              backHref={"/projects"}
             />
             <div className="project_title">
               <h1>DAOs Spot</h1>

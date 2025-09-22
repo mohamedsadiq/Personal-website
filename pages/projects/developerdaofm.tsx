@@ -27,6 +27,7 @@ const DeveloperDAO: React.FC = () => {
             <WorkIntro
               title={"DeveloperDAO FM"}
               link={"https://developer-dao-k6lc0ianf-mohamedsadiq.vercel.app/"}
+              backHref={"/projects"}
             />
             <h1>DeveloperDAO FM</h1>
             <p>
