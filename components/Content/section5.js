@@ -1,14 +1,25 @@
 import { motion } from "framer-motion";
 
 
-const Section5 = ({MohamedSadiq}) => {
+const Section5 = ({MohamedSadiq, motionCtl, order}) => {
  
+    const motionProps = motionCtl
+    ? {
+        variants: motionCtl.variants,
+        initial: "hidden",
+        animate: "visible",
+        transition: motionCtl.getTransition(order),
+      }
+    : {
+        initial: MohamedSadiq.initial,
+        animate: MohamedSadiq.animate,
+        transition: { delay: 0.6},
+      };
+
     return (
         <motion.div
           className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
-          initial={MohamedSadiq.initial}
-          animate={MohamedSadiq.animate}
-          transition={{ delay: 0.6}}
+          {...motionProps}
          >
           <div className="mainContent flex h-auto w-full md:w-44 flex-none">
             <h1 className="text-zinc-400">Latest Activity</h1>

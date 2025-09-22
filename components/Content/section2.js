@@ -51,16 +51,28 @@ const projects = [
     },
 ];
 
-const Section2 = ({ MohamedSadiq }) => {
+const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
     const [hoveredProject, setHoveredProject] = useState(null);
     const [hoverPosition, setHoverPosition] = useState({ x: 0, y: 0 });
+
+    // Use centralized motion control if available, otherwise fallback to legacy props
+    const motionProps = motionCtl
+      ? {
+          variants: motionCtl.variants,
+          initial: "hidden",
+          animate: "visible",
+          transition: motionCtl.getTransition(order),
+        }
+      : {
+          initial: MohamedSadiq.initial,
+          animate: MohamedSadiq.animate,
+          transition: { delay: 0.5 },
+        };
 
     return (
         <motion.div
             className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
-            initial={MohamedSadiq.initial}
-            animate={MohamedSadiq.animate}
-            transition={{ delay: 0.5 }}
+            {...motionProps}
         >
             <div className="mainContent flex h-auto w-full md:w-auto flex-none">
                 <h1 className="mt-1 text-zinc-400">An Engineering Snippets</h1>

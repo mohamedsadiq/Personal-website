@@ -1,17 +1,28 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const Section9 = ({ MohamedSadiq }) => {
+const Section9 = ({ MohamedSadiq, motionCtl, order }) => {
     const hoverEffect = {
 
     };
 
+    const motionProps = motionCtl
+    ? {
+        variants: motionCtl.variants,
+        initial: "hidden",
+        animate: "visible",
+        transition: motionCtl.getTransition(order),
+      }
+    : {
+        initial: MohamedSadiq.initial,
+        animate: MohamedSadiq.animate,
+        transition: { delay: 0.3 },
+      };
+
     return (
         <motion.div
             className="flex flex-col md:flex-row gap-x-32 gap-y-6 md:gap-y-0"
-            initial={MohamedSadiq.initial}
-            animate={MohamedSadiq.animate}
-            transition={{ delay: 0.3 }}
+            {...motionProps}
         >
             <div className="mainContent flex h-auto w-full md:w-auto flex-none">
                 <h1 className="mt-1 text-zinc-400">Thoughts</h1>
