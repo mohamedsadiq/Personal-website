@@ -47,15 +47,14 @@ const MyComponent = () => {
         className="flex flex-row flex-wrap gap-y-12"
       >
         <Section1 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={0}/>
-        <Section6 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={1}/>
-        <Section4 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={2}/>
-        <Section3 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={3}/>
-        <Section2 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={4}/>
-        <Section9 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={5}/>
-        <Section5 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={6}/>
+        <Section4 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={1}/>
+        <Section3 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={2}/>
+        <Section2 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={3}/>
+        <Section9 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={4}/>
+        <Section5 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={5}/>
         <Section7 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={6}/>
         <Section8 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={7}/>
-
+        <Section6 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={8}/>
       </motion.div>
     </div>
   );
@@ -63,7 +62,7 @@ const MyComponent = () => {
 
 const Content = () => {
   return (
-    <div className={"p-0 md:mx-12 sm:mx-10"}>
+    <div className={"p-0 md:mx-12 sm:mx-10 text-base"}>
       <MyComponent />
     </div>
   );
