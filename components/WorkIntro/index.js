@@ -8,7 +8,7 @@ const WorkIntro = ({title, link, backHref}) =>{
             <div>
                 {/* <h1>{title ? title: "Title"}</h1> */}
             <Link href={backHref || "/projects"}>
-                <div className="go_back"> ↰ Go Back</div>
+                <div className="go_back"> ↰ Back</div>
             </Link>
             </div>
             {/* <div className='linkInfoProject'>

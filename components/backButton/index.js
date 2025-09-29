@@ -17,7 +17,7 @@ const BackButton = ({ title }) => {
         <div className="nav_work mt-24">
             <div>
                 <Link href="/sparks">
-                    <div className="go_back">↰ Go Back</div>
+                    <div className="go_back">↰ Back</div>
                 </Link>
             </div>
 

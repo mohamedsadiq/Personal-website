@@ -37,7 +37,7 @@ export const projectContent: ProjectContent = {
         },
         {
             title: "The inspiration.",
-            content: "The web is a big part of work, learning, and daily tasks, but switching tabs to find information can break focus. LightUp simplifies this by letting you explore and understand any web content instantly, inspired by how Genius.com explains song lyrics—now powered by AI for even deeper insights"
+            content: "The idea for LightUp grew from a small, recurring frustration: I would read a line that sparked curiosity — a phrase, a reference, a word — and instinctively want to dive deeper. But every time I jumped away from the page to search, open Genius, or follow a link, I lost the rhythm of my reading and the momentum of the thought. I wanted a gentle way to explore meaning without tearing myself out of the flow. Using Genius.com to unpack song lyrics taught me how transformative a single inline note can be. A short annotation can reveal history, slang, or intent and change how a line lands. I imagined bringing that same kind of quiet discovery to every web page: a small window that opens where my eyes already are, giving context and depth without taking me elsewhere. LightUp is the result of combining that habit — the pleasure of instant annotation — with modern AI that can scale explanations across any text. It’s not about replacing slow, careful reading; it’s about preserving it. Curiosity should be allowed to bloom in place: quick, focused, and uninterrupted. The annotations become margin-notes that live with the text, searchable and revisit-able, so insights accumulate rather than fragment."
         },
         {
             title: "Annotation and AI.",
