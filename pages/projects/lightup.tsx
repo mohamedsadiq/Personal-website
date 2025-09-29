@@ -161,6 +161,8 @@ const LightUp: FC = () => {
                         </div>
                     </div>
                 </div>
+                
+                
             </main>
             <div className='p-20 pt-0'>
                 <ProjectImage 
@@ -178,19 +180,19 @@ const LightUp: FC = () => {
                             content={projectContent.sections[2].content} 
                         />
                         <br/>
-                        <ProjectSection 
+                        {/* <ProjectSection 
                             title={projectContent.sections[3].title} 
                             content={projectContent.sections[3].content} 
-                        />
+                        /> */}
                     </div>
                     <ProjectImage 
                         src={img3} 
                         alt="LightUp in action" 
                         caption="LightUp in action" 
                     />
-                    <div className="inner_container">
+                    {/* <div className="inner_container">
                         <FeatureList features={projectContent.features} />
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className='container'>
@@ -200,7 +202,7 @@ const LightUp: FC = () => {
                             alt="LightUp workflow" 
                             caption="Loading - Display - Chat" 
                         />
-                        <WorkflowSteps workflow={projectContent.workflow} />
+                        {/* <WorkflowSteps workflow={projectContent.workflow} /> */}
                     </div>
                 </div>
                 
@@ -215,6 +217,25 @@ const LightUp: FC = () => {
                             title={projectContent.sections[4].title} 
                             content={projectContent.sections[4].content} 
                         />
+                        
+                        {/* Simple Links Section */}
+                        <div className="mt-12 pt-8 border-t border-gray-200">
+                            <h2 className="text-xl font-medium mb-4">Links</h2>
+                            <div className="flex flex-col space-y-2">
+                                <a href="https://www.boimaginations.com/lightup" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                                    Official Website
+                                </a>
+                                <a href="https://github.com/mohamedsadiq/LightUp" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                                    GitHub Repository
+                                </a>
+                                <a href="https://peerlist.io/sadiqo/project/lightup" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                                    On Peerlist 
+                                </a>
+                                <a href="https://chromewebstore.google.com/detail/lightup/your-extension-id" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                                    Chrome Web Store
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

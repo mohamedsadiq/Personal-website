@@ -2808,17 +2808,19 @@ position: relative;
  
   border-radius: 8px;
   /* padding: 10px; */
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   padding: 7px 10px;
   color: #b8b8b8;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .go_back{
- background:#2b2b2b  
+ background:#2b2b2b;
+ 
 }
 .go_back:hover{
-  opacity: 0.7;
+  opacity: 0.9;
+  scale: 1.01;
 }
 
 .copy_link{
