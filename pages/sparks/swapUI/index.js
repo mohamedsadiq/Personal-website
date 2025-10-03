@@ -29,8 +29,9 @@ export default function SwapUI() {
               bar, I integrated circular indicators to signify the moving
               content, elevating the overall user experience.
             </p>
+            <div className="expBorder" >
             <div className="exp"  style={{ height:"400px"}} >
-          
+            </div>
             </div>
             
           </div>

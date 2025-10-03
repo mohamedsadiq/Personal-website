@@ -270,7 +270,9 @@ export default function Widget() {
               This interactive widget dynamically generates dots representing exercise progress. Each click triggers a visual update, reflecting changes in exercise status with animated transitions and interactive elements.       
             </p>
              {/* Use the new component here */}
+             <div className="expBorder" >
             <div className="exp flex justify-center items-center">
+           
               <motion.div
                 className="buttonWidget bg-slate-950 exercises_widget overflow-hidden"
                 style={{ padding: isClicked ? "26px" : "0" }}
@@ -319,6 +321,7 @@ export default function Widget() {
                   <h2 className="text-[#3fe38d] text-3xl" style={{ textShadow: '0 0 5px #3fe38d' }}>Doing morning exercises</h2>
                 </motion.div>
               </motion.div>
+              </div>
             </div>
             <Footer currentPath={router.pathname} />
           </div>
