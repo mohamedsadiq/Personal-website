@@ -44,6 +44,7 @@ export default function OnHover() {
             <p  className="mt-0 text-sm">
             This demo showcases a series of dynamically animated buttons built with <span className="spark_tools">React</span> and <span className="spark_tools"> Framer Motion.</span>
             </p>
+            <div className="expBorder" >
             <div className="exp" style={{ height: "400px", display: "flex", justifyContent: "center", alignItems: "center" }}>
               <div className="expButton">
                 {models.map((model, index) => (
@@ -67,6 +68,7 @@ export default function OnHover() {
                   </motion.button>
                 ))}
               </div>
+            </div>
             </div>
             <Footer currentPath={router.pathname} />
           </div>

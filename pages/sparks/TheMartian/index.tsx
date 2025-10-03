@@ -191,7 +191,9 @@ const TheMartian: React.FC = () => {
                   Use the mouse scroll wheel to zoom in and out.
                 </li>
             </ul>
+            <div className="expBorder" >
             <div className="exp" ref={containerRef} style={{ height:"700px"}} ></div>
+            </div>
             <Footer currentPath={router.pathname} />
             
 

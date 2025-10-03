@@ -205,17 +205,20 @@ const SparkItem: React.FC<SparkData> = ({ href, title, description, date, type, 
               Your browser does not support the video tag.
             </video>
           ) : (
-            <Image
-              alt={title}
-              src={src}
-              placeholder="blur"
-              blurDataURL={blurSrc}
-              width={width || 0}
-              height={height || 0}
-              layout="responsive"
-              className='border-solid border-[#eaeaea] border'
-              onLoadingComplete={() => setIsLoaded(true)}
-            />
+            <div className="relative w-full aspect-video">
+              <Image
+                alt={title}
+                src={src}
+                fill
+                placeholder={blurSrc && blurSrc !== '/' ? 'blur' : 'empty'}
+                blurDataURL={blurSrc && blurSrc !== '/' ? blurSrc : undefined}
+                className='border-solid border-[#eaeaea] border object-cover rounded-lg'
+                onLoad={() => setIsLoaded(true)}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                unoptimized={process.env.NODE_ENV !== 'production'}
+                priority={false}
+              />
+            </div>
           )}
           <AnimatePresence>
             {!isLoaded && (

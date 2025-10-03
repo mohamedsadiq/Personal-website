@@ -89,6 +89,7 @@ export default function QuickButton() {
             <p  className="mt-0 text-sm">
               The Quick Button is an interactive UI component designed to enhance user engagement through dynamic animations. Built using <span className="spark_tools">React</span>, <span className="spark_tools">Framer Motion</span> and <span className="spark_tools">Tailwind CSS</span>, this button offers a visually appealing experience by incorporating smooth transitions and state changes upon user interaction.
             </p>
+            <div className="expBorder" >
             <div className="exp" style={{ height: "400px" }}>
               <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-32 h-32 flex justify-center items-center">
                 <motion.div
@@ -167,6 +168,7 @@ export default function QuickButton() {
                   </div>
                 </motion.div>
               </div>
+            </div>
             </div>
             <Footer currentPath={router.pathname} />
           </div>

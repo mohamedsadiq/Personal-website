@@ -65,6 +65,7 @@ export default function Line() {
             <p  className="mt-0 text-sm">
               In this snippet, I have been working on enhancing the user experience of a dynamic timeline component built with <span className="spark_tools">React</span> and <div  className="spark_tools">Framer Motion</div>. My main focus has been on implementing interactive elements and animations to create a more engaging interface.
             </p>
+            <div className="expBorder" >
             <div className="exp" style={{ height: "400px", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
              
               <div className="flex w-full items-center justify-center mt-4">
@@ -90,7 +91,7 @@ export default function Line() {
                 
                 <ControlButton onClick={handleIncreaseClick} dragging={dragging} text="+" />
               </div>
-          
+              </div>
             </div>
             <Footer currentPath={router.pathname} />
             {/* <div className="year-inputs flex gap-x-4 mt-5">

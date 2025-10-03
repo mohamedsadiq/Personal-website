@@ -82,7 +82,8 @@ html{
   color: #151515;
 }
 .light .container .inner_container_sparks p{
-  color:#555555
+  color:#555555;
+  font-size: 0.9rem;
 }
 .contents {
   transition: opacity 0.9s ease-in-out, filter 0.9s ease-in-out;
@@ -259,6 +260,7 @@ a.tag{
   margin-top: 13px;
   /* font-size: 0.9rem; */
   line-height: 24px;
+  line-height: 26px;
 }
 
 .center_any_thing{
@@ -1483,7 +1485,8 @@ color: rgb(250, 200, 17);
   color:#fff
 }
 .light .inner_container h1{
-  color:#000
+  color:#000;
+  font-size: 1.5rem;
 }
 .inner_stack{
   display: grid; 
@@ -3313,7 +3316,7 @@ position: relative;
 }
 .exp{
   overflow: hidden;
-  margin-top: 23px;
+  /* margin-top: 23px; */
   width: 100%;
   min-height: 400px;
   border-radius: 16px;
@@ -3321,6 +3324,7 @@ position: relative;
   position: relative;
   /* margin-bottom: 23px; */
   transition: all 0.3s ease-in-out;
+  background-color: #f4f4f4;
 }
 .expControllSection{
   padding: 17px;
@@ -3357,11 +3361,16 @@ position: relative;
    position: absolute;
  
  }
+ .expBorder{
+  padding: 4px;
+    border: 1px solid #eee;
+    border-radius: 20px;
+ }
 .spark_tools{
-  padding:3px 8px;
+  padding:0px 8px;
   border-radius: 10px;
   transition: all 0.1s ease-in-out;
-  display: ruby;
+  display: inline-block;
 }
 .light .spark_tools{
   border: 1px solid #e5e5e5;
@@ -4305,7 +4314,7 @@ color: #eee;
   }
 
 .light .exp{
-  border:1px solid #ddd
+  border:1px solid #eee
 }
 
 .controll_button {

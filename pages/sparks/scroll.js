@@ -59,6 +59,8 @@ export default function FamilyTransactions() {
               bar, I integrated circular indicators to signify the moving
               content, elevating the overall user experience.
             </p>
+            <div className="expBorder" >
+
             <div className="exp"  style={{ height:"400px"}} >
             <div className="rainy"></div>
               <div className="dotsForScrolling">
@@ -70,8 +72,9 @@ export default function FamilyTransactions() {
                 <div className="rainy"></div>
                 <div style={{ height: "400px" }}></div>
               </div>
+              
             </div>
-           
+            </div>
             <Footer currentPath={router.pathname} />
           </div>
         </div>
