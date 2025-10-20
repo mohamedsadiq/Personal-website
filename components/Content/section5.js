@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 
 const Section5 = ({MohamedSadiq, motionCtl, order}) => {
@@ -27,11 +28,13 @@ const Section5 = ({MohamedSadiq, motionCtl, order}) => {
           <div className="mainContent ">
             <div className="hover_project latest_activity_project">
               <a href="https://x.com/colderoshay/status/1824092686405820431" target="_blink">
-                <video width="100%" height="100%" autoPlay loop muted playsInline>
-                  <source src="/ssssad.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                <h1 className="h_m text-[#000]"> Circle</h1>
+               <Image
+                  src="/lightupper.jpeg"
+                  width={400}
+                  height={400}
+               ></Image>
+               
+                <h1 className="h_m text-[#000]"> Staff-picked projects of the day </h1>
                 <span className="text-[#8c8c8c]">A way to display my work.</span>
               </a>
             </div>

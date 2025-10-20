@@ -8,45 +8,45 @@ const projects = [
     { 
         href: "sparks/widget", 
         title: "A Dynamic Widget", 
-        date: "Jun 2024",
+        date: "Jun / 2024",
         image: "/dots.gif"
     },
     { 
         href: "sparks/button", 
         title: "Button", 
-        date: "Jun 2024",
+        date: "Jun / 2024",
         image: "/fffsfs.gif"
     },
     { 
         href: "sparks/scroll", 
         title: "Scrolling", 
-        date: "Jun 2024",
+        date: "Jun / 2024",
         image: 'https://video.twimg.com/ext_tw_video/1801041108274757632/pu/vid/avc1/480x480/qbJ7cC1MrzCqk444.mp4?tag=12',
         isVideo: true
     },
     { 
         href: "sparks/TheMartian", 
         title: "The Martian", 
-        date: "Jul 2024",
+        date: "Jul / 2024",
         image: "/martin.gif"
     },
     { 
         href: "sparks/onhover", 
         title: "On Hover", 
-        date: "Jul 2024",
+        date: "Jul / 2024",
         image: "/July 11 Screen Recording.gif"
     },
     { 
         href: "sparks/gameui", 
         title: "3D Smooth transitions", 
-        date: "Jul 2024",
+        date: "Jul / 2024",
         image: "/July 10 Screen Recording.mp4",
         isVideo: true
     },
     { 
         href: "sparks/line", 
         title: "Temporal Flow", 
-        date: "Jul 2024",
+        date: "Jul / 2024",
         image: "/line.gif"
     },
 ];

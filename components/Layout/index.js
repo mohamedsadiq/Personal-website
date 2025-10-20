@@ -86,7 +86,7 @@ const Layout = ({ children }) => {
             setTransitionStage("fadeIn");
           }
         }}
-        className={`contents ${transitionStage} ${isBlogPage ? "contenttttt" : ""}`}
+        className={`root contents ${transitionStage} ${isBlogPage ? "contenttttt" : ""}`}
       >
         {clonedChildren}
     
