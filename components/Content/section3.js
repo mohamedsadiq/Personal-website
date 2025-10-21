@@ -56,7 +56,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                             <span className="arrowspan">
                             </span>
                         </h1>  
-                        <p className="mt-2 text-[]">AI Chrome extension - Peerlist Staff Pick, Top 9 AI Annotation Tool on SassHub.</p>             
+                        <p className="mt-2 text-[#484848]">AI Chrome extension - Peerlist Staff Pick, Top 9 AI Annotation Tool on SassHub.</p>             
                     </a>
                     {/* <span className="text-black float-right">arrow</span> */}
                 </motion.div>
@@ -71,7 +71,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                                 </span>  
                             </span>
                         </h1>       
-                          <p className="mt-2">A DAO discovery platform, Product Hunt #4 Product of the Week.</p>              
+                          <p className="mt-2 text-[#484848]">A DAO discovery platform, Product Hunt #4 Product of the Week.</p>              
                     </Link>
                     {/* <span className="text-black float-right">arrow</span> */}
                 </motion.div>
@@ -82,7 +82,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                             <span className="arrowspan">
                             </span>
                         </h1>
-                         <p className="mt-2"> A community tool featured as a top product on Product Hunt, reaching an audience of 700,000+.</p>             
+                         <p className="mt-2 text-[#484848]"> A community tool featured as a top product on Product Hunt, reaching an audience of 700,000+.</p>             
                     </Link>
                 </motion.div>
                 <motion.div className="hover_project text-base leading-relaxed" whileHover={hoverEffect}>
@@ -92,7 +92,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                             <span className="arrowspan">
                             </span>
                         </h1>
-                          <p className="mt-2">21 NTFs inspired by the web3 culture. </p>             
+                          <p className="mt-2 text-[#484848]">21 NTFs inspired by the web3 culture. </p>             
                     </Link>
                 </motion.div>
             </div>
