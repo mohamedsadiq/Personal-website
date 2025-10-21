@@ -16,19 +16,19 @@ const Section4 = ({MohamedSadiq, motionCtl, order}) => {
     };
   const IconAnimation = {
     initial: {
-      scale: 0.8,
-      transformOrigin: "50% 50%",
+      // scale: 0.8,
+      // transformOrigin: "50% 50%",
       filter: "blur(40px)",
     },
     animate: {
-      scale: 1,
-      transformOrigin: "50% 50%",
+      // scale: 1,
+      // transformOrigin: "50% 50%",
       filter: "blur(0px)",
     },
     hover: {
-      x:2,
-      scale: 1.2,
-      transformOrigin: "50% 50%",
+      // x:2,
+      // scale: 1.2,
+      // transformOrigin: "50% 50%",
     },
   };
     
@@ -48,18 +48,15 @@ const Section4 = ({MohamedSadiq, motionCtl, order}) => {
 
     return (
         <motion.div 
-          className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
+          className="grid grid-cols-1 md:grid-cols-[176px_1fr] gap-6"
           {...motionProps}
           
         >
-        <div className="mainContent flex h-auto w-full md:w-44 flex-none">
-          <h1 className="text-zinc-400">Social media</h1>
+        <div className="text-zinc-400">
+          <h1>Social media</h1>
         </div>
-        <div className="mainContent   flex items-center content-center justify-center  " id="links_home">
-          <div className="links_home flex " style={{padding:0}}>
-         
-        
-        
+        <div id="links_home">
+          <div className="links_home grid grid-cols-5 justify-evenly items-center gap-4 w-full sm:gap-6 sm:grid-cols-5 sm:justify-evenly sm:items-center ">
           <motion.a 
            initial={IconAnimation.initial}
            animate={IconAnimation.animate}

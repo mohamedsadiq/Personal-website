@@ -41,13 +41,13 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
 
     return (
         <motion.div
-            className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
+            className="grid grid-cols-1 md:grid-cols-[176px_1fr] gap-6"
             {...motionProps}
         >
-            <div className="mainContent flex h-auto w-full md:w-44 flex-none">
-                <h1 className="text-zinc-400">Things I’ve built</h1>
+            <div className="text-zinc-400">
+                <h1>Things I’ve built</h1>
             </div>
-            <div className="mainContent main_projects">
+            <div className="main_projects">
             <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
                     <a  
                     className="mt-0 mb-4" href="projects/lightup"  rel="noopener noreferrer" >                  

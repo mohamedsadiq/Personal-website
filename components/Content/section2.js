@@ -71,13 +71,13 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
 
     return (
         <motion.div
-            className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
+            className="grid grid-cols-1 md:grid-cols-[176px_1fr] gap-6"
             {...motionProps}
         >
-            <div className="mainContent flex h-auto w-full md:w-auto flex-none">
-                <h1 className="mt-1 text-zinc-400">An Engineering Snippets</h1>
+            <div className="text-zinc-400">
+                <h1>An Engineering Snippets</h1>
             </div>
-            <div className="mainContent main_projects relative">
+            <div className="main_projects relative">
                 {projects.map((project, index) => (
                     <motion.div 
                         key={index} 
@@ -95,7 +95,7 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
                             });
                         }}
                     >
-                        <Link className="sparkLinks mt-2 block" href={project.href}>
+                        <Link className="sparkLinks block" href={project.href}>
                             <h1 className="flex gap-x-1.5 justify-center items-center">
                                 <span className="text-[#000]">{project.title}</span>
                                 <span className="h-px w-16 bg-stone-300 block"></span>
