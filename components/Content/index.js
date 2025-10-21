@@ -44,7 +44,7 @@ const MyComponent = () => {
   return (
     <div className="content pt-16">
       <motion.div
-        className="flex flex-row flex-wrap gap-y-12"
+        className="grid gap-12"
       >
         <Section1 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={0}/>
         <Section4 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={1}/>

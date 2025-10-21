@@ -47,13 +47,13 @@ const Section7 = ({ MohamedSadiq, motionCtl, order }) => {
 
     return (
         <motion.div
-            className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
+            className="grid grid-cols-1 md:grid-cols-[176px_1fr] gap-6"
             {...motionProps}
         >
-            <div className="mainContent flex h-auto w-full md:w-auto flex-none">
-                <h1 className="text-zinc-400">Years of Curated Works</h1>
+            <div className="text-zinc-400">
+                <h1>Years of Curated Works</h1>
             </div>
-            <div className="mainContent" id="links_home">
+            <div id="links_home">
                 <Link href="/additionalWorks" aria-label="Additional Works" className="flex">
                     <motion.div
                         className="flex gap-x-2.5 w-80 padding-0 relative"

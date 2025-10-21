@@ -17,13 +17,13 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
 
   return (
     <motion.div
-      className="flex flex-col md:flex-row gap-x-6 gap-y-6 md:gap-y-0"
+      className="grid grid-cols-1 md:grid-cols-[176px_1fr] gap-6"
       {...motionProps}
     >
-      <div id="name" className="p-0 flex h-auto w-full md:w-44 flex-none text-zinc-400">
+      <div id="name" className="text-zinc-400">
         Moe Sadiq
       </div>
-      <div className="home_text_front">
+      <div>
         <p>
         Hi, I’m Moe—a designer, engineer, and the creator of <a href="https://www.boimaginations.com/" target="_blank" rel="noopener noreferrer">BOI<svg className="inline  ml-1" width="14" height="14" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M23.5163 13.8667C22.555 14.828 21.7964 15.9137 21.8305 16.279C21.8305 16.279 21.8305 16.279 21.8305 16.617C21.8305 21.4656 17.8866 25.4092 13.0403 25.4092C8.19272 25.4092 4.24919 21.4656 4.24919 16.617C4.24919 11.7717 8.19371 7.82919 13.0403 7.82919C13.4055 7.82919 13.4055 7.82919 13.4055 7.82919C13.7972 7.86922 14.9015 7.11796 15.8601 6.15962C16.8181 5.20127 16.2723 4.03982 14.6467 3.57867C14.6467 3.57867 14.6467 3.57867 13.0403 3.57867C5.84963 3.57867 -0.00132798 9.42764 -0.000335567 16.6174C-0.00132798 23.8091 5.84863 29.66 13.0403 29.66C20.2301 29.66 26.081 23.8087 26.0797 16.617C26.081 15.0355 26.081 15.0355 26.081 15.0355C25.6318 13.4314 24.4776 12.9054 23.5163 13.8667Z" fill="#909090"/>

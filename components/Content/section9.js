@@ -21,20 +21,20 @@ const Section9 = ({ MohamedSadiq, motionCtl, order }) => {
 
     return (
         <motion.div
-            className="flex flex-col md:flex-row gap-x-32 gap-y-6 md:gap-y-0"
+            className="grid grid-cols-1 md:grid-cols-[176px_1fr] gap-6"
             {...motionProps}
         >
-            <div className="mainContent flex h-auto w-full md:w-auto flex-none">
-                <h1 className="mt-1 text-zinc-400">Thoughts</h1>
+            <div className="text-zinc-400">
+                <h1>Thoughts</h1>
             </div>
-            <div className="mainContent main_projects">
+            <div className="main_projects">
                 {[
                     { href: "/blog/does-this-feel-indispensable", title: "Does this feel indispensable?", date: "Jan 2025" },
                    
                    
                 ].map((link, index) => (
                     <motion.div className="hover_project padding-0 " key={index} whileHover={hoverEffect}>
-                        <Link className="sparkLinks mt-2" href={link.href} >
+                        <Link className="sparkLinks" href={link.href} >
                             <h1 className="flex gap-x-1.5 justify-center items-center">
                                 <span className="text-[#000]">{link.title}</span>
                                 {/* <span className="h-px w-16 bg-stone-300 block"></span> */}

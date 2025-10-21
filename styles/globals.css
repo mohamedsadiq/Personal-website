@@ -874,12 +874,16 @@ a {
 .logo_stack_icon span{
   width: 100px;
 }
-.grid{
-  display: grid; 
-  grid-template-columns: 1fr 1fr; 
-  gap: 1px  35px;
-  /* margin-bottom: 100px; */
-}
+/* .grid{
+  display: grid
+;
+    grid-template-columns: 1fr;
+    gap: 54px 56px;
+  
+    justify-content: center;
+    justify-items: start;
+ 
+} */
 .navigation div h2{
   font-size: 0.8rem;
 }
@@ -1199,9 +1203,9 @@ backface-visibility: hidden;
 .content div p a:hover{
   color: #808080;
 }
-.content div:first-child{
+/* .content div:first-child{
   padding-left: 12px;
-}
+} */
 .spark_block video, .spark_block img{
  transition: all 0.3s ease-in-out;
 }
@@ -3687,10 +3691,7 @@ position: relative;
     display: grid;
     grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
   }
-  .inner_stack,.grid{
-    grid-template-columns: 1.5fr; 
-    gap: 0px 274px; 
-  }
+ 
  
   .developerdao_vid{
     width: 399px;
