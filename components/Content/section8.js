@@ -22,14 +22,14 @@ const Section8 = ({ MohamedSadiq, motionCtl, order }) => {
         {...motionProps}
         >
           <div className="text-zinc-400">
-            <h1>Mentions</h1>
+            <h1 className="text-base leading-relaxed">Mentions</h1>
           </div>
           <div id="links_home">
            <ul>
-             <li className="text-black block">Today in Design<span className="arrowspan text-zinc-400"> - Newsletter </span></li>
-             <li className="text-black block">Product Hunt<span className="arrowspan text-zinc-400"> - Newsletter</span></li>
-             <li className="text-black block">DeveloperDAO<span className="arrowspan text-zinc-400"> - Newsletter</span></li>
-             <li className="text-black block">DSS<span className="arrowspan text-zinc-400"> -  Dead Simple Sites </span></li>
+             <li className="text-black block text-base leading-relaxed">Today in Design<span className="arrowspan text-zinc-400"> - Newsletter </span></li>
+             <li className="text-black block text-base leading-relaxed">Product Hunt<span className="arrowspan text-zinc-400"> - Newsletter</span></li>
+             <li className="text-black block text-base leading-relaxed">DeveloperDAO<span className="arrowspan text-zinc-400"> - Newsletter</span></li>
+             <li className="text-black block text-base leading-relaxed">DSS<span className="arrowspan text-zinc-400"> -  Dead Simple Sites </span></li>
            </ul>
           </div>
         </motion.div>

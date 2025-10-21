@@ -1183,9 +1183,9 @@ backface-visibility: hidden;
   margin-bottom: 120px;
 }
 .content div p{
-  margin: 0;
+  /* margin: 0; */
   color: #E2E2E2;
-  line-height: 24px;
+  
 }
 .light .content div p{
   color: #000;

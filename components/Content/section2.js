@@ -75,13 +75,13 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
             {...motionProps}
         >
             <div className="text-zinc-400">
-                <h1>An Engineering Snippets</h1>
+                <h1 className="text-base leading-relaxed">An Engineering Snippets</h1>
             </div>
             <div className="main_projects relative">
                 {projects.map((project, index) => (
                     <motion.div 
                         key={index} 
-                        className="hover_project padding-0 relative z-10"
+                        className="hover_project padding-0 relative z-10 mb-2"
                         onHoverStart={() => {
                             setHoveredProject(project);
                             setHoverPosition({ x: 0, y: 0 });
@@ -96,7 +96,7 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
                         }}
                     >
                         <Link className="sparkLinks block" href={project.href}>
-                            <h1 className="flex gap-x-1.5 justify-center items-center">
+                            <h1 className="flex gap-x-1.5 justify-center items-center text-base leading-relaxed">
                                 <span className="text-[#000]">{project.title}</span>
                                 <span className="h-px w-16 bg-stone-300 block"></span>
                                 <span className="arrowspan text-zinc-500">{project.date}</span>
@@ -141,7 +141,7 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
                     )}
                 </AnimatePresence>
                 <div className="relative inline-block">
-                    <Link className="mt-2 text-slate-950 hover:opacity-70 inline-flex items-center underline" href={"/sparks"}>
+                    <Link className="text-base mt-2 text-slate-950 hover:opacity-70 inline-flex items-center underline" href={"/sparks"}>
                         Explore All Sparks
                         <span>   {"->"}</span>
                     </Link>

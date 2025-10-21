@@ -23,7 +23,7 @@ const Section5 = ({MohamedSadiq, motionCtl, order}) => {
           {...motionProps}
          >
           <div className="text-zinc-400">
-            <h1>Latest Activity</h1>
+            <h1 className="text-base leading-relaxed">Latest Activity</h1>
           </div>
           <div>
             <div className="hover_project latest_activity_project">
@@ -34,8 +34,8 @@ const Section5 = ({MohamedSadiq, motionCtl, order}) => {
                   height={400}
                ></Image>
                
-                <h1 className="h_m text-[#000]"> Staff-picked projects of the day </h1>
-                <span className="text-[#8c8c8c]">A way to display my work.</span>
+                <h1 className="h_m text-[#000] text-base leading-relaxed mt-4"> Staff-picked projects of the day </h1>
+                <span className="text-[#8c8c8c] text-base leading-relaxed">A way to display my work.</span>
               </a>
             </div>
           </div>
