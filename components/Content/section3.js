@@ -45,22 +45,22 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
             {...motionProps}
         >
             <div className="text-zinc-400">
-                <h1>Things I’ve built</h1>
+                <h1 className="text-base leading-relaxed">Things I’ve built</h1>
             </div>
             <div className="main_projects">
-            <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
+            <motion.div className="hover_project text-base leading-relaxed" whileHover={hoverEffect}>
                     <a  
                     className="mt-0 mb-4" href="projects/lightup"  rel="noopener noreferrer" >                  
-                        <h1 className="daos_spot_home text-[#000] underline">
+                        <h1 className="daos_spot_home text-[#000] underline ">
                             LightUp
                             <span className="arrowspan">
                             </span>
                         </h1>  
-                        <p className=" text-[#484848]">AI Chrome extension - Peerlist Staff Pick, Top 9 AI Annotation Tool on SassHub.</p>             
+                        <p className="mt-2 text-[]">AI Chrome extension - Peerlist Staff Pick, Top 9 AI Annotation Tool on SassHub.</p>             
                     </a>
                     {/* <span className="text-black float-right">arrow</span> */}
                 </motion.div>
-                <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
+                <motion.div className="hover_project text-base leading-relaxed " whileHover={hoverEffect}>
                     <Link  
                     className="mt-0 mb-4" href="projects/daosspot" >                  
                         <h1 className="daos_spot_home text-[#000] underline">
@@ -71,28 +71,28 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                                 </span>  
                             </span>
                         </h1>       
-                          <p>A DAO discovery platform, Product Hunt #4 Product of the Week.</p>              
+                          <p className="mt-2">A DAO discovery platform, Product Hunt #4 Product of the Week.</p>              
                     </Link>
                     {/* <span className="text-black float-right">arrow</span> */}
                 </motion.div>
-                <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
+                <motion.div className="hover_project text-base leading-relaxed" whileHover={hoverEffect}>
                     <Link className="mt-2 mb-4" href="projects/developerdaofm" >
                         <h1 className="text-[#000] underline">
                             DeeveloperDAO FM
                             <span className="arrowspan">
                             </span>
                         </h1>
-                         <p> A community tool featured as a top product on Product Hunt, reaching an audience of 700,000+.</p>             
+                         <p className="mt-2"> A community tool featured as a top product on Product Hunt, reaching an audience of 700,000+.</p>             
                     </Link>
                 </motion.div>
-                <motion.div className="hover_project padding-0" whileHover={hoverEffect}>
+                <motion.div className="hover_project text-base leading-relaxed" whileHover={hoverEffect}>
                     <Link className="mt-2" href="/projects/web3boy" >
                         <h1 className="text-[#000] underline">
                             Web3 lover boy 
                             <span className="arrowspan">
                             </span>
                         </h1>
-                          <p>21 NTFs inspired by the web3 culture. </p>             
+                          <p className="mt-2">21 NTFs inspired by the web3 culture. </p>             
                     </Link>
                 </motion.div>
             </div>

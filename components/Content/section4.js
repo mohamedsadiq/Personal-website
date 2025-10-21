@@ -53,7 +53,7 @@ const Section4 = ({MohamedSadiq, motionCtl, order}) => {
           
         >
         <div className="text-zinc-400">
-          <h1>Social media</h1>
+          <h1 className="text-base leading-relaxed">Social media</h1>
         </div>
         <div id="links_home">
           <div className="links_home grid grid-cols-5 justify-evenly items-center gap-4 w-full sm:gap-6 sm:grid-cols-5 sm:justify-evenly sm:items-center ">

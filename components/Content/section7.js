@@ -51,7 +51,7 @@ const Section7 = ({ MohamedSadiq, motionCtl, order }) => {
             {...motionProps}
         >
             <div className="text-zinc-400">
-                <h1>Years of Curated Works</h1>
+                <h1 className="text-base leading-relaxed">Years of Curated Works</h1>
             </div>
             <div id="links_home">
                 <Link href="/additionalWorks" aria-label="Additional Works" className="flex">

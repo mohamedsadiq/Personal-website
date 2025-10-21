@@ -25,17 +25,17 @@ const Section9 = ({ MohamedSadiq, motionCtl, order }) => {
             {...motionProps}
         >
             <div className="text-zinc-400">
-                <h1>Thoughts</h1>
+                <h1 className="text-base leading-relaxed">Thoughts</h1>
             </div>
             <div className="main_projects">
                 {[
-                    { href: "/blog/does-this-feel-indispensable", title: "Does this feel indispensable?", date: "Jan 2025" },
+                    { href: "/blog/does-this-feel-indispensable", title: "Does this feel indispensable?", date: "Jan / 2025" },
                    
                    
                 ].map((link, index) => (
                     <motion.div className="hover_project padding-0 " key={index} whileHover={hoverEffect}>
                         <Link className="sparkLinks" href={link.href} >
-                            <h1 className="flex gap-x-1.5 justify-center items-center">
+                            <h1 className="text-base leading-relaxed flex gap-x-1.5 justify-center items-center">
                                 <span className="text-[#000]">{link.title}</span>
                                 {/* <span className="h-px w-16 bg-stone-300 block"></span> */}
                                 <span className="arrowspan text-zinc-500">{link.date}</span>
