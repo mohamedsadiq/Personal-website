@@ -27,7 +27,7 @@ const Section5 = ({MohamedSadiq, motionCtl, order}) => {
           </div>
           <div>
             <div className="hover_project latest_activity_project">
-              <a href="https://x.com/colderoshay/status/1824092686405820431" target="_blink">
+              <a href="https://x.com/j4ykadam/status/1924056811214356905" target="_blink">
                <Image
                   src="/lightupper.jpeg"
                   width={400}
@@ -35,7 +35,7 @@ const Section5 = ({MohamedSadiq, motionCtl, order}) => {
                ></Image>
                
                 <h1 className="h_m text-[#000] text-base leading-relaxed mt-4"> Staff-picked projects of the day </h1>
-                <span className="text-[#8c8c8c] text-base leading-relaxed">A way to display my work.</span>
+                <p className=" mt-2 text-[#8c8c8c] text-sm leading-relaxed">LightUp was featured on Peerlist’s list of the best Chrome extensions of 2025 and was selected as a Staff Pick: Project of the Day.</p>
               </a>
             </div>
           </div>

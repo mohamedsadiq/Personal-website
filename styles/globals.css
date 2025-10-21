@@ -1184,11 +1184,11 @@ backface-visibility: hidden;
 }
 .content div p{
   /* margin: 0; */
-  color: #E2E2E2;
+  /* color: #E2E2E2; */
   
 }
 .light .content div p{
-  color: #000;
+  /* color: #000; */
 }
 .light .content div p a{
   color:#1e5297
@@ -3475,7 +3475,7 @@ position: relative;
   } */
   .content div p{
     
-    font-size: 0.8rem;
+    /* font-size: 0.8rem; */
     /* margin-top: 15px; */
   }
   .inner_header{
