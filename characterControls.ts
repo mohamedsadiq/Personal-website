@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 import { A, D, DIRECTIONS, S, W } from './utilsSpark'
 
 
@@ -60,14 +60,18 @@ import { A, D, DIRECTIONS, S, W } from './utilsSpark'
             play = 'Idle'
         }
 
-        if (this.currentAction != play) {
-            const toPlay = this.animationsMap.get(play)
-            const current = this.animationsMap.get(this.currentAction)
+        if (this.currentAction !== play) {
+            const toPlay = this.animationsMap.get(play);
+            const current = this.animationsMap.get(this.currentAction);
 
-            current.fadeOut(this.fadeDuration)
-            toPlay.reset().fadeIn(this.fadeDuration).play();
-
-            this.currentAction = play
+            // Only proceed if both animations exist in the map
+            if (current && toPlay) {
+                current.fadeOut(this.fadeDuration);
+                toPlay.reset().fadeIn(this.fadeDuration).play();
+                this.currentAction = play;
+            } else {
+                console.warn(`Animation not found: ${!current ? this.currentAction : play}`);
+            }
         }
 
         this.mixer.update(delta)

@@ -26,7 +26,7 @@ export class KeyDisplay {
     }
 
     public updatePosition() {
-        const positions = {
+        const positions: Record<string, { top: string; left: string }> = {
             [W]: { top: `${window.innerHeight - 150}px`, left: `${300}px` },
             [A]: { top: `${window.innerHeight - 100}px`, left: `${200}px` },
             [S]: { top: `${window.innerHeight - 100}px`, left: `${300}px` },
@@ -34,11 +34,12 @@ export class KeyDisplay {
             [SHIFT]: { top: `${window.innerHeight - 100}px`, left: `${50}px` }
         };
 
-        DIRECTIONS.forEach((key) => {
+        (DIRECTIONS as string[]).forEach((key) => {
             const div = this.map.get(key);
-            if (div) {
-                div.style.top = positions[key].top;
-                div.style.left = positions[key].left;
+            const position = positions[key];
+            if (div && position) {
+                div.style.top = position.top;
+                div.style.left = position.left;
             }
         });
     }

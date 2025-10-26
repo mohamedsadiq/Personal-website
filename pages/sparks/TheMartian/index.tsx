@@ -4,8 +4,8 @@ import BackButton from "../../../components/backButton";
 import { KeyDisplay } from "../../../utilsSpark";
 import { CharacterControls } from "../../../characterControls";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { useRouter } from 'next/router';
 import Footer from '../../../components/sparksNav';
 
@@ -235,9 +235,11 @@ function generateFloor(scene: THREE.Scene) {
   scene.add(floor);
 }
 
-function wrapAndRepeatTexture(map: THREE.Texture) {
-  map.wrapS = map.wrapT = THREE.RepeatWrapping;
-  map.repeat.x = map.repeat.y = 10;
+function wrapAndRepeatTexture(map: THREE.Texture | null) {
+  if (!map) return;
+  map.wrapS = THREE.RepeatWrapping;
+  map.wrapT = THREE.RepeatWrapping;
+  map.repeat.set(8, 8);
 }
 
 function light(scene: THREE.Scene) {

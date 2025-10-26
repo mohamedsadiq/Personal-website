@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 import { useRouter } from "next/router";
 import { Inter } from "next/font/google";
 import type { AppProps } from 'next/app';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 const inter = Inter({
   weight: '400',
@@ -17,7 +17,7 @@ const k2d = {
   className: 'font-k2d',
 };
 
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+function MyApp({ Component, pageProps }: AppProps): React.ReactElement {
   const router = useRouter();
 
   useEffect(() => {

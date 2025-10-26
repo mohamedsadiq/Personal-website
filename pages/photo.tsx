@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Image, { StaticImageData } from 'next/image'
 import { motion } from "framer-motion";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
-import 'react-photo-view/dist/react-photo-view.css';
 
 // Import images
 import img1 from "../img/photos/1.jpg"
