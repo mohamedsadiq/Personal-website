@@ -69,15 +69,20 @@ const Taste = () => {
                                     </div>
                                     <div className="unsplash_img keen-slider__slide unsplash_img2"></div>
                                     <div className="unsplash_img keen-slider__slide unsplash_img3">
-                                        <Image
-                                            src={sea_hands}
-                                            alt="Picture of the author"
-                                            objectFit='cover'
-                                            layout='fill'
-                                            objectPosition="center"
-                                            quality={100}
-                                            placeholder="blur"
-                                        />
+                                        <div className="relative w-full h-full">
+                                            <Image
+                                                src={sea_hands}
+                                                alt="Hands reaching out from the sea"
+                                                fill
+                                                sizes="(max-width: 768px) 100vw, 50vw"
+                                                style={{
+                                                    objectFit: 'cover',
+                                                    objectPosition: 'center'
+                                                }}
+                                                quality={75}
+                                                placeholder="blur"
+                                            />
+                                        </div>
                                     </div>
                                     <div className="unsplash_img keen-slider__slide unsplash_img4"></div>
                                     <div className="unsplash_img keen-slider__slide unsplash_img5"></div>
@@ -144,16 +149,21 @@ const Taste = () => {
                         </div>
                         <div className="item2">
                             <div className="goods item_elements">
-                                <Image
-                                   className="represent"
-                                    src={represent}
-                                    alt="Picture of the author"
-                                    objectFit='cover'
-                                    layout='fill'
-                                    objectPosition="center"
-                                    quality={100}
-                                    placeholder="blur"
-                                />
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        src={represent}
+                                        alt="Representative image"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        className="represent"
+                                        style={{
+                                            objectFit: 'cover',
+                                            objectPosition: 'center'
+                                        }}
+                                        quality={100}
+                                        placeholder="blur"
+                                    />
+                                </div>
                                 
                                 <div className="goods_inner">
                                     <h2>Aesthetic</h2>
@@ -175,16 +185,21 @@ const Taste = () => {
                                     <div className='icon_level1'>
                                         <div className="icon_stack">
 
-                                        <Image
-                                    src={appleMuisc}
-                                    className="lamar"
-                                    alt="Picture of the author"
-                                    objectFit='cover'
-                                    layout='fill'
-                                   
-                                    quality={100}
-                                    
-                                />
+                                        <div className="relative w-full h-full">
+                                            <Image
+                                                src={appleMuisc}
+                                                className="lamar"
+                                                alt="Apple Music icon"
+                                                fill
+                                                sizes="50px"
+                                                style={{
+                                                    objectFit: 'cover',
+                                                    objectPosition: 'center'
+                                                }}
+                                                quality={75}
+                                                placeholder="blur"
+                                            />
+                                        </div>
                                         </div>
                                         <div className="icon_stack">
                                             <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2931 2931" fill='#1dd15e' width="33" height="33"><path className="st0" d="M1465.5 0C656.1 0 0 656.1 0 1465.5S656.1 2931 1465.5 2931 2931 2274.9 2931 1465.5C2931 656.2 2274.9.1 1465.5 0zm672.1 2113.6c-26.3 43.2-82.6 56.7-125.6 30.4-344.1-210.3-777.3-257.8-1287.4-141.3-49.2 11.3-98.2-19.5-109.4-68.7-11.3-49.2 19.4-98.2 68.7-109.4C1242.1 1697.1 1721 1752 2107.3 1988c43 26.5 56.7 82.6 30.3 125.6zm179.3-398.9c-33.1 53.8-103.5 70.6-157.2 37.6-393.8-242.1-994.4-312.2-1460.3-170.8-60.4 18.3-124.2-15.8-142.6-76.1-18.2-60.4 15.9-124.1 76.2-142.5 532.2-161.5 1193.9-83.3 1646.2 194.7 53.8 33.1 70.8 103.4 37.7 157.1zm15.4-415.6c-472.4-280.5-1251.6-306.3-1702.6-169.5-72.4 22-149-18.9-170.9-91.3-21.9-72.4 18.9-149 91.4-171 517.7-157.1 1378.2-126.8 1922 196 65.1 38.7 86.5 122.8 47.9 187.8-38.5 65.2-122.8 86.7-187.8 48z" /></svg>
@@ -206,23 +221,41 @@ const Taste = () => {
                                             </svg>
                                         </div>
                                         <div className="icon_stack obslogo">
-                                            <Image
-                                                src={obs}
-                                                alt="Picture of the author"
-                                                quality={100}
-                                            />
+                                            <div className="relative w-full h-full">
+                                                <Image
+                                                    src={obs}
+                                                    alt="OBS Studio icon"
+                                                    fill
+                                                    sizes="50px"
+                                                    style={{
+                                                        objectFit: 'cover',
+                                                        objectPosition: 'center'
+                                                    }}
+                                                    quality={75}
+                                                    placeholder="blur"
+                                                />
+                                            </div>
                                         </div>
                                         <div className="icon_stack"></div>
                                     </div>
                                     <div className='icon_level2'>
                                         <div className="icon_stack"></div>
                                         <div className="icon_stack linImg">
-                                                <Image
-                                                className="lin"
-                                                    src={lin}
-                                                    alt="Picture of the author"
-                                                    quality={100}
-                                                />
+                                                <div className="relative w-full h-full">
+                                                    <Image
+                                                        src={lin}
+                                                        alt="LinkedIn icon"
+                                                        fill
+                                                        sizes="50px"
+                                                        className="lin"
+                                                        style={{
+                                                            objectFit: 'cover',
+                                                            objectPosition: 'center'
+                                                        }}
+                                                        quality={75}
+                                                        placeholder="blur"
+                                                    />
+                                                </div>
                                         </div>
                                         <div className="icon_stack">
                                         <svg height="30" viewBox="-11.9 -2 1003.9 995.6" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m12.1 353.9s-24-17.3 4.8-40.4l67.1-60s19.2-20.2 39.5-2.6l619.2 468.8v224.8s-.3 35.3-45.6 31.4z" fill="#2489ca"/><path d="m171.7 498.8-159.6 145.1s-16.4 12.2 0 34l74.1 67.4s17.6 18.9 43.6-2.6l169.2-128.3z" fill="#1070b3"/><path d="m451.9 500 292.7-223.5-1.9-223.6s-12.5-48.8-54.2-23.4l-389.5 354.5z" fill="#0877b9"/><path d="m697.1 976.2c17 17.4 37.6 11.7 37.6 11.7l228.1-112.4c29.2-19.9 25.1-44.6 25.1-44.6v-671.2c0-29.5-30.2-39.7-30.2-39.7l-197.7-95.3c-43.2-26.7-71.5 4.8-71.5 4.8s36.4-26.2 54.2 23.4v887.5c0 6.1-1.3 12.1-3.9 17.5-5.2 10.5-16.5 20.3-43.6 16.2z" fill="#3c99d4"/></svg>
@@ -266,16 +299,21 @@ const Taste = () => {
                         </div>
                         <div className="books_goods_item books_rec_img ">
                             <div className="book_container_taste books_rec_img1">
-                                <Image
-                                    className="book_cover"
-                                    src={book1}
-                                    alt="Picture of the author"
-                                    objectFit='cover'
-                                    layout='fill'
-                                    objectPosition="center"
-                                    quality={100}
-                                    placeholder="blur"
-                                />
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        src={book1}
+                                        alt="Book cover"
+                                        fill
+                                        sizes="(max-width: 768px) 100px, 150px"
+                                        className="book_cover"
+                                        style={{
+                                            objectFit: 'cover',
+                                            objectPosition: 'center'
+                                        }}
+                                        quality={100}
+                                        placeholder="blur"
+                                    />
+                                </div>
 
                                  
                                 <div className="qoute">
@@ -284,26 +322,36 @@ const Taste = () => {
                                 </div>
                             </div>
                             <div className="book_container_taste">
-                                <Image
-                                    src={book2}
-                                    alt="Picture of the author"
-                                    objectFit='cover'
-                                    layout='fill'
-                                    objectPosition="center"
-                                    quality={100}
-                                    placeholder="blur"
-                                />
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        src={book2}
+                                        alt="Book cover"
+                                        fill
+                                        sizes="(max-width: 768px) 100px, 150px"
+                                        style={{
+                                            objectFit: 'cover',
+                                            objectPosition: 'center'
+                                        }}
+                                        quality={100}
+                                        placeholder="blur"
+                                    />
+                                </div>
                             </div>
                             <div className="book_container_taste">
-                                <Image
-                                    src={book3}
-                                    alt="Picture of the author"
-                                    objectFit='cover'
-                                    layout='fill'
-                                    objectPosition="center"
-                                    quality={100}
-                                    placeholder="blur"
-                                />
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        src={book3}
+                                        alt="Book cover"
+                                        fill
+                                        sizes="(max-width: 768px) 100px, 150px"
+                                        style={{
+                                            objectFit: 'cover',
+                                            objectPosition: 'center'
+                                        }}
+                                        quality={100}
+                                        placeholder="blur"
+                                    />
+                                </div>
                             </div>
 
                         </div>
@@ -323,47 +371,70 @@ const Taste = () => {
                             <p>Hear the shows that have me hooked!.</p>
                             <div className="podcasts_taste">
                                 <div className="thenetworkstate hover_img_podcast">
-                                    <Image
-                                     className="network_static_img"
-                                        src={thenetworkstate}
-                                        alt="Picture of the author"
-                                        objectFit='cover'
-                                        layout='fill'
-                                        objectPosition="center"
-                                        quality={100}
-                                        placeholder="blur"
-                                    />
-                                     <Image
-                                        src={networkgif}
-                                        className="network_gif_img"
-                                        alt="Picture of the author"
-                                        objectFit='cover'
-                                        layout='fill'      
-                                        quality={100}              
-                                    />
+                                    <div className="relative w-full h-full">
+                                        <Image
+                                            src={thenetworkstate}
+                                            alt="The Network State podcast cover"
+                                            fill
+                                            sizes="(max-width: 768px) 100px, 150px"
+                                            className="network_static_img"
+                                            style={{
+                                                objectFit: 'cover',
+                                                objectPosition: 'center'
+                                            }}
+                                            quality={75}
+                                            placeholder="blur"
+                                        />
+                                    </div>
+                                     <div className="relative w-full h-full">
+                                        <Image
+                                            src={networkgif}
+                                            alt="The Network State podcast animation"
+                                            fill
+                                            sizes="(max-width: 768px) 100px, 150px"
+                                            className="network_gif_img"
+                                            style={{
+                                                objectFit: 'cover',
+                                                objectPosition: 'center'
+                                            }}
+                                            quality={75}
+                                            placeholder="blur"
+                                        />
+                                    </div>
                                 
                                 </div>
                                
                                 <div className="flagraent hover_img_podcast">
-                                    <Image
-                                        src={flagraent}
-                                        className="network_static_img"
-                                        alt="Picture of the author"
-                                        objectFit='cover'
-                                        layout='fill'
-                                        objectPosition="center"
-                                        quality={100}
-                                        placeholder="blur"
-                                    />
-                                     <Image
-                                        src={flagraentss}
-                                        className="network_gif_img"
-                                        alt="Picture of the author"
-                                        objectFit='cover'
-                                        layout='fill'  
-                                        objectPosition="right"
-                                        quality={100}              
-                                    />
+                                    <div className="relative w-full h-full">
+                                        <Image
+                                            src={flagraent}
+                                            alt="Flagra Ent podcast cover"
+                                            fill
+                                            sizes="(max-width: 768px) 100px, 150px"
+                                            className="network_static_img"
+                                            style={{
+                                                objectFit: 'cover',
+                                                objectPosition: 'center'
+                                            }}
+                                            quality={75}
+                                            placeholder="blur"
+                                        />
+                                    </div>
+                                     <div className="relative w-full h-full">
+                                        <Image
+                                            src={flagraentss}
+                                            alt="Flagra Ent podcast animation"
+                                            fill
+                                            sizes="(max-width: 768px) 100px, 150px"
+                                            className="network_gif_img"
+                                            style={{
+                                                objectFit: 'cover',
+                                                objectPosition: 'right center'
+                                            }}
+                                            quality={75}
+                                            placeholder="blur"
+                                        />
+                                    </div>
                                 </div>
                             </div>
                             <Link href="/taste/podcast" passHref>
@@ -412,20 +483,7 @@ const Taste = () => {
                                     </svg>
                                 </div>
                             </a>
-                            <Image
-                                        src={dribbn}
-                                        className="dribbn"
-                                        alt="Picture of the author"
-                                        objectFit='cover'
-                                        layout='fill'  
-                                      
-                                        quality={100}              
-                                    />
-                        </div>
-                        <div className="item4">
-                            <h2>Substack</h2>
-                            <p>Stay informed and inspired!.</p>
-                            <div className="twitterIcons substack">
+                        </a>
                                 <svg width="100" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" textRendering="geometricPrecision" imageRendering="optimizeQuality" fillRule="evenodd" clipRule="evenodd" viewBox="0 0 448 511.471"><path fill="#FF681A" d="M0 0h448v62.804H0V0zm0 229.083h448v282.388L223.954 385.808 0 511.471V229.083zm0-114.542h448v62.804H0v-62.804z" /></svg>                          </div>
                             <a href='https://twitter.com/sadiq_moo' target="_blink">
                                 <a href='https://substack.com/profile/13973284-mohamed-sadiq' target="_blink">

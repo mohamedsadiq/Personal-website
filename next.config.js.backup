@@ -1,0 +1,7 @@
+/** minimal next.config.js for debugging */
+module.exports = {
+  reactStrictMode: true,
+  images: {
+    formats: ['image/avif','image/webp'],
+  },
+};

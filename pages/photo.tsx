@@ -70,14 +70,18 @@ const Photo: React.FC = () => {
                         className="relative"
                       >
                         <PhotoView src={item.img.src}>
-                          <Image
-                            className='border_radius'
-                            src={item.img}
-                            alt={`Photo ${item.key}`}
-                            quality={75 }
-                            placeholder="blur"
-                            layout="responsive"
-                          />
+                          <div className="relative w-full aspect-square">
+                            <Image
+                              src={item.img}
+                              alt={`Photo ${item.key}`}
+                              fill
+                              sizes="(max-width: 768px) 50vw, 33vw"
+                              className="border_radius object-cover"
+                              quality={75}
+                              placeholder={item.img.blurDataURL ? 'blur' : 'empty'}
+                              blurDataURL={item.img.blurDataURL}
+                            />
+                          </div>
                         </PhotoView>
                         <motion.button
                           className="absolute bottom-2 right-2 bg-white bg-opacity-70 p-2 rounded-full"

@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import Footer from '../../../components/sparksNav';
 
 // R3F
-import { Canvas, useThree, useFrame } from "react-three-fiber";
+import { Canvas, useThree, useFrame } from "@react-three/fiber";
 
 // three js
 import * as THREE from "three";

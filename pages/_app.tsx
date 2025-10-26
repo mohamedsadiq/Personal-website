@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "react-photo-view/dist/react-photo-view.css";
 import Layout from "../components/Layout";
 import { useRouter } from "next/router";
 import { Inter } from "next/font/google";

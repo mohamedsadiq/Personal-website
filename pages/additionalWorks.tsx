@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 import { StaticImageData } from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import "react-photo-view/dist/react-photo-view.css";
 import type { AnimatePresenceProps } from 'framer-motion'
 
 const Image = dynamic(() => import("next/image"), { ssr: false });
@@ -151,12 +150,15 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
                   )}
                 </AnimatePresence>
                 <Image
-                  className="rounded-lg object-cover"
                   src={image.default}
                   alt={`Image ${index + 1}`}
-                  layout="fill"
-                  objectFit="cover"
-                  placeholder="blur"
+                  fill
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
+                  className="rounded-lg"
+                  style={{
+                    objectFit: 'cover'
+                  }}
+                  placeholder={image.default.blurDataURL ? 'blur' : 'empty'}
                   blurDataURL={image.default.blurDataURL}
                 />
               </motion.div>
@@ -191,12 +193,15 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
               }}
             >
               <Image
-                className="rounded-lg object-cover"
                 src={image.default}
                 alt={`Image ${index + 1}`}
-                layout="fill"
-                objectFit="cover"
-                placeholder="blur"
+                fill
+                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                className="rounded-lg"
+                style={{
+                  objectFit: 'cover'
+                }}
+                placeholder={image.default.blurDataURL ? 'blur' : 'empty'}
                 blurDataURL={image.default.blurDataURL}
               />
             </motion.div>

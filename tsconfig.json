@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
@@ -7,28 +8,35 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     },
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "react-jsx",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
-    "video.d.ts",
-    "video.d.ts",
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "components/Content/index.js"  ],
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "components/Content/index.js"
+  ],
   "exclude": [
     "node_modules"
   ]

@@ -117,16 +117,18 @@ export default function Stack() {
                       <div key={item.name} className="block">
                       <div className="top_block">
                         <div className="logo_stack logo_stack_icon">
-                        <Image
-                        className='logo_stack_icon_inner'
+                        <div className='logo_stack_icon_inner'>
+                          <Image
                             src={item.img}
-                            alt="Picture of the author"
-                            objectFit='cover'
-                            layout='fill'
-                            objectPosition="center"
-                          
-                          
-                            />
+                            alt={item.name || 'Logo'}
+                            fill
+                            sizes="(max-width: 768px) 50px, 60px"
+                            style={{
+                              objectFit: 'cover',
+                              objectPosition: 'center'
+                            }}
+                          />
+                        </div>
                         </div>
                         <div className='arrow'> 
                                 <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -152,15 +154,20 @@ export default function Stack() {
                       <div key={item.name} className="block">
                       <div className="top_block">
                         <div className="logo_stack">
-                        <Image
+                        <div className="relative w-full h-full">
+                          <Image
                             src={item.img}
-                            alt="Picture of the author"
-                            objectFit='cover'
-                            layout='fill'
-                            objectPosition="center"
+                            alt={item.name || 'Logo'}
+                            fill
+                            sizes="(max-width: 768px) 50px, 60px"
+                            style={{
+                              objectFit: 'cover',
+                              objectPosition: 'center'
+                            }}
                             placeholder="blur"
                             quality={100}
-                            />
+                          />
+                        </div>
                         </div>
                         <div className='arrow'> 
                                 <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -186,15 +193,20 @@ export default function Stack() {
                   <div className="block">
                        <div className="top_block">
                         <div className="logo_stack">
-                        <Image
+                        <div className="relative w-full h-full">
+                          <Image
                             src={item.img}
-                            alt="Picture of the author"
-                            objectFit='cover'
-                            layout='fill'
-                            objectPosition="center"
+                            alt={item.name || 'Logo'}
+                            fill
+                            sizes="(max-width: 768px) 50px, 60px"
+                            style={{
+                              objectFit: 'cover',
+                              objectPosition: 'center'
+                            }}
                             placeholder="blur"
                             quality={100}
-                            />
+                          />
+                        </div>
                         </div>
                         <div className='arrow'> 
                                 <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
