@@ -8,7 +8,7 @@ import { NextSeo } from 'next-seo';
 import { useEffect, useState } from 'react';
 import Image from 'next/image'
 import WorkIntro from '../../components/WorkIntro'
-
+import BackButton from '../../components/backButton'
 export default function PostPage({ content, frontmatter }) {
   const colors = ["#dbece9", "#efe1e2", "#e2e5ef"];
   const date = new Date(frontmatter.date);
@@ -125,8 +125,8 @@ export default function PostPage({ content, frontmatter }) {
       <div className="bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="max-w-3xl mx-auto">
-            <WorkIntro title={frontmatter.title} link={'/blogs'} backHref={'/blogs'} />
-            
+            {/* <WorkIntro title={frontmatter.title} link={'/blogs'} backHref={'/blogs'} /> */}
+             <BackButton href="/projects" />
             <div className="mb-10">
             <h1 className="text-4xl  font-semibold text-slate-950 mb-4">
                 {frontmatter.title }
