@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../../styles/Home.module.css";
+import BackButton from '../../components/backButton'
 
 import WorkIntro from "../../components/WorkIntro";
 import imgWork from "../../img/developerdaofm.png";
@@ -23,12 +24,9 @@ const DeveloperDAO: React.FC = () => {
       </Head>
       <main>
         <div className="container ">
+        <BackButton href="/projects" />
           <div className="inner_container_project_parent inner_container inner_container_mobile">
-            <WorkIntro
-              title={"DeveloperDAO FM"}
-              link={"https://developer-dao-k6lc0ianf-mohamedsadiq.vercel.app/"}
-              backHref={"/projects"}
-            />
+         
             <h1>DeveloperDAO FM</h1>
             <p>
               A place where you listen to music while building cool stuff.{" "}

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from '../../styles/Home.module.css'
 
 import WorkIntro from '../../components/WorkIntro'
+import BackButton from '../../components/backButton'
 import imgWork from "../../img/developerdao.png"
 
 const DeveloperDAO = () => {
@@ -18,7 +19,8 @@ const DeveloperDAO = () => {
         <div className="container">
             <div className="inner_container">
             
-                <WorkIntro title={"DeveloperDao"} link={"/projects/developerdao"} backHref={"/projects"} />
+                <BackButton href="/projects" />
+                <WorkIntro title={"DeveloperDao"} link={"/projects/developerdao"} />
                 <div className="blog_photo inner_blog work_intro_image">
                 <Image
                     src={imgWork}

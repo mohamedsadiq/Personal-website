@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "../../styles/Home.module.css";
 
 import WorkIntro from "../../components/WorkIntro";
+import BackButton from "../../components/backButton";
 // import imgWork from "../../img/developerdao.png"
 
 import imgWork2 from "../../img/44.png";
@@ -35,12 +36,9 @@ const DeveloperDAO: React.FC = () => {
       </Head>
       <main>
         <div className="container">
+          <BackButton href="/projects" />
           <div className="inner_container_project_parent inner_container inner_container_mobile">
-            <WorkIntro
-              title={"DeveloperDao"}
-              link={"https://www.daospot.xyz/"}
-              backHref={"/projects"}
-            />
+           
             <div className="project_title">
               <h1>DAOs Spot</h1>
               <p>Your gateway to decentralized communities. <span className="dateProject">- Jun 2023 </span></p>

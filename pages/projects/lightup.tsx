@@ -4,6 +4,7 @@ import React, { FC } from 'react'
 import styles from '../../styles/Home.module.css'
 
 import WorkIntro from '../../components/WorkIntro'
+import BackButton from '../../components/backButton'
 import { projectContent } from '../../data/lightup'
 
 // Image imports
@@ -121,8 +122,8 @@ const LightUp: FC = () => {
             </Head>
             <main>
                 <div className="container">
-                    <div className="inner_container">
-                        <WorkIntro title={"Web 3 Concepts"} link={"/projects/developerdao"} backHref={"/projects"} />
+                    <BackButton href="/projects" />
+                    <div className="inner_container_project_parent inner_container inner_container_mobile">
                         <div className="project_title">
                           <h1>{projectContent.title}</h1>
                           <p>{projectContent.description} <span className="dateProject"> {projectContent.date} </span></p>

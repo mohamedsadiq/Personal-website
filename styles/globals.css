@@ -2851,9 +2851,10 @@ position: relative;
   border-radius: 8px;
   /* padding: 10px; */
   font-size: 0.8rem;
-  padding: 7px 10px;
+  padding: 13px 13px;
   color: #b8b8b8;
   transition: all 0.2s ease-in-out;
+  border-radius: 50%;
 }
 
 .go_back{
@@ -4433,9 +4434,9 @@ margin-top: 23px;
   overflow: hidden;
  
 }
-body a:hover{
+/* body a:hover{
   opacity: 0.5 !important;
-}
+} */
 .hover_project h1{
   padding: 0 !important
 }
