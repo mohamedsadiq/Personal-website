@@ -4,9 +4,7 @@ import productOfTheWeek from "../../public/Optimized SVG.svg";
 import Image from "next/image";
 
 const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
-    const hoverEffect = {
-     
-    };
+    // Removed hoverEffect object as we'll use CSS hover states instead
 
     const IconAnimation = {
         initial: {
@@ -47,11 +45,13 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
             <div className="text-zinc-400">
                 <h1 className="text-base leading-relaxed">Things I’ve built</h1>
             </div>
-            <div className="main_projects">
-            <motion.div className="hover_project text-base leading-relaxed" whileHover={hoverEffect}>
+            <div className="main_projects [--underline-color:rgba(208,208,208,0.53)]">
+            <motion.div className="group hover_project text-base leading-relaxed">
                     <a  
-                    className="mt-0 mb-4" href="projects/lightup"  rel="noopener noreferrer" >                  
-                        <h1 className="daos_spot_home text-[#000] underline ">
+                    className="mt-0 mb-8" href="projects/lightup"  rel="noopener noreferrer" >                  
+                        <h1 
+                            className="text-[#000] underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
+                        >
                             LightUp
                             <span className="arrowspan">
                             </span>
@@ -60,10 +60,12 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                     </a>
                     {/* <span className="text-black float-right">arrow</span> */}
                 </motion.div>
-                <motion.div className="hover_project text-base leading-relaxed " whileHover={hoverEffect}>
+                <motion.div className="group hover_project text-base leading-relaxed">
                     <Link  
-                    className="mt-0 mb-4" href="projects/daosspot" >                  
-                        <h1 className="daos_spot_home text-[#000] underline">
+                    className="mt-0 mb-8" href="projects/daosspot" >                  
+                        <h1 
+                            className="text-[#000] underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
+                        >
                             DAOs Spot
                             <span className="arrowspan">
                                 <span className="relative w-[68px] top-1 inline-block">
@@ -75,9 +77,11 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                     </Link>
                     {/* <span className="text-black float-right">arrow</span> */}
                 </motion.div>
-                <motion.div className="hover_project text-base leading-relaxed" whileHover={hoverEffect}>
-                    <Link className="mt-2 mb-4" href="projects/developerdaofm" >
-                        <h1 className="text-[#000] underline">
+                <motion.div className="group hover_project text-base leading-relaxed">
+                    <Link className="mt-2 mb-8" href="projects/developerdaofm" >
+                        <h1 
+                            className="text-[#000] underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
+                        >
                             DeeveloperDAO FM
                             <span className="arrowspan">
                             </span>
@@ -85,9 +89,11 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                          <p className="mt-2 text-[#484848]"> A community tool featured as a top product on Product Hunt, reaching an audience of 700,000+.</p>             
                     </Link>
                 </motion.div>
-                <motion.div className="hover_project text-base leading-relaxed" whileHover={hoverEffect}>
+                <motion.div className="group hover_project text-base leading-relaxed">
                     <Link className="mt-2" href="/projects/web3boy" >
-                        <h1 className="text-[#000] underline">
+                        <h1 
+                            className="text-[#000] underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
+                        >
                             Web3 lover boy 
                             <span className="arrowspan">
                             </span>

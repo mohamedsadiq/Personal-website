@@ -6,48 +6,48 @@ import { useState } from 'react';
 // Project data with image paths
 const projects = [
     { 
-        href: "sparks/widget", 
-        title: "A Dynamic Widget", 
-        date: "Jun / 2024",
-        image: "/dots.gif"
-    },
-    { 
-        href: "sparks/button", 
-        title: "Button", 
-        date: "Jun / 2024",
-        image: "/fffsfs.gif"
-    },
-    { 
-        href: "sparks/scroll", 
-        title: "Scrolling", 
-        date: "Jun / 2024",
-        image: 'https://video.twimg.com/ext_tw_video/1801041108274757632/pu/vid/avc1/480x480/qbJ7cC1MrzCqk444.mp4?tag=12',
-        isVideo: true
-    },
-    { 
-        href: "sparks/TheMartian", 
-        title: "The Martian", 
+        href: "sparks/line", 
+        title: "Temporal Flow",
         date: "Jul / 2024",
-        image: "/martin.gif"
-    },
-    { 
-        href: "sparks/onhover", 
-        title: "On Hover", 
-        date: "Jul / 2024",
-        image: "/July 11 Screen Recording.gif"
+        image: "/line.gif"
     },
     { 
         href: "sparks/gameui", 
-        title: "3D Smooth transitions", 
+        title: "3D Smooth transitions",
         date: "Jul / 2024",
         image: "/July 10 Screen Recording.mp4",
         isVideo: true
     },
     { 
-        href: "sparks/line", 
-        title: "Temporal Flow", 
+        href: "sparks/onhover", 
+        title: "On Hover",
         date: "Jul / 2024",
-        image: "/line.gif"
+        image: "/July 11 Screen Recording.gif"
+    },
+    { 
+        href: "sparks/TheMartian", 
+        title: "The Martian",
+        date: "Jul / 2024",
+        image: "/martin.gif"
+    },
+    { 
+        href: "sparks/scroll", 
+        title: "Scrolling",
+        date: "Jun / 2024",
+        image: 'https://video.twimg.com/ext_tw_video/1801041108274757632/pu/vid/avc1/480x480/qbJ7cC1MrzCqk444.mp4?tag=12',
+        isVideo: true
+    },
+    { 
+        href: "sparks/button", 
+        title: "Button",
+        date: "Jun / 2024",
+        image: "/fffsfs.gif"
+    },
+    { 
+        href: "sparks/widget", 
+        title: "A Dynamic Widget",
+        date: "Jun / 2024",
+        image: "/dots.gif"
     },
 ];
 
@@ -75,33 +75,53 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
             {...motionProps}
         >
             <div className="text-zinc-400">
-                <h1 className="text-base leading-relaxed">An Engineering Snippets</h1>
+                <h1 className="text-base leading-relaxed">Snippets</h1>
             </div>
             <div className="main_projects relative">
                 {projects.map((project, index) => (
                     <motion.div 
                         key={index} 
-                        className="hover_project padding-0 relative z-10 mb-2"
-                        onHoverStart={() => {
-                            setHoveredProject(project);
-                            setHoverPosition({ x: 0, y: 0 });
-                        }}
-                        onHoverEnd={() => setHoveredProject(null)}
-                        onMouseMove={(e) => {
-                            const rect = e.currentTarget.getBoundingClientRect();
-                            setHoverPosition({
-                                x: e.clientX - rect.left,
-                                y: e.clientY - rect.top
-                            });
-                        }}
+                        className="text-base block hover_project padding-0 relative z-10 mb-4"
                     >
-                        <Link className="sparkLinks block" href={project.href}>
-                            <h1 className="flex gap-x-1.5 justify-center items-center text-base leading-relaxed">
-                                <span className="text-[#000]">{project.title}</span>
-                                <span className="h-px w-16 bg-stone-300 block"></span>
-                                <span className="arrowspan text-zinc-500">{project.date}</span>
-                            </h1>
-                        </Link>
+                        <div className="flex items-center justify-between w-full">
+                            <Link 
+                                className="sparkLinks inline-flex items-center relative z-20"
+                                onMouseEnter={() => {
+                                    setHoveredProject(project);
+                                    setHoverPosition({ x: 0, y: 0 });
+                                }}
+                                onMouseLeave={() => setHoveredProject(null)}
+                                onMouseMove={(e) => {
+                                    const rect = e.currentTarget.getBoundingClientRect();
+                                    setHoverPosition({
+                                        x: e.clientX - rect.left,
+                                        y: e.clientY - rect.top
+                                    });
+                                }}
+                                style={{
+                                    transition: 'color 0.18s ease',
+                                }}
+                                href={project.href}
+                            >
+                                <span 
+                                    className="text-[#000]"
+                                    style={{
+                                        textDecoration: 'underline',
+                                        textDecorationColor: 'rgba(208, 208, 208, 0.53)',
+                                        textUnderlineOffset: '2px',
+                                        transition: 'text-decoration-color 0.18s ease',
+                                    }}
+                                    onMouseEnter={(e) => e.currentTarget.style.textDecorationColor = 'currentColor'}
+                                    onMouseLeave={(e) => e.currentTarget.style.textDecorationColor = 'rgba(208, 208, 208, 0.53)'}
+                                >
+                                    {project.title}
+                                </span>
+                            </Link>
+                            <div className="flex items-center">
+                                {/* <span className="w-px h-4 bg-zinc-300 mx-4"></span> */}
+                                <span className="text-zinc-400 w-24 text-right text-xs">{project.date}</span>
+                            </div>
+                        </div>
                     </motion.div>
                 ))}
                 
@@ -140,12 +160,29 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
                         </motion.div>
                     )}
                 </AnimatePresence>
-                <div className="relative inline-block">
-                    <Link className="text-base mt-2 text-slate-950 hover:opacity-70 inline-flex items-center underline" href={"/sparks"}>
-                        Explore All Sparks
-                        <span>   {"->"}</span>
+                <motion.div className="relative inline-block mt-2">
+                    <Link 
+                        className="sparkLinks inline-flex items-center relative z-20"
+                        href={"/sparks"}
+                    >
+                        <span className="text-base">
+                            <span 
+                                className="text-[#000]"
+                                style={{
+                                    textDecoration: 'underline',
+                                    textDecorationColor: 'rgba(208, 208, 208, 0.53)',
+                                    textUnderlineOffset: '2px',
+                                    transition: 'text-decoration-color 0.18s ease',
+                                }}
+                                onMouseEnter={(e) => e.currentTarget.style.textDecorationColor = 'currentColor'}
+                                onMouseLeave={(e) => e.currentTarget.style.textDecorationColor = 'rgba(208, 208, 208, 0.53)'}
+                            >
+                                Explore All Sparks
+                            </span>
+                            <span className="no-underline text-black mt-2"> →</span>
+                        </span>
                     </Link>
-                </div>
+                </motion.div>
             </div>
         </motion.div>
     );

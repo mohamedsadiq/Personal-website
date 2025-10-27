@@ -34,12 +34,26 @@ const Section9 = ({ MohamedSadiq, motionCtl, order }) => {
                    
                 ].map((link, index) => (
                     <motion.div className="hover_project padding-0 " key={index} whileHover={hoverEffect}>
-                        <Link className="sparkLinks" href={link.href} >
-                            <h1 className="text-base leading-relaxed flex gap-x-1.5 justify-center items-center">
-                                <span className="text-[#000]">{link.title}</span>
-                                {/* <span className="h-px w-16 bg-stone-300 block"></span> */}
-                                <span className="arrowspan text-zinc-500">{link.date}</span>
-                            </h1>
+                        <Link 
+                            className="text-base text-slate-950 inline-flex items-center"
+                            style={{
+                                transition: 'color 0.18s ease',
+                            }}
+                            href={link.href}
+                        >
+                            <span 
+                                className="underline"
+                                style={{
+                                    textDecorationColor: 'rgba(208, 208, 208, 0.53)',
+                                    textUnderlineOffset: '2px',
+                                    transition: 'text-decoration-color 0.18s ease',
+                                }}
+                                onMouseEnter={(e) => e.currentTarget.style.textDecorationColor = 'currentColor'}
+                                onMouseLeave={(e) => e.currentTarget.style.textDecorationColor = 'rgba(208, 208, 208, 0.53)'}
+                            >
+                                {link.title}
+                            </span>
+                            <span className="text-xs text-zinc-500 ml-4">{link.date}</span>
                         </Link>
                     </motion.div>
                 ))}
