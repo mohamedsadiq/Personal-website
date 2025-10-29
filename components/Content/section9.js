@@ -25,7 +25,7 @@ const Section9 = ({ MohamedSadiq, motionCtl, order }) => {
             {...motionProps}
         >
             <div className="text-zinc-400">
-                <h1 className="text-base leading-relaxed">Thoughts</h1>
+                <h1 className="text-sm leading-relaxed">Thoughts</h1>
             </div>
             <div className="main_projects">
                 {[
@@ -35,7 +35,7 @@ const Section9 = ({ MohamedSadiq, motionCtl, order }) => {
                 ].map((link, index) => (
                     <motion.div className="hover_project padding-0 " key={index} whileHover={hoverEffect}>
                         <Link 
-                            className="text-base text-slate-950 inline-flex items-center"
+                            className="text-sm text-slate-950 inline-flex items-center"
                             style={{
                                 transition: 'color 0.18s ease',
                             }}
