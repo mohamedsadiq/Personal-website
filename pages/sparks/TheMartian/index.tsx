@@ -7,7 +7,7 @@ import * as THREE from "three";
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { useRouter } from 'next/router';
-import Footer from '../../../components/sparksNav';
+import SparksNav from '../../../components/sparksNav';
 
 const TheMartian: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -170,12 +170,12 @@ const TheMartian: React.FC = () => {
           
             
           <h1 className="text-base  text-black">The Martian - Interactive 3D Character Demo</h1>
-          <p  className="mt-0 text-sm text-[#6f6f6f]">
+          <p  className="mt-0 text-sm text-[#616161]">
               This interactive demo allows you to control and observe the
               behavior of a character in a 3D environment using <span className="spark_tools">Three.js</span>.
             </p>
-            <h2 className="text-black mb-4 text-sm text-[#6f6f6f]">Navigation Controls:</h2>
-            <ul className="mt-0 text-sm text-[#6f6f6f]">
+            <h2 className="text-black mb-4 text-sm text-[#616161]">Navigation Controls:</h2>
+            <ul className="mt-0 text-sm text-[#616161]">
                 <li>
                   1 - Use <span className="spark_tools">W</span> ,{" "}
                   <span className="spark_tools">A</span> ,{" "}
@@ -193,7 +193,8 @@ const TheMartian: React.FC = () => {
             <div className="expBorder" >
             <div className="exp" ref={containerRef} style={{ height:"700px"}} ></div>
             </div>
-            <Footer currentPath={router.pathname} />
+           <SparksNav currentPath={router.pathname} />
+
             
 
           </div>

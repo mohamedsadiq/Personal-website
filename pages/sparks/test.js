@@ -17,7 +17,7 @@ export default function Test() {
         <div className="inner_container inner_container_sparks">
           <h2 className="mt-10 mb-0 text-base inline text-black">Title</h2>
           {/* <span className="text-xs text-stone-500"> - Jun 2024</span> */}
-          <p className="mt-0 text-sm text-[#6f6f6f]">
+          <p className="mt-0 text-sm text-[#616161]">
             test
           </p>
           <div className="expBorder" >

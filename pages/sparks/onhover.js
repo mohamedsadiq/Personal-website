@@ -41,7 +41,7 @@ export default function OnHover() {
          
           <h2 className="text-base text-black">On Hover - Interactive 3D Models Showcase</h2>
          
-            <p  className="mt-0 text-sm text-[#6f6f6f]">
+            <p  className="mt-0 text-sm text-[#616161]">
             This demo showcases a series of dynamically animated buttons built with <span className="spark_tools">React</span> and <span className="spark_tools"> Framer Motion.</span>
             </p>
             <div className="expBorder" >

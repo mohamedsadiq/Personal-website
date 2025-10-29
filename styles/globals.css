@@ -854,7 +854,7 @@ a {
 }
 .inner_container p{
   line-height: 28px;
-    color: #6f6f6f;
+    color: #616161;
     /* font-size: 1rem; */
 }
 
@@ -4062,7 +4062,7 @@ cursor: pointer;
     margin-top: 0;
   }
  .light .morearrow{
-  fill:#6f6f6f
+  fill:#616161
  }
 .morearrow{
   fill:#fff;
@@ -4442,7 +4442,7 @@ margin-top: 23px;
 }
 .light .controll_button button{
   background-color: #f0f0f0;
-  color: #6f6f6f;
+  color: #616161;
 }
 .controll_button button:hover{
   cursor: pointer;

@@ -128,7 +128,7 @@ const LightUp: FC = () => {
                     <div className="inner_container_project_parent inner_container inner_container_mobile">
                         <div className="project_title">
                           <h1 className='text-black text-lg'>{projectContent.title}</h1>
-                          <p className='text-sm text-[#6f6f6f]'>{projectContent.description} <span className="dateProject"> {projectContent.date} </span></p>
+                          <p className='text-sm text-[#616161]'>{projectContent.description} <span className="dateProject"> {projectContent.date} </span></p>
                         </div>
                       
                         <div className="blog_photo inner_blog work_intro_image">

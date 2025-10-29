@@ -9,12 +9,15 @@ const sparks = [
   { id: 'gameui', title: '3D Interactive', path: '/sparks/gameui' },
   { id: 'line', title: 'Temporal Flow', path: '/sparks/line' },
   { id: 'widget', title: 'Widget', path: '/sparks/widget' },
-  { id: 'baseui', title: 'Base UI', path: '/sparks/baseui' },
 ];
 
-const SparksNavigation = () => {
+interface SparksNavigationProps {
+  currentPath: string;
+}
+
+const SparksNav: React.FC<SparksNavigationProps> = ({ currentPath }) => {
   const router = useRouter();
-  const currentPath = router.pathname;
+  // currentPath is now passed as a prop
 
   // Find current spark index
   const currentIndex = sparks.findIndex(spark => 
@@ -87,4 +90,4 @@ const SparksNavigation = () => {
   );
 };
 
-export default SparksNavigation;
+export default SparksNav;

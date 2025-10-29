@@ -98,7 +98,7 @@ export default function GameUi() {
 
             <h2 className="mt-10 mb-0 text-base   text-black">3D Models Interactive Demo</h2>
             {/* <span className="text-xs text-stone-500  "> Published Jul 2024</span> */}
-            <p  className="mt-0 text-sm text-[#6f6f6f]">
+            <p  className="mt-0 text-sm text-[#616161]">
               This interactive demo showcases a collection of 3D models brought to life using <span className="spark_tools">React</span>, <span className="spark_tools">Three.js</span>, <span  className="spark_tools">React Three Fiber</span>. <span className="spark_tools">Framer Motion</span>, the interface provides a seamless experience through smooth animations and state transitions.
             </p>
             <div className="expBorder" >
@@ -180,7 +180,7 @@ export default function GameUi() {
               </AnimatePresence>
             </div>
           
-            <div className="flex justify-start flex-row flex-wrap gap-x-1.5 expControllSection">
+            <div className=" text-white flex justify-start flex-row flex-wrap gap-x-1.5 expControllSection bg-black">
               <div className="expButton">
                 {models.map((model, index) => (
                   <motion.button
@@ -210,7 +210,7 @@ export default function GameUi() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
-                  className={`pl-3 pr-3 pt-1 pb-1 text-base bg-white rounded-2xl rotate3d`}
+                  className={`pl-3 pr-3 pt-1 pb-1 text-base bg-black rounded-2xl rotate3d`}
                 >
                   <motion.span
                     key={isSpinning ? "Freeze" : "Rotate"} // Ensure key changes to force re-render
