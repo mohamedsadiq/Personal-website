@@ -4342,7 +4342,7 @@ color: #eee;
 .spark_title{
   transition: all 0.3s ease-in-out;
   color: #000000;
-  font-size: 1rem;
+  /* font-size: 1rem; */
   
 }
 
