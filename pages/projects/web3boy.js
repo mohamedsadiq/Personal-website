@@ -6,6 +6,8 @@ import styles from '../../styles/Home.module.css'
 import WorkIntro from '../../components/WorkIntro'
 import BackButton from '../../components/backButton'
 import imgWork from "../../img/developerdao.png"
+import ExternalLink from "../../components/ExternalLink";
+
 
 import img1 from "../../img/web3boy/1ff132134169935.png"
 import img2 from "../../img/web3boy/Behance Image 2800x1575.png"
@@ -14,6 +16,7 @@ import img4 from "../../img/web3boy/Behance 1920x1080.png"
 import img5 from "../../img/web3boy/Behance Image 2800x1575 (1).png"
 import img6 from "../../img/web3boy/6cd4ee134169935 61d5ee3a8bf65.png"
 import img7 from "../../img/web3boy/Behance Image 1920x1440.png"
+import ProjectNavigation from '../../components/ProjectNavigation';
 
 import { FC } from 'react'
 
@@ -21,7 +24,7 @@ const web3= () => {
     return (
         <div className={styles.container}>
             <Head>
-                <title>Web3 Lover Boy | Mohamed Sadiq</title>
+                <title >Web3 Lover Boy | Mohamed Sadiq</title>
                 <meta name="description" content="Web3 Lover Boy case study" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
@@ -29,8 +32,8 @@ const web3= () => {
                 <div className="container">
                     <BackButton href="/projects" />
                     <div className="inner_container">
-                        <h1>Certified Web3 Boy</h1>
-                        <p>21 NTFs inspired by the web3 culture.  <span className="dateProject">-  Jun 2021 </span></p>
+                        <h1 className='text-black text-lg'>Certified Web3 Boy</h1>
+                        <p className='text-base'>21 NTFs inspired by the web3 culture.  <span className="dateProject">-  Jun 2021 </span></p>
                         <div className="blog_photo inner_blog work_intro_image">
                             <Image
                                 src={img1}
@@ -44,15 +47,12 @@ const web3= () => {
                         </div>
                         <h2 className='mt-4 text-slate-950'>Project Overview</h2>
                         <div className="project_info">
-                            <a
-                                className="projectLink"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href="https://replit.com/@mohamedsadiq/cwb"
-                            >
-                                {" "}
-                                Visit Live ↗
-                            </a>
+                            <ExternalLink
+                href="https://developer-dao-fm.vercel.app/"
+                className='text-[#000] underline decoration-dotted  underline-offset-2 transition-colors duration-200 group-hover:decoration-current'
+              >
+                Visit Live 
+              </ExternalLink>
                             <div className="projects_tags">
                                 <span>Bootstrapped</span>
                                 <span>Ventures</span>
@@ -64,6 +64,10 @@ const web3= () => {
 
                             I'm excited to share the results of my work with the community. <br/>  <br/>You can explore the live website <a className="text-[#000] underline" href='https://replit.com/@mohamedsadiq/cwb' target='_blank' rel="noopener noreferrer">here</a> to see the CWB NFTs in action. For those interested in the technical aspects, the frontend code is available <a className="text-[#000] underline" href='https://github.com/mohamedsadiq/cwb_front_end' target="_blank" rel="noopener noreferrer">here</a>, and you can review the smart contract <a className="text-[#000] underline" href='https://github.com/mohamedsadiq/cwb-nfts_smart_contract' target='_blank' rel="noopener noreferrer">here</a>. If you're curious about the design process, the Figma files can be found <a className="text-[#000] underline" href='https://www.figma.com/file/x2UkUXmgp69DVE12Yi0CPo/CWB?node-id=0%3A1' target='_blank' rel="noopener noreferrer">here</a>.
                         </p>
+                        {/* Project Navigation */}
+                        <div className="container mx-auto px-4 py-8">
+                            <ProjectNavigation />
+                        </div>
                     </div>
                 </div>
             </main>
@@ -128,6 +132,11 @@ const web3= () => {
                     className='rounded-xl border border-neutral-100 mt-9 m-auto'
                 />
                 <span className="project_img_des">(These are the components of the mining process) </span>
+                
+                {/* Project Navigation */}
+                <div className="container mx-auto px-4 py-8">
+                    <ProjectNavigation />
+                </div>
             </div>
         </div>
     )

@@ -75,13 +75,13 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
             {...motionProps}
         >
             <div className="text-zinc-400">
-                <h1 className="text-base leading-relaxed">Snippets</h1>
+                <h1 className="text-sm leading-relaxed">Snippets</h1>
             </div>
             <div className="main_projects relative">
                 {projects.map((project, index) => (
                     <motion.div 
                         key={index} 
-                        className="text-base block hover_project padding-0 relative z-10 mb-4"
+                        className="text-sm block hover_project padding-0 relative z-10 mb-4"
                     >
                         <div className="flex items-center justify-between w-full">
                             <Link 
@@ -107,6 +107,7 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
                                     className="text-[#000]"
                                     style={{
                                         textDecoration: 'underline',
+                                        textDecorationStyle: 'dotted',
                                         textDecorationColor: 'rgba(208, 208, 208, 0.53)',
                                         textUnderlineOffset: '2px',
                                         transition: 'text-decoration-color 0.18s ease',
@@ -165,7 +166,7 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
                         className="sparkLinks inline-flex items-center relative z-20"
                         href={"/sparks"}
                     >
-                        <span className="text-base">
+                        <span className="text-sm">
                             <span 
                                 className="text-[#000]"
                                 style={{

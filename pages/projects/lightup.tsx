@@ -2,10 +2,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 import React, { FC } from 'react'
 import styles from '../../styles/Home.module.css'
+import ExternalLink from '../../components/ExternalLink'
 
 import WorkIntro from '../../components/WorkIntro'
 import BackButton from '../../components/backButton'
 import { projectContent } from '../../data/lightup'
+import ProjectNavigation from '../../components/ProjectNavigation';
 
 // Image imports
 import img1 from '../../img/lightup/99112bcf-6ff7-4fed-bd66-b1cb12932430_2880x2160.webp'
@@ -125,8 +127,8 @@ const LightUp: FC = () => {
                     <BackButton href="/projects" />
                     <div className="inner_container_project_parent inner_container inner_container_mobile">
                         <div className="project_title">
-                          <h1>{projectContent.title}</h1>
-                          <p>{projectContent.description} <span className="dateProject"> {projectContent.date} </span></p>
+                          <h1 className='text-black text-lg'>{projectContent.title}</h1>
+                          <p className='text-sm text-[#6f6f6f]'>{projectContent.description} <span className="dateProject"> {projectContent.date} </span></p>
                         </div>
                       
                         <div className="blog_photo inner_blog work_intro_image">
@@ -140,15 +142,12 @@ const LightUp: FC = () => {
                         </div>
                           <h2 className='mt-6'>Project Overview</h2>
                         <div className="project_info">
-                            <a
-                                className="projectLink"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <ExternalLink 
                                 href={projectContent.projectLink}
+                                className="text-[#000] underline decoration-dotted  underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
                             >
-                                {" "}
-                                Visit Live ↗
-                            </a>
+                                Visit Live
+                            </ExternalLink>
                             <div className="projects_tags">
                                 {projectContent.tags.map((tag, index) => (
                                     <span key={index}>{tag}</span>
@@ -239,6 +238,10 @@ const LightUp: FC = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            {/* Project Navigation */}
+            <div className="container mx-auto px-4 py-8">
+              <ProjectNavigation />
             </div>
         </div>
     )

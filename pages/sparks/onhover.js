@@ -39,9 +39,9 @@ export default function OnHover() {
           <BackButton title={""} />
           <div className="inner_container inner_container_sparks">
          
-          <h2 className="mt-10 mb-0 text-lg font-semibold  text-black">On Hover - Interactive 3D Models Showcase</h2>
-          <span className="text-xs text-stone-500  "> Published Jul 2024</span>
-            <p  className="mt-0 text-sm">
+          <h2 className="text-base text-black">On Hover - Interactive 3D Models Showcase</h2>
+         
+            <p  className="mt-0 text-sm text-[#6f6f6f]">
             This demo showcases a series of dynamically animated buttons built with <span className="spark_tools">React</span> and <span className="spark_tools"> Framer Motion.</span>
             </p>
             <div className="expBorder" >
@@ -49,7 +49,7 @@ export default function OnHover() {
               <div className="expButton">
                 {models.map((model, index) => (
                   <motion.button
-                  className="buttonOnHover"
+                  className="buttonOnHover text-black"
                     key={model.name}
                     onClick={() => setModelIndex(index)}
                     onMouseEnter={() => setHoveredIndex(index)}

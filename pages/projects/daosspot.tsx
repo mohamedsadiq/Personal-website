@@ -4,6 +4,7 @@ import styles from "../../styles/Home.module.css";
 
 import WorkIntro from "../../components/WorkIntro";
 import BackButton from "../../components/backButton";
+import ExternalLink from "../../components/ExternalLink";
 // import imgWork from "../../img/developerdao.png"
 
 import imgWork2 from "../../img/44.png";
@@ -11,6 +12,7 @@ import imgWork3 from "../../img/42f3.png";
 import imgWork4 from "../../img/4343.png";
 import imgWork5 from "../../img/Body  2 Dark (After launching).png";
 import imgWork6 from "../../img/develight.png";
+import ProjectNavigation from "../../components/ProjectNavigation";
 
 import img1 from "../../img/11111111.png";
 import img2 from "../../img/DAOs Spot/1.png";
@@ -40,8 +42,8 @@ const DeveloperDAO: React.FC = () => {
           <div className="inner_container_project_parent inner_container inner_container_mobile">
            
             <div className="project_title">
-              <h1>DAOs Spot</h1>
-              <p>Your gateway to decentralized communities. <span className="dateProject">- Jun 2023 </span></p>
+              <h1 className="text-black text-lg">DAOs Spot</h1>
+              <p className="text-base">Your gateway to decentralized communities. <span className="dateProject">- Jun 2023 </span></p>
             </div>
             <Image
               src={img1}
@@ -55,14 +57,12 @@ const DeveloperDAO: React.FC = () => {
             />
             <h2 className="text-slate-950">Project Overview</h2>
             <div className="project_info">
-              <a
-                className="projectLink"
-                target="_blank"
+              <ExternalLink 
+              className="text-[#000] underline decoration-dotted  underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
                 href="https://daospot-git-main-mohamedsadiq-s-team.vercel.app/"
               >
-                {" "}
-                Visit Live ↗
-              </a>
+                Visit Live
+              </ExternalLink>
               <div className="projects_tags">
                 <span>Bootstrapped</span>
                 <span>Ventures</span>
@@ -120,6 +120,10 @@ const DeveloperDAO: React.FC = () => {
             quality={100}
             className="rounded-xl block mt-20"
           />
+        </div>
+        {/* Project Navigation */}
+        <div className="container mx-auto px-4 py-8">
+          <ProjectNavigation />
         </div>
       </main>
     </div>

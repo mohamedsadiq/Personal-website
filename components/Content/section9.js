@@ -42,7 +42,7 @@ const Section9 = ({ MohamedSadiq, motionCtl, order }) => {
                             href={link.href}
                         >
                             <span 
-                                className="underline"
+                                className="underline decoration-dotted"
                                 style={{
                                     textDecorationColor: 'rgba(208, 208, 208, 0.53)',
                                     textUnderlineOffset: '2px',

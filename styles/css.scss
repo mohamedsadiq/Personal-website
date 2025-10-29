@@ -2600,9 +2600,9 @@ strong {
 	color: $color_41;
 }
 .projectLink {
-	color: $color_40;
-	text-underline-offset: 4px;
-	text-decoration: underline;
+	// color: $color_40;
+	// text-underline-offset: 4px;
+	// text-decoration: underline;
 }
 .content_blog {
 	margin-top: 55px;
@@ -3084,7 +3084,7 @@ ul {
 	padding: 7px 10px;
 	color: $color_19;
 	transition: all 0.3s ease-in-out;
-	background: #2b2b2b;
+	background: #efefef;
 	&:hover {
 		opacity: 0.7;
 	}

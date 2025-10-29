@@ -22,11 +22,11 @@ const Section6 = ({ MohamedSadiq, motionCtl, order }) => {
         {...motionProps}
         >
           <div className="text-zinc-400">
-            <h1 className="text-base leading-relaxed">Available for now</h1>
+            <h1 className="text-sm leading-6">Available for now</h1>
           </div>
           <div id="links_home">
             <a className="calltoation" href="mailto:hey@mosadiq.com">
-              <button className="workbutton leading-relaxed"> <span id="workbuttongreen"></span>Reach out via mail</button>
+              <button className="workbutton text-sm leading-6 bg-black text-white"> <span id="workbuttongreen"></span>Reach out via mail</button>
             </a>
           </div>
         </motion.div>

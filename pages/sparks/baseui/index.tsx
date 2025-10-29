@@ -5,8 +5,11 @@ import BackButton from "../../../components/backButton";
 import { Popover } from '@base-ui-components/react/popover';
 import styles from "./index.module.scss";
 import { Avatar } from '@base-ui-components/react/avatar';
+import { useRouter } from 'next/router';
+import Footer from '../../../components/sparksNav';
 
 export default function BaseUI() {
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -28,6 +31,7 @@ export default function BaseUI() {
             <ExamplePopover />
           </div>
           </div>
+          <Footer currentPath={router.pathname} />
         </div>
       </div>
     </>

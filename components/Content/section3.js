@@ -43,20 +43,20 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
             {...motionProps}
         >
             <div className="text-zinc-400">
-                <h1 className="text-base leading-relaxed">Things I’ve built</h1>
+                <h1 className="text-sm leading-relaxed">Things I’ve built</h1>
             </div>
             <div className="main_projects [--underline-color:rgba(208,208,208,0.53)]">
-            <motion.div className="group hover_project text-base leading-relaxed">
+            <motion.div className="group hover_project text-sm leading-relaxed">
                     <a  
                     className="mt-0 mb-8" href="projects/lightup"  rel="noopener noreferrer" >                  
                         <h1 
-                            className="text-[#000] underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
+                            className="text-[#000] underline decoration-dotted decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
                         >
                             LightUp
                             <span className="arrowspan">
                             </span>
                         </h1>  
-                        <p className="mt-2 text-[#484848]">AI Chrome extension - Peerlist Staff Pick, Top 9 AI Annotation Tool on SassHub.</p>             
+                        <p className="mt-0 text-[#484848] text-sm leading-6 ">AI Chrome extension - Peerlist Staff Pick, Top 9 AI Annotation Tool on SassHub.</p>             
                     </a>
                     {/* <span className="text-black float-right">arrow</span> */}
                 </motion.div>
@@ -64,7 +64,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                     <Link  
                     className="mt-0 mb-8" href="projects/daosspot" >                  
                         <h1 
-                            className="text-[#000] underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
+                            className="text-sm leading-6 text-[#000] decoration-dotted underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
                         >
                             DAOs Spot
                             <span className="arrowspan">
@@ -73,32 +73,32 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                                 </span>  
                             </span>
                         </h1>       
-                          <p className="mt-2 text-[#484848]">A DAO discovery platform, Product Hunt #4 Product of the Week.</p>              
+                          <p className="text-sm leading-6 mt-0 text-[#484848]">A DAO discovery platform, Product Hunt #4 Product of the Week.</p>              
                     </Link>
                     {/* <span className="text-black float-right">arrow</span> */}
                 </motion.div>
                 <motion.div className="group hover_project text-base leading-relaxed">
                     <Link className="mt-2 mb-8" href="projects/developerdaofm" >
                         <h1 
-                            className="text-[#000] underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
+                            className="text-sm leading-6 text-[#000] decoration-dotted underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
                         >
                             DeeveloperDAO FM
                             <span className="arrowspan">
                             </span>
                         </h1>
-                         <p className="mt-2 text-[#484848]"> A community tool featured as a top product on Product Hunt, reaching an audience of 700,000+.</p>             
+                         <p className="text-sm leading-6 mt-0 text-[#484848]"> A community tool featured as a top product on Product Hunt, reaching an audience of 700,000+.</p>             
                     </Link>
                 </motion.div>
                 <motion.div className="group hover_project text-base leading-relaxed">
                     <Link className="mt-2" href="/projects/web3boy" >
                         <h1 
-                            className="text-[#000] underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
+                            className="text-sm leading-6 text-[#000] decoration-dotted underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
                         >
                             Web3 lover boy 
                             <span className="arrowspan">
                             </span>
                         </h1>
-                          <p className="mt-2 text-[#484848]">21 NTFs inspired by the web3 culture. </p>             
+                          <p className="text-sm leading-6 mt-0 text-[#484848]">21 NTFs inspired by the web3 culture. </p>             
                     </Link>
                 </motion.div>
             </div>

@@ -1,0 +1,23 @@
+.navLink {
+  @apply transition-colors duration-200 text-gray-600 hover:text-black;
+}
+
+.navLink svg {
+  @apply transition-transform duration-200;
+}
+
+.navLink:hover svg {
+  @apply transform -translate-x-1;
+}
+
+.navLink.next:hover svg {
+  @apply transform translate-x-1;
+}
+
+.navLabel {
+  @apply text-xs text-gray-500;
+}
+
+.projectTitle {
+  @apply font-medium;
+}

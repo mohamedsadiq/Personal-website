@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../../styles/Home.module.css";
 import BackButton from '../../components/backButton'
+import ExternalLink from "../../components/ExternalLink";
 
 import WorkIntro from "../../components/WorkIntro";
 import imgWork from "../../img/developerdaofm.png";
@@ -13,6 +14,7 @@ import img4 from "../../img/developerdaofmfolder/Instagram post - 9.png";
 import img5 from "../../img/developerdaofmfolder/Instagram post - 10.png";
 import img6 from "../../img/developerdaofmfolder/Instagram post - 16.png";
 import img7 from "../../img/developerdaofmfolder/Instagram post - 17.png";
+import ProjectNavigation from '../../components/ProjectNavigation';
 
 const DeveloperDAO: React.FC = () => {
   return (
@@ -27,8 +29,8 @@ const DeveloperDAO: React.FC = () => {
         <BackButton href="/projects" />
           <div className="inner_container_project_parent inner_container inner_container_mobile">
          
-            <h1>DeveloperDAO FM</h1>
-            <p>
+            <h1 className="text-black text-lg">DeveloperDAO FM</h1>
+            <p className="text-base">
               A place where you listen to music while building cool stuff.{" "}
               <span className="dateProject">- Jul 2022 </span>
             </p>
@@ -46,15 +48,12 @@ const DeveloperDAO: React.FC = () => {
 
             <h2 className="text-slate-950">Project Overview</h2>
             <div className="project_info">
-              <a
-                className="projectLink"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.developerdaofm.xyz/"
+              <ExternalLink
+                href="https://developer-dao-fm.vercel.app/"
+                className="text-[#000] underline decoration-dotted  underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
               >
-                {" "}
-                Visit Live ↗
-              </a>
+                Visit Live 
+              </ExternalLink>
               <div className="projects_tags">
                 <span>DeveloperDAO</span>
                 <span>Music</span>
@@ -197,6 +196,12 @@ const DeveloperDAO: React.FC = () => {
               newsletter.){" "}
             </span>
           </div>
+          
+          {/* Project Navigation */}
+          <div className="container mx-auto px-4 py-8">
+            <ProjectNavigation />
+          </div>
+          
         </div>
       </main>
     </div>

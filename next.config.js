@@ -16,7 +16,9 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
   },
-  experimental: {},
+  experimental: {
+    scrollRestoration: true,
+  },
   // Disable image optimization warnings
   logging: {
     level: 'error'

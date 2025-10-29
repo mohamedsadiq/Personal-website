@@ -60,9 +60,9 @@ export default function Line() {
           <div className="inner_container inner_container_sparks">
             
                
-          <h2 className="mt-10 mb-0 text-lg font-semibold  text-black">Temporal Flow</h2>
-          <span className="text-xs text-stone-500  "> Published Jul 2024</span>
-            <p  className="mt-0 text-sm">
+          <h2 className="mt-10 mb-0 text-base   text-black">Temporal Flow</h2>
+          {/* <span className="text-xs text-stone-500  "> Published Jul 2024</span> */}
+            <p  className="mt-0 text-sm text-[#6f6f6f]">
               In this snippet, I have been working on enhancing the user experience of a dynamic timeline component built with <span className="spark_tools">React</span> and <div  className="spark_tools">Framer Motion</div>. My main focus has been on implementing interactive elements and animations to create a more engaging interface.
             </p>
             <div className="expBorder" >
