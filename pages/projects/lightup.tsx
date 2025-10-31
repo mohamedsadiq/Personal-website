@@ -224,16 +224,16 @@ const LightUp: FC = () => {
                         <div className="mt-12 pt-8 border-t border-gray-200">
                             <h2 className="text-xl font-medium mb-4">Links</h2>
                             <div className="flex flex-col space-y-2">
-                                <a href="https://www.boimaginations.com/lightup" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                                <a className="text-blue-600 hover:underline inline-block" href="https://www.boimaginations.com/lightup" target="_blank" rel="noopener noreferrer">
                                     Official Website
                                 </a>
-                                <a href="https://github.com/mohamedsadiq/LightUp" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                                <a className="text-blue-600 hover:underline inline-block" href="https://github.com/mohamedsadiq/LightUp" target="_blank" rel="noopener noreferrer">
                                     GitHub Repository
                                 </a>
-                                <a href="https://peerlist.io/sadiqo/project/lightup" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                                <a className="text-blue-600 hover:underline inline-block" href="https://peerlist.io/sadiqo/project/lightup" target="_blank" rel="noopener noreferrer">
                                     On Peerlist 
                                 </a>
-                                <a href="https://chromewebstore.google.com/detail/lightup/your-extension-id" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                                <a className="text-blue-600 hover:underline inline-block" href="https://chromewebstore.google.com/detail/lightup/your-extension-id" target="_blank" rel="noopener noreferrer">
                                     Chrome Web Store
                                 </a>
                             </div>
