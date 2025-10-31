@@ -5,6 +5,8 @@ import styles from '../../styles/Home.module.css'
 
 import WorkIntro from '../../components/WorkIntro'
 // import imgWork from "../../img/developerdao.png"
+import ExternalLink from "../../components/ExternalLink";
+import BackButton from "../../components/backButton";
 
 
 import imgWork2 from "../../img/44.png"
@@ -12,6 +14,7 @@ import imgWork3 from "../../img/42f3.png"
 import imgWork4 from "../../img/4343.png"
 import imgWork5 from "../../img/Body  2 Dark (After launching).png"
 import imgWork6 from "../../img/develight.png"
+import ProjectNavigation from '../../components/ProjectNavigation';
 
 
 import img1 from "../../img/developerdaofolder/fasdfasd.jpeg";
@@ -27,9 +30,13 @@ const DeveloperDAO = () => {
             </Head>
         <main>
         <div className="container">
+            <BackButton href="/projects" />
             <div className="inner_container">
-             
-                <WorkIntro title={"DeveloperDao"} link={"/projects/developerdao"} backHref={"/projects"} />
+               <div className="project_title">
+              <h1 className="text-black text-lg"> DeeveloperDAO Official Website</h1>
+              <p className="text-base">In a mission to accelerate the education and impact of a new wave of web3 builders. <span className="dateProject">- Jun 2023 </span></p>
+            </div>
+                {/* <WorkIntro title={"DeveloperDao"} link={"/projects/developerdao"} backHref={"/projects"} /> */}
                 <div className="blog_photo inner_blog work_intro_image">
               <Image
                 src={img1}
@@ -42,34 +49,30 @@ const DeveloperDAO = () => {
               />
             </div>
             
-            <h2>Project Overview</h2>
+            <h2 className='mt-6'>Project Overview</h2>
+             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
+                            <ExternalLink
+                href="https://www.developerdao.com/"
+                className='text-[#000] underline decoration-dotted  underline-offset-2 transition-colors duration-200 group-hover:decoration-current'
+              >
+                Visit Live 
+              </ExternalLink>
+                            <div className="flex flex-wrap gap-2">
+                                {['DAOs', 'Web3', 'UI/UX'].map((tag, index) => (
+                                    <span key={index} className="bg-[#f6f6f6] border border-[#f0f0f0] text-black text-sm px-3 py-1.5 rounded-xl whitespace-nowrap">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
             <p>
-              When I initially joined DeveloperDAO, my excitement to contribute
-              to the DAO's projects was palpable. One standout project that
-              captured my interest was the inception of DeveloperDAO Fm. This
-              website aimed to provide coders with an enriched experience,
-              allowing them to code while enjoying the soothing accompaniment of
-              Lo-Fi music. <br /> <br /> Beyond its musical offerings, the
-              platform boasted a Pomodoro technique-based timer and a seamless
-              channel-switching feature, enhancing the coding environment.
-            </p>
-            <h2>My Contributions</h2>
+              Developer DAO was one of the first—and most impactful—DAOs I joined in the web3 space. Before that, I was simply intrigued by web3: privacy, decentralization, and the possibilities for the future. I wanted to be someone who helped build that future, not just watch it unfold. <br />Through Developer DAO, I’ve had the chance to collaborate with talented people around the world and be part of a generous, forward‑thinking community.</p>
+            <h2 className='mt-10 mb-6'>My Contributions</h2>
             <p>
-              Delving into my role within this project, I eagerly embraced the
-              opportunity to craft an immersive user experience. The heart of
-              the experience was encapsulated in the ingeniously simple yet
-              functionally profound logo of DeveloperDAO. To infuse an emotional
-              incentive.
+              It was important for the DAO to establish an official presence to attract potential partnerships and new members. We designed the website to meet that goal: simple, direct, and aligned with the spirit of innovation, intelligence, and adventure. I led the UI and UX design for this project, ensuring the experience was clear, accessible, and true to our mission.
             </p>
            
-            <p>
-              I strategically designed the logo's interactions. A noteworthy
-              feature was the logo's dynamic response to user actions – clicking
-              the play button prompted the logo's face to break into a cheerful
-              smile, while pausing the music led to the logo's smile fading
-              away. This nuanced interaction was poised to delight users and
-              accentuate their engagement.
-            </p>
+           
            
           
             {/* <div className="blog_photo inner_blog work_intro_image">
@@ -86,49 +89,13 @@ const DeveloperDAO = () => {
             <span className="project_img_des">( An overview of the website.) </span> */}
 
           
-            <h2>Reflection —</h2>
-            <p>
-              Sharing my creation with the community brought forth an outpouring
-              of positive feedback, especially from fellow DAO members. This
-              enthusiastic reception fostered a sense of unity, akin to
-              belonging to an exclusive club, with the positive energy
-              resonating outward. Emboldened by this initial response, I took a
-              bold step and showcased DeveloperDAO Fm on Product Hunt, a
-              platform known for spotlighting innovative products. <br /> <br />{" "}
-              The outcome was nothing short of remarkable – DeveloperDAO Fm
-              rapidly ascended to secure a position as one of the platform's
-              top-rated products. The pinnacle achievement of this project,
-              however, lay in its profound impact on the DAO's brand awareness.
-              By seamlessly blending practical coding utilities with an
-              immersive musical experience, DeveloperDAO Fm not only
-              accomplished its intended objectives but also reverberated deeply
-              within the coding community. This project illuminated the
-              potential of creativity and innovation in fostering community
-              bonds while concurrently achieving strategic milestones. With this
-              reflection, <br /> <br />
-              I've come to appreciate how a single project can be a catalyst for
-              both personal growth and broader community engagement. The fusion
-              of creative thinking and strategic execution emerged as a powerful
-              force in realizing meaningful goals.
-            </p>
-            <div className="projects_link">
-              <h3>Links</h3>
-              <ul>
-               
-                <a href="https://developerdao.com">
-                  <li>DeveloperDAO website</li>
-                </a>
-              </ul>
-              <h3>Tools I Used</h3>
-              <ul>
-              <a href="">
-                  <li> Figma</li>
-                </a>
-               
-              </ul>
-            </div>
-          
+            
+            
             </div> 
+             {/* Project Navigation */}
+                      <div className="container mx-auto px-4 py-8">
+                        <ProjectNavigation />
+                      </div>
         </div>
         </main>
         </div>

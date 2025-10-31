@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link';
 import { StaticImageData } from 'next/image';
 
-import useSound from 'use-sound';
 import { useRouter } from 'next/router';
 import { motion } from "framer-motion";
 
@@ -28,8 +27,7 @@ interface ProjectData {
 
 const Projects: React.FC = () => {
   // Sound hook
-  const [play] = useSound("/sound.mp3");
-  const router = useRouter();
+  
 
   return (
     <>
@@ -116,6 +114,15 @@ const data: ProjectData[] = [
     tags: "Product Design, JS, Web3",
     target: "_blink",
     link: "projects/developerdaofm",
+    productHunt: ""
+  },
+   {
+    name: "DeveloperDAO - Jul 2022",
+    img: developerDao,
+    description: "In a mission to accelerate the education and impact of a new wave of web3 builders.", 
+    tags: "Product Design, Web3",
+    target: "_blink",
+    link: "projects/developerdao",
     productHunt: ""
   },
   { 

@@ -54,7 +54,7 @@ const web3= () => {
                 Visit Live 
               </ExternalLink>
                             <div className="flex flex-wrap gap-2">
-                                {['NFTs', 'Web3', 'Smart Contract', 'UI/UX'].map((tag, index) => (
+                                {['Soilidity', 'Web3', 'Smart Contract', 'NFTs'].map((tag, index) => (
                                     <span key={index} className="bg-[#f6f6f6] border border-[#f0f0f0] text-black text-sm px-3 py-1.5 rounded-xl whitespace-nowrap">
                                         {tag}
                                     </span>

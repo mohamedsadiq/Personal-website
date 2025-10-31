@@ -60,6 +60,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                     </a>
                     {/* <span className="text-black float-right">arrow</span> */}
                 </motion.div>
+
                 <motion.div className="group hover_project text-base leading-relaxed">
                     <Link  
                     className="mt-0 mb-8" href="projects/daosspot" >                  
@@ -89,6 +90,20 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                          <p className="text-sm leading-6 mt-0 text-[#484848]"> A community tool featured as a top product on Product Hunt, reaching an audience of 700,000+.</p>             
                     </Link>
                 </motion.div>
+                
+                 <motion.div className="group hover_project text-base leading-relaxed">
+                    <Link className="mt-2 mb-8" href="projects/developerdao" >
+                        <h1 
+                            className="text-sm leading-6 text-[#000] decoration-dotted underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
+                        >
+                            DeeveloperDAO Official Website
+                            <span className="arrowspan">
+                            </span>
+                        </h1>
+                         <p className="text-sm leading-6 mt-0 text-[#484848]"> Accelerating the education and impact of a new wave of web3 builders.</p>             
+                    </Link>
+                </motion.div>
+                
                 <motion.div className="group hover_project text-base leading-relaxed">
                     <Link className="mt-2" href="/projects/web3boy" >
                         <h1 

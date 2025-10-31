@@ -6,6 +6,7 @@ const projects = [
   { id: 'lightup', title: 'LightUp', path: '/projects/lightup' },
   { id: 'daosspot', title: 'DAOs Spot', path: '/projects/daosspot' },
   { id: 'developerdaofm', title: 'DeveloperDAO FM', path: '/projects/developerdaofm' },
+  { id: 'developerdao', title: 'DeveloperDAO', path: '/projects/developerdao' },
   { id: 'web3boy', title: 'Certified Web3 Boy', path: '/projects/web3boy' },
 ];
 
