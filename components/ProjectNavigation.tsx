@@ -46,7 +46,7 @@ const ProjectNavigation = () => {
             </svg>
             <div className="flex flex-col">
               <span className="text-xs text-gray-500">Previous Project</span>
-              <span className="font-medium">{prevProject.title}</span>
+              <span className="">{prevProject.title}</span>
             </div>
           </Link>
         ) : (
@@ -61,7 +61,7 @@ const ProjectNavigation = () => {
           >
             <div className="flex flex-col">
               <span className="text-xs text-gray-500">Next Project</span>
-              <span className="font-medium">{nextProject.title}</span>
+              <span className="">{nextProject.title}</span>
             </div>
             <svg 
               className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" 
