@@ -46,17 +46,19 @@ const web3= () => {
                             />
                         </div>
                         <h2 className='mt-4 text-slate-950'>Project Overview</h2>
-                        <div className="project_info">
+                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
                             <ExternalLink
                 href="https://developer-dao-fm.vercel.app/"
                 className='text-[#000] underline decoration-dotted  underline-offset-2 transition-colors duration-200 group-hover:decoration-current'
               >
                 Visit Live 
               </ExternalLink>
-                            <div className="projects_tags">
-                                <span>Bootstrapped</span>
-                                <span>Ventures</span>
-                                <span>DAOs</span>
+                            <div className="flex flex-wrap gap-2">
+                                {['NFTs', 'Web3', 'Smart Contract', 'UI/UX'].map((tag, index) => (
+                                    <span key={index} className="bg-[#f6f6f6] border border-[#f0f0f0] text-black text-sm px-3 py-1.5 rounded-xl whitespace-nowrap">
+                                        {tag}
+                                    </span>
+                                ))}
                             </div>
                         </div>
                         <p>

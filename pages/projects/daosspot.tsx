@@ -56,17 +56,19 @@ const DeveloperDAO: React.FC = () => {
               className="rounded-xl block mt-4"
             />
             <h2 className="text-slate-950">Project Overview</h2>
-            <div className="project_info">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
               <ExternalLink 
-              className="text-[#000] underline decoration-dotted  underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
+                className="text-[#000] underline decoration-dotted underline-offset-2 transition-colors duration-200 group-hover:decoration-current w-fit"
                 href="https://daospot-git-main-mohamedsadiq-s-team.vercel.app/"
               >
                 Visit Live
               </ExternalLink>
-              <div className="projects_tags">
-                <span>Bootstrapped</span>
-                <span>Ventures</span>
-                <span>DAOs</span>
+              <div className="flex flex-wrap gap-2">
+                {['Bootstrapped', 'Ventures', 'DAOs'].map((tag, index) => (
+                  <span key={index} className="bg-[#f6f6f6] border border-[#f0f0f0] text-black text-sm px-3 py-1.5 rounded-xl whitespace-nowrap">
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
             <p>

@@ -2649,6 +2649,8 @@ backdrop-filter: blur(41.6033px);
   /* border: 1px solid #393939; */
   padding-left: 11px;
   font-size: 0.8rem;
+  display: inline-block;
+        margin-top: 8px;
 }
 .linkProductHunt{
   color: #fff;
@@ -4002,11 +4004,7 @@ cursor: pointer;
 
   
   @media only screen and (min-width:541px) {
-    .projects_tags {
-      display: inline;
-      position: absolute;
-      right: 0;
-  }
+    /* Projects tags styles moved to Tailwind classes */
   }
   
   @media only screen and (max-width:475px) {

@@ -128,7 +128,7 @@ const LightUp: FC = () => {
                     <div className="inner_container_project_parent inner_container inner_container_mobile">
                         <div className="project_title">
                           <h1 className='text-black text-lg'>{projectContent.title}</h1>
-                          <p className='text-sm text-[#616161]'>{projectContent.description} <span className="dateProject"> {projectContent.date} </span></p>
+                          <p className='text-base text-[#616161]'>{projectContent.description} <span className="dateProject"> {projectContent.date} </span></p>
                         </div>
                       
                         <div className="blog_photo inner_blog work_intro_image">
@@ -141,16 +141,18 @@ const LightUp: FC = () => {
                             />
                         </div>
                           <h2 className='mt-6'>Project Overview</h2>
-                        <div className="project_info">
+                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
                             <ExternalLink 
                                 href={projectContent.projectLink}
-                                className="text-[#000] underline decoration-dotted  underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
+                                className="text-[#000] underline decoration-dotted underline-offset-2 transition-colors duration-200 group-hover:decoration-current w-fit"
                             >
                                 Visit Live
                             </ExternalLink>
-                            <div className="projects_tags">
+                            <div className="flex flex-wrap gap-2">
                                 {projectContent.tags.map((tag, index) => (
-                                    <span key={index}>{tag}</span>
+                                    <span key={index} className="bg-[#f6f6f6] border border-[#f0f0f0] text-black text-sm px-3 py-1.5 rounded-xl whitespace-nowrap">
+                                        {tag}
+                                    </span>
                                 ))}
                             </div>
                         </div>
