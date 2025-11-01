@@ -43,14 +43,14 @@ const container = {
   }
 };
 
-const buttonVariant = {
+const buttonVariant: Variants = {
   hidden: { 
     opacity: 0, 
     y: 20,
     scale: 0.9,
     transition: {
       duration: 0.3,
-      ease: [0.16, 1, 0.3, 1]
+      ease: "easeInOut"
     }
   },
   show: (i: number) => ({
@@ -60,14 +60,14 @@ const buttonVariant = {
     transition: {
       delay: 0.1 * i + 0.1, // Staggered delay based on index
       duration: 0.3,
-      ease: [0.16, 1, 0.3, 1]
+      ease: "easeInOut"
     }
   }),
   hover: {
     scale: 1.03,
     transition: {
       duration: 0.3,
-      ease: [0.16, 1, 0.3, 1]
+      ease: "easeInOut"
     }
   }
 };
