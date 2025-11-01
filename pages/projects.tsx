@@ -38,6 +38,14 @@ const Projects: React.FC = () => {
       </Head>
       <main className="min-h-screen p-4 sm:p-8">
         <div className="max-w-7xl mx-auto">
+          <motion.h1 
+              className="text-base  mb-8 text-center text-[#616161]"
+              initial={{ opacity: 0, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              Projects
+            </motion.h1>
           <div className="flex flex-col items-center">
             {data.map((item, index) => (
               <div key={item.name} className="w-full max-w-[32rem] mb-8 relative">

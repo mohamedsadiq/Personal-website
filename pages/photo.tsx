@@ -1,7 +1,8 @@
-import Head from 'next/head'
-import Image, { StaticImageData } from 'next/image'
-import { motion, Variants } from "framer-motion";
+import Head from 'next/head';
+import Image, { StaticImageData } from 'next/image';
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { useEffect, useState } from 'react';
 
 // Import images
 import img1 from "../img/photos/1.jpg"
@@ -23,36 +24,60 @@ interface ImageData {
 }
 
 const container = {
-  hidden: { opacity: 1 },
+  hidden: { opacity: 0 },
   show: {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
       when: "beforeChildren",
+      delayChildren: 0.3,
     },
   },
+  exit: {
+    opacity: 0,
+    transition: {
+      staggerChildren: 0.1,
+      staggerDirection: -1,
+      when: "afterChildren"
+    }
+  }
 };
 
 const itemVariant = {
   hidden: { 
     opacity: 0, 
-    y: 20,
+    y: 30,
+    scale: 0.95,
     transition: {
-      duration: 0.2,
-      ease: [0.16, 1, 0.3, 1] // cubic-bezier values for easeOutExpo
+      duration: 0.6,
+      ease: [0.16, 1, 0.3, 1]
     }
   },
   show: { 
     opacity: 1, 
     y: 0,
+    scale: 1,
     transition: {
-      duration: 0.2,
-      ease: [0.16, 1, 0.3, 1] // cubic-bezier values for easeOutExpo
+      duration: 0.6,
+      ease: [0.16, 1, 0.3, 1]
+    }
+  },
+  hover: {
+    scale: 1.02,
+    transition: {
+      duration: 0.3,
+      ease: [0.16, 1, 0.3, 1]
     }
   }
 } as const;
 
 const Photo: React.FC = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
   const imageData: ImageData[] = [
     { key: "1", img: img1 },
     { key: "2", img: img2 },
@@ -77,79 +102,116 @@ const Photo: React.FC = () => {
     document.body.removeChild(link);
   };
 
+  if (!isMounted) return null;
+
   return (
-    <>
-      <Head>
-        <title>Photos</title>
-        <meta name="description" content="A collection of beautiful photographs" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main>
-        <div className="container">
-          <div className='inner_container'>
+    <AnimatePresence mode="wait">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Head>
+          <title>Photos</title>
+          <meta name="description" content="A collection of beautiful photographs" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        
+        <main className="min-h-screen py-8 px-4 sm:px-8">
+          <div className="max-w-7xl mx-auto mb-20">
+            <motion.h1 
+              className="text-base  mb-8 text-left text-[#616161]"
+              initial={{ opacity: 0, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              Photo Gallery
+            </motion.h1>
+            
             <PhotoProvider>
               <motion.div 
-                className='mItv1'
+                className="columns-1 sm:columns-2 lg:columns-3 gap-6"
                 variants={container}
                 initial="hidden"
                 animate="show"
-                style={{ 
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(2, 1fr)',
-                  gap: '1rem'
-                }}
+                exit="exit"
               >
-                {[0, 1].map((columnIndex) => (
-                  <div key={columnIndex} className='ripi6'>
-                    {imageData
-                      .filter((_, index) => index % 2 === columnIndex)
-                      .map((item, itemIndex) => (
-                      <motion.div
-                        key={item.key}
-                        variants={itemVariant}
-                        whileHover={{ 
-                          scale: 1.01,
-                          transition: { duration: 0.2 }
+                {imageData.map((item) => (
+                  <motion.div
+                    key={item.key}
+                    className="relative group overflow-hidden rounded-2xl shadow-lg mb-6 break-inside-avoid"
+                    variants={itemVariant}
+                    whileHover="hover"
+                    layoutId={`photo-${item.key}`}
+                    style={{ display: 'inline-block', width: '100%' }}
+                  >
+                    <PhotoView src={item.img.src}>
+                      <div className="relative w-full cursor-zoom-in" style={{ paddingBottom: '100%' }}>
+                        <Image
+                          src={item.img}
+                          alt={`Photo ${item.key}`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          quality={85}
+                          placeholder={item.img.blurDataURL ? 'blur' : 'empty'}
+                          blurDataURL={item.img.blurDataURL}
+                        />
+                        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
+                      </div>
+                    </PhotoView>
+                    
+                    <motion.div 
+                      className="absolute bottom-4 right-4 group"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      <motion.button
+                        className="flex items-center gap-2 px-4 py-2 bg-white/70 backdrop-blur-md rounded-full text-sm font-medium text-[#737373] hover:text-black transition-colors duration-200 group-hover:gap-3 border border-white/20 shadow-sm"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDownload(item.img.src, item.key);
                         }}
-                        className="relative"
+                        whileHover={{ 
+                          scale: 1.03,
+                          backgroundColor: "rgba(255, 255, 255, 0.9)",
+                        }}
+                        whileTap={{ 
+                          scale: 0.98,
+                          backgroundColor: "rgba(255, 255, 255, 0.8)"
+                        }}
+                        transition={{ 
+                          type: 'spring',
+                          stiffness: 400,
+                          damping: 17
+                        }}
+                        aria-label="Download image"
                       >
-                        <PhotoView src={item.img.src}>
-                          <div className="relative w-full aspect-square">
-                            <Image
-                              src={item.img}
-                              alt={`Photo ${item.key}`}
-                              fill
-                              sizes="(max-width: 768px) 50vw, 33vw"
-                              className="border_radius object-cover"
-                              quality={75}
-                              placeholder={item.img.blurDataURL ? 'blur' : 'empty'}
-                              blurDataURL={item.img.blurDataURL}
-                            />
-                          </div>
-                        </PhotoView>
-                        <motion.button
-                          className="absolute bottom-2 right-2 bg-white bg-opacity-70 p-2 rounded-full"
-                          onClick={() => handleDownload(item.img.src, item.key)}
-                          whileHover={{ 
-                            scale: 1.1,
-                            backgroundColor: "rgba(255, 255, 255, 0.9)",
-                          }}
-                          transition={{ duration: 0.2 }}
+                        {/* <span className="font-medium">Download</span> */}
+                        <svg 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          className="h-4 w-4 transform group-hover:translate-y-0.5 transition-transform" 
+                          viewBox="0 0 20 20" 
+                          fill="currentColor"
                         >
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
-                          </svg>
-                        </motion.button>
-                      </motion.div>
-                    ))}
-                  </div>
+                          <path 
+                            fillRule="evenodd" 
+                            d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" 
+                            clipRule="evenodd" 
+                          />
+                        </svg>
+                      </motion.button>
+                    </motion.div>
+                  </motion.div>
                 ))}
               </motion.div>
             </PhotoProvider>
           </div>
-        </div>
-      </main>
-    </>
+        </main>
+      </motion.div>
+    </AnimatePresence>
   )
 }
 
