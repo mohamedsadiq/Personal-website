@@ -1,17 +1,29 @@
 import { motion, Variants } from "framer-motion";
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const AnimatedPage = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
+
+  // Prevent URL duplication during transitions
+  useEffect(() => {
+    // Clean up any duplicate segments in the URL
+    const path = window.location.pathname;
+    const segments = path.split('/').filter(Boolean);
+    const uniqueSegments = [...new Set(segments)];
+    
+    // If there are duplicate segments, replace the URL without reloading
+    if (segments.length !== uniqueSegments.length) {
+      const cleanPath = '/' + uniqueSegments.join('/');
+      window.history.replaceState({}, '', cleanPath);
+    }
+  }, [router.asPath]);
 
   // Optimized animation variants
   const pageVariants: Variants = {
     hidden: { 
       opacity: 0,
       y: 20,
-
-     
-      // Removed blur filter for better performance
     },
     visible: { 
       opacity: 1,
@@ -54,7 +66,7 @@ const AnimatedPage = ({ children }: { children: React.ReactNode }) => {
   } as const;
 
   return (
-    <motion.div key={router.route} {...motionProps}>
+    <motion.div key={router.asPath} {...motionProps}>
       {children}
     </motion.div>
   );
