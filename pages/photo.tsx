@@ -28,17 +28,46 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.05,
       when: "beforeChildren",
-      delayChildren: 0.3,
+      delayChildren: 0.2,
     },
   },
   exit: {
     opacity: 0,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.05,
       staggerDirection: -1,
       when: "afterChildren"
+    }
+  }
+};
+
+const buttonVariant = {
+  hidden: { 
+    opacity: 0, 
+    y: 20,
+    scale: 0.9,
+    transition: {
+      duration: 0.3,
+      ease: [0.16, 1, 0.3, 1]
+    }
+  },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      delay: 0.1 * i + 0.1, // Staggered delay based on index
+      duration: 0.3,
+      ease: [0.16, 1, 0.3, 1]
+    }
+  }),
+  hover: {
+    scale: 1.03,
+    transition: {
+      duration: 0.3,
+      ease: [0.16, 1, 0.3, 1]
     }
   }
 };
@@ -164,9 +193,11 @@ const Photo: React.FC = () => {
                     
                     <motion.div 
                       className="absolute bottom-4 right-4 group"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2 }}
+                      custom={imageData.indexOf(item)} // Pass index for staggered delay
+                      variants={buttonVariant}
+                      initial="hidden"
+                      animate="show"
+                      whileHover="hover"
                     >
                       <motion.button
                         className="flex items-center gap-2 px-4 py-2 bg-white/70 backdrop-blur-md rounded-full text-sm font-medium text-[#737373] hover:text-black transition-colors duration-200 group-hover:gap-3 border border-white/20 shadow-sm"
