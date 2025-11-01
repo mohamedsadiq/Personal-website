@@ -15,21 +15,25 @@ const KeyNav = () => {
   }
   const page2 = () => {
     play()
+    // Use exact path to prevent duplication
     router.push('/projects');
    
   }
   const page3 = () => {
     play()
+    // Use exact path to prevent duplication
     router.push('/blogs');
     
   }
   const page4 = () => {
     play()
+    // Use exact path to prevent duplication
     router.push('/oasis');
   
   }
   const page5 = () => {
     play()
+    // Use exact path to prevent duplication
     router.push('/sparks');
    
   }

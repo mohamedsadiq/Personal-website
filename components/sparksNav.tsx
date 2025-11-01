@@ -32,7 +32,7 @@ const SparksNav: React.FC<SparksNavigationProps> = ({ currentPath }) => {
       <div className="flex justify-between items-center">
         {prevSpark ? (
           <Link 
-            href={prevSpark.path} 
+            href={`/sparks/${prevSpark.id}`} 
             className="group flex items-center text-gray-600 hover:text-black transition-colors"
             aria-label={`Previous spark: ${prevSpark.title}`}
           >
@@ -61,7 +61,7 @@ const SparksNav: React.FC<SparksNavigationProps> = ({ currentPath }) => {
         
         {nextSpark && (
           <Link 
-            href={nextSpark.path} 
+            href={`/sparks/${nextSpark.id}`} 
             className="group flex items-center text-gray-600 hover:text-black transition-colors text-right ml-auto"
             aria-label={`Next spark: ${nextSpark.title}`}
           >

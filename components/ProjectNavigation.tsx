@@ -27,7 +27,7 @@ const ProjectNavigation = () => {
       <div className="flex justify-between items-center">
         {prevProject ? (
           <Link 
-            href={prevProject.path} 
+            href={`/projects/${prevProject.id}`} 
             className="group flex items-center text-gray-600 hover:text-black transition-colors"
             aria-label={`Previous project: ${prevProject.title}`}
           >
@@ -56,7 +56,7 @@ const ProjectNavigation = () => {
         
         {nextProject && (
           <Link 
-            href={nextProject.path} 
+            href={`/projects/${nextProject.id}`} 
             className="group flex items-center text-gray-600 hover:text-black transition-colors text-right ml-auto"
             aria-label={`Next project: ${nextProject.title}`}
           >

@@ -25,7 +25,10 @@ const SparksNav = ({ currentPath }) => {
 
   const handleNavigation = async (path) => {
     await controls.start('exit');
-    router.push(path);
+    // Extract the ID from the path to prevent duplication
+    const pathParts = path.split('/');
+    const sparkId = pathParts[pathParts.length - 1];
+    router.push(`/sparks/${sparkId}`);
   };
 
   return (
