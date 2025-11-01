@@ -10,7 +10,7 @@ const AnimatedPage = ({ children }: { children: React.ReactNode }) => {
     // Clean up any duplicate segments in the URL
     const path = window.location.pathname;
     const segments = path.split('/').filter(Boolean);
-    const uniqueSegments = [...new Set(segments)];
+    const uniqueSegments = Array.from(new Set(segments));
     
     // If there are duplicate segments, replace the URL without reloading
     if (segments.length !== uniqueSegments.length) {
