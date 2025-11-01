@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image, { StaticImageData } from 'next/image'
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 // Import images
@@ -39,7 +39,7 @@ const itemVariant = {
     y: 20,
     transition: {
       duration: 0.2,
-      ease: "easeOut"
+      ease: [0.16, 1, 0.3, 1] // cubic-bezier values for easeOutExpo
     }
   },
   show: { 
@@ -47,10 +47,10 @@ const itemVariant = {
     y: 0,
     transition: {
       duration: 0.2,
-      ease: "easeOut"
+      ease: [0.16, 1, 0.3, 1] // cubic-bezier values for easeOutExpo
     }
-  },
-};
+  }
+} as const;
 
 const Photo: React.FC = () => {
   const imageData: ImageData[] = [
