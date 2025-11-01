@@ -47,8 +47,8 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
             </div>
             <div className="main_projects [--underline-color:rgba(208,208,208,0.53)]">
             <motion.div className="group hover_project text-sm leading-relaxed">
-                    <a  
-                    className="mt-0 mb-8" href="projects/lightup"  rel="noopener noreferrer" >                  
+                    <Link
+                    className="mt-0 mb-8" href="/projects/lightup"  rel="noopener noreferrer" >                  
                         <h1 
                             className="text-[#000] underline decoration-dotted decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
                         >
@@ -57,13 +57,13 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                             </span>
                         </h1>  
                         <p className="mt-0 text-[#484848] text-sm leading-6 ">AI Chrome extension - Peerlist Staff Pick, Top 9 AI Annotation Tool on SassHub.</p>             
-                    </a>
+                    </Link>
                     {/* <span className="text-black float-right">arrow</span> */}
                 </motion.div>
 
                 <motion.div className="group hover_project text-base leading-relaxed">
                     <Link  
-                    className="mt-0 mb-8" href="projects/daosspot" >                  
+                    className="mt-0 mb-8" href="/projects/daosspot" >                  
                         <h1 
                             className="text-sm leading-6 text-[#000] decoration-dotted underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
                         >
