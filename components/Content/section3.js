@@ -79,7 +79,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                     {/* <span className="text-black float-right">arrow</span> */}
                 </motion.div>
                 <motion.div className="group hover_project text-base leading-relaxed">
-                    <Link className="mt-2 mb-8" href="projects/developerdaofm" >
+                    <Link className="mt-2 mb-8" href="/projects/developerdaofm" >
                         <h1 
                             className="text-sm leading-6 text-[#000] decoration-dotted underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
                         >
@@ -92,7 +92,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                 </motion.div>
                 
                  <motion.div className="group hover_project text-base leading-relaxed">
-                    <Link className="mt-2 mb-8" href="projects/developerdao" >
+                    <Link className="mt-2 mb-8" href="/projects/developerdao" >
                         <h1 
                             className="text-sm leading-6 text-[#000] decoration-dotted underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
                         >
