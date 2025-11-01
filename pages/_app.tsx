@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
 import { AnimatePresence } from 'framer-motion';
@@ -203,10 +203,18 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     };
   }, [router.events]);
 
+  // Force re-render on route change
+  const [key, setKey] = useState(router.asPath);
+  
+  useEffect(() => {
+    // Update key when route changes to force re-render
+    setKey(router.asPath);
+  }, [router.asPath]);
+
   return (
     <Layout>
-      <AnimatePresence mode="wait">
-        <AnimatedPage key={router.asPath}>
+      <AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
+        <AnimatedPage key={key}>
           <Component {...pageProps} />
         </AnimatedPage>
       </AnimatePresence>
