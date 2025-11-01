@@ -121,7 +121,7 @@ export default function PostPage({ content, frontmatter }) {
 
       <div className="min-h-screen bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
-          <BackButton href="/projects" />
+          <BackButton href="/" />
           
           {/* Title and Metadata */}
           <div className="text-center mb-8">
