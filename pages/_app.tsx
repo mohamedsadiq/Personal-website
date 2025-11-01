@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
 import { AnimatePresence } from 'framer-motion';
@@ -9,77 +9,48 @@ import "react-photo-view/dist/react-photo-view.css";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
+  const isFirstRender = useRef(true);
 
   // Handle scroll restoration and route changes
   useEffect(() => {
-    // This prevents the default scroll restoration behavior
+    // Enable proper scroll restoration
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }
 
     // Scroll to top on route change
     const handleRouteChange = (url: string) => {
-      window.scrollTo(0, 0);
+      // Only scroll to top if it's not the initial render
+      if (!isFirstRender.current) {
+        window.scrollTo(0, 0);
+      }
+      isFirstRender.current = false;
       document.body.focus();
     };
 
-    // Enhanced route change error handler for production
+    // Handle route change errors
     const handleRouteChangeError = (err: Error & { cancelled?: boolean }, url: string) => {
-      // If the error was a cancelled navigation, we can safely ignore it
       if (err.cancelled) return;
+      console.error('Route change error:', err);
       
+      // Simple URL normalization to prevent duplicate segments
       try {
-        // Get current URL components
-        const path = window.location.pathname;
-        const query = window.location.search;
-        const hash = window.location.hash;
-        const segments = path.split('/').filter(Boolean);
+        const { pathname, search, hash } = new URL(url, window.location.origin);
+        const segments = pathname.split('/').filter(Boolean);
+        const uniqueSegments = Array.from(new Set(segments));
         
-        // Check for various duplication patterns
-        let needsFixing = false;
-        const uniqueSegments: string[] = [];
-        const seenSegments = new Set<string>();
-        
-        // Check for simple duplicates
-        for (let i = 0; i < segments.length; i++) {
-          const segment = segments[i];
-          if (seenSegments.has(segment)) {
-            needsFixing = true;
-          } else {
-            seenSegments.add(segment);
-            uniqueSegments.push(segment);
-          }
-        }
-        
-        // Check for pattern duplication (e.g., /blogs/article/blogs/article)
-        if (segments.length >= 4) {
-          const halfPoint = Math.floor(segments.length / 2);
-          const firstHalf = segments.slice(0, halfPoint).join('/');
-          const secondHalf = segments.slice(halfPoint).join('/');
-          
-          if (firstHalf === secondHalf) {
-            needsFixing = true;
-          }
-        }
-        
-        // Fix URL if needed
-        if (needsFixing) {
+        if (segments.length !== uniqueSegments.length) {
           const cleanPath = '/' + uniqueSegments.join('/');
+          const newUrl = cleanPath + search + hash;
           
-          // Replace state without triggering a page reload
           window.history.replaceState(
-            window.history.state,
-            document.title,
-            cleanPath + query + hash
+            { ...window.history.state, as: newUrl, url: newUrl },
+            '',
+            newUrl
           );
-          
-          // If we're on a 404 page, try to navigate to the fixed URL
-          if (document.title.includes('404') || document.body.textContent?.includes('404')) {
-            router.replace(cleanPath + query + hash);
-          }
         }
-      } catch (fixError) {
-        console.error('Error fixing URL:', fixError);
+      } catch (e) {
+        console.error('Error normalizing URL:', e);
       }
     };
 
@@ -88,12 +59,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       window.scrollTo(0, 0);
     }
 
-    // Track route change start
+    // Track route changes for better debugging
     const handleRouteChangeStart = (url: string) => {
-      // Route change started
+      console.log('Route changing to:', url);
     };
     
-    // Listen for all route changes
+    // Set up event listeners
     router.events.on('routeChangeStart', handleRouteChangeStart);
     router.events.on('routeChangeComplete', handleRouteChange);
     router.events.on('routeChangeError', handleRouteChangeError);
@@ -104,20 +75,29 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       router.events.off('routeChangeComplete', handleRouteChange);
       router.events.off('routeChangeError', handleRouteChangeError);
     };
-  }, [router.events]);
+  }, [router]);
 
-  // Force re-render on route change
-  const [key, setKey] = useState(router.asPath);
-  
-  useEffect(() => {
-    // Update key when route changes to force re-render
-    setKey(router.asPath);
-  }, [router.asPath]);
-
+  // Use router.asPath as the key for AnimatedPage to ensure proper re-renders
   return (
     <Layout>
-      <AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
-        <AnimatedPage key={key}>
+      <AnimatePresence 
+        mode="wait" 
+        initial={false} 
+        onExitComplete={() => {
+          window.scrollTo(0, 0);
+          // Ensure any pending styles are flushed
+          if (process.env.NODE_ENV !== 'production') {
+            const styles = document.querySelectorAll('style[data-n-href]');
+            const style = document.createElement('style');
+            style.innerHTML = 'html{scroll-behavior:smooth}';
+            document.head.appendChild(style);
+            requestAnimationFrame(() => {
+              document.head.removeChild(style);
+            });
+          }
+        }}
+      >
+        <AnimatedPage key={router.asPath.split('?')[0]}>
           <Component {...pageProps} />
         </AnimatedPage>
       </AnimatePresence>
