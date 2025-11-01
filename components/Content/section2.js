@@ -170,7 +170,7 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
                             <span 
                                 className="text-[#000]"
                                 style={{
-                                    textDecoration: 'underline',
+                                    textDecoration: 'underline dotted',
                                     textDecorationColor: 'rgba(208, 208, 208, 0.53)',
                                     textUnderlineOffset: '2px',
                                     transition: 'text-decoration-color 0.18s ease',
