@@ -5,25 +5,65 @@ import { useEffect } from 'react';
 const AnimatedPage = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
 
-  // Prevent URL duplication during transitions
+  // Enhanced URL deduplication that works in both development and production
   useEffect(() => {
-    // Clean up any duplicate segments in the URL
-    const path = window.location.pathname;
-    const segments = path.split('/').filter(Boolean);
-    
-    // Manual deduplication without using Set
-    const uniqueSegments: string[] = [];
-    for (let i = 0; i < segments.length; i++) {
-      if (uniqueSegments.indexOf(segments[i]) === -1) {
-        uniqueSegments.push(segments[i]);
+    // Wait for DOM to be fully ready
+    const fixUrl = () => {
+      try {
+        // Get current path and query
+        const path = window.location.pathname;
+        const query = window.location.search;
+        const hash = window.location.hash;
+        
+        // Check for common patterns of duplication
+        const pathSegments = path.split('/').filter(Boolean);
+        
+        // Check for exact duplicates (e.g., /blogs/blogs)
+        let hasDuplicates = false;
+        const uniqueSegments: string[] = [];
+        const seen = new Set<string>();
+        
+        for (let i = 0; i < pathSegments.length; i++) {
+          const segment = pathSegments[i];
+          if (seen.has(segment)) {
+            hasDuplicates = true;
+          } else {
+            seen.add(segment);
+            uniqueSegments.push(segment);
+          }
+        }
+        
+        // Check for nested duplicates (e.g., /projects/project-name/projects/project-name)
+        const pathStr = pathSegments.join('/');
+        const halfLength = Math.floor(pathSegments.length / 2);
+        let isDuplicatedPattern = false;
+        
+        if (pathSegments.length >= 2 && halfLength >= 1) {
+          const firstHalf = pathSegments.slice(0, halfLength).join('/');
+          const secondHalf = pathSegments.slice(halfLength).join('/');
+          isDuplicatedPattern = firstHalf === secondHalf;
+        }
+        
+        // Fix the URL if needed
+        if (hasDuplicates || isDuplicatedPattern) {
+          const cleanPath = '/' + uniqueSegments.join('/');
+          console.log('Fixing duplicated URL:', path, '→', cleanPath);
+          window.history.replaceState(
+            window.history.state, 
+            document.title, 
+            cleanPath + query + hash
+          );
+        }
+      } catch (error) {
+        console.error('Error fixing URL:', error);
       }
-    }
+    };
     
-    // If there are duplicate segments, replace the URL without reloading
-    if (segments.length !== uniqueSegments.length) {
-      const cleanPath = '/' + uniqueSegments.join('/');
-      window.history.replaceState({}, '', cleanPath);
-    }
+    // Fix immediately and also after a short delay to catch post-animation issues
+    fixUrl();
+    const timeoutId = setTimeout(fixUrl, 100);
+    
+    return () => clearTimeout(timeoutId);
   }, [router.asPath]);
 
   // Optimized animation variants

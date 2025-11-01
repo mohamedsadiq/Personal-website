@@ -23,30 +23,67 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       document.body.focus();
     };
 
-    // Handle route change errors
+    // Enhanced route change error handler for production
     const handleRouteChangeError = (err: Error & { cancelled?: boolean }, url: string) => {
       // If the error was a cancelled navigation, we can safely ignore it
       if (err.cancelled) return;
       
-      // Otherwise, log the error and try to recover
+      // Log the error for debugging
       console.error('Navigation error:', err);
       
-      // Clean up any duplicate segments in the URL
-      const path = window.location.pathname;
-      const segments = path.split('/').filter(Boolean);
-      
-      // Manual deduplication
-      const uniqueSegments = [];
-      for (let i = 0; i < segments.length; i++) {
-        if (uniqueSegments.indexOf(segments[i]) === -1) {
-          uniqueSegments.push(segments[i]);
+      try {
+        // Get current URL components
+        const path = window.location.pathname;
+        const query = window.location.search;
+        const hash = window.location.hash;
+        const segments = path.split('/').filter(Boolean);
+        
+        // Check for various duplication patterns
+        let needsFixing = false;
+        const uniqueSegments: string[] = [];
+        const seenSegments = new Set<string>();
+        
+        // Check for simple duplicates
+        for (let i = 0; i < segments.length; i++) {
+          const segment = segments[i];
+          if (seenSegments.has(segment)) {
+            needsFixing = true;
+          } else {
+            seenSegments.add(segment);
+            uniqueSegments.push(segment);
+          }
         }
-      }
-      
-      // If there are duplicate segments, replace the URL without reloading
-      if (segments.length !== uniqueSegments.length) {
-        const cleanPath = '/' + uniqueSegments.join('/');
-        window.history.replaceState({}, '', cleanPath);
+        
+        // Check for pattern duplication (e.g., /blogs/article/blogs/article)
+        if (segments.length >= 4) {
+          const halfPoint = Math.floor(segments.length / 2);
+          const firstHalf = segments.slice(0, halfPoint).join('/');
+          const secondHalf = segments.slice(halfPoint).join('/');
+          
+          if (firstHalf === secondHalf) {
+            needsFixing = true;
+          }
+        }
+        
+        // Fix URL if needed
+        if (needsFixing) {
+          const cleanPath = '/' + uniqueSegments.join('/');
+          console.log('Fixing URL after navigation error:', path, '→', cleanPath);
+          
+          // Replace state without triggering a page reload
+          window.history.replaceState(
+            window.history.state,
+            document.title,
+            cleanPath + query + hash
+          );
+          
+          // If we're on a 404 page, try to navigate to the fixed URL
+          if (document.title.includes('404') || document.body.textContent?.includes('404')) {
+            router.replace(cleanPath + query + hash);
+          }
+        }
+      } catch (fixError) {
+        console.error('Error while trying to fix URL:', fixError);
       }
     };
 
@@ -67,14 +104,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   return (
-    <div className="app-container">
-      <Layout>
-        <AnimatePresence mode="wait" initial={false}>
-          <AnimatedPage key={router.asPath}>
-            <Component {...pageProps} />
-          </AnimatedPage>
-        </AnimatePresence>
-      </Layout>
-    </div>
+    <Layout>
+      <AnimatePresence mode="wait">
+        <AnimatedPage key={router.asPath}>
+          <Component {...pageProps} />
+        </AnimatedPage>
+      </AnimatePresence>
+    </Layout>
   );
 }
