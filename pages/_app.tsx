@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
+import { AnimatePresence } from 'framer-motion';
 import Layout from "../components/Layout";
+import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
 import "../styles/globals.css";
 import "react-photo-view/dist/react-photo-view.css";
 
@@ -38,7 +40,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div className="app-container">
       <Layout>
-        <Component {...pageProps} />
+        <AnimatePresence mode="wait" initial={false}>
+          <AnimatedPage key={router.route}>
+            <Component {...pageProps} />
+          </AnimatedPage>
+        </AnimatePresence>
       </Layout>
     </div>
   );

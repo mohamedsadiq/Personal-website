@@ -22,6 +22,36 @@ interface ImageData {
   img: StaticImageData;
 }
 
+const container = {
+  hidden: { opacity: 1 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      when: "beforeChildren",
+    },
+  },
+};
+
+const itemVariant = {
+  hidden: { 
+    opacity: 0, 
+    y: 20,
+    transition: {
+      duration: 0.2,
+      ease: "easeOut"
+    }
+  },
+  show: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.2,
+      ease: "easeOut"
+    }
+  },
+};
+
 const Photo: React.FC = () => {
   const imageData: ImageData[] = [
     { key: "1", img: img1 },
@@ -34,7 +64,7 @@ const Photo: React.FC = () => {
     { key: "8", img: img7 },
     { key: "9", img: img9 },
     { key: "10", img: img10 },
-    { key: "11", img: img11 },  // Add this line
+    { key: "11", img: img11 },
     { key: "12", img: img12 } 
   ];
 
@@ -58,14 +88,29 @@ const Photo: React.FC = () => {
         <div className="container">
           <div className='inner_container'>
             <PhotoProvider>
-              <div className='mItv1'>
+              <motion.div 
+                className='mItv1'
+                variants={container}
+                initial="hidden"
+                animate="show"
+                style={{ 
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(2, 1fr)',
+                  gap: '1rem'
+                }}
+              >
                 {[0, 1].map((columnIndex) => (
                   <div key={columnIndex} className='ripi6'>
-                    {imageData.filter((_, index) => index % 2 === columnIndex).map((item) => (
+                    {imageData
+                      .filter((_, index) => index % 2 === columnIndex)
+                      .map((item, itemIndex) => (
                       <motion.div
                         key={item.key}
-                        whileHover={{ scale: 1.01 }}
-                        transition={{ duration: 0.2 }}
+                        variants={itemVariant}
+                        whileHover={{ 
+                          scale: 1.01,
+                          transition: { duration: 0.2 }
+                        }}
                         className="relative"
                       >
                         <PhotoView src={item.img.src}>
@@ -99,7 +144,7 @@ const Photo: React.FC = () => {
                     ))}
                   </div>
                 ))}
-              </div>
+              </motion.div>
             </PhotoProvider>
           </div>
         </div>
