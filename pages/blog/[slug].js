@@ -1,56 +1,61 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
-import { marked } from 'marked'
-import Link from 'next/link'
-import { slugify, ImageUrl } from '../../utils'
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { marked } from 'marked';
 import { NextSeo } from 'next-seo';
 import { useEffect, useState } from 'react';
-import Image from 'next/image'
-import WorkIntro from '../../components/WorkIntro'
-import BackButton from '../../components/backButton'
+import Image from 'next/image';
+import BackButton from '../../components/backButton';
 export default function PostPage({ content, frontmatter }) {
-  const colors = ["#dbece9", "#efe1e2", "#e2e5ef"];
-  const date = new Date(frontmatter.date);
   const [headings, setHeadings] = useState([]);
+  
   // Determine featured image from frontmatter
-  const firstImage = frontmatter.image || (Array.isArray(frontmatter.images) && frontmatter.images.length > 0 ? frontmatter.images[0] : null);
-  // For next/image, use a local/public path (leading slash). Do NOT use ImageUrl here.
-  const featuredImagePath = firstImage ? (firstImage.startsWith('/') ? firstImage : '/' + firstImage) : null;
+  const firstImage = frontmatter.image || 
+    (Array.isArray(frontmatter.images) && frontmatter.images.length > 0 ? frontmatter.images[0] : null);
+  
+  // For next/image, use a local/public path (leading slash)
+  const featuredImagePath = firstImage ? 
+    (firstImage.startsWith('/') ? firstImage : '/' + firstImage) : null;
 
-  // Customize markdown rendering to match LightUp project page
+  // Customize markdown rendering to match projects page styling
   marked.use({
     renderer: {
       paragraph(text) {
-        return `<p class="text-gray-500 leading-relaxed mb-6">${text}</p>`;
+        return `<p class="text-[#616161] leading-7 mb-12 text-base">${text}</p>`;
       },
       heading(text, level) {
         if (level === 1) {
-          return `<h1 class="text-4xl font-semibold text-slate-950 mb-6">${text}</h1>`;
+          return `<h1 class="text-3xl sm:text-4xl font-medium text-[#333] mb-6">${text}</h1>`;
         } else if (level === 2) {
-          return `<h2 class="text-2xl font-medium text-slate-950 mt-12 mb-4">${text}</h2>`;
+          return `<h2 class="text-2xl sm:text-3xl font-medium text-[#333] mt-12 mb-6">${text}</h2>`;
         } else if (level === 3) {
-          return `<h3 class="text-xl font-medium text-gray-500 mt-10 mb-3">${text}</h3>`;
+          return `<h3 class="text-xl sm:text-2xl font-medium text-[#555] mt-10 mb-4">${text}</h3>`;
         }
-        return `<h${level} class="text-lg font-medium text-gray-700 mt-8 mb-3">${text}</h${level}>`;
+        return `<h${level} class="text-lg sm:text-xl font-medium text-[#666] mt-8 mb-3">${text}</h${level}>`;
       },
       list(body, ordered) {
         const tag = ordered ? 'ol' : 'ul';
         const listClass = ordered ? 'list-decimal' : 'list-disc';
-        return `<${tag} class="${listClass} pl-6 mb-6 text-gray-500 space-y-2">${body}</${tag}>`;
+        return `<${tag} class="${listClass} pl-6 mb-6 text-[#616161] space-y-2 text-base">${body}</${tag}>`;
       },
       listitem(text) {
-        return `<li class="pl-2">${text}</li>`;
+        return `<li class="mb-2">${text}</li>`;
       },
       link(href, title, text) {
         const t = title ? ` title="${title}"` : '';
-        return `<a href="${href}"${t} class="text-blue-600 hover:text-blue-800 transition-colors">${text}</a>`;
+        return `<a href="${href}"${t} class="text-[#0066cc] hover:underline transition-colors">${text}</a>`;
       },
       strong(text) {
-        return `<strong class="font-semibold">${text}</strong>`;
+        return `<strong class="font-medium">${text}</strong>`;
       },
       em(text) {
         return `<em class="italic">${text}</em>`;
+      },
+      codespan(text) {
+        return `<code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-700">${text}</code>`;
+      },
+      code(code, infostring) {
+        return `<pre class="bg-gray-100 p-4 rounded-lg my-4 overflow-x-auto"><code class="text-sm font-mono text-gray-700">${code}</code></pre>`;
       }
     }
   });
@@ -71,22 +76,14 @@ export default function PostPage({ content, frontmatter }) {
     setHeadings(headingsArray);
   }, [content]);
 
-  const imageMeta = frontmatter.images.map(image => {
-    const imageUrl = ImageUrl(image);
-    return {
-      url: imageUrl,
-      width: 1224,
-      height: 724,
-      alt: frontmatter.title,
-      type: 'image/jpeg',
-    };
-  });
+  const imageMeta = frontmatter.images ? frontmatter.images.map(image => ({
+    url: image.startsWith('http') ? image : `https://mosadiq.com${image.startsWith('/') ? '' : '/'}${image}`,
+    width: 1224,
+    height: 724,
+    alt: frontmatter.title,
+    type: 'image/jpeg',
+  })) : [];
 
-  function shareOnTwitter(title, url) {
-    const text = encodeURIComponent(title);
-    const shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
-    return shareUrl;
-  }
 
   function handleScrollToHeading(id) {
     const element = document.getElementById(id);
@@ -122,166 +119,106 @@ export default function PostPage({ content, frontmatter }) {
         }}
       />
 
-      <div className="bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="max-w-3xl mx-auto">
-            {/* <WorkIntro title={frontmatter.title} link={'/blogs'} backHref={'/blogs'} /> */}
-             <BackButton href="/projects" />
-            <div className="mb-10">
-            <h1 className="text-4xl  font-semibold text-slate-950 mb-4">
-                {frontmatter.title }
-              </h1>
-              <p className="text-md text-[#676767] mb-6 ">
-                {/* {frontmatter.summary} {" "} */}
-
-                <span className=" text-gray-400 text-sm mt-2">
-                   {new Date(frontmatter.date).toLocaleDateString('en-US', { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
-                  })}
+      <div className="min-h-screen bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
+          <BackButton href="/projects" />
+          
+          {/* Title and Metadata */}
+          <div className="text-center mb-8">
+            <h1 className="text-3xl sm:text-4xl text-[#333] mb-4">
+              {frontmatter.title}
+            </h1>
+            <p className="text-sm text-[#888]">
+              {new Date(frontmatter.date).toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+              })}
+              {frontmatter.summary && (
+                <span className="block mt-2 text-[#666]">
+                  {frontmatter.summary}
                 </span>
-              </p>
-              
-              {featuredImagePath && (
-                <div className="relative w-full h-96 rounded-xl overflow-hidden mb-10 bg-gray-100">
-                  <Image
-                    src={featuredImagePath}
-                    alt={frontmatter.title || 'Blog cover image'}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-xl"
-                    priority
-                  />
-                </div>
               )}
-              
-              {/* <div className="flex flex-wrap gap-2 mb-8">
-                {frontmatter.categories?.map((category, index) => {
-                  const slug = slugify(category);
-                  const colorIndex = index % colors.length;
-                  const backgroundColor = colors[colorIndex];
-
-                  return (
-                    <Link 
-                      key={category} 
-                      href={`/category/${slug}`}
-                      className="inline-block px-3 py-1 rounded-full text-sm font-medium"
-                      style={{ backgroundColor: `${backgroundColor}80` }}
-                    >
-                      {category}
-                    </Link>
-                  );
-                })}
-              </div> */}
-            </div>
-            
-            <div className="prose prose-lg max-w-none text-[#676767]">
-              <div dangerouslySetInnerHTML={{ __html: marked.parse(content) }} />
-            </div>
-            
-            {headings.length > 0 && (
-              <nav className="mt-12 border-t border-gray-200 pt-8">
-                <h3 className="text-sm font-medium text-gray-500 mb-4">Table of Contents</h3>
-                <ul className="space-y-2">
-                  {headings.map((heading, index) => (
-                    <li key={index} style={{ marginLeft: `${(heading.level - 1) * 0.5}rem` }}>
-                      <button 
-                        onClick={() => handleScrollToHeading(heading.id)}
-                        className="text-sm text-gray-500 hover:text-gray-900 transition-colors text-left"
-                      >
-                        {heading.text}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            )}
+            </p>
           </div>
+          
+          {/* Full Width Image */}
+          {featuredImagePath && (
+            <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] -mr-[50vw] mb-10">
+              <div className="relative w-full h-64 sm:h-80 md:h-96 bg-gray-100">
+                <Image
+                  src={featuredImagePath}
+                  alt={frontmatter.title || 'Blog cover image'}
+                  layout="fill"
+                  objectFit="cover"
+                  className="w-full h-full"
+                  priority
+                />
+              </div>
+            </div>
+          )}
+          
+          {/* Article Content */}
+          <article className="prose prose-lg max-w-3xl mx-auto">
+            <div className="prose-img:max-w-full prose-img:rounded-lg" dangerouslySetInnerHTML={{ __html: marked.parse(content) }} />
+          </article>
+          
+          {headings.length > 0 && (
+            <nav className="mt-16 pt-8 border-t border-gray-100">
+              <h3 className="text-sm font-medium text-[#666] mb-4">Table of Contents</h3>
+              <ul className="space-y-2">
+                {headings.map((heading, index) => (
+                  <li key={index} style={{ marginLeft: `${(heading.level - 1) * 0.75}rem` }}>
+                    <button 
+                      onClick={() => handleScrollToHeading(heading.id)}
+                      className="text-sm text-[#666] hover:text-[#333] transition-colors text-left"
+                    >
+                      {heading.text}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
         </div>
       </div>
-      <style jsx>{`
-        .side-nav {
-          position: fixed;
-          top: 100px;
-          right: 20px;
-          width: 200px;
-          display: none;
-        }
-        .side-nav ul {
-          list-style: none;
-          padding: 0;
-        }
-        .side-nav li {
-          margin-bottom: 10px;
-        }
-        .side-nav button {
-         background: none;
-          border: none;
-          color: #ffffff;
-          cursor: pointer;
-          text-align: left;
-          padding: 0;
-          font-size: 0.7rem;
-        }
-        .dark .side-nav button {
-          color: #fff !important;
-        }
-        .light .side-nav button {
-          color: #fff !important;
-        }
-      `}</style>
-    </>
-  );
-}
+      </>
+    );
+  }
 
 export async function getStaticPaths() {
-  // Get files from the posts dir
+  // Get all markdown files in the posts directory
   const files = fs.readdirSync(path.join('posts'));
-
-  // Get slug and frontmatter from posts
-  const temppaths = files.map((filename) => {
-    // Get frontmatter
-    const markdownWithMeta = fs.readFileSync(
-      path.join('posts', filename),
-      'utf-8'
-    );
-
-    const { data: frontmatter } = matter(markdownWithMeta);
-
-    if (frontmatter.draft === false) {
-      return {
-        params: {
-          slug: filename.replace('.md', ''),
-        },
-      };
-    } else {
-      return null;
+  
+  // Create paths for each post
+  const paths = files.map(filename => ({
+    params: {
+      slug: filename.replace(/\.md$/, '')
     }
-  });
-  // Remove null in tempPosts 
-  const paths = temppaths.filter(path => {
-    return path && path;
-  });
+  }));
 
   return {
     paths,
-    fallback: false,
+    fallback: false
   };
 }
 
 export async function getStaticProps({ params: { slug } }) {
+  // Get markdown file content
   const markdownWithMeta = fs.readFileSync(
-    path.join('posts', slug + '.md'),
+    path.join('posts', `${slug}.md`),
     'utf-8'
   );
 
+  // Parse frontmatter and content
   const { data: frontmatter, content } = matter(markdownWithMeta);
 
   return {
     props: {
-      frontmatter,
-      slug,
+      frontmatter: {
+        ...frontmatter,
+        date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
+      },
       content,
     },
   };
