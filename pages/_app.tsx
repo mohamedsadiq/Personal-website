@@ -7,6 +7,12 @@ import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
 import "../styles/globals.css";
 import "react-photo-view/dist/react-photo-view.css";
 
+// Extend the PerformanceEntry interface to include the type property
+interface PerformanceNavigationTiming extends PerformanceEntry {
+  type: string;
+  // Add other properties you need from PerformanceNavigationTiming
+}
+
 // Debugging utility
 const debug = (message: string, data?: any) => {
   if (process.env.NODE_ENV === 'production') {
@@ -55,11 +61,15 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
     // Enhanced route change handlers
     const handleRouteChangeStart = (url: string, { shallow }: { shallow: boolean }) => {
+      // Get navigation type with proper TypeScript type
+      const navEntries = performance.getEntriesByType('navigation') as PerformanceNavigationTiming[];
+      const navigationType = navEntries.length > 0 ? navEntries[0].type : 'navigate';
+      
       debug('Route change starting', { 
         url, 
         shallow,
         currentPath: window.location.pathname,
-        navigationType: performance.getEntriesByType('navigation')[0]?.type || 'navigate',
+        navigationType,
         timestamp: new Date().toISOString(),
         performance: {
           timing: performance.timing,
