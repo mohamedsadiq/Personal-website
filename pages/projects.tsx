@@ -46,13 +46,13 @@ const Projects: React.FC = () => {
             >
               Projects
             </motion.h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
             {data.map((item, index) => (
               <div key={item.name} className="w-full relative">
                 <motion.div   
-                  className="bg-white rounded-3xl shadow-xl overflow-hidden transform h-full flex flex-col"
-                  initial={{ scale: 0.9, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
+                  className=" border rounded-[24px] bg-white shadow-xl overflow-hidden transform h-full flex flex-col"
+                  initial={{ scale: 1, opacity: 0 , filter: "blur(3px)"}}
+                  animate={{ scale: 1, opacity: 1 , filter: "blur(0px)"}}
                   transition={{ delay: Math.floor(index/2) * 0.2, duration: 0.5 }}
                 >
                   <Link href={item.link} passHref>
