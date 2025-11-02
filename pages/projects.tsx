@@ -112,7 +112,7 @@ const data: ProjectData[] = [
     description: "Your gateway to decentralized communities.", 
     tags: "Product Design, Web3",
     target: "_blink",
-    link: "projects/daosspot",
+    link: "/projects/daosspot",
     productHunt: budget1
   },
   {
@@ -121,7 +121,7 @@ const data: ProjectData[] = [
     description: "A place where you listin to muisc ...", 
     tags: "Product Design, JS, Web3",
     target: "_blink",
-    link: "projects/developerdaofm",
+    link: "/projects/developerdaofm",
     productHunt: ""
   },
    {
@@ -130,7 +130,7 @@ const data: ProjectData[] = [
     description: "In a mission to accelerate the education and impact of a new wave of web3 builders.", 
     tags: "Product Design, Web3",
     target: "_blink",
-    link: "projects/developerdao",
+    link: "/projects/developerdao",
     productHunt: ""
   },
   { 

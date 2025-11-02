@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
-import { AnimatePresence } from 'framer-motion';
 import Layout from "../components/Layout";
-import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
 import "../styles/globals.css";
 import "react-photo-view/dist/react-photo-view.css";
 
@@ -55,9 +53,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       window.history.scrollRestoration = 'manual';
     }
 
-    // Handle initial load
-    window.scrollTo(0, 0);
-    isFirstRender.current = false;
+    // Handle initial load (only once)
+    if (isFirstRender.current) {
+      window.scrollTo(0, 0);
+      debug('Initial scroll to top');
+      isFirstRender.current = false;
+    }
 
     // Enhanced route change handlers
     const handleRouteChangeStart = (url: string, { shallow }: { shallow: boolean }) => {
@@ -112,6 +113,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         timestamp: new Date().toISOString(),
         routeChangeComplete: performance.now(),
       }));
+
+      // Scroll to top AFTER route complete (invisible on new page)
+      window.scrollTo(0, 0);
+      debug('Scroll to top after route complete');
     };
 
     const handleRouteChangeError = (err: Error & { cancelled?: boolean }, url: string) => {
@@ -185,21 +190,64 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     });
   }, [pathKey, router.pathname, router.asPath]);
 
+  // Preserved URL deduplication from AnimatedPage (runs on pathname change)
+  useEffect(() => {
+    if (typeof window === 'undefined') return;  // Early return for SSR
+
+    const fixUrl = () => {
+      try {
+        const path = window.location.pathname;
+        const query = window.location.search;
+        const hash = window.location.hash;
+        
+        const pathSegments = path.split('/').filter(Boolean);
+        
+        let hasDuplicates = false;
+        const uniqueSegments: string[] = [];
+        const seen = new Set<string>();
+        
+        for (let i = 0; i < pathSegments.length; i++) {
+          const segment = pathSegments[i];
+          if (seen.has(segment)) {
+            hasDuplicates = true;
+          } else {
+            seen.add(segment);
+            uniqueSegments.push(segment);
+          }
+        }
+        
+        const halfLength = Math.floor(pathSegments.length / 2);
+        let isDuplicatedPattern = false;
+        
+        if (pathSegments.length >= 2 && halfLength >= 1) {
+          const firstHalf = pathSegments.slice(0, halfLength).join('/');
+          const secondHalf = pathSegments.slice(halfLength).join('/');
+          isDuplicatedPattern = firstHalf === secondHalf;
+        }
+        
+        if (hasDuplicates || isDuplicatedPattern) {
+          const cleanPath = '/' + uniqueSegments.join('/');
+          console.log(`[URL_FIX_DEBUG] Fixed duplicated URL: ${path} → ${cleanPath}`);
+          window.history.replaceState(
+            window.history.state, 
+            document.title, 
+            cleanPath + query + hash
+          );
+        }
+      } catch (error) {
+        console.error('[URL_FIX_DEBUG] Error fixing URL:', error);
+      }
+    };
+    
+    fixUrl();
+    const timeoutId = setTimeout(fixUrl, 100);
+    
+    return () => clearTimeout(timeoutId);
+  }, [router.pathname]);
+
   return (
     <Layout>
-      <AnimatePresence 
-        mode="wait"
-        initial={false}
-        onExitComplete={() => {
-          if ('scrollRestoration' in window.history) {
-            window.scrollTo(0, 0);
-          }
-        }}
-      >
-        <AnimatedPage key={pathKey}>
-          <Component {...pageProps} />
-        </AnimatedPage>
-      </AnimatePresence>
+      <Component {...pageProps} key={pathKey} />  // Direct render, no transitions
     </Layout>
   );
 }
