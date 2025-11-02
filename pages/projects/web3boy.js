@@ -67,9 +67,7 @@ const web3= () => {
                             I'm excited to share the results of my work with the community. <br/>  <br/>You can explore the live website <a className="text-[#000] underline" href='https://replit.com/@mohamedsadiq/cwb' target='_blank' rel="noopener noreferrer">here</a> to see the CWB NFTs in action. For those interested in the technical aspects, the frontend code is available <a className="text-[#000] underline" href='https://github.com/mohamedsadiq/cwb_front_end' target="_blank" rel="noopener noreferrer">here</a>, and you can review the smart contract <a className="text-[#000] underline" href='https://github.com/mohamedsadiq/cwb-nfts_smart_contract' target='_blank' rel="noopener noreferrer">here</a>. If you're curious about the design process, the Figma files can be found <a className="text-[#000] underline" href='https://www.figma.com/file/x2UkUXmgp69DVE12Yi0CPo/CWB?node-id=0%3A1' target='_blank' rel="noopener noreferrer">here</a>.
                         </p>
                         {/* Project Navigation */}
-                        <div className="container mx-auto px-4 py-8">
-                            <ProjectNavigation />
-                        </div>
+                      
                     </div>
                 </div>
             </main>

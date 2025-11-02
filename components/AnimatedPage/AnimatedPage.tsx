@@ -5,8 +5,31 @@ import { useEffect } from 'react';
 const AnimatedPage = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
 
+  // Handle body overflow to hide scroll jumps during transitions
+  useEffect(() => {
+    const handleTransitionStart = () => {
+      document.body.style.overflow = 'hidden';  // Hide overflow during anim
+    };
+
+    const handleTransitionEnd = () => {
+      document.body.style.overflow = '';  // Restore after
+      window.scrollTo(0, 0);  // Scroll here (invisible, post-enter)
+    };
+
+    router.events.on('routeChangeStart', handleTransitionStart);
+    router.events.on('routeChangeComplete', handleTransitionEnd);
+
+    return () => {
+      router.events.off('routeChangeStart', handleTransitionStart);
+      router.events.off('routeChangeComplete', handleTransitionEnd);
+      document.body.style.overflow = '';  // Cleanup
+    };
+  }, [router.events]);
+
   // Enhanced URL deduplication that works in both development and production
   useEffect(() => {
+    if (typeof window === 'undefined') return;  // Early return for SSR
+
     // Wait for DOM to be fully ready
     const fixUrl = () => {
       try {
@@ -47,7 +70,7 @@ const AnimatedPage = ({ children }: { children: React.ReactNode }) => {
         // Fix the URL if needed
         if (hasDuplicates || isDuplicatedPattern) {
           const cleanPath = '/' + uniqueSegments.join('/');
-          console.log('Fixing duplicated URL:', path, '→', cleanPath);
+          console.log(`[URL_FIX_DEBUG] Fixed duplicated URL: ${path} → ${cleanPath}`);
           window.history.replaceState(
             window.history.state, 
             document.title, 
@@ -55,7 +78,7 @@ const AnimatedPage = ({ children }: { children: React.ReactNode }) => {
           );
         }
       } catch (error) {
-        console.error('Error fixing URL:', error);
+        console.error('[URL_FIX_DEBUG] Error fixing URL:', error);
       }
     };
     
@@ -64,9 +87,9 @@ const AnimatedPage = ({ children }: { children: React.ReactNode }) => {
     const timeoutId = setTimeout(fixUrl, 100);
     
     return () => clearTimeout(timeoutId);
-  }, [router.asPath]);
+  }, [router.pathname]);  // Use pathname for stability (no query triggers)
 
-  // Optimized animation variants
+  // Optimized animation variants (shorter for production routing)
   const pageVariants: Variants = {
     hidden: { 
       opacity: 0,
@@ -80,19 +103,19 @@ const AnimatedPage = ({ children }: { children: React.ReactNode }) => {
       transition: {
         type: "tween",
         ease: "easeOut",
-        duration: 0.3,
+        duration: 0.25,
         when: "beforeChildren",
-        staggerChildren: 0.1
+        staggerChildren: 0.05
       }
     },
     exit: {
       opacity: 0,
       y: -10,
-      filter: "blur(10px)",
+      filter: "blur(5px)",
       transition: {
         type: "tween",
         ease: "easeIn",
-        duration: 0.4,
+        duration: 0.25,
       }
     }
   };
@@ -103,6 +126,7 @@ const AnimatedPage = ({ children }: { children: React.ReactNode }) => {
     animate: "visible",
     exit: "exit",
     variants: pageVariants,
+    key: router.pathname,  // Stable key (no query/hash remounts)
     className: "min-h-screen will-change-transform",
     // Add hardware acceleration
     style: { 
@@ -113,7 +137,7 @@ const AnimatedPage = ({ children }: { children: React.ReactNode }) => {
   } as const;
 
   return (
-    <motion.div key={router.asPath} {...motionProps}>
+    <motion.div {...motionProps}>
       {children}
     </motion.div>
   );
