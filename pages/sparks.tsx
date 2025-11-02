@@ -138,8 +138,8 @@ const Sparks: React.FC = () => {
               {sparksData.map((spark, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, top: "20px", position: "relative" }}
-                  animate={{ opacity: 1, top: "0", position: "relative" }}
+                  initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
+                  animate={{ opacity: 1, top: "0", position: "relative" , filter: "blur(0px)"}}
                   transition={{ delay: index * 0.1 }}
                 >
                   <SparkItem {...spark} />
@@ -150,8 +150,8 @@ const Sparks: React.FC = () => {
               {sparksData2.map((spark, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, top: "20px", position: "relative" }}
-                  animate={{ opacity: 1, top: "0", position: "relative" }}
+                  initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
+                  animate={{ opacity: 1, top: "0", position: "relative" , filter: "blur(0px)"}}
                   transition={{ delay: index * 0.1 }}
                 >
                   <SparkItem {...spark} />
@@ -162,8 +162,8 @@ const Sparks: React.FC = () => {
               {sparksData3.map((spark, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, top: "20px", position: "relative" }}
-                  animate={{ opacity: 1, top: "0", position: "relative" }}
+                  initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
+                  animate={{ opacity: 1, top: "0", position: "relative" , filter: "blur(0px)"}}
                   transition={{ delay: index * 0.1 }}
                 >
                   <SparkItem {...spark} />

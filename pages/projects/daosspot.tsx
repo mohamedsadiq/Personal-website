@@ -1,25 +1,62 @@
 import Head from "next/head";
+import { StaticImageData } from 'next/image';
 import Image from "next/image";
 import styles from "../../styles/Home.module.css";
+import { AnimatedSection } from "../../components/AnimatedSection";
+import { motion } from "framer-motion";
 
+// Components
 import WorkIntro from "../../components/WorkIntro";
 import BackButton from "../../components/backButton";
 import ExternalLink from "../../components/ExternalLink";
-// import imgWork from "../../img/developerdao.png"
-
-import imgWork2 from "../../img/44.png";
-import imgWork3 from "../../img/42f3.png";
-import imgWork4 from "../../img/4343.png";
-import imgWork5 from "../../img/Body  2 Dark (After launching).png";
-import imgWork6 from "../../img/develight.png";
 import ProjectNavigation from "../../components/ProjectNavigation";
 
+// Project Images
 import img1 from "../../img/11111111.png";
 import img2 from "../../img/DAOs Spot/1.png";
 import img3 from "../../img/DAOs Spot/2.png";
 import img4 from "../../img/DAOs Spot/3.png";
 import img5 from "../../img/DAOs Spot/4.png";
 import img6 from "../../img/DAOs Spot/5.png";
+
+// Reusable ProjectImage component
+interface ProjectImageProps {
+  src: StaticImageData | string;
+  alt: string;
+  delay?: number;
+  priority?: boolean;
+  className?: string;
+  objectFit?: string;
+  objectPosition?: string;
+  quality?: number;
+}
+
+const ProjectImage: React.FC<ProjectImageProps> = ({ 
+  src, 
+  alt, 
+  delay = 0, 
+  priority = false, 
+  className = "",
+  objectFit = "cover",
+  objectPosition = "center",
+  quality = 100
+}) => (
+  <AnimatedSection delay={delay} className={className}>
+    <div className="relative w-full h-full">
+      <Image
+        src={src}
+        alt={alt}
+        width={1200}
+        height={800}
+        className="w-full h-auto rounded-lg shadow-lg"
+        priority={priority}
+        loading={priority ? 'eager' : 'lazy'}
+        placeholder="blur"
+        blurDataURL={typeof src === 'string' ? src : src?.src || ''}
+      />
+    </div>
+  </AnimatedSection>
+);
 
 const DeveloperDAO: React.FC = () => {
   return (
@@ -38,94 +75,113 @@ const DeveloperDAO: React.FC = () => {
       </Head>
       <main>
         <div className="container">
-          <BackButton href="/projects" />
+          <AnimatedSection>
+            <BackButton href="/projects" />
+          </AnimatedSection>
+          
           <div className="inner_container_project_parent inner_container inner_container_mobile">
-           
-            <div className="project_title">
-              <h1 className="text-black text-lg">DAOs Spot</h1>
-              <p className="text-base">Your gateway to decentralized communities. <span className="dateProject">- Jun 2023 </span></p>
-            </div>
-            <Image
-              src={img1}
-              alt="Picture of the author"
-              objectFit="cover"
-              // layout="fill"
-              objectPosition="center"
-              placeholder="blur"
-              quality={100}
-              className="rounded-xl block mt-4"
-            />
-            <h2 className="text-slate-950">Project Overview</h2>
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
-              <ExternalLink 
-                className="text-[#000] underline decoration-dotted underline-offset-2 transition-colors duration-200 group-hover:decoration-current w-fit"
-                href="https://daospot-git-main-mohamedsadiq-s-team.vercel.app/"
-              >
-                Visit Live
-              </ExternalLink>
-              <div className="flex flex-wrap gap-2">
-                {['Bootstrapped', 'Ventures', 'DAOs'].map((tag, index) => (
-                  <span key={index} className="bg-[#f6f6f6] border border-[#f0f0f0] text-black text-sm px-3 py-1.5 rounded-xl whitespace-nowrap">
-                    {tag}
-                  </span>
-                ))}
+            <AnimatedSection delay={0.1}>
+              <div className="project_title">
+                <h1 className="text-black text-lg">DAOs Spot</h1>
+                <p className="text-base">Your gateway to decentralized communities. <span className="dateProject">- Jun 2023 </span></p>
               </div>
-            </div>
-            <p>
-              Initiating the journey of DAOs Spot marked my first venture, a bootstrap endeavor fueled by minimal resources. Taking charge of both product design and development, my primary goal centered around tackling a crucial challenge: How could I actively immerse myself in DAOs, contribute meaningfully, stay abreast of their updates, and discover tools to streamline these processes? This challenge materialized as I became a part of various DAOs. Significantly, the project has garnered the attention of an original DAO, aligning seamlessly with their mission. Moreover, a prominent international investment firm focused on Web3 has expressed interest. The prospect of DAOs Spot excites me, and I eagerly anticipate the promising opportunities that lie ahead.
-            </p>
-            <h2>Awards and recognition</h2>
-            <p>DAOs Spot pleasantly surprised me by clinching the 4th position for Product of the Week in the Web3 category on Product Hunt. It serves as a modest acknowledgment that the efforts invested have proven worthwhile. DAOsSpot on Product Hunt has been an encouraging experience.</p>
-            <h2>Embracing Minimalism in Design</h2>
-            <p>My approach to design for DAOs Spot was rooted in a desire to evoke a premium feel through minimalism, a departure from the often cluttered landscape of Web3 interfaces. I aimed to bring forth a user experience that exuded simplicity, yet sophistication, ensuring that engagement with the platform was both intuitive and aesthetically pleasing. This emphasis on minimalism sought to address a gap in the Web3 space, where the user experience can sometimes be overwhelming and complex.</p>
+            </AnimatedSection>
+            
+            <AnimatedSection delay={0.2}>
+              <div className="relative w-full h-auto">
+                <Image
+                  src={img1}
+                  alt="DAOs Spot Hero Image"
+                  priority={true}
+                  className="rounded-xl block mt-4"
+                  placeholder="blur"
+                  blurDataURL={typeof img1 === 'string' ? img1 : img1?.src || ''}
+                  width={1200}
+                  height={800}
+                />
+              </div>
+              <h2 className="text-slate-950">Project Overview</h2>
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
+                <ExternalLink 
+                  className="text-[#000] underline decoration-dotted underline-offset-2 transition-colors duration-200 group-hover:decoration-current w-fit"
+                  href="https://daospot-git-main-mohamedsadiq-s-team.vercel.app/"
+                >
+                  Visit Live
+                </ExternalLink>
+                <div className="flex flex-wrap gap-2">
+                  {['Bootstrapped', 'Ventures', 'DAOs'].map((tag, index) => (
+                    <span key={index} className="bg-[#f6f6f6] border border-[#f0f0f0] text-black text-sm px-3 py-1.5 rounded-xl whitespace-nowrap">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <p>
+                Initiating the journey of DAOs Spot marked my first venture, a bootstrap endeavor fueled by minimal resources. Taking charge of both product design and development, my primary goal centered around tackling a crucial challenge: How could I actively immerse myself in DAOs, contribute meaningfully, stay abreast of their updates, and discover tools to streamline these processes? This challenge materialized as I became a part of various DAOs. Significantly, the project has garnered the attention of an original DAO, aligning seamlessly with their mission. Moreover, a prominent international investment firm focused on Web3 has expressed interest. The prospect of DAOs Spot excites me, and I eagerly anticipate the promising opportunities that lie ahead.
+              </p>
+              <h2>Awards and recognition</h2>
+              <p>DAOs Spot pleasantly surprised me by clinching the 4th position for Product of the Week in the Web3 category on Product Hunt. It serves as a modest acknowledgment that the efforts invested have proven worthwhile. DAOsSpot on Product Hunt has been an encouraging experience.</p>
+              <h2>Embracing Minimalism in Design</h2>
+              <p>My approach to design for DAOs Spot was rooted in a desire to evoke a premium feel through minimalism, a departure from the often cluttered landscape of Web3 interfaces. I aimed to bring forth a user experience that exuded simplicity, yet sophistication, ensuring that engagement with the platform was both intuitive and aesthetically pleasing. This emphasis on minimalism sought to address a gap in the Web3 space, where the user experience can sometimes be overwhelming and complex.</p>
+            </AnimatedSection>
           </div>
-        </div>
-        <div className="p-0">
-          <Image
-            src={img2}
-            alt="Picture of the author"
-            objectFit="cover"
-            // layout="fill"
-            objectPosition="center"
-            placeholder="blur"
-            quality={100}
-            className='rounded-xl block mt-20'
-          />
-          <span className="project_img_des">(The Home page) </span>
-          <Image
-            src={img3}
-            alt="Picture of the author"
-            objectFit="cover"
-            // layout="fill"
-            objectPosition="center"
-            placeholder="blur"
-            quality={100}
-            className="rounded-xl block mt-20"
-          />
-          <Image
-            src={img6}
-            alt="Picture of the author"
-            objectFit="cover"
-            // layout="fill"
-            objectPosition="center"
-            placeholder="blur"
-            quality={100}
-            className="rounded-xl block mt-20"
-          />
-          <Image
-            src={img5}
-            alt="Picture of the author"
-            objectFit="cover"
-            // layout="fill"
-            objectPosition="center"
-            placeholder="blur"
-            quality={100}
-            className="rounded-xl block mt-20"
-          />
-        </div>
-        {/* Project Navigation */}
-        <div className="container mx-auto px-4 py-8">
-          <ProjectNavigation />
+         
+         
+          <div className="p-0">
+            <AnimatedSection>
+              <Image
+                src={img2}
+                alt="Picture of the author"
+                objectFit="cover"
+                // layout="fill"
+                objectPosition="center"
+                placeholder="blur"
+                quality={100}
+                className='rounded-xl block mt-20'
+              />
+              <span className="project_img_des">(The Home page) </span>
+            </AnimatedSection>
+            <AnimatedSection>
+              <Image
+                src={img3}
+                alt="Picture of the author"
+                objectFit="cover"
+                // layout="fill"
+                objectPosition="center"
+                placeholder="blur"
+                quality={100}
+                className="rounded-xl block mt-20"
+              />
+            </AnimatedSection>
+            <AnimatedSection>
+              <Image
+                src={img6}
+                alt="Picture of the author"
+                objectFit="cover"
+                // layout="fill"
+                objectPosition="center"
+                placeholder="blur"
+                quality={100}
+                className="rounded-xl block mt-20"
+              />
+            </AnimatedSection>
+            <AnimatedSection>
+              <Image
+                src={img5}
+                alt="Picture of the author"
+                objectFit="cover"
+                objectPosition="center"
+                placeholder="blur"
+                quality={100}
+                className="rounded-xl block mt-20 w-full"
+              />
+            </AnimatedSection>
+          </div>
+          
+          {/* Project Navigation */}
+          <div className="container mx-auto px-4 py-8">
+            <ProjectNavigation />
+          </div>
         </div>
       </main>
     </div>
