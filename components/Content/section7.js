@@ -93,19 +93,7 @@ const Section7 = ({ MohamedSadiq, motionCtl, order }) => {
                             <Image quality={100}
                                 placeholder="blur" className="rounded-lg" width={100} height={100} alt="" src={Img4} />
                         </motion.div>
-                        <motion.div
-                            className="absolute pointer-events-none text-white text-sm"
-                            initial={{ opacity: 0 }}
-                            whileHover={{ opacity: 1 }}
-                            style={{
-                                left: 'var(--mouse-x)',
-                                top: 'var(--mouse-y)',
-                                transform: 'translate(-50%, -50%)',
-                                color: 'black'
-                            }}
-                        >
-                            Explore
-                        </motion.div>
+                     
                     </motion.div>
                 </Link>
             </div>
