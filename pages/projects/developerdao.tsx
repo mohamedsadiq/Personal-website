@@ -40,7 +40,7 @@ const ProjectImage: FC<ProjectImageProps> = ({
   
   return (
     <AnimatedSection delay={delay} className="w-full">
-      <div className={isFill ? 'relative w-full h-96' : 'relative'}>
+      <div className={isFill ? 'relative w-full h-[575px]' : 'relative'}>
         {isFill ? (
           <Image
             src={src}
@@ -105,7 +105,7 @@ const DeveloperDAO: React.FC = () => {
             />
 
             <AnimatedSection delay={0.25}>
-              <h2 className='mt-6'>Project Overview</h2>
+              <h2 className='mt-10'>Project Overview</h2>
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
                 <ExternalLink
                   href="https://www.developerdao.com/"
@@ -135,7 +135,7 @@ const DeveloperDAO: React.FC = () => {
             </AnimatedSection>
 
             <AnimatedSection delay={0.3}>
-              <h2 className='mt-10 mb-6'>My Contributions</h2>
+              <h2 className="mt-10 mb-2">My Contributions</h2>
               <p>
                 It was important for the DAO to establish an official presence to attract potential 
                 partnerships and new members. We designed the website to meet that goal: simple, direct, 

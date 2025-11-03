@@ -44,7 +44,7 @@ const ProjectImage: FC<ProjectImageProps> = ({
   
   return (
     <AnimatedSection delay={delay} className="w-full">
-      <div className={isFill ? 'relative w-full h-96' : 'relative'}>
+      <div className={isFill ? 'relative w-full h-[375px]' : 'relative'}>
         {isFill ? (
           <Image
             src={src}
@@ -101,11 +101,11 @@ const DeveloperDAO: React.FC = () => {
               alt="DeveloperDAO FM main interface"// caption="DeveloperDAO FM - A music player for developers"
               delay={0.2}
               priority
-              height={400}
+            
             />
 
             <AnimatedSection delay={0.25}>
-              <h2 className="text-slate-950">Project Overview</h2>
+              <h2 className="text-slate-950 mt-6">Project Overview</h2>
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
                 <ExternalLink
                   href="https://developer-dao-fm.vercel.app/"
@@ -137,7 +137,7 @@ const DeveloperDAO: React.FC = () => {
               </p>
             </AnimatedSection>
             <AnimatedSection delay={0.3}>
-              <h2>My Contributions</h2>
+              <h2 className="mt-10 mb-2">My Contributions</h2>
               <p>
                 Delving into my role within this project, I eagerly embraced the
                 opportunity to craft an immersive user experience. The heart of
@@ -216,7 +216,7 @@ const DeveloperDAO: React.FC = () => {
           </div>
         </div>
       </main>
-      <div className="p-20 pt-0">
+      <div className="">
         <AnimatedSection delay={0.75}>
           <div className="container mx-auto px-4 py-8">
             <ProjectNavigation />

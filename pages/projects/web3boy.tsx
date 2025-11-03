@@ -81,7 +81,7 @@ const Web3Boy: FC = () => {
                         </AnimatedSection>
 
                         <AnimatedSection delay={0.25}>
-                            <h2 className='mt-4 text-slate-950'>Project Overview</h2>
+                            <h2 className='text-slate-950 mt-6'>Project Overview</h2>
                             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
                                 <ExternalLink
                                     href="https://developer-dao-fm.vercel.app/"
