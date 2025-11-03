@@ -52,8 +52,8 @@ export default function OnHover() {
             <AnimatedSection delay={0.25} className="w-full">
               <div className="expBorder">
                 <div className="exp" style={{ height: "400px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                  <div className="exp">
-                    <div className="expButton">
+                  <div className="exp" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <div className="expButton" >
                       {models.map((model, index) => (
                         <motion.button
                           className="buttonOnHover text-black"

@@ -6,6 +6,7 @@ import { NextSeo } from 'next-seo';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import BackButton from '../../components/backButton';
+import { AnimatedSection } from '../../components/AnimatedSection';
 export default function PostPage({ content, frontmatter }) {
   const [headings, setHeadings] = useState([]);
   
@@ -121,10 +122,12 @@ export default function PostPage({ content, frontmatter }) {
 
       <div className="min-h-screen bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
-          <BackButton href="/" />
+          <AnimatedSection delay={0.1}>
+            <BackButton href="/" />
+          </AnimatedSection>
           
           {/* Title and Metadata */}
-          <div className="text-center mb-8">
+          <AnimatedSection delay={0.15} className="text-center mb-8">
             <h1 className="text-3xl sm:text-4xl text-[#333] mb-4">
               {frontmatter.title}
             </h1>
@@ -140,45 +143,51 @@ export default function PostPage({ content, frontmatter }) {
                 </span>
               )}
             </p>
-          </div>
+          </AnimatedSection>
           
           {/* Full Width Image */}
           {featuredImagePath && (
-            <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] -mr-[50vw] mb-10">
-              <div className="relative w-full h-64 sm:h-80 md:h-96 bg-gray-100">
-                <Image
-                  src={featuredImagePath}
-                  alt={frontmatter.title || 'Blog cover image'}
-                  layout="fill"
-                  objectFit="cover"
-                  className="w-full h-full"
-                  priority
-                />
+            <AnimatedSection delay={0.2} className="w-full">
+              <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] -mr-[50vw] mb-10">
+                <div className="relative w-full h-64 sm:h-80 md:h-96 bg-gray-100">
+                  <Image
+                    src={featuredImagePath}
+                    alt={frontmatter.title || 'Blog cover image'}
+                    layout="fill"
+                    objectFit="cover"
+                    className="w-full h-full"
+                    priority
+                  />
+                </div>
               </div>
-            </div>
+            </AnimatedSection>
           )}
           
           {/* Article Content */}
-          <article className="prose prose-lg max-w-3xl mx-auto">
-            <div className="prose-img:max-w-full prose-img:rounded-lg" dangerouslySetInnerHTML={{ __html: marked.parse(content) }} />
-          </article>
+          <AnimatedSection delay={0.25} className="w-full">
+            <article className="prose prose-lg max-w-3xl mx-auto">
+              <div className="prose-img:max-w-full prose-img:rounded-lg" dangerouslySetInnerHTML={{ __html: marked.parse(content) }} />
+            </article>
+          </AnimatedSection>
           
           {headings.length > 0 && (
-            <nav className="mt-16 pt-8 border-t border-gray-100">
-              <h3 className="text-sm font-medium text-[#666] mb-4">Table of Contents</h3>
-              <ul className="space-y-2">
-                {headings.map((heading, index) => (
-                  <li key={index} style={{ marginLeft: `${(heading.level - 1) * 0.75}rem` }}>
-                    <button 
-                      onClick={() => handleScrollToHeading(heading.id)}
-                      className="text-sm text-[#666] hover:text-[#333] transition-colors text-left"
-                    >
-                      {heading.text}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            <AnimatedSection delay={0.3} className="w-full">
+              <nav className="mt-16 pt-8 border-t border-gray-100">
+                <h3 className="text-sm font-medium text-[#666] mb-4">Table of Contents</h3>
+                <ul className="space-y-2">
+                  {headings.map((heading, index) => (
+                    <li key={index} style={{ marginLeft: `${(heading.level - 1) * 0.75}rem` }}>
+                      <button 
+                        onClick={() => handleScrollToHeading(heading.id)}
+                        className="text-sm text-[#666] hover:text-[#333] transition-colors text-left"
+                      >
+                        {heading.text}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </AnimatedSection>
           )}
         </div>
       </div>
