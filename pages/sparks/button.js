@@ -4,6 +4,7 @@ import BackButton from "../../components/backButton";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from 'next/router';
 import Footer from '../../components/sparksNav';
+import { AnimatedSection } from "../../components/AnimatedSection";
 
 export default function QuickButton() {
   const [state, setState] = useState({
@@ -81,16 +82,22 @@ export default function QuickButton() {
       </Head>
     
         <div className="container inner_container_sparks_parent">
-          <BackButton title={""} />
+          <AnimatedSection delay={0.1}>
+            <BackButton title="" />
+          </AnimatedSection>
           <div className="inner_container inner_container_sparks">
-          
-          <h2 className=" text-base text-black">Quick Button - Interactive UI Component</h2>
-          {/* <span className="text-xs text-stone-500  ">Published Jun 2024</span> */}
-            <p  className="mt-0 text-sm text-[#616161]">
-              The Quick Button is an interactive UI component designed to enhance user engagement through dynamic animations. Built using <span className="spark_tools">React</span>, <span className="spark_tools">Framer Motion</span> and <span className="spark_tools">Tailwind CSS</span>, this button offers a visually appealing experience by incorporating smooth transitions and state changes upon user interaction.
-            </p>
-            <div className="expBorder" >
-            <div className="exp" style={{ height: "400px" }}>
+            <AnimatedSection delay={0.15}>
+              <h2 className="text-base text-black">Quick Button - Interactive UI Component</h2>
+              {/* <span className="text-xs text-stone-500">Published Jun 2024</span> */}
+            </AnimatedSection>
+            <AnimatedSection delay={0.2}>
+              <p className="mt-0 text-sm text-[#616161]">
+                The Quick Button is an interactive UI component designed to enhance user engagement through dynamic animations. Built using <span className="spark_tools">React</span>, <span className="spark_tools">Framer Motion</span> and <span className="spark_tools">Tailwind CSS</span>, this button offers a visually appealing experience by incorporating smooth transitions and state changes upon user interaction.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection delay={0.25} className="w-full">
+              <div className="expBorder">
+                <div className="exp" style={{ height: "400px" }}>
               <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-32 h-32 flex justify-center items-center">
                 <motion.div
                   onClick={handleClick}
@@ -168,9 +175,12 @@ export default function QuickButton() {
                   </div>
                 </motion.div>
               </div>
-            </div>
-            </div>
-            <Footer currentPath={router.pathname} />
+                </div>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={0.3} className="w-full">
+              <Footer currentPath={router.pathname} />
+            </AnimatedSection>
           </div>
         </div>
      

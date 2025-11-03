@@ -1,5 +1,6 @@
 import Head from "next/head";
 import BackButton from "../../components/backButton";
+import { AnimatedSection } from "../../components/AnimatedSection";
 
 
 export default function Test() {
@@ -13,18 +14,26 @@ export default function Test() {
       </Head>
     
       <div className="container inner_container_sparks">
-        <BackButton title={""} />
+        <AnimatedSection delay={0.1}>
+          <BackButton title="" />
+        </AnimatedSection>
         <div className="inner_container inner_container_sparks">
-          <h2 className="mt-10 mb-0 text-base inline text-black">Title</h2>
-          {/* <span className="text-xs text-stone-500"> - Jun 2024</span> */}
-          <p className="mt-0 text-sm text-[#616161]">
-            test
-          </p>
-          <div className="expBorder" >
-          <div  className="exp" style={{ height: "500px", position: "relative" }}>
-            
-          </div>
-          </div>
+          <AnimatedSection delay={0.15}>
+            <h2 className="mt-10 mb-0 text-base text-black">Title</h2>
+            {/* <span className="text-xs text-stone-500"> - Jun 2024</span> */}
+          </AnimatedSection>
+          <AnimatedSection delay={0.2}>
+            <p className="mt-0 text-sm text-[#616161]">
+              test
+            </p>
+          </AnimatedSection>
+          <AnimatedSection delay={0.25} className="w-full">
+            <div className="expBorder">
+              <div className="exp" style={{ height: "500px", position: "relative" }}>
+                {/* Your content here */}
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </div>
     </>

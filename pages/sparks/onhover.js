@@ -4,6 +4,7 @@ import BackButton from "../../components/backButton";
 import { motion } from "framer-motion";
 import { useRouter } from 'next/router';
 import Footer from '../../components/sparksNav';
+import { AnimatedSection } from "../../components/AnimatedSection";
 
 const models = [
   { url: "/Spartan helmet44.glb", name: "Spartan Helmet", cameraPosition: [0, 0.1, 0.5], lightIntensity: 5 },
@@ -36,41 +37,51 @@ export default function OnHover() {
         <meta property="og:type" content="website" />
       </Head>
         <div className="container inner_container_sparks_parent">
-          <BackButton title={""} />
+          <AnimatedSection delay={0.1}>
+            <BackButton title="" />
+          </AnimatedSection>
           <div className="inner_container inner_container_sparks">
-         
-          <h2 className="text-base text-black">On Hover - Interactive 3D Models Showcase</h2>
-         
-            <p  className="mt-0 text-sm text-[#616161]">
-            This demo showcases a series of dynamically animated buttons built with <span className="spark_tools">React</span> and <span className="spark_tools"> Framer Motion.</span>
-            </p>
-            <div className="expBorder" >
-            <div className="exp" style={{ height: "400px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-              <div className="expButton">
-                {models.map((model, index) => (
-                  <motion.button
-                  className="buttonOnHover text-black"
-                    key={model.name}
-                    onClick={() => setModelIndex(index)}
-                    onMouseEnter={() => setHoveredIndex(index)}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      opacity: index === modelIndex ? 1 : 0.6,
-                      filter: hoveredIndex !== null && hoveredIndex !== index ? "blur(4px)" : "blur(0px)"
-                    }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {model.name}
-                  </motion.button>
-                ))}
+            <AnimatedSection delay={0.15}>
+              <h2 className="text-base text-black">On Hover - Interactive 3D Models Showcase</h2>
+            </AnimatedSection>
+            <AnimatedSection delay={0.2}>
+              <p className="mt-0 text-sm text-[#616161]">
+                This demo showcases a series of dynamically animated buttons built with <span className="spark_tools">React</span> and <span className="spark_tools">Framer Motion</span>.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection delay={0.25} className="w-full">
+              <div className="expBorder">
+                <div className="exp" style={{ height: "400px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  <div className="exp">
+                    <div className="expButton">
+                      {models.map((model, index) => (
+                        <motion.button
+                          className="buttonOnHover text-black"
+                          key={model.name}
+                          onClick={() => setModelIndex(index)}
+                          onMouseEnter={() => setHoveredIndex(index)}
+                          onMouseLeave={() => setHoveredIndex(null)}
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          initial={{ opacity: 0 }}
+                          animate={{
+                            opacity: index === modelIndex ? 1 : 0.6,
+                            filter: hoveredIndex !== null && hoveredIndex !== index ? "blur(4px)" : "blur(0px)"
+                          }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          {model.name}
+                        </motion.button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            </div>
-            <Footer currentPath={router.pathname} />
+            </AnimatedSection>
+            <AnimatedSection delay={0.3} className="w-full">
+              <Footer currentPath={router.pathname} />
+            </AnimatedSection>
           </div>
         </div>
     

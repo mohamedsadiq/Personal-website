@@ -44,7 +44,7 @@ const BackButton = ({
     >
       <div className="inline-block">
         <div 
-          className={`${className} cursor-pointer rounded-[50%] inline-block`}
+          className={`${className} cursor-pointer rounded-[50%] inline-block w-[40px] h-[40px]`}
           onClick={handleBack}
           onKeyDown={handleKeyDown}
           role="button"
@@ -53,8 +53,8 @@ const BackButton = ({
         >
           <div className="go_back group">
             <svg 
-              width="18" 
-              height="18" 
+              width="15" 
+              height="15" 
               viewBox="0 0 93 72" 
               fill="none" 
               xmlns="http://www.w3.org/2000/svg" 
