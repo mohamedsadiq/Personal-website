@@ -8,6 +8,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { useRouter } from 'next/router';
 import SparksNav from '../../../components/sparksNav';
+import { AnimatedSection } from "../../../components/AnimatedSection";
 
 const TheMartian: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -165,17 +166,22 @@ const TheMartian: React.FC = () => {
       </Head>
      
         <div className="container inner_container_sparks_parent">
-          <BackButton title={""} />
+          <AnimatedSection delay={0.1}>
+            <BackButton title="" />
+          </AnimatedSection>
           <div className="inner_container inner_container_sparks">
-          
-            
-          <h1 className="text-base  text-black">The Martian - Interactive 3D Character Demo</h1>
-          <p  className="mt-0 text-sm text-[#616161]">
-              This interactive demo allows you to control and observe the
-              behavior of a character in a 3D environment using <span className="spark_tools">Three.js</span>.
-            </p>
-            <h2 className="text-black mb-4 text-sm text-[#616161]">Navigation Controls:</h2>
-            <ul className="mt-0 text-sm text-[#616161]">
+            <AnimatedSection delay={0.15}>
+              <h1 className="text-base text-black">The Martian - Interactive 3D Character Demo</h1>
+            </AnimatedSection>
+            <AnimatedSection delay={0.2}>
+              <p className="mt-0 text-sm text-[#616161]">
+                This interactive demo allows you to control and observe the
+                behavior of a character in a 3D environment using <span className="spark_tools">Three.js</span>.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection delay={0.25}>
+              <h2 className="text-black mb-4 text-sm text-[#616161]">Navigation Controls:</h2>
+              <ul className="mt-0 text-sm text-[#616161]">
                 <li>
                   1 - Use <span className="spark_tools">W</span> ,{" "}
                   <span className="spark_tools">A</span> ,{" "}
@@ -189,11 +195,16 @@ const TheMartian: React.FC = () => {
                   2 - Click and drag with the mouse to change the camera view.
                   Use the mouse scroll wheel to zoom in and out.
                 </li>
-            </ul>
-            <div className="expBorder" >
-            <div className="exp" ref={containerRef} style={{ height:"700px"}} ></div>
-            </div>
-           <SparksNav currentPath={router.pathname} />
+              </ul>
+            </AnimatedSection>
+            <AnimatedSection delay={0.3} className="w-full">
+              <div className="expBorder">
+                <div className="exp" ref={containerRef} style={{ height: "700px" }}></div>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={0.35} className="w-full">
+              <SparksNav currentPath={router.pathname} />
+            </AnimatedSection>
 
             
 

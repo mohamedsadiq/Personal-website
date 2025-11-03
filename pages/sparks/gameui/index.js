@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import BackButton from "../../../components/backButton";
 import { useRouter } from 'next/router';
 import Footer from '../../../components/sparksNav';
+import { AnimatedSection } from "../../../components/AnimatedSection";
 
 // R3F
 import { Canvas, useThree, useFrame } from "@react-three/fiber";
@@ -92,139 +93,149 @@ export default function GameUi() {
       </Head>
    
         <div className="container inner_container_sparks_parent">
-          <BackButton title={""} />
+          <AnimatedSection delay={0.1}>
+            <BackButton title={""} />
+          </AnimatedSection>
+          
           <div className="inner_container inner_container_sparks">
-          
+            <AnimatedSection delay={0.15}>
+              <h2 className="mt-10 mb-0 text-base text-black">3D Models Interactive Demo</h2>
+              {/* <span className="text-xs text-stone-500"> Published Jul 2024</span> */}
+            </AnimatedSection>
+            <AnimatedSection delay={0.2}>
+              <p className="mt-0 text-sm text-[#616161]">
+                This interactive demo showcases a collection of 3D models brought to life using <span className="spark_tools">React</span>, <span className="spark_tools">Three.js</span>, <span className="spark_tools">React Three Fiber</span>. <span className="spark_tools">Framer Motion</span>, the interface provides a seamless experience through smooth animations and state transitions.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection delay={0.25} className="w-full">
+              <div className="expBorder">
+                <AnimatedSection delay={0.3} className="w-full">
+                  <div className="exp exp3d remove-buttom-borders" style={{ display: "flex", justifyContent: "space-around", alignItems: "center", height: "500px", background: "#000", border: "none" }}>
+                    <AnimatePresence exitBeforeEnter>
+                      <motion.div
+                        drag
+                        dragElastic={0.2}
+                        dragMomentum={true}
+                        dragConstraints={{ left: 0, right: 300 }}
+                        dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
+                        dragSnapToOrigin
+                        key={models[modelIndex].name}
+                        initial={{ opacity: 0, top: "300px", position: "relative", filter: "blur(10px)" }}
+                        animate={{
+                          opacity: 1,
+                          top: 0,
+                          position: "relative",
+                          filter: "blur(0)",
+                          transition: {
+                            opacity: { duration: 0.1 },
+                            top: { duration: 0.5, type: "spring", stiffness: 100, damping: 25 },
+                            filter: { duration: 0.1 },
+                          },
+                        }}
+                        exit={{ opacity: 0, top: "300px", position: "relative", filter: "blur(10px)" }}
+                        whileHover={{
+                          scale: 1.2,
+                          transition: { duration: 1 },
+                        }}
+                        whileDrag={{ cursor: cursorStyle }} // Dynamic cursor style
+                        onDragEnd={handleDragEnd} // Reset cursor on drag end
+                        style={{ width: "100%", height: "100%" }}
+                      >
+                        <Canvas
+                          camera={{ position: models[modelIndex].cameraPosition }}
+                          onCreated={({ gl, camera }) => {
+                            gl.setClearColor(new THREE.Color(0x000000));
+                            camera.lookAt(0, 0, 0);
+                          }}
+                          shadows // Enable shadows
+                        >
+                          <ambientLight intensity={1} />
+                          <directionalLight
+                            position={[5, 10, 7.5]}
+                            intensity={6}
+                            castShadow
+                            shadow-mapSize-width={2048}
+                            shadow-mapSize-height={2048}
+                            shadow-camera-near={0.5}
+                            shadow-camera-far={50}
+                            shadow-camera-left={-10}
+                            shadow-camera-right={10}
+                            shadow-camera-top={10}
+                            shadow-camera-bottom={-10}
+                          />
+                          <pointLight position={[100, 100, 100]} intensity={1} color={0xffffff} />
+                          <pointLight position={[-100, -100, -100]} intensity={1} color={0xff0000} />
+                          <spotLight position={[10, 20, 10]} angle={0.3} penumbra={1} intensity={1} castShadow />
 
-            <h2 className="mt-10 mb-0 text-base   text-black">3D Models Interactive Demo</h2>
-            {/* <span className="text-xs text-stone-500  "> Published Jul 2024</span> */}
-            <p  className="mt-0 text-sm text-[#616161]">
-              This interactive demo showcases a collection of 3D models brought to life using <span className="spark_tools">React</span>, <span className="spark_tools">Three.js</span>, <span  className="spark_tools">React Three Fiber</span>. <span className="spark_tools">Framer Motion</span>, the interface provides a seamless experience through smooth animations and state transitions.
-            </p>
-            <div className="expBorder" >
-            <div className="exp exp3d remove-buttom-borders" style={{ display: "flex", justifyContent: "space-around", alignItems: "center", height: "500px", background: "#000",  border:"none"  }}>
-              <AnimatePresence exitBeforeEnter>
-                <motion.div
-                  drag
-                  dragElastic={0.2}
-                  dragMomentum={true}
-                  dragConstraints={{ left: 0, right: 300 }}
-                  dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
-                  dragSnapToOrigin
-                  key={models[modelIndex].name}
-                  initial={{ opacity: 0, top: "300px", position: "relative", filter: "blur(10px)" }}
-                  animate={{
-                    opacity: 1,
-                    top: 0,
-                    position: "relative",
-                    filter: "blur(0)",
-                    transition: {
-                      opacity: { duration: 0.1 },
-                      top: { duration: 0.5, type: "spring", stiffness: 100, damping: 25 },
-                      filter: { duration: 0.1 },
-                    },
-                  }}
-                  exit={{ opacity: 0, top: "300px", position: "relative", filter: "blur(10px)" }}
-                  whileHover={{
-                    scale: 1.2,
-                    transition: { duration: 1 },
-                  }}
-                  whileDrag={{ cursor: cursorStyle }} // Dynamic cursor style
-                  onDragEnd={handleDragEnd} // Reset cursor on drag end
-                  style={{ width: "100%", height: "100%" }}
-                >
-                  <Canvas
-                    camera={{ position: models[modelIndex].cameraPosition }}
-                    onCreated={({ gl, camera }) => {
-                      gl.setClearColor(new THREE.Color(0x000000));
-                      camera.lookAt(0, 0, 0);
-                    }}
-                    shadows // Enable shadows
-                  >
-                    <ambientLight intensity={1} />
-                    <directionalLight
-                      position={[5, 10, 7.5]}
-                      intensity={6}
-                      castShadow
-                      shadow-mapSize-width={2048}
-                      shadow-mapSize-height={2048}
-                      shadow-camera-near={0.5}
-                      shadow-camera-far={50}
-                      shadow-camera-left={-10}
-                      shadow-camera-right={10}
-                      shadow-camera-top={10}
-                      shadow-camera-bottom={-10}
-                    />
-                    <pointLight position={[100, 100, 100]} intensity={1} color={0xffffff} />
-                    <pointLight position={[-100, -100, -100]} intensity={1} color={0xff0000} />
-                    <spotLight position={[10, 20, 10]} angle={0.3} penumbra={1} intensity={1} castShadow />
+                          {/* Load selected model and toggle visibility */}
+                          {models.map((model, index) => (
+                            <Model
+                              key={model.name}
+                              url={model.url}
+                              isVisible={index === modelIndex} // Only set isVisible for the selected model
+                              cameraPosition={model.cameraPosition}
+                              lightIntensity={model.lightIntensity}
+                            />
+                          ))}
 
-                    {/* Load selected model and toggle visibility */}
+                          {/* Controls for Orbit */}
+                          <OrbitControls />
+
+                          {/* Rotation Animation */}
+                          <ModelRotationAnimation modelIndex={modelIndex} isSpinning={isSpinning} />
+                        </Canvas>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                </AnimatedSection>
+                <AnimatedSection delay={0.35} className="text-white flex justify-start flex-row flex-wrap gap-x-1.5 expControllSection bg-black">
+                  <div className="expButton">
                     {models.map((model, index) => (
-                      <Model
+                      <motion.button
                         key={model.name}
-                        url={model.url}
-                        isVisible={index === modelIndex} // Only set isVisible for the selected model
-                        cameraPosition={model.cameraPosition}
-                        lightIntensity={model.lightIntensity}
-                      />
+                        onClick={() => setModelIndex(index)}
+                        onMouseEnter={() => setHoveredIndex(index)}
+                        onMouseLeave={() => setHoveredIndex(null)}
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.9 }}
+                        initial={{ opacity: 0 }}
+                        animate={{
+                          opacity: index === modelIndex ? 1 : 0.6,
+                          filter: hoveredIndex !== null && hoveredIndex !== index ? "blur(4px)" : "blur(0px)"
+                        }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {model.name}
+                      </motion.button>
                     ))}
-
-                    {/* Controls for Orbit */}
-                    <OrbitControls />
-
-                    {/* Rotation Animation */}
-                    <ModelRotationAnimation modelIndex={modelIndex} isSpinning={isSpinning} />
-                  </Canvas>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          
-            <div className=" text-white flex justify-start flex-row flex-wrap gap-x-1.5 expControllSection bg-black">
-              <div className="expButton">
-                {models.map((model, index) => (
-                  <motion.button
-                    key={model.name}
-                    onClick={() => setModelIndex(index)}
-                    onMouseEnter={() => setHoveredIndex(index)}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.9 }}
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      opacity: index === modelIndex ? 1 : 0.6,
-                      filter: hoveredIndex !== null && hoveredIndex !== index ? "blur(4px)" : "blur(0px)"
-                    }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {model.name}
-                  </motion.button>
-                ))}
+                  </div>
+                  <div className="">
+                    <motion.button
+                      onClick={() => setIsSpinning((prev) => !prev)}
+                      whileHover={{ opacity: 0.8 }}
+                      whileTap={{ scale: 0.9 }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                      className={`pl-3 pr-3 pt-1 pb-1 text-base bg-black rounded-2xl rotate3d`}
+                    >
+                      <motion.span
+                        key={isSpinning ? "Freeze" : "Rotate"} // Ensure key changes to force re-render
+                        initial={{ filter: "blur(10px)", opacity: 1 }}
+                        animate={{ filter: "blur(0)", opacity: 1, transitionEnd: { filter: "blur(0)", opacity: 1 } }}
+                        transition={{ duration: 0.01 }}
+                      >
+                        {isSpinning ? "Freeze" : "Rotate"}
+                      </motion.span>
+                    </motion.button>
+                  </div>
+                </AnimatedSection>
               </div>
-              <div className="">
-                <motion.button
-                  onClick={() => setIsSpinning((prev) => !prev)}
-                  whileHover={{ opacity: 0.8 }}
-                  whileTap={{ scale: 0.9 }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className={`pl-3 pr-3 pt-1 pb-1 text-base bg-black rounded-2xl rotate3d`}
-                >
-                  <motion.span
-                    key={isSpinning ? "Freeze" : "Rotate"} // Ensure key changes to force re-render
-                    initial={{ filter: "blur(10px)", opacity: 1 }}
-                    animate={{ filter: "blur(0)", opacity: 1, transitionEnd: { filter: "blur(0)", opacity: 1 } }}
-                    transition={{ duration: 0.01 }}
-                  >
-                    {isSpinning ? "Freeze" : "Rotate"}
-                  </motion.span>
-                </motion.button>
-              </div>
-              </div>
-            </div>
-            <Footer currentPath={router.pathname} />
+            </AnimatedSection>
+            <AnimatedSection delay={0.4} className="w-full">
+              <Footer currentPath={router.pathname} />
+            </AnimatedSection>
           </div>
         </div>
       
