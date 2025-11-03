@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React, { FC } from 'react'
 import styles from '../../styles/Home.module.css'
 import ExternalLink from '../../components/ExternalLink'
+import { AnimatedSection } from '../../components/AnimatedSection'
 
 import WorkIntro from '../../components/WorkIntro'
 import BackButton from '../../components/backButton'
@@ -37,6 +38,7 @@ const ProjectImage: FC<{
   
   return (
     <div className="image-container">
+      <AnimatedSection>
       {isLayoutFill ? (
         <div className="relative h-96 w-full">
           <Image
@@ -65,25 +67,26 @@ const ProjectImage: FC<{
         />
       )}
       {caption && <span className="project_img_des">({caption}) </span>}
+      </AnimatedSection>
     </div>
   );
 };
 
 // Component for rendering a project section with title and content
 const ProjectSection: FC<{ title: string; content: string }> = ({ title, content }) => (
-  <>
+  <AnimatedSection delay={0.1}>
     <h2 className={title.includes('Overview') ? 'mt-4 text-slate-950' : title.includes('inspiration') ? 'mt-10' : ''}>{title}</h2>
     <div className="whitespace-pre-wrap">
       {content.split('\n\n').map((paragraph, index) => (
         <p key={index} className={index > 0 ? 'mt-4' : ''}>{paragraph}</p>
       ))}
     </div>
-  </>
+  </AnimatedSection>
 );
 
 // Component for rendering features list
 const FeatureList: FC<{ features: Array<{ title: string; description: string }> }> = ({ features }) => (
-  <>
+  <AnimatedSection delay={0.2}>
     <h2>Features That Empower You.</h2>
     <ul>
       {features.map((feature, index) => (
@@ -93,12 +96,12 @@ const FeatureList: FC<{ features: Array<{ title: string; description: string }> 
         </React.Fragment>
       ))}
     </ul>
-  </>
+  </AnimatedSection>
 );
 
 // Component for rendering workflow steps
 const WorkflowSteps: FC<{ workflow: Array<{ title: string; steps: string[] }> }> = ({ workflow }) => (
-  <>
+  <AnimatedSection delay={0.3}>
     <h2 className='mt-4'>How LightUp Works</h2>
     <ul className='mt-4'>
       {workflow.map((item, index) => (
@@ -110,7 +113,7 @@ const WorkflowSteps: FC<{ workflow: Array<{ title: string; steps: string[] }> }>
         </React.Fragment>
       ))}
     </ul>
-  </>
+  </AnimatedSection>
 );
 
 // Main LightUp component
@@ -124,14 +127,18 @@ const LightUp: FC = () => {
             </Head>
             <main>
                 <div className="container">
-                    <BackButton href="/projects" />
+                    <AnimatedSection delay={0.1}>
+                        <BackButton href="/projects" />
+                    </AnimatedSection>
                     <div className="inner_container_project_parent inner_container inner_container_mobile">
-                        <div className="project_title">
-                          <h1 className='text-black text-lg'>{projectContent.title}</h1>
-                          <p className='text-base text-[#616161]'>{projectContent.description} <span className="dateProject"> {projectContent.date} </span></p>
-                        </div>
+                        <AnimatedSection delay={0.1}>
+                          <div className="project_title">
+                            <h1 className='text-black text-lg'>{projectContent.title}</h1>
+                            <p className='text-base text-[#616161]'>{projectContent.description} <span className="dateProject"> {projectContent.date} </span></p>
+                          </div>
+                        </AnimatedSection>
                       
-                        <div className="blog_photo inner_blog work_intro_image">
+                        <AnimatedSection delay={0.15} className="blog_photo inner_blog work_intro_image">
                             <ProjectImage
                                 src={img1}
                                 alt={projectContent.title}
@@ -139,38 +146,46 @@ const LightUp: FC = () => {
                                 priority={true}
                                 className=""
                             />
-                        </div>
-                          <h2 className='mt-6'>Project Overview</h2>
-                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
-                            <ExternalLink 
-                                href={projectContent.projectLink}
-                                className="text-[#000] underline decoration-dotted underline-offset-2 transition-colors duration-200 group-hover:decoration-current w-fit"
-                            >
-                                Visit Live
-                            </ExternalLink>
-                            <div className="flex flex-wrap gap-2">
-                                {projectContent.tags.map((tag, index) => (
-                                    <span key={index} className="bg-[#f6f6f6] border border-[#f0f0f0] text-black text-sm px-3 py-1.5 rounded-xl whitespace-nowrap">
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="whitespace-pre-wrap">
-                            {projectContent.sections[0].content.split('\n\n').map((paragraph, index) => (
-                                <p key={index} className={index > 0 ? 'mt-4' : ''}>{paragraph}</p>
-                            ))}
-                        </div>
+                        </AnimatedSection>
+                        <AnimatedSection delay={0.2}>
+                            <h2 className='mt-6'>Project Overview</h2>
+                        </AnimatedSection>
+                        <AnimatedSection delay={0.15}>
+                          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
+                              <ExternalLink 
+                                  href={projectContent.projectLink}
+                                  className="text-[#000] underline decoration-dotted underline-offset-2 transition-colors duration-200 group-hover:decoration-current w-fit"
+                              >
+                                  Visit Live
+                              </ExternalLink>
+                              <div className="flex flex-wrap gap-2">
+                                  {projectContent.tags.map((tag, index) => (
+                                      <span key={index} className="bg-[#f6f6f6] border border-[#f0f0f0] text-black text-sm px-3 py-1.5 rounded-xl whitespace-nowrap">
+                                          {tag}
+                                      </span>
+                                  ))}
+                              </div>
+                          </div>
+                        </AnimatedSection>
+                        <AnimatedSection delay={0.2}>
+                          <div className="whitespace-pre-wrap">
+                              {projectContent.sections[0].content.split('\n\n').map((paragraph, index) => (
+                                  <p key={index} className={index > 0 ? 'mt-4' : ''}>{paragraph}</p>
+                              ))}
+                          </div>
+                        </AnimatedSection>
                     </div>
                 </div>
                 
                 
             </main>
             <div className='p-20 pt-0'>
-                <ProjectImage 
-                    src={img2} 
-                    alt="Concept visualization" 
-                />
+                <AnimatedSection delay={0.25}>
+                    <ProjectImage 
+                        src={img2} 
+                        alt="Concept visualization" 
+                    />
+                </AnimatedSection>
                 <div className='container'>
                     <div className="inner_container">
                         <ProjectSection 
@@ -187,31 +202,37 @@ const LightUp: FC = () => {
                             content={projectContent.sections[3].content} 
                         /> */}
                     </div>
-                    <ProjectImage 
-                        src={img3} 
-                        alt="LightUp in action" 
-                        caption="LightUp in action" 
-                    />
+                    <AnimatedSection delay={0.3}>
+                        <ProjectImage 
+                            src={img3} 
+                            alt="LightUp in action" 
+                            caption="LightUp in action" 
+                        />
+                    </AnimatedSection>
                     {/* <div className="inner_container">
                         <FeatureList features={projectContent.features} />
                     </div> */}
                 </div>
 
                 <div className='container'>
-                    <div className="inner_container">
-                        <ProjectImage 
-                            src={img4} 
-                            alt="LightUp workflow" 
-                            caption="Loading - Display - Chat" 
-                        />
-                        {/* <WorkflowSteps workflow={projectContent.workflow} /> */}
-                    </div>
+                    <AnimatedSection delay={0.35}>
+                        <div className="inner_container">
+                            <ProjectImage 
+                                src={img4} 
+                                alt="LightUp workflow" 
+                                caption="Loading - Display - Chat" 
+                            />
+                            {/* <WorkflowSteps workflow={projectContent.workflow} /> */}
+                        </div>
+                    </AnimatedSection>
                 </div>
                 
-                <ProjectImage 
-                    src={img5} 
-                    alt="Open source" 
-                />
+                <AnimatedSection delay={0.4}>
+                    <ProjectImage 
+                        src={img5} 
+                        alt="Open source" 
+                    />
+                </AnimatedSection>
                 
                 <div className='container'>
                     <div className="inner_container">
@@ -221,30 +242,34 @@ const LightUp: FC = () => {
                         />
                         
                         {/* Simple Links Section */}
-                        <div className="mt-12 pt-8 border-t border-gray-200">
-                            <h2 className="text-xl font-medium mb-4">Links</h2>
-                            <div className="flex flex-col space-y-2">
-                                <a className="text-blue-600 hover:underline inline-block" href="https://www.boimaginations.com/lightup" target="_blank" rel="noopener noreferrer">
-                                    Official Website
-                                </a>
-                                <a className="text-blue-600 hover:underline inline-block" href="https://github.com/mohamedsadiq/LightUp" target="_blank" rel="noopener noreferrer">
-                                    GitHub Repository
-                                </a>
-                                <a className="text-blue-600 hover:underline inline-block" href="https://peerlist.io/sadiqo/project/lightup" target="_blank" rel="noopener noreferrer">
-                                    On Peerlist 
-                                </a>
-                                <a className="text-blue-600 hover:underline inline-block" href="https://chromewebstore.google.com/detail/lightup/your-extension-id" target="_blank" rel="noopener noreferrer">
-                                    Chrome Web Store
-                                </a>
+                        <AnimatedSection delay={0.45}>
+                            <div className="mt-12 pt-8 border-t border-gray-200">
+                                <h2 className="text-xl font-medium mb-4">Links</h2>
+                                <div className="flex flex-col space-y-2">
+                                    <a className="text-blue-600 hover:underline inline-block" href="https://www.boimaginations.com/lightup" target="_blank" rel="noopener noreferrer">
+                                        Official Website
+                                    </a>
+                                    <a className="text-blue-600 hover:underline inline-block" href="https://github.com/mohamedsadiq/LightUp" target="_blank" rel="noopener noreferrer">
+                                        GitHub Repository
+                                    </a>
+                                    <a className="text-blue-600 hover:underline inline-block" href="https://peerlist.io/sadiqo/project/lightup" target="_blank" rel="noopener noreferrer">
+                                        On Peerlist 
+                                    </a>
+                                    <a className="text-blue-600 hover:underline inline-block" href="https://chromewebstore.google.com/detail/lightup/your-extension-id" target="_blank" rel="noopener noreferrer">
+                                        Chrome Web Store
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        </AnimatedSection>
                     </div>
                 </div>
             </div>
             {/* Project Navigation */}
-            <div className="container mx-auto px-4 py-8">
-              <ProjectNavigation />
-            </div>
+            <AnimatedSection delay={0.5}>
+                <div className="container mx-auto px-4 py-8">
+                    <ProjectNavigation />
+                </div>
+            </AnimatedSection>
         </div>
     )
 }

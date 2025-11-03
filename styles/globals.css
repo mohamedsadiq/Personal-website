@@ -18,6 +18,9 @@ body {
   background-color: #fff;
 }
 
+main{
+  padding: 10px;
+}
 /* Ensure app container takes full height */
 .app-container {
   min-height: 100vh;
@@ -987,10 +990,10 @@ a {
 }
 
 .inner_container_project_parent h2{
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 .inner_container_project_parent h2:nth-of-type(1){
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 .inner_container .overlay h2{
   font-size: 0.9rem;
@@ -1495,7 +1498,7 @@ color: rgb(250, 200, 17);
   
 }
 .inner_container h2{
-  margin-bottom: 6px;
+  /* margin-bottom: 6px; */
   /* font-size: 1.7rem; */
   /* color: #fff; */
   /* margin-bottom: 16px; */
@@ -3934,9 +3937,9 @@ cursor: pointer;
 
 @media only screen and (min-width:320px) {
   .inner_container_mobile {
-    margin-top: 33px;
+    /* margin-top: 33px; */
     /* font-family: "Inter"; */
-    margin-bottom: 100px;
+    margin-bottom: 20px;
     position: relative;
 }
 

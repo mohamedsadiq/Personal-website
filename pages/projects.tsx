@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { StaticImageData } from 'next/image';
 
 import { useRouter } from 'next/router';
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
+import { AnimatedSection } from '../components/AnimatedSection';
 
 // images
 import developerDao from "../img/Instagram story - 1.png"
@@ -39,24 +40,23 @@ const Projects: React.FC = () => {
       <main className="min-h-screen p-4 sm:p-8">
         <div className="max-w-7xl mx-auto">
           <motion.h1 
-              className="text-base  mb-8 text-center text-[#616161]"
+              className="text-base  mb-8 text-left text-[#616161]"
               initial={{ opacity: 0, y: 0 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
               Projects
             </motion.h1>
-          <div className="flex flex-col items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
             {data.map((item, index) => (
-              <div key={item.name} className="w-full max-w-[32rem] mb-8 relative">
-                <motion.div   
-                  className="bg-white rounded-3xl shadow-xl overflow-hidden transform"
-                  initial={{ scale: 0.9, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: index * 0.2, duration: 0.5 }}
-                >
+              <AnimatedSection 
+                key={item.name} 
+                className="w-full relative"
+                delay={Math.floor(index/2) * 0.2}
+              >
+                <div className="border rounded-[24px] bg-white shadow-xl overflow-hidden transform h-full flex flex-col">
                   <Link href={item.link} passHref>
-                    <div className="relative h-[36rem]">
+                    <div className="relative h-[28rem] md:h-[32rem] lg:h-[40rem]">
                       {item.video ? (
                         <video 
                           className="w-full h-full object-cover"
@@ -74,6 +74,11 @@ const Projects: React.FC = () => {
                           alt={item.name}
                           layout="fill"
                           objectFit="cover"
+                          loading="lazy"
+                          placeholder="blur"
+                          blurDataURL={typeof item.img === 'string' ? item.img : item.img?.src ? item.img.src : ''}
+                          className="transition-opacity duration-200 opacity-0"
+                          onLoadingComplete={(image) => image.classList.remove('opacity-0')}
                         />
                       )}
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70" />
@@ -86,8 +91,8 @@ const Projects: React.FC = () => {
                       </div>
                     </div>
                   </Link>
-                </motion.div>
-              </div>
+                </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>

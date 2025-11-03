@@ -23,16 +23,16 @@ const ProjectNavigation = () => {
   const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 
   return (
-    <nav className="mt-16 border-t border-gray-200 pt-8 mb-20">
-      <div className="flex justify-between items-center">
-        {prevProject ? (
+    <nav className="mt-6 sm:mt-8 md:mt-16 border-t border-gray-200 pt-4 sm:pt-6 md:pt-8 mb-10 sm:mb-12 md:mb-20 px-4 sm:px-0">
+      <div className="flex flex-col space-y-4 sm:space-y-6 md:space-y-0 md:flex-row md:justify-between md:items-center">
+        {prevProject && (
           <Link 
             href={`/projects/${prevProject.id}`} 
-            className="group flex items-center text-gray-600 hover:text-black transition-colors"
+            className="group flex items-center text-gray-600 hover:text-black active:scale-95 transition-all duration-150 py-3 px-3 -mx-3 rounded-lg active:bg-gray-50 w-full md:w-auto md:px-0 md:mx-0 md:py-0 md:active:scale-100"
             aria-label={`Previous project: ${prevProject.title}`}
           >
             <svg 
-              className="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" 
+              className="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform flex-shrink-0" 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24" 
@@ -45,27 +45,25 @@ const ProjectNavigation = () => {
                 d="M15 19l-7-7 7-7" 
               />
             </svg>
-            <div className="flex flex-col">
-              <span className="text-xs text-gray-500">Previous Project</span>
-              <span className="">{prevProject.title}</span>
+            <div className="flex flex-col overflow-hidden">
+              <span className="text-xs text-gray-500 mb-0.5">Previous Project</span>
+              <span className="truncate text-sm sm:text-base font-medium">{prevProject.title}</span>
             </div>
           </Link>
-        ) : (
-          <div></div> // Empty div to maintain flex spacing
         )}
         
         {nextProject && (
           <Link 
             href={`/projects/${nextProject.id}`} 
-            className="group flex items-center text-gray-600 hover:text-black transition-colors text-right ml-auto"
+            className="group flex items-center text-gray-600 hover:text-black active:scale-95 transition-all duration-150 py-3 px-3 -mx-3 rounded-lg active:bg-gray-50 w-full md:w-auto md:px-0 md:mx-0 md:py-0 md:active:scale-100 text-right md:ml-auto justify-end md:justify-start"
             aria-label={`Next project: ${nextProject.title}`}
           >
-            <div className="flex flex-col">
-              <span className="text-xs text-gray-500">Next Project</span>
-              <span className="">{nextProject.title}</span>
+            <div className="flex flex-col items-end md:items-start">
+              <span className="text-xs text-gray-500 mb-0.5">Next Project</span>
+              <span className="truncate text-sm sm:text-base font-medium">{nextProject.title}</span>
             </div>
             <svg 
-              className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" 
+              className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform flex-shrink-0" 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24" 
