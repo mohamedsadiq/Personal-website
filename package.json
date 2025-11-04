@@ -35,6 +35,7 @@
     "gray-matter": "^4.0.3",
     "gsap": "^3.13.0",
     "keen-slider": "^6.8.6",
+    "lucide-react": "^0.552.0",
     "marked": "^4.3.0",
     "next": "^16.0.0",
     "next-seo": "^6.8.0",

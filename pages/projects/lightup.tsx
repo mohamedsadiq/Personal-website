@@ -25,13 +25,15 @@ const ProjectImage: FC<{
   layout?: 'fill' | 'responsive' | 'intrinsic'; 
   priority?: boolean;
   className?: string;
+  loading?: 'lazy' | 'eager';
 }> = ({ 
   src, 
   alt, 
   caption, 
   layout = 'responsive', 
   priority = false,
-  className = 'rounded-xl border border-neutral-100 mt-9 m-auto'
+  className = 'rounded-xl border border-neutral-100 mt-9 m-auto',
+  loading = 'lazy'
 }) => {
   // For fill layout, we need a container with relative position and defined height
   const isLayoutFill = layout === 'fill';
@@ -49,6 +51,7 @@ const ProjectImage: FC<{
             objectPosition="center"
             placeholder="blur"
             priority={priority}
+            loading={loading}
             quality={100}
             className={className}
           />
@@ -62,6 +65,7 @@ const ProjectImage: FC<{
           objectPosition="center"
           placeholder="blur"
           priority={priority}
+          loading={loading}
           quality={100}
           className={className}
         />
@@ -144,6 +148,7 @@ const LightUp: FC = () => {
                                 alt={projectContent.title}
                                 layout="fill"
                                 priority={true}
+                                loading="eager"
                                 className=""
                             />
                         </AnimatedSection>
