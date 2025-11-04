@@ -24,12 +24,14 @@ const ProjectImage: FC<{
   caption?: string;
   className?: string;
   delay?: number;
+  loading?: 'lazy' | 'eager';
 }> = ({ 
   src, 
   alt, 
   caption, 
   className = 'rounded-xl border border-neutral-100 mt-9 m-auto',
-  delay = 0
+  delay = 0,
+  loading = 'lazy'
 }) => (
   <AnimatedSection delay={delay} className="w-full">
     <div className="image-container">
@@ -42,6 +44,7 @@ const ProjectImage: FC<{
         objectPosition="center"
         placeholder="blur"
         quality={100}
+        loading={loading}
         className={className}
       />
       {caption && <span className="project_img_des">{caption}</span>}
@@ -77,6 +80,7 @@ const Web3Boy: FC = () => {
                                 objectPosition="center"
                                 placeholder="blur"
                                 quality={100}
+                                loading="eager"
                             />
                         </AnimatedSection>
 

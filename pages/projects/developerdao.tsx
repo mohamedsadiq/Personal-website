@@ -24,6 +24,7 @@ interface ProjectImageProps {
   delay?: number;
   priority?: boolean;
   layout?: 'fill' | 'responsive' | 'intrinsic';
+  loading?: 'lazy' | 'eager';
 }
 
 const ProjectImage: FC<ProjectImageProps> = ({ 
@@ -33,7 +34,8 @@ const ProjectImage: FC<ProjectImageProps> = ({
   className = 'rounded-xl border border-neutral-100 mt-4',
   delay = 0,
   priority = false,
-  layout = 'responsive'
+  layout = 'responsive',
+  loading = 'lazy'
 }) => {
   const isFill = layout === 'fill';
   const imageClassName = `${className} ${isFill ? 'object-cover' : ''}`;
@@ -50,6 +52,7 @@ const ProjectImage: FC<ProjectImageProps> = ({
             quality={100}
             className={imageClassName}
             priority={priority}
+            loading={priority ? 'eager' : loading}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1000px"
           />
         ) : (
@@ -62,6 +65,7 @@ const ProjectImage: FC<ProjectImageProps> = ({
             quality={100}
             className={imageClassName}
             priority={priority}
+            loading={priority ? 'eager' : loading}
           />
         )}
         {caption && <span className="project_img_des">{caption}</span>}
@@ -101,6 +105,7 @@ const DeveloperDAO: React.FC = () => {
               // caption="DeveloperDAO official website - A hub for web3 builders"
               delay={0.2}
               priority
+              loading="eager"
               layout="fill"
             />
 

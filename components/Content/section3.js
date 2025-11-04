@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import productOfTheWeek from "../../public/Optimized SVG.svg";
 import Image from "next/image";
+import peerlist from "../../public/staff-pick-light.png";
+import productHunt5 from "../../public/Optimized SVG 1.svg";
+import sasshub from "../../public/Saashub Logo.png";
 
 const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
     // Removed hoverEffect object as we'll use CSS hover states instead
@@ -53,10 +56,16 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                             className="text-[#000] underline decoration-dotted decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
                         >
                             LightUp
-                            <span className="arrowspan">
+                          <span className="arrowspan">
+                                <span className="relative w-[40px] top-4 inline-block">
+                                    <Image src={peerlist} alt="" />
+                                </span> 
+                                  <span className="relative w-[25px] top-2 inline-block">
+                                    <Image src={sasshub} alt="" />
+                                </span>  
                             </span>
                         </h1>  
-                        <p className="mt-0 text-[#484848] text-sm leading-6 ">AI Chrome extension - Peerlist Staff Pick, Top 9 AI Annotation Tool on SassHub.</p>             
+                        <p className="mt-2 text-[#484848] text-sm leading-6 ">AI Chrome extension - Peerlist Staff Pick, Top 9 AI Annotation Tool on SassHub.</p>             
                     </Link>
                     {/* <span className="text-black float-right">arrow</span> */}
                 </motion.div>
@@ -84,7 +93,10 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                             className="text-sm leading-6 text-[#000] decoration-dotted underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
                         >
                             DeeveloperDAO FM
-                            <span className="arrowspan">
+                             <span className="arrowspan">
+                                <span className="relative w-[68px] top-1 inline-block">
+                                    <Image src={productHunt5} alt="" />
+                                </span>  
                             </span>
                         </h1>
                          <p className="text-sm leading-6 mt-0 text-[#484848]"> A community tool featured as a top product on Product Hunt, reaching an audience of 700,000+.</p>             

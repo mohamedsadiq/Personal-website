@@ -26,9 +26,11 @@ interface ProjectImageProps {
   delay?: number;
   priority?: boolean;
   className?: string;
-  objectFit?: string;
+  objectFit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
   objectPosition?: string;
   quality?: number;
+  loading?: 'lazy' | 'eager';
+  layout?: 'fill' | 'fixed' | 'intrinsic' | 'responsive';
 }
 
 const ProjectImage: React.FC<ProjectImageProps> = ({ 
@@ -39,7 +41,9 @@ const ProjectImage: React.FC<ProjectImageProps> = ({
   className = "",
   objectFit = "cover",
   objectPosition = "center",
-  quality = 100
+  quality = 100,
+  loading = 'lazy',
+  layout = 'intrinsic'
 }) => (
   <AnimatedSection delay={delay} className={className}>
     <div className="relative w-full h-full">
@@ -48,11 +52,15 @@ const ProjectImage: React.FC<ProjectImageProps> = ({
         alt={alt}
         width={1200}
         height={800}
-        className="w-full h-auto rounded-lg shadow-lg"
+        className={`w-full h-auto rounded-lg shadow-lg ${className}`}
         priority={priority}
-        loading={priority ? 'eager' : 'lazy'}
+        loading={priority ? 'eager' : loading}
         placeholder="blur"
         blurDataURL={typeof src === 'string' ? src : src?.src || ''}
+        style={{
+          objectFit: objectFit,
+          objectPosition: objectPosition
+        }}
       />
     </div>
   </AnimatedSection>
@@ -95,6 +103,7 @@ const DeveloperDAO: React.FC = () => {
                   priority={true}
                   className="rounded-xl block mt-4"
                   placeholder="blur"
+                  loading="eager"
                   blurDataURL={typeof img1 === 'string' ? img1 : img1?.src || ''}
                   width={1200}
                   height={800}
@@ -134,51 +143,36 @@ const DeveloperDAO: React.FC = () => {
         </div>
          <div className="p-10">
             <AnimatedSection>
-              <Image
+              <ProjectImage
                 src={img2}
-                alt="Picture of the author"
-                objectFit="cover"
-                // layout="fill"
-                objectPosition="center"
-                placeholder="blur"
-                quality={100}
-                className='rounded-xl block '
+                alt="DAOs Spot Home Page"
+                delay={0.1}
+                className="mt-20"
               />
               <span className="project_img_des">(The Home page) </span>
             </AnimatedSection>
             <AnimatedSection>
-              <Image
+              <ProjectImage
                 src={img3}
-                alt="Picture of the author"
-                objectFit="cover"
-                // layout="fill"
-                objectPosition="center"
-                placeholder="blur"
-                quality={100}
-                className="rounded-xl block mt-20"
+                alt="DAOs Spot Features"
+                delay={0.2}
+                className="mt-20"
               />
             </AnimatedSection>
             <AnimatedSection>
-              <Image
+              <ProjectImage
                 src={img6}
-                alt="Picture of the author"
-                objectFit="cover"
-                // layout="fill"
-                objectPosition="center"
-                placeholder="blur"
-                quality={100}
-                className="rounded-xl block mt-20"
+                alt="DAOs Spot Dashboard"
+                delay={0.3}
+                className="mt-20"
               />
             </AnimatedSection>
             <AnimatedSection>
-              <Image
+              <ProjectImage
                 src={img5}
-                alt="Picture of the author"
-                objectFit="cover"
-                objectPosition="center"
-                placeholder="blur"
-                quality={100}
-                className="rounded-xl block mt-20 w-full"
+                alt="DAOs Spot Mobile View"
+                delay={0.4}
+                className="mt-20 w-full"
               />
             </AnimatedSection>
               <div className="container mx-auto px-4 py-8">
