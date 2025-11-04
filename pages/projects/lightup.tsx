@@ -4,8 +4,6 @@ import React, { FC, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import styles from '../../styles/Home.module.css'
 import ExternalLink from '../../components/ExternalLink'
-import { VideoThumbnail } from '../../components/VideoThumbnail';
-import { ScatteredVideoGallery } from '../../components/ScatteredVideoGallery';
 import { AnimatedSection } from '../../components/AnimatedSection'
 
 import WorkIntro from '../../components/WorkIntro'
@@ -24,16 +22,6 @@ const imagePaths = {
   designImg2: '/lightup/Start 1.webp',
   designImg3: '/lightup/Start 2 Image.webp',
   video: '/lightup/Dribbble Video.mp4',
-  videos: {
-    video1: '/lightup/vidoes/2.mp4',
-    video2: '/lightup/vidoes/3.mp4',
-    video3: '/lightup/vidoes/4.mp4',
-    video4: '/lightup/vidoes/5.mp4',
-    video5: '/lightup/vidoes/6.mp4',
-    video6: '/lightup/vidoes/7.mp4',
-    video7: '/lightup/vidoes/8.mp4',
-    twitterVideo: '/lightup/vidoes/X Twitter Video Downloader.mp4'
-  }
 }
 
 // Component for project image with caption
@@ -144,165 +132,6 @@ const WorkflowSteps: FC<{ workflow: string[] }> = ({ workflow }) => {
     );
 };
 
-// Component for displaying videos in a responsive grid
-const VideoGallery = () => {
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
-  
-  const videoTitles = {
-    video1: 'Core Features',
-    video2: 'User Flow',
-    video3: 'Advanced Tools',
-    video4: 'Performance',
-    video5: 'Customization',
-    video6: 'Integrations',
-    video7: 'Mobile Experience',
-    twitterVideo: 'Twitter Integration'
-  };
-
-  // Video data for the gallery
-  const videos = [
-    { 
-      id: 'video1', 
-      title: videoTitles.video1, 
-      src: imagePaths.videos.video1, 
-      description: 'Core features demonstration',
-      featured: true
-    },
-    { 
-      id: 'video2', 
-      title: videoTitles.video2, 
-      src: imagePaths.videos.video2, 
-      description: 'User journey and navigation'
-    },
-    { 
-      id: 'video3', 
-      title: videoTitles.video3, 
-      src: imagePaths.videos.video3, 
-      description: 'Advanced tool showcase'
-    },
-    { 
-      id: 'video4', 
-      title: videoTitles.video4, 
-      src: imagePaths.videos.video4, 
-      description: 'Performance metrics'
-    },
-    { 
-      id: 'video5', 
-      title: videoTitles.video5, 
-      src: imagePaths.videos.video5, 
-      description: 'Customization options'
-    },
-    { 
-      id: 'video6', 
-      title: videoTitles.video6, 
-      src: imagePaths.videos.video6, 
-      description: 'Third-party integrations'
-    },
-    { 
-      id: 'video7', 
-      title: videoTitles.video7, 
-      src: imagePaths.videos.video7, 
-      description: 'Mobile experience'
-    },
-    { 
-      id: 'twitterVideo', 
-      title: videoTitles.twitterVideo, 
-      src: imagePaths.videos.twitterVideo, 
-      description: 'Twitter integration demo'
-    },
-  ];
-
-  return (
-    <div className="w-full py-12 px-4 sm:px-6 lg:px-8">
-      <AnimatePresence>
-        {selectedVideo && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
-            onClick={() => setSelectedVideo(null)}
-          >
-            <motion.div 
-              className="relative w-full max-w-4xl"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={e => e.stopPropagation()}
-            >
-              <video
-                src={selectedVideo}
-                className="w-full rounded-xl shadow-2xl"
-                controls
-                autoPlay
-                playsInline
-              />
-              <button 
-                onClick={() => setSelectedVideo(null)}
-                className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
-              >
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-base md:text-3xl text-center mb-8 md:mb-12">Video Showcase</h2>
-        
-        {/* Featured Video */}
-        <div className="mb-12">
-          <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">
-            <VideoThumbnail
-              src={videos[0].src}
-              title={videos[0].title}
-              description={videos[0].description}
-              aspect="aspect-video"
-              onClick={() => setSelectedVideo(videos[0].src)}
-              className="w-full h-full hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-          <div className="mt-4 text-center">
-            <h3 className="text-xl font-semibold text-black">{videos[0].title}</h3>
-            <p className="text-gray-600">{videos[0].description}</p>
-          </div>
-        </div>
-
-        {/* Video Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {videos.slice(1).map((video) => (
-            <motion.div
-              key={video.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3 }}
-              className="group"
-            >
-              <div className="aspect-video rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                <VideoThumbnail
-                  src={video.src}
-                  title={video.title}
-                  description={video.description}
-                  aspect="aspect-video"
-                  onClick={() => setSelectedVideo(video.src)}
-                  className="w-full h-full group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="mt-3">
-                <h3 className="font-medium text-lg text-black">{video.title}</h3>
-                <p className="text-gray-600 text-sm">{video.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
 
 // Main LightUp component
 const LightUp: FC = () => {
@@ -464,20 +293,19 @@ const LightUp: FC = () => {
                             content={projectContent.sections[3].content} 
                         /> */}
                     </div>
-                   
-                 <VideoGallery />
-                {/* <AnimatedSection delay={0.4}>
-                    <ProjectImage 
-                        src={imagePaths.img5} 
-                        alt="Open source" 
-                    />
-                </AnimatedSection> */}
+                    
+                    {/* <AnimatedSection delay={0.4}>
+                        <ProjectImage 
+                            src={imagePaths.img5} 
+                            alt="Open source" 
+                        />
+                    </AnimatedSection> */}
                 
                 <div className='container'>
                     <div className="inner_container">
                         <ProjectSection 
-                            title={projectContent.sections[4].title} 
-                            content={projectContent.sections[4].content} 
+                            title={projectContent.sections[5].title} 
+                            content={projectContent.sections[5].content} 
                         />
                         
                         {/* Simple Links Section */}
