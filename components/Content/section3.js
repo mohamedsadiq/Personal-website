@@ -49,70 +49,64 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                 <h1 className="text-sm leading-relaxed">Things I’ve built</h1>
             </div>
             <div className="main_projects [--underline-color:rgba(208,208,208,0.53)]">
-            <motion.div className="group hover_project text-sm leading-relaxed">
-                    <Link
-                    className="mt-0 mb-8" href="/projects/lightup"  rel="noopener noreferrer" >                  
-                        <h1 
-                            className="text-[#000] underline decoration-dotted decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
-                        >
+            <motion.div className="group hover_project">
+                <Link className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-4 items-start mt-0 mb-8 mt-[-8px]" href="/projects/lightup" rel="noopener noreferrer">
+                    <div>
+                        <h1 className="text-[#000] text-sm leading-6 underline decoration-dotted decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current inline-flex items-center">
                             LightUp
-                          <span className="arrowspan">
-                                <span className="relative w-[40px] top-4 inline-block">
+                            <span className="flex items-center gap-1 ml-2">
+                                <span className="w-[40px] inline-block">
                                     <Image src={peerlist} alt="" />
-                                </span> 
-                                  <span className="relative w-[25px] top-2 inline-block">
+                                </span>
+                                <span className="w-[25px] inline-block">
                                     <Image src={sasshub} alt="" />
-                                </span>  
-                            </span>
-                        </h1>  
-                        <p className="mt-2 text-[#484848] text-sm leading-6 ">AI Chrome extension - Peerlist Staff Pick, Top 9 AI Annotation Tool on SassHub.</p>             
-                    </Link>
-                    {/* <span className="text-black float-right">arrow</span> */}
-                </motion.div>
-
-                <motion.div className="group hover_project text-base leading-relaxed">
-                    <Link  
-                    className="mt-0 mb-8" href="/projects/daosspot" >                  
-                        <h1 
-                            className="text-sm leading-6 text-[#000] decoration-dotted underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
-                        >
-                            DAOs Spot
-                            <span className="arrowspan">
-                                <span className="relative w-[68px] top-1 inline-block">
-                                    <Image src={productOfTheWeek} alt="" />
-                                </span>  
-                            </span>
-                        </h1>       
-                          <p className="text-sm leading-6 mt-0 text-[#484848]">A DAO discovery platform, Product Hunt #4 Product of the Week.</p>              
-                    </Link>
-                    {/* <span className="text-black float-right">arrow</span> */}
-                </motion.div>
-                <motion.div className="group hover_project text-base leading-relaxed">
-                    <Link className="mt-2 mb-8" href="/projects/developerdaofm" >
-                        <h1 
-                            className="text-sm leading-6 text-[#000] decoration-dotted underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
-                        >
-                            DeeveloperDAO FM
-                             <span className="arrowspan">
-                                <span className="relative w-[68px] top-1 inline-block">
-                                    <Image src={productHunt5} alt="" />
-                                </span>  
+                                </span>
                             </span>
                         </h1>
-                         <p className="text-sm leading-6 mt-0 text-[#484848]"> A community tool featured as a top product on Product Hunt, reaching an audience of 700,000+.</p>             
+                    </div>
+                    <p className="text-[#484848] text-sm leading-6 m-0">AI Chrome extension - Peerlist Staff Pick, Top 9 AI Annotation Tool on SassHub.</p>
+                </Link>
+            </motion.div>
+
+                <motion.div className="group hover_project">
+                    <Link className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-4 items-start mt-0 mb-8" href="/projects/daosspot">
+                        <div>
+                            <div className="flex items-center">
+                                <h1 className="text-sm leading-6 text-[#000] decoration-dotted underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current">
+                                    DAOs Spot
+                                </h1>
+                                <span className="ml-2">
+                                    <Image src={productOfTheWeek} alt="" className="w-[68px]" />
+                                </span>
+                            </div>
+                        </div>
+                        <p className="text-sm leading-6 text-[#484848] m-0">A DAO discovery platform, Product Hunt #4 Product of the Week.</p>
+                    </Link>
+                </motion.div>
+                <motion.div className="group hover_project">
+                    <Link className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-4 items-start mt-2 mb-8" href="/projects/developerdaofm">
+                        <div>
+                            <div className="flex items-center">
+                                <h1 className="text-sm leading-6 text-[#000] decoration-dotted underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current">
+                                    DeveloperDAO FM
+                                </h1>
+                                <span className="ml-2">
+                                    <Image src={productHunt5} alt="" className="w-[68px]" />
+                                </span>
+                            </div>
+                        </div>
+                        <p className="text-sm leading-6 text-[#484848] m-0">A community tool featured as a top product on Product Hunt, reaching an audience of 700,000+.</p>
                     </Link>
                 </motion.div>
                 
-                 <motion.div className="group hover_project text-base leading-relaxed">
-                    <Link className="mt-2 mb-8" href="/projects/developerdao" >
-                        <h1 
-                            className="text-sm leading-6 text-[#000] decoration-dotted underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current"
-                        >
-                            DeeveloperDAO Official Website
-                            <span className="arrowspan">
-                            </span>
-                        </h1>
-                         <p className="text-sm leading-6 mt-0 text-[#484848]"> Accelerating the education and impact of a new wave of web3 builders.</p>             
+                <motion.div className="group hover_project">
+                    <Link className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-4 items-start mt-2 mb-8" href="/projects/developerdao">
+                        <div>
+                            <h1 className="text-sm leading-6 text-[#000] decoration-dotted underline decoration-[var(--underline-color)] underline-offset-2 transition-colors duration-200 group-hover:decoration-current inline-flex items-center">
+                                DeveloperDAO Official Website
+                            </h1>
+                        </div>
+                        <p className="text-sm leading-6 text-[#484848] m-0">Accelerating the education and impact of a new wave of web3 builders.</p>
                     </Link>
                 </motion.div>
                 
