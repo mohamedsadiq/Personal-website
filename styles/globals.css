@@ -1948,7 +1948,7 @@ color: rgb(250, 200, 17);
 } */
 
 .work_intro_image{
-  height: 500px;
+  height: auto;
 }
 .container_work_inner{
   max-width: 2000px ;
