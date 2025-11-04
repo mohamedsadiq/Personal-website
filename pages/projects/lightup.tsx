@@ -15,7 +15,7 @@ import ProjectNavigation from '../../components/ProjectNavigation';
 
 // All images are served from the public directory
 const imagePaths = {
-  img1: '/lightup/99112bcf-6ff7-4fed-bd66-b1cb12932430_2880x2160.webp',
+  img1: '/lightup/linkimage.png',
   img2: '/lightup/56f413c1-e074-43e4-adc5-8205230ea720_1986x1576.jpg',
   img3: '/lightup/ebe607a8-f6f8-47d2-a8f5-a80ac36606da_2880x2160.png',
   img4: '/lightup/537334f8-55de-4a4d-bdc2-31cb4c824a84_2880x2160.png',
@@ -107,7 +107,7 @@ const ProjectImage: FC<{
 // Component for rendering a project section with title and content
 const ProjectSection: FC<{ title: string; content: string }> = ({ title, content }) => (
   <AnimatedSection delay={0.1}>
-    <h2 className={title.includes('Overview') ? 'mt-4 text-slate-950' : title.includes('inspiration') ? 'mt-10' : ''}>{title}</h2>
+    <h2 className={ title.includes('Overview') ? 'mt-4 mb-2 text-slate-950' : title.includes('inspiration') ? 'mt-10 mb-2' : 'mb-2'}>{title}</h2>
     <div className="whitespace-pre-wrap">
       {content.split('\n\n').map((paragraph, index) => (
         <p key={index} className={index > 0 ? 'mt-4' : ''}>{paragraph}</p>
@@ -444,7 +444,7 @@ const LightUp: FC = () => {
                     </div> */}
                 </div>
 
-                <div className='container'>
+                {/* <div className='container'>
                     <AnimatedSection delay={0.35}>
                         <div className="inner_container">
                             <ProjectImage 
@@ -452,10 +452,9 @@ const LightUp: FC = () => {
                                 alt="LightUp workflow" 
                                 caption="Loading - Display - Chat" 
                             />
-                            {/* <WorkflowSteps workflow={projectContent.workflow} /> */}
                         </div>
                     </AnimatedSection>
-                </div>
+                </div> */}
                         {/* Video Gallery */}
                        
                         
