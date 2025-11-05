@@ -160,8 +160,7 @@ const LightUp: FC = () => {
                                 src={imagePaths.img1}
                                 alt={projectContent.title}
                                 layout="fill"
-                                priority={true}
-                                loading="eager"
+                                loading="lazy"
                                 className=""
                             />
                         </AnimatedSection>

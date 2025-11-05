@@ -5,7 +5,7 @@ const sparks = [
   { id: 'scroll', title: 'Scrolling', path: '/sparks/scroll' },
   { id: 'button', title: 'Button', path: '/sparks/button' },
   { id: 'onhover', title: 'On Hover', path: '/sparks/onhover' },
-  { id: 'the-martian', title: 'The Martian', path: '/sparks/TheMartian' },
+  { id: 'TheMartian', title: 'The Martian', path: '/sparks/TheMartian' },
   { id: 'gameui', title: '3D Interactive', path: '/sparks/gameui' },
   { id: 'line', title: 'Temporal Flow', path: '/sparks/line' },
   { id: 'widget', title: 'Widget', path: '/sparks/widget' },
