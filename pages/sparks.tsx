@@ -279,7 +279,7 @@ const SparkItem: React.FC<SparkItemProps> = ({
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  backgroundColor: '#f0f0f0',
+                  backgroundColor: '#ffffffff',
                 }}
               >
                 <motion.div
@@ -290,7 +290,7 @@ const SparkItem: React.FC<SparkItemProps> = ({
                   style={{
                     width: '100%',
                     height: '100%',
-                    backgroundColor: '#e0e0e0',
+                    backgroundColor: '#f4f4f4',
                   }}
                 />
               </motion.div>

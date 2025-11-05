@@ -182,6 +182,7 @@ const LightUp: FC = () => {
                                 alt={projectContent.title}
                                 layout="fill"
                                 placeholder="blur"
+                                blurDataURL={imagePaths.img1.blurDataURL}
                                 className=""
                             />
                         </AnimatedSection>
@@ -245,10 +246,11 @@ const LightUp: FC = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
                             <div className="space-y-6">
                                 <ProjectImage 
-                                    src="/lightup/537334f8-55de-4a4d-bdc2-31cb4c824a84_2880x2160.png"
+                                    src={imagePaths.img4}
                                     alt="LightUp interface close-up"
                                     caption="LightUp's clean and minimal interface"
                                     placeholder="blur"
+                                    blurDataURL={imagePaths.img4.blurDataURL}
                                 />
                                 <ProjectImage 
                                     src={imagePaths.designImg1} 
@@ -263,6 +265,7 @@ const LightUp: FC = () => {
                                     alt="LightUp activation states"
                                     caption="Different activation states and interactions"
                                     placeholder="blur"
+                                    blurDataURL={imagePaths.designImg2.blurDataURL}
                                 />
                                 <ProjectImage 
                                     src={imagePaths.designImg3} 
@@ -302,12 +305,13 @@ const LightUp: FC = () => {
                 {/* <div className='container'>
                     <AnimatedSection delay={0.35}>
                         <div className="inner_container">
-                            <ProjectImage 
-                                src="/lightup/537334f8-55de-4a4d-bdc2-31cb4c824a84_2880x2160.png"
-                                alt="LightUp workflow" 
-                                caption="Loading - Display - Chat" 
-                                placeholder="blur"
-                            />
+                                <ProjectImage 
+                                    src={imagePaths.img4}
+                                    alt="LightUp workflow" 
+                                    caption="Loading - Display - Chat" 
+                                    placeholder="blur"
+                                    blurDataURL={imagePaths.img4.blurDataURL}
+                                />
                         </div>
                     </AnimatedSection>
                 </div> */}
@@ -322,10 +326,11 @@ const LightUp: FC = () => {
                     </div>
                     
                     {/* <AnimatedSection delay={0.4}>
-                        <ProjectImage 
-                            src={imagePaths.img5} 
-                            alt="Open source" 
-                            placeholder="blur"
+                            <ProjectImage 
+                                src={imagePaths.img5} 
+                                alt="Open source" 
+                                placeholder="blur"
+                                blurDataURL={imagePaths.img5.blurDataURL}
                         />
                     </AnimatedSection> */}
                 
