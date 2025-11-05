@@ -8,16 +8,16 @@ import BackButton from '../../components/backButton'
 import ExternalLink from "../../components/ExternalLink";
 import ProjectNavigation from '../../components/ProjectNavigation';
 
-// Image paths pointing to public directory
-const img1 = "/web3boy/1ff132134169935.png";
-const img2 = "/web3boy/Behance Image 2800x1575.png";
-const img3 = "/web3boy/Adbe2f134169935.png";
-const img4 = "/web3boy/Behance 1920x1080.png";
-const img5 = "/web3boy/Behance Image 2800x1575 (1).png";
-const img6 = "/web3boy/6cd4ee134169935 61d5ee3a8bf65.png";
-const img7 = "/web3boy/Behance Image 1920x1440.png";
+// Import images with static imports
+import img1 from '../../public/web3boy/1ff132134169935.png';
+import img2 from '../../public/web3boy/Behance Image 2800x1575.png';
+import img3 from '../../public/web3boy/Adbe2f134169935.png';
+import img4 from '../../public/web3boy/Behance 1920x1080.png';
+import img5 from '../../public/web3boy/Behance Image 2800x1575 (1).png';
+import img6 from '../../public/web3boy/6cd4ee134169935 61d5ee3a8bf65.png';
+import img7 from '../../public/web3boy/Behance Image 1920x1440.png';
 
-// Image paths object with public paths
+// Image paths object with imported images
 const imagePaths = {
   img1,
   img2,
@@ -41,7 +41,6 @@ const ProjectImage: FC<{
   height?: number;
   priority?: boolean;
   placeholder?: 'blur' | 'empty';
-  blurDataURL?: string;
 }> = ({ 
   src, 
   alt, 
@@ -53,27 +52,27 @@ const ProjectImage: FC<{
   width = 1200,
   height = 675,
   priority = false,
-  placeholder = 'blur',
-  blurDataURL
+  placeholder = 'blur'
 }) => {
   const isFillLayout = layout === 'fill';
-  const isPublicPath = typeof src === 'string' && src.startsWith('/');
   
   return (
     <AnimatedSection delay={delay} className="w-full h-full">
       <div className={`image-container ${isFillLayout ? 'relative h-full w-full' : ''}`}>
         {isFillLayout ? (
-          <Image
-            src={src}
-            alt={alt}
-            fill
-            {...(isPublicPath ? {} : { placeholder, blurDataURL })}
-            quality={100}
-            loading={loading}
-            priority={priority}
-            className={className}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
+          <div className="relative h-96 w-full">
+            <Image
+              src={src}
+              alt={alt}
+              fill
+              placeholder={placeholder}
+              priority={priority}
+              loading={loading}
+              className={className}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={100}
+            />
+          </div>
         ) : (
           <Image
             src={src}
@@ -83,12 +82,12 @@ const ProjectImage: FC<{
             layout={layout}
             objectFit="cover"
             objectPosition="center"
-            {...(isPublicPath ? {} : { placeholder, blurDataURL })}
-            quality={100}
-            loading={loading}
+            placeholder={placeholder}
             priority={priority}
+            loading={loading}
             className={className}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            quality={100}
           />
         )}
         {caption && <span className="project_img_des">{caption}</span>}
@@ -117,12 +116,12 @@ const Web3Boy: FC = () => {
                         </AnimatedSection>
                         
                         <AnimatedSection delay={0.2} className="w-full">
-                            <div className="relative w-full h-96 md:h-[600px] mb-8 rounded-xl overflow-hidden mt-4">
+                            <div className="w-full h-96 md:h-[500px] mb-8 rounded-xl overflow-hidden mt-4">
                                 <ProjectImage
                                     src={imagePaths.img1}
                                     alt="Web3Boy Project"
-                                    layout="fill"
-                                    className="object-cover"
+                                    layout="responsive"
+                                    className="w-full h-full object-cover"
                                 />
                             </div>
                         </AnimatedSection>
