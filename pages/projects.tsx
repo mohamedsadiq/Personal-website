@@ -12,7 +12,6 @@ import developerDao from "../img/Instagram story - 1.png"
 import developerDaoFm from "../img/daofm.png"
 import nftweb3 from "../img/nftweb3.png"
 import daos from "../img/daosspot1.png"
-
 import budget1 from "../img/ph11.png"
 
 interface ProjectData {
@@ -76,7 +75,6 @@ const Projects: React.FC = () => {
                           objectFit="cover"
                           loading="lazy"
                           placeholder="blur"
-                          blurDataURL={typeof item.img === 'string' ? item.img : item.img?.src ? item.img.src : ''}
                           className="transition-opacity duration-200 opacity-0"
                           onLoadingComplete={(image) => image.classList.remove('opacity-0')}
                         />
@@ -129,7 +127,7 @@ const data: ProjectData[] = [
     link: "/projects/developerdaofm",
     productHunt: ""
   },
-   {
+  {
     name: "DeveloperDAO - Jul 2022",
     img: developerDao,
     description: "In a mission to accelerate the education and impact of a new wave of web3 builders.", 

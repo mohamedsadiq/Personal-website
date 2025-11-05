@@ -11,18 +11,28 @@ import BackButton from '../../components/backButton'
 import { projectContent } from '../../data/lightup'
 import ProjectNavigation from '../../components/ProjectNavigation';
 
-// All images are served from the public directory
+// Import images with blur placeholders
+import img1 from '../../public/lightup/linkimage.png';
+import img2 from '../../public/lightup/56f413c1-e074-43e4-adc5-8205230ea720_1986x1576.jpg';
+import img3 from '../../public/lightup/ebe607a8-f6f8-47d2-a8f5-a80ac36606da_2880x2160.png';
+import img4 from '../../public/lightup/537334f8-55de-4a4d-bdc2-31cb4c824a84_2880x2160.png';
+import img5 from '../../public/lightup/d213566b-7ade-4640-92d5-a2273b2affc5_2880x2160.webp';
+import designImg1 from '../../public/lightup/Original Image 1504x1504.webp';
+import designImg2 from '../../public/lightup/Start 1.webp';
+import designImg3 from '../../public/lightup/Start 2 Image.webp';
+
+// Image paths object with imported images
 const imagePaths = {
-  img1: '/lightup/linkimage.png',
-  img2: '/lightup/56f413c1-e074-43e4-adc5-8205230ea720_1986x1576.jpg',
-  img3: '/lightup/ebe607a8-f6f8-47d2-a8f5-a80ac36606da_2880x2160.png',
-  img4: '/lightup/537334f8-55de-4a4d-bdc2-31cb4c824a84_2880x2160.png',
-  img5: '/lightup/d213566b-7ade-4640-92d5-a2273b2affc5_2880x2160.webp',
-  designImg1: '/lightup/Original Image 1504x1504.webp',
-  designImg2: '/lightup/Start 1.webp',
-  designImg3: '/lightup/Start 2 Image.webp',
-  video: '/lightup/Dribbble Video.mp4',
-}
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  designImg1,
+  designImg2,
+  designImg3,
+  video: '/lightup/Dribbble Video.mp4' // Keep video as a string path
+};
 
 // Component for project image with caption
 const ProjectImage: FC<{ 
@@ -35,6 +45,8 @@ const ProjectImage: FC<{
   priority?: boolean;
   className?: string;
   loading?: 'lazy' | 'eager';
+  placeholder?: 'blur' | 'empty';
+  blurDataURL?: string;
 }> = ({ 
   src, 
   alt, 
@@ -44,7 +56,9 @@ const ProjectImage: FC<{
   height = 800,  // Default height for images
   priority = false,
   className = 'rounded-xl border border-neutral-100 mt-9 m-auto',
-  loading = 'lazy'
+  loading = 'lazy',
+  placeholder = 'empty',
+  blurDataURL = ''
 }) => {
   // For fill layout, we need a container with relative position and defined height
   const isLayoutFill = layout === 'fill';
@@ -73,7 +87,11 @@ const ProjectImage: FC<{
             objectPosition="center"
             priority={priority}
             loading={loading}
+            placeholder={placeholder}
+            blurDataURL={blurDataURL}
             className={className}
+            quality={100}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
       ) : (
@@ -83,7 +101,10 @@ const ProjectImage: FC<{
           {...imageProps}
           priority={priority}
           loading={loading}
+          placeholder={placeholder}
+          blurDataURL={blurDataURL}
           className={className}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       )}
       {caption && <span className="project_img_des">({caption}) </span>}
@@ -160,7 +181,7 @@ const LightUp: FC = () => {
                                 src={imagePaths.img1}
                                 alt={projectContent.title}
                                 layout="fill"
-                                loading="lazy"
+                                placeholder="blur"
                                 className=""
                             />
                         </AnimatedSection>
@@ -200,7 +221,8 @@ const LightUp: FC = () => {
                 <AnimatedSection delay={0.25}>
                     <ProjectImage 
                         src={imagePaths.img2} 
-                        alt="Concept visualization" 
+                        alt="Concept visualization"
+                        placeholder="blur"
                     />
                 </AnimatedSection>
                 <div className='container'>
@@ -226,11 +248,13 @@ const LightUp: FC = () => {
                                     src="/lightup/537334f8-55de-4a4d-bdc2-31cb4c824a84_2880x2160.png"
                                     alt="LightUp interface close-up"
                                     caption="LightUp's clean and minimal interface"
+                                    placeholder="blur"
                                 />
                                 <ProjectImage 
                                     src={imagePaths.designImg1} 
                                     alt="LightUp in context"
                                     caption="Seamless integration with web content"
+                                    placeholder="blur"
                                 />
                             </div>
                             <div className="space-y-6">
@@ -238,11 +262,13 @@ const LightUp: FC = () => {
                                     src={imagePaths.designImg2} 
                                     alt="LightUp activation states"
                                     caption="Different activation states and interactions"
+                                    placeholder="blur"
                                 />
                                 <ProjectImage 
                                     src={imagePaths.designImg3} 
                                     alt="LightUp feature showcase"
                                     caption="Feature demonstration in action"
+                                    placeholder="blur"
                                 />
                             </div>
                         </div>
@@ -265,6 +291,7 @@ const LightUp: FC = () => {
                             src={imagePaths.img3} 
                             alt="LightUp in action" 
                             caption="LightUp in action" 
+                            placeholder="blur"
                         />
                     </AnimatedSection>
                     {/* <div className="inner_container">
@@ -279,6 +306,7 @@ const LightUp: FC = () => {
                                 src="/lightup/537334f8-55de-4a4d-bdc2-31cb4c824a84_2880x2160.png"
                                 alt="LightUp workflow" 
                                 caption="Loading - Display - Chat" 
+                                placeholder="blur"
                             />
                         </div>
                     </AnimatedSection>
@@ -297,6 +325,7 @@ const LightUp: FC = () => {
                         <ProjectImage 
                             src={imagePaths.img5} 
                             alt="Open source" 
+                            placeholder="blur"
                         />
                     </AnimatedSection> */}
                 
