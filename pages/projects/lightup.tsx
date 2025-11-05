@@ -221,7 +221,8 @@ const LightUp: FC = () => {
                 <AnimatedSection delay={0.25}>
                     <ProjectImage 
                         src={imagePaths.img2} 
-                        alt="Concept visualization" 
+                        alt="Concept visualization"
+                        placeholder="blur"
                     />
                 </AnimatedSection>
                 <div className='container'>
@@ -247,11 +248,13 @@ const LightUp: FC = () => {
                                     src="/lightup/537334f8-55de-4a4d-bdc2-31cb4c824a84_2880x2160.png"
                                     alt="LightUp interface close-up"
                                     caption="LightUp's clean and minimal interface"
+                                    placeholder="blur"
                                 />
                                 <ProjectImage 
                                     src={imagePaths.designImg1} 
                                     alt="LightUp in context"
                                     caption="Seamless integration with web content"
+                                    placeholder="blur"
                                 />
                             </div>
                             <div className="space-y-6">
@@ -259,11 +262,13 @@ const LightUp: FC = () => {
                                     src={imagePaths.designImg2} 
                                     alt="LightUp activation states"
                                     caption="Different activation states and interactions"
+                                    placeholder="blur"
                                 />
                                 <ProjectImage 
                                     src={imagePaths.designImg3} 
                                     alt="LightUp feature showcase"
                                     caption="Feature demonstration in action"
+                                    placeholder="blur"
                                 />
                             </div>
                         </div>
@@ -286,6 +291,7 @@ const LightUp: FC = () => {
                             src={imagePaths.img3} 
                             alt="LightUp in action" 
                             caption="LightUp in action" 
+                            placeholder="blur"
                         />
                     </AnimatedSection>
                     {/* <div className="inner_container">
@@ -300,6 +306,7 @@ const LightUp: FC = () => {
                                 src="/lightup/537334f8-55de-4a4d-bdc2-31cb4c824a84_2880x2160.png"
                                 alt="LightUp workflow" 
                                 caption="Loading - Display - Chat" 
+                                placeholder="blur"
                             />
                         </div>
                     </AnimatedSection>
@@ -318,6 +325,7 @@ const LightUp: FC = () => {
                         <ProjectImage 
                             src={imagePaths.img5} 
                             alt="Open source" 
+                            placeholder="blur"
                         />
                     </AnimatedSection> */}
                 

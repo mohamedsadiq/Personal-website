@@ -114,20 +114,20 @@ const DeveloperDAO: React.FC = () => {
             </AnimatedSection>
             
             <AnimatedSection delay={0.2}>
-              <div className="relative w-full h-auto">
+              <div className="relative w-full overflow-hidden rounded-xl mt-4">
                 <Image
                   src={img1}
                   alt="DAOs Spot Hero Image"
                   priority={true}
-                  className="rounded-xl block mt-4 w-full h-auto"
+                  className="w-full h-auto max-h-[80vh] object-contain"
                   placeholder="blur"
                   loading="eager"
                   blurDataURL={typeof img1 === 'string' ? img1 : img1?.blurDataURL || ''}
                   width={1200}
                   height={800}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
+                  />
+                </div>
               <h2 className="text-slate-950 mt-6">Project Overview</h2>
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
                 <ExternalLink 

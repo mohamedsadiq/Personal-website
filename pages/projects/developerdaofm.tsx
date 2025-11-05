@@ -46,7 +46,7 @@ const ProjectImage: FC<ProjectImageProps> = ({
   priority = false,
   className = 'rounded-xl border border-neutral-100 mt-9 m-auto',
   loading = 'lazy',
-  placeholder = 'empty',
+  placeholder = 'blur',
   blurDataURL = '',
   delay = 0
 }) => {
@@ -130,6 +130,7 @@ const DeveloperDAO: React.FC = () => {
               delay={0.2}
               priority
               loading="eager"
+              placeholder="blur"
             
             />
 
@@ -181,6 +182,7 @@ const DeveloperDAO: React.FC = () => {
               alt="Early logo design concepts for DeveloperDAO FM"
               caption="These were the first attempts to discover the logo's potential, I shared this design on X (Twitter)."
               delay={0.35}
+              placeholder="blur"
             />
             <AnimatedSection delay={0.4}>
               <p>
@@ -198,6 +200,7 @@ const DeveloperDAO: React.FC = () => {
               alt="DeveloperDAO FM play and pause modes"
               caption="The Play and the Pause modes"
               delay={0.45}
+              placeholder="blur"
             />
 
             <ProjectImage
@@ -205,6 +208,7 @@ const DeveloperDAO: React.FC = () => {
               alt="Close-up of play and pause buttons"
               caption="Closer look at the Play and the Pause buttons"
               delay={0.5}
+              placeholder="blur"
             />
 
             <ProjectImage
@@ -212,6 +216,7 @@ const DeveloperDAO: React.FC = () => {
               alt="Music channel switching interface"
               caption="Music icon for switching between different music channels"
               delay={0.55}
+              placeholder="blur"
             />
 
             <ProjectImage
@@ -219,6 +224,7 @@ const DeveloperDAO: React.FC = () => {
               alt="DeveloperDAO FM website overview"
               caption="An overview of the DeveloperDAO FM website"
               delay={0.6}
+              placeholder="blur"
             />
 
             <AnimatedSection delay={0.65}>
@@ -235,12 +241,14 @@ const DeveloperDAO: React.FC = () => {
               delay={0.7}
               layout="fill"
               className="h-96"
+              placeholder="blur"
             />
 
             <ProjectImage
               src={img5}
               alt="Product Hunt feature email"
               caption="Product Hunt's email about featuring DeveloperDAO FM in their newsletter"
+              placeholder="blur"
             />
           </div>
         </div>
