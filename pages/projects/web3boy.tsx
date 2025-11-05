@@ -8,14 +8,25 @@ import BackButton from '../../components/backButton'
 import ExternalLink from "../../components/ExternalLink";
 import ProjectNavigation from '../../components/ProjectNavigation';
 
-// Image imports
-import img1 from "../../img/web3boy/1ff132134169935.png"
-import img2 from "../../img/web3boy/Behance Image 2800x1575.png"
-import img3 from "../../img/web3boy/Adbe2f134169935.png"
-import img4 from "../../img/web3boy/Behance 1920x1080.png"
-import img5 from "../../img/web3boy/Behance Image 2800x1575 (1).png"
-import img6 from "../../img/web3boy/6cd4ee134169935 61d5ee3a8bf65.png"
-import img7 from "../../img/web3boy/Behance Image 1920x1440.png"
+// Image paths pointing to public directory
+const img1 = "/web3boy/1ff132134169935.png";
+const img2 = "/web3boy/Behance Image 2800x1575.png";
+const img3 = "/web3boy/Adbe2f134169935.png";
+const img4 = "/web3boy/Behance 1920x1080.png";
+const img5 = "/web3boy/Behance Image 2800x1575 (1).png";
+const img6 = "/web3boy/6cd4ee134169935 61d5ee3a8bf65.png";
+const img7 = "/web3boy/Behance Image 1920x1440.png";
+
+// Image paths object with public paths
+const imagePaths = {
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7
+} as const;
 
 // Component for project image with caption
 const ProjectImage: FC<{ 
@@ -25,32 +36,66 @@ const ProjectImage: FC<{
   className?: string;
   delay?: number;
   loading?: 'lazy' | 'eager';
+  layout?: 'fill' | 'responsive' | 'intrinsic';
+  width?: number;
+  height?: number;
+  priority?: boolean;
+  placeholder?: 'blur' | 'empty';
+  blurDataURL?: string;
 }> = ({ 
   src, 
   alt, 
   caption, 
   className = 'rounded-xl border border-neutral-100 mt-9 m-auto',
   delay = 0,
-  loading = 'lazy'
-}) => (
-  <AnimatedSection delay={delay} className="w-full">
-    <div className="image-container">
-      <Image
-        src={src}
-        alt={alt}
-        width={1200}
-        height={675}
-        objectFit='cover'
-        objectPosition="center"
-        placeholder="blur"
-        quality={100}
-        loading={loading}
-        className={className}
-      />
-      {caption && <span className="project_img_des">{caption}</span>}
-    </div>
-  </AnimatedSection>
-);
+  loading = 'lazy',
+  layout = 'intrinsic',
+  width = 1200,
+  height = 675,
+  priority = false,
+  placeholder = 'blur',
+  blurDataURL
+}) => {
+  const isFillLayout = layout === 'fill';
+  const isPublicPath = typeof src === 'string' && src.startsWith('/');
+  
+  return (
+    <AnimatedSection delay={delay} className="w-full h-full">
+      <div className={`image-container ${isFillLayout ? 'relative h-full w-full' : ''}`}>
+        {isFillLayout ? (
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            {...(isPublicPath ? {} : { placeholder, blurDataURL })}
+            quality={100}
+            loading={loading}
+            priority={priority}
+            className={className}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        ) : (
+          <Image
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            layout={layout}
+            objectFit="cover"
+            objectPosition="center"
+            {...(isPublicPath ? {} : { placeholder, blurDataURL })}
+            quality={100}
+            loading={loading}
+            priority={priority}
+            className={className}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        )}
+        {caption && <span className="project_img_des">{caption}</span>}
+      </div>
+    </AnimatedSection>
+  );
+};
 
 const Web3Boy: FC = () => {
     return (
@@ -71,17 +116,15 @@ const Web3Boy: FC = () => {
                             <p className='text-base'>21 NTFs inspired by the web3 culture.  <span className="dateProject">-  Jun 2021 </span></p>
                         </AnimatedSection>
                         
-                        <AnimatedSection delay={0.2} className="blog_photo inner_blog work_intro_image">
-                            <Image
-                                src={img1}
-                                alt="Certified Web3 Boy NFT Collection"
-                                objectFit='cover'
-                                layout='fill'
-                                objectPosition="center"
-                                placeholder="blur"
-                                quality={100}
-                                loading="eager"
-                            />
+                        <AnimatedSection delay={0.2} className="w-full">
+                            <div className="relative w-full h-96 md:h-[600px] mb-8 rounded-xl overflow-hidden mt-4">
+                                <ProjectImage
+                                    src={imagePaths.img1}
+                                    alt="Web3Boy Project"
+                                    layout="fill"
+                                    className="object-cover"
+                                />
+                            </div>
                         </AnimatedSection>
 
                         <AnimatedSection delay={0.25}>
@@ -111,45 +154,51 @@ const Web3Boy: FC = () => {
             </main>
             <div className='p-20 pt-0'>
                 <ProjectImage 
-                    src={img2}
+                    src={imagePaths.img2}
                     alt="Web3 Boy NFT Collection Showcase"
                     caption="(Not connected to wallet yet)"
                     delay={0.3}
+                    placeholder="blur"
                 />
                 
                 <ProjectImage 
-                    src={img3}
+                    src={imagePaths.img3}
                     alt="Web3 Boy UI after wallet connection"
                     caption="(The UI after the connection)"
                     delay={0.35}
+                    placeholder="blur"
                 />
                 
                 <ProjectImage 
-                    src={img5}
+                    src={imagePaths.img5}
                     alt="Web3 Boy NFT minting process"
                     caption="(Here, the mining of the NFTs started)"
                     delay={0.4}
+                    placeholder="blur"
                 />
                 
                 <ProjectImage 
-                    src={img4}
+                    src={imagePaths.img4}
                     alt="Web3 Boy NFT minting celebration"
                     caption="(Here, the mining has finished and we're celebrating)"
                     delay={0.45}
+                    placeholder="blur"
                 />
                 
                 <ProjectImage 
-                    src={img6}
+                    src={imagePaths.img6}
                     alt="Web3 Boy mobile version"
                     caption="(This is the mobile version of the website)"
                     delay={0.5}
+                    placeholder="blur"
                 />
                 
                 <ProjectImage 
-                    src={img7}
+                    src={imagePaths.img7}
                     alt="Web3 Boy mining components"
                     caption="(These are the components of the mining process)"
                     delay={0.55}
+                    placeholder="blur"
                 />
                 
                 {/* Project Navigation */}

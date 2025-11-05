@@ -23,6 +23,7 @@ import img6 from "../../img/DAOs Spot/5.png";
 interface ProjectImageProps {
   src: StaticImageData | string;
   alt: string;
+  caption?: string;
   delay?: number;
   priority?: boolean;
   className?: string;
@@ -31,11 +32,13 @@ interface ProjectImageProps {
   quality?: number;
   loading?: 'lazy' | 'eager';
   layout?: 'fill' | 'fixed' | 'intrinsic' | 'responsive';
+  blurDataURL?: string;
 }
 
 const ProjectImage: React.FC<ProjectImageProps> = ({ 
   src, 
   alt, 
+  caption,
   delay = 0, 
   priority = false, 
   className = "",
@@ -43,28 +46,43 @@ const ProjectImage: React.FC<ProjectImageProps> = ({
   objectPosition = "center",
   quality = 100,
   loading = 'lazy',
-  layout = 'intrinsic'
-}) => (
-  <AnimatedSection delay={delay} className={className}>
-    <div className="relative w-full h-full">
-      <Image
-        src={src}
-        alt={alt}
-        width={1200}
-        height={800}
-        className={`w-full h-auto rounded-lg shadow-lg ${className}`}
-        priority={priority}
-        loading={priority ? 'eager' : loading}
-        placeholder="blur"
-        blurDataURL={typeof src === 'string' ? src : src?.src || ''}
-        style={{
-          objectFit: objectFit,
-          objectPosition: objectPosition
-        }}
-      />
-    </div>
-  </AnimatedSection>
-);
+  layout = 'intrinsic',
+  ...props
+}) => {
+  const isPublicPath = typeof src === 'string' && src.startsWith('/');
+  const isFillLayout = layout === 'fill';
+  
+  return (
+    <AnimatedSection delay={delay} className="w-full">
+      <div className={`${isFillLayout ? 'relative w-full h-full' : ''} ${className}`}>
+        <div className={isFillLayout ? 'relative w-full h-full' : 'relative'}>
+          <Image
+            src={src}
+            alt={alt}
+            {...(isFillLayout 
+              ? { fill: true, style: { objectFit, objectPosition } }
+              : { 
+                  width: 1200, 
+                  height: 800,
+                  layout: 'intrinsic',
+                  style: { objectFit, objectPosition }
+                }
+            )}
+            className={`w-full ${isFillLayout ? 'h-full' : 'h-auto'} rounded-lg shadow-lg`}
+            priority={priority}
+            loading={loading}
+            placeholder="blur"
+            blurDataURL={isPublicPath ? undefined : (typeof src === 'string' ? src : src?.blurDataURL || '')}
+            quality={quality}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            {...props}
+          />
+        </div>
+        {caption && <span className="block text-center text-sm text-gray-500 mt-2">({caption})</span>}
+      </div>
+    </AnimatedSection>
+  );
+};
 
 const DeveloperDAO: React.FC = () => {
   return (
@@ -101,12 +119,13 @@ const DeveloperDAO: React.FC = () => {
                   src={img1}
                   alt="DAOs Spot Hero Image"
                   priority={true}
-                  className="rounded-xl block mt-4"
+                  className="rounded-xl block mt-4 w-full h-auto"
                   placeholder="blur"
                   loading="eager"
-                  blurDataURL={typeof img1 === 'string' ? img1 : img1?.src || ''}
+                  blurDataURL={typeof img1 === 'string' ? img1 : img1?.blurDataURL || ''}
                   width={1200}
                   height={800}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
               <h2 className="text-slate-950 mt-6">Project Overview</h2>
@@ -146,15 +165,16 @@ const DeveloperDAO: React.FC = () => {
               <ProjectImage
                 src={img2}
                 alt="DAOs Spot Home Page"
+                caption="The Home page"
                 delay={0.1}
                 className="mt-20"
               />
-              <span className="project_img_des">(The Home page) </span>
             </AnimatedSection>
             <AnimatedSection>
               <ProjectImage
                 src={img3}
                 alt="DAOs Spot Features"
+                caption="Key Features"
                 delay={0.2}
                 className="mt-20"
               />
@@ -163,6 +183,7 @@ const DeveloperDAO: React.FC = () => {
               <ProjectImage
                 src={img6}
                 alt="DAOs Spot Dashboard"
+                caption="Dashboard View"
                 delay={0.3}
                 className="mt-20"
               />
@@ -171,8 +192,10 @@ const DeveloperDAO: React.FC = () => {
               <ProjectImage
                 src={img5}
                 alt="DAOs Spot Mobile View"
+                caption="Mobile Responsive Design"
                 delay={0.4}
                 className="mt-20 w-full"
+                objectFit="contain"
               />
             </AnimatedSection>
               <div className="container mx-auto px-4 py-8">

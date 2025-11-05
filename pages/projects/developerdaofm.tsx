@@ -7,74 +7,98 @@ import ExternalLink from "../../components/ExternalLink";
 import { AnimatedSection } from "../../components/AnimatedSection";
 import ProjectNavigation from '../../components/ProjectNavigation';
 
-// Image imports
-import developerDaoFm from "../../img/daofm.png"
 
-import imgWork from "../../img/developerdaofmfolder/image 2.png";
-import img0 from "../../img/developerdaofmfolder/Instagram post - 14.png";
-import img2 from "../../img/developerdaofmfolder/Instagram post - 13.png";
-import img3 from "../../img/developerdaofmfolder/Dribbble shot HD - 7.png";
-import img4 from "../../img/developerdaofmfolder/Instagram post - 9.png";
-import img5 from "../../img/developerdaofmfolder/Instagram post - 10.png";
-import img6 from "../../img/developerdaofmfolder/Instagram post - 16.png";
-import img7 from "../../img/developerdaofmfolder/Instagram post - 17.png";
+
+// Import images with static imports
+import developerDaoFm from '../../public/img/developerdaofm/daofm.png';
+import imgWork from '../../public/img/developerdaofm/image 2.png';
+import img0 from '../../public/img/developerdaofm/Instagram post - 14.png';
+import img2 from '../../public/img/developerdaofm/Instagram post - 13.png';
+import img3 from '../../public/img/developerdaofm/Dribbble shot HD - 7.png';
+import img4 from '../../public/img/developerdaofm/Instagram post - 9.png';
+import img5 from '../../public/img/developerdaofm/Instagram post - 10.png';
+import img6 from '../../public/img/developerdaofm/Instagram post - 16.png';
+import img7 from '../../public/img/developerdaofm/Instagram post - 17.png';
 
 // Component for project image with caption
 interface ProjectImageProps {
-  src: StaticImageData;
+  src: any;
   alt: string;
   caption?: string;
-  className?: string;
-  delay?: number;
-  priority?: boolean;
   layout?: 'fill' | 'responsive' | 'intrinsic';
+  width?: number;
+  height?: number;
+  priority?: boolean;
+  className?: string;
   loading?: 'lazy' | 'eager';
+  placeholder?: 'blur' | 'empty';
+  blurDataURL?: string;
+  delay?: number;
 }
 
 const ProjectImage: FC<ProjectImageProps> = ({ 
   src, 
   alt, 
   caption, 
-  className = 'rounded-xl border border-neutral-100 mt-4',
-  delay = 0,
+  layout = 'intrinsic',
+  width = 1200,
+  height = 800,
   priority = false,
-  layout = 'responsive',
-  loading = 'lazy'
+  className = 'rounded-xl border border-neutral-100 mt-9 m-auto',
+  loading = 'lazy',
+  placeholder = 'empty',
+  blurDataURL = '',
+  delay = 0
 }) => {
-  const isFill = layout === 'fill';
-  const imageClassName = `${className} ${isFill ? 'object-cover' : ''}`;
+  // For fill layout, we need a container with relative position and defined height
+  const isLayoutFill = layout === 'fill';
+  
+  // If using fill layout, we don't need width/height
+  const imageProps = isLayoutFill 
+    ? { layout: 'fill' as const }
+    : { 
+        layout,
+        width,
+        height,
+        objectFit: 'cover' as const,
+        objectPosition: 'center' as const
+      };
   
   return (
-    <AnimatedSection delay={delay} className="w-full">
-      <div className={isFill ? 'relative w-full h-[375px]' : 'relative'}>
-        {isFill ? (
-          <Image
-            src={src}
-            alt={alt}
-            fill
-            placeholder="blur"
-            quality={100}
-            className={imageClassName}
-            priority={priority}
-            loading={priority ? 'eager' : loading}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1000px"
-          />
+    <div className="image-container w-full">
+      <AnimatedSection delay={delay}>
+        {isLayoutFill ? (
+          <div className="relative h-96 w-full">
+            <Image
+              src={src}
+              alt={alt}
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center"
+              priority={priority}
+              loading={loading}
+              placeholder={placeholder}
+              blurDataURL={blurDataURL}
+              className={className}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </div>
         ) : (
           <Image
             src={src}
             alt={alt}
-            width={1200}
-            height={675}
-            placeholder="blur"
-            quality={100}
-            className={imageClassName}
+            {...imageProps}
             priority={priority}
-            loading={priority ? 'eager' : loading}
+            loading={loading}
+            placeholder={placeholder}
+            blurDataURL={blurDataURL}
+            className={className}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         )}
-        {caption && <span className="project_img_des">{caption}</span>}
-      </div>
-    </AnimatedSection>
+        {caption && <span className="project_img_des">({caption})</span>}
+      </AnimatedSection>
+    </div>
   );
 };
 
