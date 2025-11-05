@@ -113,6 +113,7 @@ const motionProps = {
 };
 
 const Sparks: React.FC = () => {
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
   return (
     <>
       <Head>
@@ -137,36 +138,51 @@ const Sparks: React.FC = () => {
             <div className='ripi6'>
               {sparksData.map((spark, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
+                                    initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
                   animate={{ opacity: 1, top: "0", position: "relative" , filter: "blur(0px)"}}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <SparkItem {...spark} />
+                  <SparkItem 
+  key={spark.href}
+  {...spark}
+  isHovered={hoveredId === spark.href}
+  onHover={(isHovered) => setHoveredId(isHovered ? spark.href : null)}
+  hoveredId={hoveredId}
+/>
                 </motion.div>
               ))}
             </div>
             <div className='ripi6'>
               {sparksData2.map((spark, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
+                                    initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
                   animate={{ opacity: 1, top: "0", position: "relative" , filter: "blur(0px)"}}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <SparkItem {...spark} />
+                  <SparkItem 
+  key={spark.href}
+  {...spark}
+  isHovered={hoveredId === spark.href}
+  onHover={(isHovered) => setHoveredId(isHovered ? spark.href : null)}
+  hoveredId={hoveredId}
+/>
                 </motion.div>
               ))}
             </div>
             <div className='ripi6'>
               {sparksData3.map((spark, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
+                                    initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
                   animate={{ opacity: 1, top: "0", position: "relative" , filter: "blur(0px)"}}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <SparkItem {...spark} />
+                  <SparkItem 
+  key={spark.href}
+  {...spark}
+  isHovered={hoveredId === spark.href}
+  onHover={(isHovered) => setHoveredId(isHovered ? spark.href : null)}
+  hoveredId={hoveredId}
+/>
                 </motion.div>
               ))}
             </div>
@@ -177,9 +193,31 @@ const Sparks: React.FC = () => {
   );
 };
 
-const SparkItem: React.FC<SparkData> = ({ href, title, description, date, type, src, mediaType, blurSrc, width, height }) => {
+interface SparkItemProps extends SparkData {
+  isHovered: boolean;
+  onHover: (isHovered: boolean) => void;
+  hoveredId: string | null;
+}
+
+const SparkItem: React.FC<SparkItemProps> = ({
+  href,
+  title,
+  description,
+  date,
+  type,
+  src,
+  mediaType,
+  blurSrc,
+  width,
+  height,
+  isHovered,
+  onHover,
+  hoveredId
+}) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [videoKey, setVideoKey] = useState(0);
+  
+  // Remove the key prop from the motion.div since we're using it in the parent
 
   useEffect(() => {
     // Force video reload when src changes
@@ -187,7 +225,15 @@ const SparkItem: React.FC<SparkData> = ({ href, title, description, date, type, 
   }, [src]);
 
   return (
-    <Link href={href} passHref>
+    <Link
+      href={href}
+      passHref
+      className={`block transition-opacity duration-300 ${
+        isHovered ? 'opacity-100' : (hoveredId ? 'opacity-20' : 'opacity-100')
+      }`}
+      onMouseEnter={() => onHover(true)}
+      onMouseLeave={() => onHover(false)}
+    >
       <div className="spark_block">
         <div className={`media-container ${isLoaded ? 'loaded' : 'loading'}`}>
           {type === 'video' ? (
@@ -253,12 +299,12 @@ const SparkItem: React.FC<SparkData> = ({ href, title, description, date, type, 
         </div>
         <div className="spark_info">
           <div className='flex justify-between '>
-            <div className="spark_title inline text-sm">{title}</div>
-            <span className="text-stone-500 float-none text-xs self-center p-px bg-stone-100 pl-1.5 pr-1.5 rounded-full">{date}</span>
+            {/* <div className="spark_title inline text-sm">{title}</div> */}
+            {/* <span className="text-stone-500  float-none text-[0.5rem] self-center p-px bg-stone-100 pl-1.5 pr-1.5 rounded-full">{date}</span> */}
           </div>
-          <div className="spark_dec mt-2.5">{description}</div>
+          {/* <div className="spark_dec mt-2.5">{description}</div> */}
         </div>
-        <button className='bg-stone-50 blocl w-full rounded-3xl mb-0 text-stone-950 border-solid border p-2 text-sm m-0'> Discover</button>
+        <button className='bg-[#f6f6f6] text-[#757575] w-full rounded-3xl mb-0  border border-stone-200/20 p-2 text-sm m-0   transition-all duration-200 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]'>Discover</button>
       </div>
     </Link>
   );

@@ -1401,7 +1401,7 @@ backface-visibility: hidden;
   transition: all 0.3s ease-in-out;
 }
 .ripi6 a:hover{
-  opacity: 0.7;
+  /* opacity: 0.7; */
 }
 .mItv1{
   --column-gutter: 24px;
@@ -4311,13 +4311,24 @@ color: #eee;
 .spark_home_gif img{
   border-radius: 10px;
 }
-.spark_block video{
+.spark_block video {
   border-radius: 23px;
   min-height: 120px;
 }
-.spark_block:hover{
-  opacity: 0.8;
+
+/* Add smooth transition for opacity changes */
+.spark_block {
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
 }
+
+/* Keep this commented out as we're handling hover in the component */
+/* .spark_block:hover {
+  opacity: 0.8;
+} */
 .spark {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -4326,7 +4337,7 @@ color: #eee;
 .spark_info{
   /* position: absolute; */
     top: -6px;
-    padding: 16px 22px 0px 22px;
+    padding: 16px 4px 0 4px;
     left: 0;
     padding-left: 19px;
 }
@@ -4371,8 +4382,8 @@ color: #eee;
   padding: 7px;
   height: 100%;
   /* padding-top: 78px; */
-  background: #fff;
-  border: 1px solid #eaeaea;
+  /* background: #fff; */
+  /* border: 1px solid #eaeaea; */
   transition: all 0.6s ease-in-out;
 }
 .spark_block {
