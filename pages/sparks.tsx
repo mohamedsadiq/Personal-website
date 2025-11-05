@@ -113,6 +113,7 @@ const motionProps = {
 };
 
 const Sparks: React.FC = () => {
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
   return (
     <>
       <Head>
@@ -137,36 +138,51 @@ const Sparks: React.FC = () => {
             <div className='ripi6'>
               {sparksData.map((spark, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
+                                    initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
                   animate={{ opacity: 1, top: "0", position: "relative" , filter: "blur(0px)"}}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <SparkItem {...spark} />
+                  <SparkItem 
+  key={spark.href}
+  {...spark}
+  isHovered={hoveredId === spark.href}
+  onHover={(isHovered) => setHoveredId(isHovered ? spark.href : null)}
+  hoveredId={hoveredId}
+/>
                 </motion.div>
               ))}
             </div>
             <div className='ripi6'>
               {sparksData2.map((spark, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
+                                    initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
                   animate={{ opacity: 1, top: "0", position: "relative" , filter: "blur(0px)"}}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <SparkItem {...spark} />
+                  <SparkItem 
+  key={spark.href}
+  {...spark}
+  isHovered={hoveredId === spark.href}
+  onHover={(isHovered) => setHoveredId(isHovered ? spark.href : null)}
+  hoveredId={hoveredId}
+/>
                 </motion.div>
               ))}
             </div>
             <div className='ripi6'>
               {sparksData3.map((spark, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
+                                    initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
                   animate={{ opacity: 1, top: "0", position: "relative" , filter: "blur(0px)"}}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <SparkItem {...spark} />
+                  <SparkItem 
+  key={spark.href}
+  {...spark}
+  isHovered={hoveredId === spark.href}
+  onHover={(isHovered) => setHoveredId(isHovered ? spark.href : null)}
+  hoveredId={hoveredId}
+/>
                 </motion.div>
               ))}
             </div>
@@ -177,9 +193,31 @@ const Sparks: React.FC = () => {
   );
 };
 
-const SparkItem: React.FC<SparkData> = ({ href, title, description, date, type, src, mediaType, blurSrc, width, height }) => {
+interface SparkItemProps extends SparkData {
+  isHovered: boolean;
+  onHover: (isHovered: boolean) => void;
+  hoveredId: string | null;
+}
+
+const SparkItem: React.FC<SparkItemProps> = ({
+  href,
+  title,
+  description,
+  date,
+  type,
+  src,
+  mediaType,
+  blurSrc,
+  width,
+  height,
+  isHovered,
+  onHover,
+  hoveredId
+}) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [videoKey, setVideoKey] = useState(0);
+  
+  // Remove the key prop from the motion.div since we're using it in the parent
 
   useEffect(() => {
     // Force video reload when src changes
@@ -187,7 +225,15 @@ const SparkItem: React.FC<SparkData> = ({ href, title, description, date, type, 
   }, [src]);
 
   return (
-    <Link href={href} passHref>
+    <Link
+      href={href}
+      passHref
+      className={`block transition-opacity duration-300 ${
+        isHovered ? 'opacity-100' : (hoveredId ? 'opacity-20' : 'opacity-100')
+      }`}
+      onMouseEnter={() => onHover(true)}
+      onMouseLeave={() => onHover(false)}
+    >
       <div className="spark_block">
         <div className={`media-container ${isLoaded ? 'loaded' : 'loading'}`}>
           {type === 'video' ? (
