@@ -4326,7 +4326,7 @@ color: #eee;
 .spark_info{
   /* position: absolute; */
     top: -6px;
-    padding: 16px 22px 0px 22px;
+    padding: 16px 4px 0 4px;
     left: 0;
     padding-left: 19px;
 }
@@ -4371,8 +4371,8 @@ color: #eee;
   padding: 7px;
   height: 100%;
   /* padding-top: 78px; */
-  background: #fff;
-  border: 1px solid #eaeaea;
+  /* background: #fff; */
+  /* border: 1px solid #eaeaea; */
   transition: all 0.6s ease-in-out;
 }
 .spark_block {

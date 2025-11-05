@@ -253,12 +253,12 @@ const SparkItem: React.FC<SparkData> = ({ href, title, description, date, type, 
         </div>
         <div className="spark_info">
           <div className='flex justify-between '>
-            <div className="spark_title inline text-sm">{title}</div>
-            <span className="text-stone-500 float-none text-xs self-center p-px bg-stone-100 pl-1.5 pr-1.5 rounded-full">{date}</span>
+            {/* <div className="spark_title inline text-sm">{title}</div> */}
+            {/* <span className="text-stone-500  float-none text-[0.5rem] self-center p-px bg-stone-100 pl-1.5 pr-1.5 rounded-full">{date}</span> */}
           </div>
-          <div className="spark_dec mt-2.5">{description}</div>
+          {/* <div className="spark_dec mt-2.5">{description}</div> */}
         </div>
-        <button className='bg-stone-50 blocl w-full rounded-3xl mb-0 text-stone-950 border-solid border p-2 text-sm m-0'> Discover</button>
+        <button className='bg-[#f6f6f6] text-[#757575] w-full rounded-3xl mb-0  border border-stone-200/20 p-2 text-sm m-0   transition-all duration-200 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]'>Discover</button>
       </div>
     </Link>
   );
