@@ -2256,7 +2256,7 @@ color: #fff;
   color: #9B9B9B;
     font-size: 0.9rem;
     line-height: 22px;
-    margin-top: 24px;
+    /* margin-top: 24px; */
 }
 @keyframes icon {
   0%   {top:-2px}
