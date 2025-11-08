@@ -205,7 +205,7 @@ const LightUp: FC = () => {
                 
                 
             </main>
-            <div className='p-20 pt-0'>
+            <div className=''>
                 <AnimatedSection delay={0.25}>
                     <ProjectImage 
                         src={imagePaths.img2} 

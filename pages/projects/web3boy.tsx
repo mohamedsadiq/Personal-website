@@ -149,7 +149,7 @@ const Web3Boy: FC = () => {
                     </div>
                 </div>
             </main>
-            <div className='p-20 pt-0'>
+            <div className=''>
                 <ProjectImage 
                     src={imagePaths.img2}
                     alt="Web3 Boy NFT Collection Showcase"
