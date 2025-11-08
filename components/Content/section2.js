@@ -53,6 +53,7 @@ const projects = [
 
 const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
     const [hoveredProject, setHoveredProject] = useState(null);
+    const [hoveredId, setHoveredId] = useState(null);
     const [hoverPosition, setHoverPosition] = useState({ x: 0, y: 0 });
 
     // Use centralized motion control if available, otherwise fallback to legacy props
@@ -88,9 +89,13 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
                                 className="sparkLinks inline-flex items-center relative z-20"
                                 onMouseEnter={() => {
                                     setHoveredProject(project);
+                                    setHoveredId(project.href);
                                     setHoverPosition({ x: 0, y: 0 });
                                 }}
-                                onMouseLeave={() => setHoveredProject(null)}
+                                onMouseLeave={() => {
+                                    setHoveredProject(null);
+                                    setHoveredId(null);
+                                }}
                                 onMouseMove={(e) => {
                                     const rect = e.currentTarget.getBoundingClientRect();
                                     setHoverPosition({
@@ -103,24 +108,33 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
                                 }}
                                 href={project.href}
                             >
-                                <span 
+                                <motion.span 
                                     className="text-[#000]"
                                     style={{
                                         textDecoration: 'underline',
                                         textDecorationStyle: 'dotted',
-                                        textDecorationColor: 'rgba(208, 208, 208, 0.53)',
                                         textUnderlineOffset: '2px',
-                                        transition: 'text-decoration-color 0.18s ease',
                                     }}
-                                    onMouseEnter={(e) => e.currentTarget.style.textDecorationColor = 'currentColor'}
-                                    onMouseLeave={(e) => e.currentTarget.style.textDecorationColor = 'rgba(208, 208, 208, 0.53)'}
+                                    animate={{
+                                        filter: hoveredId && hoveredId !== project.href ? 'blur(2px)' : 'blur(0px)',
+                                        textDecorationColor: hoveredId === project.href ? 'currentColor' : 'rgba(208, 208, 208, 0.53)'
+                                    }}
+                                    transition={{ duration: 0.2 }}
                                 >
                                     {project.title}
-                                </span>
+                                </motion.span>
                             </Link>
                             <div className="flex items-center">
                                 {/* <span className="w-px h-4 bg-zinc-300 mx-4"></span> */}
-                                <span className="text-zinc-400 w-24 text-right text-xs">{project.date}</span>
+                                <motion.span 
+                                    className="text-zinc-400 w-24 text-right text-xs"
+                                    animate={{
+                                        filter: hoveredId && hoveredId !== project.href ? 'blur(2px)' : 'blur(0px)'
+                                    }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    {project.date}
+                                </motion.span>
                             </div>
                         </div>
                     </motion.div>
@@ -161,26 +175,39 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
                         </motion.div>
                     )}
                 </AnimatePresence>
-                <motion.div className="relative inline-block mt-2">
+                <motion.div 
+                    className="relative inline-block mt-2"
+                    onMouseEnter={() => setHoveredId('explore-all')}
+                    onMouseLeave={() => setHoveredId(null)}
+                >
                     <Link 
                         className="sparkLinks inline-flex items-center relative z-20"
                         href={"/sparks"}
                     >
                         <span className="text-sm">
-                            <span 
+                            <motion.span 
                                 className="text-[#000]"
                                 style={{
                                     textDecoration: 'underline dotted',
-                                    textDecorationColor: 'rgba(208, 208, 208, 0.53)',
                                     textUnderlineOffset: '2px',
-                                    transition: 'text-decoration-color 0.18s ease',
                                 }}
-                                onMouseEnter={(e) => e.currentTarget.style.textDecorationColor = 'currentColor'}
-                                onMouseLeave={(e) => e.currentTarget.style.textDecorationColor = 'rgba(208, 208, 208, 0.53)'}
+                                animate={{
+                                    filter: hoveredId && hoveredId !== 'explore-all' ? 'blur(2px)' : 'blur(0px)',
+                                    textDecorationColor: hoveredId === 'explore-all' ? 'currentColor' : 'rgba(208, 208, 208, 0.53)'
+                                }}
+                                transition={{ duration: 0.2 }}
                             >
                                 Explore All Sparks
-                            </span>
-                            <span className="no-underline text-black mt-2"> →</span>
+                            </motion.span>
+                            <motion.span 
+                                className="no-underline text-black mt-2"
+                                animate={{
+                                    filter: hoveredId && hoveredId !== 'explore-all' ? 'blur(2px)' : 'blur(0px)'
+                                }}
+                                transition={{ duration: 0.2 }}
+                            >
+                                →
+                            </motion.span>
                         </span>
                     </Link>
                 </motion.div>
