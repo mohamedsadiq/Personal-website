@@ -141,8 +141,18 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
 >
     DAOs Spot
 </motion.h1>
-                                <span className="ml-2">
+                                <span className="ml-2 flex items-center gap-1">
                                     <Image src={productOfTheWeek} alt="" className="w-[68px]" />
+                                    <motion.img 
+                                        src="/newsletter icon/product-hunt-logo-orange-240.jpg" 
+                                        alt="Product Hunt" 
+                                        className="ml-1 w-5 h-5 object-cover rounded-full"
+                                        animate={{
+                                            filter: 'blur(0px)',
+                                            scale: hoveredId === 'daosspot' ? 1.1 : 1,
+                                        }}
+                                        transition={{ duration: 0.2 }}
+                                    />
                                 </span>
                             </div>
                         </div>
@@ -189,8 +199,18 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
 >
     DeveloperDAO FM
 </motion.h1>
-                                <span className="ml-2">
+                                <span className="ml-2 flex items-center gap-1">
                                     <Image src={productHunt5} alt="" className="w-[68px]" />
+                                    <motion.img 
+                                        src="/newsletter icon/product-hunt-logo-orange-240.jpg" 
+                                        alt="Product Hunt" 
+                                        className="ml-1 w-5 h-5 object-cover rounded-full"
+                                        animate={{
+                                            filter: 'blur(0px)',
+                                            scale: hoveredId === 'developerdaofm' ? 1.1 : 1,
+                                        }}
+                                        transition={{ duration: 0.2 }}
+                                    />
                                 </span>
                             </div>
                         </div>
