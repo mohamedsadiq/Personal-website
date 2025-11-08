@@ -39,77 +39,64 @@ const ProjectImage: FC<{
   src: any; 
   alt: string; 
   caption?: string; 
-  layout?: 'fill' | 'responsive' | 'intrinsic';
-  width?: number;
-  height?: number;
+  delay?: number;
   priority?: boolean;
   className?: string;
   loading?: 'lazy' | 'eager';
   placeholder?: 'blur' | 'empty';
   blurDataURL?: string;
+  objectFit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
+  objectPosition?: string;
+  height?: string | number;
+  containerClassName?: string;
 }> = ({ 
   src, 
   alt, 
   caption, 
-  layout = 'intrinsic',
-  width = 1200,  // Default width for images
-  height = 800,  // Default height for images
+  delay = 0,
   priority = false,
-  className = 'rounded-xl border border-neutral-100 mt-9 m-auto',
+  className = '',
+  containerClassName = '',
   loading = 'lazy',
-  placeholder = 'empty',
-  blurDataURL = ''
+  placeholder = 'blur',
+  blurDataURL = '',
+  objectFit = 'contain',
+  objectPosition = 'center',
+  height = 'auto',
+  ...props
 }) => {
-  // For fill layout, we need a container with relative position and defined height
-  const isLayoutFill = layout === 'fill';
-  
-  // If using fill layout, we don't need width/height
-  const imageProps = isLayoutFill 
-    ? { layout: 'fill' as const }
-    : { 
-        layout,
-        width,
-        height,
-        objectFit: 'cover' as const,
-        objectPosition: 'center' as const
-      };
+  const isPublicPath = typeof src === 'string' && src.startsWith('/');
   
   return (
-    <div className="image-container">
-      <AnimatedSection>
-      {isLayoutFill ? (
-        <div className="relative h-96 w-full">
-          <Image
-            src={src}
-            alt={alt}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-            priority={priority}
-            loading={loading}
-            placeholder={placeholder}
-            blurDataURL={blurDataURL}
-            className={className}
-            quality={100}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        </div>
-      ) : (
+    <AnimatedSection delay={delay} className={`w-full ${className}`}>
+      <div 
+        className={`relative w-full ${containerClassName}`} 
+        style={height !== 'auto' ? { height } : { paddingBottom: '75%' }}
+      >
         <Image
           src={src}
           alt={alt}
-          {...imageProps}
+          fill
+          className="rounded-lg"
+          style={{ 
+            objectFit,
+            objectPosition
+          }}
           priority={priority}
           loading={loading}
           placeholder={placeholder}
-          blurDataURL={blurDataURL}
-          className={className}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          blurDataURL={isPublicPath ? undefined : (typeof src === 'string' ? src : src?.blurDataURL || '')}
+          quality={100}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
+          {...props}
         />
+      </div>
+      {caption && (
+        <div className="text-center mt-2">
+          <span className="text-sm text-gray-500">({caption})</span>
+        </div>
       )}
-      {caption && <span className="project_img_des">({caption}) </span>}
-      </AnimatedSection>
-    </div>
+    </AnimatedSection>
   );
 };
 
@@ -176,16 +163,16 @@ const LightUp: FC = () => {
                           </div>
                         </AnimatedSection>
                       
-                        <AnimatedSection delay={0.15} className="blog_photo inner_blog work_intro_image">
+                        <div className="blog_photo inner_blog work_intro_image">
                             <ProjectImage
                                 src={imagePaths.img1}
                                 alt={projectContent.title}
-                                layout="fill"
                                 placeholder="blur"
                                 blurDataURL={imagePaths.img1.blurDataURL}
-                                className=""
+                                className="h-[400px] md:h-[400px] lg:h-[500px]"
+                                objectFit="cover"
                             />
-                        </AnimatedSection>
+                        </div>
                         <AnimatedSection delay={0.2}>
                             <h2 className='mt-6'>Project Overview</h2>
                         </AnimatedSection>

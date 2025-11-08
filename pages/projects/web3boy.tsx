@@ -33,65 +33,63 @@ const ProjectImage: FC<{
   src: any; 
   alt: string; 
   caption?: string;
-  className?: string;
   delay?: number;
-  loading?: 'lazy' | 'eager';
-  layout?: 'fill' | 'responsive' | 'intrinsic';
-  width?: number;
-  height?: number;
   priority?: boolean;
+  className?: string;
+  loading?: 'lazy' | 'eager';
   placeholder?: 'blur' | 'empty';
+  blurDataURL?: string;
+  objectFit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
+  objectPosition?: string;
+  height?: string | number;
+  containerClassName?: string;
 }> = ({ 
   src, 
   alt, 
   caption, 
-  className = 'rounded-xl border border-neutral-100 mt-9 m-auto',
   delay = 0,
-  loading = 'lazy',
-  layout = 'intrinsic',
-  width = 1200,
-  height = 675,
   priority = false,
-  placeholder = 'blur'
+  className = '',
+  containerClassName = '',
+  loading = 'lazy',
+  placeholder = 'blur',
+  blurDataURL = '',
+  objectFit = 'contain',
+  objectPosition = 'center',
+  height = 'auto',
+  ...props
 }) => {
-  const isFillLayout = layout === 'fill';
+  const isPublicPath = typeof src === 'string' && src.startsWith('/');
   
   return (
-    <AnimatedSection delay={delay} className="w-full h-full">
-      <div className={`image-container ${isFillLayout ? 'relative h-full w-full' : ''}`}>
-        {isFillLayout ? (
-          <div className="relative h-96 w-full">
-            <Image
-              src={src}
-              alt={alt}
-              fill
-              placeholder={placeholder}
-              priority={priority}
-              loading={loading}
-              className={className}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              quality={100}
-            />
-          </div>
-        ) : (
-          <Image
-            src={src}
-            alt={alt}
-            width={width}
-            height={height}
-            layout={layout}
-            objectFit="cover"
-            objectPosition="center"
-            placeholder={placeholder}
-            priority={priority}
-            loading={loading}
-            className={className}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            quality={100}
-          />
-        )}
-        {caption && <span className="project_img_des">{caption}</span>}
+    <AnimatedSection delay={delay} className={`w-full ${className}`}>
+      <div 
+        className={`relative w-full ${containerClassName}`} 
+        style={height !== 'auto' ? { height } : { paddingBottom: '56.25%' }} // 16:9 aspect ratio by default
+      >
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="rounded-lg"
+          style={{ 
+            objectFit,
+            objectPosition
+          }}
+          priority={priority}
+          loading={priority ? undefined : loading}
+          placeholder={placeholder}
+          blurDataURL={isPublicPath ? undefined : (typeof src === 'string' ? src : src?.blurDataURL || '')}
+          quality={100}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
+          {...props}
+        />
       </div>
+      {caption && (
+        <div className="text-center mt-2">
+          <span className="text-sm text-gray-500">{caption}</span>
+        </div>
+      )}
     </AnimatedSection>
   );
 };
@@ -115,16 +113,16 @@ const Web3Boy: FC = () => {
                             <p className='text-base'>21 NTFs inspired by the web3 culture.  <span className="dateProject">-  Jun 2021 </span></p>
                         </AnimatedSection>
                         
-                        <AnimatedSection delay={0.2} className="w-full">
-                            <div className="w-full h-96 md:h-[500px] mb-8 rounded-xl overflow-hidden mt-4">
-                                <ProjectImage
-                                    src={imagePaths.img1}
-                                    alt="Web3Boy Project"
-                                    layout="responsive"
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                        </AnimatedSection>
+                        <div className="w-full h-[400px] md:h-[500px] mb-8 mt-4">
+                            <ProjectImage
+                                src={imagePaths.img1}
+                                alt="Web3Boy Project"
+                                className="h-full"
+                                containerClassName="h-full"
+                                objectFit="cover"
+                                priority
+                            />
+                        </div>
 
                         <AnimatedSection delay={0.25}>
                             <h2 className='text-slate-950 mt-6'>Project Overview</h2>
@@ -158,6 +156,7 @@ const Web3Boy: FC = () => {
                     caption="(Not connected to wallet yet)"
                     delay={0.3}
                     placeholder="blur"
+                    className="mt-8"
                 />
                 
                 <ProjectImage 
@@ -166,6 +165,7 @@ const Web3Boy: FC = () => {
                     caption="(The UI after the connection)"
                     delay={0.35}
                     placeholder="blur"
+                    className="mt-8"
                 />
                 
                 <ProjectImage 
@@ -174,6 +174,7 @@ const Web3Boy: FC = () => {
                     caption="(Here, the mining of the NFTs started)"
                     delay={0.4}
                     placeholder="blur"
+                    className="mt-8"
                 />
                 
                 <ProjectImage 
@@ -182,6 +183,7 @@ const Web3Boy: FC = () => {
                     caption="(Here, the mining has finished and we're celebrating)"
                     delay={0.45}
                     placeholder="blur"
+                    className="mt-8"
                 />
                 
                 <ProjectImage 
@@ -190,6 +192,7 @@ const Web3Boy: FC = () => {
                     caption="(This is the mobile version of the website)"
                     delay={0.5}
                     placeholder="blur"
+                    className="mt-8"
                 />
                 
                 <ProjectImage 
@@ -198,6 +201,7 @@ const Web3Boy: FC = () => {
                     caption="(These are the components of the mining process)"
                     delay={0.55}
                     placeholder="blur"
+                    className="mt-8"
                 />
                 
                 {/* Project Navigation */}
