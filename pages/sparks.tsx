@@ -4,13 +4,19 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from 'react';
 
+interface VideoSources {
+  webm: string;
+  mp4: string;
+  preview: string;
+}
+
 interface SparkData {
   href: string;
   title: string;
   description: string;
   date: string;
   type: 'video' | 'image';
-  src: string;
+  src: string | VideoSources;
   mediaType?: string;
   blurSrc?: string;
   width?: number;
@@ -24,7 +30,11 @@ const sparksData: SparkData[] = [
     description: 'Widget Scrolling.',
     date: 'June - 2024',
     type: 'video',
-    src: 'https://video.twimg.com/ext_tw_video/1801041108274757632/pu/vid/avc1/480x480/qbJ7cC1MrzCqk444.mp4?tag=12',
+    src: {
+      webm: '/videos/scrolling.webm',
+      mp4: '/videos/scrolling.mp4',
+      preview: '/videos/scrolling-preview.png'
+    },
     mediaType: 'video/mp4'
   },
   {
@@ -32,11 +42,13 @@ const sparksData: SparkData[] = [
     title: 'Button',
     description: 'An interactive button.',
     date: 'June - 2024',
-    type: 'image',
-    src: '/fffsfs.gif',
-    blurSrc: '/',  // Placeholder image
-    width: 100,
-    height: 50
+    type: 'video',
+    src: {
+      webm: '/videos/button.webm',
+      mp4: '/videos/button.mp4',
+      preview: '/videos/button-preview.png'
+    },
+    mediaType: 'video/mp4'
   },
 ];
 
@@ -46,30 +58,38 @@ const sparksData2: SparkData[] = [
     title: 'On Hover',
     description: 'On hover interaction.',
     date: 'Jul - 2024',
-    blurSrc: '/',  
-    src: '/July 11 Screen Recording.gif',
-    type: 'image',
-    width: 100,
-    height: 100
+    type: 'video',
+    src: {
+      webm: '/videos/on-hover.webm',
+      mp4: '/videos/on-hover.mp4',
+      preview: '/videos/on-hover-preview.png'
+    },
+    mediaType: 'video/mp4'
   },
   {
     href: 'sparks/TheMartian',
     title: 'The Martian',
     description: 'A character on Mars.',
     date: 'Jul - 2024',
-    type: 'image',
-    blurSrc: '/',  
-    src: '/martin.gif',
-    width: 100,
-    height: 100
+    type: 'video',
+    src: {
+      webm: '/videos/the-martian.webm',
+      mp4: '/videos/the-martian.mp4',
+      preview: '/videos/the-martian-preview.png'
+    },
+    mediaType: 'video/mp4'
   },
   {
     href: 'sparks/gameui',
-    title: '3D interactive ',
+    title: '3D interactive',
     description: 'Smooth transitions.',
     date: 'Jul - 2024',
     type: 'video',
-    src: '/July 10 Screen Recording.mp4',
+    src: {
+      webm: '/videos/3d-transitions.webm',
+      mp4: '/videos/3d-transitions.mp4',
+      preview: '/videos/3d-transitions-preview.png'
+    },
     mediaType: 'video/mp4'
   },
 ];
@@ -80,22 +100,26 @@ const sparksData3: SparkData[] = [
     title: 'Temporal Flow',
     description: 'Enhancing the ux of a timeline',
     date: 'Jul - 2024',
-    blurSrc: '/Interactive Chronological Visualizer',  
-    src: '/line.gif',
-    type: 'image',
-    width: 100,
-    height: 100
+    type: 'video',
+    src: {
+      webm: '/videos/temporal-flow.webm',
+      mp4: '/videos/temporal-flow.mp4',
+      preview: '/videos/temporal-flow-preview.png'
+    },
+    mediaType: 'video/mp4'
   },
   {
     href: 'sparks/widget',
     title: 'Widget',
     description: 'An interactive widget.',
     date: 'June - 2024',
-    type: 'image',
-    src: '/dots.gif',
-    blurSrc: '/',  
-    width: 100,
-    height: 100
+    type: 'video',
+    src: {
+      webm: '/videos/dots.webm',
+      mp4: '/videos/dots.mp4',
+      preview: '/videos/dots-preview.png'
+    },
+    mediaType: 'video/mp4'
   },
 ];
 
@@ -234,76 +258,72 @@ const SparkItem: React.FC<SparkItemProps> = ({
       onMouseEnter={() => onHover(true)}
       onMouseLeave={() => onHover(false)}
     >
-      <div className="spark_block">
-        <div className={`media-container ${isLoaded ? 'loaded' : 'loading'}`}>
+      <div className="spark_block space-y-3 flex flex-col">
+        <div className={`flex-1 ${isLoaded ? 'loaded' : 'loading'}`}>
           {type === 'video' ? (
-            <video 
-              key={videoKey}
-              width="100%" 
-              height="100%" 
-              autoPlay 
-              loop 
-              muted 
-              playsInline
-              onLoadedData={() => setIsLoaded(true)}
-            >
-              <source src={src.startsWith('http') ? src : `${process.env.NEXT_PUBLIC_BASE_PATH || ''}${src}`} type={mediaType} />
-              Your browser does not support the video tag.
-            </video>
+            <div className="relative w-full border border-[#f9f9f9] rounded-[24px]">
+              <video 
+                key={videoKey}
+                width="100%"
+                height="auto"
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="w-full h-auto rounded-lg"
+                onLoadedData={() => setIsLoaded(true)}
+                poster={typeof src === 'object' ? src.preview : undefined}
+              >
+                {typeof src === 'object' ? (
+                  <>
+                    <source src={src.webm} type="video/webm" />
+                    <source src={src.mp4} type="video/mp4" />
+                  </>
+                ) : (
+                  <source src={src.startsWith('http') ? src : `${process.env.NEXT_PUBLIC_BASE_PATH || ''}${src}`} type={mediaType} />
+                )}
+                Your browser does not support the video tag.
+              </video>
+              {!isLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-lg">
+                  <div className="animate-pulse w-full h-full bg-gray-200 rounded-lg"></div>
+                </div>
+              )}
+            </div>
           ) : (
-            <div className="relative w-full aspect-video">
+            <div className="relative">
               <Image
                 alt={title}
-                src={src}
-                fill
+                src={typeof src === 'string' ? src : src.preview}
+                width={800}
+                height={600}
                 placeholder={blurSrc && blurSrc !== '/' ? 'blur' : 'empty'}
                 blurDataURL={blurSrc && blurSrc !== '/' ? blurSrc : undefined}
-                className='border-solid border-[#eaeaea] border object-cover rounded-lg'
+                className='w-full h-auto rounded-lg'
                 onLoad={() => setIsLoaded(true)}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                unoptimized={process.env.NODE_ENV !== 'production'}
-                priority={false}
               />
             </div>
           )}
           <AnimatePresence>
             {!isLoaded && (
               <motion.div
-                className="placeholder-blur"
+                className="absolute inset-0 bg-gray-100 rounded-lg"
                 initial={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  backgroundColor: '#ffffffff',
-                }}
+                transition={{ duration: 0.3 }}
               >
-                <motion.div
-                  initial={{ filter: 'blur(10px)' }}
-                  animate={{ filter: 'blur(5px)' }}
-                  exit={{ filter: 'blur(0px)' }}
-                  transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    backgroundColor: '#f4f4f4',
-                  }}
-                />
+                <div className="w-full h-full animate-pulse bg-gray-200 rounded-lg"></div>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
-        <div className="spark_info">
+        {/* <div className="spark_info">
           <div className='flex justify-between '>
-            {/* <div className="spark_title inline text-sm">{title}</div> */}
-            {/* <span className="text-stone-500  float-none text-[0.5rem] self-center p-px bg-stone-100 pl-1.5 pr-1.5 rounded-full">{date}</span> */}
+            <div className="spark_title inline text-sm">{title}</div>
+            <span className="text-stone-500  float-none text-[0.5rem] self-center p-px bg-stone-100 pl-1.5 pr-1.5 rounded-full">{date}</span>
           </div>
-          {/* <div className="spark_dec mt-2.5">{description}</div> */}
-        </div>
+          <div className="spark_dec mt-2.5">{description}</div>
+        </div> */}
         <button className='bg-[#f6f6f6] text-[#757575] w-full rounded-3xl mb-0  border border-stone-200/20 p-2 text-sm m-0   transition-all duration-200 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]'>Discover</button>
       </div>
     </Link>

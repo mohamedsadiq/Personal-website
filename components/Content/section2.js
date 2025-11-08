@@ -9,45 +9,78 @@ const projects = [
         href: "sparks/line", 
         title: "Temporal Flow",
         date: "Jul / 2024",
-        image: "/line.gif"
+        image: "/videos/temporal-flow-preview.png",
+        video: {
+            webm: "/videos/temporal-flow.webm",
+            mp4: "/videos/temporal-flow.mp4"
+        },
+        isVideo: true
     },
     { 
         href: "sparks/gameui", 
         title: "3D Smooth transitions",
         date: "Jul / 2024",
-        image: "/July 10 Screen Recording.mp4",
+        image: "/videos/3d-transitions-preview.png",
+        video: {
+            webm: "/videos/3d-transitions.webm",
+            mp4: "/videos/3d-transitions.mp4"
+        },
         isVideo: true
     },
     { 
         href: "sparks/onhover", 
         title: "On Hover",
         date: "Jul / 2024",
-        image: "/July 11 Screen Recording.gif"
+        image: "/videos/on-hover-preview.png",
+        video: {
+            webm: "/videos/on-hover.webm",
+            mp4: "/videos/on-hover.mp4"
+        },
+        isVideo: true
     },
     { 
-        href: "sparks/TheMartian", 
+        href: "sparks/martian", 
         title: "The Martian",
         date: "Jul / 2024",
-        image: "/martin.gif"
+        image: "/videos/the-martian-preview.png",
+        video: {
+            webm: "/videos/the-martian.webm",
+            mp4: "/videos/the-martian.mp4"
+        },
+        isVideo: true
     },
     { 
-        href: "sparks/scroll", 
+        href: "sparks/scrolling", 
         title: "Scrolling",
-        date: "Jun / 2024",
-        image: 'https://video.twimg.com/ext_tw_video/1801041108274757632/pu/vid/avc1/480x480/qbJ7cC1MrzCqk444.mp4?tag=12',
+        date: "Jul / 2024",
+        image: "/videos/scrolling-preview.png",
+        video: {
+            webm: "/videos/scrolling.webm",
+            mp4: "/videos/scrolling.mp4"
+        },
+        isVideo: true
+    },
+    { 
+        href: "sparks/widget", 
+        title: "A Dynamic Widget",
+        date: "Jun 2024",
+        image: "/videos/dots-preview.png",
+        video: {
+            webm: "/videos/dots.webm",
+            mp4: "/videos/dots.mp4"
+        },
         isVideo: true
     },
     { 
         href: "sparks/button", 
         title: "Button",
-        date: "Jun / 2024",
-        image: "/fffsfs.gif"
-    },
-    { 
-        href: "sparks/widget", 
-        title: "A Dynamic Widget",
-        date: "Jun / 2024",
-        image: "/dots.gif"
+        date: "Jun 2024",
+        image: "/videos/button-preview.png",
+        video: {
+            webm: "/videos/button.webm",
+            mp4: "/videos/button.mp4"
+        },
+        isVideo: true
     },
 ];
 
@@ -154,14 +187,31 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
                             transition={{ type: 'spring', damping: 20, stiffness: 300 }}
                         >
                             {hoveredProject.isVideo ? (
-                                <video 
-                                    src={hoveredProject.image} 
-                                    autoPlay 
-                                    loop 
-                                    muted 
-                                    playsInline
-                                    className="w-full h-full object-cover"
-                                />
+                                <div className="w-full h-full relative">
+                                    <video 
+                                        key={`${hoveredProject.href}-video`}
+                                        autoPlay 
+                                        loop 
+                                        muted 
+                                        playsInline
+                                        className="w-full h-full object-cover absolute inset-0"
+                                        onMouseEnter={e => e.target.play()}
+                                        onMouseLeave={e => e.target.pause()}
+                                    >
+                                        <source src={hoveredProject.video?.webm} type="video/webm" />
+                                        <source src={hoveredProject.video?.mp4} type="video/mp4" />
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    {/* Fallback image that shows while video is loading */}
+                                    <Image
+                                        src={hoveredProject.image}
+                                        alt={hoveredProject.title}
+                                        width={256}
+                                        height={192}
+                                        className="w-full h-full object-cover"
+                                        unoptimized={hoveredProject.image.endsWith('.gif')}
+                                    />
+                                </div>
                             ) : (
                                 <Image
                                     src={hoveredProject.image}
