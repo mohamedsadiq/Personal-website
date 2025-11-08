@@ -42,44 +42,36 @@ const ProjectImage: React.FC<ProjectImageProps> = ({
   delay = 0, 
   priority = false, 
   className = "",
-  objectFit = "cover",
+  objectFit = "contain",
   objectPosition = "center",
   quality = 100,
   loading = 'lazy',
-  layout = 'intrinsic',
+  layout = 'fill',
   ...props
 }) => {
   const isPublicPath = typeof src === 'string' && src.startsWith('/');
-  const isFillLayout = layout === 'fill';
   
   return (
-    <AnimatedSection delay={delay} className="w-full">
-      <div className={`${isFillLayout ? 'relative w-full h-full' : ''} ${className}`}>
-        <div className={isFillLayout ? 'relative w-full h-full' : 'relative'}>
-          <Image
-            src={src}
-            alt={alt}
-            {...(isFillLayout 
-              ? { fill: true, style: { objectFit, objectPosition } }
-              : { 
-                  width: 1200, 
-                  height: 800,
-                  layout: 'intrinsic',
-                  style: { objectFit, objectPosition }
-                }
-            )}
-            className={`w-full ${isFillLayout ? 'h-full' : 'h-auto'} rounded-lg shadow-lg`}
-            priority={priority}
-            loading={loading}
-            placeholder="blur"
-            blurDataURL={isPublicPath ? undefined : (typeof src === 'string' ? src : src?.blurDataURL || '')}
-            quality={quality}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            {...props}
-          />
-        </div>
-        {caption && <span className="block text-center text-sm text-gray-500 mt-2">({caption})</span>}
+    <AnimatedSection delay={delay} className={`w-full ${className}`}>
+      <div className="relative w-full" style={{ paddingBottom: '75%' }}>
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="rounded-lg"
+          style={{ objectFit, objectPosition }}
+          priority={priority}
+          loading={loading}
+          placeholder="blur"
+          blurDataURL={isPublicPath ? undefined : (typeof src === 'string' ? src : src?.blurDataURL || '')}
+          quality={quality}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
+          {...props}
+        />
       </div>
+      {caption && <div className="text-center mt-2">
+        <span className="text-sm text-gray-500">({caption})</span>
+      </div>}
     </AnimatedSection>
   );
 };
@@ -119,14 +111,13 @@ const DeveloperDAO: React.FC = () => {
                   src={img1}
                   alt="DAOs Spot Hero Image"
                   priority={true}
+                  quality={100}
                   className="w-full h-auto max-h-[80vh] object-cover"
                   placeholder="blur"
                   loading="eager"
-                  // fill
                   blurDataURL={typeof img1 === 'string' ? img1 : img1?.blurDataURL || ''}
                   width={1200}
                   height={800}
-                  // className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
@@ -163,43 +154,42 @@ const DeveloperDAO: React.FC = () => {
         
         </div>
          <div className="p-10">
-            <AnimatedSection>
-              <ProjectImage
-                src={img2}
-                alt="DAOs Spot Home Page"
-                caption="The Home page"
-                delay={0.1}
-                className="mt-20"
-              />
-            </AnimatedSection>
-            <AnimatedSection>
-              <ProjectImage
-                src={img3}
-                alt="DAOs Spot Features"
-                caption="Key Features"
-                delay={0.2}
-                className="mt-20"
-              />
-            </AnimatedSection>
-            <AnimatedSection>
-              <ProjectImage
-                src={img6}
-                alt="DAOs Spot Dashboard"
-                caption="Dashboard View"
-                delay={0.3}
-                className="mt-20"
-              />
-            </AnimatedSection>
-            <AnimatedSection>
-              <ProjectImage
-                src={img5}
-                alt="DAOs Spot Mobile View"
-                caption="Mobile Responsive Design"
-                delay={0.4}
-                className="mt-20 w-full"
-                objectFit="contain"
-              />
-            </AnimatedSection>
+            <ProjectImage
+              src={img2}
+              alt="DAOs Spot Home Page"
+              caption="The Home page"
+              delay={0.1}
+              className="mt-20"
+              quality={100}
+              objectFit="contain"
+            />
+            <ProjectImage
+              src={img3}
+              alt="DAOs Spot Features"
+              caption="Key Features"
+              delay={0.2}
+              className="mt-20"
+              quality={100}
+              objectFit="contain"
+            />
+            <ProjectImage
+              src={img6}
+              alt="DAOs Spot Dashboard"
+              caption="Dashboard View"
+              delay={0.3}
+              className="mt-20"
+              quality={100}
+              objectFit="contain"
+            />
+            <ProjectImage
+              src={img5}
+              alt="DAOs Spot Mobile View"
+              caption="Mobile Responsive Design"
+              delay={0.4}
+              className="mt-20"
+              quality={100}
+              objectFit="contain"
+            />
               <div className="container mx-auto px-4 py-8">
             <ProjectNavigation />
           </div>
