@@ -119,12 +119,14 @@ const DeveloperDAO: React.FC = () => {
                   src={img1}
                   alt="DAOs Spot Hero Image"
                   priority={true}
-                  className="w-full h-auto max-h-[80vh] object-contain"
+                  className="w-full h-auto max-h-[80vh] object-cover"
                   placeholder="blur"
                   loading="eager"
+                  // fill
                   blurDataURL={typeof img1 === 'string' ? img1 : img1?.blurDataURL || ''}
                   width={1200}
                   height={800}
+                  // className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
