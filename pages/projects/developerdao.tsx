@@ -162,7 +162,7 @@ const DeveloperDAO: FC = () => {
         </div>
       </main>
       
-      <div className='p-20 pt-0'>
+      <div className=''>
         <ProjectImage 
           src={imagePaths.img3}
           alt="DeveloperDAO responsive design"
