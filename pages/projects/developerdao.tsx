@@ -31,6 +31,7 @@ interface ProjectImageProps {
   alt: string;
   caption?: string;
   className?: string;
+  containerClassName?: string;
   delay?: number;
   loading?: 'lazy' | 'eager';
   width: number;
@@ -38,26 +39,30 @@ interface ProjectImageProps {
   priority?: boolean;
   placeholder?: 'blur' | 'empty';
   blurDataURL?: string;
+  objectFit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
 }
 
 const ProjectImage: FC<ProjectImageProps> = ({ 
   src, 
   alt, 
   caption, 
-  className = 'rounded-xl border border-neutral-100 mt-9 m-auto',
+  className = '',
+  containerClassName = '',
   delay = 0,
   loading = 'lazy',
   width = 1200,
   height = 800,
   priority = false,
   placeholder = 'blur',
-  blurDataURL = ''
+  blurDataURL = '',
+  objectFit = 'cover',
+  ...props
 }) => {
   const isPublicPath = typeof src === 'string' && src.startsWith('/');
   
   return (
-    <AnimatedSection delay={delay} className="w-full h-full">
-      <div className="relative w-full h-auto">
+    <AnimatedSection delay={delay} className={`w-full ${className}`}>
+      <div className={`relative w-full ${containerClassName}`}>
         <Image
           src={src}
           alt={alt}
@@ -65,16 +70,21 @@ const ProjectImage: FC<ProjectImageProps> = ({
           height={height}
           {...(isPublicPath ? {} : { placeholder, blurDataURL })}
           quality={100}
-          loading={loading}
+          loading={priority ? undefined : loading}
           priority={priority}
-          className={`${className} w-full h-auto`}
+          className="w-full h-full object-cover rounded-lg"
           style={{
-            objectFit: 'cover',
+            objectFit,
             objectPosition: 'center'
           }}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
+          {...props}
         />
-        {caption && <span className="project_img_des">({caption})</span>}
+        {caption && (
+          <div className="text-center mt-2">
+            <span className="text-sm text-gray-500">{caption}</span>
+          </div>
+        )}
       </div>
     </AnimatedSection>
   );
@@ -99,20 +109,18 @@ const DeveloperDAO: FC = () => {
               <p className='text-base'>In a mission to accelerate the education and impact of a new wave of web3 builders. <span className="dateProject">- Jun 2023</span></p>
             </AnimatedSection>
             
-            <AnimatedSection delay={0.2} className="w-full">
-              <div className="relative w-full h-96 md:h-[600px] mb-8 rounded-xl overflow-hidden mt-4">
-                <Image
-                  src={imagePaths.img1}
-                  alt="DeveloperDAO website design process"
-                  fill
-                  className="object-cover"
-                  placeholder="blur"
-                  blurDataURL={imagePaths.img1}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-              {/* <p className="text-center text-sm text-gray-500 mt-2">Initial design concepts and wireframes</p> */}
-            </AnimatedSection>
+            <div className="w-full h-[400px] md:h-[600px] mb-8 mt-4">
+              <ProjectImage
+                src={imagePaths.img1}
+                alt="DeveloperDAO website design process"
+                className="h-full"
+                containerClassName="h-full"
+                objectFit="cover"
+                priority
+                width={1200}
+                height={800}
+              />
+            </div>
 
             <AnimatedSection delay={0.25}>
               <h2 className='text-slate-950 mt-6'>Project Overview</h2>
