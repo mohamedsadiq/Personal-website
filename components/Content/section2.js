@@ -63,7 +63,7 @@ const projects = [
     { 
         href: "sparks/widget", 
         title: "A Dynamic Widget",
-        date: "Jun 2024",
+        date: "Jun / 2024",
         image: "/videos/dots-preview.png",
         video: {
             webm: "/videos/dots.webm",
@@ -74,7 +74,7 @@ const projects = [
     { 
         href: "sparks/button", 
         title: "Button",
-        date: "Jun 2024",
+        date: "Jun / 2024",
         image: "/videos/button-preview.png",
         video: {
             webm: "/videos/button.webm",
