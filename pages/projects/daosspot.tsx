@@ -163,14 +163,14 @@ const DeveloperDAO: React.FC = () => {
                   }
                 ]}
                 links={[
-                  { label: 'Live Demo', url: 'https://daospot-git-main-mohamedsadiq-s-team.vercel.app/' },
+                  // { label: 'Live', url: 'https://daospot-git-main-mohamedsadiq-s-team.vercel.app/' },
                  
                   { label: 'Product Hunt', url: 'https://www.producthunt.com/products/daos-spot' }
                 ]}
                 className="mb-8"
               />
 
-              <h2 className="text-slate-950 mt-6">Project Overview</h2>
+              <h2 className="text-slate-950 mt-6 mb-3">Project Overview</h2>
               <p>
                 Initiating the journey of DAOs Spot marked my first venture, a bootstrap endeavor fueled by minimal resources. Taking charge of both product design and development, my primary goal centered around tackling a crucial challenge: How could I actively immerse myself in DAOs, contribute meaningfully, stay abreast of their updates, and discover tools to streamline these processes? This challenge materialized as I became a part of various DAOs. Significantly, the project has garnered the attention of an original DAO, aligning seamlessly with their mission. Moreover, a prominent international investment firm focused on Web3 has expressed interest. The prospect of DAOs Spot excites me, and I eagerly anticipate the promising opportunities that lie ahead.
               </p>

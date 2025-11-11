@@ -216,7 +216,7 @@ const LightUp: FC = () => {
                               }
                             ]}
                             links={[
-                              { label: 'Website', url: 'https://www.boimaginations.com/lightup' },
+                              // { label: 'Website', url: 'https://www.boimaginations.com/lightup' },
                               { label: 'GitHub Repository', url: 'https://github.com/mohamedsadiq/LightUp' },
                               { label: 'Chrome Store', url: 'https://chromewebstore.google.com/detail/lightup-ai-powered-web-an/pncapgeoeedlfppkohlbelelkkihikel' }
                             ]}
