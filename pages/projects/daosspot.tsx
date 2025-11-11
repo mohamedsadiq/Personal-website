@@ -10,6 +10,7 @@ import WorkIntro from "../../components/WorkIntro";
 import BackButton from "../../components/backButton";
 import ExternalLink from "../../components/ExternalLink";
 import ProjectNavigation from "../../components/ProjectNavigation";
+import ProjectOverview from "../../components/ProjectOverview";
 
 // Project Images
 import img1 from "../../img/11111111.png";
@@ -18,6 +19,7 @@ import img3 from "../../img/DAOs Spot/2.png";
 import img4 from "../../img/DAOs Spot/3.png";
 import img5 from "../../img/DAOs Spot/4.png";
 import img6 from "../../img/DAOs Spot/5.png";
+import img7 from "../../public/daospot.png";
 
 // Reusable ProjectImage component
 interface ProjectImageProps {
@@ -137,6 +139,38 @@ const DeveloperDAO: React.FC = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Project Overview Section */}
+              <ProjectOverview
+                background={{
+                  type: 'video',
+                  src: '/e7d1bded-0669-42f9-934d-7817ca497149_wm.mp4',
+                  alt: 'DAOs Spot Project Overview',
+                  className: 'opacity-90'
+                }}
+                infoItems={[
+                  {
+                    title: 'Platform',
+                    content: 'Web Application'
+                  },
+                  {
+                    title: 'Role',
+                    content: 'Founder, Designer & Engineer'
+                  },
+                  {
+                    title: 'Timeline',
+                    content: '2023 - 2024'
+                  }
+                ]}
+                links={[
+                  { label: 'Live Demo', url: 'https://daospot-git-main-mohamedsadiq-s-team.vercel.app/' },
+                 
+                  { label: 'Product Hunt', url: 'https://www.producthunt.com/products/daos-spot' }
+                ]}
+                className="mb-8"
+              />
+
+              <h2 className="text-slate-950 mt-6">Project Overview</h2>
               <p>
                 Initiating the journey of DAOs Spot marked my first venture, a bootstrap endeavor fueled by minimal resources. Taking charge of both product design and development, my primary goal centered around tackling a crucial challenge: How could I actively immerse myself in DAOs, contribute meaningfully, stay abreast of their updates, and discover tools to streamline these processes? This challenge materialized as I became a part of various DAOs. Significantly, the project has garnered the attention of an original DAO, aligning seamlessly with their mission. Moreover, a prominent international investment firm focused on Web3 has expressed interest. The prospect of DAOs Spot excites me, and I eagerly anticipate the promising opportunities that lie ahead.
               </p>
