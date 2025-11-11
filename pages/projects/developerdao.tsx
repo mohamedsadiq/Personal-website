@@ -6,6 +6,7 @@ import { AnimatedSection } from '../../components/AnimatedSection'
 import BackButton from '../../components/backButton'
 import ExternalLink from "../../components/ExternalLink"
 import ProjectNavigation from '../../components/ProjectNavigation'
+import ProjectOverview from '../../components/ProjectOverview'
 
 // Image paths pointing to public directory
 const img1 = "/img/developerdao/fasdfasd.jpeg"
@@ -139,6 +140,35 @@ const DeveloperDAO: FC = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Project Overview Section */}
+              <ProjectOverview
+                background={{
+                  type: 'video',
+                  src: '/u5RViMdepqRfkMte.mp4',
+                  alt: 'DeveloperDAO Project Overview',
+                  className: 'opacity-90 object-[center_40%]'
+                }}
+                infoItems={[
+                  {
+                    title: 'Platform',
+                    content: 'Web Application'
+                  },
+                  {
+                    title: 'Role',
+                    content: 'UI/UX Designer '
+                  },
+                  {
+                    title: 'Timeline',
+                    content: 'Jul 2022 '
+                  }
+                ]}
+                links={[
+                  { label: 'X.com', url: 'https://x.com/sadiq_moo/status/1563137379200020480/photo/1' },
+                  // { label: 'GitHub', url: 'https://github.com/Developer-DAO/developer-dao' }
+                ]}
+                className="mb-8"
+              />
               <p>
                 Developer DAO was one of the first—and most impactful—DAOs I joined in the web3 space. 
                 Before that, I was simply intrigued by web3: privacy, decentralization, and the possibilities 
