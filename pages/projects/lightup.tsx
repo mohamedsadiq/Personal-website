@@ -8,6 +8,7 @@ import { AnimatedSection } from '../../components/AnimatedSection'
 
 import WorkIntro from '../../components/WorkIntro'
 import BackButton from '../../components/backButton'
+import ProjectOverview from '../../components/ProjectOverview'
 import { projectContent } from '../../data/lightup'
 import ProjectNavigation from '../../components/ProjectNavigation';
 
@@ -67,12 +68,12 @@ const ProjectImage: FC<{
 }) => {
   const isPublicPath = typeof src === 'string' && src.startsWith('/');
   
+  // Calculate aspect ratio if we have the image dimensions
+  const aspectRatio = src?.width && src?.height ? (src.height / src.width * 100) : 56.25; // Default to 16:9 if no dimensions
+  
   return (
     <AnimatedSection delay={delay} className={`w-full ${className}`}>
-      <div 
-        className={`relative w-full ${containerClassName}`} 
-        style={height !== 'auto' ? { height } : { paddingBottom: '75%' }}
-      >
+      <div className={`relative w-full ${containerClassName}`} style={{ paddingBottom: `${aspectRatio}%` }}>
         <Image
           src={src}
           alt={alt}
@@ -169,8 +170,8 @@ const LightUp: FC = () => {
                                 alt={projectContent.title}
                                 placeholder="blur"
                                 blurDataURL={imagePaths.img1.blurDataURL}
-                                className="h-[400px] md:h-[400px] lg:h-[500px]"
-                                objectFit="cover"
+                                className="max-w-full h-auto"
+                                objectFit="contain"
                             />
                         </div>
                         <AnimatedSection delay={0.2}>
@@ -192,6 +193,35 @@ const LightUp: FC = () => {
                                   ))}
                               </div>
                           </div>
+                          
+                          {/* Project Overview Section */}
+                          <ProjectOverview
+                            background={{
+                              type: 'video',
+                              src: '/lightup/lightup.mp4',
+                              className: 'w-full h-full object-cover'
+                            }}
+                            infoItems={[
+                              {
+                                title: 'Platform',
+                                content: 'Chrome Extensios'
+                              },
+                              {
+                                title: 'Role',
+                                content: 'From 0 → 1'
+                              },
+                              {
+                                title: 'Timeline',
+                                content: 'Dec 2024 - Present'
+                              }
+                            ]}
+                            links={[
+                              { label: 'Website', url: 'https://www.boimaginations.com/lightup' },
+                              { label: 'GitHub Repository', url: 'https://github.com/mohamedsadiq/LightUp' },
+                              { label: 'Chrome Store', url: 'https://chromewebstore.google.com/detail/lightup-ai-powered-web-an/pncapgeoeedlfppkohlbelelkkihikel' }
+                            ]}
+                            linksTitle="Links"
+                          />
                         </AnimatedSection>
                         <AnimatedSection delay={0.2}>
                           <div className="whitespace-pre-wrap ">
