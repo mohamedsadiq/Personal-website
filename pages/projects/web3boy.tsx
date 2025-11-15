@@ -7,6 +7,7 @@ import WorkIntro from '../../components/WorkIntro'
 import BackButton from '../../components/backButton'
 import ExternalLink from "../../components/ExternalLink";
 import ProjectNavigation from '../../components/ProjectNavigation';
+import ProjectOverview from '../../components/ProjectOverview';
 
 // Import images with static imports
 import img1 from '../../public/web3boy/1ff132134169935.png';
@@ -141,6 +142,35 @@ const Web3Boy: FC = () => {
                                     ))}
                                 </div>
                             </div>
+
+                            {/* Project Overview Section */}
+                            <ProjectOverview
+                                background={{
+                                    type: 'image',
+                                    src: typeof imagePaths.img5 === 'string' ? imagePaths.img5 : imagePaths.img5.src,
+                                    alt: 'Web3Boy Project Overview',
+                                    className: 'opacity-90 object-[center_30%]'
+                                }}
+                                infoItems={[
+                                    {
+                                        title: 'Category',
+                                        content: 'NFT Collection'
+                                    },
+                                    {
+                                        title: 'Role',
+                                        content: 'Creator & Designer'
+                                    },
+                                    {
+                                        title: 'Timeline',
+                                        content: 'Jun 2021'
+                                    }
+                                ]}
+                                links={[
+                                    { label: 'OpenSea', url: 'https://opensea.io/collection/web3boy' },
+                                    { label: 'Twitter', url: 'https://twitter.com/web3boynft' }
+                                ]}
+                                className="mb-8"
+                            />
                             <p>
                                 The Certified Web3 Boy (CWB) project is a creative endeavor inspired by the innovative spirit of Developer Dao and the cultural impact of the CLB album. As a passionate fan of Web3 technology and the CLB album, I found immense joy in bringing this project to life. The fusion of cutting-edge blockchain concepts with pop culture has made this journey both challenging and rewarding.
                                 <br/><br/>You can explore the live website <a className="text-[#000] underline" href='https://replit.com/@mohamedsadiq/cwb' target='_blank' rel="noopener noreferrer">here</a> to see the CWB NFTs in action. For those interested in the technical aspects, the frontend code is available <a className="text-[#000] underline" href='https://github.com/mohamedsadiq/cwb_front_end' target="_blank" rel="noopener noreferrer">here</a>, and you can review the smart contract <a className="text-[#000] underline" href='https://github.com/mohamedsadiq/cwb-nfts_smart_contract' target='_blank' rel="noopener noreferrer">here</a>. If you're curious about the design process, the Figma files can be found <a className="text-[#000] underline" href='https://www.figma.com/file/x2UkUXmgp69DVE12Yi0CPo/CWB?node-id=0%3A1' target='_blank' rel="noopener noreferrer">here</a>.

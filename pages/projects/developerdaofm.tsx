@@ -6,6 +6,7 @@ import BackButton from '../../components/backButton';
 import ExternalLink from "../../components/ExternalLink";
 import { AnimatedSection } from "../../components/AnimatedSection";
 import ProjectNavigation from '../../components/ProjectNavigation';
+import ProjectOverview from '../../components/ProjectOverview';
 
 
 
@@ -155,6 +156,35 @@ const DeveloperDAO: React.FC = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Project Overview Section */}
+              <ProjectOverview
+                background={{
+                  type: 'video',
+                  src: '/Screen Recording 2025-11-12 at 1.34.12 AM.mov',
+                  alt: 'DeveloperDAO FM Project Overview',
+                  className: 'opacity-90'
+                }}
+                infoItems={[
+                  {
+                    title: 'Platform',
+                    content: 'Web Application'
+                  },
+                  {
+                    title: 'Role',
+                    content: 'Designer & Developer'
+                  },
+                  {
+                    title: 'Timeline',
+                    content: 'Jul 2022'
+                  }
+                ]}
+                links={[
+                  // { label: 'Live Demo', url: 'https://developer-dao-fm.vercel.app/' },
+                  { label: 'GitHub', url: 'https://github.com/mohamedsadiq/developer-dao-fm' }
+                ]}
+                className="mb-8"
+              />
               <p>
                 When I initially joined DeveloperDAO, my excitement to contribute
                 to the DAO's projects was palpable. One standout project that

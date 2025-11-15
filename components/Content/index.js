@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 
-import Section1 from "./section1"
-import Section2 from "./section2"
-import Section3 from "./section3"
-import Section4 from "./section4"
-import Section5 from "./section5"
-import Section6 from "./section6"
-import Section7 from "./section7"
-import Section8 from "./section8"
-import Section9 from "./section9"
+import Section1 from "./HeroSection"
+import Section2 from "./SparksShowcase"
+import Section3 from "./FeaturedProjects"
+import Section4 from "./SocialMediaLinks"
+import Section5 from "./LatestActivity"
+import Section6 from "./ContactSection"
+import Section7 from "./CuratedWorksPreview"
+import Section8 from "./PressMentions"
+import Section9 from "./BlogPostsSection"
 
 const MyComponent = () => {
   const MohamedSadiq = {

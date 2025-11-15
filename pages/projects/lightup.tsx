@@ -11,10 +11,11 @@ import BackButton from '../../components/backButton'
 import ProjectOverview from '../../components/ProjectOverview'
 import { projectContent } from '../../data/lightup'
 import ProjectNavigation from '../../components/ProjectNavigation';
+import HorizontalGallery from '../../components/HorizontalGallery';
 
 // Import images with blur placeholders
-import img1 from '../../public/lightup/linkimage.png';
-import img2 from '../../public/lightup/56f413c1-e074-43e4-adc5-8205230ea720_1986x1576.jpg';
+import LightupIntroImage from '../../public/lightup/linkimage.png';
+import boxesIsideBoxes from "../../public/lightup/boxes.jpg"
 import img3 from '../../public/lightup/ebe607a8-f6f8-47d2-a8f5-a80ac36606da_2880x2160.png';
 import img4 from '../../public/lightup/537334f8-55de-4a4d-bdc2-31cb4c824a84_2880x2160.png';
 import img5 from '../../public/lightup/d213566b-7ade-4640-92d5-a2273b2affc5_2880x2160.webp';
@@ -24,15 +25,15 @@ import designImg3 from '../../public/lightup/Start 2 Image.webp';
 
 // Image paths object with imported images
 const imagePaths = {
-  img1,
-  img2,
-  img3,
-  img4,
-  img5,
-  designImg1,
-  designImg2,
-  designImg3,
-  video: '/lightup/Dribbble Video.mp4' // Keep video as a string path
+    LightupIntroImage,
+    boxesIsideBoxes,
+    img3,
+    img4,
+    img5,
+    designImg1,
+    designImg2,
+    designImg3,
+    video: '/lightup/Dribbble Video.mp4' // Keep video as a string path
 };
 
 // Component for project image with caption
@@ -102,8 +103,8 @@ const ProjectImage: FC<{
 };
 
 // Component for rendering a project section with title and content
-const ProjectSection: FC<{ title: string; content: string }> = ({ title, content }) => (
-  <AnimatedSection delay={0.1}>
+const ProjectSection: FC<{ title: string; content: string; className?: string }> = ({ title, content, className = '' }) => (
+  <AnimatedSection delay={0.1} className={className}>
     <h2 className={ title.includes('Overview') ? 'mt-4 mb-2 text-slate-950' : title.includes('inspiration') ? 'mt-10 mb-2' : 'mb-2'}>{title}</h2>
     <div className="whitespace-pre-wrap">
       {content.split('\n\n').map((paragraph, index) => (
@@ -166,10 +167,10 @@ const LightUp: FC = () => {
                       
                         <div className="blog_photo inner_blog work_intro_image">
                             <ProjectImage
-                                src={imagePaths.img1}
+                                src={imagePaths.LightupIntroImage}
                                 alt={projectContent.title}
                                 placeholder="blur"
-                                blurDataURL={imagePaths.img1.blurDataURL}
+                                blurDataURL={imagePaths.LightupIntroImage.blurDataURL}
                                 className="max-w-full h-auto"
                                 objectFit="contain"
                             />
@@ -208,7 +209,7 @@ const LightUp: FC = () => {
                               },
                               {
                                 title: 'Role',
-                                content: 'From 0 → 1'
+                                content: 'From 0 → 1, (design and develpment)'
                               },
                               {
                                 title: 'Timeline',
@@ -216,14 +217,17 @@ const LightUp: FC = () => {
                               }
                             ]}
                             links={[
-                              { label: 'Website', url: 'https://www.boimaginations.com/lightup' },
+                           { label: 'Chrome Store', url: 'https://chromewebstore.google.com/detail/lightup-ai-powered-web-an/pncapgeoeedlfppkohlbelelkkihikel' },
                               { label: 'GitHub Repository', url: 'https://github.com/mohamedsadiq/LightUp' },
-                              { label: 'Chrome Store', url: 'https://chromewebstore.google.com/detail/lightup-ai-powered-web-an/pncapgeoeedlfppkohlbelelkkihikel' }
+                            
+                            //   { label: 'Peerlist', url: 'https://peerlist.io/sadiqo/project/lightup' },
+                            //   { label: 'Saashub', url: 'https://www.saashub.com/best-data-annotation-software/c/ai' },
                             ]}
                             linksTitle="Links"
                           />
                         </AnimatedSection>
                         <AnimatedSection delay={0.2}>
+                          <h2 className='mb-3'>The Itch: "The Tab-Switching Hell"</h2>
                           <div className="whitespace-pre-wrap ">
                               {projectContent.sections[0].content.split('\n\n').map((paragraph, index) => (
                                   <p key={index} className={index > 0 ? 'mt-4' : ''}>{paragraph}</p>
@@ -236,64 +240,37 @@ const LightUp: FC = () => {
                 
             </main>
             <div className=''>
-                <AnimatedSection delay={0.25}>
-                    <ProjectImage 
-                        src={imagePaths.img2} 
-                        alt="Concept visualization"
-                        placeholder="blur"
-                    />
-                </AnimatedSection>
+               
                 <div className='container'>
                     <div className="inner_container">
-                        <ProjectSection 
-                            title={projectContent.sections[1].title} 
-                            content={projectContent.sections[1].content} 
+                     
+                      <AnimatedSection delay={0.2}>
+                                <h2 className='mb-4'>{projectContent.sections[1].title}</h2>
+                                 <ProjectImage 
+                                src={imagePaths.boxesIsideBoxes} 
+                                alt="Open source" 
+                                placeholder="blur"
+                                blurDataURL={imagePaths.boxesIsideBoxes.blurDataURL}
                         />
-                        <ProjectSection 
-                            title={projectContent.sections[2].title} 
-                            content={projectContent.sections[2].content} 
-                        />
-                        <br/>
-                         <br/>
-                        <ProjectSection 
-                            title={projectContent.sections[3].title} 
-                            content={projectContent.sections[3].content} 
-                        />
+                                <div className="whitespace-pre-wrap ">
+                                   <p className='mt-4'> {projectContent.sections[1].content}</p>
+                                    {/* {projectContent.sections[2].content.split('\n\n').map((paragraph, index) => (
+                                        <p key={index} className={index > 0 ? 'mt-4' : ''}>{paragraph}</p>
+                                    ))} */}
+                                </div>
+                        </AnimatedSection>
+
+                                {/* <ProjectSection 
+                                    title={section.title} 
+                                    content={section.content} 
+                                    className={index > 0 ? 'mt-6' : ''}
+                                /> */}
+                            
+                     
                         
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                            <div className="space-y-6">
-                                <ProjectImage 
-                                    src={imagePaths.img4}
-                                    alt="LightUp interface close-up"
-                                    caption="LightUp's clean and minimal interface"
-                                    placeholder="blur"
-                                    blurDataURL={imagePaths.img4.blurDataURL}
-                                />
-                                <ProjectImage 
-                                    src={imagePaths.designImg1} 
-                                    alt="LightUp in context"
-                                    caption="Seamless integration with web content"
-                                    placeholder="blur"
-                                />
-                            </div>
-                            <div className="space-y-6">
-                                <ProjectImage 
-                                    src={imagePaths.designImg2} 
-                                    alt="LightUp activation states"
-                                    caption="Different activation states and interactions"
-                                    placeholder="blur"
-                                    blurDataURL={imagePaths.designImg2.blurDataURL}
-                                />
-                                <ProjectImage 
-                                    src={imagePaths.designImg3} 
-                                    alt="LightUp feature showcase"
-                                    caption="Feature demonstration in action"
-                                    placeholder="blur"
-                                />
-                            </div>
-                        </div>
+                      
                         
-                        <div className="mt-8 rounded-xl overflow-hidden">
+                        {/* <div className="mt-8 rounded-xl overflow-hidden">
                             <video 
                                 src={imagePaths.video}
                                 autoPlay 
@@ -306,14 +283,8 @@ const LightUp: FC = () => {
                             </video>
                             <p className="text-sm text-gray-500 mt-2 text-center">Watch LightUp in action</p>
                         </div>
-                         <AnimatedSection delay={0.3}>
-                        <ProjectImage 
-                            src={imagePaths.img3} 
-                            alt="LightUp in action" 
-                            caption="LightUp in action" 
-                            placeholder="blur"
-                        />
-                    </AnimatedSection>
+                         */}
+                        
                     {/* <div className="inner_container">
                         <FeatureList features={projectContent.features} />
                     </div> */}
@@ -336,10 +307,6 @@ const LightUp: FC = () => {
                        
                         
                         <br/>
-                        {/* <ProjectSection 
-                            title={projectContent.sections[3].title} 
-                            content={projectContent.sections[3].content} 
-                        /> */}
                     </div>
                     
                     {/* <AnimatedSection delay={0.4}>
@@ -353,30 +320,33 @@ const LightUp: FC = () => {
                 
                 <div className='container'>
                     <div className="inner_container">
-                        <ProjectSection 
+                        {/* <ProjectSection 
                             title={projectContent.sections[5].title} 
                             content={projectContent.sections[5].content} 
-                        />
+                        /> */}
                         
                         {/* Simple Links Section */}
                         <AnimatedSection delay={0.45}>
-                            <div className="mt-12 pt-8 border-t border-gray-200">
-                                <h2 className="text-xl font-medium mb-4">Links</h2>
-                                <div className="flex flex-col space-y-2">
-                                    <a className="text-blue-600 hover:underline inline-block" href="https://www.boimaginations.com/lightup" target="_blank" rel="noopener noreferrer">
-                                        Official Website
-                                    </a>
-                                    <a className="text-blue-600 hover:underline inline-block" href="https://github.com/mohamedsadiq/LightUp" target="_blank" rel="noopener noreferrer">
-                                        GitHub Repository
-                                    </a>
-                                    <a className="text-blue-600 hover:underline inline-block" href="https://peerlist.io/sadiqo/project/lightup" target="_blank" rel="noopener noreferrer">
-                                        On Peerlist 
-                                    </a>
-                                    <a className="text-blue-600 hover:underline inline-block" href="https://chromewebstore.google.com/detail/lightup/your-extension-id" target="_blank" rel="noopener noreferrer">
-                                        Chrome Web Store
-                                    </a>
-                                </div>
-                            </div>
+                           {/* Project Overview Section */}
+                          <ProjectOverview
+                            background={{
+                              type: 'video',
+                              src: '/lightup/lightup.mp4',
+                              className: 'w-full h-full object-cover'
+                            }}
+                            infoItems={[
+                           
+                            ]}
+                            links={[
+                              { label: 'Chrome Store', url: 'https://chromewebstore.google.com/detail/lightup-ai-powered-web-an/pncapgeoeedlfppkohlbelelkkihikel' },
+                              { label: 'GitHub Repository', url: 'https://github.com/mohamedsadiq/LightUp' },
+                              { label: 'Peerlist', url: 'https://peerlist.io/sadiqo/project/lightup' },
+                              { label: 'Saashub', url: 'https://www.saashub.com/best-data-annotation-software/c/ai' },
+                             
+                            ]}
+                           
+                            linksTitle="Links"
+                          />
                         </AnimatedSection>
                     </div>
                 </div>
