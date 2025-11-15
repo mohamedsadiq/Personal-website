@@ -14,12 +14,10 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
         initial: {
             scale: 0.8,
             transformOrigin: "50% 50%",
-            filter: "blur(40px)",
         },
         animate: {
             scale: 1,
             transformOrigin: "50% 50%",
-            filter: "blur(0px)",
         },
         hover: {
             x: 2,
@@ -75,45 +73,26 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                             <motion.h1
                                 className="text-[#000] text-sm leading-6 underline decoration-dotted decoration-[var(--underline-color)] underline-offset-2 inline-flex items-center"
                                 animate={{
-                                    textDecorationColor: hoveredId === 'lightup' ? 'currentColor' : 'rgba(208, 208, 208, 0.53)',
-                                    filter: hoveredId && hoveredId !== 'lightup' ? 'blur(2px)' : 'blur(0px)'
+                                    textDecorationColor: hoveredId === 'lightup' ? 'currentColor' : 'rgba(208, 208, 208, 0.53)'
                                 }}
                                 transition={{ duration: 0.2 }}
                             >
                                 LightUp
                                 <motion.span
                                     className="flex items-center gap-1 ml-2"
-                                    animate={{
-                                        filter: hoveredId && hoveredId !== 'lightup' ? 'blur(2px)' : 'blur(0px)'
-                                    }}
                                     transition={{ duration: 0.2 }}
                                 >
-                                    <motion.span 
-                                        className="w-[40px] inline-block"
-                                        animate={{
-                                            scale: hoveredId === 'lightup' ? 1.05 : 1,
-                                        }}
-                                        transition={{ duration: 0.2 }}
-                                    >
+                                    <span className="w-[40px] inline-block">
                                         <Image src={peerlist} alt="" />
-                                    </motion.span>
-                                    <motion.span 
-                                        className="w-[25px] inline-block"
-                                        animate={{
-                                            scale: hoveredId === 'lightup' ?1.05 : 1,
-                                        }}
-                                        transition={{ duration: 0.2 }}
-                                    >
+                                    </span>
+                                    <span className="w-[25px] inline-block">
                                         <Image src={sasshub} alt="" />
-                                    </motion.span>
+                                    </span>
                                 </motion.span>
                             </motion.h1>
                         </div>
                         <motion.p
                             className="text-[#484848] text-sm leading-6 m-0 "
-                            animate={{
-                                filter: hoveredId && hoveredId !== 'lightup' ? 'blur(2px)' : 'blur(0px)'
-                            }}
                             transition={{ duration: 0.2 }}
                         >
                             AI Chrome extension - Peerlist Staff Pick, Top 9 AI Annotation Tool on SassHub.
@@ -146,8 +125,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                                 <motion.h1
                                     className="text-sm leading-6 text-[#000] decoration-dotted underline underline-offset-2"
                                     animate={{
-                                        textDecorationColor: hoveredId === 'daosspot' ? 'currentColor' : 'rgba(208, 208, 208, 0.53)',
-                                        filter: hoveredId && hoveredId !== 'daosspot' ? 'blur(2px)' : 'blur(0px)'
+                                        textDecorationColor: hoveredId === 'daosspot' ? 'currentColor' : 'rgba(208, 208, 208, 0.53)'
                                     }}
                                     transition={{ duration: 0.2 }}
                                 >
@@ -155,40 +133,25 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                                 </motion.h1>
                                 <motion.span 
                                     className="flex items-center gap-1 ml-2"
-                                    animate={{
-                                        filter: hoveredId && hoveredId !== 'daosspot' ? 'blur(2px)' : 'blur(0px)'
-                                    }}
                                     transition={{ duration: 0.2 }}
                                 >
-                                    <motion.div
-                                        animate={{
-                                            scale: hoveredId === 'daosspot' ? 1.05 : 1,
-                                        }}
-                                        transition={{ duration: 0.2 }}
-                                    >
+                                    <div>
                                         <Image 
                                             src={productOfTheWeek} 
                                             alt="" 
                                             className="w-[68px]" 
                                         />
-                                    </motion.div>
-                                    <motion.img
+                                    </div>
+                                    <img
                                         src="/newsletter icon/product-hunt-logo-orange-240.jpg"
                                         alt="Product Hunt"
                                         className="ml-1 w-5 h-5 object-cover rounded-full"
-                                        animate={{
-                                            scale: hoveredId === 'daosspot' ? 1.05 : 1,
-                                        }}
-                                        transition={{ duration: 0.2 }}
                                     />
                                 </motion.span>
                             </div>
                         </div>
                         <motion.p
                             className="mt-1 text-sm leading-6 text-[#484848] m-0"
-                            animate={{
-                                filter: hoveredId && hoveredId !== 'daosspot' ? 'blur(2px)' : 'blur(0px)'
-                            }}
                             transition={{ duration: 0.2 }}
                         >
                             A DAO discovery platform, Product Hunt #4 Product of the Week.
@@ -221,7 +184,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                                     className="mt-1 text-sm leading-6 text-[#000] decoration-dotted underline underline-offset-2"
                                     animate={{
                                         textDecorationColor: hoveredId === 'developerdaofm' ? 'currentColor' : 'rgba(208, 208, 208, 0.53)',
-                                        filter: hoveredId && hoveredId !== 'developerdaofm' ? 'blur(2px)' : 'blur(0px)'
+                                        // filter: hoveredId && hoveredId !== 'developerdaofm' ? 'blur(2px)' : 'blur(0px)'
                                     }}
                                     transition={{ duration: 0.2 }}
                                 >
@@ -230,30 +193,21 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                                 <motion.span 
                                     className="flex items-center gap-1 ml-2"
                                     animate={{
-                                        filter: hoveredId && hoveredId !== 'developerdaofm' ? 'blur(2px)' : 'blur(0px)'
+                                        // filter: hoveredId && hoveredId !== 'developerdaofm' ? 'blur(2px)' : 'blur(0px)'
                                     }}
                                     transition={{ duration: 0.2 }}
                                 >
-                                    <motion.div
-                                        animate={{
-                                            scale: hoveredId === 'developerdaofm' ? 1.05 : 1,
-                                        }}
-                                        transition={{ duration: 0.2 }}
-                                    >
+                                    <div>
                                         <Image 
                                             src={productHunt5} 
                                             alt="" 
                                             className="w-[68px]" 
                                         />
-                                    </motion.div>
-                                    <motion.img
+                                    </div>
+                                    <img
                                         src="/newsletter icon/product-hunt-logo-orange-240.jpg"
                                         alt="Product Hunt"
                                         className="ml-1 w-5 h-5 object-cover rounded-full"
-                                        animate={{
-                                            scale: hoveredId === 'developerdaofm' ? 1.05 : 1,
-                                        }}
-                                        transition={{ duration: 0.2 }}
                                     />
                                 </motion.span>
                             </div>
@@ -261,7 +215,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                         <motion.p
                             className="mt-1 text-sm leading-6 text-[#484848] m-0"
                             animate={{
-                                filter: hoveredId && hoveredId !== 'developerdaofm' ? 'blur(2px)' : 'blur(0px)'
+                                // filter: hoveredId && hoveredId !== 'developerdaofm' ? 'blur(2px)' : 'blur(0px)'
                             }}
                             transition={{ duration: 0.2 }}
                         >
@@ -295,7 +249,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                                 className="text-sm leading-6 text-[#000] decoration-dotted underline underline-offset-2 inline-flex items-center"
                                 animate={{
                                     textDecorationColor: hoveredId === 'developerdao' ? 'currentColor' : 'rgba(208, 208, 208, 0.53)',
-                                    filter: hoveredId && hoveredId !== 'developerdao' ? 'blur(2px)' : 'blur(0px)'
+                                    // filter: hoveredId && hoveredId !== 'developerdao' ? 'blur(2px)' : 'blur(0px)'
                                 }}
                                 transition={{ duration: 0.2 }}
                             >
@@ -305,7 +259,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                         <motion.p
                             className="text-sm leading-6 text-[#484848] m-0"
                             animate={{
-                                filter: hoveredId && hoveredId !== 'developerdao' ? 'blur(2px)' : 'blur(0px)'
+                                // filter: hoveredId && hoveredId !== 'developerdao' ? 'blur(2px)' : 'blur(0px)'
                             }}
                             transition={{ duration: 0.2 }}
                         >
@@ -338,7 +292,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                             className="text-sm leading-6 text-[#000] decoration-dotted underline underline-offset-2"
                             animate={{
                                 textDecorationColor: hoveredId === 'web3boy' ? 'currentColor' : 'rgba(208, 208, 208, 0.53)',
-                                filter: hoveredId && hoveredId !== 'web3boy' ? 'blur(2px)' : 'blur(0px)'
+                                // filter: hoveredId && hoveredId !== 'web3boy' ? 'blur(2px)' : 'blur(0px)'
                             }}
                             transition={{ duration: 0.2 }}
                         >
@@ -349,7 +303,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                         <motion.p
                             className="text-sm leading-6 mt-0 text-[#484848]"
                             animate={{
-                                filter: hoveredId && hoveredId !== 'web3boy' ? 'blur(2px)' : 'blur(0px)'
+                                // filter: hoveredId && hoveredId !== 'web3boy' ? 'blur(2px)' : 'blur(0px)'
                             }}
                             transition={{ duration: 0.2 }}
                         >
