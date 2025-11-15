@@ -55,7 +55,7 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
             }}
             transition={{ duration: 0.2 }}
           >
-             I love the 0→1 journey—taking ideas from nothing to something real. And I'm passionate about building products that feel like they were always meant to exist. Driven by curiosity for emerging technology, particularly in <span className="web3">
+             I love the 0 → 1 journey—taking ideas from nothing to something real. And I'm passionate about building products that feel like they were always meant to exist. Driven by curiosity for emerging technology, particularly in <span className="web3">
               web3 & AI<span id="animation_web3"></span>
             </span>, I strive to craft digital realities that not only work flawlessly but also move people on a deeper level.{" "}
           </motion.span>
