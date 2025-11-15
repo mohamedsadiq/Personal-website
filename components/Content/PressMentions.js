@@ -42,26 +42,18 @@ const Section8 = ({ MohamedSadiq, motionCtl, order }) => {
                 alt="Today in Design" 
                 className="w-5 h-5 mr-2 object-cover rounded-full inline-block"
                 animate={{
-                  filter: 'blur(0px)',
+                  // filter: 'blur(0px)',
                   scale: hoveredId === 'todayInDesign' ? 1.1 : 1,
                 }}
                 transition={{ duration: 0.2 }}
               />
               <motion.span 
                 className="underline decoration-dotted text-sm"
-                animate={{
-                  filter: hoveredId && hoveredId !== 'todayInDesign' ? 'blur(2px)' : 'blur(0px)',
-                }}
-                transition={{ duration: 0.2 }}
               >
                 Today in Design
               </motion.span>
               <motion.span 
                 className="text-xs text-zinc-400 ml-1"
-                animate={{
-                  filter: hoveredId && hoveredId !== 'todayInDesign' ? 'blur(2px)' : 'blur(0px)',
-                }}
-                transition={{ duration: 0.2 }}
               >
                 - Newsletter
               </motion.span>
@@ -97,26 +89,18 @@ const Section8 = ({ MohamedSadiq, motionCtl, order }) => {
                 alt="Product Hunt" 
                 className="w-5 h-5 mr-2 object-cover rounded-full inline-block"
                 animate={{
-                  filter: 'blur(0px)',
+                  // filter: 'blur(0px)',
                   scale: hoveredId === 'productHunt' ? 1.1 : 1,
                 }}
                 transition={{ duration: 0.2 }}
               />
               <motion.span 
                 className="text-sm underline decoration-dotted"
-                animate={{
-                  filter: hoveredId && hoveredId !== 'productHunt' ? 'blur(2px)' : 'blur(0px)',
-                }}
-                transition={{ duration: 0.2 }}
               >
                 Product Hunt
               </motion.span>
               <motion.span 
                 className="text-xs text-zinc-400 ml-1"
-                animate={{
-                  filter: hoveredId && hoveredId !== 'productHunt' ? 'blur(2px)' : 'blur(0px)',
-                }}
-                transition={{ duration: 0.2 }}
               >
                 - Newsletter
               </motion.span>
@@ -152,26 +136,18 @@ const Section8 = ({ MohamedSadiq, motionCtl, order }) => {
                 alt="Developer DAO" 
                 className="w-5 h-5 mr-2 object-cover rounded-full inline-block"
                 animate={{
-                  filter: 'blur(0px)',
+                  // filter: 'blur(0px)',
                   scale: hoveredId === 'developerDao' ? 1.1 : 1,
                 }}
                 transition={{ duration: 0.2 }}
               />
               <motion.span 
                 className="text-sm underline decoration-dotted"
-                animate={{
-                  filter: hoveredId && hoveredId !== 'developerDao' ? 'blur(2px)' : 'blur(0px)',
-                }}
-                transition={{ duration: 0.2 }}
               >
                 DeveloperDAO
               </motion.span>
               <motion.span 
                 className="text-xs text-zinc-400 ml-1"
-                animate={{
-                  filter: hoveredId && hoveredId !== 'developerDao' ? 'blur(2px)' : 'blur(0px)',
-                }}
-                transition={{ duration: 0.2 }}
               >
                 - Newsletter
               </motion.span>
@@ -207,7 +183,7 @@ const Section8 = ({ MohamedSadiq, motionCtl, order }) => {
                 alt="Dead Simple Sites" 
                 className="w-5 h-5 mr-2 object-cover rounded-full inline-block"
                 animate={{
-                  filter: 'blur(0px)',
+                  // filter: 'blur(0px)',
                   scale: hoveredId === 'dss' ? 1.1 : 1,
                 }}
                 transition={{ duration: 0.2 }}
@@ -215,7 +191,7 @@ const Section8 = ({ MohamedSadiq, motionCtl, order }) => {
               <motion.span 
                 className="text-sm underline decoration-dotted"
                 animate={{
-                  filter: hoveredId && hoveredId !== 'dss' ? 'blur(2px)' : 'blur(0px)',
+                  // filter: hoveredId && hoveredId !== 'dss' ? 'blur(2px)' : 'blur(0px)',
                 }}
                 transition={{ duration: 0.2 }}
               >
@@ -224,7 +200,7 @@ const Section8 = ({ MohamedSadiq, motionCtl, order }) => {
               <motion.span 
                 className="text-xs text-zinc-400 ml-1"
                 animate={{
-                  filter: hoveredId && hoveredId !== 'dss' ? 'blur(2px)' : 'blur(0px)',
+                  // filter: hoveredId && hoveredId !== 'dss' ? 'blur(2px)' : 'blur(0px)',
                 }}
                 transition={{ duration: 0.2 }}
               >
