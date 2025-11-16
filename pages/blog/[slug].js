@@ -22,7 +22,7 @@ export default function PostPage({ content, frontmatter }) {
   marked.use({
     renderer: {
       paragraph(text) {
-        return `<p class="text-[#616161] leading-7 mb-12 text-base">${text}</p>`;
+        return `<p class="text-[#616161] leading-7 mb-4 text-base">${text}</p>`;
       },
       heading(text, level) {
         if (level === 1) {
