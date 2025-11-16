@@ -10,6 +10,14 @@ import ProjectNavigation from '../../components/ProjectNavigation';
 import ProjectOverview from '../../components/ProjectOverview';
 
 // Import images with static imports
+const SectionDivider: FC = () => (
+  <AnimatedSection delay={0} className="w-full">
+    <div className="my-20 w-full">
+      <div className="mx-auto h-[1px] w-24 bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+    </div>
+  </AnimatedSection>
+);
+
 import img1 from '../../public/web3boy/1ff132134169935.png';
 import img2 from '../../public/web3boy/Behance Image 2800x1575.png';
 import img3 from '../../public/web3boy/Adbe2f134169935.png';
@@ -72,7 +80,7 @@ const ProjectImage: FC<{
           src={src}
           alt={alt}
           fill
-          className="rounded-lg"
+          className="rounded-[24px]"
           style={{ 
             objectFit,
             objectPosition
@@ -179,6 +187,7 @@ const Web3Boy: FC = () => {
                     </div>
                 </div>
             </main>
+            <SectionDivider />
             <div className=''>
                 <ProjectImage 
                     src={imagePaths.img2}

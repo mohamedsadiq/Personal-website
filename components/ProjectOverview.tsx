@@ -64,7 +64,7 @@ const ProjectOverview: FC<ProjectOverviewProps> = ({
     };
   }, [background.src]);
   return (
-    <div className={`relative rounded-[15px] overflow-hidden mb-8 ${className}`}>
+    <div className={`relative rounded-[24px] overflow-hidden mb-8 ${className}`}>
       {/* Background */}
       <div className="absolute inset-0 z-0">
         {background.type === 'video' ? (
@@ -121,10 +121,10 @@ const ProjectOverview: FC<ProjectOverviewProps> = ({
       <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
 
       {/* Content */}
-      <div className={`relative z-10 py-[30px] px-[18px] grid grid-cols-1 md:grid-cols-4 lg:grid-cols-${Math.min(
+      <div className={`relative z-10 py-[30px] px-[18px] grid grid-cols-1 md:grid-cols-5 lg:grid-cols-${Math.min(
         infoItems.length + (links.length > 0 ? 1 : 0),
         4
-      )} gap-6 ${contentClassName}`}>
+      )} gap-4 ${contentClassName}`}>
         {/* Info Items */}
         {infoItems.map((item, index) => (
           <div key={index} className={item.className}>

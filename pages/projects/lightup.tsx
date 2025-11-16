@@ -5,7 +5,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { marked } from 'marked'
-import { motion } from 'framer-motion' // Removed unused AnimatePresence
+import { motion, AnimatePresence } from 'framer-motion'
 import styles from '../../styles/Home.module.css'
 import ExternalLink from '../../components/ExternalLink'
 import { AnimatedSection } from '../../components/AnimatedSection'
@@ -15,6 +15,22 @@ import ProjectOverview from '../../components/ProjectOverview'
 import { projectContent } from '../../data/lightup'
 import ProjectNavigation from '../../components/ProjectNavigation';
 // Removed unused HorizontalGallery
+
+// Configure markdown link rendering for project sections so inline links
+// (e.g. Peerlist mention/recognition links) get dotted underline styling
+// and an external-link style icon similar to the ExternalLink component.
+marked.use({
+  renderer: {
+    link(href: string | null, title: string | null, text: string) {
+      const safeHref = href || ''
+      const titleAttr = title ? ` title="${title}"` : ''
+
+      // Return compact inline HTML so whitespace-pre-wrap does not
+      // introduce visual indentation before the following text.
+      return `<a href="${safeHref}"${titleAttr} target="_blank" rel="noopener noreferrer" class="group inline-flex items-center text-[#000] underline decoration-dotted decoration-[rgba(208,208,208,0.53)] underline-offset-2 transition-colors duration-200 hover:decoration-current hover:decoration-solid"><span>${text}</span><svg width="12" height="12" viewBox="0 0 30 30" fill="#909090" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transition: fill 200ms ease; margin-left: 4px; display: inline-block; vertical-align: middle; position: relative; top: -1px;" class="inline-block align-middle"><path d="M23.5163 13.8667C22.555 14.828 21.7964 15.9137 21.8305 16.279C21.8305 16.279 21.8305 16.279 21.8305 16.617C21.8305 21.4656 17.8866 25.4092 13.0403 25.4092C8.19272 25.4092 4.24919 21.4656 4.24919 16.617C4.24919 11.7717 8.19371 7.82919 13.0403 7.82919C13.4055 7.82919 13.4055 7.82919 13.4055 7.82919C13.7972 7.86922 14.9015 7.11796 15.8601 6.15962C16.8181 5.20127 16.2723 4.03982 14.6467 3.57867C14.6467 3.57867 14.6467 3.57867 13.0403 3.57867C5.84963 3.57867 -0.00132798 9.42764 -0.000335567 16.6174C-0.00132798 23.8091 5.84863 29.66 13.0403 29.66C20.2301 29.66 26.081 23.8087 26.0797 16.617C26.081 15.0355 26.081 15.0355 26.081 15.0355C25.6318 13.4314 24.4776 12.9054 23.5163 13.8667Z"/><path d="M29.6593 2.31564C29.6593 1.04204 28.6173 0 27.3437 0H17.7388C16.4652 0 16.1602 0.736703 17.0609 1.63716L19.3974 3.9733C20.2985 4.87375 20.2985 6.34716 19.3978 7.24761L14.879 11.7667C13.9785 12.6672 13.918 14.0804 14.7443 14.9067C15.571 15.7334 16.9842 15.6726 17.8847 14.7721L22.4031 10.2533C23.3039 9.35286 24.7766 9.35352 25.6764 10.2553L28.0232 12.6077C28.9226 13.5094 29.6583 13.2051 29.6583 11.9315L29.6593 2.31564Z"/></svg></a>`;
+    },
+  },
+});
 
 const OPTIONS = { dragFree: true, loop: true }
 const SLIDE_COUNT = 5
@@ -75,7 +91,7 @@ const ProjectImage: FC<{
     src: isImportedImage ? src : src,
     alt,
     fill: true,
-    className: "rounded-lg",
+    className: "rounded-[24px]",
     style: { 
       objectFit,
       objectPosition
@@ -94,7 +110,7 @@ const ProjectImage: FC<{
   
   return (
     <AnimatedSection delay={delay} className={`w-full ${className}`}>
-      <div className={`relative w-full ${containerClassName}`} style={{ paddingBottom: `${aspectRatio}%` }}>
+      <div className={` border rounded-[24px] border-[#f5f5f5] relative w-full ${containerClassName}`} style={{ paddingBottom: `${aspectRatio}%` }}>
         <Image {...imageProps} />
       </div>
       {caption && (
@@ -255,6 +271,14 @@ const VideoTowersSection: FC<{
   );
 };
 
+const SectionDivider: FC = () => (
+  <AnimatedSection delay={0} className="w-full">
+    <div className="my-20 w-full">
+      <div className="mx-auto h-[1px] w-24 bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+    </div>
+  </AnimatedSection>
+);
+
 // --- REMOVED Unused FeatureList component ---
 
 // --- REMOVED Unused WorkflowSteps component ---
@@ -343,20 +367,24 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                             infoItems={[
                               {
                                 title: 'Platform',
-                                content: 'Chrome Extensios'
+                                content: 'Chrome Extension.'
                               },
                               {
                                 title: 'Role',
-                                content: 'From 0 → 1, (design and develpment)'
+                                content: 'From 0 → 1.'
+                              },
+                              {
+                                title: 'Funding',
+                                content: 'With No funding.'
                               },
                               {
                                 title: 'Timeline',
-                                content: 'Dec 2024 - Present'
+                                content: 'Dec 2024 - Present.'
                               }
                             ]}
                             links={[
                            { label: 'Chrome Store', url: 'https://chromewebstore.google.com/detail/lightup-ai-powered-web-an/pncapgeoeedlfppkohlbelelkkihikel' },
-                              { label: 'GitHub Repository', url: 'https://github.com/mohamedsadiq/LightUp' },
+                              { label: 'GitHub. ', url: 'https://github.com/mohamedsadiq/LightUp' },
                             
                             //   { label: 'Peerlist', url: 'https://peerlist.io/sadiqo/project/lightup' },
                             //   { label: 'Saashub', url: 'https://www.saashub.com/best-data-annotation-software/c/ai' },
@@ -372,23 +400,25 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                                 className="text-[#616161] leading-7 text-base"
                                 dangerouslySetInnerHTML={{ __html: marked.parse(firstSectionMarkdown) }}
                               />
-                            ) : (
+                            ) : firstSection.content ? (
                               firstSection.content.split('\n\n').map((paragraph, index) => (
                                 <p key={index} className={index > 0 ? 'mt-4' : ''}>{paragraph}</p>
                               ))
-                            )}
+                            ) : null}
                           </div>
                         </AnimatedSection>
                     </div>
+                    
                 </div>
                 
+               
                 
             </main>
             <div className=''>
                
                 <div className='container'>
                     <div className="inner_container">
-                     
+                      <SectionDivider />
                       <AnimatedSection delay={0.35}>
                                 <h2 className='mb-4'>{secondSection.title}</h2>
                                  <ProjectImage 
@@ -409,6 +439,7 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                                   )}
                                 </div>
                         </AnimatedSection>
+                        <SectionDivider />
                         
                         
                         {/* --- FIXED --- 
@@ -424,7 +455,7 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                                 <VideoTowersSection
                                   key={index}
                                   title={section.title}
-                                  content={section.content}
+                                  content={section.content || ''}
                                   media={section.media}
                                   onVideoClick={handleOpenVideo}
                                 />
@@ -432,13 +463,15 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                             }
 
                             return (
-                              <ProjectSection
-                                key={index}
-                                title={section.title}
-                                content={section.content}
-                                media={section.media}
-                                markdown={markdown}
-                              />
+                              <React.Fragment key={section.title + index}>
+                                {index > 0 && <SectionDivider />}
+                                <ProjectSection
+                                  title={section.title}
+                                  content={section.content || ''}
+                                  media={section.media}
+                                  markdown={markdown}
+                                />
+                              </React.Fragment>
                             );
                         })}
   
@@ -459,6 +492,7 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                         */}
                         
                         {/* Simple Links Section */}
+                        <SectionDivider />
                         <AnimatedSection delay={0.45}>
                            {/* Project Overview Section */}
                           <ProjectOverview
@@ -490,41 +524,68 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                     <ProjectNavigation />
                 </div>
             </AnimatedSection>
-            {activeVideo && (
-              <div
-                className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4"
-                role="dialog"
-                aria-modal="true"
-                onClick={handleCloseVideo}
-              >
-                <div
-                  className="relative w-full max-w-3xl"
-                  onClick={(event) => event.stopPropagation()}
+            <AnimatePresence>
+              {activeVideo && (
+                <motion.div
+                  className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4"
+                  role="dialog"
+                  aria-modal="true"
+                  onClick={handleCloseVideo}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
                 >
-                  <button
-                    type="button"
-                    className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/70 text-white text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                    onClick={handleCloseVideo}
-                    aria-label="Close video"
+                  <motion.div
+                    className="relative w-full max-w-3xl"
+                    onClick={(event) => event.stopPropagation()}
+                    initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                    animate={{ scale: 1, opacity: 1, y: 0 }}
+                    exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                    transition={{
+                      type: "spring",
+                      damping: 25,
+                      stiffness: 300,
+                      duration: 0.3
+                    }}
                   >
-                    ✕
-                  </button>
-                  <div className="overflow-hidden rounded-xl bg-black">
-                    <video
-                      src={activeVideo.src}
-                      controls
-                      autoPlay
-                      className="h-auto w-full"
-                    />
-                  </div>
-                  {activeVideo.caption && (
-                    <p className="mt-3 text-center text-sm text-neutral-200">
-                      {activeVideo.caption}
-                    </p>
-                  )}
-                </div>
-              </div>
-            )}
+                    <motion.button
+                      type="button"
+                      className="absolute right-3 top-3 z-10 inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/70 text-white text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                      onClick={handleCloseVideo}
+                      aria-label="Close video"
+                      whileHover={{ scale: 1.1, backgroundColor: 'rgba(0,0,0,0.9)' }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      ✕
+                    </motion.button>
+                    <motion.div 
+                      className="overflow-hidden rounded-xl bg-black shadow-2xl"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.1, duration: 0.3 }}
+                    >
+                      <video
+                        src={activeVideo.src}
+                        controls
+                        autoPlay
+                        className="h-auto w-full"
+                      />
+                    </motion.div>
+                    {activeVideo.caption && (
+                      <motion.p 
+                        className="mt-3 text-center text-sm text-neutral-200"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                      >
+                        {activeVideo.caption}
+                      </motion.p>
+                    )}
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
         </div>
     )
