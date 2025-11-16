@@ -1,0 +1,5 @@
+Knowledge is not a flat surface but a dynamic structure—boxes within boxes, each containing layers of meaning waiting to be unpacked. Every concept holds the potential to expand, revealing deeper connections and insights. I was obsessed with this concept for a period of time; this phrase kept the fire of the idea alive in my mind. It satisfied my intellectual curiosity and pushed me to explore the idea further. The question became: how can this way of thinking live on a page? 
+
+LightUp was my answer. Highlight a sentence, and a small window opens—a box that unveils hidden depths. From there, new dimensions of understanding unfold, allowing you to explore ideas without losing your place.
+
+By keeping this exploration within the bounds of the same page, LightUp creates a dynamic representation of how knowledge grows: contained yet infinite, simple yet profound.
