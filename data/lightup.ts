@@ -143,7 +143,7 @@ This exact frustration was the starting point. I was inspired by the simple, ele
         // },
         {
             title: "What I learned.",
-            content: "Preserve the reader's rhythm: The smallest interruptions matter; a tool that saves seconds but saves cognitive momentum is more valuable than one that adds shiny features.\n\nDesign for graceful defaults: Users should be able to install and get value in seconds—then dive into settings if they want more control.\n\nOpenness scales trust: Shipping as open source made conversations with other developers and early users easier, and it opened a path to contributions that I wasn't equipped to build alone."
+            content: "Preserve the reader's rhythm: The smallest interruptions matter; a tool that saves seconds but saves cognitive momentum is more valuable than one that adds shiny features.\n\nDesign for graceful defaults: Users should be able to install and get value in seconds—then dive into settings if they want more control."
         },
         {
             title: "Closing — why this project matters to me",

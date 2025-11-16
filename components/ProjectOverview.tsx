@@ -19,6 +19,7 @@ interface ProjectOverviewProps {
     src: string;
     alt?: string;
     className?: string;
+    placeholderSrc?: string;
   };
   infoItems: InfoItem[];
   links?: LinkItem[];
@@ -73,7 +74,7 @@ const ProjectOverview: FC<ProjectOverviewProps> = ({
             {hasBlur && (
               <div className="absolute inset-0 z-10 transition-opacity duration-500 ease-in-out">
                 <Image
-                  src={background.src.replace('.mp4', '.jpg')}
+                  src={background.placeholderSrc || background.src.replace('.mp4', '.jpg')}
                   alt={background.alt || 'Video preview'}
                   fill
                   className={`object-cover ${background.className || ''} ${isVideoLoaded ? 'opacity-0' : 'opacity-100'}`}
