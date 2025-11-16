@@ -362,6 +362,7 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                             background={{
                               type: 'video',
                               src: '/lightup/lightup.mp4',
+                              placeholderSrc: '/lightup/Screenshot 2025-11-16 at 8.46.05 PM.png',
                               className: 'w-full h-full object-cover'
                             }}
                             infoItems={[
@@ -499,6 +500,7 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                             background={{
                               type: 'video',
                               src: '/lightup/lightup.mp4',
+                              placeholderSrc: '/lightup/Screenshot 2025-11-16 at 8.46.05 PM.png',
                               className: 'w-full h-full object-cover'
                             }}
                             infoItems={[
