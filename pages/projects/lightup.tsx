@@ -1,38 +1,35 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import React, { FC, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+import { marked } from 'marked'
+import { motion } from 'framer-motion' // Removed unused AnimatePresence
 import styles from '../../styles/Home.module.css'
 import ExternalLink from '../../components/ExternalLink'
 import { AnimatedSection } from '../../components/AnimatedSection'
 
-import WorkIntro from '../../components/WorkIntro'
 import BackButton from '../../components/backButton'
 import ProjectOverview from '../../components/ProjectOverview'
 import { projectContent } from '../../data/lightup'
 import ProjectNavigation from '../../components/ProjectNavigation';
-import HorizontalGallery from '../../components/HorizontalGallery';
+// Removed unused HorizontalGallery
+
+const OPTIONS = { dragFree: true, loop: true }
+const SLIDE_COUNT = 5
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
 // Import images with blur placeholders
 import LightupIntroImage from '../../public/lightup/linkimage.png';
 import boxesIsideBoxes from "../../public/lightup/boxes.jpg"
-import img3 from '../../public/lightup/ebe607a8-f6f8-47d2-a8f5-a80ac36606da_2880x2160.png';
-import img4 from '../../public/lightup/537334f8-55de-4a4d-bdc2-31cb4c824a84_2880x2160.png';
-import img5 from '../../public/lightup/d213566b-7ade-4640-92d5-a2273b2affc5_2880x2160.webp';
-import designImg1 from '../../public/lightup/Original Image 1504x1504.webp';
-import designImg2 from '../../public/lightup/Start 1.webp';
-import designImg3 from '../../public/lightup/Start 2 Image.webp';
+// Removed unused img3, img4, img5, designImg1, designImg2, designImg3
 
 // Image paths object with imported images
 const imagePaths = {
     LightupIntroImage,
     boxesIsideBoxes,
-    img3,
-    img4,
-    img5,
-    designImg1,
-    designImg2,
-    designImg3,
+    // Removed unused image keys
     video: '/lightup/Dribbble Video.mp4' // Keep video as a string path
 };
 
@@ -60,38 +57,44 @@ const ProjectImage: FC<{
   className = '',
   containerClassName = '',
   loading = 'lazy',
-  placeholder = 'blur',
-  blurDataURL = '',
+  // Remove default placeholder since we'll handle it conditionally
+  placeholder,
+  blurDataURL,
   objectFit = 'contain',
   objectPosition = 'center',
   height = 'auto',
   ...props
 }) => {
-  const isPublicPath = typeof src === 'string' && src.startsWith('/');
+  const isImportedImage = src && typeof src === 'object' && 'src' in src;
   
   // Calculate aspect ratio if we have the image dimensions
   const aspectRatio = src?.width && src?.height ? (src.height / src.width * 100) : 56.25; // Default to 16:9 if no dimensions
   
+  // Only apply blur to imported images, not public paths
+  const imageProps = {
+    src: isImportedImage ? src : src,
+    alt,
+    fill: true,
+    className: "rounded-lg",
+    style: { 
+      objectFit,
+      objectPosition
+    },
+    priority,
+    loading,
+    quality: 100,
+    sizes: "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw",
+    ...(isImportedImage ? { 
+      placeholder: 'blur',
+      blurDataURL: blurDataURL || src?.blurDataURL 
+    } : {}),
+    ...props
+  };
+  
   return (
     <AnimatedSection delay={delay} className={`w-full ${className}`}>
       <div className={`relative w-full ${containerClassName}`} style={{ paddingBottom: `${aspectRatio}%` }}>
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          className="rounded-lg"
-          style={{ 
-            objectFit,
-            objectPosition
-          }}
-          priority={priority}
-          loading={loading}
-          placeholder={placeholder}
-          blurDataURL={isPublicPath ? undefined : (typeof src === 'string' ? src : src?.blurDataURL || '')}
-          quality={100}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
-          {...props}
-        />
+        <Image {...imageProps} />
       </div>
       {caption && (
         <div className="text-center mt-2">
@@ -102,49 +105,182 @@ const ProjectImage: FC<{
   );
 };
 
-// Component for rendering a project section with title and content
-const ProjectSection: FC<{ title: string; content: string; className?: string }> = ({ title, content, className = '' }) => (
-  <AnimatedSection delay={0.1} className={className}>
-    <h2 className={ title.includes('Overview') ? 'mt-4 mb-2 text-slate-950' : title.includes('inspiration') ? 'mt-10 mb-2' : 'mb-2'}>{title}</h2>
-    <div className="whitespace-pre-wrap">
-      {content.split('\n\n').map((paragraph, index) => (
-        <p key={index} className={index > 0 ? 'mt-4' : ''}>{paragraph}</p>
-      ))}
+// Lightweight video component with caption support
+const ProjectVideo: FC<{
+  src: string;
+  caption?: string;
+  className?: string;
+  containerClassName?: string;
+  controls?: boolean;
+  autoPlay?: boolean;
+  loop?: boolean;
+  muted?: boolean;
+}> = ({
+  src,
+  caption,
+  className = '',
+  containerClassName = '',
+  controls = true,
+  autoPlay = false,
+  loop = false,
+  muted = false,
+}) => (
+  <AnimatedSection delay={0.1} className={`w-full ${className}`}>
+    <div className={`relative w-full ${containerClassName}`}>
+      <video
+        className="w-full rounded-lg"
+        src={src}
+        controls={controls}
+        autoPlay={autoPlay}
+        loop={loop}
+        muted={muted}
+      />
     </div>
+    {caption && (
+      <div className="text-center mt-2">
+        <span className="text-sm text-gray-500">({caption})</span>
+      </div>
+    )}
   </AnimatedSection>
 );
 
-// Component for rendering features list
-const FeatureList: FC<{ features: Array<{ title: string; description: string }> }> = ({ features }) => (
-  <AnimatedSection delay={0.2}>
-    <h2>Features That Empower You.</h2>
-    <ul>
-      {features.map((feature, index) => (
-        <React.Fragment key={index}>
-          <h3 className='text-gray-500'>{feature.title}</h3>
-          <li className='text-gray-500 mb-4'>{feature.description}</li>
-        </React.Fragment>
-      ))}
-    </ul>
+// Component for rendering a project section with title and content
+const ProjectSection: FC<{
+  title: string;
+  content: string;
+  className?: string;
+  media?: { 
+    type: 'image' | 'video'; 
+    src: any; 
+    alt?: string; 
+    caption?: string;
+    autoPlay?: boolean;
+    loop?: boolean;
+    muted?: boolean;
+  }[];
+  markdown?: string;
+}> = ({ title, content, className = '', media = [], markdown }) => (
+  <AnimatedSection delay={0.1} className={className}>
+    <h2 className={ title.includes('Overview') ? 'mt-4 mb-2 text-slate-950' : title.includes('inspiration') ? 'mt-10 mb-2' : 'mt-10 mb-2'}>{title}</h2>
+    <div className="whitespace-pre-wrap">
+      {markdown ? (
+        <div
+          className="text-[#616161] leading-7 text-base"
+          dangerouslySetInnerHTML={{ __html: marked.parse(markdown) }}
+        />
+      ) : (
+        content.split('\n\n').map((paragraph, index) => (
+          <p key={index} className={index > 0 ? 'mt-4' : ''}>{paragraph}</p>
+        ))
+      )}
+    </div>
+    {media.length > 0 && (
+      <div className="mt-6 space-y-6">
+        {media.map((item, idx) => (
+          item.type === 'image' ? (
+            <ProjectImage key={idx} src={item.src} alt={item.alt || title} caption={item.caption} className="max-w-full h-auto" objectFit="contain" />
+          ) : (
+            <ProjectVideo 
+              key={idx} 
+              src={item.src} 
+              caption={item.caption}
+              autoPlay={item.autoPlay}
+              loop={item.loop}
+              muted={item.muted}
+            />
+          )
+        ))}
+      </div>
+    )}
   </AnimatedSection>
 );
+ 
+const VideoTowersSection: FC<{
+  title: string;
+  content: string;
+  media: { type: 'image' | 'video'; src: any; alt?: string; caption?: string }[];
+  onVideoClick: (video: { src: string; caption?: string }) => void;
+}> = ({ title, content, media, onVideoClick }) => {
+  const leftColumn = media.filter((_, index) => index % 2 === 0);
+  const rightColumn = media.filter((_, index) => index % 2 === 1);
 
-// Component for rendering workflow steps
-const WorkflowSteps: FC<{ workflow: string[] }> = ({ workflow }) => {
-    return (
-        <ol className="list-decimal pl-5 space-y-2 mt-4">
-            {workflow.map((step, index) => (
-                <li key={index} className="text-gray-700">
-                    {step}
-                </li>
+  return (
+    <AnimatedSection delay={0.1} className="mt-10">
+      <h2 className="mb-2">{title}</h2>
+      <div className="whitespace-pre-wrap">
+        {content.split('\n\n').map((paragraph, index) => (
+          <p key={index} className={index > 0 ? 'mt-4' : ''}>{paragraph}</p>
+        ))}
+      </div>
+
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[leftColumn, rightColumn].map((columnItems, columnIndex) => (
+          <div key={columnIndex} className="flex flex-col items-center gap-4">
+            {columnItems.map((item, index) => (
+              <button
+                key={item.src + index}
+                type="button"
+                className="group focus:outline-none"
+                onClick={() => onVideoClick({ src: item.src, caption: item.caption })}
+                aria-label={item.caption || `Open video ${index + 1}`}
+              >
+                <div className="relative h-24 w-24 sm:h-60 sm:w-60 rounded-full overflow-hidden border border-neutral-200 bg-black/80 flex items-center justify-center shadow-md transition-transform duration-200 group-hover:scale-105 group-focus-visible:scale-105">
+                  <video
+                    src={item.src}
+                    muted
+                    playsInline
+                    loop
+                    autoPlay
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/40">
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-black text-xs font-medium">
+                      ▶
+                    </span>
+                  </div>
+                </div>
+                {item.caption && (
+                  <p className="mt-2 text-center text-xs text-neutral-600 max-w-[10rem]">
+                    {item.caption}
+                    
+                  </p>
+                )}
+              </button>
             ))}
-        </ol>
-    );
+          </div>
+        ))}
+      </div>
+    </AnimatedSection>
+  );
 };
+
+// --- REMOVED Unused FeatureList component ---
+
+// --- REMOVED Unused WorkflowSteps component ---
 
 
 // Main LightUp component
-const LightUp: FC = () => {
+const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSections }) => {
+    const [activeVideo, setActiveVideo] = useState<{ src: string; caption?: string } | null>(null);
+
+    const handleOpenVideo = (video: { src: string; caption?: string }) => {
+      setActiveVideo(video);
+    };
+
+    const handleCloseVideo = () => {
+      setActiveVideo(null);
+    };
+
+    const firstSection = projectContent.sections[0];
+    const firstSectionMarkdown = firstSection.markdownSlug
+      ? markdownSections[firstSection.markdownSlug]
+      : undefined;
+
+    const secondSection = projectContent.sections[1];
+    const secondSectionMarkdown = secondSection.markdownSlug
+      ? markdownSections[secondSection.markdownSlug]
+      : undefined;
+
     return (
         <div className={styles.container}>
             <Head>
@@ -227,11 +363,18 @@ const LightUp: FC = () => {
                           />
                         </AnimatedSection>
                         <AnimatedSection delay={0.2}>
-                          <h2 className='mb-3'>The Itch: "The Tab-Switching Hell"</h2>
+                          <h2 className='mb-3'>{firstSection.title}</h2>
                           <div className="whitespace-pre-wrap ">
-                              {projectContent.sections[0].content.split('\n\n').map((paragraph, index) => (
-                                  <p key={index} className={index > 0 ? 'mt-4' : ''}>{paragraph}</p>
-                              ))}
+                            {firstSectionMarkdown ? (
+                              <div
+                                className="text-[#616161] leading-7 text-base"
+                                dangerouslySetInnerHTML={{ __html: marked.parse(firstSectionMarkdown) }}
+                              />
+                            ) : (
+                              firstSection.content.split('\n\n').map((paragraph, index) => (
+                                <p key={index} className={index > 0 ? 'mt-4' : ''}>{paragraph}</p>
+                              ))
+                            )}
                           </div>
                         </AnimatedSection>
                     </div>
@@ -245,7 +388,7 @@ const LightUp: FC = () => {
                     <div className="inner_container">
                      
                       <AnimatedSection delay={0.2}>
-                                <h2 className='mb-4'>{projectContent.sections[1].title}</h2>
+                                <h2 className='mb-4'>{secondSection.title}</h2>
                                  <ProjectImage 
                                 src={imagePaths.boxesIsideBoxes} 
                                 alt="Open source" 
@@ -253,77 +396,64 @@ const LightUp: FC = () => {
                                 blurDataURL={imagePaths.boxesIsideBoxes.blurDataURL}
                         />
                                 <div className="whitespace-pre-wrap ">
-                                   <p className='mt-4'> {projectContent.sections[1].content}</p>
-                                    {/* {projectContent.sections[2].content.split('\n\n').map((paragraph, index) => (
-                                        <p key={index} className={index > 0 ? 'mt-4' : ''}>{paragraph}</p>
-                                    ))} */}
+                                  {secondSectionMarkdown ? (
+                                    <div
+                                      className="mt-4 text-[#616161] leading-7 text-base"
+                                      dangerouslySetInnerHTML={{ __html: marked.parse(secondSectionMarkdown) }}
+                                    />
+                                  ) : (
+                                    <p className='mt-4'> {secondSection.content}</p>
+                                  )}
                                 </div>
                         </AnimatedSection>
+                        
+                        
+                        {/* --- FIXED --- 
+                           Dynamically render the rest of the project sections (starting from index 2)
+                           This replaces the broken, hardcoded, and duplicate sections.
+                        */}
+                        {projectContent.sections.slice(2).map((section, index) => {
+                            const markdown = section.markdownSlug
+                              ? markdownSections[section.markdownSlug]
+                              : undefined;
+                            if (section.gallery && section.media && section.media.length) {
+                              return (
+                                <VideoTowersSection
+                                  key={index}
+                                  title={section.title}
+                                  content={section.content}
+                                  media={section.media}
+                                  onVideoClick={handleOpenVideo}
+                                />
+                              );
+                            }
 
-                                {/* <ProjectSection 
-                                    title={section.title} 
-                                    content={section.content} 
-                                    className={index > 0 ? 'mt-6' : ''}
-                                /> */}
-                            
-                     
-                        
-                      
-                        
-                        {/* <div className="mt-8 rounded-xl overflow-hidden">
-                            <video 
-                                src={imagePaths.video}
-                                autoPlay 
-                                loop 
-                                muted 
-                                playsInline
-                                className="w-full h-auto rounded-xl border border-neutral-100"
-                            >
-                                Your browser does not support the video tag.
-                            </video>
-                            <p className="text-sm text-gray-500 mt-2 text-center">Watch LightUp in action</p>
-                        </div>
-                         */}
-                        
-                    {/* <div className="inner_container">
-                        <FeatureList features={projectContent.features} />
-                    </div> */}
+                            return (
+                              <ProjectSection
+                                key={index}
+                                title={section.title}
+                                content={section.content}
+                                media={section.media}
+                                markdown={markdown}
+                              />
+                            );
+                        })}
+  
+
                 </div>
 
-                {/* <div className='container'>
-                    <AnimatedSection delay={0.35}>
-                        <div className="inner_container">
-                                <ProjectImage 
-                                    src={imagePaths.img4}
-                                    alt="LightUp workflow" 
-                                    caption="Loading - Display - Chat" 
-                                    placeholder="blur"
-                                    blurDataURL={imagePaths.img4.blurDataURL}
-                                />
-                        </div>
-                    </AnimatedSection>
-                </div> */}
-                        {/* Video Gallery */}
-                       
+             
                         
                         <br/>
                     </div>
                     
-                    {/* <AnimatedSection delay={0.4}>
-                            <ProjectImage 
-                                src={imagePaths.img5} 
-                                alt="Open source" 
-                                placeholder="blur"
-                                blurDataURL={imagePaths.img5.blurDataURL}
-                        />
-                    </AnimatedSection> */}
+                 
                 
                 <div className='container'>
                     <div className="inner_container">
-                        {/* <ProjectSection 
-                            title={projectContent.sections[5].title} 
-                            content={projectContent.sections[5].content} 
-                        /> */}
+                        {/* REMOVED Commented-out section for projectContent.sections[5] 
+                          It is now rendered automatically by the loop above.
+                        */}
                         
                         {/* Simple Links Section */}
                         <AnimatedSection delay={0.45}>
@@ -351,15 +481,79 @@ const LightUp: FC = () => {
                     </div>
                 </div>
             </div>
-            {/* Project Navigation */}
+         
             <AnimatedSection delay={0.5}>
                 <div className="container mx-auto px-4 py-8">
                     <ProjectNavigation />
                 </div>
             </AnimatedSection>
+            {activeVideo && (
+              <div
+                className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4"
+                role="dialog"
+                aria-modal="true"
+                onClick={handleCloseVideo}
+              >
+                <div
+                  className="relative w-full max-w-3xl"
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <button
+                    type="button"
+                    className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/70 text-white text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                    onClick={handleCloseVideo}
+                    aria-label="Close video"
+                  >
+                    ✕
+                  </button>
+                  <div className="overflow-hidden rounded-xl bg-black">
+                    <video
+                      src={activeVideo.src}
+                      controls
+                      autoPlay
+                      className="h-auto w-full"
+                    />
+                  </div>
+                  {activeVideo.caption && (
+                    <p className="mt-3 text-center text-sm text-neutral-200">
+                      {activeVideo.caption}
+                    </p>
+                  )}
+                </div>
+              </div>
+            )}
+
         </div>
     )
 }
 
-
 export default LightUp
+
+export async function getStaticProps() {
+  const markdownSections: Record<string, string> = {};
+
+  const baseDir = path.join(process.cwd(), 'project-posts', 'lightup');
+
+  projectContent.sections.forEach((section) => {
+    if (!section.markdownSlug) {
+      return;
+    }
+
+    const filePath = path.join(baseDir, `${section.markdownSlug}.md`);
+
+    if (!fs.existsSync(filePath)) {
+      return;
+    }
+
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    const { content } = matter(fileContent);
+
+    markdownSections[section.markdownSlug] = content;
+  });
+
+  return {
+    props: {
+      markdownSections,
+    },
+  };
+}

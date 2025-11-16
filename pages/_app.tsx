@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 import Layout from "../components/Layout";
 import "../styles/globals.css";
 import "react-photo-view/dist/react-photo-view.css";
+import "../components/Gallery/css.css";
 
 // Extend the PerformanceEntry interface to include the type property
 interface PerformanceNavigationTiming extends PerformanceEntry {
