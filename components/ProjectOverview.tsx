@@ -1,5 +1,6 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useState, useRef, useEffect } from 'react';
 import ExternalLink from './ExternalLink';
+import Image from 'next/image';
 
 type LinkItem = {
   label: string;
@@ -34,26 +35,84 @@ const ProjectOverview: FC<ProjectOverviewProps> = ({
   className = '',
   contentClassName = '',
 }) => {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [hasBlur, setHasBlur] = useState(true);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleLoadedData = () => {
+      // Small delay to ensure video is ready to play
+      setTimeout(() => {
+        setIsVideoLoaded(true);
+        // Keep the blur for a moment longer for smoother transition
+        setTimeout(() => setHasBlur(false), 200);
+      }, 100);
+    };
+
+    video.addEventListener('loadeddata', handleLoadedData);
+    
+    // For browsers that may have already loaded the video
+    if (video.readyState >= 3) {
+      handleLoadedData();
+    }
+
+    return () => {
+      video.removeEventListener('loadeddata', handleLoadedData);
+    };
+  }, [background.src]);
   return (
     <div className={`relative rounded-[15px] overflow-hidden mb-8 ${className}`}>
       {/* Background */}
       <div className="absolute inset-0 z-0">
         {background.type === 'video' ? (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className={`w-full h-full object-cover ${background.className || ''}`}
-          >
-            <source src={background.src} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          <>
+            {/* Blurred preview */}
+            {hasBlur && (
+              <div className="absolute inset-0 z-10 transition-opacity duration-500 ease-in-out">
+                <Image
+                  src={background.src.replace('.mp4', '.jpg')}
+                  alt={background.alt || 'Video preview'}
+                  fill
+                  className={`object-cover ${background.className || ''} ${isVideoLoaded ? 'opacity-0' : 'opacity-100'}`}
+                  style={{
+                    filter: 'blur(20px)',
+                    transform: 'scale(1.05)', // Prevents edge artifacts
+                  }}
+                  unoptimized={true} // For local development with dynamic paths
+                />
+              </div>
+            )}
+            
+            {/* Video element */}
+            <video
+              ref={videoRef}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className={`w-full h-full object-cover transition-opacity duration-500 ease-in-out ${
+                background.className || ''
+              } ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
+              style={{
+                transform: hasBlur ? 'scale(1.02)' : 'scale(1)', // Smooth scale transition
+                transition: 'transform 0.5s ease-in-out, opacity 0.5s ease-in-out',
+              }}
+            >
+              <source src={background.src} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </>
         ) : (
-          <img
+          <Image
             src={background.src}
             alt={background.alt || 'Background'}
-            className={`w-full h-full object-cover ${background.className || ''}`}
+            fill
+            className={`object-cover ${background.className || ''}`}
+            placeholder="blur"
+            blurDataURL={background.src.replace(/\.(jpg|jpeg|png)$/, '-blur.jpg')}
           />
         )}
       </div>

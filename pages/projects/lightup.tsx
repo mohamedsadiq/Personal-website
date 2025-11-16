@@ -126,7 +126,7 @@ const ProjectVideo: FC<{
   loop = false,
   muted = false,
 }) => (
-  <AnimatedSection delay={0.1} className={`w-full ${className}`}>
+  <AnimatedSection delay={0} className={`w-full ${className}`}>
     <div className={`relative w-full ${containerClassName}`}>
       <video
         className="w-full rounded-lg"
@@ -161,7 +161,7 @@ const ProjectSection: FC<{
   }[];
   markdown?: string;
 }> = ({ title, content, className = '', media = [], markdown }) => (
-  <AnimatedSection delay={0.1} className={className}>
+  <AnimatedSection delay={0} className={className}>
     <h2 className={ title.includes('Overview') ? 'mt-4 mb-2 text-slate-950' : title.includes('inspiration') ? 'mt-10 mb-2' : 'mt-10 mb-2'}>{title}</h2>
     <div className="whitespace-pre-wrap">
       {markdown ? (
@@ -206,7 +206,7 @@ const VideoTowersSection: FC<{
   const rightColumn = media.filter((_, index) => index % 2 === 1);
 
   return (
-    <AnimatedSection delay={0.1} className="mt-10">
+    <AnimatedSection delay={0} className="mt-10">
       <h2 className="mb-2">{title}</h2>
       <div className="whitespace-pre-wrap">
         {content.split('\n\n').map((paragraph, index) => (
@@ -291,7 +291,7 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
             </Head>
             <main>
                 <div className="container">
-                    <AnimatedSection delay={0.1}>
+                    <AnimatedSection delay={0.05}>
                         <BackButton href="/projects" />
                     </AnimatedSection>
                     <div className="inner_container_project_parent inner_container inner_container_mobile">
@@ -310,12 +310,13 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                                 blurDataURL={imagePaths.LightupIntroImage.blurDataURL}
                                 className="max-w-full h-auto"
                                 objectFit="contain"
+                                delay={0.15}
                             />
                         </div>
                         <AnimatedSection delay={0.2}>
                             <h2 className='mt-6'>Project Overview</h2>
                         </AnimatedSection>
-                        <AnimatedSection delay={0.15}>
+                        <AnimatedSection delay={0.25}>
                           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
                               <ExternalLink 
                                   href={projectContent.projectLink}
@@ -363,7 +364,7 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                             linksTitle="Links"
                           />
                         </AnimatedSection>
-                        <AnimatedSection delay={0.2}>
+                        <AnimatedSection delay={0.3}>
                           <h2 className='mb-3'>{firstSection.title}</h2>
                           <div className="whitespace-pre-wrap ">
                             {firstSectionMarkdown ? (
@@ -388,13 +389,14 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                 <div className='container'>
                     <div className="inner_container">
                      
-                      <AnimatedSection delay={0.2}>
+                      <AnimatedSection delay={0.35}>
                                 <h2 className='mb-4'>{secondSection.title}</h2>
                                  <ProjectImage 
                                 src={imagePaths.boxesIsideBoxes} 
                                 alt="Open source" 
                                 placeholder="blur"
                                 blurDataURL={imagePaths.boxesIsideBoxes.blurDataURL}
+                                delay={0.4}
                         />
                                 <div className="whitespace-pre-wrap ">
                                   {secondSectionMarkdown ? (

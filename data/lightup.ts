@@ -47,7 +47,7 @@ You highlight the text. You open a new tab. You search. You click a link. You sk
 
 By the time you get back, your flow is shattered. Your "deep read" has turned into a shallow-click-fest.
 
-This exact frustration was the starting point. I was inspired by the simple, elegant inline notes on lyric sites like genuis.com  and thought, "Why can't we have this... for everything?`,
+This exact frustration was the starting point. I was inspired by the simple, elegant inline notes on lyric sites like Genius.com  and thought, "Why can't we have this... for everything?`,
             markdownSlug: "the-itch",
         },
         {
