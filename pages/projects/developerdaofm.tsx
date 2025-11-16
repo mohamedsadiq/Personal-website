@@ -169,7 +169,7 @@ const DeveloperDAO: React.FC = () => {
               <ProjectOverview
                 background={{
                   type: 'video',
-                  src: '/Screen Recording 2025-11-12 at 1.34.12 AM.mov',
+                  src: '/Screen Recording 2025-11-12 at 1.34.12\u202FAM.mov',
                   alt: 'DeveloperDAO FM Project Overview',
                   className: 'opacity-90'
                 }}
@@ -192,6 +192,7 @@ const DeveloperDAO: React.FC = () => {
                   { label: 'GitHub', url: 'https://github.com/mohamedsadiq/developer-dao-fm' }
                 ]}
                 className="mb-8"
+                contentClassName="md:grid-cols-4 gap-8"
               />
               <p>
                 When I initially joined DeveloperDAO, my excitement to contribute

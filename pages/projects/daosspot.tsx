@@ -163,7 +163,11 @@ const DeveloperDAO: React.FC = () => {
                   },
                   {
                     title: 'Role',
-                    content: 'Founder, Designer & Engineer'
+                    content: 'From 0 → 1'
+                  },
+                  {
+                    title: 'Funding',
+                    content: 'With no funding'
                   },
                   {
                     title: 'Timeline',
@@ -180,7 +184,7 @@ const DeveloperDAO: React.FC = () => {
 
               <h2 className="text-slate-950 mt-6 mb-3">Project Overview</h2>
               <p>
-                Initiating the journey of DAOs Spot marked my first venture, a bootstrap endeavor fueled by minimal resources. Taking charge of both product design and development, my primary goal centered around tackling a crucial challenge: How could I actively immerse myself in DAOs, contribute meaningfully, stay abreast of their updates, and discover tools to streamline these processes? This challenge materialized as I became a part of various DAOs. Significantly, the project has garnered the attention of an original DAO, aligning seamlessly with their mission. Moreover, a prominent international investment firm focused on Web3 has expressed interest. The prospect of DAOs Spot excites me, and I eagerly anticipate the promising opportunities that lie ahead.
+                Initiating the journey of DAOs Spot marked my first venture, a bootstrap endeavor fueled by minimal resources. Taking charge of both product design and development, my primary goal centered around tackling a crucial challenge: How could I actively immerse myself in DAOs, contribute meaningfully, stay abreast of their updates, and discover tools to streamline these processes?  <br/><br/>This challenge materialized as I became a part of various DAOs. Significantly, the project has garnered the attention of an interesting DAO, aligning seamlessly with their mission. Moreover, a prominent international investment firm focused on Web3 has expressed interest. The prospect of DAOs Spot excites me, and I eagerly anticipate the promising opportunities that lie ahead.
               </p>
                <SectionDivider />
               <h2 className="mt-10 mb-2">Awards and recognition</h2>
@@ -210,7 +214,7 @@ const DeveloperDAO: React.FC = () => {
             <ProjectImage
               src={img3}
               alt="DAOs Spot Features"
-              caption="Key Features"
+              caption="Newsletter section"
               delay={0.2}
               className="mt-20"
               quality={100}
@@ -219,7 +223,7 @@ const DeveloperDAO: React.FC = () => {
             <ProjectImage
               src={img6}
               alt="DAOs Spot Dashboard"
-              caption="Dashboard View"
+              caption="Cards"
               delay={0.3}
               className="mt-20"
               quality={100}
@@ -228,7 +232,7 @@ const DeveloperDAO: React.FC = () => {
             <ProjectImage
               src={img5}
               alt="DAOs Spot Mobile View"
-              caption="Mobile Responsive Design"
+              caption="Some components"
               delay={0.4}
               className="mt-20"
               quality={100}
