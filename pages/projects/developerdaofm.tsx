@@ -22,6 +22,14 @@ import img6 from '../../public/img/developerdaofm/Instagram post - 16.png';
 import img7 from '../../public/img/developerdaofm/Instagram post - 17.png';
 
 // Component for project image with caption
+const SectionDivider: FC = () => (
+  <AnimatedSection delay={0} className="w-full">
+    <div className="my-20 w-full">
+      <div className="mx-auto h-[1px] w-24 bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+    </div>
+  </AnimatedSection>
+);
+
 interface ProjectImageProps {
   src: any;
   alt: string;
@@ -45,7 +53,7 @@ const ProjectImage: FC<ProjectImageProps> = ({
   width = 1200,
   height = 800,
   priority = false,
-  className = 'rounded-xl border border-neutral-100 mt-9 m-auto',
+  className = 'rounded-[24px] border border-neutral-100 mt-9 m-auto',
   loading = 'lazy',
   placeholder = 'blur',
   blurDataURL = '',
@@ -197,6 +205,7 @@ const DeveloperDAO: React.FC = () => {
                 enhancing the coding environment.
               </p>
             </AnimatedSection>
+            <SectionDivider />
             <AnimatedSection delay={0.3}>
               <h2 className="mt-10 mb-2">My Contributions</h2>
               <p>

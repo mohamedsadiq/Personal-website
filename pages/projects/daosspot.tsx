@@ -13,6 +13,14 @@ import ProjectNavigation from "../../components/ProjectNavigation";
 import ProjectOverview from "../../components/ProjectOverview";
 
 // Project Images
+const SectionDivider: React.FC = () => (
+  <AnimatedSection delay={0} className="w-full">
+    <div className="my-20 w-full">
+      <div className="mx-auto h-[1px] w-24 bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+    </div>
+  </AnimatedSection>
+);
+
 import img1 from "../../img/11111111.png";
 import img2 from "../../img/DAOs Spot/1.png";
 import img3 from "../../img/DAOs Spot/2.png";
@@ -60,7 +68,7 @@ const ProjectImage: React.FC<ProjectImageProps> = ({
           src={src}
           alt={alt}
           fill
-          className="rounded-lg"
+          className="rounded-[24px]"
           style={{ objectFit, objectPosition }}
           priority={priority}
           loading={loading}
@@ -108,7 +116,7 @@ const DeveloperDAO: React.FC = () => {
             </AnimatedSection>
             
             <AnimatedSection delay={0.2}>
-              <div className="relative w-full overflow-hidden rounded-xl mt-4">
+              <div className="relative w-full overflow-hidden rounded-[24px] mt-4">
                 <Image
                   src={img1}
                   alt="DAOs Spot Hero Image"
@@ -174,8 +182,10 @@ const DeveloperDAO: React.FC = () => {
               <p>
                 Initiating the journey of DAOs Spot marked my first venture, a bootstrap endeavor fueled by minimal resources. Taking charge of both product design and development, my primary goal centered around tackling a crucial challenge: How could I actively immerse myself in DAOs, contribute meaningfully, stay abreast of their updates, and discover tools to streamline these processes? This challenge materialized as I became a part of various DAOs. Significantly, the project has garnered the attention of an original DAO, aligning seamlessly with their mission. Moreover, a prominent international investment firm focused on Web3 has expressed interest. The prospect of DAOs Spot excites me, and I eagerly anticipate the promising opportunities that lie ahead.
               </p>
+               <SectionDivider />
               <h2 className="mt-10 mb-2">Awards and recognition</h2>
               <p>DAOs Spot pleasantly surprised me by clinching the 4th position for Product of the Week in the Web3 category on Product Hunt. It serves as a modest acknowledgment that the efforts invested have proven worthwhile. DAOsSpot on Product Hunt has been an encouraging experience.</p>
+              <SectionDivider />
               <h2 className="mt-10 mb-2">Embracing Minimalism in Design</h2>
               <p>My approach to design for DAOs Spot was rooted in a desire to evoke a premium feel through minimalism, a departure from the often cluttered landscape of Web3 interfaces. I aimed to bring forth a user experience that exuded simplicity, yet sophistication, ensuring that engagement with the platform was both intuitive and aesthetically pleasing. This emphasis on minimalism sought to address a gap in the Web3 space, where the user experience can sometimes be overwhelming and complex.</p>
             </AnimatedSection>
@@ -183,10 +193,10 @@ const DeveloperDAO: React.FC = () => {
          
          
          
-          
           {/* Project Navigation */}
         
         </div>
+         <SectionDivider />
          <div className="p-10">
             <ProjectImage
               src={img2}

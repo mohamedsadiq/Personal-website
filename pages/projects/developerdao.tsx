@@ -9,6 +9,14 @@ import ProjectNavigation from '../../components/ProjectNavigation'
 import ProjectOverview from '../../components/ProjectOverview'
 
 // Image paths pointing to public directory
+const SectionDivider: FC = () => (
+  <AnimatedSection delay={0} className="w-full">
+    <div className="my-20 w-full">
+      <div className="mx-auto h-[1px] w-24 bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+    </div>
+  </AnimatedSection>
+);
+
 const img1 = "/img/developerdao/fasdfasd.jpeg"
 const imgWork2 = "/img/developerdao/44.png"
 const imgWork3 = "/img/developerdao/42f3.png"
@@ -73,7 +81,7 @@ const ProjectImage: FC<ProjectImageProps> = ({
           quality={100}
           loading={priority ? undefined : loading}
           priority={priority}
-          className="w-full h-full object-cover rounded-lg"
+          className="w-full h-full object-cover rounded-[24px]"
           style={{
             objectFit,
             objectPosition: 'center'
@@ -178,6 +186,8 @@ const DeveloperDAO: FC = () => {
                 world and be part of a generous, forward‑thinking community.
               </p>
             </AnimatedSection>
+
+            <SectionDivider />
 
             <AnimatedSection delay={0.3}>
               <h2 className='text-slate-950 mt-6 mb-2'>My Contributions</h2>
