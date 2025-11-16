@@ -84,8 +84,9 @@ const ProjectImage: FC<{
     loading,
     quality: 100,
     sizes: "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw",
-    ...(isImportedImage ? { 
-      placeholder: 'blur',
+    // Only include placeholder and blurDataURL if we have a valid blurDataURL
+    ...(isImportedImage && (blurDataURL || src?.blurDataURL) ? { 
+      placeholder: 'blur' as const,
       blurDataURL: blurDataURL || src?.blurDataURL 
     } : {}),
     ...props
