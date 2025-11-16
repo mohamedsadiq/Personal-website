@@ -110,7 +110,7 @@ const ProjectImage: FC<{
   
   return (
     <AnimatedSection delay={delay} className={`w-full ${className}`}>
-      <div className={` border rounded-[24px] border-[#f5f5f5] relative w-full ${containerClassName}`} style={{ paddingBottom: `${aspectRatio}%` }}>
+      <div className={`  rounded-[24px] border-[#f5f5f5] relative w-full ${containerClassName}`} style={{ paddingBottom: `${aspectRatio}%` }}>
         <Image {...imageProps} />
       </div>
       {caption && (
@@ -192,20 +192,35 @@ const ProjectSection: FC<{
       )}
     </div>
     {media.length > 0 && (
-      <div className="mt-6 space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-1 gap-6 mt-6">
         {media.map((item, idx) => (
-          item.type === 'image' ? (
-            <ProjectImage key={idx} src={item.src} alt={item.alt || title} caption={item.caption} className="max-w-full h-auto" objectFit="contain" />
-          ) : (
-            <ProjectVideo 
-              key={idx} 
-              src={item.src} 
-              caption={item.caption}
-              autoPlay={item.autoPlay}
-              loop={item.loop}
-              muted={item.muted}
-            />
-          )
+          <div key={idx} className="flex flex-col items-center">
+            {item.type === 'image' ? (
+              <>
+                <div className="w-full max-w-md overflow-hidden rounded-2xl border border-gray-200/80 shadow-sm">
+                  <ProjectImage 
+                    src={item.src} 
+                    alt={item.alt || title} 
+                    className="w-full h-auto" 
+                    objectFit="contain"
+                  />
+                </div>
+                {item.caption && (
+                  <p className="mt-2 text-xs text-gray-500 italic text-center max-w-md">
+                    {item.caption}
+                  </p>
+                )}
+              </>
+            ) : (
+              <ProjectVideo 
+                src={item.src} 
+                caption={item.caption}
+                autoPlay={item.autoPlay}
+                loop={item.loop}
+                muted={item.muted}
+              />
+            )}
+          </div>
         ))}
       </div>
     )}
@@ -362,7 +377,7 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                             background={{
                               type: 'video',
                               src: '/lightup/lightup.mp4',
-                              placeholderSrc: '/lightup/Screenshot 2025-11-16 at 8.46.05 PM.png',
+                              placeholderSrc: '/lightup/lightupplaceholder.png',
                               className: 'w-full h-full object-cover'
                             }}
                             infoItems={[
@@ -447,31 +462,44 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                            Dynamically render the rest of the project sections (starting from index 2)
                            This replaces the broken, hardcoded, and duplicate sections.
                         */}
-                        {projectContent.sections.slice(2).map((section, index) => {
+                        {projectContent.sections.slice(2).map((section, index, array) => {
                             const markdown = section.markdownSlug
                               ? markdownSections[section.markdownSlug]
                               : undefined;
+                            
                             if (section.gallery && section.media && section.media.length) {
                               return (
-                                <VideoTowersSection
-                                  key={index}
-                                  title={section.title}
-                                  content={section.content || ''}
-                                  media={section.media}
-                                  onVideoClick={handleOpenVideo}
-                                />
+                                <React.Fragment key={section.title + index}>
+                                  {index > 0 && <SectionDivider />}
+                                  <VideoTowersSection
+                                    title={section.title}
+                                    content={section.content || ''}
+                                    media={section.media}
+                                    onVideoClick={handleOpenVideo}
+                                  />
+                                  {section.markdownSlug === "from-idea-to-shape" && <SectionDivider />}
+                                </React.Fragment>
                               );
                             }
 
+                            const isIdeaToShapeSection = section.markdownSlug === "from-idea-to-shape" || section.title.includes("From idea to shape");
+                            const previousSection = index > 0 ? projectContent.sections[2 + index - 1] : null;
+                            const isAfterIdeaToShape = previousSection && 
+                              (previousSection.markdownSlug === "from-idea-to-shape" || 
+                               previousSection.title.includes("From idea to shape"));
+                            
                             return (
                               <React.Fragment key={section.title + index}>
-                                {index > 0 && <SectionDivider />}
+                                {/* Don't add divider if previous section was 'From idea to shape' */}
+                                {index > 0 && !isAfterIdeaToShape && <SectionDivider />}
                                 <ProjectSection
                                   title={section.title}
                                   content={section.content || ''}
                                   media={section.media}
                                   markdown={markdown}
                                 />
+                                {/* Add divider after 'From idea to shape' section */}
+                                {isIdeaToShapeSection && <SectionDivider />}
                               </React.Fragment>
                             );
                         })}
