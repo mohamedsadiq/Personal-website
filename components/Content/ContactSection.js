@@ -22,7 +22,7 @@ const Section6 = ({ MohamedSadiq, motionCtl, order }) => {
         {...motionProps}
         >
           <div className="text-zinc-400">
-            <h1 className="text-sm leading-6">Available for now</h1>
+            <h1 className="text-sm leading-6">Get In Touch </h1>
           </div>
           <div id="links_home">
             <a className="calltoation" href="mailto:hey@mosadiq.com">

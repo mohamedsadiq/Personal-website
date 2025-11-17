@@ -34,6 +34,7 @@ const Section8 = ({ MohamedSadiq, motionCtl, order }) => {
             onHoverEnd={() => setHoveredId(null)}
           >
             <a 
+                target="_blank"
               href="https://x.com/colderoshay/status/1824092686405820431" 
               className="text-black inline-flex items-center text-base leading-relaxed relative z-10"
             >
@@ -81,6 +82,7 @@ const Section8 = ({ MohamedSadiq, motionCtl, order }) => {
             onHoverEnd={() => setHoveredId(null)}
           >
             <a 
+                target="_blank"
               href="https://www.producthunt.com/" 
               className="text-black inline-flex items-center text-base leading-relaxed relative z-10"
             >
@@ -128,6 +130,7 @@ const Section8 = ({ MohamedSadiq, motionCtl, order }) => {
             onHoverEnd={() => setHoveredId(null)}
           >
             <a 
+            target="_blank"
               href="https://x.com/developer_dao" 
               className="text-black inline-flex items-center text-base leading-relaxed relative z-10"
             >
@@ -175,6 +178,7 @@ const Section8 = ({ MohamedSadiq, motionCtl, order }) => {
             onHoverEnd={() => setHoveredId(null)}
           >
             <a 
+                target="_blank"
               href="https://deadsimplesites.com/" 
               className="text-black inline-flex items-center text-base leading-relaxed relative z-10"
             >
