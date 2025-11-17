@@ -136,15 +136,15 @@ const data: ProjectData[] = [
     link: "/projects/developerdao",
     productHunt: ""
   },
-  { 
-    name: "Web 3 Lover Boy - Jan 2022",
-    img: nftweb3,
-    description: "CWB is a project inspired by Dever..",  
-    tags: "Product Design, Solidity, Web3",
-    target: "_blink",
-    link: "/projects/web3boy",
-    productHunt: ""
-  },
+  // { 
+  //   name: "Web 3 Lover Boy - Jan 2022",
+  //   img: nftweb3,
+  //   description: "CWB is a project inspired by Dever..",  
+  //   tags: "Product Design, Solidity, Web3",
+  //   target: "_blink",
+  //   link: "/projects/web3boy",
+  //   productHunt: ""
+  // },
 ];
 
 export default Projects;
