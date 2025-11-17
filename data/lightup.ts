@@ -90,7 +90,7 @@ This exact frustration was the starting point. I was inspired by the simple, ele
        
         {
             title: "The technical journey — pragmatic choices that let me ship.",
-            content: "I needed something that would feel native in the browser and be straightforward to develop and iterate on. A few pragmatic decisions:\n\nPlasmo framework & modern web tooling: I used a browser extension framework and standard Node tooling so development is fast and the build can target Chrome MV3 easily. The repo includes developer instructions—clone, pnpm install, pnpm dev—and a path to load a dev build into Chrome.\n\nFlexible AI backends: Rather than lock the product to a single model, I built LightUp to work with OpenAI, Google Gemini, Grok (xAI), and even local LLMs (llama.cpp / Text Generation WebUI). That choice felt important for openness and for users who prefer local-first privacy. It also meant adding a configuration layer to let users pick a backend and an API key.\n\nSimple activation and state: Selection-triggered popups, modes, and keyboard shortcuts kept the runtime logic focused; this reduced permissions and surface area for bugs. I also tuned the UI to respect light/dark themes and to animate subtly so the tool feels alive but not distracting.",
+            content: "I needed something that would feel native in the browser and be straightforward to develop and iterate on. A few pragmatic decisions:\n\nPlasmo framework & modern web tooling. since i alraedy know react i wanted to go with it.\n\nFlexible AI backends: Rather than lock the product to a single model, I built LightUp to work with OpenAI, Google Gemini, Grok (xAI), and even local LLMs (llama.cpp / Text Generation WebUI). That choice felt important for openness and for users who prefer local-first privacy. It also meant adding a configuration layer to let users pick a backend and an API key.\n\nSimple activation and state: Selection-triggered popups, modes, and keyboard shortcuts kept the runtime logic focused; this reduced permissions and surface area for bugs. I also tuned the UI to respect light/dark themes and to animate subtly so the tool feels alive but not distracting.",
             image: true,
             // media: [
             //     { type: 'image', src: '/lightup/boxes.jpg', alt: 'Boxes Inside Boxes', caption: 'Knowledge as nested boxes' }
@@ -127,10 +127,10 @@ This exact frustration was the starting point. I was inspired by the simple, ele
         },
         {
             title: "What users are saying:",
-            content: "This is one of most butfull part of the project, seeing people from around the glabe using it and enjoying it and even some of them emial me personaly thanking me for creating it",
+            content: "This is one of the most beautiful parts of the project—seeing people from around the globe using it, enjoying it, and even emailing me personally to thank me for creating it.",
             image: true,
             media: [
-                { type: 'image', src: '/thank you.png', alt: 'Boxes Inside Boxes', caption: 'CEO of Sellum' },
+                // { type: 'image', src: '/thank you.png', alt: 'Boxes Inside Boxes', caption: 'CEO of Sellum' },
                 { type: 'image', src: '/lightup/GrKWWxqWkAA2zie.png', alt: 'Boxes Inside Boxes', caption: 'Jay Kadam - product designer at peerlist' },
                  { type: 'image', src: '/lightup/GqFpAIGXwAAabN0.png', alt: 'Boxes Inside Boxes', caption: 'Student after testing LightUp' },
                   { type: 'image', src: '/lightup/Gq7LBA2XMAAApxq.png', alt: 'Boxes Inside Boxes', caption: 'Student after using LightUp' },
