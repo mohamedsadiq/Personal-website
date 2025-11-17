@@ -137,7 +137,7 @@ const Web3Boy: FC = () => {
                             <h2 className='text-slate-950 mt-6'>Project Overview</h2>
                             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
                                 <ExternalLink
-                                    href="https://developer-dao-fm.vercel.app/"
+                                    href="https://replit.com/@mohamedsadiq/cwb?v=1#src/App.jsx"
                                     className='text-[#000] underline decoration-dotted underline-offset-2 transition-colors duration-200 group-hover:decoration-current'
                                 >
                                     Visit Live 
@@ -166,7 +166,7 @@ const Web3Boy: FC = () => {
                                     },
                                     {
                                         title: 'Role',
-                                        content: 'Creator & Designer'
+                                        content: 'Designer & Developer'
                                     },
                                     {
                                         title: 'Timeline',
@@ -174,10 +174,11 @@ const Web3Boy: FC = () => {
                                     }
                                 ]}
                                 links={[
-                                    { label: 'OpenSea', url: 'https://opensea.io/collection/web3boy' },
-                                    { label: 'Twitter', url: 'https://twitter.com/web3boynft' }
+                                    // { label: 'OpenSea', url: 'https://opensea.io/collection/web3boy' },
+                                    { label: 'Twitter', url: 'https://x.com/sadiq_moo/status/1469483399140237318/photo/1' }
                                 ]}
                                 className="mb-8"
+                                contentClassName="md:grid-cols-4 gap-8"
                             />
                             <p>
                                 The Certified Web3 Boy (CWB) project is a creative endeavor inspired by the innovative spirit of Developer Dao and the cultural impact of the CLB album. As a passionate fan of Web3 technology and the CLB album, I found immense joy in bringing this project to life. The fusion of cutting-edge blockchain concepts with pop culture has made this journey both challenging and rewarding.

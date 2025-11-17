@@ -176,6 +176,7 @@ const DeveloperDAO: FC = () => {
                   // { label: 'GitHub', url: 'https://github.com/Developer-DAO/developer-dao' }
                 ]}
                 className="mb-8"
+                contentClassName="md:grid-cols-4 gap-10"
               />
               <p>
                 Developer DAO was one of the first—and most impactful—DAOs I joined in the web3 space. 

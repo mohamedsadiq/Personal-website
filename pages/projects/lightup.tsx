@@ -383,24 +383,24 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                             infoItems={[
                               {
                                 title: 'Platform',
-                                content: 'Chrome Extension.'
+                                content: 'Chrome Extension'
                               },
                               {
                                 title: 'Role',
-                                content: 'From 0 → 1.'
+                                content: 'From 0 → 1'
                               },
                               {
                                 title: 'Funding',
-                                content: 'With No funding.'
+                                content: 'With No funding'
                               },
                               {
                                 title: 'Timeline',
-                                content: 'Dec 2024 - Present.'
+                                content: 'Dec 2024 - Present'
                               }
                             ]}
                             links={[
                            { label: 'Chrome Store', url: 'https://chromewebstore.google.com/detail/lightup-ai-powered-web-an/pncapgeoeedlfppkohlbelelkkihikel' },
-                              { label: 'GitHub. ', url: 'https://github.com/mohamedsadiq/LightUp' },
+                              { label: 'GitHub ', url: 'https://github.com/mohamedsadiq/LightUp' },
                             
                             //   { label: 'Peerlist', url: 'https://peerlist.io/sadiqo/project/lightup' },
                             //   { label: 'Saashub', url: 'https://www.saashub.com/best-data-annotation-software/c/ai' },
