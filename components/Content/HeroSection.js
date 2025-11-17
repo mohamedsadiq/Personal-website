@@ -3,6 +3,7 @@ import { useState } from "react";
 
 const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
   const [isBoiHovered, setIsBoiHovered] = useState(false);
+  const [hoveredId, setHoveredId] = useState(null);
   // Use centralized motion control if available, otherwise fallback to legacy props
   const motionProps = motionCtl
     ? {
@@ -41,7 +42,29 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
           </a> started that way. I explore <span className="web3">
             web3 and AI<span id="animation_web3"></span>
           </span>, but the goal stays the same: make products that are smooth, sturdy, and a little emotional.
+          
         </p>
+        {/* <a 
+            href="/about" 
+            className="text-sm mt-2 text-black relative z-10 block"
+            onMouseEnter={() => setHoveredId('about')}
+            onMouseLeave={() => setHoveredId(null)}
+          >
+            <motion.span 
+              className="text-[#000]"
+              style={{
+                textDecoration: 'underline',
+                textDecorationStyle: 'dotted',
+                textUnderlineOffset: '2px',
+              }}
+              animate={{
+                textDecorationColor: hoveredId === 'about' ? 'currentColor' : 'rgba(208, 208, 208, 0.53)'
+              }}
+              transition={{ duration: 0.2 }}
+            >
+              More info
+            </motion.span>
+          </a> */}
       </div>
     </motion.div>
   );

@@ -301,7 +301,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                             </span>
                         </motion.h1>
                         <motion.p
-                            className="text-sm leading-6 mt-0 text-[#484848]"
+                            className="text-sm leading-6 mt-0 !text-[#484848] "
                             animate={{
                                 // filter: hoveredId && hoveredId !== 'web3boy' ? 'blur(2px)' : 'blur(0px)'
                             }}
