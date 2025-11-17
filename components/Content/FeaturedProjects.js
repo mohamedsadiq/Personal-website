@@ -284,7 +284,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                             />
                         )}
                     </AnimatePresence>
-                    <Link
+                    {/* <Link
                         className="mt-2 block"
                         href="/projects/web3boy"
                     >
@@ -309,7 +309,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                         >
                             21 NTFs inspired by the web3 culture.
                         </motion.p>
-                    </Link>
+                    </Link> */}
                 </motion.div>
             </div>
         </motion.div>
