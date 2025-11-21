@@ -28,7 +28,7 @@ const SparksNav: React.FC<SparksNavigationProps> = ({ currentPath }) => {
   const nextSpark = currentIndex < sparks.length - 1 ? sparks[currentIndex + 1] : null;
 
   return (
-    <nav className="mt-16 border-t border-gray-200 dark:border-[#2b2b2b] pt-8 mb-20">
+    <nav className="mt-16 mb-16 border-t border-gray-200 dark:border-[#2b2b2b] pt-8 mb-20">
       <div className="flex justify-between items-center text-[#1f1f1f] dark:text-[#f5f5f5]">
         {prevSpark ? (
           <Link 

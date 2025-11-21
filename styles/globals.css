@@ -63,8 +63,31 @@
    --color-gray-800: oklch(12% 5% 264deg / 85%);
    --color-gray-900: oklch(12% 5% 264deg / 90%);
    --color-gray-950: oklch(12% 5% 264deg / 95%);
+ }
 
-   @media (prefers-color-scheme: dark) {
+ .glass {
+   border-radius: 35px !important;
+   /* box-shadow: none !important; */
+ }
+
+ .dark .glass {
+   /* box-shadow: 0 8px 30px oklch(20% 0.02 264deg / 45%) !important; */
+ }
+
+ .glass-circle .glass {
+   border-radius: 50% !important;
+ }
+
+ .glass-circle {
+   border-radius: 50% !important;
+ }
+
+ .glass-circle div {
+   border: none;
+ }
+
+ @media (prefers-color-scheme: dark) {
+   :root {
      --color-blue: oklch(69% 50% 264deg);
      --color-red: oklch(80% 55% 31deg);
 
@@ -114,6 +137,27 @@
   .dark body {
     @apply bg-[#121212] text-[#d5d5d5];
   }
+}
+
+.glass {
+  border-radius: 35px !important;
+  /* box-shadow: none !important; */
+}
+
+.dark .glass {
+  box-shadow: 0px 0px 5px lab(0 0 0 / 0.3) !important ;
+}
+
+.glass-circle .glass {
+  border-radius: 50% !important;
+}
+
+.glass-circle {
+  border-radius: 50% !important;
+}
+
+.glass-circle div {
+  border: none;
 }
 
  html {
