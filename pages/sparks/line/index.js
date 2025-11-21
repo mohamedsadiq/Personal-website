@@ -5,6 +5,7 @@ import BackButton from '../../../components/backButton';
 import { useRouter } from 'next/router';
 import Footer from '../../../components/sparksNav';
 import { AnimatedSection } from "../../../components/AnimatedSection";
+import SparkContainer from "../../../components/SparkContainer";
 
 
 export default function Line() {
@@ -56,95 +57,93 @@ export default function Line() {
         <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />
       </Head>
      
-        <div className="container inner_container_sparks_parent">
+        <SparkContainer>
           <AnimatedSection delay={0.1}>
             <BackButton title="" />
           </AnimatedSection>
-          <div className="inner_container inner_container_sparks">
-            <AnimatedSection delay={0.15}>
-              <h2 className="mt-10 mb-0 text-base text-black dark:text-white">Temporal Flow</h2>
-              {/* <span className="text-xs text-stone-500"> Published Jul 2024</span> */}
-            </AnimatedSection>
-            <AnimatedSection delay={0.2}>
-              <p className="mt-0 text-sm text-[#616161]">
-                In this snippet, I have been working on enhancing the user experience of a dynamic timeline component built with <span className="spark_tools">React</span> and <span className="spark_tools">Framer Motion</span>. My main focus has been on implementing interactive elements and animations to create a more engaging interface.
-              </p>
-            </AnimatedSection>
-            <AnimatedSection delay={0.25} className="w-full">
-              <div className="expBorder">
-                <div className="exp" style={{ height: "400px", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-             
-              <div className="flex w-full items-center justify-center mt-4">
-                <ControlButton onClick={handleDecreaseClick} dragging={dragging} text="-" />
-                
-                <div className="flex flex-row gap-x-0.5" style={{ cursor: 'pointer' }}>
-                  <AnimatePresence initial={false}>
-                    {years.map((year, i) => (
-                      <YearButton
-                        key={year}
-                        year={year}
-                        index={i}
-                        isSelected={selected === i}
-                        isHovered={hoveredIndex === i}
-                        handleMouseEnter={handleMouseEnter}
-                        handleMouseLeave={handleMouseLeave}
-                        handleClick={handleClick}
-                        calculateScale={calculateScale}
-                      />
-                    ))}
-                  </AnimatePresence>
-                </div>
-                
-                <ControlButton onClick={handleIncreaseClick} dragging={dragging} text="+" />
+          <AnimatedSection delay={0.15}>
+            <h2 className="mt-10 mb-0 text-base text-black dark:text-white">Temporal Flow</h2>
+            {/* <span className="text-xs text-stone-500"> Published Jul 2024</span> */}
+          </AnimatedSection>
+          <AnimatedSection delay={0.2}>
+            <p className="mt-0 text-sm text-[#616161]">
+              In this snippet, I have been working on enhancing the user experience of a dynamic timeline component built with <span className="spark_tools">React</span> and <span className="spark_tools">Framer Motion</span>. My main focus has been on implementing interactive elements and animations to create a more engaging interface.
+            </p>
+          </AnimatedSection>
+          <AnimatedSection delay={0.25} className="w-full">
+            <div className="expBorder">
+              <div className="exp" style={{ height: "400px", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+           
+            <div className="flex w-full items-center justify-center mt-4">
+              <ControlButton onClick={handleDecreaseClick} dragging={dragging} text="-" />
+              
+              <div className="flex flex-row gap-x-0.5" style={{ cursor: 'pointer' }}>
+                <AnimatePresence initial={false}>
+                  {years.map((year, i) => (
+                    <YearButton
+                      key={year}
+                      year={year}
+                      index={i}
+                      isSelected={selected === i}
+                      isHovered={hoveredIndex === i}
+                      handleMouseEnter={handleMouseEnter}
+                      handleMouseLeave={handleMouseLeave}
+                      handleClick={handleClick}
+                      calculateScale={calculateScale}
+                    />
+                  ))}
+                </AnimatePresence>
               </div>
-                </div>
+              
+              <ControlButton onClick={handleIncreaseClick} dragging={dragging} text="+" />
+            </div>
               </div>
-            </AnimatedSection>
-            <AnimatedSection delay={0.3} className="w-full">
-              <Footer currentPath={router.pathname} />
-            </AnimatedSection>
-            {/* <div className="year-inputs flex gap-x-4 mt-5">
+            </div>
+          </AnimatedSection>
+          <AnimatedSection delay={0.3} className="w-full">
+            <Footer currentPath={router.pathname} />
+          </AnimatedSection>
+          {/* <div className="year-inputs flex gap-x-4 mt-5">
+            <motion.label
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+              >
+                Start Year
+                <motion.input
+                  type="number"
+                  value={startYear}
+                  onChange={(e) => setStartYear(Number(e.target.value))}
+                  min="1900"
+                  max="2100"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                  style={{ padding: '10px', borderRadius: '20px', border: '1px solid #ccc', marginTop: '5px' }}
+                />
+              </motion.label>
               <motion.label
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
-                >
-                  Start Year
-                  <motion.input
-                    type="number"
-                    value={startYear}
-                    onChange={(e) => setStartYear(Number(e.target.value))}
-                    min="1900"
-                    max="2100"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                    style={{ padding: '10px', borderRadius: '20px', border: '1px solid #ccc', marginTop: '5px' }}
-                  />
-                </motion.label>
-                <motion.label
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
-                >
-                  End Year
-                  <motion.input
-                    type="number"
-                    value={endYear}
-                    onChange={(e) => setEndYear(Number(e.target.value))}
-                    min="1900"
-                    max="2100"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                    style={{ padding: '10px', borderRadius: '20px', border: '1px solid #ccc', marginTop: '5px' }}
-                  />
-                </motion.label>
-              </div> */}
-          </div>
-        </div>
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+              >
+                End Year
+                <motion.input
+                  type="number"
+                  value={endYear}
+                  onChange={(e) => setEndYear(Number(e.target.value))}
+                  min="1900"
+                  max="2100"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                  style={{ padding: '10px', borderRadius: '20px', border: '1px solid #ccc', marginTop: '5px' }}
+                />
+              </motion.label>
+            </div> */}
+        </SparkContainer>
     
      
     </>

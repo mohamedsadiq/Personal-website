@@ -4,6 +4,7 @@ import BackButton from "../../components/backButton";
 import { useRouter } from 'next/router';
 import Footer from '../../components/sparksNav';
 import { AnimatedSection } from "../../components/AnimatedSection";
+import SparkContainer from "../../components/SparkContainer";
 
 export default function FamilyTransactions() {
   const widgetRef = useRef(null);
@@ -48,42 +49,40 @@ export default function FamilyTransactions() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
     
-        <div className="container inner_container_sparks">
+        <SparkContainer>
           <AnimatedSection delay={0.1}>
             <BackButton title="" />
           </AnimatedSection>
-          <div className="inner_container inner_container_sparks">
-            <AnimatedSection delay={0.15}>
-              <h2 className="text-base text-black dark:text-white">Scrolling</h2>
-            </AnimatedSection>
-            <AnimatedSection delay={0.2}>
-              <p className="mt-0 text-sm text-[#616161]">
-                It's a scroll, but with a twist. Instead of the typical scroll
-                bar, I integrated circular indicators to signify the moving
-                content, elevating the overall user experience.
-              </p>
-            </AnimatedSection>
-            <AnimatedSection delay={0.25} className="w-full">
-              <div className="expBorder">
-                <div className="exp" style={{ height: "400px" }}>
+          <AnimatedSection delay={0.15}>
+            <h2 className="text-base text-black dark:text-white">Scrolling</h2>
+          </AnimatedSection>
+          <AnimatedSection delay={0.2}>
+            <p className="mt-0 text-sm text-[#616161]">
+              It's a scroll, but with a twist. Instead of the typical scroll
+              bar, I integrated circular indicators to signify the moving
+              content, elevating the overall user experience.
+            </p>
+          </AnimatedSection>
+          <AnimatedSection delay={0.25} className="w-full">
+            <div className="expBorder">
+              <div className="exp" style={{ height: "400px" }}>
+                <div className="rainy"></div>
+                <div className="dotsForScrolling">
+                  <div className="dot activeDot"></div>
+                  <div className="dot"></div>
+                </div>
+                <div className="widget" ref={widgetRef}>
+                  <div className="storm"></div>
                   <div className="rainy"></div>
-                  <div className="dotsForScrolling">
-                    <div className="dot activeDot"></div>
-                    <div className="dot"></div>
-                  </div>
-                  <div className="widget" ref={widgetRef}>
-                    <div className="storm"></div>
-                    <div className="rainy"></div>
-                    <div style={{ height: "400px" }}></div>
-                  </div>
+                  <div style={{ height: "400px" }}></div>
                 </div>
               </div>
-            </AnimatedSection>
-            <AnimatedSection delay={0.3} className="w-full">
-              <Footer currentPath={router.pathname} />
-            </AnimatedSection>
-          </div>
-        </div>
+            </div>
+          </AnimatedSection>
+          <AnimatedSection delay={0.3} className="w-full">
+            <Footer currentPath={router.pathname} />
+          </AnimatedSection>
+        </SparkContainer>
     
    
     </>

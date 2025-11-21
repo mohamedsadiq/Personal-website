@@ -133,10 +133,10 @@ const DeveloperDAO: FC = () => {
 
             <AnimatedSection delay={0.25}>
               <h2 className='text-slate-950 mt-6'>Project Overview</h2>
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
+              <div className="flex dark:text-[#fff] flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
                 <ExternalLink
                   href="https://www.developerdao.com/"
-                  className='text-[#000] underline decoration-dotted underline-offset-2 transition-colors duration-200 group-hover:decoration-current'
+                  className='text-[#000] dark:text-[#fff] underline decoration-dotted underline-offset-2 transition-colors duration-200 group-hover:decoration-current'
                 >
                   Visit Live
                 </ExternalLink>

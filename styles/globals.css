@@ -1266,7 +1266,7 @@
    background: #000000e6;
    /* border: 0.908866px solid rgba(255, 255, 255, 0.12); */
    box-sizing: border-box;
-   backdrop-filter: blur(401px);
+   /* backdrop-filter: blur(401px); */
    /* Note: backdrop-filter has minimal browser support */
    border-radius: 46.3081px;
    z-index: 100000000;
@@ -5412,7 +5412,7 @@ width: 174px;
  }
 
  .dark .exp {
-   background: #efefef;
+   border: 1px solid #f0f0f0
  }
 
  /* .widget{

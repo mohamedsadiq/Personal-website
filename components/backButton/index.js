@@ -42,9 +42,9 @@ const BackButton = ({
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="inline-block">
+    
         <div 
-          className={`${className} cursor-pointer inline-flex items-center justify-center rounded-full w-10 h-10 bg-[#f5f5f5] dark:bg-[#1b1b1b] border border-[#e5e5e5] dark:border-[#2b2b2b] text-[#1f1f1f] dark:text-[#f5f5f5] transition-colors duration-200`}
+          className={`${className} cursor-pointer inline-flex items-center justify-center rounded-full w-10 h-10 bg-[#f5f5f5] dark:bg-[#1b1b1b] border border-[#e5e5e5] dark:border-[#2b2b2b] text-[#1f1f1f] dark:text-[#f5f5f5] transition-colors duration-200 border-none`}
           onClick={handleBack}
           onKeyDown={handleKeyDown}
           role="button"
@@ -69,7 +69,7 @@ const BackButton = ({
   </svg>
           </div>
         </div>
-      </div>
+     
     </motion.div>
   );
 };
