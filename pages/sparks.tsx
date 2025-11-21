@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type HTMLMotionProps } from "framer-motion";
 import { useState, useEffect } from 'react';
+import { getSharedMotionProps } from '../utils/motionConfig';
 
 interface VideoSources {
   webm: string;
@@ -123,21 +124,10 @@ const sparksData3: SparkData[] = [
   },
 ];
 
-const motionProps = {
-  initial: {
-    opacity: 0,
-    top: "20px",
-    position: "relative" as const,
-  },
-  animate: {
-    opacity: 1,
-    top: "0",
-    position: "relative" as const,
-  },
-};
-
 const Sparks: React.FC = () => {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const headingMotionProps = getSharedMotionProps(0) as HTMLMotionProps<'h1'>;
+  const subheadingMotionProps = getSharedMotionProps(1) as HTMLMotionProps<'p'>;
   return (
     <>
       <Head>
@@ -152,61 +142,55 @@ const Sparks: React.FC = () => {
         <meta name="twitter:description" content="Product designer & Engineer." />
         <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />
       </Head>
-    
+
       <div className="container_sparks_home contentsSpark">
         <div className="inner_container inner_container_spark">
-          <h1>Sparks</h1>
-          <p>An engineering snippets</p>
+          <motion.h1 {...headingMotionProps}>Sparks</motion.h1>
+          <motion.p {...subheadingMotionProps}>An engineering snippets</motion.p>
 
           <div className='mItv1 mItv2'>
             <div className='ripi6'>
               {sparksData.map((spark, index) => (
                 <motion.div
-                                    initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
-                  animate={{ opacity: 1, top: "0", position: "relative" , filter: "blur(0px)"}}
-                  transition={{ delay: index * 0.1 }}
+                  key={spark.href}
+                  {...(getSharedMotionProps(index) as HTMLMotionProps<'div'>)}
                 >
-                  <SparkItem 
-  key={spark.href}
-  {...spark}
-  isHovered={hoveredId === spark.href}
-  onHover={(isHovered) => setHoveredId(isHovered ? spark.href : null)}
-  hoveredId={hoveredId}
-/>
+                  <SparkItem
+                    {...spark}
+                    isHovered={hoveredId === spark.href}
+                    onHover={(isHovered) => setHoveredId(isHovered ? spark.href : null)}
+                    hoveredId={hoveredId}
+                  />
                 </motion.div>
               ))}
             </div>
             <div className='ripi6'>
               {sparksData2.map((spark, index) => (
                 <motion.div
-                                    initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
-                  animate={{ opacity: 1, top: "0", position: "relative" , filter: "blur(0px)"}}
-                  transition={{ delay: index * 0.1 }}
+                  key={spark.href}
+                  {...(getSharedMotionProps(index + sparksData.length) as HTMLMotionProps<'div'>)}
                 >
-                  <SparkItem 
-  key={spark.href}
-  {...spark}
-  isHovered={hoveredId === spark.href}
-  onHover={(isHovered) => setHoveredId(isHovered ? spark.href : null)}
-  hoveredId={hoveredId}
-/>
+                  <SparkItem
+                    {...spark}
+                    isHovered={hoveredId === spark.href}
+                    onHover={(isHovered) => setHoveredId(isHovered ? spark.href : null)}
+                    hoveredId={hoveredId}
+                  />
                 </motion.div>
               ))}
             </div>
             <div className='ripi6'>
               {sparksData3.map((spark, index) => (
                 <motion.div
-                                    initial={{ opacity: 0, top: "0", position: "relative" , filter: "blur(3px)"}}
-                  animate={{ opacity: 1, top: "0", position: "relative" , filter: "blur(0px)"}}
-                  transition={{ delay: index * 0.1 }}
+                  key={spark.href}
+                  {...(getSharedMotionProps(index + sparksData.length + sparksData2.length) as HTMLMotionProps<'div'>)}
                 >
-                  <SparkItem 
-  key={spark.href}
-  {...spark}
-  isHovered={hoveredId === spark.href}
-  onHover={(isHovered) => setHoveredId(isHovered ? spark.href : null)}
-  hoveredId={hoveredId}
-/>
+                  <SparkItem
+                    {...spark}
+                    isHovered={hoveredId === spark.href}
+                    onHover={(isHovered) => setHoveredId(isHovered ? spark.href : null)}
+                    hoveredId={hoveredId}
+                  />
                 </motion.div>
               ))}
             </div>
@@ -240,7 +224,7 @@ const SparkItem: React.FC<SparkItemProps> = ({
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [videoKey, setVideoKey] = useState(0);
-  
+
   // Remove the key prop from the motion.div since we're using it in the parent
 
   useEffect(() => {
@@ -252,23 +236,22 @@ const SparkItem: React.FC<SparkItemProps> = ({
     <Link
       href={href}
       passHref
-      className={`block transition-opacity duration-300 ${
-        isHovered ? 'opacity-100' : (hoveredId ? 'opacity-20' : 'opacity-100')
-      }`}
+      className={`block transition-opacity duration-300 ${isHovered ? 'opacity-100' : (hoveredId ? 'opacity-20' : 'opacity-100')
+        }`}
       onMouseEnter={() => onHover(true)}
       onMouseLeave={() => onHover(false)}
     >
       <div className="spark_block space-y-3 flex flex-col">
         <div className={`flex-1 ${isLoaded ? 'loaded' : 'loading'}`}>
           {type === 'video' ? (
-            <div className="relative w-full border border-[#f9f9f9] rounded-[24px]">
-              <video 
+            <div className="relative w-full border border-[#f9f9f9] rounded-[24px] dark:border-[#2b2b2b] dark:bg-[#111111]">
+              <video
                 key={videoKey}
                 width="100%"
                 height="auto"
-                autoPlay 
-                loop 
-                muted 
+                autoPlay
+                loop
+                muted
                 playsInline
                 className="w-full h-auto rounded-lg"
                 onLoadedData={() => setIsLoaded(true)}
@@ -285,8 +268,8 @@ const SparkItem: React.FC<SparkItemProps> = ({
                 Your browser does not support the video tag.
               </video>
               {!isLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-lg">
-                  <div className="animate-pulse w-full h-full bg-gray-200 rounded-lg"></div>
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-[#0f0f0f] rounded-lg">
+                  <div className="animate-pulse w-full h-full bg-gray-200 dark:bg-[#1c1c1c] rounded-lg"></div>
                 </div>
               )}
             </div>
@@ -307,12 +290,12 @@ const SparkItem: React.FC<SparkItemProps> = ({
           <AnimatePresence>
             {!isLoaded && (
               <motion.div
-                className="absolute inset-0 bg-gray-100 rounded-lg"
+                className="absolute inset-0 bg-gray-100 dark:bg-[#0f0f0f] rounded-lg"
                 initial={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="w-full h-full animate-pulse bg-gray-200 rounded-lg"></div>
+                <div className="w-full h-full animate-pulse bg-gray-200 dark:bg-[#1c1c1c] rounded-lg"></div>
               </motion.div>
             )}
           </AnimatePresence>
@@ -324,7 +307,7 @@ const SparkItem: React.FC<SparkItemProps> = ({
           </div>
           <div className="spark_dec mt-2.5">{description}</div>
         </div> */}
-        <button className='bg-[#f6f6f6] text-[#757575] w-full rounded-3xl mb-0  border border-stone-200/20 p-2 text-sm m-0   transition-all duration-200 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]'>Discover</button>
+        <button className='bg-[#f6f6f6] text-[#757575] w-full rounded-3xl mb-0  border border-stone-200/20 p-2 text-sm m-0   transition-all duration-200 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] dark:bg-[#171717]'>Discover</button>
       </div>
     </Link>
   );

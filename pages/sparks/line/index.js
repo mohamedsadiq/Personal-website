@@ -62,7 +62,7 @@ export default function Line() {
           </AnimatedSection>
           <div className="inner_container inner_container_sparks">
             <AnimatedSection delay={0.15}>
-              <h2 className="mt-10 mb-0 text-base text-black">Temporal Flow</h2>
+              <h2 className="mt-10 mb-0 text-base text-black dark:text-white">Temporal Flow</h2>
               {/* <span className="text-xs text-stone-500"> Published Jul 2024</span> */}
             </AnimatedSection>
             <AnimatedSection delay={0.2}>

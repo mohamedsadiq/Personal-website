@@ -54,7 +54,7 @@ export default function FamilyTransactions() {
           </AnimatedSection>
           <div className="inner_container inner_container_sparks">
             <AnimatedSection delay={0.15}>
-              <h2 className="text-base text-black">Scrolling</h2>
+              <h2 className="text-base text-black dark:text-white">Scrolling</h2>
             </AnimatedSection>
             <AnimatedSection delay={0.2}>
               <p className="mt-0 text-sm text-[#616161]">

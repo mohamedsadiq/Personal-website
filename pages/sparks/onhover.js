@@ -42,10 +42,10 @@ export default function OnHover() {
           </AnimatedSection>
           <div className="inner_container inner_container_sparks">
             <AnimatedSection delay={0.15}>
-              <h2 className="text-base text-black">On Hover - Interactive 3D Models Showcase</h2>
+              <h2 className="text-base text-black dark:text-white dark:text-white">On Hover - Interactive 3D Models Showcase</h2>
             </AnimatedSection>
             <AnimatedSection delay={0.2}>
-              <p className="mt-0 text-sm text-[#616161]">
+              <p className="mt-0 text-sm text-[#616161] dark:text-[#cfcfcf]">
                 This demo showcases a series of dynamically animated buttons built with <span className="spark_tools">React</span> and <span className="spark_tools">Framer Motion</span>.
               </p>
             </AnimatedSection>
@@ -56,7 +56,7 @@ export default function OnHover() {
                     <div className="expButton" >
                       {models.map((model, index) => (
                         <motion.button
-                          className="buttonOnHover text-black"
+                          className="buttonOnHover text-black dark:text-white"
                           key={model.name}
                           onClick={() => setModelIndex(index)}
                           onMouseEnter={() => setHoveredIndex(index)}

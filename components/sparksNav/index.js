@@ -32,8 +32,8 @@ const SparksNav = ({ currentPath }) => {
   };
 
   return (
-    <footer className='flex-row gap-x-0 mt-20'>
-      <nav className='flex justify-between mt-5'>
+    <footer className='flex flex-col gap-y-4 mt-20 border-t border-[#d9d9d9] dark:border-[#2b2b2b] pt-6'>
+      <nav className='flex justify-between text-[#1f1f1f] dark:text-[#f5f5f5]'>
         <motion.div
           className='hover:cursor-pointer'
           initial="initial"
@@ -60,8 +60,8 @@ const SparksNav = ({ currentPath }) => {
           
              {prevPage && (
                 <>
-                  <span className="block text-sm text-gray-500">Previous</span>
-                  { prevPage.title}
+                  <span className="block text-sm text-gray-500 dark:text-gray-400">Previous</span>
+                  <span className="text-base font-medium text-[#1f1f1f] dark:text-[#e5e5e5]">{ prevPage.title}</span>
                 </>
               )}
           
@@ -88,7 +88,8 @@ const SparksNav = ({ currentPath }) => {
               exit="exit"
               transition={{ delay: 0 }}
               variants={linkVariants2}
-              whileHover={{opacity:0.5}}
+              whileHover={{ opacity: 0.65 }}
+              className="text-left"
             >
           
           
@@ -96,24 +97,14 @@ const SparksNav = ({ currentPath }) => {
 
               {nextPage && (
                 <>
-                  <span className="block text-sm text-gray-500 text-right">Next</span>
-                  { nextPage.title }
+                  <span className="block text-sm text-gray-500 dark:text-gray-400 text-right">Next</span>
+                  <span className="text-base font-medium text-[#1f1f1f] dark:text-[#e5e5e5] text-right">{ nextPage.title }</span>
                 </>
               )}
             </motion.p>
           </div>
         </motion.div>
       </nav>
-      <style jsx>{`
-        footer {
-          border-top: 1px solid #d9d9d9;
-          padding: 1rem;
-        }
-        nav a {
-          text-decoration: none;
-          color: #0070f3;
-        }
-      `}</style>
     </footer>
   );
 };

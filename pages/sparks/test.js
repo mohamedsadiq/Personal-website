@@ -19,7 +19,7 @@ export default function Test() {
         </AnimatedSection>
         <div className="inner_container inner_container_sparks">
           <AnimatedSection delay={0.15}>
-            <h2 className="mt-10 mb-0 text-base text-black">Title</h2>
+            <h2 className="mt-10 mb-0 text-base text-black dark:text-white">Title</h2>
             {/* <span className="text-xs text-stone-500"> - Jun 2024</span> */}
           </AnimatedSection>
           <AnimatedSection delay={0.2}>

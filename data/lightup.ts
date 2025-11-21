@@ -10,10 +10,10 @@ export interface ProjectContent {
         content?: string;
         image?: boolean;
         gallery?: boolean;
-        media?: { 
-            type: 'image' | 'video'; 
-            src: string; 
-            alt?: string; 
+        media?: {
+            type: 'image' | 'video';
+            src: string;
+            alt?: string;
             caption?: string;
             autoPlay?: boolean;
             loop?: boolean;
@@ -61,9 +61,9 @@ This exact frustration was the starting point. I was inspired by the simple, ele
             content: "I wanted an experience that:  \n• Lives where the words are (no new tabs)  \n• Is gentle and minimal (stays out of the way)  \n• Can scale across any page and language with AI\n\nThat shaped both the UX and the technical choices from day one.",
             image: true,
             media: [
-                { 
-                    type: 'video', 
-                    src: '/aiproject2.mp4', 
+                {
+                    type: 'video',
+                    src: '/aiproject2.mp4',
                     caption: 'An eraly prototype of LightUp',
                     autoPlay: true,
                     loop: true,
@@ -87,7 +87,7 @@ This exact frustration was the starting point. I was inspired by the simple, ele
             ],
             markdownSlug: "from-idea-to-shape",
         },
-       
+
         {
             title: "The technical journey — pragmatic choices that let me ship.",
             content: "I needed something that would feel native in the browser and be straightforward to develop and iterate on. A few pragmatic decisions:\n\nPlasmo framework & modern web tooling. since i alraedy know react i wanted to go with it.\n\nFlexible AI backends: Rather than lock the product to a single model, I built LightUp to work with OpenAI, Google Gemini, Grok (xAI), and even local LLMs (llama.cpp / Text Generation WebUI). That choice felt important for openness and for users who prefer local-first privacy. It also meant adding a configuration layer to let users pick a backend and an API key.\n\nSimple activation and state: Selection-triggered popups, modes, and keyboard shortcuts kept the runtime logic focused; this reduced permissions and surface area for bugs. I also tuned the UI to respect light/dark themes and to animate subtly so the tool feels alive but not distracting.",
@@ -132,9 +132,9 @@ This exact frustration was the starting point. I was inspired by the simple, ele
             media: [
                 // { type: 'image', src: '/thank you.png', alt: 'Boxes Inside Boxes', caption: 'CEO of Sellum' },
                 { type: 'image', src: '/lightup/GrKWWxqWkAA2zie.png', alt: 'Boxes Inside Boxes', caption: 'Jay Kadam - product designer at peerlist' },
-                 { type: 'image', src: '/lightup/GqFpAIGXwAAabN0.png', alt: 'Boxes Inside Boxes', caption: 'Student after testing LightUp' },
-                  { type: 'image', src: '/lightup/Gq7LBA2XMAAApxq.png', alt: 'Boxes Inside Boxes', caption: 'Student after using LightUp' },
-                   { type: 'image', src: '/lightup/GoRtowjWEAA3JP1.jpeg', alt: 'Boxes Inside Boxes', caption: 'Teacher after using LightUp' }
+                { type: 'image', src: '/lightup/GqFpAIGXwAAabN0.png', alt: 'Boxes Inside Boxes', caption: 'Student after testing LightUp' },
+                { type: 'image', src: '/lightup/Gq7LBA2XMAAApxq.png', alt: 'Boxes Inside Boxes', caption: 'Student after using LightUp' },
+                { type: 'image', src: '/lightup/GoRtowjWEAA3JP1.jpeg', alt: 'Boxes Inside Boxes', caption: 'Teacher after using LightUp' }
             ]
         },
         // {

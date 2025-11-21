@@ -171,7 +171,7 @@ const TheMartian: React.FC = () => {
           </AnimatedSection>
           <div className="inner_container inner_container_sparks">
             <AnimatedSection delay={0.15}>
-              <h1 className="text-base text-black">The Martian - Interactive 3D Character Demo</h1>
+              <h1 className="text-base text-black dark:text-white">The Martian - Interactive 3D Character Demo</h1>
             </AnimatedSection>
             <AnimatedSection delay={0.2}>
               <p className="mt-0 text-sm text-[#616161]">

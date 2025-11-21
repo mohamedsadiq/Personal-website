@@ -2,9 +2,10 @@ import Head from "next/head";
 import { useEffect, useRef, useState, useMemo } from "react";
 import dynamic from "next/dynamic";
 import { StaticImageData } from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type HTMLMotionProps } from "framer-motion";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import type { AnimatePresenceProps } from 'framer-motion'
+import { getSharedLegacyProps } from "../utils/motionConfig";
 
 const Image = dynamic(() => import("next/image"), { ssr: false });
 
@@ -98,13 +99,17 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
     setViewMode(prevMode => prevMode === 'circle' ? 'grid' : 'circle');
   };
 
+  const buttonMotionProps = getSharedLegacyProps(0);
+  const circleWrapperMotionProps = getSharedLegacyProps(1);
+  const gridWrapperMotionProps = getSharedLegacyProps(1);
+
   const renderCircleView = () => (
     <motion.div
       className="relative w-[80vw] h-[80vw] max-w-[800px] max-h-[800px]"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.8 }}
-      transition={{ duration: 0.5 }}
+      initial={{ ...circleWrapperMotionProps.initial, scale: 0.8 }}
+      animate={{ ...circleWrapperMotionProps.animate, scale: 1 }}
+      exit={{ ...circleWrapperMotionProps.initial, scale: 0.8 }}
+      transition={{ ...circleWrapperMotionProps.transition, duration: 0.5 }}
     >
       <PhotoProvider>
         {memoizedImages.map((image, index) => {
@@ -175,10 +180,10 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
   const renderGridView = () => (
     <motion.div
       className="flex flex-wrap justify-center gap-4 p-4"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.8 }}
-      transition={{ duration: 0.5 }}
+      initial={{ ...gridWrapperMotionProps.initial, scale: 0.95 }}
+      animate={{ ...gridWrapperMotionProps.animate, scale: 1 }}
+      exit={{ ...gridWrapperMotionProps.initial, scale: 0.95 }}
+      transition={{ ...gridWrapperMotionProps.transition, duration: 0.4 }}
     >
       <PhotoProvider>
         {memoizedImages.map((image, index) => (
@@ -235,12 +240,15 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
         />
       </Head>
 
-      <button
+      <motion.button
         onClick={toggleViewMode}
         className="mb-4 px-4 py-2 bg-white text-stone-950 rounded-full hover:bg-zinc-100 transition-colors duration-300 border-zinc-100 border border-solid shadow-lg"
+        {...buttonMotionProps}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
       >
         Switch to {viewMode === 'circle' ? 'Grid' : 'Circle'} View
-      </button>
+      </motion.button>
 
       <AnimatePresence {...({mode: "wait"} as AnimatePresenceProps)}>
   {viewMode === 'circle' ? renderCircleView() : renderGridView()}

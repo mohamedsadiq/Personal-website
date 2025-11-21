@@ -264,7 +264,7 @@ export default function Widget() {
           </AnimatedSection>
           <div className="inner_container inner_container_sparks">
             <AnimatedSection delay={0.15}>
-              <h1 className="mt-10 mb-0 text-base text-black">Interactive Exercise Progress Widget</h1>
+              <h1 className="mt-10 mb-0 text-base text-black dark:text-white">Interactive Exercise Progress Widget</h1>
               {/* <span className="text-xs text-stone-500"> Published Jun 2024</span> */}
             </AnimatedSection>
             <AnimatedSection delay={0.2}>

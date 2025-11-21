@@ -28,12 +28,12 @@ const SparksNav: React.FC<SparksNavigationProps> = ({ currentPath }) => {
   const nextSpark = currentIndex < sparks.length - 1 ? sparks[currentIndex + 1] : null;
 
   return (
-    <nav className="mt-16 border-t border-gray-200 pt-8 mb-20">
-      <div className="flex justify-between items-center">
+    <nav className="mt-16 border-t border-gray-200 dark:border-[#2b2b2b] pt-8 mb-20">
+      <div className="flex justify-between items-center text-[#1f1f1f] dark:text-[#f5f5f5]">
         {prevSpark ? (
           <Link 
             href={`/sparks/${prevSpark.id}`} 
-            className="group flex items-center text-gray-600 hover:text-black transition-colors"
+            className="group flex items-center text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors"
             aria-label={`Previous spark: ${prevSpark.title}`}
           >
             <svg 
@@ -51,8 +51,8 @@ const SparksNav: React.FC<SparksNavigationProps> = ({ currentPath }) => {
               />
             </svg>
             <div className="flex flex-col">
-              <span className="text-xs text-[#ababab]">Previous Spark</span>
-              <span className="text-[#737373] hover:text-black transition-colors">{prevSpark.title}</span>
+              <span className="text-xs text-[#ababab] dark:text-gray-400">Previous Spark</span>
+              <span className="text-[#737373] hover:text-black dark:text-gray-200 dark:hover:text-white transition-colors">{prevSpark.title}</span>
             </div>
           </Link>
         ) : (
@@ -62,12 +62,12 @@ const SparksNav: React.FC<SparksNavigationProps> = ({ currentPath }) => {
         {nextSpark && (
           <Link 
             href={`/sparks/${nextSpark.id}`} 
-            className="group flex items-center text-gray-600 hover:text-black transition-colors text-right ml-auto"
+            className="group flex items-center text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors text-right ml-auto"
             aria-label={`Next spark: ${nextSpark.title}`}
           >
             <div className="flex flex-col">
-              <span className="text-xs text-[#ababab]">Next Spark</span>
-              <span className="text-[#737373] hover:text-black transition-colors">{nextSpark.title}</span>
+              <span className="text-xs text-[#ababab] dark:text-gray-400">Next Spark</span>
+              <span className="text-[#737373] hover:text-black dark:text-gray-200 dark:hover:text-white transition-colors">{nextSpark.title}</span>
             </div>
             <svg 
               className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" 

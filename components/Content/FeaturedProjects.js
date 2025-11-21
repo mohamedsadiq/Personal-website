@@ -7,24 +7,68 @@ import productHunt5 from "../../public/Optimized SVG 1.svg";
 import sasshub from "../../public/Saashub Logo.png";
 import { useState } from "react";
 
-const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
-    const [hoveredId, setHoveredId] = useState(null);
+// Project data with image and video paths
+const projects = [
+    {
+        id: 'lightup',
+        href: "/projects/lightup",
+        title: "LightUp",
+        description: "AI Chrome extension - Peerlist Staff Pick, Top 9 AI Annotation Tool on SassHub.",
+        icons: [
+            { src: peerlist, alt: "Peerlist" },
+            { src: sasshub, alt: "SassHub" }
+        ],
+        video: {
+            webm: "/videos/lightup-preview.webm",
+            mp4: "/videos/lightup-preview.mp4"
+        },
+        isVideo: true
+    },
+    {
+        id: 'daosspot',
+        href: "/projects/daosspot",
+        title: "DAOs Spot",
+        description: "A DAO discovery platform, Product Hunt #4 Product of the Week.",
+        icons: [
+            { src: productOfTheWeek, alt: "Product of the Week" },
+            { src: "/newsletter icon/product-hunt-logo-orange-240.jpg", alt: "Product Hunt" }
+        ],
+        video: {
+            webm: "/videos/daosspot-preview.webm",
+            mp4: "/videos/daosspot-preview.mp4"
+        },
+        isVideo: true
+    },
+    {
+        id: 'developerdao',
+        href: "/projects/developerdao",
+        title: "DeveloperDAO Official Website",
+        description: "Accelerating the education and impact of a new wave of web3 builders.",
+        icons: [],
+        video: {
+            webm: "/videos/developerdao-preview.webm",
+            mp4: "/videos/developerdao-preview.mp4"
+        },
+        isVideo: true
+    },
+    {
+        id: 'developerdaoFM',
+        href: "/projects/web3boy",
+        title: "DeveloperDAO FM",
+        description: "A place to listni to music and increass awwearnce about the DAO",
+        icons: [],
+        video: {
+            webm: "/videos/web3boy-preview.webm",
+            mp4: "/videos/web3boy-preview.mp4"
+        },
+        isVideo: true
+    }
+];
 
-    const IconAnimation = {
-        initial: {
-            scale: 0.8,
-            transformOrigin: "50% 50%",
-        },
-        animate: {
-            scale: 1,
-            transformOrigin: "50% 50%",
-        },
-        hover: {
-            x: 2,
-            scale: 1.2,
-            transformOrigin: "50% 50%",
-        },
-    };
+const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
+    const [hoveredProject, setHoveredProject] = useState(null);
+    const [hoveredId, setHoveredId] = useState(null);
+    const [hoverPosition, setHoverPosition] = useState({ x: 0, y: 0 });
 
     const motionProps = motionCtl
         ? {
@@ -45,275 +89,133 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
             {...motionProps}
         >
             <div className="text-zinc-400">
-                <h1 className="text-sm leading-relaxed">Things I’ve built</h1>
+                <h1 className="dark:text-[#b2b2b2] text-sm leading-relaxed">Things I've built</h1>
             </div>
             <div className="main_projects [--underline-color:rgba(208,208,208,0.53)]">
-                <motion.div
-                    className="group hover_project relative"
-                    onMouseEnter={() => setHoveredId('lightup')}
-                    onMouseLeave={() => setHoveredId(null)}
-                >
-                    <AnimatePresence>
-                        {hoveredId === 'lightup' && (
-                            <motion.div
-                                className="absolute inset-0 bg-white/5 rounded-md -z-10"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 0.2 }}
-                            />
-                        )}
-                    </AnimatePresence>
-                    <Link
-                        className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-4 items-start mt-0 mb-8 mt-[-8px]"
-                        href="/projects/lightup"
-                        rel="noopener noreferrer"
+                {projects.map((project) => (
+                    <motion.div
+                        key={project.id}
+                        className="text-sm block hover_project padding-0 relative z-10 mb-7"
                     >
-                        <div>
-                            <motion.h1
-                                className="text-[#000] text-sm leading-6 underline decoration-dotted decoration-[var(--underline-color)] underline-offset-2 inline-flex items-center"
-                                animate={{
-                                    textDecorationColor: hoveredId === 'lightup' ? 'currentColor' : 'rgba(208, 208, 208, 0.53)'
+                        <div className="flex items-center justify-between w-full">
+                            <Link
+                                className="sparkLinks inline-flex items-center relative z-20 w-full"
+                                onMouseEnter={(e) => {
+                                    setHoveredProject(project);
+                                    setHoveredId(project.id);
+                                    const rect = e.currentTarget.getBoundingClientRect();
+                                    setHoverPosition({
+                                        x: e.clientX - rect.left,
+                                        y: e.clientY - rect.top
+                                    });
                                 }}
-                                transition={{ duration: 0.2 }}
-                            >
-                                LightUp
-                                <motion.span
-                                    className="flex items-center gap-1 ml-2"
-                                    transition={{ duration: 0.2 }}
-                                >
-                                    <span className="w-[40px] inline-block">
-                                        <Image src={peerlist} alt="" />
-                                    </span>
-                                    <span className="w-[25px] inline-block">
-                                        <Image src={sasshub} alt="" />
-                                    </span>
-                                </motion.span>
-                            </motion.h1>
-                        </div>
-                        <motion.p
-                            className="text-[#484848] text-sm leading-6 m-0 "
-                            transition={{ duration: 0.2 }}
-                        >
-                            AI Chrome extension - Peerlist Staff Pick, Top 9 AI Annotation Tool on SassHub.
-                        </motion.p>
-                    </Link>
-                </motion.div>
-
-                <motion.div
-                    className="group hover_project relative"
-                    onMouseEnter={() => setHoveredId('daosspot')}
-                    onMouseLeave={() => setHoveredId(null)}
-                >
-                    <AnimatePresence>
-                        {hoveredId === 'daosspot' && (
-                            <motion.div
-                                className="absolute inset-0 bg-white/5 rounded-md -z-10"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 0.2 }}
-                            />
-                        )}
-                    </AnimatePresence>
-                    <Link
-                        className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-4 items-start mt-0 mb-8"
-                        href="/projects/daosspot"
-                    >
-                        <div>
-                            <div className="flex items-center">
-                                <motion.h1
-                                    className="text-sm leading-6 text-[#000] decoration-dotted underline underline-offset-2"
-                                    animate={{
-                                        textDecorationColor: hoveredId === 'daosspot' ? 'currentColor' : 'rgba(208, 208, 208, 0.53)'
-                                    }}
-                                    transition={{ duration: 0.2 }}
-                                >
-                                    DAOs Spot
-                                </motion.h1>
-                                <motion.span 
-                                    className="flex items-center gap-1 ml-2"
-                                    transition={{ duration: 0.2 }}
-                                >
-                                    <div>
-                                        <Image 
-                                            src={productOfTheWeek} 
-                                            alt="" 
-                                            className="w-[68px]" 
-                                        />
-                                    </div>
-                                    <img
-                                        src="/newsletter icon/product-hunt-logo-orange-240.jpg"
-                                        alt="Product Hunt"
-                                        className="ml-1 w-5 h-5 object-cover rounded-full"
-                                    />
-                                </motion.span>
-                            </div>
-                        </div>
-                        <motion.p
-                            className="mt-1 text-sm leading-6 text-[#484848] m-0"
-                            transition={{ duration: 0.2 }}
-                        >
-                            A DAO discovery platform, Product Hunt #4 Product of the Week.
-                        </motion.p>
-                    </Link>
-                </motion.div>
-                <motion.div
-                    className="group hover_project relative"
-                    onMouseEnter={() => setHoveredId('developerdaofm')}
-                    onMouseLeave={() => setHoveredId(null)}
-                >
-                    <AnimatePresence>
-                        {hoveredId === 'developerdaofm' && (
-                            <motion.div
-                                className="absolute inset-0 bg-white/5 rounded-md -z-10"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 0.2 }}
-                            />
-                        )}
-                    </AnimatePresence>
-                    <Link
-                        className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-4 items-start mt-2 mb-8"
-                        href="/projects/developerdaofm"
-                    >
-                        <div>
-                            <div className="flex items-center">
-                                <motion.h1
-                                    className="mt-1 text-sm leading-6 text-[#000] decoration-dotted underline underline-offset-2"
-                                    animate={{
-                                        textDecorationColor: hoveredId === 'developerdaofm' ? 'currentColor' : 'rgba(208, 208, 208, 0.53)',
-                                        // filter: hoveredId && hoveredId !== 'developerdaofm' ? 'blur(2px)' : 'blur(0px)'
-                                    }}
-                                    transition={{ duration: 0.2 }}
-                                >
-                                    DeveloperDAO FM
-                                </motion.h1>
-                                <motion.span 
-                                    className="flex items-center gap-1 ml-2"
-                                    animate={{
-                                        // filter: hoveredId && hoveredId !== 'developerdaofm' ? 'blur(2px)' : 'blur(0px)'
-                                    }}
-                                    transition={{ duration: 0.2 }}
-                                >
-                                    <div>
-                                        <Image 
-                                            src={productHunt5} 
-                                            alt="" 
-                                            className="w-[68px]" 
-                                        />
-                                    </div>
-                                    <img
-                                        src="/newsletter icon/product-hunt-logo-orange-240.jpg"
-                                        alt="Product Hunt"
-                                        className="ml-1 w-5 h-5 object-cover rounded-full"
-                                    />
-                                </motion.span>
-                            </div>
-                        </div>
-                        <motion.p
-                            className="mt-1 text-sm leading-6 text-[#484848] m-0"
-                            animate={{
-                                // filter: hoveredId && hoveredId !== 'developerdaofm' ? 'blur(2px)' : 'blur(0px)'
-                            }}
-                            transition={{ duration: 0.2 }}
-                        >
-                            A community tool featured as a top product on Product Hunt, reaching an audience of 700,000+.
-                        </motion.p>
-                    </Link>
-                </motion.div>
-
-                <motion.div
-                    className="group hover_project relative"
-                    onMouseEnter={() => setHoveredId('developerdao')}
-                    onMouseLeave={() => setHoveredId(null)}
-                >
-                    <AnimatePresence>
-                        {hoveredId === 'developerdao' && (
-                            <motion.div
-                                className="absolute inset-0 bg-white/5 rounded-md -z-10"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 0.2 }}
-                            />
-                        )}
-                    </AnimatePresence>
-                    <Link
-                        className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-4 items-start mt-2 mb-8"
-                        href="/projects/developerdao"
-                    >
-                        <div>
-                            <motion.h1
-                                className="text-sm leading-6 text-[#000] decoration-dotted underline underline-offset-2 inline-flex items-center"
-                                animate={{
-                                    textDecorationColor: hoveredId === 'developerdao' ? 'currentColor' : 'rgba(208, 208, 208, 0.53)',
-                                    // filter: hoveredId && hoveredId !== 'developerdao' ? 'blur(2px)' : 'blur(0px)'
+                                onMouseLeave={() => {
+                                    setHoveredProject(null);
+                                    setHoveredId(null);
                                 }}
-                                transition={{ duration: 0.2 }}
+                                onMouseMove={(e) => {
+                                    const rect = e.currentTarget.getBoundingClientRect();
+                                    setHoverPosition({
+                                        x: e.clientX - rect.left,
+                                        y: e.clientY - rect.top
+                                    });
+                                }}
+                                style={{
+                                    transition: 'color 0.18s ease',
+                                }}
+                                href={project.href}
                             >
-                                DeveloperDAO Official Website
-                            </motion.h1>
+                                <div className="grid grid-cols-1 md:grid-cols-[1fr] gap-0 w-full">
+                                    <div>
+                                        <motion.h1
+                                            className="dark:text-[#eee] text-[#000] text-sm leading-6 inline-flex items-center"
+                                            animate={{
+                                                filter: hoveredId && hoveredId !== project.id ? 'blur(2px)' : 'blur(0px)',
+                                                textDecoration: hoveredId === project.id ? 'underline' : 'none',
+                                                textDecorationStyle: 'dotted',
+                                                textUnderlineOffset: '2px',
+                                                textDecorationColor: hoveredId === project.id ? 'currentColor' : 'rgba(208, 208, 208, 0.53)'
+                                            }}
+                                            transition={{ duration: 0.2 }}
+                                        >
+                                            {project.title}
+                                            {project.icons && project.icons.length > 0 && (
+                                                <motion.span className="flex items-center gap-1 ml-2">
+                                                    {project.icons.map((icon, i) => (
+                                                        <span key={i} className="inline-block" style={{ width: i === 0 ? '40px' : '25px' }}>
+                                                            <Image
+                                                                src={icon.src}
+                                                                alt={icon.alt}
+                                                                width={i === 0 ? 40 : 25}
+                                                                height={i === 0 ? 40 : 25}
+                                                                className={i === 1 ? 'rounded-full' : ''}
+                                                            />
+                                                        </span>
+                                                    ))}
+                                                </motion.span>
+                                            )}
+                                        </motion.h1>
+                                    </div>
+                                    <motion.p
+                                        className="text-zinc-600 dark:text-[#9f9f9f] text-sm leading-6 m-0"
+                                        animate={{
+                                            filter: hoveredId && hoveredId !== project.id ? 'blur(2px)' : 'blur(0px)'
+                                        }}
+                                        transition={{ duration: 0.2 }}
+                                    >
+                                        {project.description}
+                                    </motion.p>
+                                </div>
+                            </Link>
                         </div>
-                        <motion.p
-                            className="text-sm leading-6 text-[#484848] m-0"
-                            animate={{
-                                // filter: hoveredId && hoveredId !== 'developerdao' ? 'blur(2px)' : 'blur(0px)'
-                            }}
-                            transition={{ duration: 0.2 }}
-                        >
-                            Accelerating the education and impact of a new wave of web3 builders.
-                        </motion.p>
-                    </Link>
-                </motion.div>
+                    </motion.div>
+                ))}
 
-                <motion.div
-                    className="group hover_project text-base leading-relaxed relative"
-                    onMouseEnter={() => setHoveredId('web3boy')}
-                    onMouseLeave={() => setHoveredId(null)}
-                >
-                    <AnimatePresence>
-                        {hoveredId === 'web3boy' && (
-                            <motion.div
-                                className="absolute inset-0 bg-white/5 rounded-md -z-10"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 0.2 }}
-                            />
-                        )}
-                    </AnimatePresence>
-                    {/* <Link
-                        className="mt-2 block"
-                        href="/projects/web3boy"
-                    >
-                        <motion.h1
-                            className="text-sm leading-6 text-[#000] decoration-dotted underline underline-offset-2"
-                            animate={{
-                                textDecorationColor: hoveredId === 'web3boy' ? 'currentColor' : 'rgba(208, 208, 208, 0.53)',
-                                // filter: hoveredId && hoveredId !== 'web3boy' ? 'blur(2px)' : 'blur(0px)'
+                <AnimatePresence>
+                    {hoveredProject && (
+                        <motion.div
+                            className="fixed pointer-events-none z-50 w-64 h-48 bg-white shadow-lg rounded-lg overflow-hidden"
+                            style={{
+                                left: hoverPosition.x + 20,
+                                top: hoverPosition.y + 20,
                             }}
-                            transition={{ duration: 0.2 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
                         >
-                            Web3 lover boy
-                            <span className="arrowspan">
-                            </span>
-                        </motion.h1>
-                        <motion.p
-                            className="text-sm leading-6 mt-0 !text-[#484848] "
-                            animate={{
-                                // filter: hoveredId && hoveredId !== 'web3boy' ? 'blur(2px)' : 'blur(0px)'
-                            }}
-                            transition={{ duration: 0.2 }}
-                        >
-                            21 NTFs inspired by the web3 culture.
-                        </motion.p>
-                    </Link> */}
-                </motion.div>
+                            {hoveredProject.isVideo ? (
+                                <div className="w-full h-full relative">
+                                    <video
+                                        key={`${hoveredProject.id}-video`}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-full h-full object-cover absolute inset-0"
+                                        onMouseEnter={e => e.target.play()}
+                                        onMouseLeave={e => e.target.pause()}
+                                    >
+                                        <source src={hoveredProject.video.webm} type="video/webm" />
+                                        <source src={hoveredProject.video.mp4} type="video/mp4" />
+                                    </video>
+                                </div>
+                            ) : (
+                                <div className="w-full h-full relative">
+                                    <Image
+                                        src={hoveredProject.image}
+                                        alt={hoveredProject.title}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                            )}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </motion.div>
     );
-}
+};
 
 export default Section3;
