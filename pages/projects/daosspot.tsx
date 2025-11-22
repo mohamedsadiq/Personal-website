@@ -110,8 +110,8 @@ const DeveloperDAO: React.FC = () => {
           <div className="inner_container_project_parent inner_container inner_container_mobile">
             <AnimatedSection delay={0.1}>
               <div className="project_title">
-                <h1 className="text-black text-lg">DAOs Spot</h1>
-                <p className="text-base">Your gateway to decentralized communities. <span className="dateProject">- Jun 2023 </span></p>
+                <h1 className="text-black text-lg dark:text-white">DAOs Spot</h1>
+                <p className="text-base dark:text-white">Your gateway to decentralized communities. <span className="dateProject">- Jun 2023 </span></p>
               </div>
             </AnimatedSection>
             
@@ -131,7 +131,7 @@ const DeveloperDAO: React.FC = () => {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
-              <h2 className="text-slate-950 mt-6">Project Overview</h2>
+              <h2 className="text-slate-950 mt-6 dark:text-white">Project Overview</h2>
               <div className="dark:text-[#fff] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
                 <ExternalLink 
                   className="text-[#000] dark:text-[#fff] underline decoration-dotted underline-offset-2 transition-colors duration-200 group-hover:decoration-current w-fit"
@@ -182,15 +182,15 @@ const DeveloperDAO: React.FC = () => {
                 className="mb-8"
               />
 
-              <h2 className="text-slate-950 mt-6 mb-3">Project Overview</h2>
+              <h2 className="text-slate-950 mt-6 mb-3 dark:text-white">Project Overview</h2>
               <p>
                 Initiating the journey of DAOs Spot marked my first venture, a bootstrap endeavor fueled by minimal resources. Taking charge of both product design and development, my primary goal centered around tackling a crucial challenge: How could I actively immerse myself in DAOs, contribute meaningfully, stay abreast of their updates, and discover tools to streamline these processes?  <br/><br/>This challenge materialized as I became a part of various DAOs. Significantly, the project has garnered the attention of an interesting DAO, aligning seamlessly with their mission. Moreover, a prominent international investment firm focused on Web3 has expressed interest. The prospect of DAOs Spot excites me, and I eagerly anticipate the promising opportunities that lie ahead.
               </p>
                <SectionDivider />
-              <h2 className="mt-10 mb-2">Awards and recognition</h2>
+              <h2 className="mt-10 mb-2 dark:text-white">Awards and recognition</h2>
               <p>DAOs Spot pleasantly surprised me by clinching the 4th position for Product of the Week in the Web3 category on Product Hunt. It serves as a modest acknowledgment that the efforts invested have proven worthwhile. DAOsSpot on Product Hunt has been an encouraging experience.</p>
               <SectionDivider />
-              <h2 className="mt-10 mb-2">Embracing Minimalism in Design</h2>
+              <h2 className="mt-10 mb-2 dark:text-white">Embracing Minimalism in Design</h2>
               <p>My approach to design for DAOs Spot was rooted in a desire to evoke a premium feel through minimalism, a departure from the often cluttered landscape of Web3 interfaces. I aimed to bring forth a user experience that exuded simplicity, yet sophistication, ensuring that engagement with the platform was both intuitive and aesthetically pleasing. This emphasis on minimalism sought to address a gap in the Web3 space, where the user experience can sometimes be overwhelming and complex.</p>
             </AnimatedSection>
           </div>
@@ -200,7 +200,7 @@ const DeveloperDAO: React.FC = () => {
           {/* Project Navigation */}
         
         </div>
-         <SectionDivider />
+        
          <div className="p-10">
             <ProjectImage
               src={img2}
