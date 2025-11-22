@@ -1,4 +1,6 @@
 // Project content data structure
+import type { StaticImageData } from 'next/image'
+
 export interface ProjectContent {
     title: string;
     description: string;
@@ -10,10 +12,10 @@ export interface ProjectContent {
         content?: string;
         image?: boolean;
         gallery?: boolean;
-        media?: { 
-            type: 'image' | 'video'; 
-            src: string; 
-            alt?: string; 
+        media?: {
+            type: 'image' | 'video';
+            src: StaticImageData | string;
+            alt?: string;
             caption?: string;
             autoPlay?: boolean;
             loop?: boolean;
@@ -32,6 +34,14 @@ export interface ProjectContent {
 }
 
 // Project content data
+import jayKadamImage from '../public/lightup/GrKWWxqWkAA2zie.png'
+import studentTestimonialA from '../public/lightup/GqFpAIGXwAAabN0.png'
+import studentTestimonialB from '../public/lightup/Gq7LBA2XMAAApxq.png'
+import teacherTestimonial from '../public/lightup/GoRtowjWEAA3JP1.jpeg'
+import peerlistProjectDay from '../public/lightup/1748282477575.jpeg'
+import peerlistLeaderboard from '../public/lightup/launchpad-leaderboard-sadiqo.png'
+import peerlistPage from '../public/lightup/lightuponpeerlist.png'
+
 export const projectContent: ProjectContent = {
     title: "LightUp",
     description: "AI-Powered Annotations for every page on the web.",
@@ -61,9 +71,9 @@ This exact frustration was the starting point. I was inspired by the simple, ele
             content: "I wanted an experience that:  \n• Lives where the words are (no new tabs)  \n• Is gentle and minimal (stays out of the way)  \n• Can scale across any page and language with AI\n\nThat shaped both the UX and the technical choices from day one.",
             image: true,
             media: [
-                { 
-                    type: 'video', 
-                    src: '/aiproject2.mp4', 
+                {
+                    type: 'video',
+                    src: '/aiproject2.mp4',
                     caption: 'An eraly prototype of LightUp',
                     autoPlay: true,
                     loop: true,
@@ -87,7 +97,7 @@ This exact frustration was the starting point. I was inspired by the simple, ele
             ],
             markdownSlug: "from-idea-to-shape",
         },
-       
+
         {
             title: "The technical journey — pragmatic choices that let me ship.",
             content: "I needed something that would feel native in the browser and be straightforward to develop and iterate on. A few pragmatic decisions:\n\nPlasmo framework & modern web tooling. since i alraedy know react i wanted to go with it.\n\nFlexible AI backends: Rather than lock the product to a single model, I built LightUp to work with OpenAI, Google Gemini, Grok (xAI), and even local LLMs (llama.cpp / Text Generation WebUI). That choice felt important for openness and for users who prefer local-first privacy. It also meant adding a configuration layer to let users pick a backend and an API key.\n\nSimple activation and state: Selection-triggered popups, modes, and keyboard shortcuts kept the runtime logic focused; this reduced permissions and surface area for bugs. I also tuned the UI to respect light/dark themes and to animate subtly so the tool feels alive but not distracting.",
@@ -104,26 +114,26 @@ This exact frustration was the starting point. I was inspired by the simple, ele
         {
             title: "Mentions & Recognitions.",
             markdownSlug: "mentions-recognitions",
-            // media: [
-            //     { 
-            //         type: 'image', 
-            //         src: '/lightup/peerlist-feature.png', 
-            //         caption: 'Featured as Project of the Day on Peerlist',
-            //         alt: 'LightUp featured on Peerlist'
-            //     },
-            //     { 
-            //         type: 'image', 
-            //         src: '/lightup/saashub-feature.png', 
-            //         caption: 'Ranked in Top 9 AI Annotation Tools on SaaSHub',
-            //         alt: 'SaaSHub ranking'
-            //     },
-            //     { 
-            //         type: 'image', 
-            //         src: '/lightup/chrome-store-feature.png', 
-            //         caption: 'Featured on Chrome Web Store',
-            //         alt: 'Chrome Web Store feature'
-            //     }
-            // ]
+            media: [
+                { 
+                    type: 'image', 
+                    src: peerlistProjectDay, 
+                    caption: "LightUp featured as 'Project of the Day' on Peerlist.",
+                    alt: 'Peerlist Project of the Day announcement'
+                },
+                { 
+                    type: 'image', 
+                    src: peerlistLeaderboard, 
+                    caption: 'Recognized as a top-10 Chrome Extension builder among 179+ participants.',
+                    alt: 'Peerlist top Chrome Extension builders leaderboard'
+                },
+                { 
+                    type: 'image', 
+                    src: peerlistPage, 
+                    caption: 'LightUp page on Peerlist.',
+                    alt: 'LightUp profile page on Peerlist'
+                }
+            ]
         },
         {
             title: "What users are saying:",
@@ -131,10 +141,10 @@ This exact frustration was the starting point. I was inspired by the simple, ele
             image: true,
             media: [
                 // { type: 'image', src: '/thank you.png', alt: 'Boxes Inside Boxes', caption: 'CEO of Sellum' },
-                { type: 'image', src: '/lightup/GrKWWxqWkAA2zie.png', alt: 'Boxes Inside Boxes', caption: 'Jay Kadam - product designer at peerlist' },
-                 { type: 'image', src: '/lightup/GqFpAIGXwAAabN0.png', alt: 'Boxes Inside Boxes', caption: 'Student after testing LightUp' },
-                  { type: 'image', src: '/lightup/Gq7LBA2XMAAApxq.png', alt: 'Boxes Inside Boxes', caption: 'Student after using LightUp' },
-                   { type: 'image', src: '/lightup/GoRtowjWEAA3JP1.jpeg', alt: 'Boxes Inside Boxes', caption: 'Teacher after using LightUp' }
+                { type: 'image', src: jayKadamImage, alt: 'Boxes Inside Boxes', caption: 'Jay Kadam - product designer at peerlist' },
+                { type: 'image', src: studentTestimonialA, alt: 'Boxes Inside Boxes', caption: 'Student after testing LightUp' },
+                { type: 'image', src: studentTestimonialB, alt: 'Boxes Inside Boxes', caption: 'Student after using LightUp' },
+                { type: 'image', src: teacherTestimonial, alt: 'Boxes Inside Boxes', caption: 'Teacher after using LightUp' }
             ]
         },
         // {

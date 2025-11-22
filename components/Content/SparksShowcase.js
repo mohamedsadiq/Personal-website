@@ -142,7 +142,7 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
                                 href={project.href}
                             >
                                 <motion.span 
-                                    className="text-[#000]"
+                                    className="dark:text-[#eee] text-[#000]"
                                     style={{
                                         textDecoration: 'underline',
                                         textDecorationStyle: 'dotted',
@@ -160,7 +160,7 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
                             <div className="flex items-center">
                                 {/* <span className="w-px h-4 bg-zinc-300 mx-4"></span> */}
                                 <motion.span 
-                                    className="text-zinc-400 w-24 text-right text-xs"
+                                    className="dark:text-[#9f9f9f] text-zinc-400 w-24 text-right text-xs"
                                     animate={{
                                         filter: hoveredId && hoveredId !== project.href ? 'blur(2px)' : 'blur(0px)'
                                     }}
@@ -176,7 +176,7 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
                 <AnimatePresence>
                     {hoveredProject && (
                         <motion.div 
-                            className="fixed pointer-events-none z-50 w-64 h-48 bg-white shadow-lg rounded-lg overflow-hidden"
+                            className="fixed pointer-events-none z-50 w-64 h-48 bg-white dark:bg-black shadow-lg dark:shadow-black rounded-lg overflow-hidden"
                             style={{
                                 left: hoverPosition.x + 20,
                                 top: hoverPosition.y + 20,
@@ -236,7 +236,7 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
                     >
                         <span className="text-sm">
                             <motion.span 
-                                className="text-[#000]"
+                                className=" dark:text-[#eee] text-[#000]"
                                 style={{
                                     textDecoration: 'underline dotted',
                                     textUnderlineOffset: '2px',
@@ -248,15 +248,17 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
                                 transition={{ duration: 0.2 }}
                             >
                                 Explore All Sparks
-                            </motion.span>
+                            </motion.span> 
+
                             <motion.span 
-                                className="no-underline text-black mt-2"
+                                className="dark:text-[#eee] no-underline text-black mt-2"
                                 animate={{
                                     filter: hoveredId && hoveredId !== 'explore-all' ? 'blur(2px)' : 'blur(0px)'
                                 }}
                                 transition={{ duration: 0.2 }}
                             >
-                                →
+                                {" "}
+                                 →
                             </motion.span>
                         </span>
                     </Link>

@@ -22,7 +22,7 @@ const ExternalLink: React.FC<ExternalLinkProps> = ({
       className={`group inline-flex items-center text-[#000] underline decoration-dotted decoration-[rgba(208,208,208,0.53)] underline-offset-2 transition-colors duration-200 hover:decoration-current hover:decoration-solid ${className}`}
       {...props}
     >
-      <span>{children}</span>
+      <span className='dark:text-[#fff]'>{children}</span>
       {showIcon && (
         <div className="ml-1 transition-colors duration-200">
           <style jsx>{`

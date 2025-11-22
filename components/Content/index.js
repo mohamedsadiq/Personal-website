@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { sharedMotionCtl } from "../../utils/motionConfig";
 
 import Section1 from "./HeroSection"
 import Section2 from "./SparksShowcase"
@@ -26,35 +27,20 @@ const MyComponent = () => {
     }
   }
 
-  // High-level motion controller: centralize variants and transition rules
-  const motionCtl = {
-    variants: {
-      hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
-      visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-    },
-    getTransition: (order = 0) => ({
-      type: "spring",
-      stiffness: 120,
-      damping: 20,
-      mass: 0.6,
-      delay: 0.1 + order * 0.1,
-    }),
-  }
-
   return (
     <div className="content pt-16">
       <motion.div
         className="grid gap-[6rem]"
       >
-        <Section1 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={0}/>
-        <Section4 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={1}/>
-        <Section3 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={2}/>
-        <Section2 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={3}/>
-        <Section9 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={4}/>
-        <Section5 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={5}/>
-        <Section7 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={6}/>
-        <Section8 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={7}/>
-        <Section6 MohamedSadiq={MohamedSadiq} motionCtl={motionCtl} order={8}/>
+        <Section1 MohamedSadiq={MohamedSadiq} motionCtl={sharedMotionCtl} order={0}/>
+        <Section4 MohamedSadiq={MohamedSadiq} motionCtl={sharedMotionCtl} order={1}/>
+        <Section3 MohamedSadiq={MohamedSadiq} motionCtl={sharedMotionCtl} order={2}/>
+        <Section2 MohamedSadiq={MohamedSadiq} motionCtl={sharedMotionCtl} order={3}/>
+        <Section9 MohamedSadiq={MohamedSadiq} motionCtl={sharedMotionCtl} order={4}/>
+        <Section5 MohamedSadiq={MohamedSadiq} motionCtl={sharedMotionCtl} order={5}/>
+        <Section7 MohamedSadiq={MohamedSadiq} motionCtl={sharedMotionCtl} order={6}/>
+        <Section8 MohamedSadiq={MohamedSadiq} motionCtl={sharedMotionCtl} order={7}/>
+        <Section6 MohamedSadiq={MohamedSadiq} motionCtl={sharedMotionCtl} order={8}/>
       </motion.div>
     </div>
   );

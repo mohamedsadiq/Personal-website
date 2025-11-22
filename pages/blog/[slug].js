@@ -9,6 +9,7 @@ import BackButton from '../../components/backButton';
 import { AnimatedSection } from '../../components/AnimatedSection';
 export default function PostPage({ content, frontmatter }) {
   const [headings, setHeadings] = useState([]);
+  const [readingTime, setReadingTime] = useState(0);
   
   // Determine featured image from frontmatter
   const firstImage = frontmatter.image || 
@@ -22,46 +23,57 @@ export default function PostPage({ content, frontmatter }) {
   marked.use({
     renderer: {
       paragraph(text) {
-        return `<p class="text-[#616161] leading-7 mb-4 text-base">${text}</p>`;
+        return `<p class="text-[#616161] dark:text-[#d5d5d5] leading-7 mb-4 text-base">${text}</p>`;
       },
       heading(text, level) {
         if (level === 1) {
-          return `<h1 class="text-3xl sm:text-4xl font-medium text-[#333] mb-6">${text}</h1>`;
+          return `<h1 class="text-3xl sm:text-4xl font-medium text-[#333] dark:text-white mb-6">${text}</h1>`;
         } else if (level === 2) {
-          return `<h2 class="text-2xl sm:text-3xl font-medium text-[#333] mt-12 mb-6">${text}</h2>`;
+          return `<h2 class="text-2xl sm:text-3xl font-medium text-[#333] dark:text-white mt-12 mb-6">${text}</h2>`;
         } else if (level === 3) {
-          return `<h3 class="text-xl sm:text-2xl font-medium text-[#555] mt-10 mb-4">${text}</h3>`;
+          return `<h3 class="text-xl sm:text-2xl font-medium text-[#555] dark:text-[#e1e1e1] mt-10 mb-4">${text}</h3>`;
         }
-        return `<h${level} class="text-lg sm:text-xl font-medium text-[#666] mt-8 mb-3">${text}</h${level}>`;
+        return `<h${level} class="text-lg sm:text-xl font-medium text-[#666] dark:text-[#d5d5d5] mt-8 mb-3">${text}</h${level}>`;
       },
       list(body, ordered) {
         const tag = ordered ? 'ol' : 'ul';
         const listClass = ordered ? 'list-decimal' : 'list-disc';
-        return `<${tag} class="${listClass} pl-6 mb-6 text-[#616161] space-y-2 text-base">${body}</${tag}>`;
+        return `<${tag} class="${listClass} pl-6 mb-6 text-[#616161] dark:text-[#d5d5d5] space-y-2 text-base">${body}</${tag}>`;
       },
       listitem(text) {
         return `<li class="mb-2">${text}</li>`;
       },
       link(href, title, text) {
         const t = title ? ` title="${title}"` : '';
-        return `<a href="${href}"${t} class="text-[#0066cc] hover:underline transition-colors">${text}</a>`;
+        return `<a href="${href}"${t} class="text-[#0066cc] dark:text-[#4da6ff] hover:underline transition-colors">${text}</a>`;
       },
       strong(text) {
-        return `<strong class="font-medium">${text}</strong>`;
+        return `<strong class="font-medium dark:text-white">${text}</strong>`;
       },
       em(text) {
         return `<em class="italic">${text}</em>`;
       },
       codespan(text) {
-        return `<code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-700">${text}</code>`;
+        return `<code class="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono text-gray-700 dark:text-gray-300">${text}</code>`;
       },
       code(code, infostring) {
-        return `<pre class="bg-gray-100 p-4 rounded-lg my-4 overflow-x-auto"><code class="text-sm font-mono text-gray-700">${code}</code></pre>`;
+        return `<pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg my-4 overflow-x-auto"><code class="text-sm font-mono text-gray-700 dark:text-gray-300">${code}</code></pre>`;
       }
     }
   });
 
+  // Calculate estimated reading time (average 200 words per minute)
+  const calculateReadingTime = (text) => {
+    const wordsPerMinute = 200;
+    const words = text.trim().split(/\s+/).length;
+    return Math.ceil(words / wordsPerMinute);
+  };
+
   useEffect(() => {
+    // Calculate reading time
+    const time = calculateReadingTime(content);
+    setReadingTime(time);
+
     const htmlContent = marked.parse(content);
     const parser = new DOMParser();
     const doc = parser.parseFromString(htmlContent, 'text/html');
@@ -120,7 +132,7 @@ export default function PostPage({ content, frontmatter }) {
         }}
       />
 
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white dark:bg-[#121212]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
           <AnimatedSection delay={0.1}>
             <BackButton href="/" />
@@ -128,17 +140,19 @@ export default function PostPage({ content, frontmatter }) {
           
           {/* Title and Metadata */}
           <AnimatedSection delay={0.15} className="text-center mb-8">
-            <h1 className="text-3xl sm:text-4xl text-[#333] mb-4">
+            <h1 className="text-3xl sm:text-4xl text-[#333] dark:text-white mb-4">
               {frontmatter.title}
             </h1>
-            <p className="text-sm text-[#888]">
+            <p className="text-sm text-[#888] dark:text-[#9f9f9f]">
               {new Date(frontmatter.date).toLocaleDateString('en-US', { 
                 year: 'numeric', 
                 month: 'long', 
                 day: 'numeric' 
               })}
+              <span className="mx-2">•</span>
+              {readingTime} min read
               {frontmatter.summary && (
-                <span className="block mt-2 text-[#666]">
+                <span className="block mt-2 text-[#666] dark:text-[#d5d5d5]">
                   {frontmatter.summary}
                 </span>
               )}
@@ -172,14 +186,14 @@ export default function PostPage({ content, frontmatter }) {
           
           {headings.length > 0 && (
             <AnimatedSection delay={0.3} className="w-full">
-              <nav className="mt-16 pt-8 border-t border-gray-100">
-                <h3 className="text-sm font-medium text-[#666] mb-4">Table of Contents</h3>
+              <nav className="mt-16 pt-8 border-t border-gray-100 dark:border-gray-800">
+                <h3 className="text-sm font-medium text-[#666] dark:text-[#d5d5d5] mb-4">Table of Contents</h3>
                 <ul className="space-y-2">
                   {headings.map((heading, index) => (
                     <li key={index} style={{ marginLeft: `${(heading.level - 1) * 0.75}rem` }}>
                       <button 
                         onClick={() => handleScrollToHeading(heading.id)}
-                        className="text-sm text-[#666] hover:text-[#333] transition-colors text-left"
+                        className="text-sm text-[#666] dark:text-[#d5d5d5] hover:text-[#333] dark:hover:text-white transition-colors text-left"
                       >
                         {heading.text}
                       </button>
@@ -190,6 +204,8 @@ export default function PostPage({ content, frontmatter }) {
             </AnimatedSection>
           )}
         </div>
+        {/* Add bottom spacing */}
+        <div className="h-20" />
       </div>
       </>
     );

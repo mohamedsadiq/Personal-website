@@ -7,17 +7,17 @@ const Section9 = ({ MohamedSadiq, motionCtl, order }) => {
     };
 
     const motionProps = motionCtl
-    ? {
-        variants: motionCtl.variants,
-        initial: "hidden",
-        animate: "visible",
-        transition: motionCtl.getTransition(order),
-      }
-    : {
-        initial: MohamedSadiq.initial,
-        animate: MohamedSadiq.animate,
-        transition: { delay: 0.3 },
-      };
+        ? {
+            variants: motionCtl.variants,
+            initial: "hidden",
+            animate: "visible",
+            transition: motionCtl.getTransition(order),
+        }
+        : {
+            initial: MohamedSadiq.initial,
+            animate: MohamedSadiq.animate,
+            transition: { delay: 0.3 },
+        };
 
     return (
         <motion.div
@@ -30,19 +30,19 @@ const Section9 = ({ MohamedSadiq, motionCtl, order }) => {
             <div className="main_projects">
                 {[
                     { href: "/blog/does-this-feel-indispensable", title: "Does this feel indispensable?", date: "Jan / 2025" },
-                   
-                   
+
+
                 ].map((link, index) => (
                     <motion.div className="hover_project padding-0 " key={index} whileHover={hoverEffect}>
-                        <Link 
-                            className="text-sm text-slate-950 inline-flex items-center"
+                        <Link
+                            className="text-sm text-slate-950 dark:text-white inline-flex items-center"
                             style={{
                                 transition: 'color 0.18s ease',
                             }}
                             href={link.href}
                         >
-                            <span 
-                                className="underline decoration-dotted"
+                            <span
+                                className="dark:text-[#eee] underline decoration-dotted"
                                 style={{
                                     textDecorationColor: 'rgba(208, 208, 208, 0.53)',
                                     textUnderlineOffset: '2px',
@@ -53,11 +53,11 @@ const Section9 = ({ MohamedSadiq, motionCtl, order }) => {
                             >
                                 {link.title}
                             </span>
-                            <span className="text-xs text-zinc-500 ml-4">{link.date}</span>
+                            <span className="dark:text-[#9f9f9f] text-xs text-zinc-500 ml-4">{link.date}</span>
                         </Link>
                     </motion.div>
                 ))}
-              
+
             </div>
         </motion.div>
     );

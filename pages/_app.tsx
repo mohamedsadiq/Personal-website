@@ -32,6 +32,36 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     routeChangeComplete: 0,
   });
 
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const rootElement = document.documentElement;
+    const prefersDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // Initial check
+    if (prefersDarkQuery.matches) {
+      rootElement.classList.add('dark');
+    } else {
+      rootElement.classList.remove('dark');
+    }
+
+    const handlePreferenceChange = (event: MediaQueryListEvent) => {
+      if (event.matches) {
+        rootElement.classList.add('dark');
+      } else {
+        rootElement.classList.remove('dark');
+      }
+    };
+
+    prefersDarkQuery.addEventListener('change', handlePreferenceChange);
+
+    return () => {
+      prefersDarkQuery.removeEventListener('change', handlePreferenceChange);
+    };
+  }, []);
+
   // Debug router object on mount
   useEffect(() => {
     debug('Router object:', {
@@ -248,7 +278,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <Layout>
-      <Component {...pageProps} key={pathKey} />  // Direct render, no transitions
+      <Component {...pageProps} key={pathKey} /> 
     </Layout>
   );
 }
