@@ -19,8 +19,8 @@ const projects = [
             { src: sasshub, alt: "SassHub" }
         ],
         video: {
-            webm: "/lightup.mp4",
-            mp4: "/lightup.mp4"
+            webm: "/bulitVidoes/lightup.mp4",
+            mp4: "/bulitVidoes/lightup.mp4"
         },
         isVideo: true
     },
@@ -34,8 +34,8 @@ const projects = [
             { src: "/newsletter icon/product-hunt-logo-orange-240.jpg", alt: "Product Hunt" }
         ],
         video: {
-            webm: "/bulitVidoes/daosspot.mov",
-            mp4: "/bulitVidoes/daosspot.mov"
+            webm: "/bulitVidoes/daosspot.mp4",
+            mp4: "/bulitVidoes/daosspot.mp4"
         },
         isVideo: true
     },
@@ -55,8 +55,8 @@ const projects = [
         description: "A place to listni to music and increass awwearnce about the DAO",
         icons: [],
         video: {
-            webm: "/bulitVidoes/devfm.mov",
-            mp4: "/bulitVidoes/devfm.mov"
+            webm: "/bulitVidoes/devfm.mp4",
+            mp4: "/bulitVidoes/devfm.mp4"
         },
         isVideo: true
     }
