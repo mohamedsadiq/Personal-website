@@ -15,8 +15,8 @@ const projects = [
         title: "LightUp",
         description: "AI Chrome extension - Peerlist Staff Pick, Top 9 AI Annotation Tool on SassHub.",
         icons: [
-            { src: peerlist, alt: "Peerlist" },
-            { src: sasshub, alt: "SassHub" }
+            { src: peerlist, alt: "Peerlist", width: 30, height: 30 },
+            { src: sasshub, alt: "SassHub", width: 25, height: 25 }
         ],
         video: {
             webm: "/bulitVidoes/lightup.mp4",
@@ -30,8 +30,8 @@ const projects = [
         title: "DAOs Spot",
         description: "A DAO discovery platform, Product Hunt #4 Product of the Week.",
         icons: [
-            { src: productOfTheWeek, alt: "Product of the Week" },
-            { src: "/newsletter icon/product-hunt-logo-orange-240.jpg", alt: "Product Hunt" }
+            { src: productOfTheWeek, alt: "Product of the Week", width: 60, height: 20 },
+            { src: "/newsletter icon/product-hunt-logo-orange-240.jpg", alt: "Product Hunt", width: 25, height: 25 }
         ],
         video: {
             webm: "/bulitVidoes/daosspot.mp4",
@@ -53,7 +53,10 @@ const projects = [
         href: "/projects/web3boy",
         title: "DeveloperDAO FM",
         description: "A place to listni to music and increass awwearnce about the DAO",
-        icons: [],
+        icons: [
+            { src: productHunt5, alt: "Top 5 Product of the Day", width: 60, height: 20 },
+            { src: "/newsletter icon/product-hunt-logo-orange-240.jpg", alt: "Product Hunt", width: 25, height: 25 }
+        ],
         video: {
             webm: "/bulitVidoes/devfm.mp4",
             mp4: "/bulitVidoes/devfm.mp4"
@@ -139,12 +142,12 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                                             {project.icons && project.icons.length > 0 && (
                                                 <motion.span className="flex items-center gap-1 ml-2">
                                                     {project.icons.map((icon, i) => (
-                                                        <span key={i} className="inline-block" style={{ width: i === 0 ? '40px' : '25px' }}>
+                                                        <span key={i} className="inline-block" style={{ width: `${icon.width}px`, height: `${icon.height}px` }}>
                                                             <Image
                                                                 src={icon.src}
                                                                 alt={icon.alt}
-                                                                width={i === 0 ? 40 : 25}
-                                                                height={i === 0 ? 40 : 25}
+                                                                width={icon.width}
+                                                                height={icon.height}
                                                                 className={i === 1 ? 'rounded-full' : ''}
                                                             />
                                                         </span>

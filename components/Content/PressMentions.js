@@ -66,7 +66,7 @@ const Section8 = ({ MohamedSadiq, motionCtl, order }) => {
             <AnimatePresence>
               {hoveredId === 'todayInDesign' && (
                 <motion.div
-                  className="absolute inset-0 bg-black/5 dark:bg-white/5 rounded-md -z-10"
+                  className="absolute inset-0  rounded-md -z-10"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -114,7 +114,7 @@ const Section8 = ({ MohamedSadiq, motionCtl, order }) => {
             <AnimatePresence>
               {hoveredId === 'productHunt' && (
                 <motion.div
-                  className="absolute inset-0 bg-black/5 dark:bg-white/5 rounded-md -z-10"
+                  className="absolute inset-0  rounded-md -z-10"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -162,7 +162,7 @@ const Section8 = ({ MohamedSadiq, motionCtl, order }) => {
             <AnimatePresence>
               {hoveredId === 'developerDao' && (
                 <motion.div
-                  className="absolute inset-0 bg-black/5 dark:bg-white/5 rounded-md -z-10"
+                  className="absolute inset-0  rounded-md -z-10"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -218,7 +218,7 @@ const Section8 = ({ MohamedSadiq, motionCtl, order }) => {
             <AnimatePresence>
               {hoveredId === 'dss' && (
                 <motion.div
-                  className="absolute inset-0 bg-black/5 dark:bg-white/5 rounded-md -z-10"
+                  className="absolute inset-0  rounded-md -z-10"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
