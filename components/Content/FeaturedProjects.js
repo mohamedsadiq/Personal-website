@@ -19,8 +19,8 @@ const projects = [
             { src: sasshub, alt: "SassHub" }
         ],
         video: {
-            webm: "/videos/lightup-preview.webm",
-            mp4: "/videos/lightup-preview.mp4"
+            webm: "/lightup.mp4",
+            mp4: "/lightup.mp4"
         },
         isVideo: true
     },
@@ -34,8 +34,8 @@ const projects = [
             { src: "/newsletter icon/product-hunt-logo-orange-240.jpg", alt: "Product Hunt" }
         ],
         video: {
-            webm: "/videos/daosspot-preview.webm",
-            mp4: "/videos/daosspot-preview.mp4"
+            webm: "/bulitVidoes/daosspot.mov",
+            mp4: "/bulitVidoes/daosspot.mov"
         },
         isVideo: true
     },
@@ -45,11 +45,8 @@ const projects = [
         title: "DeveloperDAO Official Website",
         description: "Accelerating the education and impact of a new wave of web3 builders.",
         icons: [],
-        video: {
-            webm: "/videos/developerdao-preview.webm",
-            mp4: "/videos/developerdao-preview.mp4"
-        },
-        isVideo: true
+        image: "/img/developerdao/fasdfasd.jpeg",
+        isVideo: false
     },
     {
         id: 'developerdaoFM',
@@ -58,8 +55,8 @@ const projects = [
         description: "A place to listni to music and increass awwearnce about the DAO",
         icons: [],
         video: {
-            webm: "/videos/web3boy-preview.webm",
-            mp4: "/videos/web3boy-preview.mp4"
+            webm: "/bulitVidoes/devfm.mov",
+            mp4: "/bulitVidoes/devfm.mov"
         },
         isVideo: true
     }
@@ -174,7 +171,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                 <AnimatePresence>
                     {hoveredProject && (
                         <motion.div
-                            className="fixed pointer-events-none z-50 w-64 h-48 bg-white shadow-lg rounded-lg overflow-hidden"
+                            className="fixed pointer-events-none z-50 w-64 h-48 bg-white dark:bg-black shadow-lg dark:shadow-black rounded-lg overflow-hidden"
                             style={{
                                 left: hoverPosition.x + 20,
                                 top: hoverPosition.y + 20,

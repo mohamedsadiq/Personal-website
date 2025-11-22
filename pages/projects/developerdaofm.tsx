@@ -1,18 +1,19 @@
 import Head from "next/head";
 import Image, { StaticImageData } from "next/image";
-import { FC } from 'react';
+import React, { FC, useState } from 'react';
+import { LayoutGroup, motion } from 'framer-motion';
 import styles from "../../styles/Home.module.css";
 import BackButton from '../../components/backButton';
 import ExternalLink from "../../components/ExternalLink";
 import { AnimatedSection } from "../../components/AnimatedSection";
 import ProjectNavigation from '../../components/ProjectNavigation';
 import ProjectOverview from '../../components/ProjectOverview';
+import PhotoViewerOverlay, { type PhotoPreview } from '../../components/PhotoViewerOverlay';
 
 
 
 // Import images with static imports
 import developerDaoFm from '../../public/img/developerdaofm/daofm.png';
-import imgWork from '../../public/img/developerdaofm/image 2.png';
 import img0 from '../../public/img/developerdaofm/Instagram post - 14.png';
 import img2 from '../../public/img/developerdaofm/Instagram post - 13.png';
 import img3 from '../../public/img/developerdaofm/Dribbble shot HD - 7.png';
@@ -30,6 +31,8 @@ const SectionDivider: FC = () => (
   </AnimatedSection>
 );
 
+type ProjectPhotoPreview = PhotoPreview;
+
 interface ProjectImageProps {
   src: any;
   alt: string;
@@ -43,6 +46,12 @@ interface ProjectImageProps {
   placeholder?: 'blur' | 'empty';
   blurDataURL?: string;
   delay?: number;
+  objectFit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
+  objectPosition?: string;
+  containerClassName?: string;
+  enablePreview?: boolean;
+  onPreview?: (photo: ProjectPhotoPreview) => void;
+  previewId?: string;
 }
 
 const ProjectImage: FC<ProjectImageProps> = ({ 
@@ -57,54 +66,103 @@ const ProjectImage: FC<ProjectImageProps> = ({
   loading = 'lazy',
   placeholder = 'blur',
   blurDataURL = '',
-  delay = 0
+  delay = 0,
+  objectFit = 'cover',
+  objectPosition = 'center',
+  containerClassName = '',
+  enablePreview = false,
+  onPreview,
+  previewId,
 }) => {
-  // For fill layout, we need a container with relative position and defined height
   const isLayoutFill = layout === 'fill';
-  
-  // If using fill layout, we don't need width/height
-  const imageProps = isLayoutFill 
-    ? { layout: 'fill' as const }
-    : { 
-        layout,
-        width,
-        height,
-        objectFit: 'cover' as const,
-        objectPosition: 'center' as const
-      };
+  const isImportedImage = src && typeof src === 'object' && 'src' in src;
+  const intrinsicWidth = isImportedImage && 'width' in src ? (src as StaticImageData).width : width;
+  const intrinsicHeight = isImportedImage && 'height' in src ? (src as StaticImageData).height : height;
+  const aspectRatioValue = intrinsicWidth && intrinsicHeight ? intrinsicHeight / intrinsicWidth : 9 / 16;
+  const paddingPercent = aspectRatioValue * 100;
+
+  const hasBlurData = Boolean(blurDataURL || (isImportedImage && (src as StaticImageData).blurDataURL));
+  const resolvedPlaceholder = placeholder === 'blur' && hasBlurData ? 'blur' : 'empty';
+
+  const imageProps = {
+    src: isImportedImage ? (src as StaticImageData) : src,
+    alt,
+    fill: true,
+    className: `rounded-[24px] ${className}`,
+    style: { objectFit, objectPosition },
+    priority,
+    loading,
+    quality: 100,
+    sizes: "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
+    ...(resolvedPlaceholder === 'blur'
+      ? { placeholder: 'blur' as const, blurDataURL: blurDataURL || (isImportedImage ? (src as StaticImageData).blurDataURL : undefined) }
+      : { placeholder: 'empty' as const }),
+  };
+
+  const handlePreviewOpen = () => {
+    if (!enablePreview || !onPreview) {
+      return;
+    }
+
+    onPreview({
+      id: previewId || alt,
+      src,
+      alt,
+      caption,
+      aspectRatio: aspectRatioValue,
+    });
+  };
+
+  const handlePreviewKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (!enablePreview) {
+      return;
+    }
+
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handlePreviewOpen();
+    }
+  };
+
+  const layoutId = enablePreview ? previewId || alt : undefined;
+
+  const wrapperStyle = isLayoutFill ? undefined : { paddingBottom: `${paddingPercent}%` };
+  const containerClasses = isLayoutFill
+    ? `rounded-[24px] relative w-full shadow-sm h-96 ${containerClassName}`
+    : `rounded-[24px] relative w-full shadow-sm ${containerClassName}`;
+
+  const imageContent = (
+    <div
+      className={containerClasses}
+      style={wrapperStyle}
+    >
+      <motion.div
+        layoutId={layoutId}
+        className="absolute inset-0 h-full w-full overflow-hidden rounded-[24px]"
+        transition={{ type: 'spring', stiffness: 150, damping: 20, mass: 0.8 }}
+      >
+        <Image {...imageProps} />
+      </motion.div>
+    </div>
+  );
   
   return (
     <div className="image-container w-full">
       <AnimatedSection delay={delay}>
-        {isLayoutFill ? (
-          <div className="relative h-96 w-full">
-            <Image
-              src={src}
-              alt={alt}
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
-              priority={priority}
-              loading={loading}
-              placeholder={placeholder}
-              blurDataURL={blurDataURL}
-              className={className}
-              quality={100}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          </div>
+        {enablePreview ? (
+          <button
+            type="button"
+            className="group w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
+            onClick={handlePreviewOpen}
+            onKeyDown={handlePreviewKeyDown}
+            aria-label={`View ${alt} in fullscreen`}
+          >
+            <div className="w-full cursor-zoom-in transition duration-200 ease-out group-hover:scale-[1.01]">
+              {imageContent}
+            </div>
+          </button>
         ) : (
-          <Image
-            src={src}
-            alt={alt}
-            {...imageProps}
-            priority={priority}
-            loading={loading}
-            placeholder={placeholder}
-            blurDataURL={blurDataURL}
-            className={className}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
+          imageContent
         )}
         {caption && <span className="project_img_des">({caption})</span>}
       </AnimatedSection>
@@ -113,7 +171,18 @@ const ProjectImage: FC<ProjectImageProps> = ({
 };
 
 const DeveloperDAO: React.FC = () => {
+  const [activePhoto, setActivePhoto] = useState<ProjectPhotoPreview | null>(null);
+
+  const handleOpenPhoto = (photo: ProjectPhotoPreview) => {
+    setActivePhoto(photo);
+  };
+
+  const handleClosePhoto = () => {
+    setActivePhoto(null);
+  };
+
   return (
+    <LayoutGroup id="developerdaofm-photo-viewer">
     <div className={styles.container}>
       <Head>
         <title>DeveloperDAO FM | Mohamed Sadiq</title>
@@ -224,6 +293,9 @@ const DeveloperDAO: React.FC = () => {
               caption="These were the first attempts to discover the logo's potential, I shared this design on X (Twitter)."
               delay={0.35}
               placeholder="blur"
+              enablePreview
+              onPreview={handleOpenPhoto}
+              previewId="developerdaofm-logo-concepts"
             />
             <AnimatedSection delay={0.4}>
               <p>
@@ -242,6 +314,9 @@ const DeveloperDAO: React.FC = () => {
               caption="The Play and the Pause modes"
               delay={0.45}
               placeholder="blur"
+              enablePreview
+              onPreview={handleOpenPhoto}
+              previewId="developerdaofm-play-pause"
             />
 
             <ProjectImage
@@ -250,6 +325,9 @@ const DeveloperDAO: React.FC = () => {
               caption="Closer look at the Play and the Pause buttons"
               delay={0.5}
               placeholder="blur"
+              enablePreview
+              onPreview={handleOpenPhoto}
+              previewId="developerdaofm-controls"
             />
 
             <ProjectImage
@@ -258,6 +336,9 @@ const DeveloperDAO: React.FC = () => {
               caption="Music icon for switching between different music channels"
               delay={0.55}
               placeholder="blur"
+              enablePreview
+              onPreview={handleOpenPhoto}
+              previewId="developerdaofm-channel-switching"
             />
 
             <ProjectImage
@@ -266,6 +347,9 @@ const DeveloperDAO: React.FC = () => {
               caption="An overview of the DeveloperDAO FM website"
               delay={0.6}
               placeholder="blur"
+              enablePreview
+              onPreview={handleOpenPhoto}
+              previewId="developerdaofm-overview"
             />
 
             <AnimatedSection delay={0.65}>
@@ -283,6 +367,9 @@ const DeveloperDAO: React.FC = () => {
               layout="fill"
               className="h-96"
               placeholder="blur"
+              enablePreview
+              onPreview={handleOpenPhoto}
+              previewId="developerdaofm-producthunt-comments"
             />
 
             <ProjectImage
@@ -290,6 +377,9 @@ const DeveloperDAO: React.FC = () => {
               alt="Product Hunt feature email"
               caption="Product Hunt's email about featuring DeveloperDAO FM in their newsletter"
               placeholder="blur"
+              enablePreview
+              onPreview={handleOpenPhoto}
+              previewId="developerdaofm-producthunt-email"
             />
           </div>
         </div>
@@ -301,7 +391,9 @@ const DeveloperDAO: React.FC = () => {
           </div>
         </AnimatedSection>
       </div>
+      <PhotoViewerOverlay photo={activePhoto} onClose={handleClosePhoto} />
     </div>
+    </LayoutGroup>
   );
 };
 

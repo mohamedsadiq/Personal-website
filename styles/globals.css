@@ -5410,9 +5410,11 @@ width: 174px;
  .exp {
    /* height: 700px; */
  }
-
+.dark strong{
+  color:white
+}
  .dark .exp {
-   border: 1px solid #f0f0f0
+   border: 1px solid #212121 !important
  }
 
  /* .widget{

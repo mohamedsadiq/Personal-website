@@ -102,7 +102,7 @@ export default function GameUi() {
             {/* <span className="text-xs text-stone-500"> Published Jul 2024</span> */}
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
-            <p className="mt-0 text-sm text-[#616161]">
+            <p className="mt-0 text-base text-[#616161] mb-4">
               This interactive demo showcases a collection of 3D models brought to life using <span className="spark_tools">React</span>, <span className="spark_tools">Three.js</span>, <span className="spark_tools">React Three Fiber</span>. <span className="spark_tools">Framer Motion</span>, the interface provides a seamless experience through smooth animations and state transitions.
             </p>
           </AnimatedSection>

@@ -57,7 +57,7 @@ export default function FamilyTransactions() {
             <h2 className="text-base text-black dark:text-white">Scrolling</h2>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
-            <p className="mt-0 text-sm text-[#616161]">
+            <p className="mt-0 text-base text-[#616161] mb-4 dark:text-[#616161]">
               It's a scroll, but with a twist. Instead of the typical scroll
               bar, I integrated circular indicators to signify the moving
               content, elevating the overall user experience.

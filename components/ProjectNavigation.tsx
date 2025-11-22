@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import styles from '../styles/ProjectNavigation.module.css';
 
 const projects = [
   { id: 'lightup', title: 'LightUp', path: '/projects/lightup' },
@@ -23,8 +22,8 @@ const ProjectNavigation = () => {
   const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 
   return (
-    <nav className="mt-6 sm:mt-8 md:mt-16 border-t border-gray-200 pt-4 sm:pt-6 md:pt-8 mb-10 sm:mb-12 md:mb-20 px-4 sm:px-0">
-      <div className="flex flex-col space-y-4 sm:space-y-6 md:space-y-0 md:flex-row md:justify-between md:items-center">
+    <nav className="mt-6 sm:mt-8 md:mt-16 border-t border-gray-200 dark:border-[#2b2b2b] pt-4 sm:pt-6 md:pt-8 mb-10 sm:mb-12 md:mb-20 px-4 sm:px-0">
+      <div className="flex flex-col space-y-4 sm:space-y-6 md:space-y-0 md:flex-row md:justify-between md:items-center text-[#1f1f1f] dark:text-[#f5f5f5]">
         {prevProject && (
           <Link
             href={`/projects/${prevProject.id}`}
@@ -46,7 +45,7 @@ const ProjectNavigation = () => {
               />
             </svg>
             <div className="flex flex-col overflow-hidden">
-              <span className="text-xs text-gray-500 dark:text-gray-500 mb-0.5">Previous Project</span>
+              <span className="text-xs text-[#ababab] dark:text-gray-400 mb-0.5">Previous Project</span>
               <span className="truncate text-sm sm:text-base font-medium">{prevProject.title}</span>
             </div>
           </Link>
@@ -59,7 +58,7 @@ const ProjectNavigation = () => {
             aria-label={`Next project: ${nextProject.title}`}
           >
             <div className="flex flex-col items-end md:items-start">
-              <span className="text-xs text-gray-500 dark:text-gray-500 mb-0.5">Next Project</span>
+              <span className="text-xs text-[#ababab] dark:text-gray-400 mb-0.5">Next Project</span>
               <span className="truncate text-sm sm:text-base font-medium">{nextProject.title}</span>
             </div>
             <svg

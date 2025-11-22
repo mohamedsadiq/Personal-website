@@ -176,7 +176,7 @@ const Section2 = ({ MohamedSadiq, motionCtl, order }) => {
                 <AnimatePresence>
                     {hoveredProject && (
                         <motion.div 
-                            className="fixed pointer-events-none z-50 w-64 h-48 bg-white shadow-lg rounded-lg overflow-hidden"
+                            className="fixed pointer-events-none z-50 w-64 h-48 bg-white dark:bg-black shadow-lg dark:shadow-black rounded-lg overflow-hidden"
                             style={{
                                 left: hoverPosition.x + 20,
                                 top: hoverPosition.y + 20,

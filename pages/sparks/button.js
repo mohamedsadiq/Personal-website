@@ -91,7 +91,7 @@ export default function QuickButton() {
             {/* <span className="text-xs text-stone-500">Published Jun 2024</span> */}
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
-            <p className="mt-0 text-sm text-[#616161] dark:text-[#cfcfcf]">
+            <p className="mt-0 text-base text-[#616161] mb-4 dark:text-[#cfcfcf]">
               The Quick Button is an interactive UI component designed to enhance user engagement through dynamic animations. Built using <span className="spark_tools">React</span>, <span className="spark_tools">Framer Motion</span> and <span className="spark_tools">Tailwind CSS</span>, this button offers a visually appealing experience by incorporating smooth transitions and state changes upon user interaction.
             </p>
           </AnimatedSection>

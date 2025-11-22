@@ -132,7 +132,7 @@ const DeveloperDAO: FC = () => {
             </div>
 
             <AnimatedSection delay={0.25}>
-              <h2 className='text-slate-950 mt-6'>Project Overview</h2>
+              <h2 className='text-slate-950 mt-6 dark:text-white'>Project Overview</h2>
               <div className="flex dark:text-[#fff] flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
                 <ExternalLink
                   href="https://www.developerdao.com/"
@@ -191,7 +191,7 @@ const DeveloperDAO: FC = () => {
             <SectionDivider />
 
             <AnimatedSection delay={0.3}>
-              <h2 className='text-slate-950 mt-6 mb-2'>My Contributions</h2>
+              <h2 className='text-slate-950 mt-6 mb-2 dark:text-white'>My Contributions</h2>
               <p>
                 It was important for the DAO to establish an official presence to attract potential 
                 partnerships and new members. We designed the website to meet that goal: simple, direct, 
@@ -203,7 +203,7 @@ const DeveloperDAO: FC = () => {
         </div>
       </main>
       
-      <div className=''>
+      <div className='space-y-10 mt-14 p-10'>
         <ProjectImage 
           src={imagePaths.img3}
           alt="DeveloperDAO responsive design"
@@ -245,7 +245,7 @@ const DeveloperDAO: FC = () => {
         />
         
         <AnimatedSection delay={0.6}>
-          <h2 className='text-slate-950 mt-6 text-black mb-2'>Reflections</h2>
+          <h2 className='text-slate-950 mt-6 text-black mb-2  dark:text-white'>Reflections</h2>
           <p className='text-[#616161]'>
             Working on the Developer DAO website was a rewarding experience. It allowed me to combine my passion for web3 with my design and development skills. The collaborative nature of the DAO meant that I was constantly learning and iterating, which pushed me to grow as a designer.
             <br/>

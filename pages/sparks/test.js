@@ -23,7 +23,7 @@ export default function Test() {
           {/* <span className="text-xs text-stone-500"> - Jun 2024</span> */}
         </AnimatedSection>
         <AnimatedSection delay={0.2}>
-          <p className="mt-0 text-sm text-[#616161]">
+          <p className="mt-0 text-base text-[#616161] mb-4">
             test
           </p>
         </AnimatedSection>

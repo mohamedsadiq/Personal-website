@@ -66,7 +66,7 @@ export default function Line() {
             {/* <span className="text-xs text-stone-500"> Published Jul 2024</span> */}
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
-            <p className="mt-0 text-sm text-[#616161]">
+            <p className="mt-0 text-base text-[#616161] mb-4">
               In this snippet, I have been working on enhancing the user experience of a dynamic timeline component built with <span className="spark_tools">React</span> and <span className="spark_tools">Framer Motion</span>. My main focus has been on implementing interactive elements and animations to create a more engaging interface.
             </p>
           </AnimatedSection>

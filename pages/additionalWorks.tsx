@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useEffect, useRef, useState, useMemo } from "react";
 import dynamic from "next/dynamic";
 import { StaticImageData } from "next/image";
-import { motion, AnimatePresence, type HTMLMotionProps } from "framer-motion";
+import { motion, AnimatePresence, type HTMLMotionProps, type Transition } from "framer-motion";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import type { AnimatePresenceProps } from 'framer-motion'
 import { getSharedLegacyProps } from "../utils/motionConfig";
@@ -103,13 +103,24 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
   const circleWrapperMotionProps = getSharedLegacyProps(1);
   const gridWrapperMotionProps = getSharedLegacyProps(1);
 
+  // Define motion props explicitly to avoid spread issues
+  const circleInitial = { opacity: 0, top: "20px", position: "relative", filter: "blur(10px)", scale: 0.8 };
+  const circleAnimate = { opacity: 1, top: "0", position: "relative", filter: "blur(0px)", scale: 1 };
+  const circleExit = { opacity: 0, top: "20px", position: "relative", filter: "blur(10px)", scale: 0.8 };
+  const circleTransition: Transition = { type: "spring", stiffness: 120, damping: 20, mass: 0.6, delay: 0.2, duration: 0.5 };
+  
+  const gridInitial = { opacity: 0, top: "20px", position: "relative", filter: "blur(10px)", scale: 0.95 };
+  const gridAnimate = { opacity: 1, top: "0", position: "relative", filter: "blur(0px)", scale: 1 };
+  const gridExit = { opacity: 0, top: "20px", position: "relative", filter: "blur(10px)", scale: 0.95 };
+  const gridTransition: Transition = { type: "spring", stiffness: 120, damping: 20, mass: 0.6, delay: 0.2, duration: 0.4 };
+
   const renderCircleView = () => (
     <motion.div
       className="relative w-[80vw] h-[80vw] max-w-[800px] max-h-[800px]"
-      initial={{ ...circleWrapperMotionProps.initial, scale: 0.8 }}
-      animate={{ ...circleWrapperMotionProps.animate, scale: 1 }}
-      exit={{ ...circleWrapperMotionProps.initial, scale: 0.8 }}
-      transition={{ ...circleWrapperMotionProps.transition, duration: 0.5 }}
+      initial={circleInitial}
+      animate={circleAnimate}
+      exit={circleExit}
+      transition={circleTransition}
     >
       <PhotoProvider>
         {memoizedImages.map((image, index) => {
@@ -180,10 +191,10 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
   const renderGridView = () => (
     <motion.div
       className="flex flex-wrap justify-center gap-4 p-4"
-      initial={{ ...gridWrapperMotionProps.initial, scale: 0.95 }}
-      animate={{ ...gridWrapperMotionProps.animate, scale: 1 }}
-      exit={{ ...gridWrapperMotionProps.initial, scale: 0.95 }}
-      transition={{ ...gridWrapperMotionProps.transition, duration: 0.4 }}
+      initial={gridInitial}
+      animate={gridAnimate}
+      exit={gridExit}
+      transition={gridTransition}
     >
       <PhotoProvider>
         {memoizedImages.map((image, index) => (
