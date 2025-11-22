@@ -31,7 +31,7 @@ const projects = [
         description: "A DAO discovery platform, Product Hunt #4 Product of the Week.",
         icons: [
             { src: productOfTheWeek, alt: "Product of the Week", width: 60, height: 20 },
-            { src: "/newsletter icon/product-hunt-logo-orange-240.jpg", alt: "Product Hunt", width: 25, height: 25 }
+            { src: "/newsletter icon/product-hunt-logo-orange-240.jpg", alt: "Product Hunt", width: 20, height: 20 }
         ],
         video: {
             webm: "/bulitVidoes/daosspot.mp4",
@@ -55,7 +55,7 @@ const projects = [
         description: "A place to listni to music and increass awwearnce about the DAO",
         icons: [
             { src: productHunt5, alt: "Top 5 Product of the Day", width: 60, height: 20 },
-            { src: "/newsletter icon/product-hunt-logo-orange-240.jpg", alt: "Product Hunt", width: 25, height: 25 }
+            { src: "/newsletter icon/product-hunt-logo-orange-240.jpg", alt: "Product Hunt", width: 20, height: 20 }
         ],
         video: {
             webm: "/bulitVidoes/devfm.mp4",
@@ -142,7 +142,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                                             {project.icons && project.icons.length > 0 && (
                                                 <motion.span className="flex items-center gap-1 ml-2">
                                                     {project.icons.map((icon, i) => (
-                                                        <span key={i} className="inline-block" style={{ width: `${icon.width}px`, height: `${icon.height}px` }}>
+                                                        <span key={i} className="inline-block ml-1" style={{ width: `${icon.width}px`, height: `${icon.height}px` }}>
                                                             <Image
                                                                 src={icon.src}
                                                                 alt={icon.alt}
