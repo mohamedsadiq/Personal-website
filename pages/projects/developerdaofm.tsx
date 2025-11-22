@@ -214,7 +214,7 @@ const DeveloperDAO: React.FC = () => {
             />
 
             <AnimatedSection delay={0.25}>
-              <h2 className="text-slate-950 mt-6">Project Overview</h2>
+              <h2 className="text-slate-950 mt-6 dark:text-white">Project Overview</h2>
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
                 <ExternalLink
                   href="https://developer-dao-fm.vercel.app/"
@@ -354,7 +354,7 @@ const DeveloperDAO: React.FC = () => {
 
             <AnimatedSection delay={0.65}>
               <h1 className="mt-12">Product Hunt's Comments</h1>
-              <p className="mt-4">
+              <p className="mt-4 mb-4">
                 The project was featured on Product Hunt, receiving positive feedback from the community.
               </p>
             </AnimatedSection>

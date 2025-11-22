@@ -246,7 +246,7 @@ const DeveloperDAO: FC = () => {
         
         <AnimatedSection delay={0.6}>
           <h2 className='text-slate-950 mt-6 text-black mb-2  dark:text-white'>Reflections</h2>
-          <p className='text-[#616161]'>
+          <p className='text-[#616161] dark:text-[#e1e1e1]'>
             Working on the Developer DAO website was a rewarding experience. It allowed me to combine my passion for web3 with my design and development skills. The collaborative nature of the DAO meant that I was constantly learning and iterating, which pushed me to grow as a designer.
             <br/>
             The project reinforced the importance of clear communication and a shared vision in a decentralized environment. It also highlighted the power of community-driven development, where diverse perspectives come together to create something truly impactful.
