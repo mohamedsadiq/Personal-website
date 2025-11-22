@@ -46,7 +46,7 @@ const ProjectNavigation = () => {
             </svg>
             <div className="flex flex-col overflow-hidden">
               <span className="text-xs text-[#ababab] dark:text-gray-400 mb-0.5">Previous Project</span>
-              <span className="truncate text-sm sm:text-base font-medium">{prevProject.title}</span>
+              <span className="truncate text-sm sm:text-base text-[#646363] hover:text-[#000] dark:hover:text-[#fff]">{prevProject.title}</span>
             </div>
           </Link>
         )}
@@ -59,7 +59,7 @@ const ProjectNavigation = () => {
           >
             <div className="flex flex-col items-end md:items-start">
               <span className="text-xs text-[#ababab] dark:text-gray-400 mb-0.5">Next Project</span>
-              <span className="truncate text-sm sm:text-base font-medium">{nextProject.title}</span>
+              <span className="truncate text-sm sm:text-base text-[#646363] hover:text-[#000] dark:hover:text-[#fff]">{nextProject.title}</span>
             </div>
             <svg
               className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform flex-shrink-0"

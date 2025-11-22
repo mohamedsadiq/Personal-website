@@ -67,6 +67,29 @@ export default function GameUi() {
   const [hoveredIndex, setHoveredIndex] = useState(null); // State to track hovered button
   const [cursorStyle, setCursorStyle] = useState("grab"); // State for cursor style
   const [isSpinning, setIsSpinning] = useState(true); // State to control spinning
+  const modelMotionVariants = {
+    initial: { opacity: 0, y: 160, filter: "blur(10px)" },
+    animate: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        // opacity: { duration: 0.9 },
+        y: { duration: 0.55, type: "spring", stiffness: 160, damping: 30 },
+        filter: { duration: 0.2 }
+      }
+    },
+    exit: {
+      opacity: 0,
+      y: 300,
+      filter: "blur(10px)",
+      transition: {
+        // opacity: { duration: 0.4 },
+        y: { duration: 0.55, ease: "easeInOut" },
+        filter: { duration: 0.2 }
+      }
+    }
+  };
 
   // Function to handle drag end
   const handleDragEnd = () => {
@@ -102,7 +125,7 @@ export default function GameUi() {
             {/* <span className="text-xs text-stone-500"> Published Jul 2024</span> */}
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
-            <p className="mt-0 text-base text-[#616161] mb-4 text-[#929292]">
+            <p className="mt-0 text-base text-[#616161] mb-4  dark:text-[#616161]">
               This interactive demo showcases a collection of 3D models brought to life using <span className="spark_tools">React</span>, <span className="spark_tools">Three.js</span>, <span className="spark_tools">React Three Fiber</span>. <span className="spark_tools">Framer Motion</span>, the interface provides a seamless experience through smooth animations and state transitions.
             </p>
           </AnimatedSection>
@@ -110,7 +133,7 @@ export default function GameUi() {
             <div className="expBorder">
               <AnimatedSection delay={0.3} className="w-full">
                 <div className="exp exp3d remove-buttom-borders" style={{ display: "flex", justifyContent: "space-around", alignItems: "center", height: "500px", background: "#000", border: "none" }}>
-                  <AnimatePresence exitBeforeEnter>
+                  <AnimatePresence mode="wait">
                     <motion.div
                       drag
                       dragElastic={0.2}
@@ -119,19 +142,10 @@ export default function GameUi() {
                       dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
                       dragSnapToOrigin
                       key={models[modelIndex].name}
-                      initial={{ opacity: 0, top: "300px", position: "relative", filter: "blur(10px)" }}
-                      animate={{
-                        opacity: 1,
-                        top: 0,
-                        position: "relative",
-                        filter: "blur(0)",
-                        transition: {
-                          opacity: { duration: 0.1 },
-                          top: { duration: 0.5, type: "spring", stiffness: 100, damping: 25 },
-                          filter: { duration: 0.1 },
-                        },
-                      }}
-                      exit={{ opacity: 0, top: "300px", position: "relative", filter: "blur(10px)" }}
+                      variants={modelMotionVariants}
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
                       whileHover={{
                         scale: 1.2,
                         transition: { duration: 1 },

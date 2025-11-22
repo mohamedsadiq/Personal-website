@@ -521,17 +521,15 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                                 content: 'With No funding'
                               },
                               {
+                                title: 'Downloads',
+                                content: '600 install ,138 active users (No marketing budget)'
+                              },
+                              {
                                 title: 'Timeline',
-                                content: 'Dec 2024 - Present'
+                                content: '8 / 25 - Present'
                               }
                             ]}
-                            links={[
-                           { label: 'Chrome Store', url: 'https://chromewebstore.google.com/detail/lightup-ai-powered-web-an/pncapgeoeedlfppkohlbelelkkihikel' },
-                              { label: 'GitHub ', url: 'https://github.com/mohamedsadiq/LightUp' },
-                            
-                            //   { label: 'Peerlist', url: 'https://peerlist.io/sadiqo/project/lightup' },
-                            //   { label: 'Saashub', url: 'https://www.saashub.com/best-data-annotation-software/c/ai' },
-                            ]}
+                           
                             linksTitle="Links"
                           />
                         </AnimatedSection>
