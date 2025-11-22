@@ -52,7 +52,7 @@ const SparksNav: React.FC<SparksNavigationProps> = ({ currentPath }) => {
             </svg>
             <div className="flex flex-col overflow-hidden">
               <span className="text-xs text-[#ababab] dark:text-gray-400 mb-0.5">Previous Spark</span>
-              <span className="truncate text-sm sm:text-base font-medium">{prevSpark.title}</span>
+              <span className="truncate text-sm sm:text-base text-[#646363] hover:text-[#000] dark:hover:text-[#fff]">{prevSpark.title}</span>
             </div>
           </Link>
         )}
@@ -65,7 +65,7 @@ const SparksNav: React.FC<SparksNavigationProps> = ({ currentPath }) => {
           >
             <div className="flex flex-col items-end md:items-start">
               <span className="text-xs text-[#ababab] dark:text-gray-400 mb-0.5">Next Spark</span>
-              <span className="truncate text-sm sm:text-base font-medium">{nextSpark.title}</span>
+              <span className="truncate text-sm sm:text-base text-[#646363] hover:text-[#000] dark:hover:text-[#fff]">{nextSpark.title}</span>
             </div>
             <svg 
               className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform flex-shrink-0" 
