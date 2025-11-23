@@ -522,11 +522,11 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                               },
                               {
                                 title: 'Downloads',
-                                content: '600 install ,138 active users (No marketing budget)'
+                                content: '668 install - 252 active users - No marketing budget'
                               },
                               {
                                 title: 'Timeline',
-                                content: '8 / 25 - Present'
+                                content: '4 Dec 2024 - Present'
                               }
                             ]}
                            
