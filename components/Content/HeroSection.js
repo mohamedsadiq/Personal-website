@@ -93,7 +93,7 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
           </span>, but the goal stays the same: make products that are smooth, sturdy, and a little emotional.
 
         </p>
-        <button
+        {/* <button
           type="button"
           className="text-left text-sm mt-2 text-black relative z-10 block hover:text-neutral-600 focus-visible:outline-none"
           aria-label="Show more information about Moe"
@@ -117,7 +117,7 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
           >
             More info
           </motion.span>
-        </button>
+        </button> */}
       </div>
       </motion.div>
       {isClient &&
