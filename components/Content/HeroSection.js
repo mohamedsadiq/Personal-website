@@ -1,32 +1,13 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { GlassCard } from "@developer-hub/liquid-glass";
 
 const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
   const [isBoiHovered, setIsBoiHovered] = useState(false);
   const [hoveredId, setHoveredId] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isClient, setIsClient] = useState(false);
-  const personalImages = [
-    {
-      id: 1,
-      src: "/img/developerdao/42f3.png",
-      alt: "Sketching new interface concepts",
-      stackClasses: "z-30 sm:ml-0",
-    },
-    {
-      id: 2,
-      src: "/img/developerdao/4343.png",
-      alt: "Weekend hike capturing textures",
-      stackClasses: "z-20 -mt-6 sm:-ml-16 sm:mt-0",
-    },
-    {
-      id: 3,
-      src: "/img/developerdao/44.png",
-      alt: "Studio desk packed with gadgets",
-      stackClasses: "z-10 -mt-6 sm:-ml-16 sm:mt-0",
-    },
-  ];
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
   const handleModalKeyDown = (event) => {
@@ -93,7 +74,7 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
           </span>, but the goal stays the same: make products that are smooth, sturdy, and a little emotional.
 
         </p>
-        {/* <button
+        <button
           type="button"
           className="text-left text-sm mt-2 text-black relative z-10 block hover:text-neutral-600 focus-visible:outline-none"
           aria-label="Show more information about Moe"
@@ -117,7 +98,7 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
           >
             More info
           </motion.span>
-        </button> */}
+        </button>
       </div>
       </motion.div>
       {isClient &&
@@ -125,10 +106,11 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
           <AnimatePresence>
             {isModalOpen && (
               <motion.div
-                className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4 py-10 backdrop-blur"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-50 flex items-end justify-center px-4 pb-12"
+                initial={{ opacity: 0, y:10 }}
+                animate={{ opacity: 1, y:0 }}
+                exit={{ opacity: 0, y:10 }}
+                transition={{ duration: 0.2 }}
               >
                 <button
                   type="button"
@@ -140,55 +122,53 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
                   role="dialog"
                   aria-modal="true"
                   aria-labelledby="about-moe-heading"
-                  className="relative z-10 w-full max-w-2xl rounded-3xl bg-white/95 p-6 text-[#000] shadow-2xl outline outline-1 outline-black/5 dark:bg-neutral-900/95 dark:text-[#d5d5d5]"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
+                  className="relative z-10 w-full max-w-md mb-5 overflow-hidden"
+                  initial={{ opacity: 1, scale: 1, y: 0, height: 0 }}
+                  animate={{ opacity: 1, scale: 1, y: 0, height: "auto" }}
+                  exit={{ opacity: 1, scale: 1, y: 0, height: 0 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 >
-                  <button
-                    type="button"
-                    className="absolute right-4 top-4 rounded-full bg-black/5 px-3 py-1 text-xs font-medium uppercase tracking-wide text-black transition hover:bg-black/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
-                    aria-label="Close more info dialog"
-                    onClick={handleCloseModal}
-                  >
-                    Close
-                  </button>
-                  <div className="flex flex-col gap-5">
-                    <div className="flex justify-center sm:justify-start">
-                      <div className="flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border border-black/5 bg-white shadow-lg dark:border-white/10 dark:bg-neutral-800">
-                        <img
-                          src="/img/developerdao/fasdfasd.jpeg"
-                          alt="Moe smiling in front of a sunlit window"
-                          className="h-full w-full object-cover"
-                        />
-                      </div>
-                    </div>
-                    <div className="text-center sm:text-left">
-                      <p className="text-xs uppercase tracking-[0.3em] text-neutral-500 dark:text-neutral-400">
-                        Designer • Engineer • Storyteller
-                      </p>
-                      <h2 id="about-moe-heading" className="mt-1 text-3xl font-semibold">
-                        Moe Sadiq
-                      </h2>
-                      <p className="mt-3 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
-                        I’m obsessed with crafting interfaces that feel tactile and grounded. When I am not tweaking
-                        motion curves or building AI copilots, I am chasing light with my camera, painting textures,
-                        and collecting spices that remind me of home. Those quiet rituals keep every product I ship
-                        honest, warm, and deeply personal.
-                      </p>
-                    </div>
-                    <div className="mt-4 flex flex-col items-center gap-5 sm:flex-row sm:items-start">
-                      {personalImages.map((imageCard, index) => (
-                        <figure
-                          key={imageCard.id}
-                          className={`relative w-full max-w-[220px] flex-shrink-0 overflow-hidden rounded-2xl border border-black/5 bg-white shadow-xl transition hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-neutral-800 ${imageCard.stackClasses}`}
-                          style={{ marginLeft: index === 0 ? 0 : undefined }}
+                  <div className="rounded-[35px]" style={{ borderRadius: '35px' }}>
+                    <GlassCard
+                    displacementScale={150}
+                    blurAmount={0.1}
+                      className="about w-full min-h-[320px] p-8 text-center flex"
+                      style={{ borderRadius: '35px' }}
+                    >
+                      <div className="relative rounded-[35px] flex-1" style={{ borderRadius: '35px' }}>
+                        <button
+                          type="button"
+                          className="absolute right-0 top-0 text-black/50 hover:text-black dark:text-white/50 dark:hover:text-white transition-colors"
+                          aria-label="Close more info dialog"
+                          onClick={handleCloseModal}
                         >
-                          <img src={imageCard.src} alt={imageCard.alt} className="h-40 w-full object-cover" />
-                          <figcaption className="sr-only">{imageCard.alt}</figcaption>
-                        </figure>
-                      ))}
-                    </div>
+                          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"/>
+                          </svg>
+                        </button>
+                        
+                        <div className="space-y-4 pt-2">
+                          <h2 id="about-moe-heading" className="text-2xl font-light text-black dark:text-white">
+                            Moe Sadiq
+                          </h2>
+                          <p className="text-sm leading-relaxed text-black/70 dark:text-white/70 text-left">
+                           I’m a curious person who can’t help acting on the questions tugging at me—obsessed with anything interesting and intent on contributing to remarkable stories. I want to be part of something deeply compelling, and in my free time I hit the gym, watch movies, read, dive into games that spark new ideas, and build the things those sparks turn into.
+                          </p>
+                          <div className="pt-2 space-y-3">
+                            {/* <p className="text-xs text-black/50 dark:text-white/50">
+                              Currently exploring motion curves, AI copilots, and collecting spices that remind me of home.
+                            </p> */}
+                            <a
+                              href="mailto:hey@mosadiq.com"
+                              className="inline-flex items-center justify-center rounded-full bg-black px-5 py-2 text-sm font-medium text-white transition hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:bg-white dark:text-black dark:hover:bg-white/80 dark:focus-visible:outline-white"
+                              aria-label="Mail Moe"
+                            >
+                              Mail me
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </GlassCard>
                   </div>
                 </motion.section>
               </motion.div>

@@ -41,6 +41,9 @@ import teacherTestimonial from '../public/lightup/GoRtowjWEAA3JP1.jpeg'
 import peerlistProjectDay from '../public/lightup/1748282477575.jpeg'
 import peerlistLeaderboard from '../public/lightup/launchpad-leaderboard-sadiqo.png'
 import peerlistPage from '../public/lightup/lightuponpeerlist.png'
+import lightupLogo from '../public/lightup/logo.png'
+import brandPalette from '../public/lightup/ebe607a8-f6f8-47d2-a8f5-a80ac36606da_2880x2160.png'
+import brandPosters from '../public/lightup/d213566b-7ade-4640-92d5-a2273b2affc5_2880x2160.webp'
 
 export const projectContent: ProjectContent = {
     title: "LightUp",
@@ -81,6 +84,47 @@ This exact frustration was the starting point. I was inspired by the simple, ele
                 }
             ],
             markdownSlug: "problem-to-solve",
+        },
+        {
+            title: "Picking the name & the brand development.",
+            content: '',
+            image: true,
+            media: [
+                {
+                    type: 'image',
+                    src: lightupLogo,
+                    alt: 'LightUp logomark exploration',
+                    caption: 'Final spark-inspired logomark'
+                },
+                {
+                    type: 'image',
+                    src: brandPalette,
+                    alt: 'LightUp brand palette study',
+                    caption: 'Palette + typography balance tests'
+                },
+                {
+                    type: 'image',
+                    src: brandPosters,
+                    alt: 'LightUp brand applications',
+                    caption: 'Extending the identity to launch assets'
+                }
+            ],
+            markdownSlug: 'naming-and-brand'
+        },
+        {
+            title: "UI choreography & interaction moments.",
+            content: '',
+            gallery: true,
+            media: [
+                { type: 'video', src: '/lightup/vidoes/2.mp4', caption: 'Toolbar reveal + explain primary flow' },
+                { type: 'video', src: '/lightup/vidoes/3.mp4', caption: 'Inline popup adapting to selection size' },
+                { type: 'video', src: '/lightup/vidoes/4.mp4', caption: 'Ask anything panel for follow-up questions' },
+                { type: 'video', src: '/lightup/vidoes/5.mp4', caption: 'Summaries rendered inline without blocking text' },
+                { type: 'video', src: '/lightup/vidoes/6.mp4', caption: 'Shortcut-driven usage for power readers' },
+                { type: 'video', src: '/lightup/vidoes/7.mp4', caption: 'Dark mode interactions staying subtle' },
+                { type: 'video', src: '/lightup/vidoes/8.mp4', caption: 'Mobile-friendly hover states translated to tap' }
+            ],
+            markdownSlug: 'ui-interactions'
         },
         {
             title: "From idea to shape — the design and interaction",
