@@ -50,7 +50,7 @@ const projects = [
         isVideo: true
     },
     { 
-        href: "sparks/scrolling", 
+        href: "sparks/scroll", 
         title: "Scrolling",
         date: "Jul / 2024",
         image: "/videos/scrolling-preview.png",

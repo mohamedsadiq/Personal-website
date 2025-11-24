@@ -66,7 +66,7 @@ export default function FamilyTransactions() {
           <AnimatedSection delay={0.25} className="w-full">
             <div className="expBorder">
               <div className="exp" style={{ height: "400px" }}>
-                <div className="rainy"></div>
+                {/* <div className="rainy"></div> */}
                 <div className="dotsForScrolling">
                   <div className="dot activeDot"></div>
                   <div className="dot"></div>

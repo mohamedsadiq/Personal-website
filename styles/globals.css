@@ -5519,6 +5519,13 @@ width: 174px;
    opacity: 0;
  }
 
+.about .glass{
+padding: 30px !important;
+box-shadow: rgb(0 0 0 / 13%) 0px 12px 26px !important;
+}
+.about .glass p{
+text-shadow:none
+}
  .storm-visible .storm {
    opacity: 1;
  }
@@ -5529,7 +5536,7 @@ width: 174px;
 
  .dotsForScrolling {
    position: relative;
-   right: -433px;
+   right: -482px;
    z-index: 1000;
    top: 48%;
    transform: translate(-50%, -26%);
