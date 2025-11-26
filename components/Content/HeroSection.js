@@ -86,7 +86,7 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
           >
             {" "}Building on imagination.  
           </a>
-          {" "} <br/>I love working on frontier tech and aim to contribute among people who actively shape civilization.
+          {" "} <br/>I love working on frontier tech and aim to contribute alongside people who actively shape civilization.
         </p>
         <button
           type="button"
