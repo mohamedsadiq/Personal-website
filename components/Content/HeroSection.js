@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import Link from "next/link";
 import { GlassCard } from "@developer-hub/liquid-glass";
 
 const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
@@ -58,7 +59,22 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
       </div>
       <div className="relative">
         <p className="text-sm leading-7 text-[#000] dark:text-[#d5d5d5]">
-          I’m Moe—a designer‑engineer who builds things that feel like they belonged all along.
+          I’m Moe—a designer‑engineer who acts on his curiosity. I created
+          {" "}
+          <Link
+            href="/projects/lightup"
+            className="underline decoration-dotted underline-offset-2 text-black dark:text-[#d5d5d5] hover:text-neutral-600 dark:hover:text-[#eee]"
+          >
+            LightUp
+          </Link>
+          {", previously founded "}
+          <Link
+            href="/projects/daosspot"
+            className="underline decoration-dotted underline-offset-2 text-black dark:text-[#d5d5d5] hover:text-neutral-600 dark:hover:text-[#eee]"
+          >
+            DAOs Spot
+          </Link>
+          {", and I’m behind"}
           {" "}
           <a
             className="dark:text-[#d5d5d5] text-black hover:text-neutral-600 dark:hover:text-[#eee] underline decoration-dotted relative z-10"
@@ -68,15 +84,13 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
             onMouseEnter={() => setIsBoiHovered(true)}
             onMouseLeave={() => setIsBoiHovered(false)}
           >
-            {" "}BOI
-          </a> started that way. I explore <span className="web3">
-            web3 and AI<span id="animation_web3"></span>
-          </span>, but the goal stays the same: make products that are smooth, sturdy, and a little emotional.
-
+            {" "}Building on imagination.  
+          </a>
+          {" "} <br/>I love working on frontier tech and aim to contribute among people who actively shape civilization.
         </p>
         <button
           type="button"
-          className="text-left text-sm mt-2 text-black relative z-10 block hover:text-neutral-600 focus-visible:outline-none"
+          className="text-left text-sm mt-5 text-black relative z-10 block hover:text-neutral-600 focus-visible:outline-none"
           aria-label="Show more information about Moe"
           onClick={handleOpenModal}
           onMouseEnter={() => setHoveredId("about")}
@@ -96,8 +110,9 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
             }}
             transition={{ duration: 0.2 }}
           >
-            More info
+            More info 
           </motion.span>
+       
         </button>
       </div>
       </motion.div>
