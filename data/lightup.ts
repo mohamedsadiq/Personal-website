@@ -85,7 +85,7 @@ This exact frustration was the starting point. I was inspired by the simple, ele
             ],
             markdownSlug: "problem-to-solve",
         },
-        {
+        /* {
             title: "Picking the name & the brand development.",
             content: '',
             image: true,
@@ -110,8 +110,8 @@ This exact frustration was the starting point. I was inspired by the simple, ele
                 }
             ],
             markdownSlug: 'naming-and-brand'
-        },
-        {
+        }, */
+        /* {
             title: "UI choreography & interaction moments.",
             content: '',
             gallery: true,
@@ -125,7 +125,7 @@ This exact frustration was the starting point. I was inspired by the simple, ele
                 { type: 'video', src: '/lightup/vidoes/8.mp4', caption: 'Mobile-friendly hover states translated to tap' }
             ],
             markdownSlug: 'ui-interactions'
-        },
+        }, */
         {
             title: "From idea to shape — the design and interaction",
             content: "I kept the UI deliberately small and modest. LightUp sits as a toolbar icon; you highlight text and a compact popup appears with clear options: Explain, Summarize, Translate, Analyze, or an open 'Ask anything' flow. Keyboard shortcuts make the experience fluid for power users. The goal was to make discovery feel like margin notes coming alive—quick, contextual, and reversible.",
