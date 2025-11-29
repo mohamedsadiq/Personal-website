@@ -167,7 +167,7 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
                             Moe Sadiq
                           </h2>
                           <p className="text-sm leading-relaxed text-black/70 dark:text-white/70 text-left">
-                           I’m a curious person who can’t help acting on the questions tugging at me—obsessed with anything interesting and intent on contributing to remarkable stories. I want to be part of something deeply compelling, and in my free time I hit the gym, watch movies, read, dive into games that spark new ideas, and build the things those sparks turn into.
+                           After two years studying mechanical engineering, I committed to the maker’s path. I’m a curious person who can’t help acting on the questions tugging at me—obsessed with anything interesting and intent on contributing to remarkable stories. I want to be part of something deeply compelling, and in my free time I hit the gym, watch movies, read, dive into games that spark new ideas, and build the things those sparks turn into.
                           </p>
                           <div className="pt-2 space-y-3">
                             {/* <p className="text-xs text-black/50 dark:text-white/50">
