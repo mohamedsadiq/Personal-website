@@ -4,18 +4,41 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
 import { GlassCard } from "@developer-hub/liquid-glass";
+import { PhotoViewerOverlay } from "../PhotoViewerOverlay";
 
 const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
   const [isBoiHovered, setIsBoiHovered] = useState(false);
   const [hoveredId, setHoveredId] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const [activePhoto, setActivePhoto] = useState(null);
   const handleOpenModal = () => setIsModalOpen(true);
-  const handleCloseModal = () => setIsModalOpen(false);
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    handleCloseDeskPhoto();
+  };
   const handleModalKeyDown = (event) => {
     if (event.key === "Escape") {
       handleCloseModal();
     }
+  };
+  const handleOpenDeskPhoto = () => {
+    setActivePhoto({
+      id: "about-desk-photo",
+      src: "/0b69f17359124e4880cb6631e307f7df.jpg",
+      alt: "Ambient desk setup highlighting Moe's workspace inspirations",
+      caption: "A glimpse of my desk setup where I collect inspiration and sketch new ideas.",
+      aspectRatio: 756 / 1008,
+    });
+  };
+  const handleCloseDeskPhoto = () => setActivePhoto(null);
+  const handleDeskPhotoKeyDown = (event) => {
+    if (event.key !== "Enter" && event.key !== " ") {
+      return;
+    }
+
+    event.preventDefault();
+    handleOpenDeskPhoto();
   };
   useEffect(() => {
     setIsClient(true);
@@ -170,19 +193,27 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
                           <p className="text-sm leading-relaxed text-black/70 dark:text-white/70 text-left">
                            After two years studying mechanical engineering, I committed to the maker’s path. I’m a curious person who can’t help acting on the questions tugging at me—obsessed with anything interesting and intent on contributing to remarkable stories. I want to be part of something deeply compelling, and in my free time I hit the gym, watch movies, read, dive into games that spark new ideas, and build the things those sparks turn into.
                           </p>
-                          <div className="rounded-2xl border border-black/5 dark:border-white/10 overflow-hidden">
-                            <Image
-                              src="/0b69f17359124e4880cb6631e307f7df.jpg"
-                              alt="Ambient desk setup highlighting Moe's workspace inspirations"
-                              width={1008}
-                              height={756}
-                              className="h-56 w-full object-cover"
-                              priority={false}
-                            />
-                            <p className="px-3 py-2 text-xs text-black/60 dark:text-white/60 text-center bg-black/5 dark:bg-white/5">
-                              A glimpse of my desk setup where I collect inspiration and sketch new ideas.
-                            </p>
-                          </div>
+                          <button
+                            type="button"
+                            className="w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:focus-visible:outline-white"
+                            onClick={handleOpenDeskPhoto}
+                            onKeyDown={handleDeskPhotoKeyDown}
+                            aria-label="Expand desk setup inspiration photo"
+                          >
+                            <div className="rounded-2xl border border-black/5 dark:border-white/10 overflow-hidden">
+                              <Image
+                                src="/0b69f17359124e4880cb6631e307f7df.jpg"
+                                alt="Ambient desk setup highlighting Moe's workspace inspirations"
+                                width={1008}
+                                height={756}
+                                className="h-56 w-full object-cover"
+                                priority={false}
+                              />
+                              <p className="px-3 py-2 text-xs text-black/60 dark:text-white/60 text-center bg-black/5 dark:bg-white/5">
+                                A glimpse of my desk setup where I collect inspiration and sketch new ideas.
+                              </p>
+                            </div>
+                          </button>
                           <div className=" space-y-3">
                             {/* <p className="text-xs text-black/50 dark:text-white/50">
                               Currently exploring motion curves, AI copilots, and collecting spices that remind me of home.
@@ -205,6 +236,13 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
           </AnimatePresence>,
           document.body
         )}
+      {activePhoto && (
+        <PhotoViewerOverlay
+          photo={activePhoto}
+          onClose={handleCloseDeskPhoto}
+          zIndex={70}
+        />
+      )}
     </>
   );
 };
