@@ -14,6 +14,7 @@ export type PhotoPreview = {
 type PhotoViewerOverlayProps = {
   photo: PhotoPreview | null
   onClose: () => void
+  zIndex?: number
 }
 
 const useViewportSize = (isActive: boolean) => {
@@ -41,7 +42,7 @@ const useViewportSize = (isActive: boolean) => {
   return size
 }
 
-export const PhotoViewerOverlay: React.FC<PhotoViewerOverlayProps> = ({ photo, onClose }) => {
+export const PhotoViewerOverlay: React.FC<PhotoViewerOverlayProps> = ({ photo, onClose, zIndex = 50 }) => {
   const viewportSize = useViewportSize(!!photo)
   const [intrinsicDimensions, setIntrinsicDimensions] = useState<{ width: number; height: number } | null>(null)
 
@@ -105,7 +106,7 @@ export const PhotoViewerOverlay: React.FC<PhotoViewerOverlayProps> = ({ photo, o
       {photo && (
         <div
           className="fixed inset-0 flex items-center justify-center px-4"
-          style={{ zIndex: 50 }}
+          style={{ zIndex }}
           role="dialog"
           aria-modal="true"
           aria-label="Expanded project photo"
@@ -120,7 +121,7 @@ export const PhotoViewerOverlay: React.FC<PhotoViewerOverlayProps> = ({ photo, o
           />
           <motion.figure
             className="relative pointer-events-auto"
-            style={{ zIndex: 51 }}
+            style={{ zIndex: zIndex + 1 }}
             onClick={(event) => event.stopPropagation()}
             layout="position"
             transition={{ type: 'spring', stiffness: 140, damping: 22, mass: 0.85 }}
@@ -130,7 +131,7 @@ export const PhotoViewerOverlay: React.FC<PhotoViewerOverlayProps> = ({ photo, o
               animate={{ opacity: 1,scale: 1,  }}
                exit={{ opacity: 0,  scale: 0.5, }}
                 transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className="glass-circle absolute right-2 top-2 h-10 w-10 z-[60]">
+            className="glass-circle absolute right-2 top-2 h-10 w-10">
               <GlassCard
                 className="h-10 w-10 !p-0 flex items-center justify-center"
                 style={{ borderRadius: '50%' }}
@@ -142,7 +143,7 @@ export const PhotoViewerOverlay: React.FC<PhotoViewerOverlayProps> = ({ photo, o
                   <motion.button
                     type="button"
                     className="relative h-full w-full flex items-center justify-center text-black text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded-full"
-                    style={{ zIndex: 52 }}
+                    style={{ zIndex: zIndex + 2 }}
                     onClick={onClose}
                     aria-label="Close photo viewer"
                     initial={{ scale: 0.9 }}
@@ -162,7 +163,7 @@ export const PhotoViewerOverlay: React.FC<PhotoViewerOverlayProps> = ({ photo, o
               style={{
                 width: viewerDimensions?.width || 900,
                 height: viewerDimensions?.height || 600,
-                zIndex: 51,
+                zIndex: zIndex + 1,
               }}
               transition={{ type: 'spring', stiffness: 150, damping: 20, mass: 0.8 }}
             >
