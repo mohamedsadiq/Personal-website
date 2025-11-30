@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
+import Image from "next/image";
 import { GlassCard } from "@developer-hub/liquid-glass";
 
 const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
@@ -153,7 +154,7 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
                       <div className="relative rounded-[35px] flex-1" style={{ borderRadius: '35px' }}>
                         <button
                           type="button"
-                          className="absolute right-0 top-0 text-black/50 hover:text-black dark:text-white/50 dark:hover:text-white transition-colors"
+                          className="absolute right-0 -top-4 text-black/50 hover:text-black dark:text-white/50 dark:hover:text-white transition-colors"
                           aria-label="Close more info dialog"
                           onClick={handleCloseModal}
                         >
@@ -163,13 +164,26 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
                         </button>
                         
                         <div className="space-y-4 pt-2">
-                          <h2 id="about-moe-heading" className="text-2xl font-light text-black dark:text-white">
+                          {/* <h2 id="about-moe-heading" className="text-2xl font-light text-black dark:text-white">
                             Moe Sadiq
-                          </h2>
+                          </h2> */}
                           <p className="text-sm leading-relaxed text-black/70 dark:text-white/70 text-left">
                            After two years studying mechanical engineering, I committed to the maker’s path. I’m a curious person who can’t help acting on the questions tugging at me—obsessed with anything interesting and intent on contributing to remarkable stories. I want to be part of something deeply compelling, and in my free time I hit the gym, watch movies, read, dive into games that spark new ideas, and build the things those sparks turn into.
                           </p>
-                          <div className="pt-2 space-y-3">
+                          <div className="rounded-2xl border border-black/5 dark:border-white/10 overflow-hidden">
+                            <Image
+                              src="/0b69f17359124e4880cb6631e307f7df.jpg"
+                              alt="Ambient desk setup highlighting Moe's workspace inspirations"
+                              width={1008}
+                              height={756}
+                              className="h-56 w-full object-cover"
+                              priority={false}
+                            />
+                            <p className="px-3 py-2 text-xs text-black/60 dark:text-white/60 text-center bg-black/5 dark:bg-white/5">
+                              A glimpse of my desk setup where I collect inspiration and sketch new ideas.
+                            </p>
+                          </div>
+                          <div className=" space-y-3">
                             {/* <p className="text-xs text-black/50 dark:text-white/50">
                               Currently exploring motion curves, AI copilots, and collecting spices that remind me of home.
                             </p> */}
