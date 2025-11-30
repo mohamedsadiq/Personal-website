@@ -191,7 +191,7 @@ const Section1 = ({ MohamedSadiq, motionCtl, order }) => {
                             Moe Sadiq
                           </h2> */}
                           <p className="text-sm leading-relaxed text-black/70 dark:text-white/70 text-left">
-                           I spent two years studying mechanical engineering before committing fully to making. I’m wired for curiosity—obsessed with turning questions into projects that matter—and drawn to deeply compelling work. When I’m not creating, you’ll find me lifting, reading, watching films, diving into games that spark new ideas, and building the things those sparks become.
+                          I was that kid who topped engineering high school for three years straight, then did mechanical engineering for two before realizing I just wanted to build stuff. I’m wired for curiosity—obsessed with turning questions into projects that matter—and drawn to deeply compelling work. When I’m not creating, you’ll find me lifting, reading, watching films, diving into games that spark new ideas, and building the things those sparks become.
                           </p>
                           <button
                             type="button"
