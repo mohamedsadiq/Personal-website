@@ -17,7 +17,7 @@ export const HeroIdentityPanel = ({
         {location && <p>{location}</p>}
         {clockLabel && (
           <p
-            aria-label={`Current Cairo time ${clockLabel} ${timezoneLabel ?? "UTC"}`}
+            aria-label={`Current Mediterranean time ${clockLabel} ${timezoneLabel ?? "UTC"}`}
             className="mt-0.5"
           >
             {clockLabel}

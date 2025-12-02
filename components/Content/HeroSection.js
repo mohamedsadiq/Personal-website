@@ -30,9 +30,10 @@ const profilePhotos = [
   },
 ];
 
-const cairoTimeFormatter = new Intl.DateTimeFormat("en-GB", {
+const mediterraneanTimeFormatter = new Intl.DateTimeFormat("en-GB", {
   hour: "2-digit",
   minute: "2-digit",
+  second: "2-digit",
   hour12: true,
   timeZone: "Africa/Cairo",
 });
@@ -46,7 +47,7 @@ const Section1 = ({ MohamedSadiq, motionCtl, order, heroContent }) => {
     const portraitIndex = profilePhotos.findIndex((photo) => photo.id === "portrait");
     return portraitIndex >= 0 ? portraitIndex : 0;
   });
-  const [cairoClock, setCairoClock] = useState(() => cairoTimeFormatter.format(new Date()));
+  const [mediterraneanClock, setMediterraneanClock] = useState("");
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -111,11 +112,11 @@ const Section1 = ({ MohamedSadiq, motionCtl, order, heroContent }) => {
     }
 
     const handleTick = () => {
-      setCairoClock(cairoTimeFormatter.format(new Date()));
+      setMediterraneanClock(mediterraneanTimeFormatter.format(new Date()));
     };
 
     handleTick();
-    const intervalId = setInterval(handleTick, 60_000);
+    const intervalId = setInterval(handleTick, 1_000);
 
     return () => clearInterval(intervalId);
   }, [isClient]);
@@ -148,6 +149,8 @@ const Section1 = ({ MohamedSadiq, motionCtl, order, heroContent }) => {
       transition: { delay: 0.1 },
     };
 
+  const resolvedClockLabel = isClient && mediterraneanClock ? mediterraneanClock : null;
+
   return (
     <>
       <motion.div
@@ -157,7 +160,7 @@ const Section1 = ({ MohamedSadiq, motionCtl, order, heroContent }) => {
       <HeroIdentityPanel
         name={introFrontmatter.name ?? "Moe Sadiq"}
         location={introFrontmatter.location ?? "Mediterranean"}
-        clockLabel={cairoClock}
+        clockLabel={resolvedClockLabel}
         timezoneLabel={introFrontmatter.timezoneLabel ?? "UTC+2"}
       />
       <div className="relative">
