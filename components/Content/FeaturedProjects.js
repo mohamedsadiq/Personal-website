@@ -50,7 +50,7 @@ const projects = [
     },
     {
         id: 'developerdaoFM',
-        href: "/projects/web3boy",
+        href: "/projects/developerdaofm",
         title: "DeveloperDAO FM",
         description: "A place to listni to music and increass awwearnce about the DAO",
         icons: [
