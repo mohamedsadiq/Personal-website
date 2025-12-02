@@ -1,7 +1,8 @@
-import Head from 'next/head'
 import Image from 'next/image'
 import { FC } from 'react'
 import styles from '../../styles/Home.module.css'
+import SEO from '../../components/SEO'
+import { getProjectSchema, SITE_URL } from '../../lib/seo.config'
 import { AnimatedSection } from '../../components/AnimatedSection'
 import WorkIntro from '../../components/WorkIntro'
 import BackButton from '../../components/backButton'
@@ -106,11 +107,17 @@ const ProjectImage: FC<{
 const Web3Boy: FC = () => {
     return (
         <div className={styles.container}>
-            <Head>
-                <title>Web3 Lover Boy | Mohamed Sadiq</title>
-                <meta name="description" content="Web3 Lover Boy case study" />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <SEO
+                title="Web3 Lover Boy"
+                description="Web3 Lover Boy NFT Collection - A creative NFT project exploring Web3 aesthetics and digital art. Case study in product design and Solidity development."
+                path="/projects/web3boy"
+                customSchema={getProjectSchema({
+                  name: 'Web3 Lover Boy',
+                  description: 'A creative NFT project exploring Web3 aesthetics',
+                  url: `${SITE_URL}/projects/web3boy`,
+                  datePublished: '2022-01-01',
+                })}
+            />
             <main>
                 <div className="container">
                     <AnimatedSection delay={0.1}>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Head from "next/head";
+import SEO from "../../../components/SEO";
 import { motion, AnimatePresence } from "framer-motion";
 import BackButton from "../../../components/backButton";
 import { useRouter } from 'next/router';
@@ -98,23 +98,11 @@ export default function GameUi() {
 
   return (
     <>
-      <Head>
-        <title>3D Models Interactive Demo - Explore and Interact with 3D Models</title>
-        <meta name="description" content="Explore and interact with a collection of 3D models using React, Three.js, React Three Fiber, and Framer Motion. Experience smooth animations and state transitions in this interactive demo." />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="keywords" content="3D models, interactive demo, React, Three.js, React Three Fiber, Framer Motion, web development, 3D animation" />
-        <meta name="author" content="Mohamed Sadiq" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@mosadiq.com" />
-        <meta name="twitter:title" content="3D Models Interactive Demo - Explore and Interact with 3D Models" />
-        <meta name="twitter:description" content="Explore and interact with a collection of 3D models using React, Three.js, React Three Fiber, and Framer Motion. Experience smooth animations and state transitions in this interactive demo." />
-        <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />
-        <meta property="og:title" content="3D Models Interactive Demo - Explore and Interact with 3D Models" />
-        <meta property="og:description" content="Explore and interact with a collection of 3D models using React, Three.js, React Three Fiber, and Framer Motion. Experience smooth animations and state transitions in this interactive demo." />
-        <meta property="og:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />
-        <meta property="og:url" content="https://mosadiq.com/sparks/gameui" />
-        <meta property="og:type" content="website" />
-      </Head>
+      <SEO
+        title="3D Interactive Demo"
+        description="Explore and interact with a collection of 3D models using React, Three.js, React Three Fiber, and Framer Motion. Experience smooth animations and state transitions."
+        path="/sparks/gameui"
+      />
    
         <SparkContainer>
           <AnimatedSection delay={0.1}>

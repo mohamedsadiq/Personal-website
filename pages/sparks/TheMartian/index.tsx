@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import Head from "next/head";
+import SEO from "../../../components/SEO";
 import BackButton from "../../../components/backButton";
 import { KeyDisplay } from "../../../utilsSpark";
 import { CharacterControls } from "../../../characterControls";
@@ -153,18 +153,11 @@ const TheMartian: React.FC = () => {
 
   return (
     <>
-      <Head>
-        <title>The Martian - Interactive 3D Character Demo</title>
-        <meta name="description" content="Explore 'The Martian', an interactive 3D character demo using Three.js. Control and observe the behavior of a character in a 3D environment." />
-        <meta name="keywords" content="3D character demo, Three.js, interactive demo, 3D environment, character control, web development" />
-        <meta name="author" content="Your Name" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content="The Martian - Interactive 3D Character Demo" />
-        <meta property="og:description" content="Explore 'The Martian', an interactive 3D character demo using Three.js. Control and observe the behavior of a character in a 3D environment." />
-        <meta property="og:image" content="https://mosadiq.com/og-image.jpg" />
-        <meta property="og:url" content="https://mosadiq.com/sparks/themartian" />
-        <meta property="og:type" content="website" />
-      </Head>
+      <SEO
+        title="The Martian - Interactive 3D Character"
+        description="Explore 'The Martian', an interactive 3D character demo using Three.js. Control and observe the behavior of a character in a 3D environment."
+        path="/sparks/TheMartian"
+      />
      
         <SparkContainer>
           <AnimatedSection delay={0.1}>

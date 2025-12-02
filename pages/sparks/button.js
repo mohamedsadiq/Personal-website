@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Head from "next/head";
+import SEO from "../../components/SEO";
 import BackButton from "../../components/backButton";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from 'next/router';
@@ -64,23 +64,11 @@ export default function QuickButton() {
 
   return (
     <>
-      <Head>
-        <title>Quick Button - Interactive UI Component</title>
-        <meta name="description" content="The Quick Button is an interactive UI component designed to enhance user engagement through dynamic animations. Built using React, Framer Motion, and Tailwind CSS, this button offers a visually appealing experience by incorporating smooth transitions and state changes upon user interaction." />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="keywords" content="HTML, CSS, JavaScript, product design, web3, nft, React, Framer Motion, Tailwind CSS, interactive UI, dynamic animations" />
-        <meta name="author" content="Mohamed Sadiq" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@mosadiq.com" />
-        <meta name="twitter:title" content="Quick Button - Interactive UI Component" />
-        <meta name="twitter:description" content="The Quick Button is an interactive UI component designed to enhance user engagement through dynamic animations. Built using React, Framer Motion, and Tailwind CSS, this button offers a visually appealing experience by incorporating smooth transitions and state changes upon user interaction." />
-        <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />
-        <meta property="og:title" content="Quick Button - Interactive UI Component" />
-        <meta property="og:description" content="The Quick Button is an interactive UI component designed to enhance user engagement through dynamic animations. Built using React, Framer Motion, and Tailwind CSS, this button offers a visually appealing experience by incorporating smooth transitions and state changes upon user interaction." />
-        <meta property="og:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />
-        <meta property="og:url" content="https://mosadiq.com/sparks/button" />
-        <meta property="og:type" content="website" />
-      </Head>
+      <SEO
+        title="Quick Button - Interactive UI Component"
+        description="The Quick Button is an interactive UI component designed to enhance user engagement through dynamic animations. Built using React, Framer Motion, and Tailwind CSS."
+        path="/sparks/button"
+      />
     
         <SparkContainer>
           <AnimatedSection delay={0.1}>

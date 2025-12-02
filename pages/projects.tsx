@@ -1,11 +1,10 @@
-import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link';
 import { StaticImageData } from 'next/image';
 import { useState } from 'react';
 
-import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 import { AnimatedSection } from '../components/AnimatedSection';
 import { getSharedMotionProps } from '../utils/motionConfig';
 
@@ -38,11 +37,11 @@ const Projects: React.FC = () => {
 
   return (
     <>
-      <Head>
-        <title>Projects</title>
-        <meta name="description" content="My project gallery" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <SEO
+        title="Projects"
+        description="Explore my design and engineering projects including LightUp, DAOs Spot, and DeveloperDAO. Web3, AI, and product design work."
+        path="/projects"
+      />
       <main className="min-h-screen p-4 sm:p-8">
         <div className="max-w-7xl mx-auto">
           <motion.h1 

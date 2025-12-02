@@ -1,10 +1,10 @@
-import Head from "next/head";
 import { useEffect, useRef, useState, useMemo } from "react";
 import dynamic from "next/dynamic";
 import { StaticImageData } from "next/image";
 import { motion, AnimatePresence, type HTMLMotionProps, type Transition } from "framer-motion";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import type { AnimatePresenceProps } from 'framer-motion'
+import SEO from "../components/SEO";
 import { getSharedLegacyProps } from "../utils/motionConfig";
 
 const Image = dynamic(() => import("next/image"), { ssr: false });
@@ -229,27 +229,11 @@ const Home: React.FC<HomeProps> = ({ mode }) => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center mb-44">
-      <Head>
-        <title>Additional Works - Mohamed Sadiq</title>
-        <meta
-          name="description"
-          content="A product designer who can code, focusing on Web 3, Open source products @DeveloperDAO, member of @Bulidspace and @Anti"
-        />
-        <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="keywords"
-          content="HTML, CSS, JavaScript, product design, web3, nft"
-        />
-        <meta name="author" content="Mohamed Sadiq" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@mohamedsadiq.me" />
-        <meta name="twitter:title" content="Mohamed Sadiq" />
-        <meta name="twitter:description" content="A product designer" />
-        <meta
-          name="twitter:image"
-          content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png"
-        />
-      </Head>
+      <SEO
+        title="Additional Works"
+        description="A curated collection of additional design and development work including crypto apps, NFT projects, weather apps, and various UI/UX explorations."
+        path="/additionalWorks"
+      />
 
       <motion.button
         onClick={toggleViewMode}

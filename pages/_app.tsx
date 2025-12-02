@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
+import { DefaultSeo } from 'next-seo';
+import { defaultSEOConfig } from '../lib/seo.config';
 import Layout from "../components/Layout";
 import "../styles/globals.css";
 import "react-photo-view/dist/react-photo-view.css";
@@ -277,8 +279,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   }, [router.pathname]);
 
   return (
-    <Layout>
-      <Component {...pageProps} key={pathKey} /> 
-    </Layout>
+    <>
+      <DefaultSeo {...defaultSEOConfig} />
+      <Layout>
+        <Component {...pageProps} key={pathKey} /> 
+      </Layout>
+    </>
   );
 }

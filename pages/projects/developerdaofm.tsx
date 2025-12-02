@@ -1,8 +1,9 @@
-import Head from "next/head";
 import Image, { StaticImageData } from "next/image";
 import React, { FC, useState } from 'react';
 import { LayoutGroup, motion } from 'framer-motion';
 import styles from "../../styles/Home.module.css";
+import SEO from '../../components/SEO';
+import { getProjectSchema, SITE_URL } from '../../lib/seo.config';
 import BackButton from '../../components/backButton';
 import ExternalLink from "../../components/ExternalLink";
 import { AnimatedSection } from "../../components/AnimatedSection";
@@ -184,11 +185,20 @@ const DeveloperDAO: React.FC = () => {
   return (
     <LayoutGroup id="developerdaofm-photo-viewer">
     <div className={styles.container}>
-      <Head>
-        <title>DeveloperDAO FM | Mohamed Sadiq</title>
-        <meta name="description" content="DeveloperDAO FM - A place where you listen to music while building cool stuff" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <SEO
+        title="DeveloperDAO FM"
+        description="DeveloperDAO FM - A music streaming platform for the Web3 builder community. Listen to curated playlists while coding and building cool stuff."
+        path="/projects/developerdaofm"
+        ogImage={`${SITE_URL}/img/developerdaofm/daofm.png`}
+        ogImageAlt="DeveloperDAO FM - Music for Builders"
+        customSchema={getProjectSchema({
+          name: 'DeveloperDAO FM',
+          description: 'A music streaming platform for the Web3 builder community',
+          url: `${SITE_URL}/projects/developerdaofm`,
+          image: `${SITE_URL}/img/developerdaofm/daofm.png`,
+          datePublished: '2022-07-01',
+        })}
+      />
       <main>
         <div className="container">
           <AnimatedSection delay={0.1}>

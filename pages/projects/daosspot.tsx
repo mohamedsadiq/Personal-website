@@ -1,7 +1,8 @@
-import Head from "next/head";
 import { StaticImageData } from 'next/image';
 import Image from "next/image";
 import styles from "../../styles/Home.module.css";
+import SEO from "../../components/SEO";
+import { getProjectSchema, SITE_URL } from "../../lib/seo.config";
 import { AnimatedSection } from "../../components/AnimatedSection";
 import { motion } from "framer-motion";
 
@@ -89,18 +90,20 @@ const ProjectImage: React.FC<ProjectImageProps> = ({
 const DeveloperDAO: React.FC = () => {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>DAOs Spot</title>
-        <meta name="description" content="DAOs Spot case study" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="keywords" content="HTML, CSS, JavaScript, product design, web3, nft" />
-        <meta name="author" content="Mohamed Sadiq" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@mohamedsadiq.me" />
-        <meta name="twitter:title" content="Mohamed Sadiq" />
-        <meta name="twitter:description" content="DAOs Spot" />
-        <meta name="twitter:image" content="https://i.ibb.co/xsRLjwQ/daosspot1.png" />
-      </Head>
+      <SEO
+        title="DAOs Spot"
+        description="DAOs Spot - Your gateway to decentralized communities. A Web3 platform designed to help users discover, explore, and engage with DAOs."
+        path="/projects/daosspot"
+        ogImage={`${SITE_URL}/daospot.png`}
+        ogImageAlt="DAOs Spot - Gateway to Decentralized Communities"
+        customSchema={getProjectSchema({
+          name: 'DAOs Spot',
+          description: 'Your gateway to decentralized communities',
+          url: `${SITE_URL}/projects/daosspot`,
+          image: `${SITE_URL}/daospot.png`,
+          datePublished: '2023-01-01',
+        })}
+      />
       <main>
         <div className="container">
           <AnimatedSection>

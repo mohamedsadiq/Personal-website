@@ -1,7 +1,8 @@
-import Head from 'next/head'
 import Image from 'next/image'
 import { FC, CSSProperties } from 'react'
 import styles from '../../styles/Home.module.css'
+import SEO from '../../components/SEO'
+import { getProjectSchema, SITE_URL } from '../../lib/seo.config'
 import { AnimatedSection } from '../../components/AnimatedSection'
 import BackButton from '../../components/backButton'
 import ExternalLink from "../../components/ExternalLink"
@@ -102,11 +103,20 @@ const ProjectImage: FC<ProjectImageProps> = ({
 const DeveloperDAO: FC = () => {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>DeveloperDAO Website | Mohamed Sadiq</title>
-        <meta name="description" content="DeveloperDAO - Accelerating the education and impact of a new wave of web3 builders" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <SEO
+        title="DeveloperDAO Website"
+        description="DeveloperDAO - Accelerating the education and impact of a new wave of web3 builders. Product design case study for the Web3 developer community."
+        path="/projects/developerdao"
+        ogImage={`${SITE_URL}/Developer DAO logo.png`}
+        ogImageAlt="DeveloperDAO - Web3 Builder Community"
+        customSchema={getProjectSchema({
+          name: 'DeveloperDAO Website',
+          description: 'Accelerating the education and impact of a new wave of web3 builders',
+          url: `${SITE_URL}/projects/developerdao`,
+          image: `${SITE_URL}/Developer DAO logo.png`,
+          datePublished: '2022-07-01',
+        })}
+      />
       <main>
         <div className="container">
           <AnimatedSection delay={0.1}>
