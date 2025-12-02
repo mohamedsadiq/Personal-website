@@ -107,13 +107,13 @@ const DeveloperDAO: FC = () => {
         title="DeveloperDAO Website"
         description="DeveloperDAO - Accelerating the education and impact of a new wave of web3 builders. Product design case study for the Web3 developer community."
         path="/projects/developerdao"
-        ogImage={`${SITE_URL}/Developer DAO logo.png`}
-        ogImageAlt="DeveloperDAO - Web3 Builder Community"
+        ogImage={`${SITE_URL}${imagePaths.img1}`}
+        ogImageAlt="DeveloperDAO Website hero"
         customSchema={getProjectSchema({
           name: 'DeveloperDAO Website',
           description: 'Accelerating the education and impact of a new wave of web3 builders',
           url: `${SITE_URL}/projects/developerdao`,
-          image: `${SITE_URL}/Developer DAO logo.png`,
+          image: `${SITE_URL}${imagePaths.img1}`,
           datePublished: '2022-07-01',
         })}
       />
