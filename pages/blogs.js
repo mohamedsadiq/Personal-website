@@ -2,11 +2,10 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { NextSeo } from 'next-seo';
+import SEO from '../components/SEO'
 import Post from '../components/Post'
-// import From from '../components/form'
 import Link from 'next/link'
-import { sortByDate, slugify,ImageUrl} from '../utils'
+import { sortByDate, slugify } from '../utils'
 
 
 
@@ -15,24 +14,10 @@ export default function Blogs({ posts, frontmatter }) {
 
   return (
     <div>
-      <NextSeo
+      <SEO
         title="Blog"
-        description=""
-        openGraph={{
-          url: 'https://mohamedsadiq.me',
-          title: '',
-          description: 'B',
-          images: [
-            {
-              url: `${ImageUrl('banner.png')}`,
-              width: 1224,
-              height: 724,
-              alt: 'banner',
-              type: 'image/jpeg',
-            },
-          ],
-          site_name: 'Rajdeep Singh',
-        }}      
+        description="Thoughts on product design, web development, philosophy, and building digital products. Insights from a designer who codes."
+        path="/blogs"
       />
       
       <div className="container">

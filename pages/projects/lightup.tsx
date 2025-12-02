@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Image, { type StaticImageData } from 'next/image'
 import React, { FC, useEffect, useState } from 'react'
 import fs from 'fs'
@@ -7,6 +6,8 @@ import matter from 'gray-matter'
 import { marked } from 'marked'
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
 import styles from '../../styles/Home.module.css'
+import SEO from '../../components/SEO'
+import { getProjectSchema, SITE_URL } from '../../lib/seo.config'
 import ExternalLink from '../../components/ExternalLink'
 import { AnimatedSection } from '../../components/AnimatedSection'
 
@@ -450,11 +451,20 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
     return (
         <LayoutGroup id="lightup-photo-viewer">
         <div className={styles.container}>
-            <Head>
-                <title>{projectContent.title}</title>
-                <meta name="description" content={projectContent.description} />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <SEO
+                title={projectContent.title}
+                description={projectContent.description}
+                path="/projects/lightup"
+                ogImage={`${SITE_URL}/lightup/linkimage.png`}
+                ogImageAlt="LightUp - AI-Powered Annotations"
+                customSchema={getProjectSchema({
+                  name: projectContent.title,
+                  description: projectContent.description,
+                  url: `${SITE_URL}/projects/lightup`,
+                  image: `${SITE_URL}/lightup/linkimage.png`,
+                  datePublished: '2024-01-01',
+                })}
+            />
             <main>
                 <div className="container">
                     <AnimatedSection delay={0.05}>

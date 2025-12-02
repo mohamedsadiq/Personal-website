@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Head from "next/head";
+import SEO from "../../components/SEO";
 import BackButton from "../../components/backButton";
 import { motion } from "framer-motion";
 import { useRouter } from 'next/router';
@@ -20,23 +20,11 @@ export default function OnHover() {
 
   return (
     <>
-      <Head>
-        <title>On Hover - Interactive 3D Models Showcase</title>
-        <meta name="description" content="Explore interactive 3D models with dynamic animations on hover. Built with React and Framer Motion." />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="keywords" content="HTML, CSS, JavaScript, product design, web3, nft, 3D models, interactive design, Framer Motion, React" />
-        <meta name="author" content="Mohamed Sadiq" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@mosadiq.com" />
-        <meta name="twitter:title" content="On Hover - Interactive 3D Models Showcase" />
-        <meta name="twitter:description" content="Explore interactive 3D models with dynamic animations on hover. Built with React and Framer Motion." />
-        <meta name="twitter:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />
-        <meta property="og:title" content="On Hover - Interactive 3D Models Showcase" />
-        <meta property="og:description" content="Explore interactive 3D models with dynamic animations on hover. Built with React and Framer Motion." />
-        <meta property="og:image" content="https://i.ibb.co/Cvc4f6R/Instagram-post-6.png" />
-        <meta property="og:url" content="https://mosadiq.com/sparks/onhover" />
-        <meta property="og:type" content="website" />
-      </Head>
+      <SEO
+        title="On Hover - Interactive 3D Models"
+        description="Explore interactive 3D models with dynamic animations on hover. Built with React and Framer Motion."
+        path="/sparks/onhover"
+      />
         <SparkContainer>
           <AnimatedSection delay={0.1}>
             <BackButton title="" />

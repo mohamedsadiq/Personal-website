@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Head from "next/head";
+import SEO from "../../components/SEO";
 import Script from "next/script";
 import BackButton from "../../components/backButton";
 import { motion } from "framer-motion";
@@ -222,42 +222,11 @@ export default function Widget() {
 
   return (
     <>
-      <Head>
-        <title>Interactive Exercise Progress Widget | Mohamed Sadiq</title>
-        <meta name="description" content="Explore an interactive exercise progress widget inspired by Arkady's design. Built with React, Framer Motion, and Tailwind CSS for dynamic visual updates." />
-        <link rel="canonical" href="https://www.mosadiq.com/sparks/widget" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="robots" content="index, follow" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="keywords" content="exercise widget, interactive UI, React, Framer Motion, Tailwind CSS, product design, web development" />
-        <meta name="author" content="Mohamed Sadiq" />
-        <meta property="og:title" content="Interactive Exercise Progress Widget | Mohamed Sadiq" />
-        <meta property="og:description" content="Discover an engaging exercise progress widget with dynamic animations and interactive elements. Perfect for tracking daily workout routines." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.mosadiq.com/sparks/widget" />
-        <meta property="og:image" content="https://www.mosadiq.com/images/widget-preview.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@mosadiq" />
-        <meta name="twitter:title" content="Interactive Exercise Progress Widget | Mohamed Sadiq" />
-        <meta name="twitter:description" content="Explore an innovative exercise tracking widget with dynamic visuals. Built using React, Framer Motion, and Tailwind CSS." />
-        <meta name="twitter:image" content="https://www.mosadiq.com/images/widget-preview.jpg" />
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "WebPage",
-              "name": "Interactive Exercise Progress Widget",
-              "description": "An interactive widget for tracking exercise progress, built with React, Framer Motion, and Tailwind CSS.",
-              "author": {
-                "@type": "Person",
-                "name": "Mohamed Sadiq"
-              },
-              "datePublished": "2024-06-01",
-              "dateModified": "${new Date().toISOString().split('T')[0]}"
-            }
-          `}
-        </script>
-      </Head>
+      <SEO
+        title="Interactive Exercise Progress Widget"
+        description="Explore an interactive exercise progress widget inspired by Arkady's design. Built with React, Framer Motion, and Tailwind CSS for dynamic visual updates."
+        path="/sparks/widget"
+      />
   
         <SparkContainer>
           <AnimatedSection delay={0.1}>

@@ -1,4 +1,4 @@
-import Head from "next/head";
+import SEO from "../../components/SEO";
 import BackButton from "../../components/backButton";
 import { AnimatedSection } from "../../components/AnimatedSection";
 import SparkContainer from "../../components/SparkContainer";
@@ -8,11 +8,11 @@ export default function Test() {
   
   return (
     <>
-      <Head>
-        <title>3D Model Showcase</title>
-        <meta name="description" content="3D Model Showcase with Three.js" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <SEO
+        title="3D Model Showcase"
+        description="3D Model Showcase with Three.js"
+        path="/sparks/test"
+      />
     
       <SparkContainer>
         <AnimatedSection delay={0.1}>

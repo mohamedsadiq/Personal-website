@@ -1,8 +1,8 @@
-import Head from 'next/head';
 import Image, { StaticImageData } from 'next/image';
 import { motion, AnimatePresence, type Variants, type HTMLMotionProps } from "framer-motion";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { useEffect, useMemo, useState } from 'react';
+import SEO from '../components/SEO';
 import { getSharedMotionProps } from '../utils/motionConfig';
 
 // Import images
@@ -135,11 +135,11 @@ const Photo: React.FC = () => {
         {...wrapperMotionProps}
         exit={{ opacity: 0, filter: 'blur(10px)' }}
       >
-        <Head>
-          <title>Photos</title>
-          <meta name="description" content="A collection of beautiful photographs" />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
+        <SEO
+          title="Photo Gallery"
+          description="A curated collection of photography capturing moments, landscapes, and visual stories. Browse the personal photo gallery of Mohamed Sadiq."
+          path="/photo"
+        />
         
         <main className="min-h-screen py-8 px-4 sm:px-8">
           <div className="max-w-7xl mx-auto mb-20">
