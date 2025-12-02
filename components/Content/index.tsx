@@ -1,17 +1,22 @@
 import { motion } from "framer-motion";
 import { sharedMotionCtl } from "../../utils/motionConfig";
 
-import Section1 from "./HeroSection"
-import Section2 from "./SparksShowcase"
-import Section3 from "./FeaturedProjects"
-import Section4 from "./SocialMediaLinks"
-import Section5 from "./LatestActivity"
-import Section6 from "./ContactSection"
-import Section7 from "./CuratedWorksPreview"
-import Section8 from "./PressMentions"
-import Section9 from "./BlogPostsSection"
+import Section1 from "./HeroSection";
+import Section2 from "./SparksShowcase";
+import Section3 from "./FeaturedProjects";
+import Section4 from "./SocialMediaLinks";
+import Section5 from "./LatestActivity";
+import Section6 from "./ContactSection";
+import Section7 from "./CuratedWorksPreview";
+import Section8 from "./PressMentions";
+import Section9 from "./BlogPostsSection";
+import type { HeroContentData } from "../../types/heroContent";
 
-const MyComponent = ({ heroContent }) => {
+interface ContentProps {
+  heroContent: HeroContentData;
+}
+
+const MyComponent = ({ heroContent }: ContentProps) => {
   const MohamedSadiq = {
     initial: {
       opacity: 0,
@@ -46,7 +51,7 @@ const MyComponent = ({ heroContent }) => {
   );
 };
 
-const Content = ({ heroContent }) => {
+const Content = ({ heroContent }: ContentProps) => {
   return (
     <div className={"p-0 md:mx-12 sm:mx-10 text-base"}>
       <MyComponent heroContent={heroContent} />
