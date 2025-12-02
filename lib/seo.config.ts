@@ -1,7 +1,7 @@
 import { DefaultSeoProps } from 'next-seo';
 
 // Site configuration
-export const SITE_URL = 'https://mohamedsadiq.me';
+export const SITE_URL = 'https://mosadiq.com';
 export const SITE_NAME = 'Mohamed Sadiq';
 export const DEFAULT_TITLE = 'Mohamed Sadiq - Product Designer & Engineer';
 export const DEFAULT_DESCRIPTION = 'Product designer and engineer specializing in Web3, open source, and modern web experiences. Building beautiful, functional digital products.';

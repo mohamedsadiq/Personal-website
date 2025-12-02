@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/*
+
+# Host
+Host: https://mohamedsadiq.me
+
+# Sitemaps
+Sitemap: https://mohamedsadiq.me/sitemap.xml
