@@ -1,11 +1,14 @@
 import Head from 'next/head';
+import { GetStaticProps } from 'next';
 import Content from '../components/Content';
 import Info from "../components/info";
+import { getHeroContent } from '../lib/mdx/getHeroContent';
 
 interface HomeProps {
+  heroContent: Awaited<ReturnType<typeof getHeroContent>>;
 }
 
-export default function Home({}: HomeProps) {
+export default function Home({ heroContent }: HomeProps) {
   return (
     // class_body
     <div className="min-h-screen transition-colors duration-200">
@@ -24,8 +27,18 @@ export default function Home({}: HomeProps) {
       
       <div className="container mx-auto px-4 py-8">
         <Info />
-        <Content />
+        <Content heroContent={heroContent} />
       </div>
     </div>
   )
 }
+
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  const heroContent = await getHeroContent();
+
+  return {
+    props: {
+      heroContent,
+    },
+  };
+};

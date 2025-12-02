@@ -11,7 +11,7 @@ import Section7 from "./CuratedWorksPreview"
 import Section8 from "./PressMentions"
 import Section9 from "./BlogPostsSection"
 
-const MyComponent = () => {
+const MyComponent = ({ heroContent }) => {
   const MohamedSadiq = {
     initial: {
       opacity: 0,
@@ -32,7 +32,7 @@ const MyComponent = () => {
       <motion.div
         className="grid gap-[6rem]"
       >
-        <Section1 MohamedSadiq={MohamedSadiq} motionCtl={sharedMotionCtl} order={0}/>
+        <Section1 MohamedSadiq={MohamedSadiq} motionCtl={sharedMotionCtl} order={0} heroContent={heroContent} />
         <Section4 MohamedSadiq={MohamedSadiq} motionCtl={sharedMotionCtl} order={1}/>
         <Section3 MohamedSadiq={MohamedSadiq} motionCtl={sharedMotionCtl} order={2}/>
         <Section2 MohamedSadiq={MohamedSadiq} motionCtl={sharedMotionCtl} order={3}/>
@@ -46,10 +46,10 @@ const MyComponent = () => {
   );
 };
 
-const Content = () => {
+const Content = ({ heroContent }) => {
   return (
     <div className={"p-0 md:mx-12 sm:mx-10 text-base"}>
-      <MyComponent />
+      <MyComponent heroContent={heroContent} />
     </div>
   );
 };
