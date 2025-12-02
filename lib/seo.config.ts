@@ -4,7 +4,7 @@ import { DefaultSeoProps } from 'next-seo';
 export const SITE_URL = 'https://mosadiq.com';
 export const SITE_NAME = 'Moe Sadiq';
 export const DEFAULT_TITLE = 'Moe Sadiq - Designer & Engineer';
-export const DEFAULT_DESCRIPTION = 'a designer-engineer who acts on his curiosity.';
+export const DEFAULT_DESCRIPTION = 'A designer-engineer who acts on his curiosity.';
 export const TWITTER_HANDLE = '@sadiq_moo';
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 
@@ -144,7 +144,7 @@ export const getPersonSchema = () => ({
     `https://x.com/sadiq_moo`,
     'https://github.com/MohamedSadiq',
   ],
-  jobTitle: 'Product Designer & Engineer',
+  jobTitle: 'Designer & Engineer',
   description: DEFAULT_DESCRIPTION,
 });
 

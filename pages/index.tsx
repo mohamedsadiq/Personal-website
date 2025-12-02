@@ -13,8 +13,8 @@ export default function Home({ heroContent }: HomeProps) {
   return (
     <div className="min-h-screen transition-colors duration-200">
       <SEO
-        title="Product Designer & Engineer"
-        description="Product designer and engineer specializing in Web3, open source, and modern web experiences. Building beautiful, functional digital products at DeveloperDAO."
+        title=" Designer & Engineer"
+        description="A designer and engineer specializing in Web3, open source, and modern web experiences. Building beautiful, functional digital products at DeveloperDAO."
         path="/"
         includeSchema={true}
       />
