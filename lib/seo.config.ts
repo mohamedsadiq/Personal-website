@@ -2,15 +2,15 @@ import { DefaultSeoProps } from 'next-seo';
 
 // Site configuration
 export const SITE_URL = 'https://mosadiq.com';
-export const SITE_NAME = 'Mohamed Sadiq';
-export const DEFAULT_TITLE = 'Mohamed Sadiq - Product Designer & Engineer';
-export const DEFAULT_DESCRIPTION = 'Product designer and engineer specializing in Web3, open source, and modern web experiences. Building beautiful, functional digital products.';
+export const SITE_NAME = 'Moe Sadiq';
+export const DEFAULT_TITLE = 'Moe Sadiq - Designer & Engineer';
+export const DEFAULT_DESCRIPTION = 'a designer-engineer who acts on his curiosity.';
 export const TWITTER_HANDLE = '@sadiq_moo';
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 // Default SEO configuration for next-seo
 export const defaultSEOConfig: DefaultSeoProps = {
-  titleTemplate: '%s | Mohamed Sadiq',
+  titleTemplate: '%s | Moe Sadiq',
   defaultTitle: DEFAULT_TITLE,
   description: DEFAULT_DESCRIPTION,
   canonical: SITE_URL,
@@ -26,7 +26,7 @@ export const defaultSEOConfig: DefaultSeoProps = {
         url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: 'Mohamed Sadiq - Product Designer & Engineer',
+        alt: 'Moe Sadiq - Designer & Engineer',
         type: 'image/png',
       },
     ],
