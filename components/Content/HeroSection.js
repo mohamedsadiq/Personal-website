@@ -185,17 +185,17 @@ const Section1 = ({ MohamedSadiq, motionCtl, order, heroContent }) => {
       />
       <div className="relative">
         {heroContent?.intro?.mdxSource ? (
-          <div className="text-sm leading-7 text-[#000] dark:text-[#d5d5d5]">
+          <div className="text-sm leading-7 text-text-primary">
             <MDXRemote {...heroContent.intro.mdxSource} components={introMdxComponents} />
           </div>
         ) : (
-          <p className="text-sm leading-7 text-[#000] dark:text-[#d5d5d5]">
+          <p className="text-sm leading-7 text-text-primary">
             I'm Moe—a designer-engineer who acts on his curiosity.
           </p>
         )}
         <button
           type="button"
-          className="text-left text-sm mt-5 text-black relative z-10 block hover:text-neutral-600 focus-visible:outline-none"
+          className="text-left text-sm mt-5 text-text-primary relative z-10 block hover:text-neutral-600 focus-visible:outline-none"
           aria-label={introFrontmatter.moreInfoAriaLabel ?? "Show more information about Moe"}
           onClick={handleOpenModal}
           onMouseEnter={() => setHoveredId("about")}

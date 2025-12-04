@@ -7,7 +7,7 @@ import * as THREE from "three";
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { useRouter } from 'next/router';
-import SparksNav from '../../../components/sparksNav';
+import PageNavigation from '../../../components/PageNavigation';
 import { AnimatedSection } from "../../../components/AnimatedSection";
 import SparkContainer from "../../../components/SparkContainer";
 
@@ -31,7 +31,7 @@ const TheMartian: React.FC = () => {
       // CAMERA
       camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
       camera.position.set(0, 5, 5);
-      
+
       // RENDERER
       renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setPixelRatio(window.devicePixelRatio);
@@ -148,7 +148,7 @@ const TheMartian: React.FC = () => {
 
     initThree();
 
-    return () => {}; // Empty return to satisfy useEffect dependencies
+    return () => { }; // Empty return to satisfy useEffect dependencies
   }, []);
 
   return (
@@ -158,49 +158,49 @@ const TheMartian: React.FC = () => {
         description="Explore 'The Martian', an interactive 3D character demo using Three.js. Control and observe the behavior of a character in a 3D environment."
         path="/sparks/TheMartian"
       />
-     
-        <SparkContainer>
-          <AnimatedSection delay={0.1}>
-            <BackButton title="" />
-          </AnimatedSection>
-          <AnimatedSection delay={0.15}>
-            <h1 className="text-base text-black dark:text-white">The Martian - Interactive 3D Character Demo</h1>
-          </AnimatedSection>
-          <AnimatedSection delay={0.2}>
-            <p className="mt-0 text-base text-[#616161] mb-4 dark:text-[#cfcfcf]">
-              This interactive demo allows you to control and observe the
-              behavior of a character in a 3D environment using <span className="spark_tools">Three.js</span>.
-            </p>
-          </AnimatedSection>
-          <AnimatedSection delay={0.25}>
-            <h2 className="ml-3 text-black mb-4 text-base text-[#616161] mt-0   dark:text-white">Navigation Controls:</h2>
-            <ul className=" ml-3 mt-0 text-base text-[#616161] mb-4  dark:text-[#cfcfcf] ">
-              <li>
-                1 - Use <span className="spark_tools">W</span> ,{" "}
-                <span className="spark_tools">A</span> ,{" "}
-                <span className="spark_tools">S</span> ,{" "}
-                <span className="spark_tools">D</span> keys to move the
-                character forward, left, backward, and right respectively.
-                Hold down Shift while moving to toggle between walking and
-                running. 
-              </li>
-              <li>
-                2 - Click and drag with the mouse to change the camera view.
-                Use the mouse scroll wheel to zoom in and out.
-              </li>
-            </ul>
-          </AnimatedSection>
-          <AnimatedSection delay={0.3} className="w-full">
-            <div className="expBorder">
-              <div className="exp" ref={containerRef} style={{ height: "700px" }}></div>
-            </div>
-          </AnimatedSection>
-          <AnimatedSection delay={0.35} className="w-full">
-            <SparksNav currentPath={router.pathname} />
-          </AnimatedSection>
-        </SparkContainer>
-        
-      
+
+      <SparkContainer>
+        <AnimatedSection delay={0.1}>
+          <BackButton title="" />
+        </AnimatedSection>
+        <AnimatedSection delay={0.15}>
+          <h1 className="text-lg text-black dark:text-white">The Martian - Interactive 3D Character Demo</h1>
+        </AnimatedSection>
+        <AnimatedSection delay={0.2}>
+          <p className="mt-0 text-base text-[#616161] mb-4 leading-7 dark:text-[#cfcfcf]">
+            This interactive demo allows you to control and observe the
+            behavior of a character in a 3D environment using <span className="spark_tools">Three.js</span>.
+          </p>
+        </AnimatedSection>
+        <AnimatedSection delay={0.25}>
+          <h2 className="ml-3 text-black mb-4 text-base text-[#616161] mt-0   dark:text-white">Navigation Controls:</h2>
+          <ul className=" ml-3 mt-0 text-base text-[#616161] mb-4  dark:text-[#cfcfcf] ">
+            <li>
+              1 - Use <span className="spark_tools">W</span> ,{" "}
+              <span className="spark_tools">A</span> ,{" "}
+              <span className="spark_tools">S</span> ,{" "}
+              <span className="spark_tools">D</span> keys to move the
+              character forward, left, backward, and right respectively.
+              Hold down Shift while moving to toggle between walking and
+              running.
+            </li>
+            <li>
+              2 - Click and drag with the mouse to change the camera view.
+              Use the mouse scroll wheel to zoom in and out.
+            </li>
+          </ul>
+        </AnimatedSection>
+        <AnimatedSection delay={0.3} className="w-full">
+          <div className="expBorder">
+            <div className="exp" ref={containerRef} style={{ height: "700px" }}></div>
+          </div>
+        </AnimatedSection>
+        <AnimatedSection delay={0.35} className="w-full">
+          <PageNavigation type="spark" currentPath={router.pathname} />
+        </AnimatedSection>
+      </SparkContainer>
+
+
     </>
   );
 };

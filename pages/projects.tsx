@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link';
 import { StaticImageData } from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
@@ -31,8 +31,37 @@ const Projects: React.FC = () => {
   const headingMotionProps = getSharedMotionProps(0);
   const [loadedMedia, setLoadedMedia] = useState<Record<string, boolean>>({});
 
+  useEffect(() => {
+    const preloadedVideos = data
+      .filter((item) => item.video)
+      .reduce<Record<string, boolean>>((acc, item) => {
+        acc[item.name] = true;
+        return acc;
+      }, {});
+
+    setLoadedMedia((prev) => ({ ...preloadedVideos, ...prev }));
+  }, []);
+
   const handleMediaLoaded = (name: string) => {
     setLoadedMedia((prev) => (prev[name] ? prev : { ...prev, [name]: true }));
+  };
+
+  const getCardLayoutClasses = (index: number): string => {
+    if (index === 0) {
+      return 'col-span-1 md:col-span-12';
+    }
+
+    if (index === 1) {
+      return 'col-span-1 md:col-span-7';
+    }
+
+    if (index === 2) {
+      return 'col-span-1 md:col-span-5';
+    }
+
+    return index % 2 === 1
+      ? 'col-span-1 md:col-span-7'
+      : 'col-span-1 md:col-span-5';
   };
 
   return (
@@ -50,67 +79,84 @@ const Projects: React.FC = () => {
             >
               Projects
             </motion.h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-fr">
             {data.map((item, index) => (
-              <AnimatedSection 
-                key={item.name} 
-                className="w-full relative"
-                delay={Math.floor(index/2) * 0.2}
-                order={index}
-              >
+              <div key={item.name} className={getCardLayoutClasses(index)}>
+                <AnimatedSection 
+                  className="w-full relative"
+                  delay={Math.floor(index/2) * 0.2}
+                  order={index}
+                >
                 {(() => {
                   const isLoaded = loadedMedia[item.name];
+                  const tagList = item.tags.split(',').map((tag) => tag.trim()).filter(Boolean);
+
                   return (
-                <div className="border border-[#e5e5e5] rounded-[24px] bg-white shadow-xl overflow-hidden transform h-full flex flex-col dark:border-[#2b2b2b] dark:bg-[#111111] dark:shadow-none">
-                  <Link href={item.link} passHref>
-                    <div className="relative h-[28rem] md:h-[32rem] lg:h-[40rem]">
-                      {item.video ? (
-                        <video 
-                          className="w-full h-full object-cover"
-                          autoPlay 
-                          loop 
-                          muted 
-                          playsInline
-                          onLoadedData={() => handleMediaLoaded(item.name)}
-                        >
-                          <source src={item.video} type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
-                      ) : item.img && (
-                        <Image
-                          src={item.img}
-                          alt={item.name}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
-                          loading="lazy"
-                          placeholder="blur"
-                          className="object-cover transition-transform duration-300"
-                          onLoadingComplete={() => handleMediaLoaded(item.name)}
-                        />
-                      )}
-                      <motion.div
-                        className="absolute inset-0 z-10 rounded-[24px] overflow-hidden"
-                        initial={{ opacity: 1 }}
-                        animate={{ opacity: isLoaded ? 0 : 1 }}
-                        transition={{ duration: 0.4 }}
-                        style={{ pointerEvents: 'none' }}
-                      >
-                        <div className="w-full h-full animate-pulse bg-gray-200 dark:bg-[#1c1c1c]" />
-                      </motion.div>
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70 z-20 pointer-events-none" />
-                      <div className="absolute bottom-0 left-0 p-4 sm:p-6 text-white z-30">
-                        <h2 className="text-base sm:text-2xl  mb-2 text-[#fff]">{item.name}</h2>
-                        <p className="text-xs sm:text-sm mb-4">{item.description}</p>
-                        <span className="text-xs bg-white bg-opacity-20 px-2 py-1 rounded-full">
-                          {item.tags}
-                        </span>
-                      </div>
+                    <div className="border border-[#e5e5e5] rounded-[24px] bg-white shadow-xl overflow-hidden transform h-full flex flex-col dark:border-[#2b2b2b] dark:bg-[#111111] dark:shadow-none">
+                      <Link href={item.link} passHref>
+                        <div className="relative h-[20rem] md:h-[24rem] lg:h-[28rem]">
+                          {item.video ? (
+                            <video 
+                              className="w-full h-full object-cover"
+                              autoPlay 
+                              loop 
+                              muted 
+                              playsInline
+                              onLoadedMetadata={() => handleMediaLoaded(item.name)}
+                              onCanPlay={() => handleMediaLoaded(item.name)}
+                            >
+                              <source src={item.video} type="video/mp4" />
+                              Your browser does not support the video tag.
+                            </video>
+                          ) : item.img && (
+                            <Image
+                              src={item.img}
+                              alt={item.name}
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
+                              loading="lazy"
+                              placeholder="blur"
+                              className="object-cover transition-transform duration-300"
+                              onLoadingComplete={() => handleMediaLoaded(item.name)}
+                            />
+                          )}
+                          {!item.video && (
+                            <motion.div
+                              className="absolute inset-0 z-10 rounded-[24px] overflow-hidden"
+                              initial={{ opacity: 1 }}
+                              animate={{ opacity: isLoaded ? 0 : 1 }}
+                              transition={{ duration: 0.3 }}
+                              style={{ pointerEvents: 'none' }}
+                            >
+                              <div className="w-full h-full animate-pulse bg-gray-200 dark:bg-[#1c1c1c]" />
+                            </motion.div>
+                          )}
+                          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70 z-20 pointer-events-none" />
+                          <div className="absolute inset-x-0 bottom-0 p-3 sm:p-5 z-30">
+                            <div className="rounded-2xl bg-white/15 dark:bg-black/60 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-lg p-3 sm:p-4 space-y-2">
+                              <h2 className="text-base sm:text-xl font-semibold text-white">{item.name}</h2>
+                              <p className="text-xs sm:text-sm text-white/80 leading-relaxed">
+                                {item.description}
+                              </p>
+                              <div className="flex flex-wrap gap-2">
+                                {tagList.map((tag) => (
+                                  <span
+                                    key={tag}
+                                    className="text-[0.7rem] sm:text-xs px-2 py-1 rounded-full bg-white/20 text-white border border-white/10"
+                                  >
+                                    {tag}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
                     </div>
-                  </Link>
-                </div>
                   );
                 })()}
-              </AnimatedSection>
+                </AnimatedSection>
+              </div>
             ))}
           </div>
         </div>
@@ -131,6 +177,7 @@ const data: ProjectData[] = [
   },
   {
     name: "DAOs Spot - 2023",
+    video: "/bulitVidoes/daosspot.mp4",
     img: daos,
     description: "Your gateway to decentralized communities.", 
     tags: "Product Design, Web3",
@@ -140,8 +187,9 @@ const data: ProjectData[] = [
   },
   {
     name: "DeveloperDAO FM - Jul 2022",
+    video: "/bulitVidoes/devfm.mp4",
     img: developerDaoFm,
-    description: "A place where you listin to muisc ...", 
+    description: "A place to listni to music and increass awwearnce about the DAO", 
     tags: "Product Design, JS, Web3",
     target: "_blink",
     link: "/projects/developerdaofm",
@@ -156,15 +204,16 @@ const data: ProjectData[] = [
     link: "/projects/developerdao",
     productHunt: ""
   },
-  // { 
-  //   name: "Web 3 Lover Boy - Jan 2022",
-  //   img: nftweb3,
-  //   description: "CWB is a project inspired by Dever..",  
-  //   tags: "Product Design, Solidity, Web3",
-  //   target: "_blink",
-  //   link: "/projects/web3boy",
-  //   productHunt: ""
-  // },
+  { 
+    name: "Web3 Lover Boy - Jan 2022",
+    video: "/web3loverboy.mp4",
+    img: nftweb3,
+    description: "Certified Web3 Boy NFT project inspired by web3 culture.",  
+    tags: "Product Design, Solidity, Web3",
+    target: "_blink",
+    link: "/projects/web3boy",
+    productHunt: ""
+  },
 ];
 
 export default Projects;
