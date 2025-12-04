@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { trackButtonClick } from "../../lib/analytics/ga";
 
 
 const Section6 = ({ MohamedSadiq, motionCtl, order }) => {
@@ -16,6 +17,17 @@ const Section6 = ({ MohamedSadiq, motionCtl, order }) => {
       transition: { delay: 0.9 },
     };
 
+  const handleContactClick = () => {
+    trackButtonClick({
+      name: "contact_email",
+      location: "contact_section",
+      label: "Reach out via mail",
+      metadata: {
+        href: "mailto:hey@mosadiq.com",
+      },
+    });
+  };
+
   return (
     <motion.div
       className="grid grid-cols-1 md:grid-cols-[176px_1fr] gap-6"
@@ -26,7 +38,7 @@ const Section6 = ({ MohamedSadiq, motionCtl, order }) => {
       </div>
       <div id="links_home">
         <a className="calltoation" href="mailto:hey@mosadiq.com">
-          <button className="workbutton text-sm leading-6 bg-black text-white dark:bg-white dark:text-black"> <span id="workbuttongreen"></span>Reach out via mail</button>
+          <button onClick={handleContactClick} className="workbutton text-sm leading-6 bg-black text-white dark:bg-white dark:text-black"> <span id="workbuttongreen"></span>Reach out via mail</button>
         </a>
       </div>
     </motion.div>
@@ -34,3 +46,4 @@ const Section6 = ({ MohamedSadiq, motionCtl, order }) => {
 }
 
 export default Section6
+

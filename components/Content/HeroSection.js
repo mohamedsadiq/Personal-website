@@ -8,6 +8,7 @@ import { PhotoViewerOverlay } from "../PhotoViewerOverlay";
 import { HeroIdentityPanel } from "../HeroContent/HeroIdentityPanel";
 import { HeroBioText } from "../HeroContent/HeroBioText";
 import { createHeroMdxComponents } from "../HeroContent/createHeroMdxComponents";
+import { trackButtonClick } from "../../lib/analytics/ga";
 
 const profilePhotos = [
   {
@@ -48,7 +49,14 @@ const Section1 = ({ MohamedSadiq, motionCtl, order, heroContent }) => {
     return portraitIndex >= 0 ? portraitIndex : 0;
   });
   const [mediterraneanClock, setMediterraneanClock] = useState("");
-  const handleOpenModal = () => setIsModalOpen(true);
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+    trackButtonClick({
+      name: "hero_more_info",
+      location: "hero_intro",
+      label: introFrontmatter.moreInfoLabel ?? "More info",
+    });
+  };
   const handleCloseModal = () => {
     setIsModalOpen(false);
     handleCloseDeskPhoto();
@@ -74,6 +82,18 @@ const Section1 = ({ MohamedSadiq, motionCtl, order, heroContent }) => {
   };
   const handleSelectPhoto = (photoIndex) => {
     setCurrentPhotoIndex(photoIndex);
+  };
+
+  const handleModalCtaClick = (cta) => {
+    trackButtonClick({
+      name: cta.analyticsName ?? cta.label ?? cta.href,
+      location: "hero_modal",
+      label: cta.label,
+      metadata: {
+        href: cta.href,
+        variant: cta.variant,
+      },
+    });
   };
 
   const handleHoverStart = useCallback((id) => {
@@ -265,6 +285,7 @@ const Section1 = ({ MohamedSadiq, motionCtl, order, heroContent }) => {
                                       : "inline-flex items-center justify-center rounded-full bg-black px-5 py-2 text-sm font-medium text-white transition hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:bg-white dark:text-black dark:hover:bg-white/80 dark:focus-visible:outline-white"
                                   }
                                   aria-label={cta.ariaLabel}
+                                  onClick={() => handleModalCtaClick(cta)}
                                 >
                                   {cta.label}
                                 </a>

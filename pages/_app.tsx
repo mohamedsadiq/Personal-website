@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
+import Script from 'next/script';
 import type { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 import { defaultSEOConfig } from '../lib/seo.config';
 import Layout from "../components/Layout";
+import { GA_MEASUREMENT_ID, pageview } from "../lib/analytics/ga";
 import "../styles/globals.css";
 import "react-photo-view/dist/react-photo-view.css";
 import "../components/Gallery/css.css";
@@ -147,6 +149,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         routeChangeComplete: performance.now(),
       }));
 
+      if (GA_MEASUREMENT_ID) {
+        pageview(url);
+      }
+
       // Scroll to top AFTER route complete (invisible on new page)
       window.scrollTo(0, 0);
       debug('Scroll to top after route complete');
@@ -223,6 +229,14 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     });
   }, [pathKey, router.pathname, router.asPath]);
 
+  useEffect(() => {
+    if (typeof window === 'undefined' || !GA_MEASUREMENT_ID) {
+      return;
+    }
+
+    pageview(window.location.pathname);
+  }, []);
+
   // Preserved URL deduplication from AnimatedPage (runs on pathname change)
   useEffect(() => {
     if (typeof window === 'undefined') return;  // Early return for SSR
@@ -280,6 +294,24 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      {GA_MEASUREMENT_ID ? (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+            strategy="afterInteractive"
+          />
+          <Script id="ga-init" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}', {
+                page_path: window.location.pathname,
+              });
+            `}
+          </Script>
+        </>
+      ) : null}
       <DefaultSeo {...defaultSEOConfig} />
       <Layout>
         <Component {...pageProps} key={pathKey} /> 
