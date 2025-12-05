@@ -12,7 +12,7 @@ export const HeroIdentityPanel = ({
 
   return (
     <div id="name" className={`${baseTextClass} text-sm leading-relaxed`}>
-      <p className="font-medium tracking-tight">{name}</p>
+      <p className=" tracking-tight">{name}</p>
       <div className="mt-1 text-xs text-black/60 dark:text-white/60">
         {location && <p>{location}</p>}
         {clockLabel && (

@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import WorkIntro from "../../components/WorkIntro";
 import BackButton from "../../components/backButton";
 import ExternalLink from "../../components/ExternalLink";
-import ProjectNavigation from "../../components/ProjectNavigation";
+import PageNavigation from "../../components/PageNavigation";
 import ProjectOverview from "../../components/ProjectOverview";
 
 // Project Images
@@ -46,12 +46,12 @@ interface ProjectImageProps {
   blurDataURL?: string;
 }
 
-const ProjectImage: React.FC<ProjectImageProps> = ({ 
-  src, 
-  alt, 
+const ProjectImage: React.FC<ProjectImageProps> = ({
+  src,
+  alt,
   caption,
-  delay = 0, 
-  priority = false, 
+  delay = 0,
+  priority = false,
   className = "",
   objectFit = "contain",
   objectPosition = "center",
@@ -61,7 +61,7 @@ const ProjectImage: React.FC<ProjectImageProps> = ({
   ...props
 }) => {
   const isPublicPath = typeof src === 'string' && src.startsWith('/');
-  
+
   return (
     <AnimatedSection delay={delay} className={`w-full ${className}`}>
       <div className="relative w-full" style={{ paddingBottom: '75%' }}>
@@ -109,7 +109,7 @@ const DeveloperDAO: React.FC = () => {
           <AnimatedSection>
             <BackButton href="/projects" />
           </AnimatedSection>
-          
+
           <div className="inner_container_project_parent inner_container inner_container_mobile">
             <AnimatedSection delay={0.1}>
               <div className="project_title">
@@ -117,7 +117,7 @@ const DeveloperDAO: React.FC = () => {
                 <p className="text-base dark:text-white">Your gateway to decentralized communities. <span className="dateProject">- Jun 2023 </span></p>
               </div>
             </AnimatedSection>
-            
+
             <AnimatedSection delay={0.2}>
               <div className="relative w-full overflow-hidden rounded-[24px] mt-4">
                 <Image
@@ -132,11 +132,11 @@ const DeveloperDAO: React.FC = () => {
                   width={1200}
                   height={800}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                </div>
+                />
+              </div>
               <h2 className="text-slate-950 mt-6 dark:text-white">Project Overview</h2>
               <div className="dark:text-[#fff] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
-                <ExternalLink 
+                <ExternalLink
                   className="text-[#000] dark:text-[#fff] underline decoration-dotted underline-offset-2 transition-colors duration-200 group-hover:decoration-current w-fit"
                   href="https://daospot-git-main-mohamedsadiq-s-team.vercel.app/"
                 >
@@ -179,7 +179,7 @@ const DeveloperDAO: React.FC = () => {
                 ]}
                 links={[
                   // { label: 'Live', url: 'https://daospot-git-main-mohamedsadiq-s-team.vercel.app/' },
-                 
+
                   { label: 'Product Hunt', url: 'https://www.producthunt.com/products/daos-spot' }
                 ]}
                 className="mb-8"
@@ -187,9 +187,9 @@ const DeveloperDAO: React.FC = () => {
 
               <h2 className="text-slate-950 mt-6 mb-3 dark:text-white">Project Overview</h2>
               <p>
-                Initiating the journey of DAOs Spot marked my first venture, a bootstrap endeavor fueled by minimal resources. Taking charge of both product design and development, my primary goal centered around tackling a crucial challenge: How could I actively immerse myself in DAOs, contribute meaningfully, stay abreast of their updates, and discover tools to streamline these processes?  <br/><br/>This challenge materialized as I became a part of various DAOs. Significantly, the project has garnered the attention of an interesting DAO, aligning seamlessly with their mission. Moreover, a prominent international investment firm focused on Web3 has expressed interest. The prospect of DAOs Spot excites me, and I eagerly anticipate the promising opportunities that lie ahead.
+                Initiating the journey of DAOs Spot marked my first venture, a bootstrap endeavor fueled by minimal resources. Taking charge of both product design and development, my primary goal centered around tackling a crucial challenge: How could I actively immerse myself in DAOs, contribute meaningfully, stay abreast of their updates, and discover tools to streamline these processes?  <br /><br />This challenge materialized as I became a part of various DAOs. Significantly, the project has garnered the attention of an interesting DAO, aligning seamlessly with their mission. Moreover, a prominent international investment firm focused on Web3 has expressed interest. The prospect of DAOs Spot excites me, and I eagerly anticipate the promising opportunities that lie ahead.
               </p>
-               <SectionDivider />
+              <SectionDivider />
               <h2 className="mt-10 mb-2 dark:text-white">Awards and recognition</h2>
               <p>DAOs Spot pleasantly surprised me by clinching the 4th position for Product of the Week in the Web3 category on Product Hunt. It serves as a modest acknowledgment that the efforts invested have proven worthwhile. DAOsSpot on Product Hunt has been an encouraging experience.</p>
               <SectionDivider />
@@ -197,54 +197,54 @@ const DeveloperDAO: React.FC = () => {
               <p>My approach to design for DAOs Spot was rooted in a desire to evoke a premium feel through minimalism, a departure from the often cluttered landscape of Web3 interfaces. I aimed to bring forth a user experience that exuded simplicity, yet sophistication, ensuring that engagement with the platform was both intuitive and aesthetically pleasing. This emphasis on minimalism sought to address a gap in the Web3 space, where the user experience can sometimes be overwhelming and complex.</p>
             </AnimatedSection>
           </div>
-         
-         
-         
+
+
+
           {/* Project Navigation */}
-        
+
         </div>
-        
-         <div className="p-10">
-            <ProjectImage
-              src={img2}
-              alt="DAOs Spot Home Page"
-              caption="The Home page"
-              delay={0.1}
-              className="mt-20"
-              quality={100}
-              objectFit="contain"
-            />
-            <ProjectImage
-              src={img3}
-              alt="DAOs Spot Features"
-              caption="Newsletter section"
-              delay={0.2}
-              className="mt-20"
-              quality={100}
-              objectFit="contain"
-            />
-            <ProjectImage
-              src={img6}
-              alt="DAOs Spot Dashboard"
-              caption="Cards"
-              delay={0.3}
-              className="mt-20"
-              quality={100}
-              objectFit="contain"
-            />
-            <ProjectImage
-              src={img5}
-              alt="DAOs Spot Mobile View"
-              caption="Some components"
-              delay={0.4}
-              className="mt-20"
-              quality={100}
-              objectFit="contain"
-            />
-              <div className="container mx-auto px-4 py-8">
-            <ProjectNavigation />
+
+        <div className="p-10">
+          <ProjectImage
+            src={img2}
+            alt="DAOs Spot Home Page"
+            caption="The Home page"
+            delay={0.1}
+            className="mt-20"
+            quality={100}
+            objectFit="contain"
+          />
+          <ProjectImage
+            src={img3}
+            alt="DAOs Spot Features"
+            caption="Newsletter section"
+            delay={0.2}
+            className="mt-20"
+            quality={100}
+            objectFit="contain"
+          />
+          <ProjectImage
+            src={img6}
+            alt="DAOs Spot Dashboard"
+            caption="Cards"
+            delay={0.3}
+            className="mt-20"
+            quality={100}
+            objectFit="contain"
+          />
+          <ProjectImage
+            src={img5}
+            alt="DAOs Spot Mobile View"
+            caption="Some components"
+            delay={0.4}
+            className="mt-20"
+            quality={100}
+            objectFit="contain"
+          />
+          <div className="container mx-auto px-4 py-8">
+            <PageNavigation type="project" />
           </div>
-          </div>
+        </div>
       </main>
     </div>
   );

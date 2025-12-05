@@ -7,7 +7,7 @@ import HalfDot from "../../components/dots/half";
 import FullDot from "../../components/dots/full";
 import classNames from "classnames";
 import { useRouter } from 'next/router';
-import Footer from '../../components/sparksNav';
+import PageNavigation from '../../components/PageNavigation';
 import FormattedDate from '../../components/FormattedDate'; // Ensure this is a default import
 import { AnimatedSection } from "../../components/AnimatedSection";
 import SparkContainer from "../../components/SparkContainer";
@@ -98,7 +98,7 @@ export default function Widget() {
       opacity: 1,
     },
     animate: {
-      bottom: "25%" ,
+      bottom: "25%",
       filter: "blur(0px)",
       opacity: 0,
     }
@@ -106,7 +106,7 @@ export default function Widget() {
 
   const widget_text = {
     initial: {
-      top:"-30px",
+      top: "-30px",
       position: "relative",
       opacity: 0,
       scale: 0.3,
@@ -114,10 +114,10 @@ export default function Widget() {
     },
     animate: {
       position: "relative",
-      top:"100px",
+      top: "100px",
       opacity: 1,
       scale: 1,
-      filter: "blur(0px)", 
+      filter: "blur(0px)",
     },
     exit: {
       position: "relative",
@@ -227,78 +227,78 @@ export default function Widget() {
         description="Explore an interactive exercise progress widget inspired by Arkady's design. Built with React, Framer Motion, and Tailwind CSS for dynamic visual updates."
         path="/sparks/widget"
       />
-  
-        <SparkContainer>
-          <AnimatedSection delay={0.1}>
-            <BackButton title="" />
-          </AnimatedSection>
-          <AnimatedSection delay={0.15}>
-            <h1 className="mt-10 mb-0 text-base text-black dark:text-white">Interactive Exercise Progress Widget</h1>
-            {/* <span className="text-xs text-stone-500"> Published Jun 2024</span> */}
-          </AnimatedSection>
-          <AnimatedSection delay={0.2}>
-            <p className="mt-0 text-base text-[#616161] mb-4  dark:text-[#616161]">
-              A dynamic widget inspired by <a href="https://x.com/sovpal/status/1742640211782185261" target="_blank" rel="noopener noreferrer" className="text-[#06e2b0] hover:underline">Arkady's</a> design. Built using <span className="spark_tools">React</span>, <span className="spark_tools">Framer Motion</span>, and <span className="spark_tools">Tailwind CSS</span>.
-              This interactive widget dynamically generates dots representing exercise progress. Each click triggers a visual update, reflecting changes in exercise status with animated transitions and interactive elements.
-            </p>
-          </AnimatedSection>
-          <AnimatedSection delay={0.25} className="w-full">
-            <div className="expBorder">
-              <div className="exp flex justify-center items-center">
+
+      <SparkContainer>
+        <AnimatedSection delay={0.1}>
+          <BackButton title="" />
+        </AnimatedSection>
+        <AnimatedSection delay={0.15}>
+          <h1 className=" mb-0 text-lg text-black dark:text-white">Interactive Exercise Progress Widget</h1>
+          {/* <span className="text-xs text-stone-500"> Published Jun 2024</span> */}
+        </AnimatedSection>
+        <AnimatedSection delay={0.2}>
+          <p className="mt-0 text-base text-[#616161] mb-4 leading-7 dark:text-[#d5d5d5]">
+            A dynamic widget inspired by <a href="https://x.com/sovpal/status/1742640211782185261" target="_blank" rel="noopener noreferrer" className="text-[#06e2b0] hover:underline">Arkady's</a> design. Built using <span className="spark_tools">React</span>, <span className="spark_tools">Framer Motion</span>, and <span className="spark_tools">Tailwind CSS</span>.
+            This interactive widget dynamically generates dots representing exercise progress. Each click triggers a visual update, reflecting changes in exercise status with animated transitions and interactive elements.
+          </p>
+        </AnimatedSection>
+        <AnimatedSection delay={0.25} className="w-full">
+          <div className="expBorder">
+            <div className="exp flex justify-center items-center">
+              <motion.div
+                className="buttonWidget bg-slate-950 exercises_widget overflow-hidden"
+                style={{ padding: isClicked ? "26px" : "0" }}
+                variants={{}}
+                initial={widgetVariants.initial}
+                animate={isClicked ? widgetVariants.animate : widgetVariants.initial}
+                whileHover={widgetVariants.hover}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 13,
+                }}
+                onClick={() => setIsClicked(!isClicked)}
+              >
+                <div className="daysExercises mb-9 flex-row flex-wrap h-3.5 flex justify-center items-center">
+                  <div className="exercises_container flex order-10 flex-wrap gap-y-0 gap-x-0" style={{ rowGap: isClicked ? '22px' : '0px' }}>
+                    {isClicked ? dots.map((dot, index) => (
+                      <motion.div
+                        key={index}
+                        className={classNames("exercises_dot_block", addNotWorkingClass(index))}
+                        initial={dotVariants.initial}
+                        animate={dotVariants.animate}
+                        transition={{ duration: transitionDuration.animate, delay: index * 0.05 }}
+                      >
+                        {dot}
+                      </motion.div>
+                    )) :
+                      <IconEX />}
+                  </div>
+                </div>
                 <motion.div
-                  className="buttonWidget bg-slate-950 exercises_widget overflow-hidden"
-                  style={{ padding: isClicked ? "26px" : "0" }}
-                  variants={{}}
-                  initial={widgetVariants.initial}
-                  animate={isClicked ? widgetVariants.animate : widgetVariants.initial}
-                  whileHover={widgetVariants.hover}
+                  className="widget_text"
+                  initial={widget_text.initial}
+                  animate={isClicked ? widget_text.animate : widget_text.initial}
+                  exit={widget_text.exit}
                   transition={{
                     type: "spring",
                     stiffness: 100,
                     damping: 13,
                   }}
-                  onClick={() => setIsClicked(!isClicked)}
                 >
-                  <div className="daysExercises mb-9 flex-row flex-wrap h-3.5 flex justify-center items-center">
-                    <div className="exercises_container flex order-10 flex-wrap gap-y-0 gap-x-0" style={{ rowGap: isClicked ? '22px' : '0px' }}>
-                      {isClicked ? dots.map((dot, index) => (
-                        <motion.div
-                          key={index}
-                          className={classNames("exercises_dot_block", addNotWorkingClass(index))}
-                          initial={dotVariants.initial}
-                          animate={dotVariants.animate}
-                          transition={{ duration: transitionDuration.animate, delay: index * 0.05 }}
-                        >
-                          {dot}
-                        </motion.div>
-                      )) :
-                        <IconEX />}
-                    </div>
-                  </div>
-                  <motion.div
-                    className="widget_text"
-                    initial={widget_text.initial}
-                    animate={isClicked ? widget_text.animate : widget_text.initial}
-                    exit={widget_text.exit}
-                    transition={{
-                      type: "spring",
-                      stiffness: 100,
-                      damping: 13,
-                    }}
-                  >
-                    <span>
-                      {`${fullDotCount}/30 days`}
-                    </span>
-                    <h2 className="text-[#3fe38d] text-3xl" style={{ textShadow: '0 0 5px #3fe38d' }}>Doing morning exercises</h2>
-                  </motion.div>
+                  <span>
+                    {`${fullDotCount}/30 days`}
+                  </span>
+                  <h2 className="text-[#3fe38d] text-3xl" style={{ textShadow: '0 0 5px #3fe38d' }}>Doing morning exercises</h2>
                 </motion.div>
-              </div>
+              </motion.div>
             </div>
-          </AnimatedSection>
-          <AnimatedSection delay={0.3} className="w-full">
-            <Footer currentPath={router.pathname} />
-          </AnimatedSection>
-        </SparkContainer>
+          </div>
+        </AnimatedSection>
+        <AnimatedSection delay={0.3} className="w-full">
+          <PageNavigation type="spark" currentPath={router.pathname} />
+        </AnimatedSection>
+      </SparkContainer>
     </>
   );
 }

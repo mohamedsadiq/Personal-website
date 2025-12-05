@@ -7,16 +7,16 @@ import { AnimatedSection } from '../../components/AnimatedSection'
 import WorkIntro from '../../components/WorkIntro'
 import BackButton from '../../components/backButton'
 import ExternalLink from "../../components/ExternalLink";
-import ProjectNavigation from '../../components/ProjectNavigation';
+import PageNavigation from '../../components/PageNavigation';
 import ProjectOverview from '../../components/ProjectOverview';
 
 // Import images with static imports
 const SectionDivider: FC = () => (
-  <AnimatedSection delay={0} className="w-full">
-    <div className="my-20 w-full">
-      <div className="mx-auto h-[1px] w-24 bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
-    </div>
-  </AnimatedSection>
+    <AnimatedSection delay={0} className="w-full">
+        <div className="my-20 w-full">
+            <div className="mx-auto h-[1px] w-24 bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+        </div>
+    </AnimatedSection>
 );
 
 import img1 from '../../public/web3boy/1ff132134169935.png';
@@ -29,80 +29,80 @@ import img7 from '../../public/web3boy/Behance Image 1920x1440.png';
 
 // Image paths object with imported images
 const imagePaths = {
-  img1,
-  img2,
-  img3,
-  img4,
-  img5,
-  img6,
-  img7
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
+    img6,
+    img7
 } as const;
 
 // Component for project image with caption
-const ProjectImage: FC<{ 
-  src: any; 
-  alt: string; 
-  caption?: string;
-  delay?: number;
-  priority?: boolean;
-  className?: string;
-  loading?: 'lazy' | 'eager';
-  placeholder?: 'blur' | 'empty';
-  blurDataURL?: string;
-  objectFit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
-  objectPosition?: string;
-  height?: string | number;
-  containerClassName?: string;
-}> = ({ 
-  src, 
-  alt, 
-  caption, 
-  delay = 0,
-  priority = false,
-  className = '',
-  containerClassName = '',
-  loading = 'lazy',
-  placeholder = 'blur',
-  blurDataURL = '',
-  objectFit = 'contain',
-  objectPosition = 'center',
-  height = 'auto',
-  ...props
+const ProjectImage: FC<{
+    src: any;
+    alt: string;
+    caption?: string;
+    delay?: number;
+    priority?: boolean;
+    className?: string;
+    loading?: 'lazy' | 'eager';
+    placeholder?: 'blur' | 'empty';
+    blurDataURL?: string;
+    objectFit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
+    objectPosition?: string;
+    height?: string | number;
+    containerClassName?: string;
+}> = ({
+    src,
+    alt,
+    caption,
+    delay = 0,
+    priority = false,
+    className = '',
+    containerClassName = '',
+    loading = 'lazy',
+    placeholder = 'blur',
+    blurDataURL = '',
+    objectFit = 'contain',
+    objectPosition = 'center',
+    height = 'auto',
+    ...props
 }) => {
-  const isPublicPath = typeof src === 'string' && src.startsWith('/');
-  
-  return (
-    <AnimatedSection delay={delay} className={`w-full ${className}`}>
-      <div 
-        className={`relative w-full ${containerClassName}`} 
-        style={height !== 'auto' ? { height } : { paddingBottom: '56.25%' }} // 16:9 aspect ratio by default
-      >
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          className="rounded-[24px]"
-          style={{ 
-            objectFit,
-            objectPosition
-          }}
-          priority={priority}
-          loading={priority ? undefined : loading}
-          placeholder={placeholder}
-          blurDataURL={isPublicPath ? undefined : (typeof src === 'string' ? src : src?.blurDataURL || '')}
-          quality={100}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
-          {...props}
-        />
-      </div>
-      {caption && (
-        <div className="text-center mt-2">
-          <span className="text-sm text-gray-500">{caption}</span>
-        </div>
-      )}
-    </AnimatedSection>
-  );
-};
+        const isPublicPath = typeof src === 'string' && src.startsWith('/');
+
+        return (
+            <AnimatedSection delay={delay} className={`w-full ${className}`}>
+                <div
+                    className={`relative w-full ${containerClassName}`}
+                    style={height !== 'auto' ? { height } : { paddingBottom: '56.25%' }} // 16:9 aspect ratio by default
+                >
+                    <Image
+                        src={src}
+                        alt={alt}
+                        fill
+                        className="rounded-[24px]"
+                        style={{
+                            objectFit,
+                            objectPosition
+                        }}
+                        priority={priority}
+                        loading={priority ? undefined : loading}
+                        placeholder={placeholder}
+                        blurDataURL={isPublicPath ? undefined : (typeof src === 'string' ? src : src?.blurDataURL || '')}
+                        quality={100}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
+                        {...props}
+                    />
+                </div>
+                {caption && (
+                    <div className="text-center mt-2">
+                        <span className="text-sm text-gray-500">{caption}</span>
+                    </div>
+                )}
+            </AnimatedSection>
+        );
+    };
 
 const Web3Boy: FC = () => {
     return (
@@ -112,10 +112,10 @@ const Web3Boy: FC = () => {
                 description="Web3 Lover Boy NFT Collection - A creative NFT project exploring Web3 aesthetics and digital art. Case study in product design and Solidity development."
                 path="/projects/web3boy"
                 customSchema={getProjectSchema({
-                  name: 'Web3 Lover Boy',
-                  description: 'A creative NFT project exploring Web3 aesthetics',
-                  url: `${SITE_URL}/projects/web3boy`,
-                  datePublished: '2022-01-01',
+                    name: 'Web3 Lover Boy',
+                    description: 'A creative NFT project exploring Web3 aesthetics',
+                    url: `${SITE_URL}/projects/web3boy`,
+                    datePublished: '2022-01-01',
                 })}
             />
             <main>
@@ -125,10 +125,10 @@ const Web3Boy: FC = () => {
                     </AnimatedSection>
                     <div className="inner_container">
                         <AnimatedSection delay={0.15}>
-                            <h1 className='text-black text-lg'>Certified Web3 Boy</h1>
-                            <p className='text-base'>21 NTFs inspired by the web3 culture.  <span className="dateProject">-  Jun 2021 </span></p>
+                            <h1 className='text-black text-lg dark:text-white'>Certified Web3 Boy</h1>
+                            <p className='text-base text-[#616161] dark:text-[#d5d5d5]'>21 NTFs inspired by the web3 culture.  <span className="dateProject">-  Jun 2021 </span></p>
                         </AnimatedSection>
-                        
+
                         <div className="w-full h-[400px] md:h-[500px] mb-8 mt-4">
                             <ProjectImage
                                 src={imagePaths.img1}
@@ -147,7 +147,7 @@ const Web3Boy: FC = () => {
                                     href="https://replit.com/@mohamedsadiq/cwb?v=1#src/App.jsx"
                                     className='text-[#000] underline decoration-dotted underline-offset-2 transition-colors duration-200 group-hover:decoration-current'
                                 >
-                                    Visit Live 
+                                    Visit Live
                                 </ExternalLink>
                                 <div className="flex flex-wrap gap-2">
                                     {['Solidity', 'Web3', 'Smart Contract', 'NFTs'].map((tag, index) => (
@@ -189,7 +189,7 @@ const Web3Boy: FC = () => {
                             />
                             <p>
                                 The Certified Web3 Boy (CWB) project is a creative endeavor inspired by the innovative spirit of Developer Dao and the cultural impact of the CLB album. As a passionate fan of Web3 technology and the CLB album, I found immense joy in bringing this project to life. The fusion of cutting-edge blockchain concepts with pop culture has made this journey both challenging and rewarding.
-                                <br/><br/>You can explore the live website <a className="text-[#000] underline" href='https://replit.com/@mohamedsadiq/cwb' target='_blank' rel="noopener noreferrer">here</a> to see the CWB NFTs in action. For those interested in the technical aspects, the frontend code is available <a className="text-[#000] underline" href='https://github.com/mohamedsadiq/cwb_front_end' target="_blank" rel="noopener noreferrer">here</a>, and you can review the smart contract <a className="text-[#000] underline" href='https://github.com/mohamedsadiq/cwb-nfts_smart_contract' target='_blank' rel="noopener noreferrer">here</a>. If you're curious about the design process, the Figma files can be found <a className="text-[#000] underline" href='https://www.figma.com/file/x2UkUXmgp69DVE12Yi0CPo/CWB?node-id=0%3A1' target='_blank' rel="noopener noreferrer">here</a>.
+                                <br /><br />You can explore the live website <a className="text-[#000] underline" href='https://replit.com/@mohamedsadiq/cwb' target='_blank' rel="noopener noreferrer">here</a> to see the CWB NFTs in action. For those interested in the technical aspects, the frontend code is available <a className="text-[#000] underline" href='https://github.com/mohamedsadiq/cwb_front_end' target="_blank" rel="noopener noreferrer">here</a>, and you can review the smart contract <a className="text-[#000] underline" href='https://github.com/mohamedsadiq/cwb-nfts_smart_contract' target='_blank' rel="noopener noreferrer">here</a>. If you're curious about the design process, the Figma files can be found <a className="text-[#000] underline" href='https://www.figma.com/file/x2UkUXmgp69DVE12Yi0CPo/CWB?node-id=0%3A1' target='_blank' rel="noopener noreferrer">here</a>.
                             </p>
                         </AnimatedSection>
                     </div>
@@ -197,7 +197,7 @@ const Web3Boy: FC = () => {
             </main>
             <SectionDivider />
             <div className=''>
-                <ProjectImage 
+                <ProjectImage
                     src={imagePaths.img2}
                     alt="Web3 Boy NFT Collection Showcase"
                     caption="(Not connected to wallet yet)"
@@ -205,8 +205,8 @@ const Web3Boy: FC = () => {
                     placeholder="blur"
                     className="mt-8"
                 />
-                
-                <ProjectImage 
+
+                <ProjectImage
                     src={imagePaths.img3}
                     alt="Web3 Boy UI after wallet connection"
                     caption="(The UI after the connection)"
@@ -214,8 +214,8 @@ const Web3Boy: FC = () => {
                     placeholder="blur"
                     className="mt-8"
                 />
-                
-                <ProjectImage 
+
+                <ProjectImage
                     src={imagePaths.img5}
                     alt="Web3 Boy NFT minting process"
                     caption="(Here, the mining of the NFTs started)"
@@ -223,8 +223,8 @@ const Web3Boy: FC = () => {
                     placeholder="blur"
                     className="mt-8"
                 />
-                
-                <ProjectImage 
+
+                <ProjectImage
                     src={imagePaths.img4}
                     alt="Web3 Boy NFT minting celebration"
                     caption="(Here, the mining has finished and we're celebrating)"
@@ -232,8 +232,8 @@ const Web3Boy: FC = () => {
                     placeholder="blur"
                     className="mt-8"
                 />
-                
-                <ProjectImage 
+
+                <ProjectImage
                     src={imagePaths.img6}
                     alt="Web3 Boy mobile version"
                     caption="(This is the mobile version of the website)"
@@ -241,8 +241,8 @@ const Web3Boy: FC = () => {
                     placeholder="blur"
                     className="mt-8"
                 />
-                
-                <ProjectImage 
+
+                <ProjectImage
                     src={imagePaths.img7}
                     alt="Web3 Boy mining components"
                     caption="(These are the components of the mining process)"
@@ -250,11 +250,11 @@ const Web3Boy: FC = () => {
                     placeholder="blur"
                     className="mt-8"
                 />
-                
+
                 {/* Project Navigation */}
                 <AnimatedSection delay={0.6}>
                     <div className="container mx-auto px-4 py-8">
-                        <ProjectNavigation />
+                        <PageNavigation type="project" />
                     </div>
                 </AnimatedSection>
             </div>

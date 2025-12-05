@@ -6,7 +6,7 @@ import { getProjectSchema, SITE_URL } from '../../lib/seo.config'
 import { AnimatedSection } from '../../components/AnimatedSection'
 import BackButton from '../../components/backButton'
 import ExternalLink from "../../components/ExternalLink"
-import ProjectNavigation from '../../components/ProjectNavigation'
+import PageNavigation from '../../components/PageNavigation'
 import ProjectOverview from '../../components/ProjectOverview'
 
 // Image paths pointing to public directory
@@ -52,10 +52,10 @@ interface ProjectImageProps {
   objectFit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
 }
 
-const ProjectImage: FC<ProjectImageProps> = ({ 
-  src, 
-  alt, 
-  caption, 
+const ProjectImage: FC<ProjectImageProps> = ({
+  src,
+  alt,
+  caption,
   className = '',
   containerClassName = '',
   delay = 0,
@@ -69,7 +69,7 @@ const ProjectImage: FC<ProjectImageProps> = ({
   ...props
 }) => {
   const isPublicPath = typeof src === 'string' && src.startsWith('/');
-  
+
   return (
     <AnimatedSection delay={delay} className={`w-full ${className}`}>
       <div className={`relative w-full ${containerClassName}`}>
@@ -124,10 +124,10 @@ const DeveloperDAO: FC = () => {
           </AnimatedSection>
           <div className="inner_container">
             <AnimatedSection delay={0.15}>
-              <h1 className='text-black text-lg'>DeveloperDAO Official Website</h1>
-              <p className='text-base'>In a mission to accelerate the education and impact of a new wave of web3 builders. <span className="dateProject">- Jun 2023</span></p>
+              <h1 className='text-black text-lg dark:text-white'>DeveloperDAO Official Website</h1>
+              <p className='text-base text-[#616161] dark:text-[#d5d5d5]'>In a mission to accelerate the education and impact of a new wave of web3 builders. <span className="dateProject">- Jun 2023</span></p>
             </AnimatedSection>
-            
+
             <div className="w-full h-[400px] md:h-[600px] mb-8 mt-4">
               <ProjectImage
                 src={imagePaths.img1}
@@ -189,11 +189,11 @@ const DeveloperDAO: FC = () => {
                 contentClassName="md:grid-cols-4 gap-10"
               />
               <p>
-                Developer DAO was one of the first—and most impactful—DAOs I joined in the web3 space. 
-                Before that, I was simply intrigued by web3: privacy, decentralization, and the possibilities 
+                Developer DAO was one of the first—and most impactful—DAOs I joined in the web3 space.
+                Before that, I was simply intrigued by web3: privacy, decentralization, and the possibilities
                 for the future. I wanted to be someone who helped build that future, not just watch it unfold.
-                <br/>
-                Through Developer DAO, I've had the chance to collaborate with talented people around the 
+                <br />
+                Through Developer DAO, I've had the chance to collaborate with talented people around the
                 world and be part of a generous, forward‑thinking community.
               </p>
             </AnimatedSection>
@@ -203,18 +203,18 @@ const DeveloperDAO: FC = () => {
             <AnimatedSection delay={0.3}>
               <h2 className='text-slate-950 mt-6 mb-2 dark:text-white'>My Contributions</h2>
               <p>
-                It was important for the DAO to establish an official presence to attract potential 
-                partnerships and new members. We designed the website to meet that goal: simple, direct, 
-                and aligned with the spirit of innovation, intelligence, and adventure. I led the UI and 
+                It was important for the DAO to establish an official presence to attract potential
+                partnerships and new members. We designed the website to meet that goal: simple, direct,
+                and aligned with the spirit of innovation, intelligence, and adventure. I led the UI and
                 UX design for this project, ensuring the experience was clear, accessible, and true to our mission.
               </p>
             </AnimatedSection>
           </div>
         </div>
       </main>
-      
+
       <div className='space-y-10 mt-14 p-10'>
-        <ProjectImage 
+        <ProjectImage
           src={imagePaths.img3}
           alt="DeveloperDAO responsive design"
           caption="Responsive design for different screen sizes"
@@ -223,8 +223,8 @@ const DeveloperDAO: FC = () => {
           width={1200}
           height={800}
         />
-        
-        <ProjectImage 
+
+        <ProjectImage
           src={imagePaths.img4}
           alt="DeveloperDAO dark mode"
           caption="Dark mode implementation"
@@ -233,8 +233,8 @@ const DeveloperDAO: FC = () => {
           width={1200}
           height={800}
         />
-        
-        <ProjectImage 
+
+        <ProjectImage
           src={imagePaths.img5}
           alt="DeveloperDAO mobile view"
           caption="Mobile-first approach for better accessibility"
@@ -243,8 +243,8 @@ const DeveloperDAO: FC = () => {
           width={1200}
           height={800}
         />
-        
-        <ProjectImage 
+
+        <ProjectImage
           src={imagePaths.img6}
           alt="DeveloperDAO light mode"
           caption="Light mode implementation"
@@ -253,20 +253,20 @@ const DeveloperDAO: FC = () => {
           width={1200}
           height={800}
         />
-        
+
         <AnimatedSection delay={0.6}>
           <h2 className='text-slate-950 mt-6 text-black mb-2  dark:text-white'>Reflections</h2>
           <p className='text-[#616161] dark:text-[#e1e1e1]'>
             Working on the Developer DAO website was a rewarding experience. It allowed me to combine my passion for web3 with my design and development skills. The collaborative nature of the DAO meant that I was constantly learning and iterating, which pushed me to grow as a designer.
-            <br/>
+            <br />
             The project reinforced the importance of clear communication and a shared vision in a decentralized environment. It also highlighted the power of community-driven development, where diverse perspectives come together to create something truly impactful.
           </p>
         </AnimatedSection>
-        
+
         {/* Project Navigation */}
         <AnimatedSection delay={0.65}>
           <div className="container mx-auto px-4 py-8">
-            <ProjectNavigation />
+            <PageNavigation type="project" />
           </div>
         </AnimatedSection>
       </div>

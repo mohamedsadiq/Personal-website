@@ -5,7 +5,7 @@ import SparkContainer from "../../components/SparkContainer";
 
 
 export default function Test() {
-  
+
   return (
     <>
       <SEO
@@ -13,17 +13,17 @@ export default function Test() {
         description="3D Model Showcase with Three.js"
         path="/sparks/test"
       />
-    
+
       <SparkContainer>
         <AnimatedSection delay={0.1}>
           <BackButton title="" />
         </AnimatedSection>
         <AnimatedSection delay={0.15}>
-          <h2 className="mt-10 mb-0 text-base text-black dark:text-white">Title</h2>
+          <h1 className=" mb-0 text-lg text-black dark:text-white">Title</h1>
           {/* <span className="text-xs text-stone-500"> - Jun 2024</span> */}
         </AnimatedSection>
         <AnimatedSection delay={0.2}>
-          <p className="mt-0 text-base text-[#616161] mb-4 text-[#929292]">
+          <p className="mt-0 text-base text-[#616161] mb-4 leading-7 dark:text-[#d5d5d5]">
             test
           </p>
         </AnimatedSection>

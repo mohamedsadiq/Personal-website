@@ -1,6 +1,6 @@
 import { HeroInlineLink } from "./HeroInlineLink";
 
-const defaultParagraphClassName = "mb-1 last:mb-0";
+const defaultParagraphClassName = "mb-1 last:mb-0 leading-relaxed";
 
 export const createHeroMdxComponents = ({
   paragraphClassName = defaultParagraphClassName,

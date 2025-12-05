@@ -5,6 +5,7 @@ import Image from "next/image";
 import peerlist from "../../public/staff-pick-light.png";
 import productHunt5 from "../../public/Optimized SVG 1.svg";
 import sasshub from "../../public/Saashub Logo.png";
+import nftweb3 from "../../img/nftweb3.png";
 import { useState } from "react";
 
 // Project data with image and video paths
@@ -61,6 +62,19 @@ const projects = [
             webm: "/bulitVidoes/devfm.mp4",
             mp4: "/bulitVidoes/devfm.mp4"
         },
+        isVideo: true
+    },
+    {
+        id: 'web3boy',
+        href: "/projects/web3boy",
+        title: "Web3 Lover Boy",
+        description: "Certified Web3 Boy NFT project inspired by web3 culture.",
+        icons: [],
+        video: {
+            webm: "/web3loverboy.mp4",
+            mp4: "/web3loverboy.mp4"
+        },
+        image: nftweb3,
         isVideo: true
     }
 ];
