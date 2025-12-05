@@ -24,7 +24,7 @@ const Section8 = ({ MohamedSadiq, motionCtl, order }) => {
       {...motionProps}
     >
       <div className="text-zinc-400">
-        <h1 className="text-sm leading-6 dark:text-[#b2b2b2]">Mentions</h1>
+        <h1 className="text-sm leading-6 text-zinc-500 dark:text-[#b2b2b2]">Mentions</h1>
       </div>
       <div id="links_home">
         <ul>

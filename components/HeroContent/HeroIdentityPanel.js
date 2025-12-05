@@ -1,4 +1,4 @@
-const baseTextClass = "text-[#000] dark:text-[#d5d5d5]";
+const baseTextClass = "text-black/70 dark:text-[#d5d5d5]";
 
 export const HeroIdentityPanel = ({
   name,
@@ -12,7 +12,7 @@ export const HeroIdentityPanel = ({
 
   return (
     <div id="name" className={`${baseTextClass} text-sm leading-relaxed`}>
-      <p className=" tracking-tight">{name}</p>
+      <p className="tracking-tight text-black dark:text-[#d5d5d5]">{name}</p>
       <div className="mt-1 text-xs text-black/60 dark:text-white/60">
         {location && <p>{location}</p>}
         {clockLabel && (

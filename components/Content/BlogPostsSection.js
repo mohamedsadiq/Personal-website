@@ -25,7 +25,7 @@ const Section9 = ({ MohamedSadiq, motionCtl, order }) => {
             {...motionProps}
         >
             <div className="text-zinc-400">
-                <h1 className="text-sm leading-relaxed">Thoughts</h1>
+                <h1 className="text-sm leading-relaxed text-zinc-500 dark:text-[#b2b2b2]">Thoughts</h1>
             </div>
             <div className="main_projects">
                 {[
