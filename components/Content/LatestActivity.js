@@ -23,7 +23,7 @@ const Section5 = ({ MohamedSadiq, motionCtl, order }) => {
       {...motionProps}
     >
       <div className="text-zinc-400">
-        <h1 className="text-sm leading-6">Latest Activity</h1>
+        <h1 className="text-sm leading-6 text-zinc-500 dark:text-[#b2b2b2]">Latest Activity</h1>
       </div>
       <div >
         <div className="bg-[#f8f8f8] border border-[#eeeeee] hover_project latest_activity_project hover:bg-[#fff] hover:border-[#eee] hover:scale-[1.01] transition-all duration-10 dark:bg-neutral-900 dark:border-neutral-800 dark:hover:bg-neutral-800">

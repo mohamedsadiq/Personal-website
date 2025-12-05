@@ -103,7 +103,7 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
             {...motionProps}
         >
             <div className="text-zinc-400">
-                <h1 className="dark:text-[#b2b2b2] text-sm leading-relaxed">Things I've built</h1>
+                <h1 className="text-sm leading-relaxed text-zinc-500 dark:text-[#b2b2b2]">Things I've built</h1>
             </div>
             <div className="main_projects [--underline-color:rgba(208,208,208,0.53)]">
                 {projects.map((project) => (

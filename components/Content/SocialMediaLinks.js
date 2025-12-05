@@ -41,7 +41,7 @@ const Section4 = ({ MohamedSadiq, motionCtl, order }) => {
 
     >
       <div className="text-zinc-400">
-        <h1 className="text-sm leading-6 dark:text-[#b2b2b2]">Social media</h1>
+        <h1 className="text-sm leading-6 text-zinc-500 dark:text-[#b2b2b2]">Social media</h1>
       </div>
       <div id="links_home">
         <div className="links_home grid grid-cols-6 justify-between items-center gap-4 w-full sm:gap-6 sm:grid-cols-6">
