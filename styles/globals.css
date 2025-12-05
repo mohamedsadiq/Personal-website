@@ -1166,7 +1166,7 @@ a {
 
 @media (min-width: 1024px) {
   .container {
-    max-width: 750px;
+    max-width: 822px;
     padding: 0 3rem;
   }
 }
@@ -1209,7 +1209,7 @@ a {
 
 .inner_container p {
   line-height: 28px;
-  color: #616161;
+  color: #3b3b3b;
   /* font-size: 1rem; */
 }
 

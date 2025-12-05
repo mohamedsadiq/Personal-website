@@ -142,7 +142,7 @@ const Photo: React.FC = () => {
         />
         
         <main className="min-h-screen py-8 px-4 sm:px-8">
-          <div className="max-w-7xl mx-auto mb-20">
+          <div className="max-w-5xl mx-auto mb-20">
             <motion.h1 
               className="text-base  mb-8 text-left text-[#616161] dark:text-[#fff]"
               {...headingMotionProps}

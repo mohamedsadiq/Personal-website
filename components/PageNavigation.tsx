@@ -171,7 +171,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, label, title, direction }) => {
                     >
                         {label}
                     </motion.span>
-                    <span className="truncate text-sm sm:text-base font-medium text-[#646363] dark:text-[#8a8a8a] group-hover:text-[#1f1f1f] dark:group-hover:text-white transition-colors duration-150">
+                    <span className="truncate text-sm sm:text-base  text-[#646363] dark:text-[#8a8a8a] group-hover:text-[#1f1f1f] dark:group-hover:text-white transition-colors duration-150">
                         {title}
                     </span>
                 </div>

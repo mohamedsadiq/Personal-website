@@ -33,7 +33,7 @@ export default function OnHover() {
           <h1 className="text-lg text-black dark:text-white">On Hover - Interactive 3D Models Showcase</h1>
         </AnimatedSection>
         <AnimatedSection delay={0.2}>
-          <p className="mt-0 text-base text-[#616161] mb-4 leading-7 dark:text-[#cfcfcf]">
+          <p className="mt-0 text-base text-[#3b3b3b] mb-4 leading-7 dark:text-[#cfcfcf]">
             This demo showcases a series of dynamically animated buttons built with <span className="spark_tools">React</span> and <span className="spark_tools">Framer Motion</span>.
           </p>
         </AnimatedSection>
