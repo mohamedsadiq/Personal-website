@@ -1,10 +1,11 @@
 import Image, { type StaticImageData } from 'next/image'
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, ReactNode, isValidElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { marked } from 'marked'
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
+import { MDXRemote, type MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { serialize } from 'next-mdx-remote/serialize'
+import { motion, LayoutGroup } from 'framer-motion'
 import styles from '../../styles/Home.module.css'
 import SEO from '../../components/SEO'
 import { getProjectSchema, SITE_URL } from '../../lib/seo.config'
@@ -13,28 +14,26 @@ import { AnimatedSection } from '../../components/AnimatedSection'
 
 import BackButton from '../../components/backButton'
 import ProjectOverview from '../../components/ProjectOverview'
-import { projectContent } from '../../data/lightup'
 import PageNavigation from '../../components/PageNavigation';
 import PhotoViewerOverlay, { type PhotoPreview } from '../../components/PhotoViewerOverlay'
 import VideoViewerOverlay, { type VideoPreview } from '../../components/VideoViewerOverlay'
+import { CallToAction, EmblaImageSlider } from '../../components/blog'
 // Removed unused HorizontalGallery
 
-// Configure markdown link rendering for project sections so inline links
-// (e.g. Peerlist mention/recognition links) get dotted underline styling
-// and an external-link style icon similar to the ExternalLink component.
-const markdownRenderer = new marked.Renderer()
-markdownRenderer.link = (href: string | null, title: string | null, text: string) => {
-  const safeHref = href || ''
-  const titleAttr = title ? ` title="${title}"` : ''
+type MediaItem = {
+  type: 'image' | 'video';
+  src: string;
+  alt?: string;
+  caption?: string;
+  autoPlay?: boolean;
+  loop?: boolean;
+  muted?: boolean;
+};
 
-  return `<a href="${safeHref}"${titleAttr} target="_blank" rel="noopener noreferrer" class="group inline-flex items-center text-black dark:text-white underline decoration-dotted decoration-[rgba(208,208,208,0.53)] underline-offset-2 transition-colors duration-200 hover:decoration-current hover:decoration-solid"><span class="dark:text-white">${text}</span><svg width="12" height="12" viewBox="0 0 30 30" fill="#909090" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transition: fill 200ms ease; margin-left: 4px; display: inline-block; vertical-align: middle; position: relative; top: -1px;" class="inline-block align-middle"><path d="M23.5163 13.8667C22.555 14.828 21.7964 15.9137 21.8305 16.279C21.8305 16.279 21.8305 16.279 21.8305 16.617C21.8305 21.4656 17.8866 25.4092 13.0403 25.4092C8.19272 25.4092 4.24919 21.4656 4.24919 16.617C4.24919 11.7717 8.19371 7.82919 13.0403 7.82919C13.4055 7.82919 13.4055 7.82919 13.4055 7.82919C13.7972 7.86922 14.9015 7.11796 15.8601 6.15962C16.8181 5.20127 16.2723 4.03982 14.6467 3.57867C14.6467 3.57867 14.6467 3.57867 13.0403 3.57867C5.84963 3.57867 -0.00132798 9.42764 -0.000335567 16.6174C-0.00132798 23.8091 5.84863 29.66 13.0403 29.66C20.2301 29.66 26.081 23.8087 26.0797 16.617C26.081 15.0355 26.081 15.0355 26.081 15.0355C25.6318 13.4314 24.4776 12.9054 23.5163 13.8667Z"/><path d="M29.6593 2.31564C29.6593 1.04204 28.6173 0 27.3437 0H17.7388C16.4652 0 16.1602 0.736703 17.0609 1.63716L19.3974 3.9733C20.2985 4.87375 20.2985 6.34716 19.3978 7.24761L14.879 11.7667C13.9785 12.6672 13.918 14.0804 14.7443 14.9067C15.571 15.7334 16.9842 15.6726 17.8847 14.7721L22.4031 10.2533C23.3039 9.35286 24.7766 9.35352 25.6764 10.2553L28.0232 12.6077C28.9226 13.5094 29.6583 13.2051 29.6583 11.9315L29.6593 2.31564Z"/></svg></a>`
-}
-
-marked.use({ renderer: markdownRenderer })
-
-const OPTIONS = { dragFree: true, loop: true }
-const SLIDE_COUNT = 5
-const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+type CaseStudySection = {
+  id: string;
+  label: string;
+};
 
 // Import images with blur placeholders
 import LightupIntroImage from '../../public/lightup/linkimage.png';
@@ -43,62 +42,146 @@ import jayKadamImage from '../../public/lightup/GrKWWxqWkAA2zie.png'
 import studentTestimonialA from '../../public/lightup/GqFpAIGXwAAabN0.png'
 import studentTestimonialB from '../../public/lightup/Gq7LBA2XMAAApxq.png'
 import teacherTestimonial from '../../public/lightup/GoRtowjWEAA3JP1.jpeg'
-// Removed unused img3, img4, img5, designImg1, designImg2, designImg3
+import peerlistProjectDay from '../../public/lightup/1748282477575.jpeg'
+import lightupLogo from '../../public/lightup/logo.png'
+import brandPalette from '../../public/lightup/ebe607a8-f6f8-47d2-a8f5-a80ac36606da_2880x2160.png'
+import brandPosters from '../../public/lightup/d213566b-7ade-4640-92d5-a2273b2affc5_2880x2160.webp'
+import eclipse1 from '../../public/eclipse/911c4764b296050715a26d2cf325afdf.jpg'
+import eclipse2 from '../../public/eclipse/97410092a774ae24d5fa794ff3b99bc7.jpg'
+import eclipse3 from '../../public/eclipse/993a2450f1d4368e5ec7d0fbf2d516b4.jpg'
+import eclipse4 from '../../public/eclipse/f3deeb85a7d3708f5096f525c2d92c56.jpg'
+import webDesign1 from '../../public/websiteDesign/GkDVoucXUAAVOp_.jpeg'
+import webDesign2 from '../../public/websiteDesign/Gkxy6NCWUAEZyDY.jpeg'
+import webDesign3 from '../../public/websiteDesign/Gp1gON-WcAAR8m9.jpeg'
+import webDesign4 from '../../public/websiteDesign/Image Style Transformation Apr 25 2025.png'
+import webDesign5 from '../../public/websiteDesign/Lightup _ AI-powered explanations and annotations for the web.jpeg'
+import webDesign6 from '../../public/websiteDesign/unnamed.png'
+import webDesign7 from '../../public/websiteDesign/unnamed (2).png'
 
-// Image paths object with imported images
-const imagePaths = {
+// UI Settings Images
+import setting1 from '../../public/ui setting/Screenshot 2025-12-06 at 3.17.29 AM.png'
+import setting2 from '../../public/ui setting/Screenshot 2025-12-06 at 3.17.35 AM.png'
+import setting3 from '../../public/ui setting/Screenshot 2025-12-06 at 3.17.40 AM.png'
+import setting4 from '../../public/ui setting/Screenshot 2025-12-06 at 3.17.46 AM.png'
+import setting5 from '../../public/ui setting/Screenshot 2025-12-06 at 3.17.48 AM.png'
+import setting6 from '../../public/ui setting/Screenshot 2025-12-06 at 3.18.01 AM.png'
+import setting7 from '../../public/ui setting/Screenshot 2025-12-06 at 3.18.19 AM.png'
+import setting8 from '../../public/ui setting/Screenshot 2025-12-06 at 3.19.29 AM.png'
+import setting9 from '../../public/ui setting/Screenshot 2025-12-06 at 3.19.36 AM.png'
+import setting10 from '../../public/ui setting/Screenshot 2025-12-06 at 3.19.42 AM.png'
+import setting11 from '../../public/ui setting/Screenshot 2025-12-06 at 3.19.49 AM.png'
+
+// UI Popup Images
+import popup1 from '../../public/ui lightup/Screenshot 2025-12-05 at 1.52.49 AM.png'
+import popup2 from '../../public/ui lightup/Screenshot 2025-12-05 at 12.40.27 AM.png'
+import popup3 from '../../public/ui lightup/Screenshot 2025-12-05 at 12.49.47 AM.png'
+import popup4 from '../../public/ui lightup/Screenshot 2025-12-06 at 3.21.53 AM.png'
+import popup5 from '../../public/ui lightup/Screenshot 2025-12-06 at 3.22.15 AM.png'
+import popup6 from '../../public/ui lightup/Screenshot 2025-12-06 at 3.22.23 AM.png'
+import popup7 from '../../public/ui lightup/Screenshot 2025-12-06 at 3.23.04 AM.png'
+import popup8 from '../../public/ui lightup/Screenshot 2025-12-06 at 3.23.13 AM.png'
+import popup9 from '../../public/ui lightup/Screenshot 2025-12-06 at 3.23.28 AM.png'
+import popup10 from '../../public/ui lightup/Screenshot 2025-12-06 at 3.23.52 AM.png'
+import popup11 from '../../public/ui lightup/Screenshot 2025-12-06 at 3.24.14 AM.png'
+import popup12 from '../../public/ui lightup/Screenshot 2025-12-06 at 3.24.41 AM.png'
+
+// Image map for resolving image keys from markdown to actual imports
+const imageMap: Record<string, StaticImageData> = {
   LightupIntroImage,
   boxesIsideBoxes,
   jayKadamImage,
   studentTestimonialA,
   studentTestimonialB,
   teacherTestimonial,
-  // Removed unused image keys
-  video: '/lightup/Dribbble Video.mp4' // Keep video as a string path
+  peerlistProjectDay,
+  lightupLogo,
+  brandPalette,
+  brandPosters,
+  eclipse1,
+  eclipse2,
+  eclipse3,
+  eclipse4,
+  webDesign1,
+  webDesign2,
+  webDesign3,
+  webDesign4,
+  webDesign5,
+  webDesign6,
+  webDesign7,
+  // Settings
+  setting1, setting2, setting3, setting4, setting5, setting6,
+  setting7, setting8, setting9, setting10, setting11,
+  // Popups
+  popup1, popup2, popup3, popup4, popup5, popup6,
+  popup7, popup8, popup9, popup10, popup11, popup12,
 };
 
-const testimonialEntries = [
-  {
-    id: 'testimonial-jay-kadam',
-    image: jayKadamImage,
-    alt: 'Jay Kadam testimonial',
-    caption: 'Jay Kadam - product designer at Peerlist',
-    description:
-      'Jay said LightUp feels like Dia Browser but everywhere—and he keeps it in his top five extensions on his browser.',
-  },
-  {
-    id: 'testimonial-student-a',
-    image: studentTestimonialA,
-    alt: 'Student testimonial A',
-    caption: 'Student after testing LightUp',
-    description:
-      'A student tester used LightUp to translate dense papers without juggling extra tabs.',
-  },
-  {
-    id: 'testimonial-student-b',
-    image: studentTestimonialB,
-    alt: 'Student testimonial B',
-    caption: 'Student after using LightUp',
-    description:
-      'Another student loved how inline summaries suddenly made technical blogs approachable.',
-  },
-  {
-    id: 'testimonial-teacher',
-    image: teacherTestimonial,
-    alt: 'Teacher testimonial',
-    caption: 'Teacher after using LightUp',
-    description:
-      'A teacher shared how much they love LightUp and even walked their students through it in class.',
-  },
-];
+/**
+ * Resolve media source - converts image keys to actual imports or returns path as-is
+ */
+const resolveMediaSrc = (src: string): StaticImageData | string => {
+  // If it's a path (starts with /), return as-is
+  if (src.startsWith('/')) {
+    return src;
+  }
+  // Otherwise, look up in the image map
+  return imageMap[src] || src;
+};
+
+const slugifyTitle = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 
 type ProjectPhotoPreview = PhotoPreview;
+
+// Media marker components for MDX - these render nothing but carry props
+const ImageMedia: FC<Omit<MediaItem, 'type'>> = () => null;
+ImageMedia.displayName = 'ImageMedia';
+
+const VideoMedia: FC<Omit<MediaItem, 'type'>> = () => null;
+VideoMedia.displayName = 'VideoMedia';
+
+// Helper to split media from body children
+const extractSectionContent = (children: ReactNode) => {
+  const media: MediaItem[] = [];
+  const body: ReactNode[] = [];
+
+  React.Children.forEach(children, (child) => {
+    if (isValidElement(child)) {
+      const childType = child.type as FC & { displayName?: string };
+      const props = child.props as Record<string, unknown>;
+      if (childType.displayName === 'ImageMedia') {
+        media.push({
+          type: 'image',
+          src: String(props.src || ''),
+          alt: props.alt ? String(props.alt) : undefined,
+          caption: props.caption ? String(props.caption) : undefined,
+        });
+        return;
+      }
+      if (childType.displayName === 'VideoMedia') {
+        media.push({
+          type: 'video',
+          src: String(props.src || ''),
+          alt: props.alt ? String(props.alt) : undefined,
+          caption: props.caption ? String(props.caption) : undefined,
+        });
+        return;
+      }
+    }
+    body.push(child);
+  });
+
+  return { media, body };
+};
 
 // Component for project image with caption
 const ProjectImage: FC<{
   src: any;
   alt: string;
-  caption?: string;
+  caption?: string | null;
   delay?: number;
   priority?: boolean;
   className?: string;
@@ -121,8 +204,6 @@ const ProjectImage: FC<{
   className = '',
   containerClassName = '',
   loading = 'lazy',
-  // Remove default placeholder since we'll handle it conditionally
-  placeholder,
   blurDataURL,
   objectFit = 'contain',
   objectPosition = 'center',
@@ -152,7 +233,6 @@ const ProjectImage: FC<{
       loading,
       quality: 100,
       sizes: "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw",
-      // Only include placeholder and blurDataURL if we have a valid blurDataURL
       ...(isImportedImage && (blurDataURL || src?.blurDataURL) ? {
         placeholder: 'blur' as const,
         blurDataURL: blurDataURL || src?.blurDataURL
@@ -169,7 +249,7 @@ const ProjectImage: FC<{
         id: previewId || alt,
         src,
         alt,
-        caption,
+        caption: caption || undefined,
         aspectRatio: aspectRatioValue,
       });
     };
@@ -239,10 +319,10 @@ const ProjectVideo: FC<{
   caption,
   className = '',
   containerClassName = '',
-  controls = true,
-  autoPlay = false,
+  controls = false,
+  autoPlay = true,
   loop = false,
-  muted = false,
+  muted = true,
 }) => (
     <AnimatedSection delay={0} className={`w-full ${className}`}>
       <div className={`relative w-full ${containerClassName}`}>
@@ -253,6 +333,7 @@ const ProjectVideo: FC<{
           autoPlay={autoPlay}
           loop={loop}
           muted={muted}
+          playsInline
         />
       </div>
       {caption && (
@@ -263,58 +344,95 @@ const ProjectVideo: FC<{
     </AnimatedSection>
   );
 
-// Component for rendering a project section with title and content
-const ProjectSection: FC<{
+// Component for rendering a project section with title and children content
+const ProjectSectionContent: FC<{
   title: string;
-  content: string;
+  children?: ReactNode;
   className?: string;
-  media?: {
-    type: 'image' | 'video';
-    src: any;
-    alt?: string;
-    caption?: string;
-    autoPlay?: boolean;
-    loop?: boolean;
-    muted?: boolean;
-  }[];
-  markdown?: string;
+  media?: { type: 'image' | 'video'; src: any; alt?: string; caption?: string; autoPlay?: boolean; loop?: boolean; muted?: boolean }[];
   enableMediaPreview?: boolean;
   onPreview?: (photo: ProjectPhotoPreview) => void;
-}> = ({ title, content, className = '', media = [], markdown, enableMediaPreview = false, onPreview }) => (
-  <AnimatedSection delay={0} className={className}>
-    <h2 className={title.includes('Overview') ? 'mt-4 mb-2 text-slate-950' : title.includes('inspiration') ? 'mt-10 mb-2' : 'mt-10 mb-2'}>{title}</h2>
-    <div className="whitespace-pre-wrap">
-      {markdown ? (
-        <div
-          className="text-[#616161] dark:text-[#d5d5d5] leading-7 text-base"
-          dangerouslySetInnerHTML={{ __html: marked.parse(markdown) }}
-        />
-      ) : (
-        content.split('\n\n').map((paragraph, index) => (
-          <p key={index} className={index > 0 ? 'mt-4' : ''}>{paragraph}</p>
-        ))
+  useSlider?: boolean;
+}> = ({ title, children, className = '', media = [], enableMediaPreview = false, onPreview, useSlider }) => {
+  // Filter images and videos separately
+  const imageMedia = media.filter(item => item.type === 'image');
+  const videoMedia = media.filter(item => item.type === 'video');
+
+  // Use slider when there are 2+ images OR when explicitly requested
+  const shouldUseSlider = useSlider || imageMedia.length >= 2;
+
+  const handleSliderImageClick = (item: { src: any; alt: string; caption?: string }, index: number) => {
+    if (enableMediaPreview && onPreview) {
+      const isImportedImage = item.src && typeof item.src === 'object' && 'src' in item.src;
+      const aspectRatioValue = isImportedImage && item.src?.width && item.src?.height
+        ? item.src.height / item.src.width
+        : 9 / 16;
+
+      onPreview({
+        id: `${title.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}-${index}`,
+        src: item.src,
+        alt: item.alt,
+        caption: item.caption,
+        aspectRatio: aspectRatioValue,
+      });
+    }
+  };
+
+  // Tension subsections get slightly different styling
+  const tensionSections = ['Present vs. Invisible', 'Powerful vs. Simple', 'Consistent vs. Adaptive'];
+  const isTensionSection = tensionSections.includes(title);
+  const isOpeningSection = title === 'The Space Between';
+  
+  return (
+    <AnimatedSection delay={0} className={className}>
+      <h2 className={
+        isOpeningSection 
+          ? 'mt-4 mb-2 text-slate-950 dark:text-white' 
+          : isTensionSection 
+            ? 'mt-8 mb-2 text-slate-900 dark:text-white' 
+            : ' mb-2'
+      }>{title}</h2>
+      <div className="text-[#616161] dark:text-[#d5d5d5] leading-7 text-base prose prose-neutral dark:prose-invert max-w-none">
+        {children}
+      </div>
+
+      {/* Horizontal Slider for multiple images */}
+      {shouldUseSlider && imageMedia.length > 0 && (
+        <div className="mt-6">
+          <EmblaImageSlider
+            items={imageMedia.map(item => ({
+              src: item.src,
+              alt: item.alt || title,
+              caption: item.caption || undefined
+            }))}
+            onImageClick={handleSliderImageClick}
+          />
+        </div>
       )}
-    </div>
-    {media.length > 0 && (
-      <div className="grid grid-cols-1 md:grid-cols-1 gap-6 mt-6">
-        {media.map((item, idx) => (
-          <div key={idx} className="flex flex-col items-center">
-            {item.type === 'image' ? (
-              <>
-                <div className="w-full rounded-2xl shadow-sm">
-                  <ProjectImage
-                    src={item.src}
-                    alt={item.alt || title}
-                    className="w-full h-auto"
-                    objectFit="contain"
-                    enablePreview={enableMediaPreview}
-                    onPreview={onPreview}
-                    previewId={`${title.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}-${idx}`}
-                    caption={item.caption}
-                  />
-                </div>
-              </>
-            ) : (
+
+      {/* Single image (no slider) */}
+      {!shouldUseSlider && imageMedia.length === 1 && (
+        <div className="mt-6">
+          <div className="w-full rounded-2xl ">
+            <ProjectImage
+              src={imageMedia[0].src}
+              alt={imageMedia[0].alt || title}
+              className="w-full h-auto"
+              objectFit="contain"
+              enablePreview={enableMediaPreview}
+              onPreview={onPreview}
+              previewId={`${title.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}-0`}
+              caption={imageMedia[0].caption}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Videos */}
+      {videoMedia.length > 0 && (
+        <div className="grid grid-cols-1 gap-6 mt-6">
+          {videoMedia.map((item, idx) => (
+            <div key={idx} className="flex flex-col items-center">
               <ProjectVideo
                 src={item.src}
                 caption={item.caption}
@@ -322,31 +440,31 @@ const ProjectSection: FC<{
                 loop={item.loop}
                 muted={item.muted}
               />
-            )}
-          </div>
-        ))}
-      </div>
-    )}
-  </AnimatedSection>
-);
+            </div>
+          ))}
+        </div>
+      )}
+    </AnimatedSection>
+  );
+};
 
 const VideoTowersSection: FC<{
   title: string;
-  content: string;
+  children?: ReactNode;
   media: { type: 'image' | 'video'; src: any; alt?: string; caption?: string }[];
   onVideoClick: (video: { src: string; caption?: string }) => void;
-}> = ({ title, content, media, onVideoClick }) => {
+}> = ({ title, children, media, onVideoClick }) => {
   const leftColumn = media.filter((_, index) => index % 2 === 0);
   const rightColumn = media.filter((_, index) => index % 2 === 1);
 
   return (
     <AnimatedSection delay={0} className="mt-10">
       <h2 className="mb-2">{title}</h2>
-      <div className="whitespace-pre-wrap">
-        {content.split('\n\n').map((paragraph, index) => (
-          <p key={index} className={index > 0 ? 'mt-4' : ''}>{paragraph}</p>
-        ))}
-      </div>
+      {children && (
+        <div className="text-[#616161] dark:text-[#d5d5d5] leading-7 text-base prose prose-neutral dark:prose-invert max-w-none mt-4 mb-8">
+          {children}
+        </div>
+      )}
 
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
         {[leftColumn, rightColumn].map((columnItems, columnIndex) => (
@@ -391,75 +509,378 @@ const VideoTowersSection: FC<{
 
 const SectionDivider: FC = () => (
   <AnimatedSection delay={0} className="w-full">
-    <div className="my-20 w-full">
-      <div className="mx-auto h-[1px] w-24 bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+    <div className="relative flex items-center justify-center w-full py-20 overflow-hidden">
+      <div className="w-full h-[1px] max-w-[300px] bg-gradient-to-r from-transparent via-gray-300 dark:via-neutral-800 to-transparent" />
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-[2px] bg-gradient-to-r from-transparent via-gray-400/30 dark:via-white/20 to-transparent blur-sm" />
     </div>
   </AnimatedSection>
 );
 
-// --- REMOVED Unused FeatureList component ---
-
-// --- REMOVED Unused WorkflowSteps component ---
-
-
-// Main LightUp component
-const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSections }) => {
-  const [activeVideo, setActiveVideo] = useState<{ src: string; caption?: string } | null>(null);
-  const [activePhoto, setActivePhoto] = useState<ProjectPhotoPreview | null>(null);
-
-  const handleOpenVideo = (video: { src: string; caption?: string }) => {
-    setActiveVideo(video);
-  };
-
-  const handleCloseVideo = () => {
-    setActiveVideo(null);
-  };
-
-  const handleOpenPhoto = (photo: ProjectPhotoPreview) => {
-    setActivePhoto(photo);
-  };
-
-  const handleClosePhoto = () => {
-    setActivePhoto(null);
-  };
+const CaseStudySidebar: FC<{
+  sections: CaseStudySection[];
+  activeSectionId: string;
+  onNavigate: (id: string) => void;
+  positionLeft?: number | null;
+}> = ({ sections, activeSectionId, onNavigate, positionLeft }) => {
+  const listRef = useRef<HTMLUListElement | null>(null);
 
   useEffect(() => {
-    if (!activePhoto) {
+    const container = listRef.current;
+    if (!container || !activeSectionId) {
       return;
     }
 
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        handleClosePhoto();
+    const activeButton = container.querySelector<HTMLButtonElement>(
+      `[data-section-id="${activeSectionId}"]`
+    );
+
+    if (!activeButton) {
+      return;
+    }
+
+    const containerHeight = container.clientHeight;
+    const buttonOffset = activeButton.offsetTop;
+    const buttonHeight = activeButton.offsetHeight;
+    const targetScrollTop = Math.max(0, buttonOffset - (containerHeight / 2 - buttonHeight / 2));
+
+    if (Math.abs(container.scrollTop - targetScrollTop) <= 4) {
+      return;
+    }
+
+    container.scrollTo({
+      top: targetScrollTop,
+      behavior: 'smooth',
+    });
+  }, [activeSectionId]);
+
+  if (!sections.length || positionLeft == null) {
+    return null;
+  }
+
+  return (
+    <LayoutGroup id="case-study-sidebar">
+      <nav
+        className="fixed top-32 z-20 hidden lg:flex w-64 shrink-0 flex-col gap-4 text-sm text-neutral-400"
+        aria-label="Case study index"
+        style={{ left: Math.max(positionLeft, 24) }}
+      >
+        <ul
+          ref={listRef}
+          className="flex flex-col gap-0.5 overflow-y-auto pr-2 max-h-[calc(100vh-8rem)]"
+        >
+          {sections.map((section) => {
+            const isActive = activeSectionId === section.id;
+            return (
+              <li key={section.id} className="relative">
+                {isActive && (
+                  <motion.span
+                    layoutId="sidebar-active-indicator"
+                    className="absolute left-0 top-1.5 bottom-1.5 w-[3px] rounded-full bg-black/80 dark:bg-white"
+                    aria-hidden="true"
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <button
+                  type="button"
+                  onClick={() => onNavigate(section.id)}
+                  data-section-id={section.id}
+                  className={`w-full rounded-md py-1 pl-5 pr-2 text-left transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/70 dark:focus-visible:ring-white/70 ${isActive ? 'text-black font-medium dark:text-white' : 'text-neutral-400 hover:text-black dark:hover:text-white'}`}
+                  aria-current={isActive ? 'location' : undefined}
+                >
+                  {section.label}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </LayoutGroup>
+  );
+};
+
+// Props interface for the LightUp component
+interface LightUpProps {
+  meta: {
+    title: string;
+    description: string;
+    date: string;
+    projectLink: string;
+    tags: string[];
+    heroImage: string;
+  };
+  mdxSource: MDXRemoteSerializeResult;
+}
+
+// Main LightUp component
+const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
+
+  const [activeVideo, setActiveVideo] = useState<{ src: string; caption?: string } | null>(null);
+  const [activePhoto, setActivePhoto] = useState<ProjectPhotoPreview | null>(null);
+  const [sidebarSections, setSidebarSections] = useState<CaseStudySection[]>([]);
+  const [activeSectionId, setActiveSectionId] = useState<string>('');
+  const [sidebarLeft, setSidebarLeft] = useState<number | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
+  const isProgrammaticScroll = useRef(false);
+  const scrollAnimationFrame = useRef<number | null>(null);
+  const sectionOffsets = useRef<Record<string, number>>({});
+
+  const handleOpenVideo = useCallback((video: { src: string; caption?: string }) => setActiveVideo(video), []);
+  const handleCloseVideo = useCallback(() => setActiveVideo(null), []);
+  const handleOpenPhoto = useCallback((photo: ProjectPhotoPreview) => setActivePhoto(photo), []);
+  const handleClosePhoto = useCallback(() => setActivePhoto(null), []);
+
+  const registerSection = useCallback((section: CaseStudySection) => {
+    setSidebarSections((prev) => {
+      if (prev.some((item) => item.id === section.id)) {
+        return prev;
+      }
+      return [...prev, section];
+    });
+  }, []);
+
+  const handleSidebarNavigate = useCallback((sectionId: string) => {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
+    const target = document.getElementById(sectionId);
+    if (!target) {
+      return;
+    }
+
+    if (scrollAnimationFrame.current) {
+      cancelAnimationFrame(scrollAnimationFrame.current);
+    }
+
+    const rootElement = document.documentElement;
+    const originalScrollBehavior = rootElement.style.scrollBehavior;
+    rootElement.style.scrollBehavior = 'auto';
+
+    setActiveSectionId(sectionId);
+
+    const startY = window.scrollY;
+    const offsetPadding = 96;
+    const targetY = window.scrollY + target.getBoundingClientRect().top - offsetPadding;
+    const duration = 450;
+    const startTime = performance.now();
+
+    isProgrammaticScroll.current = true;
+
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const step = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(1, elapsed / duration);
+      const eased = easeOutCubic(progress);
+      const nextY = startY + (targetY - startY) * eased;
+      window.scrollTo({ top: nextY });
+
+      if (progress < 1) {
+        scrollAnimationFrame.current = requestAnimationFrame(step);
+        return;
+      }
+
+      scrollAnimationFrame.current = null;
+      window.scrollTo({ top: targetY });
+
+      requestAnimationFrame(() => {
+        isProgrammaticScroll.current = false;
+        rootElement.style.scrollBehavior = originalScrollBehavior;
+      });
+    };
+
+    scrollAnimationFrame.current = requestAnimationFrame(step);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || sidebarSections.length === 0) {
+      return;
+    }
+
+    const calculateOffsets = () => {
+      const offsets: Record<string, number> = {};
+      sidebarSections.forEach((section) => {
+        const element = document.getElementById(section.id);
+        if (!element) {
+          return;
+        }
+
+        const rect = element.getBoundingClientRect();
+        offsets[section.id] = window.scrollY + rect.top;
+      });
+      sectionOffsets.current = offsets;
+    };
+
+    const handleScroll = () => {
+      if (isProgrammaticScroll.current) {
+        return;
+      }
+
+      const scrollAnchor = window.scrollY + window.innerHeight * 0.3;
+      const offsets = sectionOffsets.current;
+      const sectionIds = Object.keys(offsets);
+      if (!sectionIds.length) {
+        return;
+      }
+
+      const sortedIds = [...sectionIds].sort((a, b) => offsets[a] - offsets[b]);
+
+      let detectedSectionId = sortedIds[0];
+      for (let index = 0; index < sortedIds.length; index += 1) {
+        const currentId = sortedIds[index];
+        const nextId = sortedIds[index + 1];
+
+        const currentElement = document.getElementById(currentId);
+        if (!currentElement) {
+          continue;
+        }
+
+        const currentTop = offsets[currentId];
+        const currentHeight = currentElement.offsetHeight;
+        const currentBottom = currentTop + currentHeight;
+
+        const nextTop = nextId ? offsets[nextId] : Infinity;
+        const effectiveBottom = Math.min(currentBottom, nextTop - 1);
+
+        if (scrollAnchor >= currentTop && scrollAnchor <= effectiveBottom) {
+          detectedSectionId = currentId;
+          break;
+        }
+
+        if (scrollAnchor > effectiveBottom) {
+          detectedSectionId = nextId ?? currentId;
+        }
+      }
+
+      if (detectedSectionId && detectedSectionId !== activeSectionId) {
+        setActiveSectionId(detectedSectionId);
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [activePhoto]);
+    calculateOffsets();
+    handleScroll();
 
-  const firstSection = projectContent.sections[0];
-  const firstSectionMarkdown = firstSection.markdownSlug
-    ? markdownSections[firstSection.markdownSlug]
-    : undefined;
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', calculateOffsets);
 
-  const secondSection = projectContent.sections[1];
-  const secondSectionMarkdown = secondSection.markdownSlug
-    ? markdownSections[secondSection.markdownSlug]
-    : undefined;
+    const offsetsInterval = window.setInterval(() => {
+      if (!Object.keys(sectionOffsets.current).length) {
+        calculateOffsets();
+      } else {
+        window.clearInterval(offsetsInterval);
+      }
+    }, 200);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', calculateOffsets);
+      window.clearInterval(offsetsInterval);
+    };
+  }, [sidebarSections, activeSectionId]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const updateSidebarPosition = () => {
+      if (!contentRef.current) {
+        return;
+      }
+
+      const rect = contentRef.current.getBoundingClientRect();
+      const offset = 320;
+      setSidebarLeft(rect.left - offset);
+    };
+
+    updateSidebarPosition();
+    window.addEventListener('resize', updateSidebarPosition);
+    return () => window.removeEventListener('resize', updateSidebarPosition);
+  }, []);
+
+  // MDX Section component - extracts media and renders content
+  const Section = useMemo(() => {
+    const SectionComponent: FC<{ title: string; gallery?: boolean; children?: ReactNode }> = ({ title, gallery, children }) => {
+      const { media, body } = extractSectionContent(children);
+      const sectionId = useMemo(() => slugifyTitle(title), [title]);
+
+      useEffect(() => {
+        registerSection({ id: sectionId, label: title });
+      }, [registerSection, sectionId, title]);
+
+      const resolvedMedia = media.map(m => ({
+        ...m,
+        src: resolveMediaSrc(m.src),
+      }));
+
+      if (gallery && resolvedMedia.length > 0) {
+        return (
+          <>
+            <SectionDivider />
+            <section id={sectionId} className="scroll-mt-32">
+              <VideoTowersSection
+                title={title}
+                media={resolvedMedia}
+                onVideoClick={handleOpenVideo}
+              >
+                {body}
+              </VideoTowersSection>
+            </section>
+          </>
+        );
+      }
+
+      const noDividerSections = [
+        'The Space Between',
+        'Present vs. Invisible',
+        'Powerful vs. Simple',
+        'Consistent vs. Adaptive',
+        'Surface and Depth',
+        'The Settings',
+        'The Website',
+      ];
+
+      const showDivider = !noDividerSections.includes(title);
+
+      return (
+        <>
+          {showDivider && <SectionDivider />}
+          <section id={sectionId} className="scroll-mt-32">
+            <ProjectSectionContent
+              title={title}
+              media={resolvedMedia}
+              enableMediaPreview
+              onPreview={handleOpenPhoto}
+            >
+              {body}
+            </ProjectSectionContent>
+          </section>
+        </>
+      );
+    };
+
+    SectionComponent.displayName = 'LightUpSection';
+    return SectionComponent;
+  }, [handleOpenPhoto, handleOpenVideo, registerSection]);
+
+  const mdxComponents = useMemo(() => ({
+    Section,
+    ImageMedia,
+    VideoMedia,
+  }), [Section]);
 
   return (
     <LayoutGroup id="lightup-photo-viewer">
       <div className={styles.container}>
         <SEO
-          title={projectContent.title}
-          description={projectContent.description}
+          title={meta.title}
+          description={meta.description}
           path="/projects/lightup"
           ogImage={`${SITE_URL}/lightup/linkimage.png`}
           ogImageAlt="LightUp - AI-Powered Annotations"
           customSchema={getProjectSchema({
-            name: projectContent.title,
-            description: projectContent.description,
+            name: meta.title,
+            description: meta.description,
             url: `${SITE_URL}/projects/lightup`,
             image: `${SITE_URL}/lightup/linkimage.png`,
             datePublished: '2024-01-01',
@@ -471,37 +892,41 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
               <BackButton href="/projects" />
             </AnimatedSection>
             <div className="inner_container_project_parent inner_container inner_container_mobile">
+              {/* Header */}
               <AnimatedSection delay={0.1}>
                 <div className="project_title">
-                  <h1 className='text-black text-lg dark:text-white'>{projectContent.title}</h1>
-                  <p className='text-base text-[#616161] dark:text-[#d5d5d5]'>{projectContent.description} <span className="dateProject"> {projectContent.date} </span></p>
+                  <h1 className='text-black text-lg dark:text-white'>{meta.title}</h1>
+                  <p className='text-base text-[#616161] dark:text-[#d5d5d5]'>{meta.description} <span className="dateProject"> {meta.date} </span></p>
                 </div>
               </AnimatedSection>
 
+              {/* Hero Image */}
               <div className="blog_photo inner_blog work_intro_image">
                 <ProjectImage
-                  src={imagePaths.LightupIntroImage}
-                  alt={projectContent.title}
+                  src={LightupIntroImage}
+                  alt={meta.title}
                   placeholder="blur"
-                  blurDataURL={imagePaths.LightupIntroImage.blurDataURL}
+                  blurDataURL={LightupIntroImage.blurDataURL}
                   className="max-w-full h-auto"
                   objectFit="contain"
                   delay={0.15}
                 />
               </div>
+
+              {/* Project Overview */}
               <AnimatedSection delay={0.2}>
                 <h2 className='mt-6'>Project Overview</h2>
               </AnimatedSection>
               <AnimatedSection delay={0.25}>
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
                   <ExternalLink
-                    href={projectContent.projectLink}
+                    href={meta.projectLink}
                     className="text-[#000] underline decoration-dotted underline-offset-2 transition-colors duration-200 group-hover:decoration-current w-fit"
                   >
                     Visit Live
                   </ExternalLink>
                   <div className="flex flex-wrap gap-2">
-                    {projectContent.tags.map((tag, index) => (
+                    {meta.tags.map((tag: string, index: number) => (
                       <span key={index} className="bg-[#f6f6f6] border border-[#f0f0f0] text-black text-sm px-3 py-1.5 rounded-xl whitespace-nowrap">
                         {tag}
                       </span>
@@ -509,7 +934,6 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                   </div>
                 </div>
 
-                {/* Project Overview Section */}
                 <ProjectOverview
                   background={{
                     type: 'video',
@@ -518,206 +942,50 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
                     className: 'w-full h-full object-cover'
                   }}
                   infoItems={[
-                    {
-                      title: 'Platform',
-                      content: 'Chrome Extension'
-                    },
-                    {
-                      title: 'Role',
-                      content: 'From 0 → 1'
-                    },
-                    {
-                      title: 'Funding',
-                      content: 'With No funding'
-                    },
-                    {
-                      title: 'Downloads',
-                      content: '668 install - 252 active users - No marketing budget'
-                    },
-                    {
-                      title: 'Timeline',
-                      content: '4 Dec 2024 - Present'
-                    }
+                    { title: 'Platform', content: 'Chrome Extension' },
+                    { title: 'Role', content: 'Solo Designer & Developer (0 → 1)' },
+                    { title: 'Traction', content: '668 installs · 252 weekly active users · 37.7% retention' },
+                    { title: 'Marketing', content: '$0 funding. $0 Marketing spend. 100% organic growth' },
+                    { title: 'Timeline', content: 'December 2024 – Present' }
                   ]}
-
                   linksTitle="Links"
                 />
               </AnimatedSection>
-              <AnimatedSection delay={0.3}>
-                <h2 className='mb-3'>{firstSection.title}</h2>
-                <div className=" ">
-                  {firstSectionMarkdown ? (
-                    <div
-                      className="text-[#616161] dark:text-[#d5d5d5] leading-7 text-base"
-                      dangerouslySetInnerHTML={{ __html: marked.parse(firstSectionMarkdown) }}
-                    />
-                  ) : firstSection.content ? (
-                    firstSection.content.split('\n\n').map((paragraph, index) => (
-                      <p key={index} className={index > 0 ? 'mt-4' : ''}>{paragraph}</p>
-                    ))
-                  ) : null}
-                </div>
-              </AnimatedSection>
-            </div>
 
+            </div>
           </div>
 
+          {/* Main Content - Rendered from MDX */}
+          <div className='container relative'>
+            <CaseStudySidebar
+              sections={sidebarSections}
+              activeSectionId={activeSectionId}
+              onNavigate={handleSidebarNavigate}
+              positionLeft={sidebarLeft}
+            />
+            <div ref={contentRef} className="inner_container flex flex-col gap-10">
+              <MDXRemote {...mdxSource} components={mdxComponents} />
 
+              {/* Links Section */}
+              <SectionDivider />
+              <AnimatedSection delay={0.45}>
+                <ProjectOverview
+                  background={{
+                    type: 'video',
+                    src: '/lightup/lightup.mp4',
+                    placeholderSrc: '/lightup/Screenshot 2025-11-16 at 8.46.05 PM.png',
+                    className: 'w-full h-full object-cover'
+                  }}
+                  infoItems={[]}
+                  links={[
+                    { label: 'Chrome Store', url: 'https://chromewebstore.google.com/detail/lightup-ai-powered-web-an/pncapgeoeedlfppkohlbelelkkihikel' },
+                    { label: 'GitHub Repository', url: 'https://github.com/mohamedsadiq/LightUp' },
+                    { label: 'Peerlist', url: 'https://peerlist.io/sadiqo/project/lightup' },
+                  ]}
+                  linksTitle="Links"
+                />
+              </AnimatedSection>
 
-          <div className=''>
-
-            <div className='container'>
-              <div className="inner_container">
-                <SectionDivider />
-                <AnimatedSection delay={0.35}>
-                  <h2 className='mb-4'>{secondSection.title}</h2>
-                  <ProjectImage
-                    src={imagePaths.boxesIsideBoxes}
-                    alt="Open source"
-                    placeholder="blur"
-                    blurDataURL={imagePaths.boxesIsideBoxes.blurDataURL}
-                    delay={0.4}
-                    enablePreview
-                    onPreview={handleOpenPhoto}
-                    previewId="lightup-boxes-preview"
-                    caption="Nested knowledge windows that inspired LightUp"
-                  />
-                  <div className="whitespace-pre-wrap ">
-                    {secondSectionMarkdown ? (
-                      <div
-                        className="mt-4 text-[#616161] dark:text-[#d5d5d5] leading-7 text-base"
-                        dangerouslySetInnerHTML={{ __html: marked.parse(secondSectionMarkdown) }}
-                      />
-                    ) : (
-                      <p className='mt-4'> {secondSection.content}</p>
-                    )}
-                  </div>
-                </AnimatedSection>
-                <SectionDivider />
-
-
-                {/* --- FIXED --- 
-                           Dynamically render the rest of the project sections (starting from index 2)
-                           This replaces the broken, hardcoded, and duplicate sections.
-                        */}
-                {projectContent.sections.slice(2).map((section, index, array) => {
-                  const markdown = section.markdownSlug
-                    ? markdownSections[section.markdownSlug]
-                    : undefined;
-
-                  if (section.title === "What users are saying:") {
-                    return (
-                      <React.Fragment key={section.title + index}>
-                        <SectionDivider />
-                        <AnimatedSection delay={0}>
-                          <h2 className='mb-4'>{section.title}</h2>
-                          <div className="whitespace-pre-wrap mb-6">
-                            <p>{section.content}</p>
-                          </div>
-
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {testimonialEntries.map((entry) => (
-                              <div key={entry.id} className="flex flex-col gap-3">
-                                <ProjectImage
-                                  src={entry.image}
-                                  alt={entry.alt}
-                                  placeholder="blur"
-                                  blurDataURL={entry.image.blurDataURL}
-                                  enablePreview
-                                  onPreview={handleOpenPhoto}
-                                  previewId={entry.id}
-                                />
-                                <p className="text-sm text-[#5c5c5c] leading-6">
-                                  <span className="dark:text-white font-medium text-[#111]">{entry.caption}:</span> {entry.description}
-                                </p>
-                              </div>
-                            ))}
-                          </div>
-                        </AnimatedSection>
-                      </React.Fragment>
-                    );
-                  }
-
-                  if (section.gallery && section.media && section.media.length) {
-                    return (
-                      <React.Fragment key={section.title + index}>
-                        {index > 0 && <SectionDivider />}
-                        <VideoTowersSection
-                          title={section.title}
-                          content={section.content || ''}
-                          media={section.media}
-                          onVideoClick={handleOpenVideo}
-                        />
-                        {section.markdownSlug === "from-idea-to-shape" && <SectionDivider />}
-                      </React.Fragment>
-                    );
-                  }
-
-                  const isIdeaToShapeSection = section.markdownSlug === "from-idea-to-shape" || section.title.includes("From idea to shape");
-                  const previousSection = index > 0 ? projectContent.sections[2 + index - 1] : null;
-                  const isAfterIdeaToShape = previousSection &&
-                    (previousSection.markdownSlug === "from-idea-to-shape" ||
-                      previousSection.title.includes("From idea to shape"));
-
-                  return (
-                    <React.Fragment key={section.title + index}>
-                      {/* Don't add divider if previous section was 'From idea to shape' */}
-                      {index > 0 && !isAfterIdeaToShape && <SectionDivider />}
-                      <ProjectSection
-                        title={section.title}
-                        content={section.content || ''}
-                        media={section.media}
-                        markdown={markdown}
-                        enableMediaPreview
-                        onPreview={handleOpenPhoto}
-                      />
-                      {/* Add divider after 'From idea to shape' section */}
-                      {isIdeaToShapeSection && <SectionDivider />}
-                    </React.Fragment>
-                  );
-                })}
-
-              </div>
-
-
-
-              <br />
-            </div>
-
-
-
-            <div className='container'>
-              <div className="inner_container">
-                {/* REMOVED Commented-out section for projectContent.sections[5] 
-                          It is now rendered automatically by the loop above.
-                        */}
-
-                {/* Simple Links Section */}
-
-                <AnimatedSection delay={0.45}>
-                  {/* Project Overview Section */}
-                  <ProjectOverview
-                    background={{
-                      type: 'video',
-                      src: '/lightup/lightup.mp4',
-                      placeholderSrc: '/lightup/Screenshot 2025-11-16 at 8.46.05 PM.png',
-                      className: 'w-full h-full object-cover'
-                    }}
-                    infoItems={[
-
-                    ]}
-                    links={[
-                      { label: 'Chrome Store', url: 'https://chromewebstore.google.com/detail/lightup-ai-powered-web-an/pncapgeoeedlfppkohlbelelkkihikel' },
-                      { label: 'GitHub Repository', url: 'https://github.com/mohamedsadiq/LightUp' },
-                      { label: 'Peerlist', url: 'https://peerlist.io/sadiqo/project/lightup' },
-                      { label: 'Saashub', url: 'https://www.saashub.com/best-data-annotation-software/c/ai' },
-
-                    ]}
-
-                    linksTitle="Links"
-                  />
-                </AnimatedSection>
-              </div>
             </div>
           </div>
 
@@ -730,38 +998,33 @@ const LightUp: FC<{ markdownSections: Record<string, string> }> = ({ markdownSec
         <PhotoViewerOverlay photo={activePhoto} onClose={handleClosePhoto} />
         <VideoViewerOverlay video={activeVideo} onClose={handleCloseVideo} />
 
-      </div>
-    </LayoutGroup>
+      </div >
+    </LayoutGroup >
   )
 }
 
 export default LightUp
 
 export async function getStaticProps() {
-  const markdownSections: Record<string, string> = {};
+  // Read the MDX file
+  const filePath = path.join(process.cwd(), 'project-posts', 'lightup.mdx');
+  const fileContent = fs.readFileSync(filePath, 'utf8');
 
-  const baseDir = path.join(process.cwd(), 'project-posts', 'lightup');
-
-  projectContent.sections.forEach((section) => {
-    if (!section.markdownSlug) {
-      return;
-    }
-
-    const filePath = path.join(baseDir, `${section.markdownSlug}.md`);
-
-    if (!fs.existsSync(filePath)) {
-      return;
-    }
-
-    const fileContent = fs.readFileSync(filePath, 'utf8');
-    const { content } = matter(fileContent);
-
-    markdownSections[section.markdownSlug] = content;
-  });
+  // Parse frontmatter and serialize MDX
+  const { content, data } = matter(fileContent);
+  const mdxSource = await serialize(content, { scope: data });
 
   return {
     props: {
-      markdownSections,
+      meta: {
+        title: data.title || 'LightUp',
+        description: data.description || '',
+        date: data.date || '',
+        projectLink: data.projectLink || '',
+        tags: data.tags || [],
+        heroImage: data.heroImage || '',
+      },
+      mdxSource,
     },
   };
 }

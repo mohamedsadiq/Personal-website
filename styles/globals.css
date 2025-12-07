@@ -43,6 +43,8 @@
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     tab-size: 4;
+    /* scrollbar-width: none;
+    -ms-overflow-style: none; */
   }
 
   /* Disable smooth scrolling for back/forward navigation */
@@ -67,6 +69,11 @@
     transition: background-color var(--transition-base) var(--ease-in-out),
       color var(--transition-base) var(--ease-in-out);
   }
+
+  /* html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  } */
 
   /* Next.js root */
   #__next {
@@ -178,7 +185,7 @@
   /* Lists */
   ul,
   ol {
-    padding-left: var(--space-6);
+    /* padding-left: var(--space-6); */
   }
 
   li {
@@ -432,6 +439,27 @@ a.tag {
 
 }
 
+/* Shimmer loading animation for image sliders */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+/* Hide scrollbar for horizontal sliders */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 .widget_text_mobile {
   position: absolute;
   color: #000;
@@ -653,7 +681,8 @@ a.tag {
 
   background-color: #a6a6a6;
 }
-.projectPage .glass{
+
+.projectPage .glass {
   width: 100%;
 }
 
@@ -1166,14 +1195,14 @@ a {
 
 @media (min-width: 1024px) {
   .container {
-    max-width: 822px;
+    max-width: 782px;
     padding: 0 3rem;
   }
 }
 
 @media (min-width: 1280px) {
   .container {
-    max-width: 1140px;
+    max-width: 900px;
     padding: 0 4rem;
   }
 }
@@ -1214,7 +1243,7 @@ a {
 }
 
 .dark .inner_container p {
-  color: #e1e1e1;
+  color: #c8c8c8;
 }
 
 .light .inner_container p {
@@ -3589,8 +3618,8 @@ opacity: 1;
 
 .dark .go_back {
   color: #686868;
-  background-color: #2f2f2f;
-  border: 1px solid #3a3a3a;
+  background-color: #181818;
+  border: 1px solid #1b1b1b;
 }
 
 .copy_link {

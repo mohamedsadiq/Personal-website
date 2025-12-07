@@ -1,3 +1,0 @@
-I kept the UI deliberately small and modest. LightUp sits as a toolbar icon; you highlight text and a compact popup appears with clear options: Explain, Summarize, Translate, Analyze, or an open 'Ask anything' flow. Keyboard shortcuts make the experience fluid for power users. The goal was to make discovery feel like margin notes coming alive—quick, contextual, and reversible.
-
-Here are versions of LightUp from different points in its evolution:
