@@ -1,0 +1,169 @@
+---
+title: "LightUp"
+description: "AI-Powered Annotations for every page on the web."
+date: "December 2024 – Present"
+projectLink: "https://www.boimaginations.com/lightup"
+tags: ["Product Design", "Chrome Extension", "Open Source", "AI/ML"]
+heroImage: "/lightup/linkimage.png"
+timeline:
+  - "December 2024: Beta launch (built in public)"
+  - "January 8, 2025: Official Chrome Web Store launch"
+---
+
+<Section title="The Space Between">
+  The web was built for publishing, not understanding. Every page assumes you already know what you're reading. When you don't—you leave. You copy text, open a new tab, paste into a search bar, skim results, try to remember the answer, hunt for your original tab among seventeen others. By then, you've forgotten why you were reading.
+<br/>
+  That forgetting isn't random. Studies put the refocus cost at around 23 minutes per interruption. But even that number undersells it—what you lose isn't time, it's *state*. The thread you were following. The question you were about to ask. The momentum.
+<br/>
+  I kept thinking: the problem isn't finding answers. It's that finding them requires *leaving*. What if you didn't have to? What if understanding could happen right where confusion starts—on the same page, in the same breath?
+<br/>
+  That's the space LightUp lives in. The moment between not knowing and knowing, without the rupture in between.
+</Section>
+
+<Section title="Boxes Inside Boxes">
+  Once I had the problem clear, a mental model emerged.
+<br/>
+  Knowledge isn't flat. It's nested—boxes within boxes. You understand one thing, and inside it is something else to understand. Each answer opens new questions. The shape of learning is recursive.
+<br/>
+  This became the design principle: highlight a sentence, a small window opens. Ask a follow-up, another layer appears. You're still on the same page, but you've gone somewhere. Each answer becomes a foundation for the next question.
+<br/>
+  LightUp represents how knowledge actually grows—contained yet infinite, simple on the surface yet deep underneath.
+
+  <ImageMedia src="boxesIsideBoxes" alt="Boxes inside boxes metaphor" caption="Knowledge as nested boxes—each highlight opens a new layer." />
+</Section>
+
+<Section title="What Had to Be True">
+  With the model clear, I set constraints before writing any code. Three things had to be true:
+<br/>
+  **Reduce context switches.** Get answers without leaving the page. If the user opens a new tab, I've failed.
+<br/>
+  **Preserve flow.** Under 2 seconds from highlight to insight. Slow enough to notice is too slow.
+<br/>
+  **Earn attention organically.** No marketing budget. With no budget, the only growth lever is product quality.
+</Section>
+
+<Section title="One Moment, Many Tensions">
+  Here's what makes browser extensions strange: you're building on someone else's canvas. Every website has different fonts, colors, moods. You don't control any of it. You have to appear without jarring, adapt to infinite contexts, and disappear completely when not needed.
+<br/>
+  That single moment—when you select text and LightUp appears—contains every design decision. And every decision exists in tension.
+</Section>
+
+<Section title="Present vs. Invisible">
+  *Be helpful, but never intrusive.*
+
+  The first version showed a popup automatically the moment you finished highlighting. Good idea in theory. In practice? Users sometimes just want to highlight text without any bubble appearing.
+
+  After talking one-on-one with teachers, students, and CEOs, I changed it: now a small icon appears after highlighting. Hover to choose what to do, or ignore it entirely. Control stays with the user.
+
+  This wasn't a feature decision—it was a philosophical one. The tool should feel like it's *waiting* for you, not *demanding* from you. Present when needed. Invisible when not.
+</Section>
+
+<Section title="Powerful vs. Simple">
+  *AI is complex, the interface can't be.*
+
+  Highlight any text → a compact popup appears with clear options: Explain, Summarize, Translate, or Ask anything. Keyboard shortcuts for power users. no assumptions, no noise.
+
+  But beneath this simplicity lives real depth. Gemini, Grok, OpenAI, and 10+ local AI providers. Context-awareness that understands the page you're reading. Customizable popup positions, highlight colors, and behavior toggles.
+
+  The popup has a simple design on the surface, but if you want the settings, there's a way to enter and see the real capability of the extension. None of it clutters the main experience. **Simple surface, powerful depth.**
+
+  <VideoMedia src="/lightup/vidoes/8.mp4" />
+  <VideoMedia src="/lightup/vidoes/3.mp4" />
+  <VideoMedia src="/lightup/vidoes/4.mp4" />
+  <VideoMedia src="/lightup/vidoes/5.mp4" />
+  <VideoMedia src="/lightup/vidoes/2.mp4" />
+  <VideoMedia src="/lightup/vidoes/6.mp4" />
+  <VideoMedia src="/lightup/vidoes/7.mp4" />
+</Section>
+
+<Section title="Consistent vs. Adaptive">
+  *Have identity, but fit anywhere.*
+<br/>
+  Dark sites, light sites. Dense academic papers, minimal landing pages. Aggressive security policies, weird font stacks. LightUp had to look like *itself* while never breaking the page it lived on.
+<br/>
+  The brand carries this same tension. The logo is an eclipse—light returning after darkness. In Arabic: الكسوف (al-kusuf). The imagery draws from thinkers across history—philosophers, scientists, builders. Not decoration. Lineage. Knowledge building on knowledge, like boxes inside boxes.
+
+  <ImageMedia src="eclipse1" alt="Eclipse branding concept 1" />
+  <ImageMedia src="eclipse2" alt="Eclipse branding concept 2" />
+  <ImageMedia src="eclipse3" alt="Eclipse branding concept 3" />
+  <ImageMedia src="eclipse4" alt="Eclipse branding concept 4" />
+</Section>
+
+<Section title="Building on Someone Else's Canvas">
+  The tensions above shaped the design. But Chrome's environment shaped the engineering—through constraints I had to treat as laws.
+<br/>
+  **Don't exist until needed.** Extensions can slow everything down. The content script that loads on every page is ~1KB. The full React app only injects when you interact. Memory stays near zero most of the time.
+<br/>
+  **Never touch the host.** Shadow DOM encapsulation keeps my styles mine and theirs theirs. No CSS bleeding in or out.
+<br/>
+  **Privacy by structure, not policy.** Conversations live in memory only. No disk. No sync. When the tab closes, everything disappears. This isn't a promise—it's architecture.
+<br/>
+  **Swap brains, keep the body.** One streaming interface. Multiple AI providers behind it. Adding a new model doesn't touch the UI.
+<br/>
+  Chrome's restrictions looked like friction. They turned out to be guides—eliminating bad decisions before I could make them.
+</Section>
+
+<Section title="Surface and Depth">
+  Two interfaces. One philosophy: simple until you need more.
+<br/>
+  **The Popup** — what most people see. Fast, focused, quiet.
+  <ImageMedia src="popup4" alt="Popup UI - Main view" />
+  <ImageMedia src="popup5" alt="Popup UI - Explanation" />
+  <ImageMedia src="popup6" alt="Popup UI - Options" />
+  <ImageMedia src="popup7" alt="Popup UI - Translation" />
+  <ImageMedia src="popup8" alt="Popup UI - Summary" />
+  <ImageMedia src="popup9" alt="Popup UI - Follow-up" />
+  <ImageMedia src="popup10" alt="Popup UI - Context" />
+  <ImageMedia src="popup11" alt="Popup UI - Actions" />
+  <ImageMedia src="popup12" alt="Popup UI - Complete" />
+</Section>
+
+<Section title="The Settings">
+  **The Settings** — where depth lives for those who want it.
+  <ImageMedia src="setting1" alt="Settings - Overview" />
+  <ImageMedia src="setting2" alt="Settings - AI Provider" />
+  <ImageMedia src="setting3" alt="Settings - Appearance" />
+  <ImageMedia src="setting4" alt="Settings - Behavior" />
+  <ImageMedia src="setting5" alt="Settings - Shortcuts" />
+  <ImageMedia src="setting6" alt="Settings - Privacy" />
+  <ImageMedia src="setting7" alt="Settings - Advanced" />
+  <ImageMedia src="setting8" alt="Settings - Models" />
+  <ImageMedia src="setting9" alt="Settings - Context" />
+  <ImageMedia src="setting10" alt="Settings - Colors" />
+  <ImageMedia src="setting11" alt="Settings - About" />
+</Section>
+
+
+
+<Section title="What I Had to Unlearn">
+  I started building for myself. That's good fuel for starting. Not always for finishing.
+<br/>
+  **"My way is the right way."** The first version fired automatically—highlight text, popup appears. I loved it. Users hated it. They wanted to highlight without being interrupted. So I added choice: auto-popup or a subtle icon that waits. My preference didn't get to be the default.
+<br/>
+  **"Everyone knows this."** I made API keys required to start. Trivial to me—just paste it in. For non-technical users, it was a wall. I added a free tier: limited daily actions, no configuration needed. Try first. Configure later.
+<br/>
+  The final product is half my instinct, half their corrections.
+</Section>
+
+<Section title="The Weight of Decisions">
+  What stayed with me:
+<br/>
+  **Attention is the product.** I thought I was saving time. I was actually protecting state—the thread, the momentum, the focus. A tool that saves seconds but shatters concentration is worse than nothing.
+<br/>
+  **Features are taxes.** Every addition costs something. Retention improved when I removed things. The product became useful by refusing to ask too much.
+<br/>
+  **Intuition is hypothesis.** Gut feelings start the work. Feedback finishes it. You can't shortcut your way to product sense—you have to build, ship, and watch what actually happens.
+</Section>
+
+<Section title="Resonance">
+  Zero marketing spend.
+<br/>
+  668 installs. 252 weekly active. 37.7% retention. Featured on Peerlist. But the numbers matter less than the pattern: students translating papers, teachers walking classes through it, professionals reading in their second language.
+<br/>
+  The product found its people through the question it answers: *What does this mean?*
+
+  <ImageMedia src="peerlistProjectDay" alt="Peerlist Project of the Day" caption="Project of the Day on Peerlist" />
+  <ImageMedia src="jayKadamImage" alt="Jay Kadam testimonial" caption="Jay Kadam - Product Designer at Peerlist" />
+  <ImageMedia src="studentTestimonialA" alt="Student testimonial" caption="Student feedback" />
+  <ImageMedia src="teacherTestimonial" alt="Teacher testimonial" caption="Teacher feedback" />
+</Section>

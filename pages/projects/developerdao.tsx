@@ -152,7 +152,7 @@ const DeveloperDAO: FC = () => {
                 </ExternalLink>
                 <div className="flex flex-wrap gap-2">
                   {['DAOs', 'Web3', 'UI/UX'].map((tag, index) => (
-                    <span key={index} className="bg-[#f6f6f6] border border-[#f0f0f0] text-black text-sm px-3 py-1.5 rounded-xl whitespace-nowrap">
+                    <span key={index} className=" bg-[#f6f6f6] dark:bg-[#181818] text-black text-sm px-3 py-1.5 rounded-xl whitespace-nowrap">
                       {tag}
                     </span>
                   ))}
