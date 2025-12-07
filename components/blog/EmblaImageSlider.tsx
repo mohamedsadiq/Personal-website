@@ -73,7 +73,7 @@ const EmblaImageSlider: FC<EmblaImageSliderProps> = ({
                         return (
                             <div
                                 key={index}
-                                className="flex-shrink-0 w-[75%] sm:w-[60%] md:w-[45%] lg:w-[38%]"
+                                className="flex-shrink-0 w-[75%] sm:w-[60%] md:w-[45%] lg:w-[44%]"
                             >
                                 <button
                                     type="button"

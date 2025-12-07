@@ -319,10 +319,10 @@ const ProjectVideo: FC<{
   caption,
   className = '',
   containerClassName = '',
-  controls = true,
-  autoPlay = false,
+  controls = false,
+  autoPlay = true,
   loop = false,
-  muted = false,
+  muted = true,
 }) => (
     <AnimatedSection delay={0} className={`w-full ${className}`}>
       <div className={`relative w-full ${containerClassName}`}>
@@ -333,6 +333,7 @@ const ProjectVideo: FC<{
           autoPlay={autoPlay}
           loop={loop}
           muted={muted}
+          playsInline
         />
       </div>
       {caption && (
@@ -412,7 +413,7 @@ const ProjectSectionContent: FC<{
       {/* Single image (no slider) */}
       {!shouldUseSlider && imageMedia.length === 1 && (
         <div className="mt-6">
-          <div className="w-full rounded-2xl shadow-sm">
+          <div className="w-full rounded-2xl ">
             <ProjectImage
               src={imageMedia[0].src}
               alt={imageMedia[0].alt || title}
@@ -563,9 +564,6 @@ const CaseStudySidebar: FC<{
         aria-label="Case study index"
         style={{ left: Math.max(positionLeft, 24) }}
       >
-        <p className="uppercase text-[0.65rem] tracking-[0.2em] text-neutral-500">
-          Index
-        </p>
         <ul
           ref={listRef}
           className="flex flex-col gap-0.5 overflow-y-auto pr-2 max-h-[calc(100vh-8rem)]"
