@@ -120,18 +120,19 @@ export const PhotoViewerOverlay: React.FC<PhotoViewerOverlayProps> = ({ photo, o
             transition={{ duration: 0.2, ease: 'easeInOut' }}
           />
           <motion.figure
-            className="relative pointer-events-auto"
+            className="relative pointer-events-auto flex flex-col items-center"
             style={{ zIndex: zIndex + 1 }}
             onClick={(event) => event.stopPropagation()}
             layout="position"
             transition={{ type: 'spring', stiffness: 140, damping: 22, mass: 0.85 }}
           >
-            <motion.div 
-             initial={{ scale: 0.5, opacity: 0, }}
-              animate={{ opacity: 1,scale: 1,  }}
-               exit={{ opacity: 0,  scale: 0.5, }}
-                transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className="glass-circle absolute right-2 top-2 h-10 w-10">
+            <motion.div
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.5 }}
+              transition={{ duration: 0.2, ease: 'easeInOut' }}
+              className="glass-circle absolute right-[-16px] top-[-16px] h-10 w-10 z-[60]"
+            >
               <GlassCard
                 className="h-10 w-10 !p-0 flex items-center justify-center"
                 style={{ borderRadius: '50%' }}
@@ -142,7 +143,7 @@ export const PhotoViewerOverlay: React.FC<PhotoViewerOverlayProps> = ({ photo, o
                 >
                   <motion.button
                     type="button"
-                    className="relative h-full w-full flex items-center justify-center text-black text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded-full"
+                    className="relative h-full w-full flex items-center justify-center text-black dark:text-white text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded-full"
                     style={{ zIndex: zIndex + 2 }}
                     onClick={onClose}
                     aria-label="Close photo viewer"
@@ -159,24 +160,30 @@ export const PhotoViewerOverlay: React.FC<PhotoViewerOverlayProps> = ({ photo, o
             </motion.div>
             <motion.div
               layoutId={photo.id}
-              className="relative overflow-hidden rounded-[24px] bg-white"
+              className="relative overflow-hidden rounded-[24px] bg-white shadow-2xl"
               style={{
                 width: viewerDimensions?.width || 900,
                 height: viewerDimensions?.height || 600,
                 zIndex: zIndex + 1,
               }}
               transition={{ type: 'spring', stiffness: 150, damping: 20, mass: 0.8 }}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
             >
               <div className="relative h-full w-full">
-                <img
-                  src={typeof photo.src === 'string' ? photo.src : photo.src.src}
+                <Image
+                  src={typeof photo.src === 'string' ? photo.src : photo.src}
                   alt={photo.alt}
+                  fill
                   className="h-full w-full object-contain"
-                  decoding="async"
-                  loading="eager"
-                  style={{ opacity: 1 }}
-                  onLoad={(event) => {
-                    const { naturalWidth, naturalHeight } = event.currentTarget
+                  sizes="(max-width: 768px) 100vw, 80vw"
+                  priority
+                  {...(typeof photo.src !== 'string' && photo.src.blurDataURL
+                    ? { placeholder: 'blur' as const, blurDataURL: photo.src.blurDataURL }
+                    : { placeholder: 'empty' as const })}
+                  onLoadingComplete={(img) => {
+                    const { naturalWidth, naturalHeight } = img
                     if (!naturalWidth || !naturalHeight) {
                       return
                     }
@@ -188,9 +195,15 @@ export const PhotoViewerOverlay: React.FC<PhotoViewerOverlayProps> = ({ photo, o
               </div>
             </motion.div>
             {photo.caption && (
-              <figcaption className="mt-3 text-center text-sm text-neutral-200">
+              <motion.figcaption
+                className="mt-3 text-center text-sm text-neutral-200"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.2, ease: 'easeInOut' }}
+              >
                 {photo.caption}
-              </figcaption>
+              </motion.figcaption>
             )}
           </motion.figure>
         </div>

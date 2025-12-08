@@ -138,7 +138,7 @@ export const VideoViewerOverlay: React.FC<VideoViewerOverlayProps> = ({ video, o
                 >
                   <motion.button
                     type="button"
-                    className="relative h-full w-full flex items-center justify-center text-black text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded-full"
+                    className="relative h-full w-full flex items-center justify-center text-black dark:text-white text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded-full"
                     style={{ zIndex: 52 }}
                     onClick={onClose}
                     aria-label="Close video viewer"
@@ -183,11 +183,12 @@ export const VideoViewerOverlay: React.FC<VideoViewerOverlayProps> = ({ video, o
               </div>
             </motion.div>
             {video.caption && (
-              <motion.figcaption 
+              <motion.figcaption
                 className="mt-3 text-center text-sm text-neutral-200"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.2, ease: 'easeInOut' }}
               >
                 {video.caption}
               </motion.figcaption>

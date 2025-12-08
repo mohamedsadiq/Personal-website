@@ -11,6 +11,9 @@ timeline:
 ---
 
 <Section title="The Space Between">
+  *The moment between not knowing and knowing—without breaking your reading flow.*
+  
+  <br/>
   The web was built for publishing, not understanding. Every page assumes you already know what you're reading. When you don't—you leave. You copy text, open a new tab, paste into a search bar, skim results, try to remember the answer, hunt for your original tab among seventeen others. By then, you've forgotten why you were reading.
 <br/>
   That forgetting isn't random. Studies put the refocus cost at around 23 minutes per interruption. But even that number undersells it—what you lose isn't time, it's *state*. The thread you were following. The question you were about to ask. The momentum.
@@ -21,6 +24,8 @@ timeline:
 </Section>
 
 <Section title="Boxes Inside Boxes">
+  *A mental model of knowledge as nested boxes, each answer opening the next.*
+  <br/>
   Once I had the problem clear, a mental model emerged.
 <br/>
   Knowledge isn't flat. It's nested—boxes within boxes. You understand one thing, and inside it is something else to understand. Each answer opens new questions. The shape of learning is recursive.
@@ -34,6 +39,7 @@ timeline:
 
 <Section title="What Had to Be True">
   With the model clear, I set constraints before writing any code. Three things had to be true:
+  
 <br/>
   **Reduce context switches.** Get answers without leaving the page. If the user opens a new tab, I've failed.
 <br/>
@@ -90,8 +96,10 @@ timeline:
 </Section>
 
 <Section title="Building on Someone Else's Canvas">
+  *Accept the platform as law, then push the edges inside it.*
+  <br/>
   The tensions above shaped the design. But Chrome's environment shaped the engineering—through constraints I had to treat as laws.
-<br/>
+  <br/>
   While I was working on LightUp, The Browser Company was teasing [Dia](https://www.diabrowser.com/), their AI-first browser. They had been hinting at a more AI-centric product since [October 2024](https://www.theverge.com/2024/12/2/24310944/dia-ai-browser-video-arc-the-browser-company) and then, on [December 2, 2024](https://techcrunch.com/2024/12/02/the-browser-company-teases-dia-its-new-ai-browser/), properly revealed Dia—two days before LightUp's first public beta.
 <br/>
   Watching a team with real capital go all-in on owning the browser itself made something obvious feel concrete: **platforms are one of the most powerful forms of leverage in modern networked economies**. If you own the canvas, you decide what tools and behaviors are even possible on top of it.
@@ -110,16 +118,20 @@ timeline:
 </Section>
 
 <Section title="Surface and Depth">
-  Two interfaces. One philosophy: simple until you need more.
-<br/>
+  *One philosophy across two layers: simple first, deep when invited.*
+  <br/>
+
+
   At a distance, it feels like a single UI. In reality it's split into two layers: a surface for staying in the reading flow, and a deeper layer for shaping how the tool thinks.
-<br/>
+  <br/>
   The design goal was that you never have to *learn* two products. You just notice that when you need more control, the same mental model continues—boxes inside boxes, but now in the interface itself.
 </Section>
 
 <Section title="The Popup">
+  *The surface you meet while reading—fast, quiet, and close to the text.*
+  <br/>
   the front of LightUp. It's what most people ever see: a compact window that sits on top of the page, fast and quiet. Highlight text, pick an action, get an answer. No dashboards, no extra chrome, no mental mode switch.
-<br/>
+  <br/>
   On the surface, it looks like a tiny UI—just enough controls to feel obvious. Underneath that simplicity sits all the logic for context, AI providers, and state. Every extra control was treated as a direct tax on reading: if you can't understand it in one glance while still tracking your sentence, it doesn't belong in the popup.
   <VideoMedia src="/lightup_interaction/bottom icon/bottom - light mode.mov" caption="Popup anchored to bottom in light mode" />
   <VideoMedia src="/lightup_interaction/bottom icon/bottom icon - dark mode.mov" caption="Popup anchored to bottom in dark mode" />
@@ -134,8 +146,9 @@ timeline:
 </Section>
 
 <Section title="The Settings">
-  where depth lives for those who want it.
-<br/>
+  *All the sharp edges, tucked away where only intention finds them.*
+  <br/>
+  
   If the popup is the surface, the settings are the back-of-house. Here you choose providers, tune how much context they see, and decide how the popup behaves—positions, highlight colors, shortcuts, and triggers. All the sharp edges live here instead of leaking into the main experience.
 <br/>
   The design leans on progressive disclosure: default settings are safe and useful for students, teachers, and non-technical readers. Power users can open this layer once, wire up multiple models and behaviors, then go back to reading. The complexity is *real*, but it's contained in a place that respects attention.
@@ -153,16 +166,20 @@ timeline:
 
 
 <Section title="What I Had to Unlearn">
+  *From building for myself to building for the people actually using it.*
+  <br/>
   I started building for myself. It's a solid first block to build on—but not a foundation you can keep building on alone.
-<br/>
+  <br/>
   **"My way is the right way."** That's the exact trap of building only for yourself—your preferences feel universal until real people push back. The first version fired automatically—highlight text, popup appears. I loved it. Users hated it. They wanted to highlight without being interrupted. So I added choice: auto-popup or a subtle icon that waits. My preference didn't get to be the default.
 <br/>
   **"Everyone knows this."** I made API keys required to start. Trivial to me—just paste it in. For non-technical users, it was a wall. I added a free tier: limited daily actions, no configuration needed. Try first. Configure later.
 </Section>
 
 <Section title="The Weight of Decisions">
+  *Every feature is a tradeoff in attention, not just another checkbox.*
+  <br/>
   What stayed with me:
-<br/>
+  <br/>
   **Attention is the product.** I thought I was saving time. I was actually protecting state—the thread, the momentum, the focus. A tool that saves seconds but shatters concentration is worse than nothing.
 <br/>
   **Features are taxes.** Every addition costs something. Retention improved when I removed things. The product became useful by refusing to ask too much.
@@ -171,13 +188,15 @@ timeline:
 <br/>
   Building product is one of the hardest and most rewarding things you can do. It isn't just design or code—it's the messy, deeper work of stitching together judgment, tradeoffs, and care into something people invite into their lives.
 <br/>
-  Over time you start to see the human characters inside the product. There are pieces of you in product, and pieces of everyone who uses it inside the product. And as much as you try to shape how people read and learn, the thing you build ends up shaping you back.
+  Over time you start to see the human characters inside the product. There are pieces of you in the product, and pieces of everyone who uses it inside of it. And as much as you try to shape how people read and learn, the thing you build ends up shaping you back.
 </Section>
 
 <Section title="Resonance">
+  *Impact measured in how it lands with people, not only in charts.*
+  <br/>
   Zero marketing spend. Zero funding.
-<br/>
-  668 installs. 252 weekly active. 37.7% retention. Featured on [Peerlist](https://peerlist.io/). Listed among AI data annotation tools on [SaaSHub](https://www.saashub.com/best-data-annotation-software/c/ai) and in AI directories like [AITrendyTools](https://aitrendytools.com/).
+  <br/>
+  668 installs. 252 weekly active. 37.7% retention. Project of the day on [Peerlist](https://peerlist.io/). Listed among the top 9 AI data annotation tools on [SaaSHub](https://www.saashub.com/best-data-annotation-software/c/ai) and in AI directories like [AITrendyTools](https://aitrendytools.com/). Recognized as a top‑10 builder on a global platform of over 170,000 builders.
 <br/>
   But the numbers matter less than the pattern: students using it to stay with dense pages, a teacher introducing LightUp to an entire class, a CEO cold-emailing just to say thank you. Those are the kinds of responses you can't really put a price on.
 <br/>
@@ -186,5 +205,9 @@ timeline:
   <ImageMedia src="peerlistProjectDay" alt="Peerlist Project of the Day" caption="Project of the Day on Peerlist" />
   <ImageMedia src="jayKadamImage" alt="Jay Kadam testimonial" caption="Jay Kadam - Product Designer at Peerlist" />
   <ImageMedia src="studentTestimonialA" alt="Student testimonial" caption="Student feedback" />
-  <ImageMedia src="teacherTestimonial" alt="Teacher testimonial" caption="Teacher feedback" />
+  <ImageMedia src="studentTestimonialB" alt="Second student testimonial" caption="More student feedback and use cases" />
+  <ImageMedia src="teacherTestimonial" alt="Teacher testimonial" caption="Teacher who introduced LightUp to her class" />
+  <ImageMedia src="launchpadLeaderboardSadiqo" alt="LightUp on Launchpad leaderboard" caption="Peerlist ranks" />
+  <ImageMedia src="launchpadFeatureCard" alt="LightUp listed in AI tools directories" caption="Cold-email from a ceo who loved LightUp" />
+  <ImageMedia src="lightuponpeerlist" alt="LightUp on Peerlist" caption="LightUp listing on Peerlist" />
 </Section>
