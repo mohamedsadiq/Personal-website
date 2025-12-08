@@ -1,6 +1,7 @@
 import { FC, ReactNode, useState, useRef, useEffect } from 'react';
 import ExternalLink from './ExternalLink';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 type LinkItem = {
   label: string;
@@ -128,12 +129,23 @@ const ProjectOverview: FC<ProjectOverviewProps> = ({
       )} gap-4 ${contentClassName}`}>
         {/* Info Items */}
         {infoItems.map((item, index) => (
-          <div key={index} className={item.className}>
+          <motion.div
+            key={index}
+            className={item.className}
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{
+              duration: 0.4,
+              delay: 0.05 * index,
+              ease: 'easeOut',
+            }}
+          >
             <h3 className="text-sm font-medium text-white mb-2">{item.title}</h3>
             <div className="text-sm font-medium text-white !text-white mb-2">
               {item.content}
             </div>
-          </div>
+          </motion.div>
         ))}
 
         {/* Links */}

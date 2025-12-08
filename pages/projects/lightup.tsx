@@ -41,15 +41,18 @@ type CaseStudySection = {
 
 // Import images with blur placeholders
 import LightupIntroImage from '../../public/lightup/linkimage.png';
-import boxesIsideBoxes from "../../public/lightup/boxes.jpg"
-import jayKadamImage from '../../public/lightup/GrKWWxqWkAA2zie.png'
-import studentTestimonialA from '../../public/lightup/GqFpAIGXwAAabN0.png'
-import studentTestimonialB from '../../public/lightup/Gq7LBA2XMAAApxq.png'
-import teacherTestimonial from '../../public/lightup/GoRtowjWEAA3JP1.jpeg'
-import peerlistProjectDay from '../../public/lightup/1748282477575.jpeg'
-import lightupLogo from '../../public/lightup/logo.png'
-import brandPalette from '../../public/lightup/ebe607a8-f6f8-47d2-a8f5-a80ac36606da_2880x2160.png'
-import brandPosters from '../../public/lightup/d213566b-7ade-4640-92d5-a2273b2affc5_2880x2160.webp'
+import boxesIsideBoxes from "../../public/lightup/boxes.jpg";
+import jayKadamImage from '../../public/lightup/GrKWWxqWkAA2zie.png';
+import studentTestimonialA from '../../public/lightup/GqFpAIGXwAAabN0.png';
+import studentTestimonialB from '../../public/lightup/Gq7LBA2XMAAApxq.png';
+import teacherTestimonial from '../../public/lightup/GoRtowjWEAA3JP1.jpeg';
+import peerlistProjectDay from '../../public/lightup/1748282477575.jpeg';
+import launchpadLeaderboardSadiqo from '../../public/lightup/launchpad-leaderboard-sadiqo.png';
+import launchpadFeatureCard from '../../public/lightup/GkIz3HeXwAAKWkE.jpeg';
+import lightuponpeerlist from '../../public/lightup/lightuponpeerlist.png';
+import lightupLogo from '../../public/lightup/logo.png';
+import brandPalette from '../../public/lightup/ebe607a8-f6f8-47d2-a8f5-a80ac36606da_2880x2160.png';
+import brandPosters from '../../public/lightup/d213566b-7ade-4640-92d5-a2273b2affc5_2880x2160.webp';
 import eclipse1 from '../../public/eclipse/911c4764b296050715a26d2cf325afdf.jpg'
 import eclipse2 from '../../public/eclipse/97410092a774ae24d5fa794ff3b99bc7.jpg'
 import eclipse3 from '../../public/eclipse/993a2450f1d4368e5ec7d0fbf2d516b4.jpg'
@@ -98,6 +101,9 @@ const imageMap: Record<string, StaticImageData> = {
   studentTestimonialB,
   teacherTestimonial,
   peerlistProjectDay,
+  launchpadLeaderboardSadiqo,
+  launchpadFeatureCard,
+  lightuponpeerlist,
   lightupLogo,
   brandPalette,
   brandPosters,
@@ -195,11 +201,18 @@ const extractSectionContent = (children: ReactNode) => {
         return;
       }
       if (childType.displayName === 'VideoMedia') {
+        const autoPlay = props.autoPlay !== undefined ? Boolean(props.autoPlay) : true;
+        const loop = props.loop !== undefined ? Boolean(props.loop) : true;
+        const muted = props.muted !== undefined ? Boolean(props.muted) : true;
+
         media.push({
           type: 'video',
           src: String(props.src || ''),
           alt: props.alt ? String(props.alt) : undefined,
           caption: props.caption ? String(props.caption) : undefined,
+          autoPlay,
+          loop,
+          muted,
         });
         return;
       }
@@ -722,7 +735,13 @@ const CaseStudySidebar: FC<{
                   <span className="flex items-center gap-1.5">
                     <span>{section.label}</span>
                     {(section.hasImage || section.hasVideo) && (
-                      <span className={`relative top-px flex items-center gap-1 text-[10px] ${iconTextClass}`}>
+                      <motion.span
+                        className={`relative top-px flex items-center gap-1 text-[10px] ${iconTextClass}`}
+                        initial={false}
+                        animate={isActive ? { scale: [1, 1.15, 1], rotate: [0, -6, 0] } : { scale: 1, rotate: 0 }}
+                        transition={{ duration: 0.28, ease: 'easeOut' }}
+                        aria-hidden="true"
+                      >
                         {section.hasImage && (
                           <svg
                             className="h-3 w-3"
@@ -777,9 +796,9 @@ const CaseStudySidebar: FC<{
                             />
                           </svg>
                         )}
-                      </span>
-                    )}
-                  </span>
+                      </motion.span>
+                      )}
+                    </span>
                 </button>
               </li>
             );

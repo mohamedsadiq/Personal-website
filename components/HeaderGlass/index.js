@@ -58,7 +58,7 @@ const HeaderGlass = () => {
       transition={{duration:5, type: "spring", stiffness: 200, damping: 28 }} 
     >
       <Link href="/" aria-label="Home">
-        <div className="glass-circle h-12 w-12">
+        <div className="glass-circle h-12 w-12 dark:bg-[#eeeeee0d]">
         <GlassCard
           className="h-12 w-12 !p-0 flex items-center justify-center border-r"
           style={{ borderRadius: '50%' }}
@@ -101,7 +101,7 @@ const HeaderGlass = () => {
           style={{ borderRadius: '35px' }}
         >
           <div
-            className="flex gap-x-6 justify-center items-center pl-8 pr-8 h-full"
+            className="flex gap-x-6 justify-center items-center pl-8 pr-8 h-full dark:bg-[#eeeeee0d]"
             style={{ borderRadius: '35px' }}
           >
           <motion.div
