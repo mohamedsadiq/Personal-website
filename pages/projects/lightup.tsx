@@ -1,4 +1,5 @@
 import Image, { type StaticImageData } from 'next/image'
+import Link from 'next/link'
 import React, { FC, ReactNode, isValidElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import fs from 'fs'
 import path from 'path'
@@ -17,7 +18,7 @@ import ProjectOverview from '../../components/ProjectOverview'
 import PageNavigation from '../../components/PageNavigation';
 import PhotoViewerOverlay, { type PhotoPreview } from '../../components/PhotoViewerOverlay'
 import VideoViewerOverlay, { type VideoPreview } from '../../components/VideoViewerOverlay'
-import { CallToAction, EmblaImageSlider } from '../../components/blog'
+import { CallToAction, EmblaImageSlider, EmblaVideoSlider } from '../../components/blog'
 // Removed unused HorizontalGallery
 
 type MediaItem = {
@@ -33,6 +34,9 @@ type MediaItem = {
 type CaseStudySection = {
   id: string;
   label: string;
+  parentId?: string;
+  hasImage?: boolean;
+  hasVideo?: boolean;
 };
 
 // Import images with blur placeholders
@@ -133,6 +137,35 @@ const slugifyTitle = (value: string) =>
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+
+const easeOutCubic = (t: number): number => 1 - Math.pow(1 - t, 3);
+
+const detectMediaDisplayMode = (src: string): 'light' | 'dark' | 'both' => {
+  const value = src.toLowerCase();
+  const fileName = value.split(/[\\/]/).pop() || value;
+  const hasDark = fileName.includes('dark');
+  const hasLight = fileName.includes('light');
+
+  if (hasDark && !hasLight) {
+    return 'dark';
+  }
+
+  if (hasLight && !hasDark) {
+    return 'light';
+  }
+
+  return 'both';
+};
+
+const oneMomentParentId = slugifyTitle('One Moment, Many Tensions');
+const surfaceAndDepthParentId = slugifyTitle('Surface and Depth');
+const subsectionParentMap: Record<string, string> = {
+  'Present vs. Invisible': oneMomentParentId,
+  'Powerful vs. Simple': oneMomentParentId,
+  'Consistent vs. Adaptive': oneMomentParentId,
+  'The Popup': surfaceAndDepthParentId,
+  'The Settings': surfaceAndDepthParentId,
+};
 
 type ProjectPhotoPreview = PhotoPreview;
 
@@ -344,6 +377,41 @@ const ProjectVideo: FC<{
     </AnimatedSection>
   );
 
+// Inline link component for case study MDX content
+const CaseStudyInlineLink: FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({
+  href,
+  children,
+  ...props
+}) => {
+  if (!href) {
+    return <span {...props}>{children}</span>;
+  }
+
+  const isInternal = href.startsWith('/');
+  const baseClassName =
+    'underline decoration-[0.08em] underline-offset-[0.2em] text-[#1e5297] dark:text-[#7FD1FF] hover:text-[#163d73] dark:hover:text-[#a8e1ff] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black/80 dark:focus-visible:ring-white/80 rounded-[4px]';
+
+  if (isInternal) {
+    return (
+      <Link href={href} className={baseClassName} {...props}>
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={baseClassName}
+      {...props}
+    >
+      {children}
+    </a>
+  );
+};
+
 // Component for rendering a project section with title and children content
 const ProjectSectionContent: FC<{
   title: string;
@@ -353,13 +421,16 @@ const ProjectSectionContent: FC<{
   enableMediaPreview?: boolean;
   onPreview?: (photo: ProjectPhotoPreview) => void;
   useSlider?: boolean;
-}> = ({ title, children, className = '', media = [], enableMediaPreview = false, onPreview, useSlider }) => {
+  useVideoSlider?: boolean;
+  onVideoClick?: (video: { src: string; caption?: string }) => void;
+}> = ({ title, children, className = '', media = [], enableMediaPreview = false, onPreview, useSlider, useVideoSlider = false, onVideoClick }) => {
   // Filter images and videos separately
   const imageMedia = media.filter(item => item.type === 'image');
   const videoMedia = media.filter(item => item.type === 'video');
 
   // Use slider when there are 2+ images OR when explicitly requested
   const shouldUseSlider = useSlider || imageMedia.length >= 2;
+  const shouldUseVideoSlider = useVideoSlider && videoMedia.length > 0;
 
   const handleSliderImageClick = (item: { src: any; alt: string; caption?: string }, index: number) => {
     if (enableMediaPreview && onPreview) {
@@ -428,8 +499,27 @@ const ProjectSectionContent: FC<{
         </div>
       )}
 
+      {/* Horizontal Slider for multiple videos (used for specific sections like "Powerful vs. Simple") */}
+      {shouldUseVideoSlider && (
+        <div className="mt-6">
+          <EmblaVideoSlider
+            items={videoMedia.map(item => ({
+              src: typeof item.src === 'string' ? item.src : String(item.src),
+              alt: item.caption || title,
+              caption: item.caption || undefined,
+            }))}
+            onVideoClick={(item): void => {
+              if (!onVideoClick) {
+                return;
+              }
+              onVideoClick({ src: item.src, caption: item.caption });
+            }}
+          />
+        </div>
+      )}
+
       {/* Videos */}
-      {videoMedia.length > 0 && (
+      {!shouldUseVideoSlider && videoMedia.length > 0 && (
         <div className="grid grid-cols-1 gap-6 mt-6">
           {videoMedia.map((item, idx) => (
             <div key={idx} className="flex flex-col items-center">
@@ -523,6 +613,7 @@ const CaseStudySidebar: FC<{
   positionLeft?: number | null;
 }> = ({ sections, activeSectionId, onNavigate, positionLeft }) => {
   const listRef = useRef<HTMLUListElement | null>(null);
+  const sidebarScrollAnimationFrame = useRef<number | null>(null);
 
   useEffect(() => {
     const container = listRef.current;
@@ -543,15 +634,48 @@ const CaseStudySidebar: FC<{
     const buttonHeight = activeButton.offsetHeight;
     const targetScrollTop = Math.max(0, buttonOffset - (containerHeight / 2 - buttonHeight / 2));
 
-    if (Math.abs(container.scrollTop - targetScrollTop) <= 4) {
+    const currentScrollTop = container.scrollTop;
+
+    if (Math.abs(currentScrollTop - targetScrollTop) <= 4) {
       return;
     }
 
-    container.scrollTo({
-      top: targetScrollTop,
-      behavior: 'smooth',
-    });
+    if (sidebarScrollAnimationFrame.current !== null) {
+      cancelAnimationFrame(sidebarScrollAnimationFrame.current);
+    }
+
+    const startScrollTop = currentScrollTop;
+    const delta = targetScrollTop - startScrollTop;
+    const duration = 550;
+    const startTime = performance.now();
+
+    const step = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(1, elapsed / duration);
+      const eased = easeOutCubic(progress);
+      const nextScrollTop = startScrollTop + delta * eased;
+
+      container.scrollTop = nextScrollTop;
+
+      if (progress < 1) {
+        sidebarScrollAnimationFrame.current = requestAnimationFrame(step);
+        return;
+      }
+
+      sidebarScrollAnimationFrame.current = null;
+      container.scrollTop = targetScrollTop;
+    };
+
+    sidebarScrollAnimationFrame.current = requestAnimationFrame(step);
   }, [activeSectionId]);
+
+  useEffect(() => {
+    return () => {
+      if (sidebarScrollAnimationFrame.current !== null) {
+        cancelAnimationFrame(sidebarScrollAnimationFrame.current);
+      }
+    };
+  }, []);
 
   if (!sections.length || positionLeft == null) {
     return null;
@@ -570,12 +694,19 @@ const CaseStudySidebar: FC<{
         >
           {sections.map((section) => {
             const isActive = activeSectionId === section.id;
+            const isSubSection = Boolean(section.parentId);
+            const paddingClass = isSubSection ? 'pl-9' : 'pl-3';
+            const inactiveTextClass = 'text-neutral-400 hover:text-black dark:hover:text-white';
+            const textClass = isActive ? 'text-black font-medium dark:text-white' : inactiveTextClass;
+            const indicatorPositionClass = isSubSection ? 'left-6' : 'left-0';
+            const iconTextClass = isActive ? 'opacity-100' : 'opacity-80';
+
             return (
               <li key={section.id} className="relative">
                 {isActive && (
                   <motion.span
                     layoutId="sidebar-active-indicator"
-                    className="absolute left-0 top-1.5 bottom-1.5 w-[3px] rounded-full bg-black/80 dark:bg-white"
+                    className={`absolute ${indicatorPositionClass} top-1.5 bottom-1.5 w-[3px] rounded-full bg-black/80 dark:bg-white`}
                     aria-hidden="true"
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
@@ -584,10 +715,71 @@ const CaseStudySidebar: FC<{
                   type="button"
                   onClick={() => onNavigate(section.id)}
                   data-section-id={section.id}
-                  className={`w-full rounded-md py-1 pl-5 pr-2 text-left transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/70 dark:focus-visible:ring-white/70 ${isActive ? 'text-black font-medium dark:text-white' : 'text-neutral-400 hover:text-black dark:hover:text-white'}`}
+                  className={`w-full rounded-md py-1 ${paddingClass} pr-2 text-left transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/70 dark:focus-visible:ring-white/70 ${textClass}`}
                   aria-current={isActive ? 'location' : undefined}
+                  aria-level={isSubSection ? 2 : 1}
                 >
-                  {section.label}
+                  <span className="flex items-center gap-1.5">
+                    <span>{section.label}</span>
+                    {(section.hasImage || section.hasVideo) && (
+                      <span className={`relative top-px flex items-center gap-1 text-[10px] ${iconTextClass}`}>
+                        {section.hasImage && (
+                          <svg
+                            className="h-3 w-3"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                          >
+                            <path
+                              d="M4 6.75A2.75 2.75 0 0 1 6.75 4h10.5A2.75 2.75 0 0 1 20 6.75v10.5A2.75 2.75 0 0 1 17.25 20H6.75A2.75 2.75 0 0 1 4 17.25V6.75Z"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              d="M9 11.5 11.25 14l2.25-2.5L17 16"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <circle
+                              cx="8"
+                              cy="8"
+                              r="1.25"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        )}
+                        {section.hasVideo && (
+                          <svg
+                            className="h-3 w-3"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                          >
+                            <path
+                              d="M5.25 5.5h8.5a1.75 1.75 0 0 1 1.75 1.75v9.5a1.75 1.75 0 0 1-1.75 1.75h-8.5A1.75 1.75 0 0 1 3.5 16.75v-9.5A1.75 1.75 0 0 1 5.25 5.5Z"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              d="m15.5 9 4-2.5v9L15.5 13"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        )}
+                      </span>
+                    )}
+                  </span>
                 </button>
               </li>
             );
@@ -619,6 +811,7 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
   const [sidebarSections, setSidebarSections] = useState<CaseStudySection[]>([]);
   const [activeSectionId, setActiveSectionId] = useState<string>('');
   const [sidebarLeft, setSidebarLeft] = useState<number | null>(null);
+  const [theme, setTheme] = useState<'light' | 'dark' | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
   const isProgrammaticScroll = useRef(false);
   const scrollAnimationFrame = useRef<number | null>(null);
@@ -629,11 +822,59 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
   const handleOpenPhoto = useCallback((photo: ProjectPhotoPreview) => setActivePhoto(photo), []);
   const handleClosePhoto = useCallback(() => setActivePhoto(null), []);
 
+  useEffect(() => {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
+    const rootElement = document.documentElement;
+
+    const getCurrentTheme = (): 'light' | 'dark' => {
+      return rootElement.classList.contains('dark') ? 'dark' : 'light';
+    };
+
+    setTheme(getCurrentTheme());
+
+    const observer = new MutationObserver(() => {
+      const nextTheme = getCurrentTheme();
+      setTheme((prev) => (prev === nextTheme ? prev : nextTheme));
+    });
+
+    observer.observe(rootElement, { attributes: true, attributeFilter: ['class'] });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   const registerSection = useCallback((section: CaseStudySection) => {
     setSidebarSections((prev) => {
-      if (prev.some((item) => item.id === section.id)) {
-        return prev;
+      const existingIndex = prev.findIndex((item) => item.id === section.id);
+
+      if (existingIndex !== -1) {
+        const existing = prev[existingIndex];
+
+        const merged: CaseStudySection = {
+          ...existing,
+          ...section,
+          hasImage: existing.hasImage || section.hasImage,
+          hasVideo: existing.hasVideo || section.hasVideo,
+        };
+
+        if (
+          merged.label === existing.label &&
+          merged.parentId === existing.parentId &&
+          merged.hasImage === existing.hasImage &&
+          merged.hasVideo === existing.hasVideo
+        ) {
+          return prev;
+        }
+
+        const next = [...prev];
+        next[existingIndex] = merged;
+        return next;
       }
+
       return [...prev, section];
     });
   }, []);
@@ -661,12 +902,10 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
     const startY = window.scrollY;
     const offsetPadding = 96;
     const targetY = window.scrollY + target.getBoundingClientRect().top - offsetPadding;
-    const duration = 450;
+    const duration = 650;
     const startTime = performance.now();
 
     isProgrammaticScroll.current = true;
-
-    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
     const step = (currentTime: number) => {
       const elapsed = currentTime - startTime;
@@ -803,15 +1042,46 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
     const SectionComponent: FC<{ title: string; gallery?: boolean; children?: ReactNode }> = ({ title, gallery, children }) => {
       const { media, body } = extractSectionContent(children);
       const sectionId = useMemo(() => slugifyTitle(title), [title]);
+      const parentId = subsectionParentMap[title];
+      const hasImageMedia = useMemo(
+        () => media.some((item) => item.type === 'image'),
+        [media],
+      );
+      const hasVideoMedia = useMemo(
+        () => media.some((item) => item.type === 'video'),
+        [media],
+      );
 
       useEffect(() => {
-        registerSection({ id: sectionId, label: title });
-      }, [registerSection, sectionId, title]);
+        registerSection({
+          id: sectionId,
+          label: title,
+          parentId,
+          hasImage: hasImageMedia,
+          hasVideo: hasVideoMedia,
+        });
+      }, [parentId, registerSection, sectionId, title, hasImageMedia, hasVideoMedia]);
 
-      const resolvedMedia = media.map(m => ({
-        ...m,
-        src: resolveMediaSrc(m.src),
-      }));
+      const resolvedMedia = useMemo(
+        () => media
+          .filter((item) => {
+            if (!theme) {
+              return true;
+            }
+
+            const mode = detectMediaDisplayMode(item.src);
+            if (mode === 'both') {
+              return true;
+            }
+
+            return mode === theme;
+          })
+          .map((item) => ({
+            ...item,
+            src: resolveMediaSrc(item.src),
+          })),
+        [media, theme],
+      );
 
       if (gallery && resolvedMedia.length > 0) {
         return (
@@ -835,12 +1105,14 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
         'Present vs. Invisible',
         'Powerful vs. Simple',
         'Consistent vs. Adaptive',
-        'Surface and Depth',
+        'The Popup',
         'The Settings',
         'The Website',
       ];
 
       const showDivider = !noDividerSections.includes(title);
+
+      const useVideoSliderForSection = title === 'Powerful vs. Simple';
 
       return (
         <>
@@ -851,6 +1123,8 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
               media={resolvedMedia}
               enableMediaPreview
               onPreview={handleOpenPhoto}
+              useVideoSlider={useVideoSliderForSection}
+              onVideoClick={useVideoSliderForSection ? handleOpenVideo : undefined}
             >
               {body}
             </ProjectSectionContent>
@@ -861,12 +1135,13 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
 
     SectionComponent.displayName = 'LightUpSection';
     return SectionComponent;
-  }, [handleOpenPhoto, handleOpenVideo, registerSection]);
+  }, [handleOpenPhoto, handleOpenVideo, registerSection, theme]);
 
   const mdxComponents = useMemo(() => ({
     Section,
     ImageMedia,
     VideoMedia,
+    a: CaseStudyInlineLink,
   }), [Section]);
 
   return (
