@@ -48,6 +48,20 @@ timeline:
   That single moment—when you select text and LightUp appears—contains every design decision. And every decision exists in tension.
 </Section>
 
+<Section title="Consistent vs. Adaptive">
+  *Have identity, but fit anywhere.*
+<br/>
+  Dark sites, light sites. Dense academic papers, minimal landing pages. Aggressive security policies, weird font stacks. LightUp had to look like *itself* while never breaking the page it lived on.
+<br/>
+  The brand carries this same tension. The logo is an eclipse—light returning after darkness. In Arabic: الكسوف (al-kusuf). The imagery draws from thinkers across history—philosophers, scientists, builders. Not decoration. Lineage. Knowledge building on knowledge, like boxes inside boxes.
+
+  <ImageMedia src="eclipse1" alt="Eclipse branding concept 1" caption="Eclipse-inspired branding concept 1" />
+  <ImageMedia src="eclipse2" alt="Eclipse branding concept 2" caption="Eclipse-inspired branding concept 2" />
+  <ImageMedia src="eclipse3" alt="Eclipse branding concept 3" caption="Eclipse-inspired branding concept 3" />
+  <ImageMedia src="eclipse4" alt="Eclipse branding concept 4" caption="Eclipse-inspired branding concept 4" />
+  <ImageMedia src="/rrrr.png" alt="LightUp popup mood image" caption="LightUp popup composition" />
+</Section>
+
 <Section title="Present vs. Invisible">
   *Be helpful, but never intrusive.*
 
@@ -67,29 +81,24 @@ timeline:
 
   The popup has a simple design on the surface, but if you want the settings, there's a way to enter and see the real capability of the extension. None of it clutters the main experience. 
 
-  <VideoMedia src="/lightup/vidoes/8.mp4" />
-  <VideoMedia src="/lightup/vidoes/3.mp4" />
-  <VideoMedia src="/lightup/vidoes/4.mp4" />
-  <VideoMedia src="/lightup/vidoes/5.mp4" />
-  <VideoMedia src="/lightup/vidoes/2.mp4" />
-  <VideoMedia src="/lightup/vidoes/6.mp4" />
-</Section>
-
-<Section title="Consistent vs. Adaptive">
-  *Have identity, but fit anywhere.*
-<br/>
-  Dark sites, light sites. Dense academic papers, minimal landing pages. Aggressive security policies, weird font stacks. LightUp had to look like *itself* while never breaking the page it lived on.
-<br/>
-  The brand carries this same tension. The logo is an eclipse—light returning after darkness. In Arabic: الكسوف (al-kusuf). The imagery draws from thinkers across history—philosophers, scientists, builders. Not decoration. Lineage. Knowledge building on knowledge, like boxes inside boxes.
-
-  <ImageMedia src="eclipse1" alt="Eclipse branding concept 1" />
-  <ImageMedia src="eclipse2" alt="Eclipse branding concept 2" />
-  <ImageMedia src="eclipse3" alt="Eclipse branding concept 3" />
-  <ImageMedia src="eclipse4" alt="Eclipse branding concept 4" />
+  <VideoMedia src="/lightup/vidoes/8.mp4" caption="Popup interaction demo 1" />
+  <VideoMedia src="/lightup/vidoes/3.mp4" caption="Popup interaction demo 2" />
+  <VideoMedia src="/lightup/vidoes/4.mp4" caption="Popup interaction demo 3" />
+  <VideoMedia src="/lightup/vidoes/5.mp4" caption="Popup interaction demo 4" />
+  <VideoMedia src="/lightup/vidoes/2.mp4" caption="Popup interaction demo 5" />
+  <VideoMedia src="/lightup/vidoes/6.mp4" caption="Popup interaction demo 6" />
 </Section>
 
 <Section title="Building on Someone Else's Canvas">
   The tensions above shaped the design. But Chrome's environment shaped the engineering—through constraints I had to treat as laws.
+<br/>
+  While I was working on LightUp, The Browser Company was teasing [Dia](https://www.diabrowser.com/), their AI-first browser. They had been hinting at a more AI-centric product since [October 2024](https://www.theverge.com/2024/12/2/24310944/dia-ai-browser-video-arc-the-browser-company) and then, on [December 2, 2024](https://techcrunch.com/2024/12/02/the-browser-company-teases-dia-its-new-ai-browser/), properly revealed Dia—two days before LightUp's first public beta.
+<br/>
+  Watching a team with real capital go all-in on owning the browser itself made something obvious feel concrete: **platforms are one of the most powerful forms of leverage in modern networked economies**. If you own the canvas, you decide what tools and behaviors are even possible on top of it.
+<br/>
+  LightUp chooses a different kind of leverage. It doesn't own the browser; it specializes in being the intelligent layer that slips into whatever browser people already use. Rather than trying to compete with [The Browser Company](https://x.com/browsercompany), I treated Chrome as a hard boundary and focused on building the sharpest possible tool inside that constraint.
+<br/>
+  That choice hardened into a few non‑negotiable rules for how LightUp behaves inside Chrome.
 <br/>
   **Don't exist until needed.** Extensions can slow everything down. The content script that loads on every page is ~1KB. The full React app only injects when you interact. Memory stays near zero most of the time.
 <br/>
@@ -97,51 +106,58 @@ timeline:
 <br/>
   **Privacy by structure, not policy.** Conversations live in memory only. No disk. No sync. When the tab closes, everything disappears. This isn't a promise—it's architecture.
 <br/>
-  **Swap brains, keep the body.** One streaming interface. Multiple AI providers behind it. Adding a new model doesn't touch the UI.
-<br/>
-  Chrome's restrictions looked like friction. They turned out to be guides—eliminating bad decisions before I could make them.
+ 
 </Section>
 
 <Section title="Surface and Depth">
   Two interfaces. One philosophy: simple until you need more.
 <br/>
-  **The Popup** — what most people see. Fast, focused, quiet.
-  <ImageMedia src="popup4" alt="Popup UI - Main view" />
-  <ImageMedia src="popup5" alt="Popup UI - Explanation" />
-  <ImageMedia src="popup6" alt="Popup UI - Options" />
-  <ImageMedia src="popup7" alt="Popup UI - Translation" />
-  <ImageMedia src="popup8" alt="Popup UI - Summary" />
-  <ImageMedia src="popup9" alt="Popup UI - Follow-up" />
-  <ImageMedia src="popup10" alt="Popup UI - Context" />
-  <ImageMedia src="popup11" alt="Popup UI - Actions" />
-  <ImageMedia src="popup12" alt="Popup UI - Complete" />
+  At a distance, it feels like a single UI. In reality it's split into two layers: a surface for staying in the reading flow, and a deeper layer for shaping how the tool thinks.
+<br/>
+  The design goal was that you never have to *learn* two products. You just notice that when you need more control, the same mental model continues—boxes inside boxes, but now in the interface itself.
+</Section>
+
+<Section title="The Popup">
+  the front of LightUp. It's what most people ever see: a compact window that sits on top of the page, fast and quiet. Highlight text, pick an action, get an answer. No dashboards, no extra chrome, no mental mode switch.
+<br/>
+  On the surface, it looks like a tiny UI—just enough controls to feel obvious. Underneath that simplicity sits all the logic for context, AI providers, and state. Every extra control was treated as a direct tax on reading: if you can't understand it in one glance while still tracking your sentence, it doesn't belong in the popup.
+  <VideoMedia src="/lightup_interaction/bottom icon/bottom - light mode.mov" caption="Popup anchored to bottom in light mode" />
+  <VideoMedia src="/lightup_interaction/bottom icon/bottom icon - dark mode.mov" caption="Popup anchored to bottom in dark mode" />
+  <VideoMedia src="/lightup_interaction/center layout/center - light mode.mov" caption="Centered popup layout in light mode" />
+  <VideoMedia src="/lightup_interaction/center layout/center - dark mode.mov" caption="Centered popup layout in dark mode" />
+  <VideoMedia src="/lightup_interaction/floating layout/floating - light mode.mov" caption="Floating popup layout in light mode" />
+  <VideoMedia src="/lightup_interaction/floating layout/floating - dark mode.mov" caption="Floating popup layout in dark mode" />
+  <VideoMedia src="/lightup_interaction/nav interactoin/nav - light mode.mov" caption="Popup navigation in light mode" />
+  <VideoMedia src="/lightup_interaction/nav interactoin/nav - dark mode.mov" caption="Popup navigation in dark mode" />
+  <VideoMedia src="/lightup_interaction/sidebar layout/sidebar - light mode.mov" caption="Sidebar popup layout in light mode" />
+  <VideoMedia src="/lightup_interaction/sidebar layout/sidebar - dark mode.mov" caption="Sidebar popup layout in dark mode" />
 </Section>
 
 <Section title="The Settings">
-  **The Settings** — where depth lives for those who want it.
-  <ImageMedia src="setting1" alt="Settings - Overview" />
-  <ImageMedia src="setting2" alt="Settings - AI Provider" />
-  <ImageMedia src="setting3" alt="Settings - Appearance" />
-  <ImageMedia src="setting4" alt="Settings - Behavior" />
-  <ImageMedia src="setting5" alt="Settings - Shortcuts" />
-  <ImageMedia src="setting6" alt="Settings - Privacy" />
-  <ImageMedia src="setting7" alt="Settings - Advanced" />
-  <ImageMedia src="setting8" alt="Settings - Models" />
-  <ImageMedia src="setting9" alt="Settings - Context" />
-  <ImageMedia src="setting10" alt="Settings - Colors" />
-  <ImageMedia src="setting11" alt="Settings - About" />
+  where depth lives for those who want it.
+<br/>
+  If the popup is the surface, the settings are the back-of-house. Here you choose providers, tune how much context they see, and decide how the popup behaves—positions, highlight colors, shortcuts, and triggers. All the sharp edges live here instead of leaking into the main experience.
+<br/>
+  The design leans on progressive disclosure: default settings are safe and useful for students, teachers, and non-technical readers. Power users can open this layer once, wire up multiple models and behaviors, then go back to reading. The complexity is *real*, but it's contained in a place that respects attention.
+  <ImageMedia src="/lightup_interaction/ui setting /Screenshot 2025-12-08 at 7.41.13 AM.png" alt="Settings - General overview" caption="Settings dashboard overview" />
+  <ImageMedia src="/lightup_interaction/ui setting /Screenshot 2025-12-08 at 7.41.20 AM.png" alt="Settings - Providers" caption="Choosing and configuring AI providers" />
+  <ImageMedia src="/lightup_interaction/ui setting /Screenshot 2025-12-08 at 7.41.26 AM.png" alt="Settings - Appearance" caption="Appearance and theme controls" />
+  <ImageMedia src="/lightup_interaction/ui setting /Screenshot 2025-12-08 at 7.41.38 AM.png" alt="Settings - Behavior" caption="Behavior and interaction preferences" />
+  <ImageMedia src="/lightup_interaction/opition page/Screenshot 2025-12-08 at 7.42.11 AM.png" alt="Options - Overview" caption="Options page overview" />
+  <ImageMedia src="/lightup_interaction/opition page/Screenshot 2025-12-08 at 7.42.20 AM.png" alt="Options - Providers" caption="Provider options and configuration" />
+  <ImageMedia src="/lightup_interaction/opition page/Screenshot 2025-12-08 at 7.42.27 AM.png" alt="Options - Appearance" caption="Appearance options" />
+  <ImageMedia src="/lightup_interaction/opition page/Screenshot 2025-12-08 at 7.42.34 AM.png" alt="Options - Behavior" caption="Behavior and interaction options" />
+  <ImageMedia src="/lightup_interaction/opition page/Screenshot 2025-12-08 at 7.42.43 AM.png" alt="Options - Advanced" caption="Advanced options" />
 </Section>
 
 
 
 <Section title="What I Had to Unlearn">
-  I started building for myself. That's good fuel for starting. Not always for finishing.
+  I started building for myself. It's a solid first block to build on—but not a foundation you can keep building on alone.
 <br/>
-  **"My way is the right way."** The first version fired automatically—highlight text, popup appears. I loved it. Users hated it. They wanted to highlight without being interrupted. So I added choice: auto-popup or a subtle icon that waits. My preference didn't get to be the default.
+  **"My way is the right way."** That's the exact trap of building only for yourself—your preferences feel universal until real people push back. The first version fired automatically—highlight text, popup appears. I loved it. Users hated it. They wanted to highlight without being interrupted. So I added choice: auto-popup or a subtle icon that waits. My preference didn't get to be the default.
 <br/>
   **"Everyone knows this."** I made API keys required to start. Trivial to me—just paste it in. For non-technical users, it was a wall. I added a free tier: limited daily actions, no configuration needed. Try first. Configure later.
-<br/>
-  The final product is half my instinct, half their corrections.
 </Section>
 
 <Section title="The Weight of Decisions">
@@ -152,12 +168,18 @@ timeline:
   **Features are taxes.** Every addition costs something. Retention improved when I removed things. The product became useful by refusing to ask too much.
 <br/>
   **Intuition is hypothesis.** Gut feelings start the work. Feedback finishes it. You can't shortcut your way to product sense—you have to build, ship, and watch what actually happens.
+<br/>
+  Building product is one of the hardest and most rewarding things you can do. It isn't just design or code—it's the messy, deeper work of stitching together judgment, tradeoffs, and care into something people invite into their lives.
+<br/>
+  Over time you start to see the human characters inside the product. There are pieces of you in product, and pieces of everyone who uses it inside the product. And as much as you try to shape how people read and learn, the thing you build ends up shaping you back.
 </Section>
 
 <Section title="Resonance">
-  Zero marketing spend.
+  Zero marketing spend. Zero funding.
 <br/>
-  668 installs. 252 weekly active. 37.7% retention. Featured on Peerlist. But the numbers matter less than the pattern: students translating papers, teachers walking classes through it, professionals reading in their second language.
+  668 installs. 252 weekly active. 37.7% retention. Featured on [Peerlist](https://peerlist.io/). Listed among AI data annotation tools on [SaaSHub](https://www.saashub.com/best-data-annotation-software/c/ai) and in AI directories like [AITrendyTools](https://aitrendytools.com/).
+<br/>
+  But the numbers matter less than the pattern: students using it to stay with dense pages, a teacher introducing LightUp to an entire class, a CEO cold-emailing just to say thank you. Those are the kinds of responses you can't really put a price on.
 <br/>
   The product found its people through the question it answers: *What does this mean?*
 

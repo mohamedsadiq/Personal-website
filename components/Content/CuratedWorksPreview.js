@@ -56,7 +56,7 @@ const Section7 = ({ MohamedSadiq, motionCtl, order }) => {
             <div id="links_home">
                 <Link href="/additionalWorks" aria-label="Additional Works" className="flex">
                     <motion.div
-                        className="flex gap-x-2.5 w-80 padding-0 relative"
+                        className="flex gap-x-2.5 w-80 padding-0 relative sm:w-30"
                         whileHover="stack"
                         initial="normal"
                         onMouseMove={(e) => {
