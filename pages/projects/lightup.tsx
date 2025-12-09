@@ -624,7 +624,9 @@ const CaseStudySidebar: FC<{
   activeSectionId: string;
   onNavigate: (id: string) => void;
   positionLeft?: number | null;
-}> = ({ sections, activeSectionId, onNavigate, positionLeft }) => {
+  showFloatingBack?: boolean;
+  backHref?: string;
+}> = ({ sections, activeSectionId, onNavigate, positionLeft, showFloatingBack, backHref }) => {
   const listRef = useRef<HTMLUListElement | null>(null);
   const sidebarScrollAnimationFrame = useRef<number | null>(null);
 
@@ -697,10 +699,15 @@ const CaseStudySidebar: FC<{
   return (
     <LayoutGroup id="case-study-sidebar">
       <nav
-        className="fixed top-32 z-20 hidden lg:flex w-64 shrink-0 flex-col gap-4 text-sm text-neutral-400"
+        className="fixed top-20 z-20 hidden lg:flex w-64 shrink-0 flex-col gap-4 text-sm text-neutral-400"
         aria-label="Case study index"
         style={{ left: Math.max(positionLeft, 24) }}
       >
+        <div className="mb-2 h-10 flex items-center">
+          {showFloatingBack && backHref && (
+            <BackButton href={backHref} />
+          )}
+        </div>
         <ul
           ref={listRef}
           className="flex flex-col gap-0.5 overflow-y-auto pr-2 max-h-[calc(100vh-8rem)]"
@@ -831,7 +838,9 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
   const [activeSectionId, setActiveSectionId] = useState<string>('');
   const [sidebarLeft, setSidebarLeft] = useState<number | null>(null);
   const [theme, setTheme] = useState<'light' | 'dark' | null>(null);
+  const [showFloatingBack, setShowFloatingBack] = useState(false);
   const contentRef = useRef<HTMLDivElement | null>(null);
+  const backButtonRef = useRef<HTMLDivElement | null>(null);
   const isProgrammaticScroll = useRef(false);
   const scrollAnimationFrame = useRef<number | null>(null);
   const sectionOffsets = useRef<Record<string, number>>({});
@@ -860,6 +869,33 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
     });
 
     observer.observe(rootElement, { attributes: true, attributeFilter: ['class'] });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const target = backButtonRef.current;
+    if (!target) {
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+      if (!entry) {
+        return;
+      }
+
+      const isVisible = entry.isIntersecting;
+      setShowFloatingBack(!isVisible);
+    });
+
+    observer.observe(target);
 
     return () => {
       observer.disconnect();
@@ -1183,7 +1219,14 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
         <main>
           <div className="container">
             <AnimatedSection delay={0.05}>
-              <BackButton href="/projects" />
+              <div
+                ref={backButtonRef}
+                className={`transition-opacity duration-150 ${
+                  showFloatingBack ? 'lg:opacity-0 lg:pointer-events-none' : 'lg:opacity-100'
+                }`}
+              >
+                <BackButton href="/projects" />
+              </div>
             </AnimatedSection>
             <div className="inner_container_project_parent inner_container inner_container_mobile">
               {/* Header */}
@@ -1240,7 +1283,7 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
                     { title: 'Role', content: 'Solo Designer & Developer (0 → 1)' },
                     { title: 'Traction', content: '668 installs · 252 weekly active users · 37.7% retention' },
                     { title: 'Marketing', content: '$0 funding. $0 Marketing spend. 100% organic growth' },
-                    { title: 'Timeline', content: 'December 2024 – Present' }
+                    { title: 'Timeline', content: '6 Months' }
                   ]}
                   linksTitle="Links"
                 />
@@ -1256,6 +1299,8 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
               activeSectionId={activeSectionId}
               onNavigate={handleSidebarNavigate}
               positionLeft={sidebarLeft}
+              showFloatingBack={showFloatingBack}
+              backHref="/projects"
             />
             <div ref={contentRef} className="inner_container flex flex-col gap-10">
               <MDXRemote {...mdxSource} components={mdxComponents} />
