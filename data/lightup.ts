@@ -48,7 +48,7 @@ import brandPosters from '../public/lightup/d213566b-7ade-4640-92d5-a2273b2affc5
 export const projectContent: ProjectContent = {
     title: "LightUp",
     description: "AI-Powered Annotations for every page on the web.",
-    date: "December 2024 – Present",
+    date: "December 2024",
     projectLink: "https://www.boimaginations.com/lightup",
     tags: ["Product Design", "Chrome Extension", "Open Source", "AI/ML"],
     sections: [
