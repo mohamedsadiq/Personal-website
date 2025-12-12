@@ -5,6 +5,7 @@ interface ExternalLinkProps {
   children: React.ReactNode;
   className?: string;
   showIcon?: boolean;
+  tone?: 'default' | 'inverse';
 }
 
 const ExternalLink: React.FC<ExternalLinkProps> = ({
@@ -12,17 +13,28 @@ const ExternalLink: React.FC<ExternalLinkProps> = ({
   children,
   className = '',
   showIcon = true,
+  tone = 'default',
   ...props
 }) => {
+  const toneClasses =
+    tone === 'inverse'
+      ? 'text-white hover:!text-white focus-visible:!text-white'
+      : 'text-black dark:text-[#d5d5d5] hover:!text-black dark:hover:!text-[#d5d5d5] focus-visible:!text-black dark:focus-visible:!text-[#d5d5d5]';
+
+  const focusOutlineClasses =
+    tone === 'inverse'
+      ? 'focus-visible:outline-white'
+      : 'focus-visible:outline-black dark:focus-visible:outline-white';
+
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group inline-flex items-center text-[#000] underline decoration-dotted decoration-[rgba(208,208,208,0.53)] underline-offset-2 transition-colors duration-200 hover:decoration-current hover:decoration-solid ${className}`}
+      className={`group inline-flex items-center ${toneClasses} underline decoration-dotted decoration-[rgba(208,208,208,0.53)] underline-offset-2 hover:decoration-current focus-visible:decoration-current transition-[text-decoration-color] duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${focusOutlineClasses} ${className}`}
       {...props}
     >
-      <span className='dark:text-[#fff]'>{children}</span>
+      <span className="text-current">{children}</span>
       {showIcon && (
         <div className="ml-1 transition-colors duration-200">
           <style jsx>{`

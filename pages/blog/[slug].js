@@ -45,7 +45,9 @@ export default function PostPage({ content, frontmatter }) {
       },
       link(href, title, text) {
         const t = title ? ` title="${title}"` : '';
-        return `<a href="${href}"${t} class="text-[#0066cc] dark:text-[#4da6ff] hover:underline transition-colors">${text}</a>`;
+        const isExternal = href.startsWith('http');
+        const externalAttrs = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+        return `<a href="${href}"${t}${externalAttrs} class="text-black dark:text-[#eee] underline decoration-dotted decoration-[rgba(208,208,208,0.53)] underline-offset-2 transition-all duration-200 hover:decoration-current hover:decoration-solid">${text}</a>`;
       },
       strong(text) {
         return `<strong class="font-medium dark:text-white">${text}</strong>`;

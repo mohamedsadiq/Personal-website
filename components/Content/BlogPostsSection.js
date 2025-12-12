@@ -35,21 +35,11 @@ const Section9 = ({ MohamedSadiq, motionCtl, order }) => {
                 ].map((link, index) => (
                     <motion.div className="hover_project padding-0 " key={index} whileHover={hoverEffect}>
                         <Link
-                            className="text-sm text-slate-950 dark:text-white inline-flex items-center"
-                            style={{
-                                transition: 'color 0.18s ease',
-                            }}
+                            className="text-sm text-black dark:text-white inline-flex items-center group transition-colors duration-200"
                             href={link.href}
                         >
                             <span
-                                className="dark:text-[#eee] underline decoration-dotted"
-                                style={{
-                                    textDecorationColor: 'rgba(208, 208, 208, 0.53)',
-                                    textUnderlineOffset: '2px',
-                                    transition: 'text-decoration-color 0.18s ease',
-                                }}
-                                onMouseEnter={(e) => e.currentTarget.style.textDecorationColor = 'currentColor'}
-                                onMouseLeave={(e) => e.currentTarget.style.textDecorationColor = 'rgba(208, 208, 208, 0.53)'}
+                                className="dark:text-[#eee] underline decoration-dotted decoration-[rgba(208,208,208,0.53)] underline-offset-2 transition-all duration-200 group-hover:decoration-current group-hover:decoration-solid"
                             >
                                 {link.title}
                             </span>

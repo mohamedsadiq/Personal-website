@@ -80,7 +80,7 @@ And I thought: *Why can't we have this for everything?*`,
 
 **2. Preserve flow** — Instant interactions. Target: <2 seconds from highlight to insight.
 
-**3. Organic adoption** — Valuable enough that users share it. Target: 30%+ retention with zero marketing spend.`,
+**3. Organic adoption** — Valuable enough that users share it. Target: 30%+ retention driven by product quality and word-of-mouth.`,
             markdownSlug: "goals",
         },
 
@@ -149,7 +149,7 @@ The community has fixed bugs I missed, suggested features I hadn't considered, a
         // ============================================
         {
             title: "Results",
-            content: `Launched with zero marketing budget. First install within an hour.
+            content: `Launched publicly. First install within an hour.
 
 Featured as "Project of the Day" on Peerlist and listed among top Chrome Extension builders. Users range from students translating papers to teachers walking classes through it.`,
             image: true,

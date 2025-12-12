@@ -157,7 +157,8 @@ const ProjectOverview: FC<ProjectOverviewProps> = ({
                 <ExternalLink 
                   key={index}
                   href={link.url}
-                  className="text-white text-sm hover:text-white"
+                  tone="inverse"
+                  className="text-sm"
                 >
                   {link.label}
                 </ExternalLink>

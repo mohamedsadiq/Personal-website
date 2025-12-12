@@ -402,7 +402,7 @@ const CaseStudyInlineLink: FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = (
 
   const isInternal = href.startsWith('/');
   const baseClassName =
-    'underline decoration-[0.08em] underline-offset-[0.2em] text-[#1e5297] dark:text-[#7FD1FF] hover:text-[#163d73] dark:hover:text-[#a8e1ff] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black/80 dark:focus-visible:ring-white/80 rounded-[4px]';
+    'underline decoration-dotted decoration-[rgba(208,208,208,0.53)] underline-offset-2 text-black dark:text-[#d5d5d5] hover:!text-black dark:hover:!text-[#d5d5d5] focus-visible:!text-black dark:focus-visible:!text-[#d5d5d5] hover:decoration-current focus-visible:decoration-current transition-[text-decoration-color] duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:focus-visible:outline-white rounded-[4px]';
 
   if (isInternal) {
     return (
@@ -1258,7 +1258,7 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 pt-4">
                   <ExternalLink
                     href={meta.projectLink}
-                    className="text-[#000] underline decoration-dotted underline-offset-2 transition-colors duration-200 group-hover:decoration-current w-fit"
+                    className="text-sm w-fit"
                   >
                     Visit Live
                   </ExternalLink>
@@ -1312,7 +1312,7 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
                   background={{
                     type: 'video',
                     src: '/lightup/lightup.mp4',
-                    placeholderSrc: '/lightup/Screenshot 2025-11-16 at 8.46.05 PM.png',
+                    placeholderSrc: '/lightup/Screenshot 2025-11-16 at 8.46.05PM.png',
                     className: 'w-full h-full object-cover'
                   }}
                   infoItems={[]}

@@ -7,8 +7,8 @@ const WorkIntro = ({title, link, backHref}) =>{
         <div className="nav_work">
             <div>
                 {/* <h1>{title ? title: "Title"}</h1> */}
-            <Link href={backHref || "/projects"}>
-                <div className="go_back"> ↰ Back</div>
+            <Link href={backHref || "/projects"} className="inline-flex items-center text-zinc-500 dark:text-[#9f9f9f] hover:text-black dark:hover:text-white transition-colors duration-200">
+                <span className="go_back"> ↰ Back</span>
             </Link>
             </div>
             {/* <div className='linkInfoProject'>

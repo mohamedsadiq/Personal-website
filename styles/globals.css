@@ -80,7 +80,10 @@
     height: 100%;
     isolation: isolate;
   }
-
+.glass .glass__warp{
+  width: 120%;
+    /* left: -20px !important; */
+}
   /* Headings */
   h1,
   h2,
