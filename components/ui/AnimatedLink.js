@@ -10,11 +10,10 @@ const AnimatedLink = ({
   return (
     <Link 
       href={href} 
-      className={`group relative text-gray-500 hover:text-black transition-colors duration-300 ${className}`}
+      className={`group relative text-black dark:text-[#eee] underline decoration-dotted decoration-[rgba(208,208,208,0.53)] underline-offset-2 transition-colors duration-200 hover:decoration-current hover:decoration-solid ${className}`}
       {...props}
     >
       {children}
-      <span className="absolute left-0 -bottom-0.5 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
     </Link>
   );
 };

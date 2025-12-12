@@ -86,9 +86,9 @@ export default function Stack() {
        <div className="container">
         <div className="inner_container">
         <div className="inner_nav">
-          <span><Link href="/">Home</Link>   &gt; </span>
-          <span><Link href="/oasis">Oasis</Link>  &gt; </span>
-          <span><Link href="/taste/web3stack">Stack</Link></span>
+          <span><Link href="/" className="text-zinc-500 hover:text-black dark:text-[#9f9f9f] dark:hover:text-white transition-colors duration-200">Home</Link>   &gt; </span>
+          <span><Link href="/oasis" className="text-zinc-500 hover:text-black dark:text-[#9f9f9f] dark:hover:text-white transition-colors duration-200">Oasis</Link>  &gt; </span>
+          <span><Link href="/taste/web3stack" className="text-black dark:text-white">Stack</Link></span>
             
         </div>
           <h1>Stack</h1>
@@ -113,7 +113,7 @@ export default function Stack() {
            
           {Tools.map(item => {
               return (
-                  <a  key={item} href={item.link} target="_blink">
+                  <a key={item} href={item.link} target="_blank" rel="noopener noreferrer" className="block group">
                       <div key={item.name} className="block">
                       <div className="top_block">
                         <div className="logo_stack logo_stack_icon">
@@ -150,7 +150,7 @@ export default function Stack() {
            
           {wallet.map(item => {
               return (
-                  <a  key={item} href={item.link} target="_blink">
+                  <a key={item} href={item.link} target="_blank" rel="noopener noreferrer" className="block group">
                       <div key={item.name} className="block">
                       <div className="top_block">
                         <div className="logo_stack">
@@ -189,7 +189,7 @@ export default function Stack() {
           <div className="inner_stack">
           {Daos.map(item => {
               return (
-                  <a  key={item} href={item.link} target="_blink">
+                  <a key={item} href={item.link} target="_blank" rel="noopener noreferrer" className="block group">
                   <div className="block">
                        <div className="top_block">
                         <div className="logo_stack">

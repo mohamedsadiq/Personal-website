@@ -65,9 +65,9 @@ const Aesthetic = () =>{
             <div className="container">
                 <div className="inner_container">
                 <div className="inner_nav">
-                    <span><Link href="/">Home</Link>   &gt; </span>
-                    <span><Link href="/oasis">Oasis</Link>  &gt; </span>
-                    <span><Link href="/taste/aesthetic">Aesthetic</Link></span>
+                    <span><Link href="/" className="text-zinc-500 hover:text-black dark:text-[#9f9f9f] dark:hover:text-white transition-colors duration-200">Home</Link>   &gt; </span>
+                    <span><Link href="/oasis" className="text-zinc-500 hover:text-black dark:text-[#9f9f9f] dark:hover:text-white transition-colors duration-200">Oasis</Link>  &gt; </span>
+                    <span><Link href="/taste/aesthetic" className="text-black dark:text-white">Aesthetic</Link></span>
                 </div>
                 <h1>Aesthetic</h1>
                     <p>Explore my stylish and practical collection of fashion, accessories, and tech gadgets that will enhance your daily routines and elevate your personal style.</p>
@@ -89,7 +89,7 @@ const Aesthetic = () =>{
                         <div className='ripi6'>
                         {all_grid1.map(item => {
               return (
-                  <a  key={item} href={item.link} target="_blink">
+                  <a key={item} href={item.link} target="_blank" rel="noopener noreferrer" className="block group">
                       <div key={item.name} className="blocks_aes">
                       <div className="">
                         <div className="img_aes">
@@ -120,7 +120,7 @@ const Aesthetic = () =>{
                         <div className='ripi6'>
                         {all_grid2.map(item => {
               return (
-                  <a  key={item} href={item.link} target="_blink">
+                  <a key={item} href={item.link} target="_blank" rel="noopener noreferrer" className="block group">
                       <div key={item.name} className="blocks_aes">
                       <div className="">
                         <div className="img_aes">
@@ -159,7 +159,7 @@ const Aesthetic = () =>{
                         <div className='ripi6'>
                         {fashion.map(item => {
               return (
-                  <a  key={item} href={item.link} target="_blink">
+                  <a key={item} href={item.link} target="_blank" rel="noopener noreferrer" className="block group">
                       <div key={item.name} className="blocks_aes">
                       <div className="">
                         <div className="img_aes">
@@ -190,7 +190,7 @@ const Aesthetic = () =>{
                         <div className='ripi6'>
                         {fashion2.map(item => {
               return (
-                  <a  key={item} href={item.link} target="_blink">
+                  <a key={item} href={item.link} target="_blank" rel="noopener noreferrer" className="block group">
                       <div key={item.name} className="blocks_aes">
                       <div className="">
                         <div className="img_aes">
@@ -228,7 +228,7 @@ const Aesthetic = () =>{
                         <div className='ripi6'>
                         {tech1.map(item => {
               return (
-                  <a  key={item} href={item.link} target="_blink">
+                  <a key={item} href={item.link} target="_blank" rel="noopener noreferrer" className="block group">
                       <div key={item.name} className="blocks_aes">
                       <div className="">
                         <div className="img_aes">
@@ -259,7 +259,7 @@ const Aesthetic = () =>{
                         <div className='ripi6'>
                         {tech2.map(item => {
               return (
-                  <a  key={item} href={item.link} target="_blink">
+                  <a key={item} href={item.link} target="_blank" rel="noopener noreferrer" className="block group">
                       <div key={item.name} className="blocks_aes">
                       <div className="">
                         <div className="img_aes">

@@ -143,11 +143,13 @@ const Section3 = ({ MohamedSadiq, motionCtl, order }) => {
                                     <div>
                                         <motion.h1
                                             className="dark:text-[#eee] text-[#000] text-sm leading-6 inline-flex items-center"
+                                            style={{
+                                                textDecoration: "underline",
+                                                textDecorationStyle: "dotted",
+                                                textUnderlineOffset: "2px",
+                                            }}
                                             animate={{
                                                 filter: hoveredId && hoveredId !== project.id ? 'blur(2px)' : 'blur(0px)',
-                                                textDecoration: hoveredId === project.id ? 'underline' : 'none',
-                                                textDecorationStyle: 'dotted',
-                                                textUnderlineOffset: '2px',
                                                 textDecorationColor: hoveredId === project.id ? 'currentColor' : 'rgba(208, 208, 208, 0.53)'
                                             }}
                                             transition={{ duration: 0.2 }}

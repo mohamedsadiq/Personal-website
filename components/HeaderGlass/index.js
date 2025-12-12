@@ -60,6 +60,8 @@ const HeaderGlass = () => {
       <Link href="/" aria-label="Home">
         <div className="glass-circle h-12 w-12 dark:bg-[#eeeeee0d]">
         <GlassCard
+        displacementScale={150}
+                blurAmount={0.1}
           className="h-12 w-12 !p-0 flex items-center justify-center border-r"
           style={{ borderRadius: '50%' }}
         >
@@ -101,7 +103,7 @@ const HeaderGlass = () => {
           style={{ borderRadius: '35px' }}
         >
           <div
-            className="flex gap-x-6 justify-center items-center pl-8 pr-8 h-full dark:bg-[#eeeeee0d]"
+            className="flex gap-x-6 justify-center items-center pl-6 pr-6 h-full dark:bg-[#eeeeee0d]"
             style={{ borderRadius: '35px' }}
           >
           <motion.div

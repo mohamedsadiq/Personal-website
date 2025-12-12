@@ -46,9 +46,9 @@ const Podcast = () => {
                 <div className="container container_podcast">
                     <div className="inner_container">
                         <div className="inner_nav">
-                            <span><Link href="/">Home</Link> &gt; </span>
-                            <span><Link href="/oasis">Oasis</Link> &gt; </span>
-                            <span><Link href="/taste/books">Podcast</Link> </span>
+                            <span><Link href="/" className="text-zinc-500 hover:text-black dark:text-[#9f9f9f] dark:hover:text-white transition-colors duration-200">Home</Link> &gt; </span>
+                            <span><Link href="/oasis" className="text-zinc-500 hover:text-black dark:text-[#9f9f9f] dark:hover:text-white transition-colors duration-200">Oasis</Link> &gt; </span>
+                            <span><Link href="/taste/books" className="text-black dark:text-white">Podcast</Link> </span>
                         </div>
                         <h1>Podcast</h1>
                         <p> From thought-provoking interviews to fascinating stories and everything in between, Check out my top podcast recommendations.</p>
@@ -67,7 +67,7 @@ const Podcast = () => {
                             <div className={wallets ? "trans statesOn" : "trans statesOff "}>
                                 {wallet.map(item => {
                                     return (
-                                        <a key={item} href={item.link} target="_blink">
+                                        <a key={item} href={item.link} target="_blank" rel="noopener noreferrer" className="block group">
                                             <div key={item.name} className="block_books">
                                                 <div className="block_book_f">
                                                     <div className="block_books_img">

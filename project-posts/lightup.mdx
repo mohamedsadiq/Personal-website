@@ -45,7 +45,7 @@ timeline:
 <br/>
   **Preserve flow.** Under 2 seconds from highlight to insight. Slow enough to notice is too slow.
 <br/>
-  **Earn attention organically.** No marketing budget. With no budget, the only growth lever is product quality.
+  **Earn attention organically.** The only real growth lever is product quality—if it's genuinely useful, people will share it.
 </Section>
 
 <Section title="One Moment, Many Tensions">
@@ -100,7 +100,8 @@ timeline:
   <br/>
   The tensions above shaped the design. But Chrome's environment shaped the engineering—through constraints I had to treat as laws.
   <br/>
-  While I was working on LightUp, The Browser Company was teasing [Dia](https://www.diabrowser.com/), their AI-first browser. They had been hinting at a more AI-centric product since [October 2024](https://www.theverge.com/2024/12/2/24310944/dia-ai-browser-video-arc-the-browser-company) and then, on [December 2, 2024](https://techcrunch.com/2024/12/02/the-browser-company-teases-dia-its-new-ai-browser/), properly revealed Dia—two days before LightUp's first public beta.
+  While I was working on LightUp, The Browser Company was teasing [Dia](https://www.diabrowser.com/), their AI-first browser. They had been hinting at a more AI-centric product since [October 2024](https://www.theverge.com/2024/12/2/24310944/dia-ai-browser-video-arc-the-browser-company) and then, on [December 2, 2024](https://techcrunch.com/2024/12/02/the-browser-company-teases-dia-its-new-ai-browser/), properly revealed Dia—two days before LightUp's first public beta. 
+  
 <br/>
   Watching a team with real capital go all-in on owning the browser itself made something obvious feel concrete: **platforms are one of the most powerful forms of leverage in modern networked economies**. If you own the canvas, you decide what tools and behaviors are even possible on top of it.
 <br/>
@@ -108,7 +109,7 @@ timeline:
 <br/>
   That choice hardened into a few non‑negotiable rules for how LightUp behaves inside Chrome.
 <br/>
-  **Don't exist until needed.** Extensions can slow everything down. The content script that loads on every page is ~1KB. The full React app only injects when you interact. Memory stays near zero most of the time.
+  **Don't exist until needed.** Extensions can slow everything down. The content script that loads on every page must be small. The full React app only injects when you interact. Memory stays near zero most of the time.
 <br/>
   **Never touch the host.** Shadow DOM encapsulation keeps my styles mine and theirs theirs. No CSS bleeding in or out.
 <br/>
@@ -194,7 +195,7 @@ timeline:
 <Section title="Resonance">
   *Impact measured in how it lands with people, not only in charts.*
   <br/>
-  Zero marketing spend. Zero funding.
+  Independently built and shipped.
   <br/>
   668 installs. 252 weekly active. 37.7% retention. Project of the day on [Peerlist](https://peerlist.io/). Listed among the top 9 AI data annotation tools on [SaaSHub](https://www.saashub.com/best-data-annotation-software/c/ai) and in AI directories like [AITrendyTools](https://aitrendytools.com/). Recognized as a top‑10 builder on a global platform of over 170,000 builders.
 <br/>

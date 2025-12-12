@@ -44,7 +44,7 @@ const BlogContent = ({link1, link2, link3}) =>{
         <div className="blog_intro">
             {data.map(item => {
               return (
-                  <a  key={item.name} href={item.link} passHref target="_blink">
+                  <a key={item.name} href={item.link} target="_blank" rel="noopener noreferrer" className="block group transition-all duration-200">
                   <div className="block">
                         <div className="blog_photo">
                         <div className='overlay_img'></div>

@@ -37,7 +37,7 @@ export default function Blogs({ posts, frontmatter }) {
       const backgroundColor = colors[colorIndex];
 
       return (
-        <a key={category} href={`/category/${slug}`}>
+        <a key={category} href={`/category/${slug}`} className="inline-block transition-opacity duration-200 hover:opacity-80">
           <span
             style={{ background: backgroundColor }}
             className="tags"

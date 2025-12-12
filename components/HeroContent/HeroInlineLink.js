@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-const linkClasses = "underline decoration-dotted underline-offset-2 text-black dark:text-[#d5d5d5] hover:text-neutral-600 dark:hover:text-[#eee] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:focus-visible:outline-white";
+const linkClasses =
+  "underline decoration-dotted underline-offset-2 text-black dark:text-[#d5d5d5] hover:!text-black dark:hover:!text-[#d5d5d5] focus-visible:!text-black dark:focus-visible:!text-[#d5d5d5] decoration-[rgba(208,208,208,0.53)] hover:decoration-current focus-visible:decoration-current transition-[text-decoration-color] duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:focus-visible:outline-white";
 
 const handleSpaceActivation = (event) => {
   if (event.key !== " ") {

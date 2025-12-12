@@ -14,7 +14,7 @@ export default function Post({ post }) {
     <div className="blog_intro">
       
         <div className=''>
-<Link href={`/blog/${post.slug}`}>
+<Link href={`/blog/${post.slug}`} className="block group transition-all duration-200">
                   <div className="block">
                         <div className="blog_photo">
                         <div className='overlay_img'></div>
