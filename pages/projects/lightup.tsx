@@ -1,6 +1,6 @@
 import Image, { type StaticImageData } from 'next/image'
 import Link from 'next/link'
-import React, { FC, ReactNode, isValidElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import React, { FC, ReactNode, isValidElement, useCallback, useEffect, useMemo, useRef, useState, memo } from 'react'
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
@@ -37,6 +37,11 @@ type CaseStudySection = {
   parentId?: string;
   hasImage?: boolean;
   hasVideo?: boolean;
+};
+
+type CaseStudyReference = {
+  label: string;
+  url: string;
 };
 
 // Import images with blur placeholders
@@ -143,6 +148,82 @@ const slugifyTitle = (value: string) =>
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+
+const getFallbackReferenceLabel = (url: string): string => {
+  try {
+    const parsedUrl = new URL(url);
+    const hostname = parsedUrl.hostname.replace(/^www\./, '');
+    return hostname || url;
+  } catch {
+    return url;
+  }
+};
+
+const IMPORTANT_REFERENCE_DOMAINS = new Set<string>([
+  'ics.uci.edu',
+  'diabrowser.com',
+  'theverge.com',
+  'techcrunch.com',
+  'chromewebstore.google.com',
+  'github.com',
+  'peerlist.io',
+  'saashub.com',
+  'aitrendytools.com',
+]);
+
+const isImportantReferenceUrl = (url: string): boolean => {
+  if (!url || !url.startsWith('http')) {
+    return false;
+  }
+
+  try {
+    const parsedUrl = new URL(url);
+    const hostname = parsedUrl.hostname.replace(/^www\./, '').toLowerCase();
+
+    // Keep the list tight: exclude social references by default.
+    if (hostname === 'x.com' || hostname === 'twitter.com') {
+      return false;
+    }
+
+    return IMPORTANT_REFERENCE_DOMAINS.has(hostname);
+  } catch {
+    return false;
+  }
+};
+
+const extractReferencesFromMdx = (mdxContent: string): CaseStudyReference[] => {
+  const references: CaseStudyReference[] = [];
+  const seen = new Set<string>();
+
+  const addReference = (label: string, url: string) => {
+    const trimmedUrl = url.trim();
+    if (!trimmedUrl || !trimmedUrl.startsWith('http')) {
+      return;
+    }
+
+    if (seen.has(trimmedUrl)) {
+      return;
+    }
+
+    seen.add(trimmedUrl);
+    references.push({ label: label.trim() || getFallbackReferenceLabel(trimmedUrl), url: trimmedUrl });
+  };
+
+  const markdownLinkRegex = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g;
+  let match: RegExpExecArray | null = null;
+
+  while ((match = markdownLinkRegex.exec(mdxContent)) !== null) {
+    addReference(match[1] || '', match[2] || '');
+  }
+
+  // Catch any bare links that aren't in markdown link syntax.
+  const bareUrlRegex = /(https?:\/\/[^\s<>"')\]]+)/g;
+  while ((match = bareUrlRegex.exec(mdxContent)) !== null) {
+    addReference(getFallbackReferenceLabel(match[1] || ''), match[1] || '');
+  }
+
+  return references;
+};
 
 const easeOutCubic = (t: number): number => 1 - Math.pow(1 - t, 3);
 
@@ -277,7 +358,7 @@ const ProjectImage: FC<{
       },
       priority,
       loading,
-      quality: 100,
+      quality: 85,
       sizes: "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw",
       ...(isImportedImage && (blurDataURL || src?.blurDataURL) ? {
         placeholder: 'blur' as const,
@@ -350,7 +431,7 @@ const ProjectImage: FC<{
     );
   };
 
-// Lightweight video component with caption support
+// Lazy-loading video component with IntersectionObserver
 const ProjectVideo: FC<{
   src: string;
   caption?: string;
@@ -360,7 +441,7 @@ const ProjectVideo: FC<{
   autoPlay?: boolean;
   loop?: boolean;
   muted?: boolean;
-}> = ({
+}> = memo(({
   src,
   caption,
   className = '',
@@ -369,18 +450,47 @@ const ProjectVideo: FC<{
   autoPlay = true,
   loop = false,
   muted = true,
-}) => (
+}) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '100px', threshold: 0 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
     <AnimatedSection delay={0} className={`w-full ${className}`}>
-      <div className={`relative w-full ${containerClassName}`}>
-        <video
-          className="w-full rounded-lg"
-          src={src}
-          controls={controls}
-          autoPlay={autoPlay}
-          loop={loop}
-          muted={muted}
-          playsInline
-        />
+      <div ref={containerRef} className={`relative w-full ${containerClassName}`}>
+        {isVisible ? (
+          <video
+            ref={videoRef}
+            className="w-full rounded-lg"
+            src={src}
+            controls={controls}
+            autoPlay={autoPlay}
+            loop={loop}
+            muted={muted}
+            playsInline
+            preload="metadata"
+          />
+        ) : (
+          <div className="w-full aspect-video rounded-lg bg-neutral-100 dark:bg-neutral-800 animate-pulse" />
+        )}
       </div>
       {caption && (
         <div className="text-center mt-2">
@@ -389,6 +499,8 @@ const ProjectVideo: FC<{
       )}
     </AnimatedSection>
   );
+});
+ProjectVideo.displayName = 'ProjectVideo';
 
 // Inline link component for case study MDX content
 const CaseStudyInlineLink: FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({
@@ -551,12 +663,78 @@ const ProjectSectionContent: FC<{
   );
 };
 
+// Lazy video thumbnail for VideoTowersSection
+const LazyVideoThumbnail: FC<{
+  src: string;
+  caption?: string;
+  onVideoClick: (video: { src: string; caption?: string }) => void;
+  index: number;
+}> = memo(({ src, caption, onVideoClick, index }) => {
+  const containerRef = useRef<HTMLButtonElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '150px', threshold: 0 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <button
+      ref={containerRef}
+      type="button"
+      className="group focus:outline-none"
+      onClick={() => onVideoClick({ src, caption })}
+      aria-label={caption || `Open video ${index + 1}`}
+    >
+      <div className="relative h-24 w-24 sm:h-60 sm:w-60 rounded-full overflow-hidden border border-neutral-200 bg-black/80 flex items-center justify-center shadow-md transition-transform duration-200 group-hover:scale-105 group-focus-visible:scale-105 dark:border-[#3a3a3a]">
+        {isVisible ? (
+          <video
+            src={src}
+            muted
+            playsInline
+            loop
+            autoPlay
+            preload="metadata"
+            className="h-full w-full object-cover"
+          />
+        ) : (
+          <div className="h-full w-full bg-neutral-200 dark:bg-neutral-700 animate-pulse" />
+        )}
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/40">
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-black text-xs font-medium">
+            ▶
+          </span>
+        </div>
+      </div>
+      {caption && (
+        <p className="mt-2 text-center text-xs text-neutral-600 max-w-[10rem] dark:text-white">
+          {caption}
+        </p>
+      )}
+    </button>
+  );
+});
+LazyVideoThumbnail.displayName = 'LazyVideoThumbnail';
+
 const VideoTowersSection: FC<{
   title: string;
   children?: ReactNode;
   media: { type: 'image' | 'video'; src: any; alt?: string; caption?: string }[];
   onVideoClick: (video: { src: string; caption?: string }) => void;
-}> = ({ title, children, media, onVideoClick }) => {
+}> = memo(({ title, children, media, onVideoClick }) => {
   const leftColumn = media.filter((_, index) => index % 2 === 0);
   const rightColumn = media.filter((_, index) => index % 2 === 1);
 
@@ -573,51 +751,31 @@ const VideoTowersSection: FC<{
         {[leftColumn, rightColumn].map((columnItems, columnIndex) => (
           <div key={columnIndex} className="flex flex-col items-center gap-4">
             {columnItems.map((item, index) => (
-              <button
+              <LazyVideoThumbnail
                 key={item.src + index}
-                type="button"
-                className="group focus:outline-none"
-                onClick={() => onVideoClick({ src: item.src, caption: item.caption })}
-                aria-label={item.caption || `Open video ${index + 1}`}
-              >
-                <div className="relative h-24 w-24 sm:h-60 sm:w-60 rounded-full overflow-hidden border border-neutral-200 bg-black/80 flex items-center justify-center shadow-md transition-transform duration-200 group-hover:scale-105 group-focus-visible:scale-105 dark:border-[#3a3a3a]">
-                  <video
-                    src={item.src}
-                    muted
-                    playsInline
-                    loop
-                    autoPlay
-                    className="h-full w-full object-cover"
-                  />
-                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/40">
-                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-black text-xs font-medium">
-                      ▶
-                    </span>
-                  </div>
-                </div>
-                {item.caption && (
-                  <p className="mt-2 text-center text-xs text-neutral-600 max-w-[10rem] dark:text-white">
-                    {item.caption}
-
-                  </p>
-                )}
-              </button>
+                src={item.src}
+                caption={item.caption}
+                onVideoClick={onVideoClick}
+                index={index}
+              />
             ))}
           </div>
         ))}
       </div>
     </AnimatedSection>
   );
-};
+});
+VideoTowersSection.displayName = 'VideoTowersSection';
 
-const SectionDivider: FC = () => (
+const SectionDivider: FC = memo(() => (
   <AnimatedSection delay={0} className="w-full">
     <div className="relative flex items-center justify-center w-full py-20 overflow-hidden">
       <div className="w-full h-[1px] max-w-[300px] bg-gradient-to-r from-transparent via-gray-300 dark:via-neutral-800 to-transparent" />
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-[2px] bg-gradient-to-r from-transparent via-gray-400/30 dark:via-white/20 to-transparent blur-sm" />
     </div>
   </AnimatedSection>
-);
+));
+SectionDivider.displayName = 'SectionDivider';
 
 const CaseStudySidebar: FC<{
   sections: CaseStudySection[];
@@ -626,7 +784,7 @@ const CaseStudySidebar: FC<{
   positionLeft?: number | null;
   showFloatingBack?: boolean;
   backHref?: string;
-}> = ({ sections, activeSectionId, onNavigate, positionLeft, showFloatingBack, backHref }) => {
+}> = memo(({ sections, activeSectionId, onNavigate, positionLeft, showFloatingBack, backHref }) => {
   const listRef = useRef<HTMLUListElement | null>(null);
   const sidebarScrollAnimationFrame = useRef<number | null>(null);
 
@@ -814,7 +972,8 @@ const CaseStudySidebar: FC<{
       </nav>
     </LayoutGroup>
   );
-};
+});
+CaseStudySidebar.displayName = 'CaseStudySidebar';
 
 // Props interface for the LightUp component
 interface LightUpProps {
@@ -827,10 +986,11 @@ interface LightUpProps {
     heroImage: string;
   };
   mdxSource: MDXRemoteSerializeResult;
+  references: CaseStudyReference[];
 }
 
 // Main LightUp component
-const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
+const LightUp: FC<LightUpProps> = ({ meta, mdxSource, references }) => {
 
   const [activeVideo, setActiveVideo] = useState<{ src: string; caption?: string } | null>(null);
   const [activePhoto, setActivePhoto] = useState<ProjectPhotoPreview | null>(null);
@@ -1005,50 +1165,57 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
       sectionOffsets.current = offsets;
     };
 
+    // Throttled scroll handler for better performance
+    let ticking = false;
     const handleScroll = () => {
-      if (isProgrammaticScroll.current) {
+      if (isProgrammaticScroll.current || ticking) {
         return;
       }
 
-      const scrollAnchor = window.scrollY + window.innerHeight * 0.3;
-      const offsets = sectionOffsets.current;
-      const sectionIds = Object.keys(offsets);
-      if (!sectionIds.length) {
-        return;
-      }
-
-      const sortedIds = [...sectionIds].sort((a, b) => offsets[a] - offsets[b]);
-
-      let detectedSectionId = sortedIds[0];
-      for (let index = 0; index < sortedIds.length; index += 1) {
-        const currentId = sortedIds[index];
-        const nextId = sortedIds[index + 1];
-
-        const currentElement = document.getElementById(currentId);
-        if (!currentElement) {
-          continue;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const scrollAnchor = window.scrollY + window.innerHeight * 0.3;
+        const offsets = sectionOffsets.current;
+        const sectionIds = Object.keys(offsets);
+        if (!sectionIds.length) {
+          ticking = false;
+          return;
         }
 
-        const currentTop = offsets[currentId];
-        const currentHeight = currentElement.offsetHeight;
-        const currentBottom = currentTop + currentHeight;
+        const sortedIds = [...sectionIds].sort((a, b) => offsets[a] - offsets[b]);
 
-        const nextTop = nextId ? offsets[nextId] : Infinity;
-        const effectiveBottom = Math.min(currentBottom, nextTop - 1);
+        let detectedSectionId = sortedIds[0];
+        for (let index = 0; index < sortedIds.length; index += 1) {
+          const currentId = sortedIds[index];
+          const nextId = sortedIds[index + 1];
 
-        if (scrollAnchor >= currentTop && scrollAnchor <= effectiveBottom) {
-          detectedSectionId = currentId;
-          break;
+          const currentElement = document.getElementById(currentId);
+          if (!currentElement) {
+            continue;
+          }
+
+          const currentTop = offsets[currentId];
+          const currentHeight = currentElement.offsetHeight;
+          const currentBottom = currentTop + currentHeight;
+
+          const nextTop = nextId ? offsets[nextId] : Infinity;
+          const effectiveBottom = Math.min(currentBottom, nextTop - 1);
+
+          if (scrollAnchor >= currentTop && scrollAnchor <= effectiveBottom) {
+            detectedSectionId = currentId;
+            break;
+          }
+
+          if (scrollAnchor > effectiveBottom) {
+            detectedSectionId = nextId ?? currentId;
+          }
         }
 
-        if (scrollAnchor > effectiveBottom) {
-          detectedSectionId = nextId ?? currentId;
+        if (detectedSectionId && detectedSectionId !== activeSectionId) {
+          setActiveSectionId(detectedSectionId);
         }
-      }
-
-      if (detectedSectionId && detectedSectionId !== activeSectionId) {
-        setActiveSectionId(detectedSectionId);
-      }
+        ticking = false;
+      });
     };
 
     calculateOffsets();
@@ -1057,13 +1224,17 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', calculateOffsets);
 
+    // Only retry offset calculation a few times if initially empty
+    let retryCount = 0;
+    const maxRetries = 3;
     const offsetsInterval = window.setInterval(() => {
-      if (!Object.keys(sectionOffsets.current).length) {
+      retryCount++;
+      if (!Object.keys(sectionOffsets.current).length && retryCount < maxRetries) {
         calculateOffsets();
       } else {
         window.clearInterval(offsetsInterval);
       }
-    }, 200);
+    }, 500);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -1093,103 +1264,85 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
   }, []);
 
   // MDX Section component - extracts media and renders content
-  const Section = useMemo(() => {
-    const SectionComponent: FC<{ title: string; gallery?: boolean; children?: ReactNode }> = ({ title, gallery, children }) => {
-      const { media, body } = extractSectionContent(children);
-      const sectionId = useMemo(() => slugifyTitle(title), [title]);
-      const parentId = subsectionParentMap[title];
-      const hasImageMedia = useMemo(
-        () => media.some((item) => item.type === 'image'),
-        [media],
-      );
-      const hasVideoMedia = useMemo(
-        () => media.some((item) => item.type === 'video'),
-        [media],
-      );
+  // Memoized outside to avoid recreation, uses callbacks for handlers
+  const Section: FC<{ title: string; gallery?: boolean; children?: ReactNode }> = useCallback(({ title, gallery, children }) => {
+    const { media, body } = extractSectionContent(children);
+    const sectionId = slugifyTitle(title);
+    const parentId = subsectionParentMap[title];
+    const hasImageMedia = media.some((item) => item.type === 'image');
+    const hasVideoMedia = media.some((item) => item.type === 'video');
 
-      useEffect(() => {
-        registerSection({
-          id: sectionId,
-          label: title,
-          parentId,
-          hasImage: hasImageMedia,
-          hasVideo: hasVideoMedia,
-        });
-      }, [parentId, registerSection, sectionId, title, hasImageMedia, hasVideoMedia]);
+    // Register section on mount only
+    useEffect(() => {
+      registerSection({
+        id: sectionId,
+        label: title,
+        parentId,
+        hasImage: hasImageMedia,
+        hasVideo: hasVideoMedia,
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [sectionId]);
 
-      const resolvedMedia = useMemo(
-        () => media
-          .filter((item) => {
-            if (!theme) {
-              return true;
-            }
+    // Filter and resolve media based on theme
+    const resolvedMedia = media
+      .filter((item) => {
+        if (!theme) return true;
+        const mode = detectMediaDisplayMode(item.src);
+        return mode === 'both' || mode === theme;
+      })
+      .map((item) => ({
+        ...item,
+        src: resolveMediaSrc(item.src),
+      }));
 
-            const mode = detectMediaDisplayMode(item.src);
-            if (mode === 'both') {
-              return true;
-            }
-
-            return mode === theme;
-          })
-          .map((item) => ({
-            ...item,
-            src: resolveMediaSrc(item.src),
-          })),
-        [media, theme],
-      );
-
-      if (gallery && resolvedMedia.length > 0) {
-        return (
-          <>
-            <SectionDivider />
-            <section id={sectionId} className="scroll-mt-32">
-              <VideoTowersSection
-                title={title}
-                media={resolvedMedia}
-                onVideoClick={handleOpenVideo}
-              >
-                {body}
-              </VideoTowersSection>
-            </section>
-          </>
-        );
-      }
-
-      const noDividerSections = [
-        'The Space Between',
-        'Present vs. Invisible',
-        'Powerful vs. Simple',
-        'Consistent vs. Adaptive',
-        'The Popup',
-        'The Settings',
-        'The Website',
-      ];
-
-      const showDivider = !noDividerSections.includes(title);
-
-      const useVideoSliderForSection = title === 'Powerful vs. Simple';
-
+    if (gallery && resolvedMedia.length > 0) {
       return (
         <>
-          {showDivider && <SectionDivider />}
+          <SectionDivider />
           <section id={sectionId} className="scroll-mt-32">
-            <ProjectSectionContent
+            <VideoTowersSection
               title={title}
               media={resolvedMedia}
-              enableMediaPreview
-              onPreview={handleOpenPhoto}
-              useVideoSlider={useVideoSliderForSection}
-              onVideoClick={useVideoSliderForSection ? handleOpenVideo : undefined}
+              onVideoClick={handleOpenVideo}
             >
               {body}
-            </ProjectSectionContent>
+            </VideoTowersSection>
           </section>
         </>
       );
-    };
+    }
 
-    SectionComponent.displayName = 'LightUpSection';
-    return SectionComponent;
+    const noDividerSections = [
+      'The Space Between',
+      'Present vs. Invisible',
+      'Powerful vs. Simple',
+      'Consistent vs. Adaptive',
+      'The Popup',
+      'The Settings',
+      'The Website',
+    ];
+
+    const showDivider = !noDividerSections.includes(title);
+    const useVideoSliderForSection = title === 'Powerful vs. Simple';
+
+    return (
+      <>
+        {showDivider && <SectionDivider />}
+        <section id={sectionId} className="scroll-mt-32">
+          <ProjectSectionContent
+            title={title}
+            media={resolvedMedia}
+            enableMediaPreview
+            onPreview={handleOpenPhoto}
+            useVideoSlider={useVideoSliderForSection}
+            onVideoClick={useVideoSliderForSection ? handleOpenVideo : undefined}
+          >
+            {body}
+          </ProjectSectionContent>
+        </section>
+      </>
+    );
   }, [handleOpenPhoto, handleOpenVideo, registerSection, theme]);
 
   const mdxComponents = useMemo(() => ({
@@ -1325,6 +1478,37 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource }) => {
                 />
               </AnimatedSection>
 
+              {references.length > 0 && (
+                <>
+                  <SectionDivider />
+                  <AnimatedSection delay={0.5}>
+                    <section aria-label="References" className="w-full">
+                      <h2 className="mb-2">References</h2>
+                      <ol className="mt-4 space-y-4 text-sm text-[#616161] dark:text-[#d5d5d5]">
+                        {references.map((reference, index) => (
+                          <li key={reference.url} className="flex gap-3">
+                            <span
+                              className="mt-[2px] w-6 shrink-0 text-neutral-400 dark:text-neutral-500"
+                              aria-hidden="true"
+                            >
+                              {index + 1}.
+                            </span>
+                            <div className="min-w-0">
+                              <ExternalLink href={reference.url} className="text-sm" showIcon={false}>
+                                {reference.label}
+                              </ExternalLink>
+                              <div className="mt-1 truncate text-xs text-neutral-400 dark:text-neutral-500">
+                                {reference.url}
+                              </div>
+                            </div>
+                          </li>
+                        ))}
+                      </ol>
+                    </section>
+                  </AnimatedSection>
+                </>
+              )}
+
             </div>
           </div>
 
@@ -1353,6 +1537,38 @@ export async function getStaticProps() {
   const { content, data } = matter(fileContent);
   const mdxSource = await serialize(content, { scope: data });
 
+  const referencesFromMdx = extractReferencesFromMdx(content);
+  const importantReferencesFromMdx = referencesFromMdx.filter((reference) =>
+    isImportantReferenceUrl(reference.url)
+  );
+  const curatedReferences: CaseStudyReference[] = [
+    ...(data.projectLink ? [{ label: 'Live project', url: String(data.projectLink) }] : []),
+    { label: 'Chrome Store', url: 'https://chromewebstore.google.com/detail/lightup-ai-powered-web-an/pncapgeoeedlfppkohlbelelkkihikel' },
+    { label: 'GitHub Repository', url: 'https://github.com/mohamedsadiq/LightUp' },
+    { label: 'Peerlist', url: 'https://peerlist.io/sadiqo/project/lightup' },
+  ];
+
+  const references = (() => {
+    const merged: CaseStudyReference[] = [];
+    const seen = new Set<string>();
+
+    const add = (reference: CaseStudyReference) => {
+      if (!reference.url || !reference.url.startsWith('http')) {
+        return;
+      }
+      if (seen.has(reference.url)) {
+        return;
+      }
+      seen.add(reference.url);
+      merged.push(reference);
+    };
+
+    importantReferencesFromMdx.forEach(add);
+    curatedReferences.forEach(add);
+
+    return merged;
+  })();
+
   return {
     props: {
       meta: {
@@ -1364,6 +1580,7 @@ export async function getStaticProps() {
         heroImage: data.heroImage || '',
       },
       mdxSource,
+      references,
     },
   };
 }
