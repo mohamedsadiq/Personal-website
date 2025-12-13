@@ -6,7 +6,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import { MDXRemote, type MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
-import { motion, LayoutGroup } from 'framer-motion'
+import { motion, LayoutGroup, AnimatePresence } from 'framer-motion'
 import styles from '../../styles/Home.module.css'
 import SEO from '../../components/SEO'
 import { getProjectSchema, SITE_URL } from '../../lib/seo.config'
@@ -262,6 +262,145 @@ ImageMedia.displayName = 'ImageMedia';
 
 const VideoMedia: FC<Omit<MediaItem, 'type'>> = () => null;
 VideoMedia.displayName = 'VideoMedia';
+
+const InlineVideoHover: FC<{
+  triggerText: string;
+  videoSrc: string;
+  label?: string;
+}> = ({ triggerText, videoSrc, label = 'Inline video preview' }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const spanRef = useRef<HTMLSpanElement | null>(null);
+
+  const openXPost = useCallback(() => {
+    window.open('https://x.com/MarioNawfal/status/1998671527487877237', '_blank', 'noopener,noreferrer');
+  }, []);
+
+  const handleOpen = useCallback((element: HTMLSpanElement | null) => {
+    if (!element) {
+      return;
+    }
+    const rect = element.getBoundingClientRect();
+    setPosition({
+      x: rect.left + rect.width / 2,
+      y: rect.top - 10,
+    });
+    setIsOpen(true);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLSpanElement>) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        // For keyboard, use the span ref to get position
+        if (spanRef.current) {
+          handleOpen(spanRef.current);
+        }
+        setIsOpen(true);
+        openXPost();
+        return;
+      }
+    },
+    [handleOpen, openXPost]
+  );
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        handleClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [handleClose, isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    // Unmute video when popup opens
+    if (videoRef.current) {
+      videoRef.current.muted = false;
+    }
+  }, [isOpen]);
+
+  return (
+    <>
+      <span
+        ref={spanRef}
+        className="inline-flex cursor-pointer items-center text-sm underline decoration-dotted decoration-[rgba(208,208,208,0.53)] underline-offset-2 transition-[text-decoration-color] duration-150 hover:decoration-current focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+        role="button"
+        tabIndex={0}
+        aria-haspopup="dialog"
+        aria-expanded={isOpen}
+        aria-label={label}
+        onMouseEnter={(event) => handleOpen(event.currentTarget)}
+        onMouseLeave={handleClose}
+        onFocus={(event) => handleOpen(event.currentTarget)}
+        onBlur={handleClose}
+        onClick={(event) => {
+          handleOpen(event.currentTarget);
+          openXPost();
+        }}
+        onKeyDown={handleKeyDown}
+      >
+        {triggerText}
+      </span>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="pointer-events-none fixed inset-0 z-[120]"
+            role="dialog"
+            aria-modal="true"
+            aria-label={label}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.15, ease: 'easeOut' }}
+            style={{ pointerEvents: 'none' }}
+          >
+            <motion.div
+              className="pointer-events-auto absolute w-80 overflow-hidden rounded-2xl border border-white/15 bg-neutral-900 shadow-2xl"
+              style={{
+                left: `${position.x - 160}px`, // Center the 320px wide popup
+                top: `${position.y - 200}px`,   // Position above the text
+              }}
+              initial={{ opacity: 0, scale: 0.92, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 10 }}
+              transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+              onMouseEnter={() => setIsOpen(true)}
+              onMouseLeave={handleClose}
+            >
+              <video
+                ref={videoRef}
+                className="h-full w-full object-cover"
+                src={videoSrc}
+                autoPlay
+                loop
+                controls
+                playsInline
+                aria-label={label}
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
 
 // Helper to split media from body children
 const extractSectionContent = (children: ReactNode) => {
@@ -742,7 +881,7 @@ const VideoTowersSection: FC<{
     <AnimatedSection delay={0} className="mt-10">
       <h2 className="mb-2">{title}</h2>
       {children && (
-        <div className="text-[#616161] dark:text-[#d5d5d5] leading-7 text-base prose prose-neutral dark:prose-invert max-w-none mt-4 mb-8">
+        <div className="text-[#616161] dark:text-[#d5d5d5] leading-7 text-base prose prose-neutral dark:prose-invert max-w-none mt-5 mb-5">
           {children}
         </div>
       )}
@@ -1349,6 +1488,7 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource, references }) => {
     Section,
     ImageMedia,
     VideoMedia,
+    InlineVideoHover,
     a: CaseStudyInlineLink,
   }), [Section]);
 
