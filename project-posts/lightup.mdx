@@ -11,28 +11,56 @@ timeline:
 ---
 
 <Section title="The Space Between">
-  *The moment between not knowing and knowing—without breaking your reading flow.*
-  
+  The web is built for publishing, not understanding. When a page assumes you know everything, you leave—copy text, open a new tab, search, skim, and try to return. In the process, you lose more than time; you lose state—the thread, the question, the momentum.
+
+  <div className="mt-5 mb-5">
+    <span
+      role="note"
+      tabIndex={0}
+      aria-label="Highlight describing the cost of context switching"
+      className="inline-flex w-full flex-col gap-1 rounded-2xl border border-[#dcdcdc] bg-white/80 px-4 py-3 text-[#1b1b1b] shadow-[0_10px_45px_rgba(0,0,0,0.08)] ring-1 ring-black/5 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/40 dark:border-white/10 dark:bg-white/[0.04] dark:text-white dark:shadow-[0_10px_45px_rgba(0,0,0,0.45)] dark:ring-white/5"
+    >
+      Studies estimate a refocus cost of about 23 minutes per interruption ([Mark et al., 2008](https://ics.uci.edu/~gmark/chi08-mark.pdf)), but the deeper loss is cognitive state—the continuity that makes reading productive. Even Elon Musk calls context switching “the mind killer” (<InlineVideoHover triggerText="video" videoSrc="/elon on context switching.mp4" label="Elon Musk on context switching" />).
+    </span>
+  </div>
+  The problem isn’t finding answers; it’s that finding them requires leaving. What if understanding happened on the same page, in the same breath?
+
   <br/>
-  The web was built for publishing, not understanding. Every page assumes you already know what you're reading. When you don't—you leave. You copy text, open a new tab, paste into a search bar, skim results, try to remember the answer, hunt for your original tab among seventeen others. By then, you've forgotten why you were reading.
-<br/>
-  That forgetting isn't random. Studies put the refocus cost at around 23 minutes per interruption. But even that number undersells it—what you lose isn't time, it's *state*. The thread you were following. The question you were about to ask. The momentum.
-<br/>
-  I kept thinking: the problem isn't finding answers. It's that finding them requires *leaving*. What if you didn't have to? What if understanding could happen right where confusion starts—on the same page, in the same breath?
-<br/>
-  That's the space LightUp lives in. The moment between not knowing and knowing, without the rupture in between.
+  That’s the space LightUp lives in: the moment between not knowing and knowing—without breaking your reading flow.
+
+  <figure className="not-prose mt-6">
+    <video
+      className="w-full rounded-2xl border border-neutral-200 bg-black/80 shadow-sm dark:border-[#3a3a3a] dark:hidden"
+      src="/lightup-intro.mp4"
+      playsInline
+      muted
+      autoPlay
+      loop
+      preload="metadata"
+      aria-label="LightUp in action"
+    />
+    <video
+      className="hidden w-full rounded-2xl border border-neutral-200 bg-black/80 shadow-sm dark:border-[#3a3a3a] dark:block"
+      src="/lightup-dark.mp4"
+      playsInline
+      muted
+      autoPlay
+      loop
+      preload="metadata"
+      aria-label="LightUp in action (dark mode)"
+    />
+    <figcaption className="mt-2 text-center text-sm text-neutral-500 dark:text-[#e1e1e1]">(LightUp keeping the reading flow intact)</figcaption>
+  </figure>
 </Section>
 
 <Section title="Boxes Inside Boxes">
-  *A mental model of knowledge as nested boxes, each answer opening the next.*
+  *Knowledge is layered—each answer opens the next question.*
   <br/>
-  Once I had the problem clear, a mental model emerged.
-<br/>
-  Knowledge isn't flat. It's nested—boxes within boxes. You understand one thing, and inside it is something else to understand. Each answer opens new questions. The shape of learning is recursive.
-<br/>
-  This became the design principle: highlight a sentence, a small window opens. Ask a follow-up, another layer appears. You're still on the same page, but you've gone somewhere. Each answer becomes a foundation for the next question.
-<br/>
-  LightUp represents how knowledge actually grows—contained yet infinite, simple on the surface yet deep underneath.
+  Once the problem was clear, a simple model emerged: learning isn’t flat, it’s recursive—boxes inside boxes.
+  <br/>
+  LightUp turns that into interaction: highlight a sentence to open a small window, ask a follow‑up to reveal another layer. You stay on the same page, but your understanding goes deeper.
+  <br/>
+  Simple on the surface, infinite underneath.
 
   <ImageMedia src="boxesIsideBoxes" alt="Boxes inside boxes metaphor" caption="Knowledge as nested boxes—each highlight opens a new layer." />
 </Section>

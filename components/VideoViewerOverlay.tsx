@@ -168,8 +168,10 @@ export const VideoViewerOverlay: React.FC<VideoViewerOverlayProps> = ({ video, o
               <div className="relative h-full w-full flex items-center justify-center bg-black">
                 <video
                   src={video.src}
-                  controls
                   autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="h-full w-full object-contain"
                   style={{ opacity: 1 }}
                   onLoadedMetadata={(event) => {
