@@ -1404,12 +1404,14 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource, references }) => {
 
   // MDX Section component - extracts media and renders content
   // Memoized outside to avoid recreation, uses callbacks for handlers
-  const Section: FC<{ title: string; gallery?: boolean; children?: ReactNode }> = useCallback(({ title, gallery, children }) => {
+  const Section: FC<{ title: string; gallery?: boolean; mediaIndicator?: 'image' | 'video' | 'both'; children?: ReactNode }> = useCallback(({ title, gallery, mediaIndicator, children }) => {
     const { media, body } = extractSectionContent(children);
     const sectionId = slugifyTitle(title);
     const parentId = subsectionParentMap[title];
-    const hasImageMedia = media.some((item) => item.type === 'image');
-    const hasVideoMedia = media.some((item) => item.type === 'video');
+    const indicatorHasImage = mediaIndicator === 'image' || mediaIndicator === 'both';
+    const indicatorHasVideo = mediaIndicator === 'video' || mediaIndicator === 'both';
+    const hasImageMedia = media.some((item) => item.type === 'image') || indicatorHasImage;
+    const hasVideoMedia = media.some((item) => item.type === 'video') || indicatorHasVideo;
 
     // Register section on mount only
     useEffect(() => {
@@ -1421,7 +1423,7 @@ const LightUp: FC<LightUpProps> = ({ meta, mdxSource, references }) => {
         hasVideo: hasVideoMedia,
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [sectionId]);
+    }, [sectionId, hasImageMedia, hasVideoMedia]);
 
     // Filter and resolve media based on theme
     const resolvedMedia = media
